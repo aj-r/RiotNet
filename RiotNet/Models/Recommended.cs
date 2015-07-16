@@ -31,6 +31,9 @@ namespace RiotNet.Models
         /// </summary>
         public string Mode { get; set; }
 
+        /// <summary>
+        /// Indicates whether this item set takes priority. This appears to be false for all item sets except Ashe's recommended items in the tutorial.
+        /// </summary>
         public bool Priority { get; set; }
 
         /// <summary>

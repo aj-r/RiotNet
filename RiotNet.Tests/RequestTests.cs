@@ -14,8 +14,11 @@ namespace RiotNet.Tests
             var client = new RiotClient(Region.NA);
             client.Settings.RetryOnRateLimitExceeded = true;
             client.Settings.ThrowOnError = true;
+            League league = null;
             for (var i = 0; i < 12; ++i)
-                await client.GetMasterLeagueTaskAsync(RankedQueue.RANKED_SOLO_5x5);
+                league = await client.GetMasterLeagueTaskAsync(RankedQueue.RANKED_SOLO_5x5);
+
+            Assert.That(league, Is.Not.Null);
         }
 
         [Test]

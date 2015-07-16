@@ -21,6 +21,9 @@ namespace RiotNet.Models
         /// </summary>
         public List<double> Cooldown { get; set; }
 
+        /// <summary>
+        /// Gets or sets the cooldown at all ranks merged into a single string.
+        /// </summary>
         public string CooldownBurn { get; set; }
 
         /// <summary>
@@ -28,6 +31,9 @@ namespace RiotNet.Models
         /// </summary>
         public List<int> Cost { get; set; }
 
+        /// <summary>
+        /// Gets or sets the cost at all ranks merged into a single string.
+        /// </summary>
         public string CostBurn { get; set; }
 
         /// <summary>
@@ -45,6 +51,9 @@ namespace RiotNet.Models
         /// </summary>
         public List<List<double>> Effect { get; set; }
 
+        /// <summary>
+        /// Gets or sets the effects at all ranks, merged into a single string for each effect.
+        /// </summary>
         public List<string> EffectBurn { get; set; }
 
         /// <summary>
@@ -78,10 +87,13 @@ namespace RiotNet.Models
         /// </summary>
         public List<int> Range { get; set; } // TODO: this could also be sent as the string "self" as JSON. Maybe a custom JsonConverter is required.
 
+        /// <summary>
+        /// Gets or sets the range at all ranks merged into a single string.
+        /// </summary>
         public string RangeBurn { get; set; }
 
         /// <summary>
-        /// Gets or sets the resource that the ability uses.
+        /// Gets or sets the cost and type of resource that the ability uses.
         /// </summary>
         public string Resource { get; set; }
 
@@ -101,7 +113,7 @@ namespace RiotNet.Models
         public string Tooltip { get; set; }
 
         /// <summary>
-        /// Gets or sets the data for each rank of the spell.
+        /// Gets or sets the scaling coefficients of the spell.
         /// </summary>
         public List<SpellVars> Vars { get; set; }
 

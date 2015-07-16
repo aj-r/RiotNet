@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestTests.cs" />
     <Compile Include="Setup.cs" />
+    <Compile Include="StaticDataTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RiotNet\RiotNet.csproj">

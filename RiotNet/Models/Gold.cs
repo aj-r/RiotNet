@@ -5,6 +5,9 @@
     /// </summary>
     public class Gold
     {
+        /// <summary>
+        /// Gets or sets the cost of the item excluding the cost of its recipe.
+        /// </summary>
         public int Base { get; set; }
 
         /// <summary>
@@ -18,7 +21,7 @@
         public int Sell { get; set; }
 
         /// <summary>
-        /// Gets or sets the total cost of the item.
+        /// Gets or sets the total cost of the item including the cost of its recipe.
         /// </summary>
         public int Total { get; set; }
     }

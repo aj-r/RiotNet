@@ -10,6 +10,17 @@ namespace RiotNet.Models
     public class MetaData
     {
         /// <summary>
+        /// Creates a new <see cref="MetaData"/> instance.
+        /// </summary>
+        public MetaData()
+        {
+            // Note: default values are defined in the "basic" property of an ItemList or RuneList.
+            IsRune = true;
+            Tier = "1";
+            Type = "Red";
+        }
+
+        /// <summary>
         /// Gets or sets whether the object is a rune.
         /// </summary>
         public bool IsRune { get; set; }

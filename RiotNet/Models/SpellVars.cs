@@ -15,12 +15,24 @@ namespace RiotNet.Models
         /// </summary>
         public List<double> Coeff { get; set; }
 
+        /// <summary>
+        /// Gets or sets the special operator for this spell variable.
+        /// </summary>
         public string Dyn { get; set; }
 
+        /// <summary>
+        /// Gets or sets the key used to reference this spell variable in calculations.
+        /// </summary>
         public string Key { get; set; }
 
+        /// <summary>
+        /// Gets or sets the property that the scaling coefficients apply to.
+        /// </summary>
         public string Link { get; set; }
 
+        /// <summary>
+        /// Gets or sets the ability with which this spell variable ranks up. If unspecified, it ranks up with the current ability.
+        /// </summary>
         public string RanksWith { get; set; }
 
 #if DB_READY

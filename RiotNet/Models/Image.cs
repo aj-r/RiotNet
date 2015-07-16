@@ -9,10 +9,19 @@ namespace RiotNet.Models
     /// </summary>
     public class Image
     {
+        /// <summary>
+        /// Gets or sets the file name of the full-size image.
+        /// </summary>
         public string Full { get; set; }
 
+        /// <summary>
+        /// Gets or sets the group to which the image belongs.
+        /// </summary>
         public string Group { get; set; }
 
+        /// <summary>
+        /// Gets or sets the file name of the sprite image.
+        /// </summary>
         public string Sprite { get; set; }
 
         /// <summary>

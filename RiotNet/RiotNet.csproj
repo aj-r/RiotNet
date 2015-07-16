@@ -56,12 +56,22 @@
     <Compile Include="Models\BlockItem.cs" />
     <Compile Include="Models\Champion.cs" />
     <Compile Include="Models\ChampionInfo.cs" />
+    <Compile Include="Models\CurrentChampion.cs" />
+    <Compile Include="Models\DynamicChampionList.cs" />
+    <Compile Include="Models\ChampionList.cs" />
     <Compile Include="Models\ChampionSpell.cs" />
+    <Compile Include="Models\DynamicChampion.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\Gold.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\LanuageStrings.cs" />
+    <Compile Include="Models\MapDetails.cs" />
+    <Compile Include="Models\MapList.cs" />
+    <Compile Include="Models\MasteryList.cs" />
+    <Compile Include="Models\Mastery.cs" />
+    <Compile Include="Models\RuneList.cs" />
     <Compile Include="Models\ItemList.cs" />
     <Compile Include="Models\ItemTree.cs" />
     <Compile Include="Models\League.cs" />
@@ -90,6 +100,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Converters\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

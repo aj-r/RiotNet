@@ -9,32 +9,44 @@ namespace RiotNet.Models
     /// </summary>
     public class BasicData
     {
+        /// <summary>
+        /// Creates a new <see cref="BasicData"/> instance.
+        /// </summary>
+        public BasicData()
+        {
+            // Note: default values are defined in the "basic" property of an ItemList or RuneList.
+            Colloq = string.Empty;
+            Description = string.Empty;
+            Group = string.Empty;
+            Maps = new Dictionary<string, bool>
+            { 
+                { "1", true },
+                { "8", true },
+                { "10", true },
+                { "12", true },
+            };
+            Name = string.Empty;
+            PlainText = string.Empty;
+            SanitizedDescription = string.Empty;
+            Stacks = 1;
+            Stats = new BasicDataStats();
+            Tags = new List<string>();
+        }
+
+        /// <summary>
+        /// Gets or sets a semicolon-separated list of abbreviations that can be used for searching for the item.
+        /// </summary>
         public string Colloq { get; set; }
-
-        public bool ConsumeOnFull { get; set; }
-
-        public bool Consumed { get; set; }
-
-        public int Depth { get; set; }
 
         /// <summary>
         /// Gets or sets the description of the item/rune.
         /// </summary>
         public string Description { get; set; }
 
-        public List<string> From { get; set; }
-
-        /// <summary>
-        /// Gold cost information for the item. Does not apply to runes.
-        /// </summary>
-        public Gold Gold { get; set; }
-
         /// <summary>
         /// Gets or sets the group to which the item/rune belongs.
         /// </summary>
         public string Group { get; set; }
-
-        public bool HideFromAll { get; set; }
 
         /// <summary>
         /// Gets or sets the ID of the item or rune.
@@ -48,12 +60,8 @@ namespace RiotNet.Models
         public Image Image { get; set; }
 
         /// <summary>
-        /// Gets or sets whether the item/rune exists in the store.
+        /// Gets or sets the maps that the item is used on, indexed by map ID.
         /// </summary>
-        public bool InStore { get; set; }
-
-        public List<string> Into { get; set; }
-
         public Dictionary<string, bool> Maps { get; set; }
 
         /// <summary>
@@ -61,15 +69,16 @@ namespace RiotNet.Models
         /// </summary>
         public string Name { get; set; }
 
-        public string Plaintext { get; set; }
-
-        public string RequiredChampion { get; set; }
+        /// <summary>
+        /// Gets or sets the plain text of the item/rune.
+        /// </summary>
+        [JsonProperty("plaintext")]
+        public string PlainText { get; set; }
 
         /// <summary>
-        /// Gets or sets the metadata for the rune.
+        /// Gets or sets the name of the only champion that is allowed to have this item.
         /// </summary>
-        [JsonProperty("Rune")]
-        public MetaData RuneMetaData { get; set; }
+        public string RequiredChampion { get; set; }
 
         /// <summary>
         /// Gets or sets the sanitized description of the item/rune.
@@ -77,13 +86,11 @@ namespace RiotNet.Models
         public string SanitizedDescription { get; set; }
 
         /// <summary>
-        /// Gets or sets the special recipe for the item.
+        /// Gets or sets the maximum number of instances of this item that can exist in a single inventory slot.
         /// </summary>
-        public string SpecialRecipe { get; set; }
-
-        /// <summary>
-        /// Gets or sets the number of stacks on the item, if applicable.
-        /// </summary>
+        /// <remarks>
+        /// Some items have a "stacks" value of 0. I'm not sure why, but I think 0 should be treated as if it was 1.
+        /// </remarks>
         public int Stacks { get; set; }
 
         /// <summary>

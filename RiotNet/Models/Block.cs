@@ -16,8 +16,14 @@ namespace RiotNet.Models
         /// </summary>
         public List<BlockItem> Items { get; set; }
 
+        /// <summary>
+        /// No idea what this is. Sorry.
+        /// </summary>
         public bool RecMath { get; set; }
 
+        /// <summary>
+        /// Gets or sets the type of the block. This is usually prefixed with the recommended item set title in all lowercase.
+        /// </summary>
         public string Type { get; set; }
 
 #if DB_READY
