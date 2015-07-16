@@ -37,7 +37,7 @@ namespace RiotNet.Models
         /// </summary>
         public Tier Tier { get; set; }
 
-#if DATA_ANNOTATIONS
+#if DB_READY
         /// <summary>
         /// Gets or sets the ID of the league. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
         /// </summary>

@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 namespace RiotNet.Models
 {
     /// <summary>
-    /// Contains spell data.
+    /// Contains spell data for a single rank of a spell.
     /// </summary>
     public class SpellVars
     {
@@ -23,7 +23,7 @@ namespace RiotNet.Models
 
         public string RanksWith { get; set; }
 
-#if DATA_ANNOTATIONS
+#if DB_READY
         /// <summary>
         /// Gets or sets the ID of the current <see cref="Block"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
         /// </summary>

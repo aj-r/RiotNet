@@ -21,7 +21,7 @@ namespace RiotNet.Models
         /// </summary>
         public int Count { get; set; }
 
-#if DATA_ANNOTATIONS
+#if DB_READY
         /// <summary>
         /// Gets or sets the ID of the current <see cref="BlockItem"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
         /// </summary>

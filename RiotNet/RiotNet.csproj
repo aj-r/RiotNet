@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;DATA_ANNOTATIONS</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;DB_READY</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\RiotNet.xml</DocumentationFile>
@@ -26,7 +26,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;DATA_ANNOTATIONS</DefineConstants>
+    <DefineConstants>TRACE;DB_READY</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\RiotNet.xml</DocumentationFile>
@@ -67,7 +67,9 @@
     <Compile Include="Models\MetaData.cs" />
     <Compile Include="Models\MiniSeries.cs" />
     <Compile Include="Models\BasicData.cs" />
+    <Compile Include="Models\Recommended.cs" />
     <Compile Include="Models\Rune.cs" />
+    <Compile Include="Models\Skin.cs" />
     <Compile Include="Models\SpellVars.cs" />
     <Compile Include="Models\Stats.cs" />
     <Compile Include="RestSharpJsonNetSerializer.cs" />
