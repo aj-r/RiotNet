@@ -54,6 +54,9 @@
     <Compile Include="Models\BasicDataStats.cs" />
     <Compile Include="Models\Block.cs" />
     <Compile Include="Models\BlockItem.cs" />
+    <Compile Include="Models\Champion.cs" />
+    <Compile Include="Models\ChampionInfo.cs" />
+    <Compile Include="Models\ChampionSpell.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\Gold.cs" />
     <Compile Include="Models\Group.cs" />
@@ -67,6 +70,7 @@
     <Compile Include="Models\MetaData.cs" />
     <Compile Include="Models\MiniSeries.cs" />
     <Compile Include="Models\BasicData.cs" />
+    <Compile Include="Models\Passive.cs" />
     <Compile Include="Models\Recommended.cs" />
     <Compile Include="Models\Rune.cs" />
     <Compile Include="Models\Skin.cs" />
