@@ -12,7 +12,7 @@ namespace RiotNet.Tests
         public async Task GetMasterLeaguesTest()
         {
             var client = new RiotClient(Region.NA);
-            var leagues = await client.GetMasterLeaguesTaskAsync(RankedQueue.RANKED_SOLO_5x5);
+            var leagues = await client.GetMasterLeagueTaskAsync(RankedQueue.RANKED_SOLO_5x5);
         }
     }
 }

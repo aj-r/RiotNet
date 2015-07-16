@@ -10,7 +10,7 @@
         /// </summary>
         BR,
         /// <summary>
-        /// Europe Nordic & East
+        /// Europe Nordic &amp; East
         /// </summary>
         EUNE,
         /// <summary>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RestSharp;
@@ -9,7 +10,7 @@ using RiotNet.Models;
 namespace RiotNet
 {
     /// <summary>
-    /// A client that interacts wit the Riot Games API.
+    /// A client that interacts with the Riot Games API.
     /// </summary>
     public partial class RiotClient : IRiotClient
     {
@@ -194,7 +195,63 @@ namespace RiotNet
         /// <returns>The deserialized response.</returns>
         protected virtual T Execute<T>(IRestRequest request) where T : new()
         {
-            return ExecuteTaskAsync<T>(request).Result;
+            var retry = false;
+            var attemptCount = 0;
+            do
+            {
+                var response = client.Execute<T>(request);
+                ++attemptCount;
+                if (response.ResponseStatus == ResponseStatus.TimedOut)
+                {
+                    var args = new RetryEventArgs(attemptCount);
+                    OnRequestTimedOut(args);
+                    if (args.Retry || Settings.RetryOnTimeout)
+                    {
+                        retry = true;
+                        continue;
+                    }
+                    if (Settings.ThrowOnError)
+                        throw new RestTimeoutException(response);
+                    else
+                        break;
+                }
+                if (response.ResponseStatus == ResponseStatus.Error)
+                {
+                    var args = new RetryEventArgs(attemptCount);
+                    OnConnectionFailed(args);
+                    if (args.Retry || Settings.RetryOnConnectionFailure)
+                    {
+                        retry = true;
+                        continue;
+                    }
+                    if (Settings.ThrowOnError)
+                        throw new ConnectionFailedException(response);
+                    else
+                        break;
+                }
+                if (response.ResponseStatus != ResponseStatus.Completed)
+                    break;
+                if ((int)response.StatusCode == 429)
+                {
+                    var args = new RetryEventArgs(attemptCount);
+                    OnRateLimitExceeded(args);
+                    if (args.Retry || Settings.RetryOnRateLimitExceeded)
+                    {
+                        retry = true;
+                        Thread.Sleep(10000);
+                        continue;
+                    }
+                    if (Settings.ThrowOnError)
+                        throw new RateLimitExceededException(response);
+                    else
+                        break;
+                }
+                if (Settings.ThrowOnError && (int)response.StatusCode >= 400)
+                    throw new RestException(response);
+                return response.Data;
+            } while (retry && attemptCount < Settings.MaxRequestAttempts);
+
+            return default(T);
         }
 
         /// <summary>

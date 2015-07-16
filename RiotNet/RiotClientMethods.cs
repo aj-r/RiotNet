@@ -6,7 +6,12 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
-        public Task<League> GetMasterLeaguesTaskAsync(RankedQueue type)
+        /// <summary>
+        /// Gets the master league.
+        /// </summary>
+        /// <param name="type">The queue type.</param>
+        /// <returns>The master league.</returns>
+        public Task<League> GetMasterLeagueTaskAsync(RankedQueue type)
         {
             var request = Get("api/lol/{region}/v2.5/league/master");
             request.AddQueryParameter("type", type.ToString());

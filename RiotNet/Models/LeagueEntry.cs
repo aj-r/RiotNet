@@ -1,4 +1,8 @@
-﻿namespace RiotNet.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
+
+namespace RiotNet.Models
 {
     /// <summary>
     /// Contains league participant information representing a summoner or team.
@@ -40,6 +44,9 @@
         /// </summary>
         public int Losses { get; set; }
 
+        /// <summary>
+        /// Gets or sets the promotion series for the participant, or null if the participant is not is a series.
+        /// </summary>
         public MiniSeries MiniSeries { get; set; }
 
         /// <summary>
@@ -56,5 +63,15 @@
         /// Gets or sets the number of wins that the participant has.
         /// </summary>
         public int Wins { get; set; }
+
+#if DATA_ANNOTATIONS
+        /// <summary>
+        /// Gets or sets the ID of the <see cref="LeagueEntry"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
+        /// </summary>
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [JsonIgnore]
+        public long Id { get; set; }
+#endif
     }
 }

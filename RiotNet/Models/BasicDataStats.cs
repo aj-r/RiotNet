@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
 namespace RiotNet.Models
 {
@@ -364,5 +366,15 @@ namespace RiotNet.Models
         /// </summary>
         [JsonProperty("rPercentTimeDeadModPerLevel")]
         public double PercentTimeDeadModPerLevel { get; set; }
+
+#if DATA_ANNOTATIONS
+        /// <summary>
+        /// Gets or sets the ID of the <see cref="BasicDataStats"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
+        /// </summary>
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [JsonIgnore]
+        public long Id { get; set; }
+#endif
     }
 }

@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
 namespace RiotNet.Models
 {
@@ -33,5 +36,15 @@ namespace RiotNet.Models
         /// Gets or sets the league's tier.
         /// </summary>
         public Tier Tier { get; set; }
+
+#if DATA_ANNOTATIONS
+        /// <summary>
+        /// Gets or sets the ID of the league. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
+        /// </summary>
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [JsonIgnore]
+        public long Id { get; set; }
+#endif
     }
 }
