@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace RiotNet.Models
 {
+    /// <summary>
+    /// Contains roster information.
+    /// </summary>
     public class Roster
     {
         /// <summary>

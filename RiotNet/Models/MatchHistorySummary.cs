@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace RiotNet.Models
 {
+    /// <summary>
+    /// Contains match history summary information.
+    /// </summary>
     public class MatchHistorySummary
     {
         /// <summary>

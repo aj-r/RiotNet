@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace RiotNet.Models
 {
+    /// <summary>
+    /// Contains team statistics detail information.
+    /// </summary>
     public class TeamStatDetail
     {
         /// <summary>
