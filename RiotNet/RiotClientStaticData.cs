@@ -71,14 +71,14 @@ namespace RiotNet
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
         /// <param name="dataById">If true, the returned data map will use the champions' IDs as the keys. If false, the returned data map will use the champions' keys instead.</param>
-        /// <param name="champListData">Tags to return additional data. Valid tags are any property of the <see cref="Champion"/> or <see cref="ChampionList"/> objects. Only type, version, data, id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
-        /// <returns>A <see cref="ChampionList"/>.</returns>
+        /// <param name="champListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> or <see cref="StaticChampionList"/> objects. Only type, version, data, id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <returns>A <see cref="StaticChampionList"/>.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public ChampionList GetChampions(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null)
+        public StaticChampionList GetChampions(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null)
         {
-            return Execute<ChampionList>(GetChampionsRequest(locale, version, dataById, champListData));
+            return Execute<StaticChampionList>(GetChampionsRequest(locale, version, dataById, champListData));
         }
 
         /// <summary>
@@ -87,14 +87,14 @@ namespace RiotNet
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
         /// <param name="dataById">If true, the returned data map will use the champions' IDs as the keys. If false, the returned data map will use the champions' keys instead.</param>
-        /// <param name="champListData">Tags to return additional data. Valid tags are any property of the <see cref="Champion"/> or <see cref="ChampionList"/> objects. Only type, version, data, id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="champListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> or <see cref="StaticChampionList"/> objects. Only type, version, data, id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<ChampionList> GetChampionsTaskAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null)
+        public Task<StaticChampionList> GetChampionsTaskAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null)
         {
-            return ExecuteTaskAsync<ChampionList>(GetChampionsRequest(locale, version, dataById, champListData));
+            return ExecuteTaskAsync<StaticChampionList>(GetChampionsRequest(locale, version, dataById, champListData));
         }
 
         private IRestRequest GetChampionByIdRequest(int id, string locale, string version, IEnumerable<string> champData)
@@ -121,7 +121,7 @@ namespace RiotNet
         /// <param name="id">The champion ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersions"/>.</param>
-        /// <param name="champData">Tags to return additional data. Valid tags are any property of the <see cref="Champion"/> object. Only id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="champData">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> object. Only id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A <see cref="Rune"/>.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
@@ -137,7 +137,7 @@ namespace RiotNet
         /// <param name="id">The champion ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
-        /// <param name="champData">Tags to return additional data. Valid tags are any property of the <see cref="Champion"/> object. Only id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="champData">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> object. Only id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.

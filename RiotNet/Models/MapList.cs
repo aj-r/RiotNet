@@ -10,7 +10,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the set of champions indexed by name.
         /// </summary>
-        public Dictionary<string, Champion> Data { get; set; }
+        public Dictionary<string, StaticChampion> Data { get; set; }
 
         /// <summary>
         /// Gets or sets the type.

@@ -8,7 +8,7 @@ namespace RiotNet.Models
     /// <summary>
     /// Contains champion spell data.
     /// </summary>
-    public class ChampionSpell
+    public class StaticChampionSpell
     {
         /// <summary>
         /// Gets or sets the alternate image data for the current ability.
