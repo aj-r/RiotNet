@@ -7,6 +7,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RiotNet.Models
 {
+    /// <summary>
+    /// Contains info about a game.
+    /// </summary>
     public class CurrentGameInfo
     {
         /// <summary>
@@ -25,7 +28,10 @@ namespace RiotNet.Models
         /// </summary>
         public long GameLength { get; set; }
 
-        // TODO: add game mode one richard has pushed...
+        /// <summary>
+        /// Gets or sets the game mode.
+        /// </summary>
+        public GameMode GameMode { get; set; }
 
         /// <summary>
         /// Gets or sets the queue type.
@@ -50,12 +56,12 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the observer information.
         /// </summary>
-        public Observer observers { get; set; }
+        public Observer Observers { get; set; }
 
         /// <summary>
         /// Gets or sets the participant information.
         /// </summary>
-        public List<CurrentGameParticipant> participants { get; set; }
+        public List<CurrentGameParticipant> Participants { get; set; }
 
         /// <summary>
         /// Gets or sets the ID of the platform on which the game is being played.

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace RiotNet.Models
 {
+    /// <summary>
+    /// Contains information about a banned champion.
+    /// </summary>
     public class BannedChampion
     {
         /// <summary>
