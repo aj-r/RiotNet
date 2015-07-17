@@ -122,13 +122,13 @@ namespace RiotNet
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersions"/>.</param>
         /// <param name="champData">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> object. Only id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
-        /// <returns>A <see cref="Rune"/>.</returns>
+        /// <returns>A <see cref="StaticChampion"/>.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Rune GetChampionById(int id, string locale = null, string version = null, IEnumerable<string> champData = null)
+        public StaticChampion GetChampionById(int id, string locale = null, string version = null, IEnumerable<string> champData = null)
         {
-            return Execute<Rune>(GetChampionByIdRequest(id, locale, version, champData));
+            return Execute<StaticChampion>(GetChampionByIdRequest(id, locale, version, champData));
         }
 
         /// <summary>
@@ -142,9 +142,9 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<Rune> GetChampionByIdTaskAsync(int id, string locale = null, string version = null, IEnumerable<string> champData = null)
+        public Task<StaticChampion> GetChampionByIdTaskAsync(int id, string locale = null, string version = null, IEnumerable<string> champData = null)
         {
-            return ExecuteTaskAsync<Rune>(GetChampionByIdRequest(id, locale, version, champData));
+            return ExecuteTaskAsync<StaticChampion>(GetChampionByIdRequest(id, locale, version, champData));
         }
 
         #endregion

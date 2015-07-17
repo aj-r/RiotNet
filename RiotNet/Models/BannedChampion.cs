@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RiotNet.Models
 {
-    class BannedChampion
+    public class BannedChampion
     {
         /// <summary>
         /// Gets or sets the banned champion id (see StaticChampion Id).

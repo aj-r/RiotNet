@@ -1,6 +1,45 @@
 ﻿namespace RiotNet.Models
 {
     /// <summary>
+    /// Represents a game mode.
+    /// </summary>
+    public enum GameMode
+    {
+        /// <summary>
+        /// Classic, played on both Summoner's Rift and Twisted Treeline.
+        /// </summary>
+        CLASSIC,
+        /// <summary>
+        /// Dominion, played on The Crystal Scar.
+        /// </summary>
+        ODIN,
+        /// <summary>
+        /// All Random All Mid, played on both Howling Abyss and Butcher's Bridge.
+        /// </summary>
+        ARAM,
+        /// <summary>
+        /// Tutorial.
+        /// </summary>
+        TUTORIAL,
+        /// <summary>
+        ///  One for All, played on both Summoner's Rift and Howling Abyss.
+        /// </summary>
+        ONEFORALL,
+        /// <summary>
+        /// Ascension, played on The Crystal Scar.
+        /// </summary>
+        ASCENSION,
+        /// <summary>
+        /// Snowdown Showdown, played on the Howling Abyss.
+        /// </summary>
+        FIRSTBLOOD,
+        /// <summary>
+        /// Legend of the Poro King, played on the Howling Abyss.
+        /// </summary>
+        KINGPORO
+    }
+
+    /// <summary>
     /// Represents the game type.
     /// </summary>
     public enum GameType
@@ -155,6 +194,25 @@
     }
 
     /// <summary>
+    /// Represents a ranked queue.
+    /// </summary>
+    public enum RankedQueue
+    {
+        /// <summary>
+        /// Ranked Solo 5v5
+        /// </summary>
+        RANKED_SOLO_5x5,
+        /// <summary>
+        /// Ranked Team 3v3
+        /// </summary>
+        RANKED_TEAM_3x3,
+        /// <summary>
+        /// Ranked Team 5v5
+        /// </summary>
+        RANKED_TEAM_5x5,
+    }
+
+    /// <summary>
     /// Represents a region (or server).
     /// </summary>
     public enum Region
@@ -203,25 +261,6 @@
         /// Turkey
         /// </summary>
         TR,
-    }
-
-    /// <summary>
-    /// Represents a ranked queue.
-    /// </summary>
-    public enum RankedQueue
-    {
-        /// <summary>
-        /// Ranked Solo 5v5
-        /// </summary>
-        RANKED_SOLO_5x5,
-        /// <summary>
-        /// Ranked Team 3v3
-        /// </summary>
-        RANKED_TEAM_3x3,
-        /// <summary>
-        /// Ranked Team 5v5
-        /// </summary>
-        RANKED_TEAM_5x5,
     }
 
     /// <summary>

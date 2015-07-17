@@ -16,7 +16,7 @@ namespace RiotNet.Tests
             string apiKey;
             try
             {
-                apiKey = File.ReadAllText("key.txt");
+                apiKey = File.ReadAllText("key.txt").Trim();
             }
             catch (FileNotFoundException)
             {
