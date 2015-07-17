@@ -42,7 +42,7 @@ namespace RiotNet.Models
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or sets the type of teh item set.
+        /// Gets or sets the type of item set. This value appears to always equal "riot".
         /// </summary>
         public string Type { get; set; }
 

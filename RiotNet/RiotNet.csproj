@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\EpochDateTimeConverter.cs" />
+    <Compile Include="Converters\RangeConverter.cs" />
     <Compile Include="Converters\RiotDateTimeConverter.cs" />
     <Compile Include="Converters\SecondsToTimespanConverter.cs" />
     <Compile Include="IRiotClient.cs" />

@@ -42,7 +42,7 @@ namespace RiotNet.Converters
         }
 
         /// <summary>
-        /// Writes the JSON representation of the date.
+        /// Writes the JSON representation of the time span.
         /// </summary>
         /// <param name="writer">The <see cref="JsonWriter"/> to write to.</param>
         /// <param name="value">The date to write.</param>

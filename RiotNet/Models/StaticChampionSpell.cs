@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Newtonsoft.Json;
+using RiotNet.Converters;
 
 namespace RiotNet.Models
 {
@@ -69,7 +70,8 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the level-up tooltip of the current ability.
         /// </summary>
-        public string LevelTip { get; set; }
+        [JsonProperty("leveltip")]
+        public LevelTip LevelTip { get; set; }
 
         /// <summary>
         /// Gets or sets the maximum number of points that a player can put into this ability.
@@ -83,9 +85,10 @@ namespace RiotNet.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the range of the spell.
+        /// Gets or sets the range of the spell at each rank. A list with a single entry of 0 indicates that the spell is self-cast.
         /// </summary>
-        public List<int> Range { get; set; } // TODO: this could also be sent as the string "self" as JSON. Maybe a custom JsonConverter is required.
+        [JsonConverter(typeof(RangeConverter))]
+        public List<int> Range { get; set; }
 
         /// <summary>
         /// Gets or sets the range at all ranks merged into a single string.
@@ -119,7 +122,7 @@ namespace RiotNet.Models
 
 #if DB_READY
         /// <summary>
-        /// Gets or sets the ID of the current <see cref="Block"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
+        /// Gets or sets the ID of the current <see cref="StaticChampionSpell"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
