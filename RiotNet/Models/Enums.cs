@@ -104,4 +104,43 @@
         /// </summary>
         Bronze
     }
+
+    /// <summary>
+    /// Represents a game mode.
+    /// </summary>
+    public enum GameMode
+    {
+        /// <summary>
+        /// Classic, played on both Summoner's Rift and Twisted Treeline.
+        /// </summary>
+        CLASSIC,
+        /// <summary>
+        /// Dominion, played on The Crystal Scar.
+        /// </summary>
+        ODIN,
+        /// <summary>
+        /// All Random All Mid, played on both Howling Abyss and Butcher's Bridge.
+        /// </summary>
+        ARAM,
+        /// <summary>
+        /// Tutorial.
+        /// </summary>
+        TUTORIAL,
+        /// <summary>
+        ///  One for All, played on both Summoner's Rift and Howling Abyss.
+        /// </summary>
+        ONEFORALL,
+        /// <summary>
+        /// Ascension, played on The Crystal Scar.
+        /// </summary>
+        ASCENSION,
+        /// <summary>
+        /// Snowdown Showdown, played on the Howling Abyss.
+        /// </summary>
+        FIRSTBLOOD,
+        /// <summary>
+        /// Legend of the Poro King, played on the Howling Abyss.
+        /// </summary>
+        KINGPORO
+    }
 }
