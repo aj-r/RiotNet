@@ -22,7 +22,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the champion's defense power.
         /// </summary>
-        public int Defence { get; set; }
+        public int Defense { get; set; }
 
         /// <summary>
         /// Gets or sets the champion's difficulty.

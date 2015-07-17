@@ -52,7 +52,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the champion's attack speed per level.
         /// </summary>
-        [JsonProperty("attackspedperlevel")]
+        [JsonProperty("attackspeedperlevel")]
         public double AttackSpeedPerLevel { get; set; }
 
         /// <summary>

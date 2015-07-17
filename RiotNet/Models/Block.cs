@@ -22,7 +22,7 @@ namespace RiotNet.Models
         public bool RecMath { get; set; }
 
         /// <summary>
-        /// Gets or sets the type of the block. This is usually prefixed with the recommended item set title in all lowercase.
+        /// Gets or sets the type (or internal name) of the block.
         /// </summary>
         public string Type { get; set; }
 

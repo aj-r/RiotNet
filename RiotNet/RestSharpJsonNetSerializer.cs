@@ -10,7 +10,7 @@ namespace RiotNet
     /// <summary>
     /// An adapter that allows Json.Net to be used with RestSharp.
     /// </summary>
-    internal class RestSharpJsonNetSerializer : ISerializer, IDeserializer
+    public class RestSharpJsonNetSerializer : ISerializer, IDeserializer
     {
         /// <summary>
         /// Gets or sets the settings to use for serialization and deserialization.
@@ -49,8 +49,8 @@ namespace RiotNet
         /// <summary>
         /// Deserializes the response as JSON.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="response"></param>
+        /// <typeparam name="T">The type of object to deserialize to.</typeparam>
+        /// <param name="response">The response to deserialize.</param>
         /// <returns>The deserialized object.</returns>
         public T Deserialize<T>(IRestResponse response)
         {

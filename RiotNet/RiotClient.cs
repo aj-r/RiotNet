@@ -304,15 +304,23 @@ namespace RiotNet
                 }
                 if (response.ResponseStatus == ResponseStatus.Error)
                 {
-                    var args = new RetryEventArgs(attemptCount);
-                    OnConnectionFailed(args);
-                    if (args.Retry || Settings.RetryOnConnectionFailure)
+                    if (response.StatusCode == 0)
                     {
-                        retry = true;
-                        continue;
+                        var args = new RetryEventArgs(attemptCount);
+                        OnConnectionFailed(args);
+                        if (args.Retry || Settings.RetryOnConnectionFailure)
+                        {
+                            retry = true;
+                            continue;
+                        }
+                        if (Settings.ThrowOnError)
+                            throw new ConnectionFailedException(response);
+                        else
+                            break;
                     }
+
                     if (Settings.ThrowOnError)
-                        throw new ConnectionFailedException(response);
+                        throw new RestException(response, response.ErrorMessage, response.ErrorException);
                     else
                         break;
                 }
