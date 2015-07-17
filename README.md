@@ -3,8 +3,8 @@
 A .NET/C# API for the Riot Games API
 
 This project is still in development! It will have the following features:
-- Compatible with .NET 4.5 and later
-- Methods for accessing to every endpoint in the Riot Games API
+- **Compatible** with .NET 4.5 and later.
+- **Full API coverage** - methods for accessing to every endpoint in the Riot Games API.
 - **Synchronous and asynchronous** overloads for each method. Asynchronous methods are awaitable using the async/await model.
 - **Flexible and configurable** - uses interfaces and allows inheritance.
 - **Database Ready** - data structures have built-in database metadata, so you can easily persist results using Entity Framework without having to re-define all of the models.
