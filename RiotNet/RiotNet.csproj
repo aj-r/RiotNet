@@ -54,12 +54,11 @@
     <Compile Include="Models\BasicDataStats.cs" />
     <Compile Include="Models\Block.cs" />
     <Compile Include="Models\BlockItem.cs" />
-    <Compile Include="Models\Champion.cs" />
-    <Compile Include="Models\ChampionInfo.cs" />
-    <Compile Include="Models\CurrentChampion.cs" />
+    <Compile Include="Models\StaticChampion.cs" />
+    <Compile Include="Models\StaticChampionInfo.cs" />
     <Compile Include="Models\DynamicChampionList.cs" />
-    <Compile Include="Models\ChampionList.cs" />
-    <Compile Include="Models\ChampionSpell.cs" />
+    <Compile Include="Models\StaticChampionList.cs" />
+    <Compile Include="Models\StaticChampionSpell.cs" />
     <Compile Include="Models\DynamicChampion.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\Gold.cs" />
