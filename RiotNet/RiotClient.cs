@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RestSharp;
+using RiotNet.Converters;
 using RiotNet.Models;
 
 namespace RiotNet
@@ -19,6 +20,25 @@ namespace RiotNet
         private readonly RiotClientSettings settings;
         private readonly IRestClient client;
         private readonly RestSharpJsonNetSerializer serializer;
+
+        private static readonly JsonSerializerSettings jsonSettings = new JsonSerializerSettings
+        {
+            ContractResolver = new RiotNetContractResolver(),
+            MissingMemberHandling = MissingMemberHandling.Ignore,
+            Converters = new List<JsonConverter>
+            {
+                new EpochDateTimeConverter(),
+                new SecondsToTimespanConverter(),
+            }
+        };
+
+        /// <summary>
+        /// Gets the JsonSerializerSettings that are used for requests to the Riot API. 
+        /// </summary>
+        public static JsonSerializerSettings JsonSettings
+        {
+            get { return jsonSettings; }
+        }
 
         /// <summary>
         /// Gets the platform ID for the specified region.

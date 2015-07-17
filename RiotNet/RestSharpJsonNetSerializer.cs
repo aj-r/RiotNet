@@ -8,8 +8,7 @@ using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 namespace RiotNet
 {
     /// <summary>
-    /// Default JSON serializer for request bodies
-    /// Doesn't currently use the SerializeAs attribute, defers to Newtonsoft's attributes
+    /// An adapter that allows Json.Net to be used with RestSharp.
     /// </summary>
     internal class RestSharpJsonNetSerializer : ISerializer, IDeserializer
     {
@@ -40,7 +39,7 @@ namespace RiotNet
                 jsonTextWriter.Formatting = settings.JsonFormatting;
                 jsonTextWriter.QuoteChar = '"';
 
-                var serializer = JsonSerializer.CreateDefault(settings.JsonSettings);
+                var serializer = JsonSerializer.CreateDefault(RiotClient.JsonSettings);
                 serializer.Serialize(jsonTextWriter, obj);
 
                 return stringWriter.ToString();
@@ -58,7 +57,7 @@ namespace RiotNet
             using (var stringReader = new StringReader(response.Content))
             using (var jsonTextReader = new JsonTextReader(stringReader))
             {
-                var serializer = JsonSerializer.CreateDefault(settings.JsonSettings);
+                var serializer = JsonSerializer.CreateDefault(RiotClient.JsonSettings);
                 return serializer.Deserialize<T>(jsonTextReader);
             }
         }

@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\EpochDateTimeConverter.cs" />
+    <Compile Include="Converters\RiotDateTimeConverter.cs" />
     <Compile Include="IRiotClient.cs" />
     <Compile Include="ConnectionFailedException.cs" />
     <Compile Include="Models\BasicDataStats.cs" />
@@ -101,9 +103,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Converters\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

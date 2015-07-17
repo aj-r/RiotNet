@@ -10,19 +10,6 @@ namespace RiotNet
     public class RiotClientSettings
     {
         /// <summary>
-        /// Gets the JsonSerializerSettings that are used for requests to the Riot API if no other settings are explicitly specified. 
-        /// </summary>
-        /// <returns>The JsonSerializerSettings.</returns>
-        private static JsonSerializerSettings GetDefaultJsonSettings()
-        {
-            return new JsonSerializerSettings
-            {
-                ContractResolver = new RiotNetContractResolver(),
-                MissingMemberHandling = MissingMemberHandling.Ignore,
-            };
-        }
-
-        /// <summary>
         /// Creates a new <see cref="RiotClientSettings"/> instance.
         /// </summary>
         public RiotClientSettings()
@@ -32,7 +19,6 @@ namespace RiotNet
             RetryOnRateLimitExceeded = true;
             ThrowOnError = true;
             JsonFormatting = Formatting.None;
-            JsonSettings = GetDefaultJsonSettings();
         }
 
         /// <summary>
@@ -69,11 +55,6 @@ namespace RiotNet
         /// Gets or sets the maximum number of times that the same request should be attempted. Applies only if one of the RequestErrorHandling modes is set to Retry.
         /// </summary>
         public int MaxRequestAttempts { get; set; }
-
-        /// <summary>
-        /// Gets or sets the settings to use for serialization and deserialization.
-        /// </summary>
-        public JsonSerializerSettings JsonSettings { get; set; }
 
         /// <summary>
         /// Gets or sets the formatting to use for JSON serialization.
