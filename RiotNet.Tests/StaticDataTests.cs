@@ -9,7 +9,7 @@ namespace RiotNet.Tests
     [TestFixture]
     public class StaticDataTests
     {
-        #region Champion
+        #region Champions
 
         [Test]
         public async Task GetChampionsAsyncTaskTest()
