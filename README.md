@@ -15,9 +15,8 @@ This project is still in development! It will have the following features:
 ## Usage
 
 ```
-IRiotClient client = new RiotClient(new RiotClientSettings
+IRiotClient client = new RiotClient(Region.NA, new RiotClientSettings
 {
-   Region = Region.NA,
    ApiKey = "00000000-0000-0000-0000-000000000000" // Replace this with your API key, of course.
 });
 var championList = await client.GetChampionsTaskAsync();
