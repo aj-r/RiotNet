@@ -54,9 +54,11 @@
     <Compile Include="Converters\SecondsToTimespanConverter.cs" />
     <Compile Include="IRiotClient.cs" />
     <Compile Include="ConnectionFailedException.cs" />
+    <Compile Include="Models\BannedChampion.cs" />
     <Compile Include="Models\BasicDataStats.cs" />
     <Compile Include="Models\Block.cs" />
     <Compile Include="Models\BlockItem.cs" />
+    <Compile Include="Models\CurrentGameInfo.cs" />
     <Compile Include="Models\StaticChampion.cs" />
     <Compile Include="Models\StaticChampionInfo.cs" />
     <Compile Include="Models\ChampionList.cs" />
