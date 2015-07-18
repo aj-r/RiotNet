@@ -120,6 +120,7 @@
     <Compile Include="RiotClientLeague.cs" />
     <Compile Include="RiotClientSettings.cs" />
     <Compile Include="RiotClientStaticData.cs" />
+    <Compile Include="RiotClientTeam.cs" />
     <Compile Include="RiotNetContractResolver.cs" />
   </ItemGroup>
   <ItemGroup>
