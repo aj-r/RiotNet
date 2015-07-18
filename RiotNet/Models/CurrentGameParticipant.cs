@@ -23,7 +23,7 @@ namespace RiotNet.Models
         /// <summary>
         ///  Gets or sets the list of masteries used by this participant.
         /// </summary>
-        public List<Mastery> Masteries { get; set; }
+        public List<StaticMastery> Masteries { get; set; }
 
         /// <summary>
         ///  Gets or sets the ID of the profile icon used by this participant.

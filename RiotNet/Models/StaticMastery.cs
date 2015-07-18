@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a mastery slot.
     /// </summary>
-    public class Mastery
+    public class StaticMastery
     {
 
     }

@@ -6,12 +6,12 @@ namespace RiotNet.Models
     /// <summary>
     /// Contains mastery list data.
     /// </summary>
-    public class MasteryList : StaticDataList
+    public class StaticMasteryList : StaticDataList
     {
         /// <summary>
-        /// Creates a new <see cref="MasteryList"/> instance.
+        /// Creates a new <see cref="StaticMasteryList"/> instance.
         /// </summary>
-        public MasteryList()
+        public StaticMasteryList()
         {
             Type = "mastery";
         }
@@ -19,11 +19,11 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the basic mastery data.
         /// </summary>
-        public BasicData Basic { get; set; }
+        public BasicData Tree { get; set; }
 
         /// <summary>
         /// Gets or sets the set of masteries indexed by ID.
         /// </summary>
-        public Dictionary<string, Mastery> Data { get; set; }
+        public Dictionary<string, StaticMastery> Data { get; set; }
     }
 }

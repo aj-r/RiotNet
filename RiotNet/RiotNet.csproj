@@ -66,6 +66,8 @@
     <Compile Include="Models\FeaturedGames.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GameInfoBase.cs" />
+    <Compile Include="Models\StaticMasteryTree.cs" />
+    <Compile Include="Models\StaticMasteryTreeItem.cs" />
     <Compile Include="Models\MatchDetail.cs" />
     <Compile Include="Models\MatchHistorySummary.cs" />
     <Compile Include="Models\Observer.cs" />
@@ -90,8 +92,8 @@
     <Compile Include="Models\LanuageStrings.cs" />
     <Compile Include="Models\MapDetails.cs" />
     <Compile Include="Models\MapList.cs" />
-    <Compile Include="Models\MasteryList.cs" />
-    <Compile Include="Models\Mastery.cs" />
+    <Compile Include="Models\StaticMasteryList.cs" />
+    <Compile Include="Models\StaticMastery.cs" />
     <Compile Include="Models\RuneList.cs" />
     <Compile Include="Models\ItemList.cs" />
     <Compile Include="Models\ItemTree.cs" />
