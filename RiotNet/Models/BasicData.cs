@@ -27,6 +27,7 @@ namespace RiotNet.Models
             };
             Name = string.Empty;
             PlainText = string.Empty;
+            RequiredChampion = string.Empty;
             SanitizedDescription = string.Empty;
             Stacks = 1;
             Stats = new BasicDataStats();
@@ -51,6 +52,9 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the ID of the item or rune.
         /// </summary>
+        /// <remarks>
+        /// This property is used as the primary key when storing the current object in a database.
+        /// </remarks>
         [Key]
         public int Id { get; set; }
 

@@ -178,7 +178,7 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Dictionary<string, Item> GetItems(string locale = null, string version = null, IEnumerable<string> itemListData = null)
+        public ItemList GetItems(string locale = null, string version = null, IEnumerable<string> itemListData = null)
         {
             var itemList = Execute<ItemList>(GetItemsRequest(locale, version, itemListData));
 
@@ -189,7 +189,7 @@ namespace RiotNet
                     if (!item.Maps.ContainsKey(kvp.Key))
                         item.Maps.Add(kvp.Key, kvp.Value);
 
-            return itemList.Data;
+            return itemList;
         }
 
         /// <summary>
@@ -202,7 +202,7 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public async Task<Dictionary<string, Item>> GetItemsTaskAsync(string locale = null, string version = null, IEnumerable<string> itemListData = null)
+        public async Task<ItemList> GetItemsTaskAsync(string locale = null, string version = null, IEnumerable<string> itemListData = null)
         {
             var itemList = await ExecuteTaskAsync<ItemList>(GetItemsRequest(locale, version, itemListData)).ConfigureAwait(false);
 
@@ -213,7 +213,7 @@ namespace RiotNet
                     if (!item.Maps.ContainsKey(kvp.Key))
                         item.Maps.Add(kvp.Key, kvp.Value);
 
-            return itemList.Data;
+            return itemList;
         }
 
         private IRestRequest GetItemByIdRequest(int id, string locale, string version, IEnumerable<string> itemData)
@@ -235,7 +235,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a rune by ID.
+        /// Gets an item by ID.
         /// </summary>
         /// <param name="id">The rune ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
@@ -251,7 +251,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a rune by ID.
+        /// Gets an item by ID.
         /// </summary>
         /// <param name="id">The rune ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
@@ -410,10 +410,9 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Dictionary<string, Rune> GetRunes(string locale = null, string version = null, IEnumerable<string> runeListData = null)
+        public RuneList GetRunes(string locale = null, string version = null, IEnumerable<string> runeListData = null)
         {
-            var runeList = Execute<RuneList>(GetRunesRequest(locale, version, runeListData));
-            return runeList.Data;
+            return Execute<RuneList>(GetRunesRequest(locale, version, runeListData));
         }
 
         /// <summary>
@@ -426,10 +425,9 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public async Task<Dictionary<string, Rune>> GetRunesTaskAsync(string locale = null, string version = null, IEnumerable<string> runeListData = null)
+        public Task<RuneList> GetRunesTaskAsync(string locale = null, string version = null, IEnumerable<string> runeListData = null)
         {
-            var runeList = await ExecuteTaskAsync<RuneList>(GetRunesRequest(locale, version, runeListData)).ConfigureAwait(false);
-            return runeList.Data;
+            return ExecuteTaskAsync<RuneList>(GetRunesRequest(locale, version, runeListData));
         }
 
         private IRestRequest GetRuneByIdRequest(int id, string locale, string version, IEnumerable<string> runeData)

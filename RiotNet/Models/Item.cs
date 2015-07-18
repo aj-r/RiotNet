@@ -71,7 +71,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the ID of the item that this item builds from using a special rule (e.g. Archangel's Staff into Seraph's Embrace).
         /// </summary>
-        public string SpecialRecipe { get; set; }
+        public int SpecialRecipe { get; set; }
 
     }
 }
