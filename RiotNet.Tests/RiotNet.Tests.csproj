@@ -49,6 +49,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="TeamTests.cs" />
     <Compile Include="MethodTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestTests.cs" />
