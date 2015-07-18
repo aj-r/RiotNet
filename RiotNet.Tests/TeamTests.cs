@@ -53,7 +53,7 @@ namespace RiotNet.Tests
 
             var roster = team.Roster;
             Assert.That(roster.MemberList, Is.Not.Null.Or.Empty);
-            Assert.That(roster.ownerId, Is.GreaterThan(0));
+            Assert.That(roster.OwnerId, Is.GreaterThan(0));
 
             var teamMember = roster.MemberList[0];
             Assert.That(teamMember.InviteDate, Is.GreaterThan(default(DateTime)));

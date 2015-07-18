@@ -66,7 +66,7 @@
     <Compile Include="Models\FeaturedGames.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GameInfoBase.cs" />
-    <Compile Include="Models\Match.cs" />
+    <Compile Include="Models\MatchDetail.cs" />
     <Compile Include="Models\MatchHistorySummary.cs" />
     <Compile Include="Models\Observer.cs" />
     <Compile Include="Models\Participant.cs" />
