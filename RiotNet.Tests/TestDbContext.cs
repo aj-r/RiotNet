@@ -18,6 +18,7 @@ namespace RiotNet.Tests
         public IDbSet<Block> Blocks { get; set; }
         public IDbSet<BlockItem> BlockItems { get; set; }
         public IDbSet<Champion> Champions { get; set; }
+        public IDbSet<Game> Games { get; set; }
         public IDbSet<Group> Groups { get; set; }
         public IDbSet<Image> Images { get; set; }
         public IDbSet<Item> Items { get; set; }

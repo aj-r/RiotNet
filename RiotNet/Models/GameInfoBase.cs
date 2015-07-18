@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace RiotNet.Models
 {
     /// <summary>
-    /// Base information for games (used in FeaturedGameInfo and CurrentGameInfo).
+    /// Base information for games (used in <see cref="FeaturedGameInfo"/> and <see cref="CurrentGameInfo"/>).
     /// </summary>
     public class GameInfoBase
     {

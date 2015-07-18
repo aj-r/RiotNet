@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
 
 namespace RiotNet.Models
 {
     /// <summary>
     /// Contains game information (unlike *GameInfo, this is from the perspective of one of the participants).
     /// </summary>
+    /// <remarks>
+    /// This object comes from the Games API, which gets the 10 most recent games played by a player.
+    /// For more detailed game information, use the <see cref="Match"/> object.
+    /// </remarks>
     public class Game
     {
         /// <summary>
@@ -24,7 +26,7 @@ namespace RiotNet.Models
         /// <summary>
         ///  Gets or sets other players associated with the game.
         /// </summary>
-        public List<Player> FellowPlayers { get; set; }
+        public virtual List<Player> FellowPlayers { get; set; }
 
         /// <summary>
         ///  Gets or sets game ID.

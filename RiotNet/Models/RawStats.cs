@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
@@ -8,6 +9,7 @@ namespace RiotNet.Models
     /// <summary>
     /// Statistics associated with the game for this summoner.
     /// </summary>
+    [ComplexType]
     public class RawStats
     {
         /// <summary>
