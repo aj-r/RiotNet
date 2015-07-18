@@ -66,6 +66,8 @@
     <Compile Include="Models\MatchHistorySummary.cs" />
     <Compile Include="Models\Observer.cs" />
     <Compile Include="Models\Participant.cs" />
+    <Compile Include="Models\PersistableDictionary.cs" />
+    <Compile Include="Models\PersistableList.cs" />
     <Compile Include="Models\Roster.cs" />
     <Compile Include="Models\StaticChampion.cs" />
     <Compile Include="Models\StaticChampionInfo.cs" />
@@ -108,7 +110,7 @@
     <Compile Include="RetryEventArgs.cs" />
     <Compile Include="RiotClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RiotClientMethods.cs" />
+    <Compile Include="RiotClientLeague.cs" />
     <Compile Include="RiotClientSettings.cs" />
     <Compile Include="RiotClientStaticData.cs" />
     <Compile Include="RiotNetContractResolver.cs" />

@@ -220,6 +220,7 @@ namespace RiotNet.Tests
             Assert.That(itemList.Data.Values.Any(i => i.Stats.FlatSpellBlockMod > 0));
             Assert.That(itemList.Data.Values.Any(i => i.Stats.PercentAttackSpeedMod > 0));
             Assert.That(itemList.Data.Values.Any(i => i.Stats.PercentLifeStealMod > 0));
+            Assert.That(itemList.Data.Values.All(i => i.Gold != null));
         }
 
         [Test]
@@ -268,65 +269,9 @@ namespace RiotNet.Tests
             var client = new RiotClient();
             var itemList = await client.GetItemsTaskAsync(itemListData: new[] { "all" });
             var defaultItem = new Item();
-            AssertObjectEqualityRecursive(defaultItem, itemList.Basic, "Item");
+            TestHelper.AssertObjectEqualityRecursive(defaultItem, itemList.Basic, true);
         }
 
         #endregion
-
-        #region Helpers Methods
-
-        private static void AssertObjectEqualityRecursive(object a, object b, string propertyName)
-        {
-            if (b == null)
-            {
-                Assert.That(a, Is.Null, "Default value for " + propertyName + " is incorrect.");
-                return;
-            }
-            Assert.That(a, Is.Not.Null, "Default value for " + propertyName + " is incorrect.");
-            Assert.That(b, Is.Not.Null);
-            var type = a.GetType();
-            Assert.That(type, Is.EqualTo(b.GetType()), "Objects have different types (" + propertyName + ").");
-            if(!type.IsClass)
-            {
-                Assert.That(a, Is.EqualTo(b), "Default value for " + propertyName + " is incorrect.");
-                return;
-            }
-
-            if (a is IEnumerable)
-            {
-                var enumeratorA = ((IEnumerable)a).GetEnumerator();
-                var enumeratorB = ((IEnumerable)b).GetEnumerator();
-                int i = 0;
-                var nextA = enumeratorA.MoveNext();
-                var nextB = enumeratorB.MoveNext();
-                while (nextA && nextB)
-                {
-                    AssertObjectEqualityRecursive(enumeratorA.Current, enumeratorB.Current, propertyName + "[" + i + "]");
-                    nextA = enumeratorA.MoveNext();
-                    nextB = enumeratorB.MoveNext();
-                    ++i;
-                }
-                if (nextA && !nextB)
-                    Assert.Fail("There are too many items in " + propertyName);
-                if (!nextA && nextB)
-                    Assert.Fail("There are not enough items in " + propertyName);
-            }
-            else
-            {
-                if (propertyName.Length > 0)
-                    propertyName += ".";
-                foreach (var property in type.GetProperties(BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.Instance))
-                {
-                    if (property.GetCustomAttribute<JsonIgnoreAttribute>() != null)
-                        continue;
-                    var value1 = property.GetValue(a);
-                    var value2 = property.GetValue(b);
-                    AssertObjectEqualityRecursive(value1, value2, propertyName + property.Name);
-                }
-            }
-        }
-
-        #endregion
-
     }
 }

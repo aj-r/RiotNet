@@ -1,8 +1,13 @@
-﻿namespace RiotNet.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
+
+namespace RiotNet.Models
 {
     /// <summary>
     /// Contains purchase information for an item.
     /// </summary>
+    [ComplexType]
     public class Gold
     {
         /// <summary>

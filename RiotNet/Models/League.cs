@@ -13,7 +13,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the entries for all participants in the league.
         /// </summary>
-        public List<LeagueEntry> Entries { get; set; }
+        public virtual List<LeagueEntry> Entries { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the league. This is an internal place-holder name only.

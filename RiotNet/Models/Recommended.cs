@@ -14,7 +14,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the blocks (or groups of items) in this item set.
         /// </summary>
-        public List<Block> Blocks { get; set; }
+        public virtual List<Block> Blocks { get; set; }
 
         /// <summary>
         /// Gets or sets the champion name for the current item set.

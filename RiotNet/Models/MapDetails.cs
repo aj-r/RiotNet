@@ -11,7 +11,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets data for the map's image.
         /// </summary>
-        public Image Image { get; set; }
+        public virtual Image Image { get; set; }
 
         /// <summary>
         /// Gets or sets the map ID.
@@ -27,6 +27,6 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the list of item names for items that cannot be purchased on this map.
         /// </summary>
-        public List<string> UnpurchasableItemList { get; set; }
+        public ListOfString UnpurchasableItemList { get; set; }
     }
 }

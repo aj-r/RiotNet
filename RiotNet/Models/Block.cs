@@ -14,7 +14,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the list of items in this block.
         /// </summary>
-        public List<BlockItem> Items { get; set; }
+        public virtual List<BlockItem> Items { get; set; }
 
         /// <summary>
         /// No idea what this is. Sorry.

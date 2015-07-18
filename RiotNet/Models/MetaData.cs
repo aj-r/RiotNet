@@ -5,8 +5,9 @@ using Newtonsoft.Json;
 namespace RiotNet.Models
 {
     /// <summary>
-    /// Represents metadata for a rune or item.
+    /// Represents metadata for a rune.
     /// </summary>
+    [ComplexType]
     public class MetaData
     {
         /// <summary>
@@ -34,15 +35,5 @@ namespace RiotNet.Models
         /// Gets or sets the type of the rune.
         /// </summary>
         public string Type { get; set; }
-
-#if DB_READY
-        /// <summary>
-        /// Gets or sets the ID of the <see cref="MetaData"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
-        /// </summary>
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [JsonIgnore]
-        public long Id { get; set; }
-#endif
     }
 }

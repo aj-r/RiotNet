@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
 namespace RiotNet.Models
 {
@@ -17,5 +19,15 @@ namespace RiotNet.Models
         /// Gets or sets the name of the group.
         /// </summary>
         public string Key { get; set; }
+
+#if DB_READY
+        /// <summary>
+        /// Gets or sets the ID of the current <see cref="Group"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
+        /// </summary>
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [JsonIgnore]
+        public int Id { get; set; }
+#endif
     }
 }

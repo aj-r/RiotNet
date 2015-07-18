@@ -13,7 +13,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the scaling coefficients for the current spell.
         /// </summary>
-        public List<double> Coeff { get; set; }
+        public ListOfDouble Coeff { get; set; }
 
         /// <summary>
         /// Gets or sets the special operator for this spell variable.

@@ -6,7 +6,7 @@ using RiotNet.Models;
 namespace RiotNet.Tests
 {
     [TestFixture]
-    public class MethodTests
+    public class LeagueTests
     {
         [Test]
         public async Task GetMasterLeagueTest()

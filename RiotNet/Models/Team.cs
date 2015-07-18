@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
 namespace RiotNet.Models
 {
@@ -39,7 +39,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the match history of the team.
         /// </summary>
-        public List<MatchHistorySummary> MatchHistory { get; set; }
+        public virtual List<MatchHistorySummary> MatchHistory { get; set; }
 
         /// <summary>
         /// Gets or sets the date the team was last modified.
@@ -54,7 +54,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the team roster.
         /// </summary>
-        public Roster Roster { get; set; }
+        public virtual Roster Roster { get; set; }
 
         /// <summary>
         /// Gets or sets the date the second most recent date a team member was added to the team.
@@ -74,11 +74,21 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the team's statistics for each type of team ranked queue.
         /// </summary>
-        public List<TeamStatDetail> TeamStatDetails { get; set; }
+        public virtual List<TeamStatDetail> TeamStatDetails { get; set; }
 
         /// <summary>
         /// Gets or sets the date the third most recent date a team member was added to the team.
         /// </summary>
         public DateTime ThirdLastJoinDate { get; set; }
+
+#if DB_READY
+        /// <summary>
+        /// Gets or sets the ID of the current <see cref="Team"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
+        /// </summary>
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [JsonIgnore]
+        public int Id { get; set; }
+#endif
     }
 }
