@@ -61,10 +61,12 @@
     <Compile Include="Models\BlockItem.cs" />
     <Compile Include="Models\CurrentGameInfo.cs" />
     <Compile Include="Models\CurrentGameParticipant.cs" />
+    <Compile Include="Models\DataList.cs" />
     <Compile Include="Models\FeaturedGameInfo.cs" />
     <Compile Include="Models\FeaturedGames.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GameInfoBase.cs" />
+    <Compile Include="Models\Match.cs" />
     <Compile Include="Models\MatchHistorySummary.cs" />
     <Compile Include="Models\Observer.cs" />
     <Compile Include="Models\Participant.cs" />

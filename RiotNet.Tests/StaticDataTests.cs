@@ -32,7 +32,7 @@ namespace RiotNet.Tests
         public async Task GetChampionsAsyncTaskTest()
         {
             var client = new RiotClient();
-            var championList = await client.GetChampionsTaskAsync(champListData: new[] { "all" });
+            var championList = await client.GetStaticChampionsTaskAsync(champListData: new[] { "all" });
 
             Assert.That(championList.Data.Count, Is.GreaterThan(0));
             Assert.That(championList.Format, Is.Not.Null.And.Not.Empty);
@@ -50,7 +50,7 @@ namespace RiotNet.Tests
         public async Task GetChampionsAsyncTaskTest_IndexedById()
         {
             var client = new RiotClient();
-            var championList = await client.GetChampionsTaskAsync(dataById: true, champListData: new[] { "all" });
+            var championList = await client.GetStaticChampionsTaskAsync(dataById: true, champListData: new[] { "all" });
 
             Assert.That(championList.Data.Count, Is.GreaterThan(0));
 
@@ -66,7 +66,7 @@ namespace RiotNet.Tests
         {
             var client = new RiotClient();
             // 43 = Karma
-            var champion = await client.GetChampionByIdTaskAsync(43, champData: new[] { "all" });
+            var champion = await client.GetStaticChampionByIdTaskAsync(43, champData: new[] { "all" });
 
             Assert.That(champion, Is.Not.Null);
             Assert.That(champion.AllyTips, Is.Not.Null.And.Not.Empty);
@@ -247,7 +247,6 @@ namespace RiotNet.Tests
             Assert.That(item.Image, Is.Not.Null);
             Assert.That(item.InStore);
             Assert.That(item.Into, Is.Not.Null.And.Not.Empty);
-            Assert.That(item.Maps, Is.Not.Null);
             Assert.That(item.Maps, Is.Not.Null.And.Not.Empty);
             Assert.That(item.Name, Is.Not.Null.And.Not.Empty);
             Assert.That(item.PlainText, Is.Not.Null.And.Not.Empty);
@@ -270,6 +269,173 @@ namespace RiotNet.Tests
             var itemList = await client.GetItemsTaskAsync(itemListData: new[] { "all" });
             var defaultItem = new Item();
             TestHelper.AssertObjectEqualityRecursive(defaultItem, itemList.Basic, true);
+        }
+
+        #endregion
+
+        #region Languages
+
+        [Test]
+        public async Task GetLanguagesAsyncTaskTest()
+        {
+            var client = new RiotClient();
+            var languages = await client.GetLanguagesTaskAsync();
+
+            Assert.That(languages, Is.Not.Null.And.Not.Empty);
+            var language = languages.First();
+            Assert.That(language, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public async Task GetLanguageStringsAsyncTaskTest()
+        {
+            var client = new RiotClient();
+            var languageStrings = await client.GetLanguageStringsTaskAsync();
+
+            Assert.That(languageStrings, Is.Not.Null);
+            Assert.That(languageStrings.Data, Is.Not.Null.And.Not.Empty);
+            Assert.That(languageStrings.Type, Is.Not.Null.And.Not.Empty);
+            Assert.That(languageStrings.Version, Is.Not.Null.And.Not.Empty);
+        }
+
+        #endregion
+
+        #region Map
+
+        [Test]
+        public async Task GetMapsAsyncTaskTest()
+        {
+            var client = new RiotClient();
+            var mapList = await client.GetMapsTaskAsync();
+
+            Assert.That(mapList.Data, Is.Not.Null.And.Not.Empty);
+            Assert.That(mapList.Type, Is.Not.Null.And.Not.Empty);
+            Assert.That(mapList.Version, Is.Not.Null.And.Not.Empty);
+            var map = mapList.Data.Values.First();
+            Assert.That(map.Image, Is.Not.Null);
+            Assert.That(map.MapId, Is.GreaterThan(0));
+            Assert.That(map.MapName, Is.Not.Null.And.Not.Empty);
+            Assert.That(map.UnpurchasableItemList, Is.Not.Null.And.Not.Empty);
+        }
+
+        #endregion
+
+        #region Runes
+
+        [Test]
+        public async Task GetRunesAsyncTaskTest()
+        {
+            var client = new RiotClient();
+            var runeList = await client.GetRunesTaskAsync(runeListData: new[] { "all" });
+
+            Assert.That(runeList.Basic, Is.Not.Null);
+            Assert.That(runeList.Data.Count, Is.GreaterThan(0));
+            Assert.That(runeList.Type, Is.Not.Null.And.Not.Empty);
+            Assert.That(runeList.Version, Is.Not.Null.And.Not.Empty);
+
+            // All runes should have one non-zero stat. If a rune has all zero stats, then something is wrong.
+            var statlessRune = runeList.Data.Values.FirstOrDefault(r =>
+                r.Stats.FlatArmorMod == 0 &&
+                r.Stats.FlatArmorModPerLevel == 0 &&
+                r.Stats.FlatArmorPenetrationMod == 0 &&
+                r.Stats.FlatArmorPenetrationModPerLevel == 0 &&
+                r.Stats.FlatAttackSpeedMod == 0 &&
+                r.Stats.FlatBlockMod == 0 &&
+                r.Stats.FlatCritChanceMod == 0 &&
+                r.Stats.FlatCritChanceModPerLevel == 0 &&
+                r.Stats.FlatCritDamageMod == 0 &&
+                r.Stats.FlatCritDamageModPerLevel == 0 &&
+                r.Stats.FlatDodgeMod == 0 &&
+                r.Stats.FlatDodgeModPerLevel == 0 &&
+                r.Stats.FlatEnergyModPerLevel == 0 &&
+                r.Stats.FlatEnergyPoolMod == 0 &&
+                r.Stats.FlatEnergyRegenMod == 0 &&
+                r.Stats.FlatEnergyRegenModPerLevel == 0 &&
+                r.Stats.FlatEXPBonus == 0 &&
+                r.Stats.FlatGoldPer10Mod == 0 &&
+                r.Stats.FlatHPModPerLevel == 0 &&
+                r.Stats.FlatHPPoolMod == 0 &&
+                r.Stats.FlatHPRegenMod == 0 &&
+                r.Stats.FlatHPRegenModPerLevel == 0 &&
+                r.Stats.FlatMagicDamageMod == 0 &&
+                r.Stats.FlatMagicDamageModPerLevel == 0 &&
+                r.Stats.FlatMagicPenetrationMod == 0 &&
+                r.Stats.FlatMagicPenetrationModPerLevel == 0 &&
+                r.Stats.FlatMovementSpeedMod == 0 &&
+                r.Stats.FlatMovementSpeedModPerLevel == 0 &&
+                r.Stats.FlatMPModPerLevel == 0 &&
+                r.Stats.FlatMPPoolMod == 0 &&
+                r.Stats.FlatMPRegenMod == 0 &&
+                r.Stats.FlatMPRegenModPerLevel == 0 &&
+                r.Stats.FlatPhysicalDamageMod == 0 &&
+                r.Stats.FlatPhysicalDamageModPerLevel == 0 &&
+                r.Stats.FlatSpellBlockMod == 0 &&
+                r.Stats.FlatSpellBlockModPerLevel == 0 &&
+                r.Stats.FlatTimeDeadMod == 0 &&
+                r.Stats.FlatTimeDeadModPerLevel == 0 &&
+                r.Stats.PercentArmorMod == 0 &&
+                r.Stats.PercentArmorPenetrationMod == 0 &&
+                r.Stats.PercentArmorPenetrationModPerLevel == 0 &&
+                r.Stats.PercentAttackSpeedMod == 0 &&
+                r.Stats.PercentAttackSpeedModPerLevel == 0 &&
+                r.Stats.PercentBlockMod == 0 &&
+                r.Stats.PercentCooldownMod == 0 &&
+                r.Stats.PercentCooldownModPerLevel == 0 &&
+                r.Stats.PercentCritChanceMod == 0 &&
+                r.Stats.PercentCritDamageMod == 0 &&
+                r.Stats.PercentDodgeMod == 0 &&
+                r.Stats.PercentEXPBonus == 0 &&
+                r.Stats.PercentHPPoolMod == 0 &&
+                r.Stats.PercentHPRegenMod == 0 &&
+                r.Stats.PercentLifeStealMod == 0 &&
+                r.Stats.PercentMagicDamageMod == 0 &&
+                r.Stats.PercentMagicPenetrationMod == 0 &&
+                r.Stats.PercentMagicPenetrationModPerLevel == 0 &&
+                r.Stats.PercentMovementSpeedMod == 0 &&
+                r.Stats.PercentMovementSpeedModPerLevel == 0 &&
+                r.Stats.PercentMPPoolMod == 0 &&
+                r.Stats.PercentMPRegenMod == 0 &&
+                r.Stats.PercentPhysicalDamageMod == 0 &&
+                r.Stats.PercentSpellBlockMod == 0 &&
+                r.Stats.PercentSpellVampMod == 0 &&
+                r.Stats.PercentTimeDeadMod == 0 &&
+                r.Stats.PercentTimeDeadModPerLevel == 0);
+            if (statlessRune != null)
+                Assert.Fail("A rune had no stats: " + statlessRune.Name + " (ID: " + statlessRune.Id + ", Description: '" + statlessRune.Description + "')");
+        }
+
+        [Test]
+        public async Task GetRuneByIdAsyncTaskTest()
+        {
+            var client = new RiotClient();
+
+            // 8020 = Greater Quintessence of the Deadly Wreath (armor pen).
+            var rune = await client.GetRuneByIdTaskAsync(8020, runeData: new[] { "all" });
+            Assert.That(rune, Is.Not.Null);
+            Assert.That(rune.Colloq, Is.EqualTo(string.Empty));
+            Assert.That(rune.Description, Is.Not.Null.And.Not.Empty);
+            Assert.That(rune.Id, Is.GreaterThan(0));
+            Assert.That(rune.Image, Is.Not.Null);
+            Assert.That(rune.Maps, Is.Not.Null.And.Not.Empty);
+            Assert.That(rune.Name, Is.Not.Null.And.Not.Empty);
+            Assert.That(rune.SanitizedDescription, Is.Not.Null.And.Not.Empty);
+            Assert.That(rune.Stats, Is.Not.Null);
+            Assert.That(rune.Tags, Is.Not.Null.And.Not.Empty);
+
+            Assert.That(rune.RuneMetaData, Is.Not.Null);
+            Assert.That(rune.RuneMetaData.IsRune);
+            Assert.That(rune.RuneMetaData.Tier, Is.Not.Null.And.Not.Empty);
+            Assert.That(rune.RuneMetaData.Type, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public async Task RuneDefaultsTest()
+        {
+            // Test that the hard-coded default values are correct.
+            var client = new RiotClient();
+            var runeList = await client.GetRunesTaskAsync(runeListData: new[] { "all" });
+            var defaultRune = new Rune();
+            TestHelper.AssertObjectEqualityRecursive(defaultRune, runeList.Basic, true);
         }
 
         #endregion

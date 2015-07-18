@@ -46,7 +46,7 @@ namespace RiotNet
 
         #region Champions
 
-        private IRestRequest GetChampionsRequest(string locale, string version, bool dataById, IEnumerable<string> champListData)
+        private IRestRequest GetStaticChampionsRequest(string locale, string version, bool dataById, IEnumerable<string> champListData)
         {
             var request = Get("api/lol/static-data/{region}/v1.2/champion");
             if (locale != null)
@@ -66,7 +66,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a list of all available champions.
+        /// Gets the details for all champions.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
@@ -76,13 +76,13 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public StaticChampionList GetChampions(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null)
+        public StaticChampionList GetStaticChampions(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null)
         {
-            return Execute<StaticChampionList>(GetChampionsRequest(locale, version, dataById, champListData));
+            return Execute<StaticChampionList>(GetStaticChampionsRequest(locale, version, dataById, champListData));
         }
 
         /// <summary>
-        /// Gets a list of all available champions.
+        /// Gets the details for all champions.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
@@ -92,12 +92,12 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticChampionList> GetChampionsTaskAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null)
+        public Task<StaticChampionList> GetStaticChampionsTaskAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null)
         {
-            return ExecuteTaskAsync<StaticChampionList>(GetChampionsRequest(locale, version, dataById, champListData));
+            return ExecuteTaskAsync<StaticChampionList>(GetStaticChampionsRequest(locale, version, dataById, champListData));
         }
 
-        private IRestRequest GetChampionByIdRequest(int id, string locale, string version, IEnumerable<string> champData)
+        private IRestRequest GetStaticChampionByIdRequest(int id, string locale, string version, IEnumerable<string> champData)
         {
             var request = Get("api/lol/static-data/{region}/v1.2/champion/{id}");
             request.AddUrlSegment("id", id.ToString(CultureInfo.InvariantCulture));
@@ -116,7 +116,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a champion by ID.
+        /// Gets champion details by ID.
         /// </summary>
         /// <param name="id">The champion ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
@@ -126,13 +126,13 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public StaticChampion GetChampionById(int id, string locale = null, string version = null, IEnumerable<string> champData = null)
+        public StaticChampion GetStaticChampionById(int id, string locale = null, string version = null, IEnumerable<string> champData = null)
         {
-            return Execute<StaticChampion>(GetChampionByIdRequest(id, locale, version, champData));
+            return Execute<StaticChampion>(GetStaticChampionByIdRequest(id, locale, version, champData));
         }
 
         /// <summary>
-        /// Gets a champion by ID.
+        /// Gets champion details by ID.
         /// </summary>
         /// <param name="id">The champion ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
@@ -142,9 +142,9 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticChampion> GetChampionByIdTaskAsync(int id, string locale = null, string version = null, IEnumerable<string> champData = null)
+        public Task<StaticChampion> GetStaticChampionByIdTaskAsync(int id, string locale = null, string version = null, IEnumerable<string> champData = null)
         {
-            return ExecuteTaskAsync<StaticChampion>(GetChampionByIdRequest(id, locale, version, champData));
+            return ExecuteTaskAsync<StaticChampion>(GetStaticChampionByIdRequest(id, locale, version, champData));
         }
 
         #endregion
@@ -282,9 +282,9 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public List<string> GetLanguages(string locale = null, string version = null)
+        public List<string> GetLanguages()
         {
-            return Execute<List<string>>(GetLanguageStringsRequest(locale, version));
+            return Execute<List<string>>(GetLanguagesRequest());
         }
 
         /// <summary>
@@ -294,9 +294,9 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<List<string>> GetLanguagesTaskAsync(string locale = null, string version = null)
+        public Task<List<string>> GetLanguagesTaskAsync()
         {
-            return ExecuteTaskAsync<List<string>>(GetLanguageStringsRequest(locale, version));
+            return ExecuteTaskAsync<List<string>>(GetLanguagesRequest());
         }
 
         private IRestRequest GetLanguageStringsRequest(string locale, string version)
@@ -412,7 +412,16 @@ namespace RiotNet
         /// </remarks>
         public RuneList GetRunes(string locale = null, string version = null, IEnumerable<string> runeListData = null)
         {
-            return Execute<RuneList>(GetRunesRequest(locale, version, runeListData));
+            var runeList = Execute<RuneList>(GetRunesRequest(locale, version, runeListData));
+
+            // Add missing default values to the Maps dictionary.
+            var defaultMaps = runeList.Basic.Maps;
+            foreach (var item in runeList.Data.Values)
+                foreach (var kvp in defaultMaps)
+                    if (!item.Maps.ContainsKey(kvp.Key))
+                        item.Maps.Add(kvp.Key, kvp.Value);
+
+            return runeList;
         }
 
         /// <summary>
@@ -425,9 +434,18 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<RuneList> GetRunesTaskAsync(string locale = null, string version = null, IEnumerable<string> runeListData = null)
+        public async Task<RuneList> GetRunesTaskAsync(string locale = null, string version = null, IEnumerable<string> runeListData = null)
         {
-            return ExecuteTaskAsync<RuneList>(GetRunesRequest(locale, version, runeListData));
+            var runeList = await ExecuteTaskAsync<RuneList>(GetRunesRequest(locale, version, runeListData));
+
+            // Add missing default values to the Maps dictionary.
+            var defaultMaps = runeList.Basic.Maps;
+            foreach (var item in runeList.Data.Values)
+                foreach (var kvp in defaultMaps)
+                    if (!item.Maps.ContainsKey(kvp.Key))
+                        item.Maps.Add(kvp.Key, kvp.Value);
+
+            return runeList;
         }
 
         private IRestRequest GetRuneByIdRequest(int id, string locale, string version, IEnumerable<string> runeData)

@@ -6,7 +6,7 @@ namespace RiotNet.Models
     /// <summary>
     /// Contains item list data.
     /// </summary>
-    public class ItemList
+    public class ItemList : StaticDataList
     {
         /// <summary>
         /// Creates a new <see cref="ItemList"/> instance.
@@ -35,15 +35,5 @@ namespace RiotNet.Models
         /// Gets or sets the item tree data.
         /// </summary>
         public List<ItemTree> Tree { get; set; }
-
-        /// <summary>
-        /// Gets or sets the type of list. This is probably always equal to "item".
-        /// </summary>
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or sets the game version to which the item list applies.
-        /// </summary>
-        public string Version { get; set; }
     }
 }

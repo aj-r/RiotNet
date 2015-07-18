@@ -6,8 +6,16 @@ namespace RiotNet.Models
     /// <summary>
     /// Contains champion list data.
     /// </summary>
-    public class StaticChampionList
+    public class StaticChampionList : StaticDataList
     {
+        /// <summary>
+        /// Creates a new <see cref="StaticChampionList"/> instance.
+        /// </summary>
+        public StaticChampionList()
+        {
+            Type = "champion";
+        }
+
         /// <summary>
         /// Gets or sets the set of champions indexed by name (or ID if you specified dataById in the request).
         /// </summary>
@@ -22,15 +30,5 @@ namespace RiotNet.Models
         /// Gets or sets the keys.
         /// </summary>
         public Dictionary<string, string> Keys { get; set; }
-
-        /// <summary>
-        /// Gets or sets the item type.
-        /// </summary>
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or sets the game version to which the item list applies.
-        /// </summary>
-        public string Version { get; set; }
     }
 }
