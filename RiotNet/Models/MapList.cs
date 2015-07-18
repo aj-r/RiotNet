@@ -8,12 +8,12 @@ namespace RiotNet.Models
     public class MapList
     {
         /// <summary>
-        /// Gets or sets the set of champions indexed by name.
+        /// Gets or sets the set of maps indexed by ID.
         /// </summary>
-        public Dictionary<string, StaticChampion> Data { get; set; }
+        public Dictionary<string, MapDetails> Data { get; set; }
 
         /// <summary>
-        /// Gets or sets the type.
+        /// Gets or sets the type of list.
         /// </summary>
         public string Type { get; set; }
 

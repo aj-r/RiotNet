@@ -6,12 +6,12 @@ using RiotNet.Models;
 namespace RiotNet.Tests
 {
     [TestFixture]
-    public class MethodTests
+    public class LeagueTests
     {
         [Test]
         public async Task GetMasterLeagueTest()
         {
-            var client = new RiotClient(Region.NA);
+            var client = new RiotClient();
             var league = await client.GetMasterLeagueTaskAsync(RankedQueue.RANKED_TEAM_3x3);
 
             Assert.That(league.Entries.Count, Is.GreaterThan(0));

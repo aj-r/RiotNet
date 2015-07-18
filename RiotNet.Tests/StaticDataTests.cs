@@ -1,14 +1,31 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using NUnit.Framework;
+using RiotNet.Models;
 
 namespace RiotNet.Tests
 {
     [TestFixture]
     public class StaticDataTests
     {
+        #region Versions
+
+        [Test]
+        public async Task GetVersionsAsyncTaskTest()
+        {
+            var client = new RiotClient();
+            var versions = await client.GetVersionsTaskAsync();
+
+            Assert.That(versions, Is.Not.Null.And.Not.Empty);
+        }
+
+        #endregion
+
         #region Champions
 
         [Test]
@@ -17,13 +34,16 @@ namespace RiotNet.Tests
             var client = new RiotClient();
             var championList = await client.GetChampionsTaskAsync(champListData: new[] { "all" });
 
-            Assert.That(championList.Keys.Count, Is.GreaterThan(0));
             Assert.That(championList.Data.Count, Is.GreaterThan(0));
+            Assert.That(championList.Format, Is.Not.Null.And.Not.Empty);
+            Assert.That(championList.Keys.Count, Is.GreaterThan(0));
+            Assert.That(championList.Type, Is.Not.Null.And.Not.Empty);
+            Assert.That(championList.Version, Is.Not.Null.And.Not.Empty);
 
             var champion = championList.Data["Aatrox"];
-            Assert.That(champion.Tags, Contains.Item("Fighter"));
             Assert.That(champion.Stats, Is.Not.Null);
             Assert.That(champion.Stats.AttackDamage, Is.GreaterThan(0));
+            Assert.That(champion.Tags, Is.Not.Null.And.Not.Empty);
         }
 
         [Test]
@@ -150,6 +170,106 @@ namespace RiotNet.Tests
             Assert.That(champion.Stats.HPRegen, Is.GreaterThan(0));
             Assert.That(champion.Stats.HPRegenPerLevel, Is.GreaterThan(0));
             Assert.That(champion.Stats.MoveSpeed, Is.GreaterThan(0));
+        }
+
+        #endregion
+
+        #region Items
+
+        [Test]
+        public async Task GetItemsAsyncTaskTest()
+        {
+            var client = new RiotClient();
+            var itemList = await client.GetItemsTaskAsync(itemListData: new[] { "all" });
+
+            Assert.That(itemList.Basic, Is.Not.Null);
+            Assert.That(itemList.Data.Count, Is.GreaterThan(0));
+            Assert.That(itemList.Groups, Is.Not.Null.And.Not.Empty);
+            var group = itemList.Groups.First();
+            Assert.That(group.Key, Is.Not.Null.And.Not.Empty);
+            Assert.That(itemList.Groups.Any(g =>
+            {
+                int n;
+                return int.TryParse(g.MaxGroupOwnable, out n) && n > 1;
+            }));
+            Assert.That(itemList.Tree, Is.Not.Null.And.Not.Empty);
+            var treeItem = itemList.Tree.First();
+            Assert.That(treeItem.Header, Is.Not.Null.And.Not.Empty);
+            Assert.That(treeItem.Tags, Is.Not.Null.And.Not.Empty);
+            Assert.That(itemList.Type, Is.Not.Null.And.Not.Empty);
+            Assert.That(itemList.Version, Is.Not.Null.And.Not.Empty);
+
+            Assert.That(itemList.Data.Values.Any(i => !string.IsNullOrEmpty(i.Colloq)));
+            Assert.That(itemList.Data.Values.Any(i => i.ConsumeOnFull));
+            Assert.That(itemList.Data.Values.Any(i => i.Effect != null && i.Effect.Count > 0));
+            Assert.That(itemList.Data.Values.Any(i => !string.IsNullOrEmpty(i.Group)));
+            Assert.That(itemList.Data.Values.Any(i => i.HideFromAll));
+            Assert.That(itemList.Data.Values.Any(i => !i.InStore));
+            Assert.That(itemList.Data.Values.Any(i => i.Maps.Values.Any(m => m == false)));
+            Assert.That(itemList.Data.Values.Any(i => !string.IsNullOrEmpty(i.RequiredChampion)));
+            Assert.That(itemList.Data.Values.Any(i => i.SpecialRecipe > 0));
+            Assert.That(itemList.Data.Values.Any(i => i.Stats.FlatArmorMod > 0));
+            Assert.That(itemList.Data.Values.Any(i => i.Stats.FlatCritChanceMod > 0));
+            Assert.That(itemList.Data.Values.Any(i => i.Stats.FlatHPPoolMod > 0));
+            Assert.That(itemList.Data.Values.Any(i => i.Stats.FlatHPRegenMod > 0));
+            Assert.That(itemList.Data.Values.Any(i => i.Stats.FlatMagicDamageMod > 0));
+            Assert.That(itemList.Data.Values.Any(i => i.Stats.FlatMovementSpeedMod > 0));
+            Assert.That(itemList.Data.Values.Any(i => i.Stats.FlatMPPoolMod > 0));
+            Assert.That(itemList.Data.Values.Any(i => i.Stats.FlatMPRegenMod > 0));
+            Assert.That(itemList.Data.Values.Any(i => i.Stats.FlatPhysicalDamageMod > 0));
+            Assert.That(itemList.Data.Values.Any(i => i.Stats.FlatSpellBlockMod > 0));
+            Assert.That(itemList.Data.Values.Any(i => i.Stats.PercentAttackSpeedMod > 0));
+            Assert.That(itemList.Data.Values.Any(i => i.Stats.PercentLifeStealMod > 0));
+            Assert.That(itemList.Data.Values.All(i => i.Gold != null));
+        }
+
+        [Test]
+        public async Task GetItemByIdAsyncTaskTest()
+        {
+            var client = new RiotClient();
+
+            // 3086 = Zeal
+            var item = await client.GetItemByIdTaskAsync(3086, itemData: new[] { "all" });
+            Assert.That(item, Is.Not.Null);
+            Assert.That(item.Colloq, Is.EqualTo(string.Empty));
+            Assert.That(item.ConsumeOnFull, Is.False);
+            Assert.That(item.Consumed, Is.False);
+            Assert.That(item.Depth, Is.GreaterThan(1));
+            Assert.That(item.Description, Is.Not.Null.And.Not.Empty);
+            Assert.That(item.From, Is.Not.Null.And.Not.Empty);
+            Assert.That(item.Gold, Is.Not.Null);
+            Assert.That(item.Gold.Base, Is.GreaterThan(0));
+            Assert.That(item.Gold.Purchasable);
+            Assert.That(item.Gold.Sell, Is.GreaterThan(0));
+            Assert.That(item.Gold.Total, Is.GreaterThan(0));
+            Assert.That(item.HideFromAll, Is.False);
+            Assert.That(item.Id, Is.GreaterThan(0));
+            Assert.That(item.Image, Is.Not.Null);
+            Assert.That(item.InStore);
+            Assert.That(item.Into, Is.Not.Null.And.Not.Empty);
+            Assert.That(item.Maps, Is.Not.Null);
+            Assert.That(item.Maps, Is.Not.Null.And.Not.Empty);
+            Assert.That(item.Name, Is.Not.Null.And.Not.Empty);
+            Assert.That(item.PlainText, Is.Not.Null.And.Not.Empty);
+            Assert.That(item.SanitizedDescription, Is.Not.Null.And.Not.Empty);
+            Assert.That(item.Stacks, Is.EqualTo(1));
+            Assert.That(item.Stats, Is.Not.Null);
+            Assert.That(item.Tags, Is.Not.Null.And.Not.Empty);
+
+            // 2004 = Mana potion
+            item = await client.GetItemByIdTaskAsync(2004, itemData: new[] { "all" });
+            Assert.That(item.Consumed);
+            Assert.That(item.Stacks, Is.GreaterThan(1));
+        }
+
+        [Test]
+        public async Task ItemDefaultsTest()
+        {
+            // Test that the hard-coded default values are correct.
+            var client = new RiotClient();
+            var itemList = await client.GetItemsTaskAsync(itemListData: new[] { "all" });
+            var defaultItem = new Item();
+            TestHelper.AssertObjectEqualityRecursive(defaultItem, itemList.Basic, true);
         }
 
         #endregion

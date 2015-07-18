@@ -7,6 +7,7 @@ namespace RiotNet.Models
     /// <summary>
     /// Contains information about a promotion series.
     /// </summary>
+    [ComplexType]
     public class MiniSeries
     {
         /// <summary>
@@ -28,17 +29,5 @@ namespace RiotNet.Models
         /// Gets or sets the number of wins in the current series.
         /// </summary>
         public int Wins { get; set; }
-
-#if DB_READY
-
-        /// <summary>
-        /// Gets or sets the ID of the <see cref="MiniSeries"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
-        /// </summary>
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [JsonIgnore]
-        public long Id { get; set; }
-
-#endif
     }
 }

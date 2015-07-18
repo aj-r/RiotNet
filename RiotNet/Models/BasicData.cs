@@ -18,7 +18,7 @@ namespace RiotNet.Models
             Colloq = string.Empty;
             Description = string.Empty;
             Group = string.Empty;
-            Maps = new Dictionary<string, bool>
+            Maps = new BooleanDictionary
             { 
                 { "1", true },
                 { "8", true },
@@ -27,10 +27,11 @@ namespace RiotNet.Models
             };
             Name = string.Empty;
             PlainText = string.Empty;
+            RequiredChampion = string.Empty;
             SanitizedDescription = string.Empty;
             Stacks = 1;
             Stats = new BasicDataStats();
-            Tags = new List<string>();
+            Tags = new ListOfString();
         }
 
         /// <summary>
@@ -51,18 +52,21 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the ID of the item or rune.
         /// </summary>
+        /// <remarks>
+        /// This property is used as the primary key when storing the current object in a database.
+        /// </remarks>
         [Key]
         public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the image data for the current item/rune.
         /// </summary>
-        public Image Image { get; set; }
+        public virtual Image Image { get; set; }
 
         /// <summary>
         /// Gets or sets the maps that the item is used on, indexed by map ID.
         /// </summary>
-        public Dictionary<string, bool> Maps { get; set; }
+        public BooleanDictionary Maps { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the item/rune.
@@ -101,6 +105,6 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the tags of the item/rune.
         /// </summary>
-        public List<string> Tags { get; set; }
+        public ListOfString Tags { get; set; }
     }
 }

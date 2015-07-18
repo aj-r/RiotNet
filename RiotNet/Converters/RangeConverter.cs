@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using RiotNet.Models;
 
 namespace RiotNet.Converters
 {
@@ -36,7 +37,7 @@ namespace RiotNet.Converters
         /// <returns>The object value.</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            var ranges = new List<int>();
+            var ranges = new ListOfInt();
             switch (reader.TokenType)
             {
                 case JsonToken.StartArray:
@@ -64,7 +65,7 @@ namespace RiotNet.Converters
         /// <param name="serializer">The calling serializer.</param>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            var ranges = value as List<int>;
+            var ranges = value as ListOfInt;
             if (ranges == null)
             {
                 writer.WriteNull();

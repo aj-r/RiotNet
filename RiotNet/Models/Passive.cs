@@ -17,7 +17,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the image data for the passive's icon.
         /// </summary>
-        public Image Image { get; set; }
+        public virtual Image Image { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the passive.
@@ -31,12 +31,12 @@ namespace RiotNet.Models
 
 #if DB_READY
         /// <summary>
-        /// Gets or sets the ID of the <see cref="Passive"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
+        /// Gets or sets the ID of the current <see cref="Passive"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [JsonIgnore]
-        public long Id { get; set; }
+        public int Id { get; set; }
 #endif
     }
 }

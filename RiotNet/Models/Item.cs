@@ -14,10 +14,10 @@ namespace RiotNet.Models
         {
             // Note: default values are defined in the "basic" property of an ItemList or RuneList.
             Depth = 1;
-            From = new List<string>();
+            From = new ListOfInt();
             Gold = new Gold();
             InStore = true;
-            Into = new List<string>();
+            Into = new ListOfInt();
         }
 
         /// <summary>
@@ -41,12 +41,12 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the effect of the item.
         /// </summary>
-        public Dictionary<string, string> Effect { get; set; }
+        public StringDictionary Effect { get; set; }
 
         /// <summary>
         /// Gets or sets the list of items that this item builds out of.
         /// </summary>
-        public List<string> From { get; set; }
+        public ListOfInt From { get; set; }
 
         /// <summary>
         /// Gold cost information for the item. Does not apply to runes.
@@ -66,12 +66,12 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the list of items that this item can build into.
         /// </summary>
-        public List<string> Into { get; set; }
+        public ListOfInt Into { get; set; }
 
         /// <summary>
         /// Gets or sets the ID of the item that this item builds from using a special rule (e.g. Archangel's Staff into Seraph's Embrace).
         /// </summary>
-        public string SpecialRecipe { get; set; }
+        public int SpecialRecipe { get; set; }
 
     }
 }

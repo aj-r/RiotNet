@@ -12,7 +12,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task RateLimitTest_ShouldRetry()
         {
-            var client = new RiotClient(Region.NA);
+            var client = new RiotClient();
             client.Settings.RetryOnRateLimitExceeded = true;
             client.Settings.ThrowOnError = true;
             League league = null;
@@ -26,7 +26,7 @@ namespace RiotNet.Tests
         [ExpectedException(typeof(RateLimitExceededException))]
         public async Task RateLimitTest_ShouldThrow()
         {
-            var client = new RiotClient(Region.NA);
+            var client = new RiotClient();
             client.Settings.RetryOnRateLimitExceeded = false;
             client.Settings.ThrowOnError = true;
             for (var i = 0; i < 12; ++i)
@@ -36,7 +36,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task RateLimitTest_ShouldReturnNull()
         {
-            var client = new RiotClient(Region.NA);
+            var client = new RiotClient();
             client.Settings.RetryOnRateLimitExceeded = false;
             client.Settings.ThrowOnError = false;
             for (var i = 0; i < 10; ++i)

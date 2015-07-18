@@ -21,6 +21,59 @@ namespace RiotNet
         private readonly IRestClient client;
         private readonly RestSharpJsonNetSerializer serializer;
 
+        static RiotClient()
+        {
+            DefaultRegion = Region.NA;
+        }
+
+        /// <summary>
+        /// Creates a new <see cref="RiotClient"/> instance.
+        /// </summary>
+        public RiotClient()
+            : this(DefaultRegion)
+        { }
+
+        /// <summary>
+        /// Creates a new <see cref="RiotClient"/> instance.
+        /// </summary>
+        /// <param name="region">The region indicating which server to connect to.</param>
+        public RiotClient(Region region)
+            : this(region, RiotClientSettings.Default != null ? RiotClientSettings.Default() : new RiotClientSettings())
+        { }
+
+        /// <summary>
+        /// Creates a new <see cref="RiotClient"/> instance.
+        /// </summary>
+        /// <param name="region">The region indicating which server to connect to.</param>
+        /// <param name="settings">The settings to use.</param>
+        public RiotClient(Region region, RiotClientSettings settings)
+            : this(region, settings, new RestClient())
+        { }
+
+        /// <summary>
+        /// Creates a new <see cref="RiotClient"/> instance.
+        /// </summary>
+        /// <param name="region">The region indicating which server to connect to.</param>
+        /// <param name="settings">The settings to use.</param>
+        /// <param name="client">The IRestClient implementation to use.</param>
+        public RiotClient(Region region, RiotClientSettings settings, IRestClient client)
+        {
+            if (client == null)
+                throw new ArgumentNullException("client");
+            if (settings == null)
+                throw new ArgumentNullException("settings");
+            this.region = region;
+            this.platformId = GetPlatformId(region);
+            this.settings = settings;
+            serializer = new RestSharpJsonNetSerializer(settings);
+
+            if (client.BaseUrl == null)
+                client.BaseUrl = new Uri("https://" + GetServerName(region));
+            client.AddHandler("application/json", serializer);
+            client.AddHandler("text/json", serializer);
+            this.client = client;
+        }
+
         private static readonly JsonSerializerSettings jsonSettings = new JsonSerializerSettings
         {
             ContractResolver = new RiotNetContractResolver(),
@@ -39,6 +92,11 @@ namespace RiotNet
         {
             get { return jsonSettings; }
         }
+
+        /// <summary>
+        /// Gets or sets the default region to use when creating a new <see cref="RiotClient"/>.
+        /// </summary>
+        public static Region DefaultRegion { get; set; }
 
         /// <summary>
         /// Gets the platform ID for the specified region.
@@ -110,54 +168,6 @@ namespace RiotNet
                 default:
                     throw new NotSupportedException("The region '" + region + " is not supported.");
             }
-        }
-
-        /// <summary>
-        /// Creates a new <see cref="RiotClient"/> instance.
-        /// </summary>
-        public RiotClient()
-            : this(Region.NA)
-        { }
-
-        /// <summary>
-        /// Creates a new <see cref="RiotClient"/> instance.
-        /// </summary>
-        /// <param name="region">The region indicating which server to connect to.</param>
-        public RiotClient(Region region)
-            : this(region, RiotClientSettings.Default != null ? RiotClientSettings.Default() : new RiotClientSettings())
-        { }
-
-        /// <summary>
-        /// Creates a new <see cref="RiotClient"/> instance.
-        /// </summary>
-        /// <param name="region">The region indicating which server to connect to.</param>
-        /// <param name="settings">The settings to use.</param>
-        public RiotClient(Region region, RiotClientSettings settings)
-            : this(region, settings, new RestClient())
-        { }
-
-        /// <summary>
-        /// Creates a new <see cref="RiotClient"/> instance.
-        /// </summary>
-        /// <param name="region">The region indicating which server to connect to.</param>
-        /// <param name="settings">The settings to use.</param>
-        /// <param name="client">The IRestClient implementation to use.</param>
-        public RiotClient(Region region, RiotClientSettings settings, IRestClient client)
-        {
-            if (client == null)
-                throw new ArgumentNullException("client");
-            if (settings == null)
-                throw new ArgumentNullException("settings");
-            this.region = region;
-            this.platformId = GetPlatformId(region);
-            this.settings = settings;
-            serializer = new RestSharpJsonNetSerializer(settings);
-
-            if (client.BaseUrl == null)
-                client.BaseUrl = new Uri("https://" + GetServerName(region));
-            client.AddHandler("application/json", serializer);
-            client.AddHandler("text/json", serializer);
-            this.client = client;
         }
 
         /// <summary>

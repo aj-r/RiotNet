@@ -13,7 +13,7 @@ namespace RiotNet.Models
         /// Gets or sets a list of tips for how to play as this champion.
         /// </summary>
         [JsonProperty("allytips")]
-        public List<string> AllyTips { get; set; }
+        public ListOfString AllyTips { get; set; }
 
         /// <summary>
         /// Gets or sets the blurb describing the champion.
@@ -24,7 +24,7 @@ namespace RiotNet.Models
         /// Gets or sets a list of tips for how to play against this champion.
         /// </summary>
         [JsonProperty("enemytips")]
-        public List<string> EnemyTips { get; set; }
+        public ListOfString EnemyTips { get; set; }
 
         /// <summary>
         /// Gets or sets the champion ID.
@@ -35,7 +35,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the champion image data.
         /// </summary>
-        public Image Image { get; set; }
+        public virtual Image Image { get; set; }
 
         /// <summary>
         /// Gets or sets the strength and difficulty information for the current champion.
@@ -66,22 +66,22 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the champion's passive ability.
         /// </summary>
-        public Passive Passive { get; set; }
+        public virtual Passive Passive { get; set; }
 
         /// <summary>
         /// Gets or sets the champion's recommended item sets.
         /// </summary>
-        public List<Recommended> Recommended { get; set; }
+        public virtual List<Recommended> Recommended { get; set; }
 
         /// <summary>
         /// Gets or sets the available skins for the champion.
         /// </summary>
-        public List<Skin> Skins { get; set; }
+        public virtual List<Skin> Skins { get; set; }
 
         /// <summary>
         /// Gets or sets the champion's spells.
         /// </summary>
-        public List<StaticChampionSpell> Spells { get; set; }
+        public virtual List<StaticChampionSpell> Spells { get; set; }
 
         /// <summary>
         /// Gets or sets the champion's stats.
@@ -91,7 +91,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the champion's roles (e.g. Fighter, Tank).
         /// </summary>
-        public List<string> Tags { get; set; }
+        public ListOfString Tags { get; set; }
 
         /// <summary>
         /// Gets or sets the champion's title.

@@ -7,188 +7,189 @@ namespace RiotNet.Models
     /// <summary>
     /// Represents stats, or buffs, of an object.
     /// </summary>
+    [ComplexType]
     public class BasicDataStats
     {
         /// <summary>
-        /// Gets the flat armor modification to the target's stats.
+        /// Gets the flat armor added to the target's stats.
         /// </summary>
         public double FlatArmorMod { get; set; }
 
         /// <summary>
-        /// Gets the flat attack speed modification to the target's stats.
+        /// Gets the flat attack speed added to the target's stats.
         /// </summary>
         public double FlatAttackSpeedMod { get; set; }
 
         /// <summary>
-        /// Gets the flat block modification to the target's stats.
+        /// Gets the flat block chance added to the target's stats.
         /// </summary>
         public double FlatBlockMod { get; set; }
 
         /// <summary>
-        /// Gets the flat critical strike chance modification to the target's stats.
+        /// Gets the flat critical strike chance added to the target's stats.
         /// </summary>
         public double FlatCritChanceMod { get; set; }
 
         /// <summary>
-        /// Gets the flat critical strike damage modification to the target's stats.
+        /// Gets the flat critical strike damage added to the target's stats.
         /// </summary>
         public double FlatCritDamageMod { get; set; }
 
         /// <summary>
-        /// Gets the flat experience bonus modification to the target's stats.
+        /// Gets the flat experience bonus added to the target's stats.
         /// </summary>
         public double FlatEXPBonus { get; set; }
 
         /// <summary>
-        /// Gets the flat energy modification to the target's stats.
+        /// Gets the flat energy added to the target's stats.
         /// </summary>
         public double FlatEnergyPoolMod { get; set; }
 
         /// <summary>
-        /// Gets the flat enery regeneration modification to the target's stats.
+        /// Gets the flat enery regeneration added to the target's stats.
         /// </summary>
         public double FlatEnergyRegenMod { get; set; }
 
         /// <summary>
-        /// Gets the flat helth modification to the target's stats.
+        /// Gets the flat health added to the target's stats.
         /// </summary>
         public double FlatHPPoolMod { get; set; }
 
         /// <summary>
-        /// Gets the flat health regeneration modification to the target's stats.
+        /// Gets the flat health regeneration added to the target's stats.
         /// </summary>
         public double FlatHPRegenMod { get; set; }
 
         /// <summary>
-        /// Gets the flat mana modification to the target's stats.
+        /// Gets the flat mana modifiacation to the target's stats.
         /// </summary>
         public double FlatMPPoolMod { get; set; }
 
         /// <summary>
-        /// Gets the flat mana regeneration modification to the target's stats.
+        /// Gets the flat mana regeneration added to the target's stats.
         /// </summary>
         public double FlatMPRegenMod { get; set; }
 
         /// <summary>
-        /// Gets the flat ability power modification to the target's stats.
+        /// Gets the flat ability power added to the target's stats.
         /// </summary>
         public double FlatMagicDamageMod { get; set; }
 
         /// <summary>
-        /// Gets the flat movement speed modification to the target's stats.
+        /// Gets the flat movement speed added to the target's stats.
         /// </summary>
         public double FlatMovementSpeedMod { get; set; }
 
         /// <summary>
-        /// Gets the flat attack damage modification to the target's stats.
+        /// Gets the flat attack damage added to the target's stats.
         /// </summary>
         public double FlatPhysicalDamageMod { get; set; }
 
         /// <summary>
-        /// Gets the flat spell block modification to the target's stats.
+        /// Gets the flat spell block added to the target's stats.
         /// </summary>
         public double FlatSpellBlockMod { get; set; }
 
         /// <summary>
-        /// Gets the percent armor modification to the target's stats.
+        /// Gets the percent armor added to the target's stats.
         /// </summary>
         public double PercentArmorMod { get; set; }
 
         /// <summary>
-        /// Gets the percent attack speed modification to the target's stats.
+        /// Gets the percent attack speed added to the target's stats.
         /// </summary>
         public double PercentAttackSpeedMod { get; set; }
 
         /// <summary>
-        /// Gets the percent block modification to the target's stats.
+        /// Gets the percent block added to the target's stats.
         /// </summary>
         public double PercentBlockMod { get; set; }
 
         /// <summary>
-        /// Gets the percent ctritical strike chance modification to the target's stats.
+        /// Gets the percent ctritical strike chance added to the target's stats.
         /// </summary>
         public double PercentCritChanceMod { get; set; }
 
         /// <summary>
-        /// Gets the percent critical strike damage modification to the target's stats.
+        /// Gets the percent critical strike damage added to the target's stats.
         /// </summary>
         public double PercentCritDamageMod { get; set; }
 
         /// <summary>
-        /// Gets the percent dodge modification to the target's stats.
+        /// Gets the percent dodge added to the target's stats.
         /// </summary>
         public double PercentDodgeMod { get; set; }
 
         /// <summary>
-        /// Gets the percent experience bonus modification to the target's stats.
+        /// Gets the percent experience bonus added to the target's stats.
         /// </summary>
         public double PercentEXPBonus { get; set; }
 
         /// <summary>
-        /// Gets the percent health modification to the target's stats.
+        /// Gets the percent health added to the target's stats.
         /// </summary>
         public double PercentHPPoolMod { get; set; }
 
         /// <summary>
-        /// Gets the percent health regeneration modification to the target's stats.
+        /// Gets the percent health regeneration added to the target's stats.
         /// </summary>
         public double PercentHPRegenMod { get; set; }
 
         /// <summary>
-        /// Gets the percent life steal modification to the target's stats.
+        /// Gets the percent life steal added to the target's stats.
         /// </summary>
         public double PercentLifeStealMod { get; set; }
 
         /// <summary>
-        /// Gets the percent mana modification to the target's stats.
+        /// Gets the percent mana added to the target's stats.
         /// </summary>
         public double PercentMPPoolMod { get; set; }
 
         /// <summary>
-        /// Gets the percent mana regeneration modification to the target's stats.
+        /// Gets the percent mana regeneration added to the target's stats.
         /// </summary>
         public double PercentMPRegenMod { get; set; }
 
         /// <summary>
-        /// Gets the percent ability power modification to the target's stats.
+        /// Gets the percent ability power added to the target's stats.
         /// </summary>
         public double PercentMagicDamageMod { get; set; }
 
         /// <summary>
-        /// Gets the percent movement speed modification to the target's stats.
+        /// Gets the percent movement speed added to the target's stats.
         /// </summary>
         public double PercentMovementSpeedMod { get; set; }
 
         /// <summary>
-        /// Gets the percent attack damage modification to the target's stats.
+        /// Gets the percent attack damage added to the target's stats.
         /// </summary>
         public double PercentPhysicalDamageMod { get; set; }
 
         /// <summary>
-        /// Gets the percent spell block modification to the target's stats.
+        /// Gets the percent spell block added to the target's stats.
         /// </summary>
         public double PercentSpellBlockMod { get; set; }
 
         /// <summary>
-        /// Gets the percent spell vamp modification to the target's stats.
+        /// Gets the percent spell vamp added to the target's stats.
         /// </summary>
         public double PercentSpellVampMod { get; set; }
 
 
         /// <summary>
-        /// Gets the flat armor modification per level to the target's stats.
+        /// Gets the flat armor added per level to the target's stats.
         /// </summary>
         [JsonProperty("rFlatArmorModPerLevel")]
         public double FlatArmorModPerLevel { get; set; }
 
         /// <summary>
-        /// Gets the flat armor penetration to the target's stats.
+        /// Gets the flat armor penetration added to the target's stats.
         /// </summary>
         [JsonProperty("rFlatArmorPenetrationMod")]
         public double FlatArmorPenetrationMod { get; set; }
 
         /// <summary>
-        /// Gets the flat armor modification per level to the target's stats.
+        /// Gets the flat armor added per level to the target's stats.
         /// </summary>
         [JsonProperty("rFlatArmorPenetrationModPerLevel")]
         public double FlatArmorPenetrationModPerLevel { get; set; }
@@ -206,13 +207,13 @@ namespace RiotNet.Models
         public double FlatCritDamageModPerLevel { get; set; }
 
         /// <summary>
-        /// Gets the flat dodge added to the target's stats.
+        /// Gets the flat dodge chance added to the target's stats.
         /// </summary>
         [JsonProperty("rFlatDodgeMod")]
         public double FlatDodgeMod { get; set; }
 
         /// <summary>
-        /// Gets the flat dodge per level added to the target's stats.
+        /// Gets the flat dodge chance per level added to the target's stats.
         /// </summary>
         [JsonProperty("rFlatDodgeModPerLevel")]
         public double FlatDodgeModPerLevel { get; set; }
@@ -366,15 +367,5 @@ namespace RiotNet.Models
         /// </summary>
         [JsonProperty("rPercentTimeDeadModPerLevel")]
         public double PercentTimeDeadModPerLevel { get; set; }
-
-#if DB_READY
-        /// <summary>
-        /// Gets or sets the ID of the <see cref="BasicDataStats"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
-        /// </summary>
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [JsonIgnore]
-        public long Id { get; set; }
-#endif
     }
 }

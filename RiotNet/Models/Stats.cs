@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace RiotNet.Models
@@ -12,6 +8,7 @@ namespace RiotNet.Models
     /// <summary>
     /// Contains champion stats data.
     /// </summary>
+    [ComplexType]
     public class Stats
     {
         /// <summary>
@@ -131,15 +128,5 @@ namespace RiotNet.Models
         /// </summary>
         [JsonProperty("spellblockperlevel")]
         public double SpellBlockPerLevel { get; set; }
-
-#if DB_READY
-        /// <summary>
-        /// Gets or sets the ID of the current <see cref="Stats"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
-        /// </summary>
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [JsonIgnore]
-        public int Id { get; set; }
-#endif
     }
 }

@@ -15,12 +15,12 @@ namespace RiotNet.Models
         /// Gets or sets the alternate image data for the current ability.
         /// </summary>
         [JsonProperty("altimages")]
-        public List<Image> AltImages { get; set; }
+        public virtual List<Image> AltImages { get; set; }
 
         /// <summary>
         /// Gets or sets the cooldowns of this ability at each rank.
         /// </summary>
-        public List<double> Cooldown { get; set; }
+        public ListOfDouble Cooldown { get; set; }
 
         /// <summary>
         /// Gets or sets the cooldown at all ranks merged into a single string.
@@ -30,7 +30,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the mana (or other resource) cost of the ability.
         /// </summary>
-        public List<int> Cost { get; set; }
+        public ListOfInt Cost { get; set; }
 
         /// <summary>
         /// Gets or sets the cost at all ranks merged into a single string.
@@ -50,17 +50,17 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the effect of the ability at each rank.
         /// </summary>
-        public List<List<double>> Effect { get; set; }
+        public ListOfListOfDouble Effect { get; set; }
 
         /// <summary>
         /// Gets or sets the effects at all ranks, merged into a single string for each effect.
         /// </summary>
-        public List<string> EffectBurn { get; set; }
+        public ListOfString EffectBurn { get; set; }
 
         /// <summary>
         /// Gets or sets the image data for the current ability.
         /// </summary>
-        public Image Image { get; set; }
+        public virtual Image Image { get; set; }
 
         /// <summary>
         /// Gets or sets the key of the current ability.
@@ -88,7 +88,7 @@ namespace RiotNet.Models
         /// Gets or sets the range of the spell at each rank. A list with a single entry of 0 indicates that the spell is self-cast.
         /// </summary>
         [JsonConverter(typeof(RangeConverter))]
-        public List<int> Range { get; set; }
+        public ListOfInt Range { get; set; }
 
         /// <summary>
         /// Gets or sets the range at all ranks merged into a single string.
@@ -118,7 +118,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the scaling coefficients of the spell.
         /// </summary>
-        public List<SpellVars> Vars { get; set; }
+        public virtual List<SpellVars> Vars { get; set; }
 
 #if DB_READY
         /// <summary>
