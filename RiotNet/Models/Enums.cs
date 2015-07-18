@@ -40,6 +40,109 @@
     }
 
     /// <summary>
+    /// Represents a game sub-type.
+    /// </summary>
+    public enum GameSubType
+    {
+        /// <summary>
+        /// None
+        /// </summary>
+        NONE,
+        /// <summary>
+        /// Normal
+        /// </summary>
+        NORMAL,
+        /// <summary>
+        /// Bot
+        /// </summary>
+        BOT,
+        /// <summary>
+        /// Ranked solo 5x5
+        /// </summary>
+        RANKED_SOLO_5x5,
+        /// <summary>
+        /// Ranked premade 3x3
+        /// </summary>
+        RANKED_PREMADE_3x3,
+        /// <summary>
+        /// Ranked premade 5x5
+        /// </summary>
+        RANKED_PREMADE_5x5,
+        /// <summary>
+        /// Dominion unranked
+        /// </summary>
+        ODIN_UNRANKED,
+        /// <summary>
+        /// Ranked team 3x3
+        /// </summary>
+        RANKED_TEAM_3x3,
+        /// <summary>
+        /// Ranked team 5x5
+        /// </summary>
+        RANKED_TEAM_5x5,
+        /// <summary>
+        /// Normal 3x3
+        /// </summary>
+        NORMAL_3x3,
+        /// <summary>
+        /// Bot 3x3
+        /// </summary>
+        BOT_3x3,
+        /// <summary>
+        /// Teambuilder 5x5
+        /// </summary>
+        CAP_5x5,
+        /// <summary>
+        /// ARAM unranked 5x5
+        /// </summary>
+        ARAM_UNRANKED_5x5,
+        /// <summary>
+        /// One for all 5x5
+        /// </summary>
+        ONEFORALL_5x5,
+        /// <summary>
+        /// Snowdown Showdown 1x1
+        /// </summary>
+        FIRSTBLOOD_1x1,
+        /// <summary>
+        /// Snowdown Showdown 2x2
+        /// </summary>
+        FIRSTBLOOD_2x2,
+        /// <summary>
+        /// Summoner's Rift Hexakill
+        /// </summary>
+        SR_6x6,
+        /// <summary>
+        /// URF
+        /// </summary>
+        URF,
+        /// <summary>
+        /// URF bot
+        /// </summary>
+        URF_BOT,
+        /// <summary>
+        /// Doom bots
+        /// </summary>
+        NIGHTMARE_BOT,
+        /// <summary>
+        /// Ascension
+        /// </summary>
+        ASCENSION,
+        /// <summary>
+        /// Twisted Treeline Hexakill
+        /// </summary>
+        HEXAKILL,
+        /// <summary>
+        /// Legend of the Poro King
+        /// </summary>
+        KING_PORO,
+        /// <summary>
+        /// Nemesis draft
+        /// </summary>
+        COUNTER_PICK,
+    }
+
+    /// <summary>
     /// Represents the game type.
     /// </summary>
     public enum GameType
@@ -56,6 +159,52 @@
         /// Tutorial game
         /// </summary>
         TUTORIAL_GAME,
+    }
+
+    /// <summary>
+    /// Represents player's position.
+    /// </summary>
+    public enum PlayerPosition
+    {
+        /// <summary>
+        /// Top
+        /// </summary>
+        TOP = 1,
+        /// <summary>
+        /// Mid
+        /// </summary>
+        MIDDLE = 2,
+        /// <summary>
+        /// Jungle
+        /// </summary>
+        JUNGLE = 3,
+        /// <summary>
+        /// Bot
+        /// </summary>
+        BOT = 4,
+    }
+
+    /// <summary>
+    /// Represents player's role.
+    /// </summary>
+    public enum PlayerRole
+    {
+        /// <summary>
+        /// Duo lane
+        /// </summary>
+        DUO = 1,
+        /// <summary>
+        /// Support
+        /// </summary>
+        SUPPORT = 2,
+        /// <summary>
+        /// Carry
+        /// </summary>
+        CARRY = 3,
+        /// <summary>
+        /// Solo lane
+        /// </summary>
+        SOLO = 4,
     }
 
     /// <summary>
@@ -263,6 +412,20 @@
         TR,
     }
 
+    /// <summary>
+    /// Identifies which side/team the player was on.
+    /// </summary>
+    public enum TeamSide
+    {
+        /// <summary>
+        /// Team 1 (blue).
+        /// </summary>
+        Team1 = 100,
+        /// <summary>
+        /// Team 2 (red).
+        /// </summary>
+        Team2 = 200,
+    }
     /// <summary>
     /// Represents a ranked tier.
     /// </summary>
