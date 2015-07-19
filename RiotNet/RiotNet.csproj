@@ -151,6 +151,7 @@
     <Compile Include="RiotClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RiotClientChampion.cs" />
+    <Compile Include="RiotClientCurrentGame.cs" />
     <Compile Include="RiotClientLeague.cs" />
     <Compile Include="RiotClientSettings.cs" />
     <Compile Include="RiotClientStaticData.cs" />
