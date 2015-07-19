@@ -432,6 +432,48 @@
     }
 
     /// <summary>
+    /// Represents server status.
+    /// </summary>
+    public enum ServerStatus
+    {
+        /// <summary>
+        /// Online
+        /// </summary>
+        Online,
+        /// <summary>
+        /// Alert
+        /// </summary>
+        Alert,
+        /// <summary>
+        /// Offline
+        /// </summary>
+        Offline,
+        /// <summary>
+        /// Deploying
+        /// </summary>
+        Deploying,
+    }
+
+    /// <summary>
+    /// Represents server incident message severity.
+    /// </summary>
+    public enum Severity
+    {
+        /// <summary>
+        /// Info
+        /// </summary>
+        Info,
+        /// <summary>
+        /// Alert
+        /// </summary>
+        Alert,
+        /// <summary>
+        /// Error
+        /// </summary>
+        Error,
+    }
+
+    /// <summary>
     /// Identifies which side/team the player was on.
     /// </summary>
     public enum TeamSide
