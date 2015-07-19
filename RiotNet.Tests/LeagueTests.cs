@@ -17,7 +17,7 @@ namespace RiotNet.Tests
             Assert.That(league.Entries.Count, Is.GreaterThan(0));
             Assert.That(league.Name, Is.Not.Null.And.Not.Empty);
             Assert.That(league.Queue, Is.EqualTo(RankedQueue.RANKED_TEAM_3x3));
-            Assert.That(league.Tier, Is.EqualTo(Tier.Master));
+            Assert.That(league.Tier, Is.EqualTo(Tier.MASTER));
         }
     }
 }

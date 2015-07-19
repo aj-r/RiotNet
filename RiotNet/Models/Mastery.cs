@@ -18,6 +18,7 @@ namespace RiotNet.Models
         /// Gets or sets the ID of this mastery.
         /// For static information regarding masteries, please refer to the Static Data API.
         /// </summary>
+        // TODO: put custom converter so that "masteryId" also works as a name.
         public int Id { get; set; }
 
         /// <summary>
