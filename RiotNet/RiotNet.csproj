@@ -71,7 +71,9 @@
     <Compile Include="Models\MatchParticipantTimeline.cs" />
     <Compile Include="Models\MatchParticipantTimelineData.cs" />
     <Compile Include="Models\MatchPlayer.cs" />
+    <Compile Include="Models\MatchSummary.cs" />
     <Compile Include="Models\MatchTeam.cs" />
+    <Compile Include="Models\PlayerHistory.cs" />
     <Compile Include="Models\Position.cs" />
     <Compile Include="Models\Rune.cs" />
     <Compile Include="Models\StaticDataList.cs" />
