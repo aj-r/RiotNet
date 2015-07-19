@@ -298,7 +298,7 @@ namespace RiotNet.Models
         public TeamSide Team { get; set; }
 
         /// <summary>
-        /// Gets or sets which objective the team had (appears to be used in Dominion, similar to which team).
+        /// Gets or sets if game was a dominion game, number of completed team objectives (i.e., quests).
         /// </summary>
         public int TeamObjective { get; set; }
 

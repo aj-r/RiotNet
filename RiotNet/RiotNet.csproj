@@ -61,6 +61,19 @@
     <Compile Include="Models\BlockItem.cs" />
     <Compile Include="Models\CurrentGameInfo.cs" />
     <Compile Include="Models\CurrentGameParticipant.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Frame.cs" />
+    <Compile Include="Models\MatchBannedChampion.cs" />
+    <Compile Include="Models\MatchParticipant.cs" />
+    <Compile Include="Models\MatchParticipantFrame.cs" />
+    <Compile Include="Models\MatchParticipantIdentity.cs" />
+    <Compile Include="Models\MatchParticipantStats.cs" />
+    <Compile Include="Models\MatchParticipantTimeline.cs" />
+    <Compile Include="Models\MatchParticipantTimelineData.cs" />
+    <Compile Include="Models\MatchPlayer.cs" />
+    <Compile Include="Models\MatchTeam.cs" />
+    <Compile Include="Models\Position.cs" />
+    <Compile Include="Models\Rune.cs" />
     <Compile Include="Models\StaticDataList.cs" />
     <Compile Include="Models\FeaturedGameInfo.cs" />
     <Compile Include="Models\FeaturedGames.cs" />
@@ -125,6 +138,7 @@
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\TeamMemberInfo.cs" />
     <Compile Include="Models\TeamStatDetail.cs" />
+    <Compile Include="Models\Timeline.cs" />
     <Compile Include="Models\Translation.cs" />
     <Compile Include="RestSharpJsonNetSerializer.cs" />
     <Compile Include="RestTimeoutException.cs" />

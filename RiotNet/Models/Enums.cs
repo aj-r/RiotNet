@@ -1,6 +1,99 @@
 ﻿namespace RiotNet.Models
 {
     /// <summary>
+    /// Represents ascended type (for match events).
+    /// </summary>
+    public enum AscendedType
+    {
+        /// <summary>
+        /// Champion ascended
+        /// </summary>
+        CHAMPION_ASCENDED,
+        /// <summary>
+        /// Clear ascended
+        /// </summary>
+        CLEAR_ASCENDED,
+        /// <summary>
+        /// Minion ascended
+        /// </summary>
+        MINION_ASCENDED,
+    }
+
+    /// <summary>
+    /// Represents building type (used for match events).
+    /// </summary>
+    public enum BuildingType
+    {
+        /// <summary>
+        /// Inhibitor building
+        /// </summary>
+        INHIBITOR_BUILDING,
+        /// <summary>
+        /// Tower building
+        /// </summary>
+        TOWER_BUILDING,
+    }
+
+    /// <summary>
+    /// Represents the event type (for match events).
+    /// </summary>
+    public enum EventType
+    {
+        /// <summary>
+        /// Ascended event
+        /// </summary>
+        ASCENDED_EVENT,
+        /// <summary>
+        /// Building kill
+        /// </summary>
+        BUILDING_KILL,
+        /// <summary>
+        /// Capture point
+        /// </summary>
+        CAPTURE_POINT,
+        /// <summary>
+        /// Champion kill
+        /// </summary>
+        CHAMPION_KILL,
+        /// <summary>
+        /// Elite monster kill
+        /// </summary>
+        ELITE_MONSTER_KILL,
+        /// <summary>
+        /// Item destroyed
+        /// </summary>
+        ITEM_DESTROYED,
+        /// <summary>
+        /// Item purchased
+        /// </summary>
+        ITEM_PURCHASED,
+        /// <summary>
+        /// Item sold
+        /// </summary>
+        ITEM_SOLD,
+        /// <summary>
+        /// Item undo
+        /// </summary>
+        ITEM_UNDO,
+        /// <summary>
+        /// Poro king summon
+        /// </summary>
+        PORO_KING_SUMMON,
+        /// <summary>
+        /// Skill level up
+        /// </summary>
+        SKILL_LEVEL_UP,
+        /// <summary>
+        /// Ward kill
+        /// </summary>
+        WARD_KILL,
+        /// <summary>
+        /// Ward placed
+        /// </summary>
+        WARD_PLACED,
+    }
+
+    /// <summary>
     /// Represents a game mode.
     /// </summary>
     public enum GameMode
@@ -162,6 +255,90 @@
     }
 
     /// <summary>
+    /// Represents the lane an event occured (for match events).
+    /// </summary>
+    public enum LaneType
+    {
+        /// <summary>
+        /// Bot lane
+        /// </summary>
+        BOT_LANE,
+        /// <summary>
+        /// Mid lane
+        /// </summary>
+        MID_LANE,
+        /// <summary>
+        /// Top lane
+        /// </summary>
+        TOP_LANE,
+    }
+
+    /// <summary>
+    /// Represents level up type.
+    /// </summary>
+    public enum LevelUpType
+    {
+        /// <summary>
+        /// Evolve
+        /// </summary>
+        EVOLVE,
+        /// <summary>
+        /// Normal
+        /// </summary>
+        NORMAL,
+    }
+
+    /// <summary>
+    /// Represents player's role. Very similar to PlayerRole but used in the Match api...
+    /// </summary>
+    public enum MatchRole
+    {
+        /// <summary>
+        /// Duo
+        /// </summary>
+        DUO,
+        /// <summary>
+        /// None
+        /// </summary>
+        NONE,
+        /// <summary>
+        /// Solo
+        /// </summary>
+        SOLO,
+        /// <summary>
+        /// Duo carry
+        /// </summary>
+        DUO_CARRY,
+        /// <summary>
+        /// Jungle
+        /// </summary>
+        DUO_SUPPORT
+    }
+
+    /// <summary>
+    /// Represents monster type.
+    /// </summary>
+    public enum MonsterType
+    {
+        /// <summary>
+        /// Baron nashor
+        /// </summary>
+        BARON_NASHOR,
+        /// <summary>
+        /// Blue golem
+        /// </summary>
+        BLUE_GOLEM,
+        /// <summary>
+        /// Dragon
+        /// </summary>
+        DRAGON,
+        /// <summary>
+        /// Red lizard
+        /// </summary>
+        RED_LIZARD,
+    }
+
+    /// <summary>
     /// Indicates a type of mastery tree.
     /// </summary>
     public enum MastertyTreeType
@@ -224,6 +401,33 @@
         /// Solo lane
         /// </summary>
         SOLO = 4,
+    }
+
+    /// <summary>
+    /// Represents a point (in dominion?).
+    /// </summary>
+    public enum Point
+    {
+        /// <summary>
+        /// Point a
+        /// </summary>
+        POINT_A,
+        /// <summary>
+        /// Point b
+        /// </summary>
+        POINT_B,
+        /// <summary>
+        /// Point c
+        /// </summary>
+        POINT_C,
+        /// <summary>
+        /// Point d
+        /// </summary>
+        POINT_D,
+        /// <summary>
+        /// Point e
+        /// </summary>
+        POINT_E,
     }
 
     /// <summary>
@@ -432,6 +636,37 @@
     }
 
     /// <summary>
+    /// Represents the season.
+    /// </summary>
+    public enum Season
+    {
+        /// <summary>
+        /// Pre-season 3, 2013
+        /// </summary>
+        PRESEASON3,
+        /// <summary>
+        /// Season 3, 2013
+        /// </summary>
+        SEASON3,
+        /// <summary>
+        /// Pre-season 4, 2014
+        /// </summary>
+        PRESEASON2014,
+        /// <summary>
+        /// Season 4, 2014
+        /// </summary>
+        SEASON2014,
+        /// <summary>
+        /// Pre-season 5, 2015
+        /// </summary>
+        PRESEASON2015,
+        /// <summary>
+        /// Season 5, 2015
+        /// </summary>
+        SEASON2015,
+    }
+
+    /// <summary>
     /// Represents server status.
     /// </summary>
     public enum ServerStatus
@@ -496,30 +731,96 @@
         /// <summary>
         /// Challenger tier
         /// </summary>
-        Challenger,
+        CHALLENGER,
         /// <summary>
         /// Master tier
         /// </summary>
-        Master,
+        MASTER,
         /// <summary>
         /// Diamond tier
         /// </summary>
-        Diamond,
+        DIAMOND,
         /// <summary>
         /// Platinum tier
         /// </summary>
-        Platinum,
+        PLATINUM,
         /// <summary>
         /// Gold tier
         /// </summary>
-        Gold,
+        GOLD,
         /// <summary>
         /// Silver tier
         /// </summary>
-        Silver,
+        SILVER,
         /// <summary>
         /// Bronze tier
         /// </summary>
-        Bronze
+        BRONZE,
+        /// <summary>
+        /// Unranked
+        /// </summary>
+        UNRANKED,
+    }
+
+    /// <summary>
+    /// Represents tower type (used in match events).
+    /// </summary>
+    public enum TowerType
+    {
+        /// <summary>
+        /// Base turret
+        /// </summary>
+        BASE_TURRET,
+        /// <summary>
+        /// Fountain turret
+        /// </summary>
+        FOUNTAIN_TURRET,
+        /// <summary>
+        /// Inner turret
+        /// </summary>
+        INNER_TURRET,
+        /// <summary>
+        /// Nexus turret
+        /// </summary>
+        NEXUS_TURRET,
+        /// <summary>
+        /// Outer turret
+        /// </summary>
+        OUTER_TURRET,
+        /// <summary>
+        /// Undefined turret
+        /// </summary>
+        UNDEFINED_TURRET,
+    }
+
+    /// <summary>
+    /// Represents ward type (used in match events).
+    /// </summary>
+    public enum WardType
+    {
+        /// <summary>
+        /// Sight ward
+        /// </summary>
+        SIGHT_WARD,
+        /// <summary>
+        /// Teemo mushroom
+        /// </summary>
+        TEEMO_MUSHROOM,
+        /// <summary>
+        /// Undefined
+        /// </summary>
+        UNDEFINED,
+        /// <summary>
+        /// Vision ward
+        /// </summary>
+        VISION_WARD,
+        /// <summary>
+        /// Yellow trinket
+        /// </summary>
+        YELLOW_TRINKET,
+        /// <summary>
+        /// Yellow trinket upgrade
+        /// </summary>
+        YELLOW_TRINKET_UPGRADE,
     }
 }
