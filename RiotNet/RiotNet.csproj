@@ -66,6 +66,12 @@
     <Compile Include="Models\FeaturedGames.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GameInfoBase.cs" />
+    <Compile Include="Models\Mastery.cs" />
+    <Compile Include="Models\MasteryPage.cs" />
+    <Compile Include="Models\MasteryPages.cs" />
+    <Compile Include="Models\RunePage.cs" />
+    <Compile Include="Models\RunePages.cs" />
+    <Compile Include="Models\RuneSlot.cs" />
     <Compile Include="Models\StaticMasteryTree.cs" />
     <Compile Include="Models\MatchDetail.cs" />
     <Compile Include="Models\MatchHistorySummary.cs" />
@@ -93,7 +99,7 @@
     <Compile Include="Models\MapList.cs" />
     <Compile Include="Models\StaticMasteryList.cs" />
     <Compile Include="Models\StaticMastery.cs" />
-    <Compile Include="Models\RuneList.cs" />
+    <Compile Include="Models\StaticRuneList.cs" />
     <Compile Include="Models\ItemList.cs" />
     <Compile Include="Models\ItemTree.cs" />
     <Compile Include="Models\League.cs" />
@@ -104,11 +110,12 @@
     <Compile Include="Models\BasicData.cs" />
     <Compile Include="Models\Passive.cs" />
     <Compile Include="Models\Recommended.cs" />
-    <Compile Include="Models\Rune.cs" />
+    <Compile Include="Models\StaticRune.cs" />
     <Compile Include="Models\Skin.cs" />
     <Compile Include="Models\SpellVars.cs" />
     <Compile Include="Models\StaticMasteryTreeList.cs" />
     <Compile Include="Models\Stats.cs" />
+    <Compile Include="Models\Summoner.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\TeamMemberInfo.cs" />
     <Compile Include="Models\TeamStatDetail.cs" />
@@ -119,6 +126,7 @@
     <Compile Include="RetryEventArgs.cs" />
     <Compile Include="RiotClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RiotClientChampion.cs" />
     <Compile Include="RiotClientLeague.cs" />
     <Compile Include="RiotClientSettings.cs" />
     <Compile Include="RiotClientStaticData.cs" />

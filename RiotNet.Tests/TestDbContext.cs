@@ -30,7 +30,7 @@ namespace RiotNet.Tests
         public IDbSet<Passive> Passives { get; set; }
         public IDbSet<Recommended> RecommendedItemSets { get; set; }
         public IDbSet<Roster> Rosters { get; set; }
-        public IDbSet<Rune> Runes { get; set; }
+        public IDbSet<StaticRune> Runes { get; set; }
         public IDbSet<Skin> Skins { get; set; }
         public IDbSet<SpellVars> SpellVars { get; set; }
         public IDbSet<StaticChampion> StaticChampions { get; set; }

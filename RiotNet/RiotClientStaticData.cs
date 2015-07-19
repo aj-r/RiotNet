@@ -509,14 +509,14 @@ namespace RiotNet
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersions"/>.</param>
-        /// <param name="runeListData">Tags to return additional data. Valid tags are any property of the <see cref="Rune"/> or <see cref="RuneList"/> objects. Only type, version, data, id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="runeListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticRune"/> or <see cref="StaticRuneList"/> objects. Only type, version, data, id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A dictionary of runes indexed by ID.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public RuneList GetRunes(string locale = null, string version = null, IEnumerable<string> runeListData = null)
+        public StaticRuneList GetRunes(string locale = null, string version = null, IEnumerable<string> runeListData = null)
         {
-            var runeList = Execute<RuneList>(GetRunesRequest(locale, version, runeListData));
+            var runeList = Execute<StaticRuneList>(GetRunesRequest(locale, version, runeListData));
 
             // Add missing default values to the Maps dictionary.
             var defaultMaps = runeList.Basic.Maps;
@@ -533,14 +533,14 @@ namespace RiotNet
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
-        /// <param name="runeListData">Tags to return additional data. Valid tags are any property of the <see cref="Rune"/> or <see cref="RuneList"/> objects. Only type, version, data, id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="runeListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticRune"/> or <see cref="StaticRuneList"/> objects. Only type, version, data, id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public async Task<RuneList> GetRunesTaskAsync(string locale = null, string version = null, IEnumerable<string> runeListData = null)
+        public async Task<StaticRuneList> GetRunesTaskAsync(string locale = null, string version = null, IEnumerable<string> runeListData = null)
         {
-            var runeList = await ExecuteTaskAsync<RuneList>(GetRunesRequest(locale, version, runeListData));
+            var runeList = await ExecuteTaskAsync<StaticRuneList>(GetRunesRequest(locale, version, runeListData));
 
             // Add missing default values to the Maps dictionary.
             var defaultMaps = runeList.Basic.Maps;
@@ -576,14 +576,14 @@ namespace RiotNet
         /// <param name="id">The rune ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersions"/>.</param>
-        /// <param name="runeData">Tags to return additional data. Valid tags are any property of the <see cref="Rune"/> object. Only id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
-        /// <returns>A <see cref="Rune"/>.</returns>
+        /// <param name="runeData">Tags to return additional data. Valid tags are any property of the <see cref="StaticRune"/> object. Only id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <returns>A <see cref="StaticRune"/>.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Rune GetRuneById(int id, string locale = null, string version = null, IEnumerable<string> runeData = null)
+        public StaticRune GetRuneById(int id, string locale = null, string version = null, IEnumerable<string> runeData = null)
         {
-            return Execute<Rune>(GetRuneByIdRequest(id, locale, version, runeData));
+            return Execute<StaticRune>(GetRuneByIdRequest(id, locale, version, runeData));
         }
 
         /// <summary>
@@ -592,14 +592,14 @@ namespace RiotNet
         /// <param name="id">The rune ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
-        /// <param name="runeData">Tags to return additional data. Valid tags are any property of the <see cref="Rune"/> object. Only id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="runeData">Tags to return additional data. Valid tags are any property of the <see cref="StaticRune"/> object. Only id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<Rune> GetRuneByIdTaskAsync(int id, string locale = null, string version = null, IEnumerable<string> runeData = null)
+        public Task<StaticRune> GetRuneByIdTaskAsync(int id, string locale = null, string version = null, IEnumerable<string> runeData = null)
         {
-            return ExecuteTaskAsync<Rune>(GetRuneByIdRequest(id, locale, version, runeData));
+            return ExecuteTaskAsync<StaticRune>(GetRuneByIdRequest(id, locale, version, runeData));
         }
 
         #endregion

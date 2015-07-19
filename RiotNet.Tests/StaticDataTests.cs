@@ -110,7 +110,7 @@ namespace RiotNet.Tests
             Assert.That(block.Type, Is.Not.Null.And.Not.Empty);
             Assert.That(block.Items, Is.Not.Null.And.Not.Empty);
             var item = block.Items.First();
-            Assert.That(item.ItemId, Is.GreaterThan(0));
+            Assert.That(item.Id, Is.GreaterThan(0));
             Assert.That(item.Count, Is.GreaterThan(0));
 
             Assert.That(champion.Skins, Is.Not.Null.And.Not.Empty);
@@ -457,10 +457,10 @@ namespace RiotNet.Tests
             Assert.That(rune.Stats, Is.Not.Null);
             Assert.That(rune.Tags, Is.Not.Null.And.Not.Empty);
 
-            Assert.That(rune.RuneMetaData, Is.Not.Null);
-            Assert.That(rune.RuneMetaData.IsRune);
-            Assert.That(rune.RuneMetaData.Tier, Is.Not.Null.And.Not.Empty);
-            Assert.That(rune.RuneMetaData.Type, Is.Not.Null.And.Not.Empty);
+            Assert.That(rune.Rune, Is.Not.Null);
+            Assert.That(rune.Rune.IsRune);
+            Assert.That(rune.Rune.Tier, Is.Not.Null.And.Not.Empty);
+            Assert.That(rune.Rune.Type, Is.Not.Null.And.Not.Empty);
         }
 
         [Test]
@@ -469,7 +469,7 @@ namespace RiotNet.Tests
             // Test that the hard-coded default values are correct.
             var client = new RiotClient();
             var runeList = await client.GetRunesTaskAsync(runeListData: new[] { "all" });
-            var defaultRune = new Rune();
+            var defaultRune = new StaticRune();
             TestHelper.AssertObjectEqualityRecursive(defaultRune, runeList.Basic, true);
         }
 

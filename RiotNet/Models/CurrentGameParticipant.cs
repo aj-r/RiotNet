@@ -33,7 +33,7 @@ namespace RiotNet.Models
         /// <summary>
         ///  Gets or sets the list of runes used by this participant.
         /// </summary>
-        public List<Rune> Runes { get; set; }
+        public List<StaticRune> Runes { get; set; }
 
         /// <summary>
         ///  Gets or sets the ID of the first summoner spell used by this participant.

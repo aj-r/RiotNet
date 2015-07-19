@@ -5,21 +5,20 @@ namespace RiotNet.Models
     /// <summary>
     /// Represents a rune.
     /// </summary>
-    public class Rune : BasicData
+    public class StaticRune : BasicData
     {
         /// <summary>
-        /// Creates a new <see cref="Rune"/> instance.
+        /// Creates a new <see cref="StaticRune"/> instance.
         /// </summary>
-        public Rune()
+        public StaticRune()
         {
-            RuneMetaData = new MetaData();
+            Rune = new MetaData();
         }
 
         /// <summary>
         /// Gets or sets the metadata for the rune.
         /// </summary>
-        [JsonProperty("rune")]
-        public MetaData RuneMetaData { get; set; }
+        public MetaData Rune { get; set; }
 
     }
 }

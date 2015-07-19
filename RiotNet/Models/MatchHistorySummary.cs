@@ -72,7 +72,7 @@ namespace RiotNet.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [JsonIgnore]
-        public int Id { get; set; }
+        public int DatabaseId { get; set; }
 #endif
     }
 }
