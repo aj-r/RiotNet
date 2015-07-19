@@ -5,12 +5,12 @@ namespace RiotNet.Models
     /// <summary>
     /// Represents an item that a player can use during a match.
     /// </summary>
-    public class Item : BasicData
+    public class StaticItem : BasicData
     {
         /// <summary>
-        /// Creates a new <see cref="Item"/> instance.
+        /// Creates a new <see cref="StaticItem"/> instance.
         /// </summary>
-        public Item()
+        public StaticItem()
         {
             // Note: default values are defined in the "basic" property of an ItemList or RuneList.
             Depth = 1;

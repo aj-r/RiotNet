@@ -5,12 +5,12 @@ namespace RiotNet.Models
     /// <summary>
     /// Contains data for multiple maps.
     /// </summary>
-    public class MapList : StaticDataList
+    public class StaticMapList : StaticDataList
     {
         /// <summary>
-        /// Creates a new <see cref="MapList"/> instance.
+        /// Creates a new <see cref="StaticMapList"/> instance.
         /// </summary>
-        public MapList()
+        public StaticMapList()
         {
             Type = "map";
         }
@@ -18,6 +18,6 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the set of maps indexed by ID.
         /// </summary>
-        public Dictionary<string, MapDetails> Data { get; set; }
+        public Dictionary<string, StaticMapDetails> Data { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace RiotNet.Models
     /// <summary>
     /// Contains image data.
     /// </summary>
-    public class Image
+    public class StaticImage
     {
         /// <summary>
         /// Gets or sets the file name of the full-size image.
@@ -46,7 +46,7 @@ namespace RiotNet.Models
 
 #if DB_READY
         /// <summary>
-        /// Gets or sets the ID of the <see cref="Image"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
+        /// Gets or sets the ID of the <see cref="StaticImage"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

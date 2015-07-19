@@ -20,12 +20,12 @@ namespace RiotNet.Tests
         public IDbSet<Champion> Champions { get; set; }
         public IDbSet<Game> Games { get; set; }
         public IDbSet<Group> Groups { get; set; }
-        public IDbSet<Image> Images { get; set; }
-        public IDbSet<Item> Items { get; set; }
-        public IDbSet<ItemTree> ItemTrees { get; set; }
+        public IDbSet<StaticImage> Images { get; set; }
+        public IDbSet<StaticItem> Items { get; set; }
+        public IDbSet<StaticItemTree> ItemTrees { get; set; }
         public IDbSet<League> Leagues { get; set; }
         public IDbSet<LeagueEntry> LeagueEntries { get; set; }
-        public IDbSet<MapDetails> MapDetails { get; set; }
+        public IDbSet<StaticMapDetails> MapDetails { get; set; }
         public IDbSet<MatchHistorySummary> MatchHistorySummaries { get; set; }
         public IDbSet<Passive> Passives { get; set; }
         public IDbSet<Recommended> RecommendedItemSets { get; set; }

@@ -5,7 +5,7 @@ namespace RiotNet.Models
     /// <summary>
     /// Contains strings in a specified language.
     /// </summary>
-    public class LanuageStrings
+    public class StaticLanuageStrings
     {
         /// <summary>
         /// Contains the strings.

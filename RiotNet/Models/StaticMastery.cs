@@ -21,7 +21,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the image data for the mastery's icon.
         /// </summary>
-        public Image Image { get; set; }
+        public StaticImage Image { get; set; }
 
         /// <summary>
         /// Gets or sets the type of mastery tree that the current <see cref="StaticMastery"/> belongs to.

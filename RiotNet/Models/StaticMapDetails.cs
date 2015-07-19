@@ -6,12 +6,12 @@ namespace RiotNet.Models
     /// <summary>
     /// Contains data for a map (e.g. Summoner's Rift).
     /// </summary>
-    public class MapDetails
+    public class StaticMapDetails
     {
         /// <summary>
         /// Gets or sets data for the map's image.
         /// </summary>
-        public virtual Image Image { get; set; }
+        public virtual StaticImage Image { get; set; }
 
         /// <summary>
         /// Gets or sets the map ID.

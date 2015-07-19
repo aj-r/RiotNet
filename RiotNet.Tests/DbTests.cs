@@ -36,13 +36,13 @@ namespace RiotNet.Tests
         [Test]
         public void ItemDbTest()
         {
-            VerifyDbStorage<Item>();
+            VerifyDbStorage<StaticItem>();
         }
 
         [Test]
         public void ItemTreeDbTest()
         {
-            VerifyDbStorage<ItemTree>();
+            VerifyDbStorage<StaticItemTree>();
         }
 
         [Test]
@@ -54,7 +54,7 @@ namespace RiotNet.Tests
         [Test]
         public void MapDetailsDbTest()
         {
-            VerifyDbStorage<MapDetails>();
+            VerifyDbStorage<StaticMapDetails>();
         }
 
         [Test]

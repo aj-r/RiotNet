@@ -35,7 +35,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the champion image data.
         /// </summary>
-        public virtual Image Image { get; set; }
+        public virtual StaticImage Image { get; set; }
 
         /// <summary>
         /// Gets or sets the strength and difficulty information for the current champion.

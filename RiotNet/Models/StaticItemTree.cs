@@ -8,7 +8,7 @@ namespace RiotNet.Models
     /// <summary>
     /// Contains item tree data.
     /// </summary>
-    public class ItemTree
+    public class StaticItemTree
     {
         /// <summary>
         /// Gets or sets the item tree header.
@@ -22,7 +22,7 @@ namespace RiotNet.Models
 
 #if DB_READY
         /// <summary>
-        /// Gets or sets the ID of the current <see cref="ItemTree"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
+        /// Gets or sets the ID of the current <see cref="StaticItemTree"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
