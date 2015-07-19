@@ -66,6 +66,12 @@
     <Compile Include="Models\FeaturedGames.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GameInfoBase.cs" />
+    <Compile Include="Models\Mastery.cs" />
+    <Compile Include="Models\MasteryPage.cs" />
+    <Compile Include="Models\MasteryPages.cs" />
+    <Compile Include="Models\RunePage.cs" />
+    <Compile Include="Models\RunePages.cs" />
+    <Compile Include="Models\RuneSlot.cs" />
     <Compile Include="Models\StaticMasteryTree.cs" />
     <Compile Include="Models\StaticMasteryTreeItem.cs" />
     <Compile Include="Models\MatchDetail.cs" />
@@ -109,6 +115,7 @@
     <Compile Include="Models\Skin.cs" />
     <Compile Include="Models\SpellVars.cs" />
     <Compile Include="Models\Stats.cs" />
+    <Compile Include="Models\Summoner.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\TeamMemberInfo.cs" />
     <Compile Include="Models\TeamStatDetail.cs" />
