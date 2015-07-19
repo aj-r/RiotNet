@@ -33,7 +33,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<TeamsBySummonerIdsDictionary> GetTeamsBySummonerIdsAsync(params long[] summonerIds)
+        public Task<TeamsBySummonerIdsDictionary> GetTeamsBySummonerIdsTaskAsync(params long[] summonerIds)
         {
             return ExecuteTaskAsync<TeamsBySummonerIdsDictionary>(GetTeamsBySummonerIdsRequest(summonerIds));
         }
@@ -60,7 +60,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="teamIds">The team IDs.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<TeamByTeamIdDictionary> GetTeamsByTeamIdsAsync(params String[] teamIds)
+        public Task<TeamByTeamIdDictionary> GetTeamsByTeamIdsTaskAsync(params String[] teamIds)
         {
             return ExecuteTaskAsync<TeamByTeamIdDictionary>(GetTeamsByTeamIdsRequest(teamIds));
         }
