@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
 
 namespace RiotNet.Models
 {
     /// <summary>
-    /// Contains detailed match information.
+    /// This object contains match summary information.
     /// </summary>
-    public class MatchDetail : MatchSummary
+    public class MatchSummary
     {
         /// <summary>
         /// Gets or sets match map ID.
@@ -15,7 +17,7 @@ namespace RiotNet.Models
         public int MapId { get; set; }
 
         /// <summary>
-        /// Gets or sets match creation time. Designates when the team select lobby is created and/or the match is made through match making; not when the game actually starts.
+        /// Gets or sets match creation time. Designates when the team select lobby is created and/or the match is made through match making, not when the game actually starts.
         /// </summary>
         public DateTime MatchCreation { get; set; }
 
@@ -48,12 +50,12 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets list of participants' identity information.
         /// </summary>
-        public virtual List<MatchParticipantIdentity> ParticipantIdentities { get; set; }
+        public List<MatchParticipantIdentity> ParticipantIdentities { get; set; }
 
         /// <summary>
         /// Gets or sets list of participants' information.
         /// </summary>
-        public virtual List<MatchParticipant> Participants { get; set; }
+        public List<MatchParticipant> Participants { get; set; }
 
         /// <summary>
         /// Gets or sets platform ID of the match.
@@ -74,15 +76,5 @@ namespace RiotNet.Models
         /// Gets or sets season match was played.
         /// </summary>
         public Season Season { get; set; }
-
-        /// <summary>
-        /// Gets or sets team information.
-        /// </summary>
-        public virtual List<MatchTeam> Teams { get; set; }
-
-        /// <summary>
-        /// Gets or sets match timeline data (not included by default)
-        /// </summary>
-        public virtual Timeline Timeline { get; set; }
     }
 }
