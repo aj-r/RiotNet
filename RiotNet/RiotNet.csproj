@@ -55,10 +55,12 @@
     <Compile Include="Converters\SecondsToTimespanConverter.cs" />
     <Compile Include="IRiotClient.cs" />
     <Compile Include="ConnectionFailedException.cs" />
+    <Compile Include="Models\AggregatedStats.cs" />
     <Compile Include="Models\BannedChampion.cs" />
     <Compile Include="Models\BasicDataStats.cs" />
     <Compile Include="Models\Block.cs" />
     <Compile Include="Models\BlockItem.cs" />
+    <Compile Include="Models\ChampionStats.cs" />
     <Compile Include="Models\CurrentGameInfo.cs" />
     <Compile Include="Models\CurrentGameParticipant.cs" />
     <Compile Include="Models\Event.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="Models\MatchTeam.cs" />
     <Compile Include="Models\PlayerHistory.cs" />
     <Compile Include="Models\Position.cs" />
+    <Compile Include="Models\RankedStats.cs" />
     <Compile Include="Models\Rune.cs" />
     <Compile Include="Models\StaticDataList.cs" />
     <Compile Include="Models\FeaturedGameInfo.cs" />
