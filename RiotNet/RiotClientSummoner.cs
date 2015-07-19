@@ -10,7 +10,7 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
-        private IRestRequest GetSummonersBySummonerNames(params String[] summonerNames)
+        private IRestRequest GetSummonersBySummonerNamesRequest(params String[] summonerNames)
         {
             var request = Get("/api/lol/{region}/v1.4/summoner/by-name/{summonerNames}");
             request.AddUrlSegment("summonerNames", String.Join(",", summonerNames));
@@ -22,9 +22,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerNames">The summoner names.</param>
         /// <returns>The mapping from standardized summoner name (all lowercase, spaces removed) to summoner information.</returns>
-        public Dictionary<String, Summoner> SummonersBySummonerNames(params String[] summonerNames)
+        public Dictionary<String, Summoner> GetSummonersBySummonerNames(params String[] summonerNames)
         {
-            return Execute<Dictionary<String, Summoner>>(GetSummonersBySummonerNames(summonerNames));
+            return Execute<Dictionary<String, Summoner>>(GetSummonersBySummonerNamesRequest(summonerNames));
         }
 
         /// <summary>
@@ -32,12 +32,12 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerNames">The summoner names.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, Summoner>> SummonersBySummonerNamesAsync(params String[] summonerNames)
+        public Task<Dictionary<String, Summoner>> GetSummonersBySummonerNamesAsync(params String[] summonerNames)
         {
-            return ExecuteTaskAsync<Dictionary<String, Summoner>>(GetSummonersBySummonerNames(summonerNames));
+            return ExecuteTaskAsync<Dictionary<String, Summoner>>(GetSummonersBySummonerNamesRequest(summonerNames));
         }
 
-        private IRestRequest GetSummonersBySummonerIds(params long[] summonerIds)
+        private IRestRequest GetSummonersBySummonerIdsRequest(params long[] summonerIds)
         {
             var request = Get("/api/lol/{region}/v1.4/summoner/by-name/{summonerIds}");
             request.AddUrlSegment("summonerIds", String.Join(",", summonerIds));
@@ -49,9 +49,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs.</param>
         /// <returns>The mapping from summoner ID to summoner information.</returns>
-        public Dictionary<String, Summoner> SummonersBySummonerIds(params long[] summonerIds)
+        public Dictionary<String, Summoner> GetSummonersBySummonerIds(params long[] summonerIds)
         {
-            return Execute<Dictionary<String, Summoner>>(GetSummonersBySummonerIds(summonerIds));
+            return Execute<Dictionary<String, Summoner>>(GetSummonersBySummonerIdsRequest(summonerIds));
         }
 
         /// <summary>
@@ -59,12 +59,12 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, Summoner>> SummonersBySummonerIdsAsync(params long[] summonerIds)
+        public Task<Dictionary<String, Summoner>> GetSummonersBySummonerIdsAsync(params long[] summonerIds)
         {
-            return ExecuteTaskAsync<Dictionary<String, Summoner>>(GetSummonersBySummonerIds(summonerIds));
+            return ExecuteTaskAsync<Dictionary<String, Summoner>>(GetSummonersBySummonerIdsRequest(summonerIds));
         }
 
-        private IRestRequest GetSummonerMasteriesBySummonerIds(params long[] summonerIds)
+        private IRestRequest GetSummonerMasteriesBySummonerIdsRequest(params long[] summonerIds)
         {
             var request = Get("/api/lol/{region}/v1.4/summoner/{summonerIds}/masteries");
             request.AddUrlSegment("summonerIds", String.Join(",", summonerIds));
@@ -76,9 +76,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs.</param>
         /// <returns>The mapping from summoner ID to collection of mastery pages.</returns>
-        public Dictionary<String, MasteryPages> SummonerMasteriesBySummonerIds(params long[] summonerIds)
+        public Dictionary<String, MasteryPages> GetSummonerMasteriesBySummonerIds(params long[] summonerIds)
         {
-            return Execute<Dictionary<String, MasteryPages>>(GetSummonerMasteriesBySummonerIds(summonerIds));
+            return Execute<Dictionary<String, MasteryPages>>(GetSummonerMasteriesBySummonerIdsRequest(summonerIds));
         }
 
         /// <summary>
@@ -86,12 +86,12 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, MasteryPages>> SummonerMasteriesBySummonerIdsAsync(params long[] summonerIds)
+        public Task<Dictionary<String, MasteryPages>> GetSummonerMasteriesBySummonerIdsAsync(params long[] summonerIds)
         {
-            return ExecuteTaskAsync<Dictionary<String, MasteryPages>>(GetSummonerMasteriesBySummonerIds(summonerIds));
+            return ExecuteTaskAsync<Dictionary<String, MasteryPages>>(GetSummonerMasteriesBySummonerIdsRequest(summonerIds));
         }
 
-        private IRestRequest GetSummonerNameBySummonerIds(params long[] summonerIds)
+        private IRestRequest GetSummonerNameBySummonerIdsRequest(params long[] summonerIds)
         {
             var request = Get("/api/lol/{region}/v1.4/summoner/{summonerIds}/name");
             request.AddUrlSegment("summonerIds", String.Join(",", summonerIds));
@@ -103,9 +103,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs.</param>
         /// <returns>The mapping from summoner ID to summoner name.</returns>
-        public Dictionary<String, String> SummonerNameBySummonerIds(params long[] summonerIds)
+        public Dictionary<String, String> GetSummonerNameBySummonerIds(params long[] summonerIds)
         {
-            return Execute<Dictionary<String, String>>(GetSummonerNameBySummonerIds(summonerIds));
+            return Execute<Dictionary<String, String>>(GetSummonerNameBySummonerIdsRequest(summonerIds));
         }
 
         /// <summary>
@@ -113,12 +113,12 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, String>> SummonerNameBySummonerIdsAsync(params long[] summonerIds)
+        public Task<Dictionary<String, String>> GetSummonerNameBySummonerIdsAsync(params long[] summonerIds)
         {
-            return ExecuteTaskAsync<Dictionary<String, String>>(GetSummonerNameBySummonerIds(summonerIds));
+            return ExecuteTaskAsync<Dictionary<String, String>>(GetSummonerNameBySummonerIdsRequest(summonerIds));
         }
 
-        private IRestRequest GetSummonerRunesBySummonerIds(params long[] summonerIds)
+        private IRestRequest GetSummonerRunesBySummonerIdsRequest(params long[] summonerIds)
         {
             var request = Get("/api/lol/{region}/v1.4/summoner/{summonerIds}/runes");
             request.AddUrlSegment("summonerIds", String.Join(",", summonerIds));
@@ -130,9 +130,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs.</param>
         /// <returns>The mapping from summoner ID to collection of rune pages.</returns>
-        public Dictionary<String, RunePages> SummonerRunesBySummonerIds(params long[] summonerIds)
+        public Dictionary<String, RunePages> GetSummonerRunesBySummonerIds(params long[] summonerIds)
         {
-            return Execute<Dictionary<String, RunePages>>(GetSummonerRunesBySummonerIds(summonerIds));
+            return Execute<Dictionary<String, RunePages>>(GetSummonerRunesBySummonerIdsRequest(summonerIds));
         }
 
         /// <summary>
@@ -140,9 +140,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, RunePages>> SummonerRunesBySummonerIdsAsync(params long[] summonerIds)
+        public Task<Dictionary<String, RunePages>> GetSummonerRunesBySummonerIdsAsync(params long[] summonerIds)
         {
-            return ExecuteTaskAsync<Dictionary<String, RunePages>>(GetSummonerRunesBySummonerIds(summonerIds));
+            return ExecuteTaskAsync<Dictionary<String, RunePages>>(GetSummonerRunesBySummonerIdsRequest(summonerIds));
         }
     }
 }

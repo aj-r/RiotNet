@@ -10,7 +10,7 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
-        private IRestRequest GetCurrentGameBySummonerId(long summonerId)
+        private IRestRequest GetCurrentGameBySummonerIdRequest(long summonerId)
         {
             var request = Get("/observer-mode/rest/consumer/getSpectatorGameInfo/{platformId}/{summonerId}");
             request.AddUrlSegment("summonerId", summonerId.ToString());
@@ -22,9 +22,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerId">The summoner's summoner ID.</param>
         /// <returns>The current game information.</returns>
-        public CurrentGameInfo CurrentGameBySummonerId(long summonerId)
+        public CurrentGameInfo GetCurrentGameBySummonerId(long summonerId)
         {
-            return Execute<CurrentGameInfo>(GetCurrentGameBySummonerId(summonerId));
+            return Execute<CurrentGameInfo>(GetCurrentGameBySummonerIdRequest(summonerId));
         }
 
         /// <summary>
@@ -32,9 +32,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerId">The summoner's summoner ID.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<CurrentGameInfo> CurrentGameBySummonerIdAsync(long summonerId)
+        public Task<CurrentGameInfo> GetCurrentGameBySummonerIdAsync(long summonerId)
         {
-            return ExecuteTaskAsync<CurrentGameInfo>(GetCurrentGameBySummonerId(summonerId));
+            return ExecuteTaskAsync<CurrentGameInfo>(GetCurrentGameBySummonerIdRequest(summonerId));
         }
     }
 }
