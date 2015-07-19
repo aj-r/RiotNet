@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,12 +20,13 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the ID of this mastery page.
         /// </summary>
+        [Key]
         public long Id { get; set; }
 
         /// <summary>
         /// Gets or sets the collection of masteries in this mastery page.
         /// </summary>
-        public List<Mastery> Masteries { get; set; }
+        public virtual List<Mastery> Masteries { get; set; }
 
         /// <summary>
         /// Gets or sets the name of this mastery page.

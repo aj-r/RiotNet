@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,5 +24,15 @@ namespace RiotNet.Models
         /// Gets or sets the ID of this rune slot.
         /// </summary>
         public int RuneSlotId { get; set; }
+
+#if DB_READY
+        /// <summary>
+        /// Gets or sets the ID of the <see cref="RuneSlot"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
+        /// </summary>
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [JsonIgnore]
+        public long DatabaseId { get; set; }
+#endif
     }
 }

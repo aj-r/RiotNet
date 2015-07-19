@@ -13,8 +13,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the ID of the item in this slot.
         /// </summary>
-        [JsonProperty("id")]
-        public int ItemId { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the count of the specified item that is in this slot.
@@ -28,7 +27,7 @@ namespace RiotNet.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [JsonIgnore]
-        public int BlockItemId { get; set; }
+        public int DatabaseId { get; set; }
 #endif
     }
 }

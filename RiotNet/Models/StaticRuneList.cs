@@ -6,12 +6,12 @@ namespace RiotNet.Models
     /// <summary>
     /// Contains rune list data.
     /// </summary>
-    public class RuneList : StaticDataList
+    public class StaticRuneList : StaticDataList
     {
         /// <summary>
-        /// Creates a new <see cref="RuneList"/> instance.
+        /// Creates a new <see cref="StaticRuneList"/> instance.
         /// </summary>
-        public RuneList()
+        public StaticRuneList()
         {
             Type = "rune";
         }
@@ -24,6 +24,6 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the set of runes indexed by name.
         /// </summary>
-        public Dictionary<string, Rune> Data { get; set; }
+        public Dictionary<string, StaticRune> Data { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the ID of this rune page.
         /// </summary>
+        [Key]
         public long Id { get; set; }
 
         /// <summary>
@@ -29,6 +31,6 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the collection of rune slots (and their runes) in this rune page.
         /// </summary>
-        public List<RuneSlot> Slots { get; set; }
+        public virtual List<RuneSlot> Slots { get; set; }
     }
 }

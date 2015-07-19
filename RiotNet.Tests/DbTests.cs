@@ -60,7 +60,7 @@ namespace RiotNet.Tests
         [Test]
         public void RuneDbTest()
         {
-            VerifyDbStorage<Rune>();
+            VerifyDbStorage<StaticRune>();
         }
 
         [Test]

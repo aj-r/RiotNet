@@ -100,7 +100,7 @@
     <Compile Include="Models\MapList.cs" />
     <Compile Include="Models\StaticMasteryList.cs" />
     <Compile Include="Models\StaticMastery.cs" />
-    <Compile Include="Models\RuneList.cs" />
+    <Compile Include="Models\StaticRuneList.cs" />
     <Compile Include="Models\ItemList.cs" />
     <Compile Include="Models\ItemTree.cs" />
     <Compile Include="Models\League.cs" />
@@ -111,7 +111,7 @@
     <Compile Include="Models\BasicData.cs" />
     <Compile Include="Models\Passive.cs" />
     <Compile Include="Models\Recommended.cs" />
-    <Compile Include="Models\Rune.cs" />
+    <Compile Include="Models\StaticRune.cs" />
     <Compile Include="Models\Skin.cs" />
     <Compile Include="Models\SpellVars.cs" />
     <Compile Include="Models\Stats.cs" />
