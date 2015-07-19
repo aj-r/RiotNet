@@ -34,25 +34,13 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public void ItemDbTest()
-        {
-            VerifyDbStorage<StaticItem>();
-        }
-
-        [Test]
-        public void ItemTreeDbTest()
-        {
-            VerifyDbStorage<StaticItemTree>();
-        }
-
-        [Test]
         public void LeagueDbTest()
         {
             VerifyDbStorage<League>();
         }
 
         [Test]
-        public void MapDetailsDbTest()
+        public void StaticMapDetailsDbTest()
         {
             VerifyDbStorage<StaticMapDetails>();
         }
@@ -67,6 +55,24 @@ namespace RiotNet.Tests
         public void StaticChampionDbTest()
         {
             VerifyDbStorage<StaticChampion>();
+        }
+
+        [Test]
+        public void StaticItemDbTest()
+        {
+            VerifyDbStorage<StaticItem>();
+        }
+
+        [Test]
+        public void StaticItemTreeDbTest()
+        {
+            VerifyDbStorage<StaticItemTree>();
+        }
+
+        [Test]
+        public void StaticRealmDbTest()
+        {
+            VerifyDbStorage<StaticRealm>();
         }
 
         [Test]

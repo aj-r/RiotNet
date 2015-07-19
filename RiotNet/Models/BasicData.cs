@@ -18,7 +18,7 @@ namespace RiotNet.Models
             Colloq = string.Empty;
             Description = string.Empty;
             Group = string.Empty;
-            Maps = new BooleanDictionary
+            Maps = new DictionaryOfBoolean
             { 
                 { "1", true },
                 { "8", true },
@@ -66,7 +66,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the maps that the item is used on, indexed by map ID.
         /// </summary>
-        public BooleanDictionary Maps { get; set; }
+        public DictionaryOfBoolean Maps { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the item/rune.

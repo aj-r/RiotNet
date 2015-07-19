@@ -99,6 +99,7 @@
     <Compile Include="Models\StaticMapList.cs" />
     <Compile Include="Models\StaticMasteryList.cs" />
     <Compile Include="Models\StaticMastery.cs" />
+    <Compile Include="Models\StaticRealm.cs" />
     <Compile Include="Models\StaticRuneList.cs" />
     <Compile Include="Models\StaticItemList.cs" />
     <Compile Include="Models\StaticItemTree.cs" />

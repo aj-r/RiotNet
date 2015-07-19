@@ -50,7 +50,7 @@ namespace RiotNet.Tests
         public async Task GetStaticChampionsTaskAsyncTest_IndexedById()
         {
             var client = new RiotClient();
-            var championList = await client.GetStaticMasteriesTaskAsync(dataById: true, masteryListData: new[] { "all" });
+            var championList = await client.GetStaticChampionsTaskAsync(dataById: true, champListData: new[] { "all" });
 
             Assert.That(championList.Data.Count, Is.GreaterThan(0));
 
@@ -351,6 +351,27 @@ namespace RiotNet.Tests
             var mastery = await client.GetStaticMasteryByIdTaskAsync(4211, masteryData: new[] { "all" });
 
             Assert.That(mastery, Is.Not.Null);
+        }
+
+        #endregion
+
+        #region Realm
+
+        [Test]
+        public async Task GetStaticRealmTaskAsyncTest()
+        {
+            var client = new RiotClient();
+            var realm = await client.GetStaticRealmTaskAsync();
+
+            Assert.That(realm, Is.Not.Null);
+            Assert.That(realm.Cdn, Is.Not.Null.And.Not.Empty);
+            Assert.That(realm.Css, Is.Not.Null.And.Not.Empty);
+            Assert.That(realm.Dd, Is.Not.Null.And.Not.Empty);
+            Assert.That(realm.L, Is.Not.Null.And.Not.Empty);
+            Assert.That(realm.Lg, Is.Not.Null.And.Not.Empty);
+            Assert.That(realm.N, Is.Not.Null.And.Not.Empty);
+            Assert.That(realm.ProfileIconMax, Is.GreaterThan(0));
+            Assert.That(realm.V, Is.Not.Null.And.Not.Empty);
         }
 
         #endregion

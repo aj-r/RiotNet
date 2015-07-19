@@ -17,9 +17,9 @@ namespace RiotNet.Models
         }
 
         /// <summary>
-        /// Gets or sets the basic mastery data.
+        /// Gets or sets the mastery tree structure.
         /// </summary>
-        public BasicData Tree { get; set; }
+        public StaticMasteryTree Tree { get; set; }
 
         /// <summary>
         /// Gets or sets the set of masteries indexed by ID.

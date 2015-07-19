@@ -41,7 +41,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the effect of the item.
         /// </summary>
-        public StringDictionary Effect { get; set; }
+        public DictionaryOfString Effect { get; set; }
 
         /// <summary>
         /// Gets or sets the list of items that this item builds out of.

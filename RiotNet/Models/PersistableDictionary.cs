@@ -49,12 +49,12 @@ namespace RiotNet.Models
     /// <summary>
     /// A dictionary with string keys and boolean values that can be stored in a database.
     /// </summary>
-    public class BooleanDictionary : PersistableDictionary<string, bool>
+    public class DictionaryOfBoolean : PersistableDictionary<string, bool>
     { }
 
     /// <summary>
     /// A dictionary with string keys and string values that can be stored in a database.
     /// </summary>
-    public class StringDictionary : PersistableDictionary<string, string>
+    public class DictionaryOfString : PersistableDictionary<string, string>
     { }
 }

@@ -11,11 +11,13 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
+        private const string staticBaseUrl = "api/lol/static-data/{region}/v1.2/";
+
         #region Versions
 
         private IRestRequest GetStaticVersionsRequest()
         {
-            return Get("api/lol/static-data/{region}/v1.2/versions");
+            return Get(staticBaseUrl + "versions");
         }
 
         /// <summary>
@@ -48,7 +50,7 @@ namespace RiotNet
 
         private IRestRequest GetStaticChampionsRequest(string locale, string version, bool dataById, IEnumerable<string> champListData)
         {
-            var request = Get("api/lol/static-data/{region}/v1.2/champion");
+            var request = Get(staticBaseUrl + "champion");
             if (locale != null)
                 request.AddQueryParameter("locale", locale);
             if (version != null)
@@ -99,7 +101,7 @@ namespace RiotNet
 
         private IRestRequest GetStaticChampionByIdRequest(int id, string locale, string version, IEnumerable<string> champData)
         {
-            var request = Get("api/lol/static-data/{region}/v1.2/champion/{id}");
+            var request = Get(staticBaseUrl + "champion/{id}");
             request.AddUrlSegment("id", id.ToString(CultureInfo.InvariantCulture));
             if (locale != null)
                 request.AddQueryParameter("locale", locale);
@@ -153,7 +155,7 @@ namespace RiotNet
 
         private IRestRequest GetStaticItemsRequest(string locale, string version, IEnumerable<string> itemListData)
         {
-            var request = Get("api/lol/static-data/{region}/v1.2/item");
+            var request = Get(staticBaseUrl + "item");
             if (locale != null)
                 request.AddQueryParameter("locale", locale);
             if (version != null)
@@ -218,7 +220,7 @@ namespace RiotNet
 
         private IRestRequest GetStaticItemByIdRequest(int id, string locale, string version, IEnumerable<string> itemData)
         {
-            var request = Get("api/lol/static-data/{region}/v1.2/item/{id}");
+            var request = Get(staticBaseUrl + "item/{id}");
             request.AddUrlSegment("id", id.ToString(CultureInfo.InvariantCulture));
             if (locale != null)
                 request.AddQueryParameter("locale", locale);
@@ -272,7 +274,7 @@ namespace RiotNet
 
         private IRestRequest GetStaticLanguagesRequest()
         {
-            return Get("api/lol/static-data/{region}/v1.2/languages");
+            return Get(staticBaseUrl + "languages");
         }
 
         /// <summary>
@@ -301,7 +303,7 @@ namespace RiotNet
 
         private IRestRequest GetStaticLanguageStringsRequest(string locale, string version)
         {
-            var request = Get("api/lol/static-data/{region}/v1.2/language-strings");
+            var request = Get(staticBaseUrl + "language-strings");
             if (locale != null)
                 request.AddQueryParameter("locale", locale);
             if (version != null)
@@ -343,7 +345,7 @@ namespace RiotNet
 
         private IRestRequest GetStaticMapsRequest(string locale, string version)
         {
-            var request = Get("api/lol/static-data/{region}/v1.2/map");
+            var request = Get(staticBaseUrl + "map");
             if (locale != null)
                 request.AddQueryParameter("locale", locale);
             if (version != null)
@@ -385,7 +387,7 @@ namespace RiotNet
 
         private IRestRequest GetStaticMasteriesRequest(string locale, string version, IEnumerable<string> masteryListData)
         {
-            var request = Get("api/lol/static-data/{region}/v1.2/mastery");
+            var request = Get(staticBaseUrl + "mastery");
             if (locale != null)
                 request.AddQueryParameter("locale", locale);
             if (version != null)
@@ -405,15 +407,14 @@ namespace RiotNet
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
-        /// <param name="dataById">If true, the returned data map will use the champions' IDs as the keys. If false, the returned data map will use the champions' keys instead.</param>
         /// <param name="masteryListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> or <see cref="StaticMasteryList"/> objects. Only type, version, data, id, name, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A <see cref="StaticMasteryList"/>.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public StaticMasteryList GetStaticMasteries(string locale = null, string version = null, bool dataById = false, IEnumerable<string> masteryListData = null)
+        public StaticMasteryList GetStaticMasteries(string locale = null, string version = null, IEnumerable<string> masteryListData = null)
         {
-            return Execute<StaticMasteryList>(GetStaticChampionsRequest(locale, version, dataById, masteryListData));
+            return Execute<StaticMasteryList>(GetStaticMasteriesRequest(locale, version, masteryListData));
         }
 
         /// <summary>
@@ -421,20 +422,19 @@ namespace RiotNet
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
-        /// <param name="dataById">If true, the returned data map will use the champions' IDs as the keys. If false, the returned data map will use the champions' keys instead.</param>
         /// <param name="masteryListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> or <see cref="StaticMasteryList"/> objects. Only type, version, data, id, name, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticMasteryList> GetStaticMasteriesTaskAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> masteryListData = null)
+        public Task<StaticMasteryList> GetStaticMasteriesTaskAsync(string locale = null, string version = null, IEnumerable<string> masteryListData = null)
         {
-            return ExecuteTaskAsync<StaticMasteryList>(GetStaticChampionsRequest(locale, version, dataById, masteryListData));
+            return ExecuteTaskAsync<StaticMasteryList>(GetStaticMasteriesRequest(locale, version, masteryListData));
         }
 
         private IRestRequest GetStaticMasteryByIdRequest(int id, string locale, string version, IEnumerable<string> masteryData)
         {
-            var request = Get("api/lol/static-data/{region}/v1.2/champion/{id}");
+            var request = Get(staticBaseUrl + "mastery/{id}");
             request.AddUrlSegment("id", id.ToString(CultureInfo.InvariantCulture));
             if (locale != null)
                 request.AddQueryParameter("locale", locale);
@@ -485,11 +485,44 @@ namespace RiotNet
 
         #endregion
 
+        #region Realm
+
+        private IRestRequest GetStaticRealmRequest()
+        {
+            return Get(staticBaseUrl + "realm");
+        }
+
+        /// <summary>
+        /// Gets the realm data from the static API.
+        /// </summary>
+        /// <returns>The current realm data.</returns>
+        /// <remarks>
+        /// Calls to this method will not count toward your API rate limit.
+        /// </remarks>
+        public StaticRealm GetStaticRealm()
+        {
+            return Execute<StaticRealm>(GetStaticRealmRequest());
+        }
+
+        /// <summary>
+        /// Gets the realm data from the static API.
+        /// </summary>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <remarks>
+        /// Calls to this method will not count toward your API rate limit.
+        /// </remarks>
+        public Task<StaticRealm> GetStaticRealmTaskAsync()
+        {
+            return ExecuteTaskAsync<StaticRealm>(GetStaticRealmRequest());
+        }
+
+        #endregion
+
         #region Runes
 
         private IRestRequest GetStaticRunesRequest(string locale, string version, IEnumerable<string> runeListData)
         {
-            var request = Get("api/lol/static-data/{region}/v1.2/rune");
+            var request = Get(staticBaseUrl + "rune");
             if (locale != null)
                 request.AddQueryParameter("locale", locale);
             if (version != null)
