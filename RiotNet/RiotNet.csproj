@@ -120,6 +120,9 @@
     <Compile Include="Models\Skin.cs" />
     <Compile Include="Models\SpellVars.cs" />
     <Compile Include="Models\StaticMasteryTreeList.cs" />
+    <Compile Include="Models\StaticSpell.cs" />
+    <Compile Include="Models\StaticSummonerSpell.cs" />
+    <Compile Include="Models\StaticSummonerSpellList.cs" />
     <Compile Include="Models\Stats.cs" />
     <Compile Include="Models\Summoner.cs" />
     <Compile Include="Models\Team.cs" />

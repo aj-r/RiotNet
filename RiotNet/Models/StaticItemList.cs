@@ -22,7 +22,7 @@ namespace RiotNet.Models
         public StaticItem Basic { get; set; }
 
         /// <summary>
-        /// Gets or sets the set of items indexed by name.
+        /// Gets or sets the items indexed by name.
         /// </summary>
         public Dictionary<string, StaticItem> Data { get; set; }
 

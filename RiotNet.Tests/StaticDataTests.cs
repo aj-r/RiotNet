@@ -13,19 +13,6 @@ namespace RiotNet.Tests
     [TestFixture]
     public class StaticDataTests
     {
-        #region Versions
-
-        [Test]
-        public async Task GetStaticVersionsTaskAsyncTest()
-        {
-            var client = new RiotClient();
-            var versions = await client.GetVersionsTaskAsync();
-
-            Assert.That(versions, Is.Not.Null.And.Not.Empty);
-        }
-
-        #endregion
-
         #region Champions
 
         [Test]
@@ -40,10 +27,11 @@ namespace RiotNet.Tests
             Assert.That(championList.Type, Is.Not.Null.And.Not.Empty);
             Assert.That(championList.Version, Is.Not.Null.And.Not.Empty);
 
-            var champion = championList.Data["Aatrox"];
-            Assert.That(champion.Stats, Is.Not.Null);
-            Assert.That(champion.Stats.AttackDamage, Is.GreaterThan(0));
-            Assert.That(champion.Tags, Is.Not.Null.And.Not.Empty);
+            // The key should NOT be an integer
+            var key = championList.Data.Keys.First();
+            int id;
+            var isInteger = int.TryParse(key, out id);
+            Assert.That(isInteger, Is.False, "Champs are listed by ID, but should be listed by key.");
         }
 
         [Test]
@@ -495,5 +483,97 @@ namespace RiotNet.Tests
         }
 
         #endregion
+
+        #region Summoner Spells
+
+        [Test]
+        public async Task GetStaticSummonerSpellsTaskAsyncTest()
+        {
+            var client = new RiotClient();
+            var spellList = await client.GetStaticSummonerSpellsTaskAsync(spellListData: new[] { "all" });
+
+            Assert.That(spellList.Data.Count, Is.GreaterThan(0));
+            Assert.That(spellList.Type, Is.Not.Null.And.Not.Empty);
+            Assert.That(spellList.Version, Is.Not.Null.And.Not.Empty);
+
+            var spell = spellList.Data.Values.First();
+            Assert.That(spell.Id, Is.GreaterThan(0));
+            Assert.That(spell.Cooldown, Is.Not.Null.And.Not.Empty);
+            foreach (var cooldown in spell.Cooldown)
+                Assert.That(cooldown, Is.GreaterThan(0));
+            Assert.That(spell.CooldownBurn, Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.Cost, Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.CostBurn, Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.CostType, Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.Description, Is.Not.Null.And.Not.Empty);
+            Assert.That(spellList.Data.Values.Any(s => s.Effect != null && s.Effect.Count > 0));
+            Assert.That(spellList.Data.Values.Any(s => s.EffectBurn != null && s.EffectBurn.Count > 0));
+            Assert.That(spell.Image, Is.Not.Null);
+            Assert.That(spell.Key, Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.MaxRank, Is.GreaterThan(0));
+            Assert.That(spell.Modes, Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.Modes.First(), Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.Name, Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.Range, Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.RangeBurn, Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.Resource, Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.SanitizedDescription, Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.SanitizedTooltip, Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.Tooltip, Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.Vars, Is.Not.Null);
+            var spellVar = spell.Vars.First();
+            Assert.That(spellVar.Coeff, Is.Not.Null.And.Not.Empty);
+            Assert.That(spellVar.Key, Is.Not.Null.And.Not.Empty);
+            Assert.That(spellVar.Link, Is.Not.Null.And.Not.Empty);
+
+            // The key should NOT be an integer
+            var key = spellList.Data.Keys.First();
+            int id;
+            var isInteger = int.TryParse(key, out id);
+            Assert.That(isInteger, Is.False, "Champs are listed by ID, but should be listed by key.");
+        }
+
+        [Test]
+        public async Task GetStaticSummonerSpellTaskAsyncTest_IndexedById()
+        {
+            var client = new RiotClient();
+            var spellList = await client.GetStaticSummonerSpellsTaskAsync(dataById: true, spellListData: new[] { "all" });
+
+            Assert.That(spellList.Data.Count, Is.GreaterThan(0));
+
+            // The key should be an integer
+            var key = spellList.Data.Keys.First();
+            int id;
+            var isInteger = int.TryParse(key, out id);
+            Assert.That(isInteger, "Spells are not listed by ID.");
+        }
+
+        [Test]
+        public async Task GetStaticSummonerSpellByIdTaskAsyncTest()
+        {
+            var client = new RiotClient();
+
+            // 1 = Cleanse
+            var spell = await client.GetStaticSummonerSpellByIdTaskAsync(1, spellData: new[] { "all" });
+
+            Assert.That(spell, Is.Not.Null);
+            Assert.That(spell.Id, Is.EqualTo(1));
+        }
+
+        #endregion
+
+        #region Versions
+
+        [Test]
+        public async Task GetStaticVersionsTaskAsyncTest()
+        {
+            var client = new RiotClient();
+            var versions = await client.GetVersionsTaskAsync();
+
+            Assert.That(versions, Is.Not.Null.And.Not.Empty);
+        }
+
+        #endregion
+
     }
 }

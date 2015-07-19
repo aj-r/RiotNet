@@ -13,39 +13,6 @@ namespace RiotNet
     {
         private const string staticBaseUrl = "api/lol/static-data/{region}/v1.2/";
 
-        #region Versions
-
-        private IRestRequest GetStaticVersionsRequest()
-        {
-            return Get(staticBaseUrl + "versions");
-        }
-
-        /// <summary>
-        /// Gets the list of available game versions from the static API.
-        /// </summary>
-        /// <returns>The list of versions.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public List<string> GetStaticVersions()
-        {
-            return Execute<List<string>>(GetStaticVersionsRequest());
-        }
-
-        /// <summary>
-        /// Gets the list of available game versions from the static API.
-        /// </summary>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public Task<List<string>> GetVersionsTaskAsync()
-        {
-            return ExecuteTaskAsync<List<string>>(GetStaticVersionsRequest());
-        }
-
-        #endregion
-
         #region Champions
 
         private IRestRequest GetStaticChampionsRequest(string locale, string version, bool dataById, IEnumerable<string> champListData)
@@ -482,7 +449,6 @@ namespace RiotNet
             return ExecuteTaskAsync<StaticChampion>(GetStaticMasteryByIdRequest(id, locale, version, masteryData));
         }
 
-
         #endregion
 
         #region Realm
@@ -633,6 +599,144 @@ namespace RiotNet
         public Task<StaticRune> GetStaticRuneByIdTaskAsync(int id, string locale = null, string version = null, IEnumerable<string> runeData = null)
         {
             return ExecuteTaskAsync<StaticRune>(GetStaticRuneByIdRequest(id, locale, version, runeData));
+        }
+
+        #endregion
+
+        #region Summoner Spells
+
+        private IRestRequest GetStaticSummonerSpellsRequest(string locale, string version, bool dataById, IEnumerable<string> spellListData)
+        {
+            var request = Get(staticBaseUrl + "summoner-spell");
+            if (locale != null)
+                request.AddQueryParameter("locale", locale);
+            if (version != null)
+                request.AddQueryParameter("version", version);
+            if (dataById)
+                request.AddQueryParameter("dataById", dataById.ToString(CultureInfo.InvariantCulture));
+            if (spellListData != null)
+            {
+                // Force the first letter of each data point to be lower case since that is what the API is expecting.
+                var spellListDataParam = string.Join(",", spellListData.Where(t => !string.IsNullOrEmpty(t)).Select(t => t.Remove(1).ToLowerInvariant() + t.Substring(1)));
+                if (spellListDataParam.Length > 0)
+                    request.AddQueryParameter("spellData", spellListDataParam);
+            }
+            return request;
+        }
+
+        /// <summary>
+        /// Gets the details for all summoner spells from the static API.
+        /// </summary>
+        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="dataById">If true, the returned data map will use the spells' IDs as the keys. If false, the returned data map will use the spells' keys instead.</param>
+        /// <param name="spellListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticSummonerSpell"/> or <see cref="StaticSummonerSpellList"/> objects. Only type, version, data, id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <returns>A <see cref="StaticSummonerSpellList"/>.</returns>
+        /// <remarks>
+        /// Calls to this method will not count toward your API rate limit.
+        /// </remarks>
+        public StaticSummonerSpellList GetStaticSummonerSpells(string locale = null, string version = null, bool dataById = false, IEnumerable<string> spellListData = null)
+        {
+            return Execute<StaticSummonerSpellList>(GetStaticSummonerSpellsRequest(locale, version, dataById, spellListData));
+        }
+
+        /// <summary>
+        /// Gets the details for all summoner spells from the static API.
+        /// </summary>
+        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="dataById">If true, the returned data map will use the spells' IDs as the keys. If false, the returned data map will use the spells' keys instead.</param>
+        /// <param name="spellListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticSummonerSpell"/> or <see cref="StaticSummonerSpellList"/> objects. Only type, version, data, id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <remarks>
+        /// Calls to this method will not count toward your API rate limit.
+        /// </remarks>
+        public Task<StaticSummonerSpellList> GetStaticSummonerSpellsTaskAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> spellListData = null)
+        {
+            return ExecuteTaskAsync<StaticSummonerSpellList>(GetStaticSummonerSpellsRequest(locale, version, dataById, spellListData));
+        }
+
+        private IRestRequest GetStaticSummonerSpellByIdRequest(int id, string locale, string version, IEnumerable<string> spellData)
+        {
+            var request = Get(staticBaseUrl + "summoner-spell/{id}");
+            request.AddUrlSegment("id", id.ToString(CultureInfo.InvariantCulture));
+            if (locale != null)
+                request.AddQueryParameter("locale", locale);
+            if (version != null)
+                request.AddQueryParameter("version", version);
+            if (spellData != null)
+            {
+                // Force the first letter of each data point to be lower case since that is what the API is expecting.
+                var spellDataParam = string.Join(",", spellData.Where(t => !string.IsNullOrEmpty(t)).Select(t => t.Remove(1).ToLowerInvariant() + t.Substring(1)));
+                if (spellDataParam.Length > 0)
+                    request.AddQueryParameter("spellData", spellDataParam);
+            }
+            return request;
+        }
+
+        /// <summary>
+        /// Gets summoner spell details by ID.
+        /// </summary>
+        /// <param name="id">The summoner spell ID.</param>
+        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetStaticVersions"/>.</param>
+        /// <param name="spellData">Tags to return additional data. Valid tags are any property of the <see cref="StaticSummonerSpell"/> object. Only id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <returns>A <see cref="StaticSummonerSpell"/>.</returns>
+        /// <remarks>
+        /// Calls to this method will not count toward your API rate limit.
+        /// </remarks>
+        public StaticSummonerSpell GetStaticSummonerSpellById(int id, string locale = null, string version = null, IEnumerable<string> spellData = null)
+        {
+            return Execute<StaticSummonerSpell>(GetStaticSummonerSpellByIdRequest(id, locale, version, spellData));
+        }
+
+        /// <summary>
+        /// Gets summoner spell details by ID.
+        /// </summary>
+        /// <param name="id">The summoner spell ID.</param>
+        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="spellData">Tags to return additional data. Valid tags are any property of the <see cref="StaticSummonerSpell"/> object. Only id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <remarks>
+        /// Calls to this method will not count toward your API rate limit.
+        /// </remarks>
+        public Task<StaticSummonerSpell> GetStaticSummonerSpellByIdTaskAsync(int id, string locale = null, string version = null, IEnumerable<string> spellData = null)
+        {
+            return ExecuteTaskAsync<StaticSummonerSpell>(GetStaticSummonerSpellByIdRequest(id, locale, version, spellData));
+        }
+
+        #endregion
+
+        #region Versions
+
+        private IRestRequest GetStaticVersionsRequest()
+        {
+            return Get(staticBaseUrl + "versions");
+        }
+
+        /// <summary>
+        /// Gets the list of available game versions from the static API.
+        /// </summary>
+        /// <returns>The list of versions.</returns>
+        /// <remarks>
+        /// Calls to this method will not count toward your API rate limit.
+        /// </remarks>
+        public List<string> GetStaticVersions()
+        {
+            return Execute<List<string>>(GetStaticVersionsRequest());
+        }
+
+        /// <summary>
+        /// Gets the list of available game versions from the static API.
+        /// </summary>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <remarks>
+        /// Calls to this method will not count toward your API rate limit.
+        /// </remarks>
+        public Task<List<string>> GetVersionsTaskAsync()
+        {
+            return ExecuteTaskAsync<List<string>>(GetStaticVersionsRequest());
         }
 
         #endregion
