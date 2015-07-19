@@ -381,6 +381,110 @@ namespace RiotNet
 
         #endregion
 
+        #region Masteries
+
+        private IRestRequest GetStaticMasteriesRequest(string locale, string version, IEnumerable<string> masteryListData)
+        {
+            var request = Get("api/lol/static-data/{region}/v1.2/mastery");
+            if (locale != null)
+                request.AddQueryParameter("locale", locale);
+            if (version != null)
+                request.AddQueryParameter("version", version);
+            if (masteryListData != null)
+            {
+                // Force the first letter of each data point to be lower case since that is what the API is expecting.
+                var masteryListDataParam = string.Join(",", masteryListData.Where(t => !string.IsNullOrEmpty(t)).Select(t => t.Remove(1).ToLowerInvariant() + t.Substring(1)));
+                if (masteryListDataParam.Length > 0)
+                    request.AddQueryParameter("masteryListData", masteryListDataParam);
+            }
+            return request;
+        }
+
+        /// <summary>
+        /// Gets the details for all masteries.
+        /// </summary>
+        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="dataById">If true, the returned data map will use the champions' IDs as the keys. If false, the returned data map will use the champions' keys instead.</param>
+        /// <param name="masteryListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> or <see cref="StaticMasteryList"/> objects. Only type, version, data, id, name, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <returns>A <see cref="StaticMasteryList"/>.</returns>
+        /// <remarks>
+        /// Calls to this method will not count toward your API rate limit.
+        /// </remarks>
+        public StaticMasteryList GetStaticMasteries(string locale = null, string version = null, bool dataById = false, IEnumerable<string> masteryListData = null)
+        {
+            return Execute<StaticMasteryList>(GetStaticChampionsRequest(locale, version, dataById, masteryListData));
+        }
+
+        /// <summary>
+        /// Gets the details for all masteries.
+        /// </summary>
+        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="dataById">If true, the returned data map will use the champions' IDs as the keys. If false, the returned data map will use the champions' keys instead.</param>
+        /// <param name="masteryListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> or <see cref="StaticMasteryList"/> objects. Only type, version, data, id, name, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <remarks>
+        /// Calls to this method will not count toward your API rate limit.
+        /// </remarks>
+        public Task<StaticMasteryList> GetStaticMasteriesTaskAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> masteryListData = null)
+        {
+            return ExecuteTaskAsync<StaticMasteryList>(GetStaticChampionsRequest(locale, version, dataById, masteryListData));
+        }
+
+        private IRestRequest GetStaticMasteryByIdRequest(int id, string locale, string version, IEnumerable<string> masteryData)
+        {
+            var request = Get("api/lol/static-data/{region}/v1.2/champion/{id}");
+            request.AddUrlSegment("id", id.ToString(CultureInfo.InvariantCulture));
+            if (locale != null)
+                request.AddQueryParameter("locale", locale);
+            if (version != null)
+                request.AddQueryParameter("version", version);
+            if (masteryData != null)
+            {
+                // Force the first letter of each data point to be lower case since that is what the API is expecting.
+                var masteryDataParam = string.Join(",", masteryData.Where(t => !string.IsNullOrEmpty(t)).Select(t => t.Remove(1).ToLowerInvariant() + t.Substring(1)));
+                if (masteryDataParam.Length > 0)
+                    request.AddQueryParameter("masteryData", masteryDataParam);
+            }
+            return request;
+        }
+
+        /// <summary>
+        /// Gets mastery details by ID.
+        /// </summary>
+        /// <param name="id">The mastery ID.</param>
+        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersions"/>.</param>
+        /// <param name="masteryData">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> object. Only id, name, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <returns>A <see cref="StaticChampion"/>.</returns>
+        /// <remarks>
+        /// Calls to this method will not count toward your API rate limit.
+        /// </remarks>
+        public StaticChampion GetStaticMasteryById(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null)
+        {
+            return Execute<StaticChampion>(GetStaticMasteryByIdRequest(id, locale, version, masteryData));
+        }
+
+        /// <summary>
+        /// Gets mastery details by ID.
+        /// </summary>
+        /// <param name="id">The mastery ID.</param>
+        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="masteryData">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> object. Only id, name, description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <remarks>
+        /// Calls to this method will not count toward your API rate limit.
+        /// </remarks>
+        public Task<StaticChampion> GetStaticMasteryByIdTaskAsync(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null)
+        {
+            return ExecuteTaskAsync<StaticChampion>(GetStaticMasteryByIdRequest(id, locale, version, masteryData));
+        }
+
+
+        #endregion
+
         #region Runes
 
         private IRestRequest GetRunesRequest(string locale, string version, IEnumerable<string> runeListData)

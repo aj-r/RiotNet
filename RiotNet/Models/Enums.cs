@@ -162,6 +162,25 @@
     }
 
     /// <summary>
+    /// Indicates a type of mastery tree.
+    /// </summary>
+    public enum MastertyTreeType
+    {
+        /// <summary>
+        /// Specifies the Offense mastery tree.
+        /// </summary>
+        Offense,
+        /// <summary>
+        /// Specifies the Defense mastery tree.
+        /// </summary>
+        Defense,
+        /// <summary>
+        /// Specifies the Utility mastery tree.
+        /// </summary>
+        Utility
+    }
+
+    /// <summary>
     /// Represents player's position.
     /// </summary>
     public enum PlayerPosition
@@ -426,6 +445,7 @@
         /// </summary>
         Team2 = 200,
     }
+
     /// <summary>
     /// Represents a ranked tier.
     /// </summary>

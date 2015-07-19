@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace RiotNet.Models
 {
@@ -11,6 +9,19 @@ namespace RiotNet.Models
     /// </summary>
     public class StaticMasteryTree
     {
+        /// <summary>
+        /// Gets or sets the defense mastery tree.
+        /// </summary>
+        public List<StaticMasteryTreeList> Defense { get; set; }
 
+        /// <summary>
+        /// Gets or sets the offense mastery tree.
+        /// </summary>
+        public List<StaticMasteryTreeList> Offense { get; set; }
+
+        /// <summary>
+        /// Gets or sets the utility mastery tree.
+        /// </summary>
+        public List<StaticMasteryTreeList> Utility { get; set; }
     }
 }

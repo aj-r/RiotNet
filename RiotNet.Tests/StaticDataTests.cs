@@ -50,7 +50,7 @@ namespace RiotNet.Tests
         public async Task GetChampionsAsyncTaskTest_IndexedById()
         {
             var client = new RiotClient();
-            var championList = await client.GetStaticChampionsTaskAsync(dataById: true, champListData: new[] { "all" });
+            var championList = await client.GetStaticMasteriesTaskAsync(dataById: true, masteryListData: new[] { "all" });
 
             Assert.That(championList.Data.Count, Is.GreaterThan(0));
 
@@ -316,6 +316,41 @@ namespace RiotNet.Tests
             Assert.That(map.MapId, Is.GreaterThan(0));
             Assert.That(map.MapName, Is.Not.Null.And.Not.Empty);
             Assert.That(map.UnpurchasableItemList, Is.Not.Null.And.Not.Empty);
+        }
+
+        #endregion
+        
+        #region Masteries
+
+        [Test]
+        public async Task GetMasteriesAsyncTaskTest()
+        {
+            var client = new RiotClient();
+            var masteryList = await client.GetStaticMasteriesTaskAsync(masteryListData: new[] { "all" });
+
+            Assert.That(masteryList.Data.Count, Is.GreaterThan(0));
+            Assert.That(masteryList.Tree, Is.Not.Null);
+            Assert.That(masteryList.Type, Is.Not.Null.And.Not.Empty);
+            Assert.That(masteryList.Version, Is.Not.Null.And.Not.Empty);
+
+            var mastery = masteryList.Data.Values.First();
+            Assert.That(mastery.Id, Is.GreaterThan(0));
+            Assert.That(mastery.Description, Is.Not.Null.And.Not.Empty);
+            Assert.That(mastery.Image, Is.Not.Null);
+            Assert.That(masteryList.Data.Values.Any(m => m.MasteryTree == MastertyTreeType.Utility));
+            Assert.That(mastery.Name, Is.Not.Null.And.Not.Empty);
+            Assert.That(masteryList.Data.Values.Any(m => m.Prereq > 0));
+            Assert.That(mastery.Ranks, Is.GreaterThan(0));
+            Assert.That(mastery.SanitizedDescription, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public async Task GetMasteryByIdAsyncTaskTest()
+        {
+            var client = new RiotClient();
+            var mastery = await client.GetStaticMasteryByIdTaskAsync(4211, masteryData: new[] { "all" });
+
+            Assert.That(mastery, Is.Not.Null);
         }
 
         #endregion

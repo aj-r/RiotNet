@@ -67,7 +67,6 @@
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GameInfoBase.cs" />
     <Compile Include="Models\StaticMasteryTree.cs" />
-    <Compile Include="Models\StaticMasteryTreeItem.cs" />
     <Compile Include="Models\MatchDetail.cs" />
     <Compile Include="Models\MatchHistorySummary.cs" />
     <Compile Include="Models\Observer.cs" />
@@ -108,6 +107,7 @@
     <Compile Include="Models\Rune.cs" />
     <Compile Include="Models\Skin.cs" />
     <Compile Include="Models\SpellVars.cs" />
+    <Compile Include="Models\StaticMasteryTreeList.cs" />
     <Compile Include="Models\Stats.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\TeamMemberInfo.cs" />
