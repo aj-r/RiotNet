@@ -32,7 +32,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerId">The summoner's summoner ID.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<RecentGames> GetGamesBySummonerIdAsync(long summonerId)
+        public Task<RecentGames> GetGamesBySummonerIdTaskAsync(long summonerId)
         {
             return ExecuteTaskAsync<RecentGames>(GetGamesBySummonerIdRequest(summonerId));
         }

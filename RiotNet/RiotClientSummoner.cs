@@ -32,7 +32,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerNames">The summoner names.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, Summoner>> GetSummonersBySummonerNamesAsync(params String[] summonerNames)
+        public Task<Dictionary<String, Summoner>> GetSummonersBySummonerNamesTaskAsync(params String[] summonerNames)
         {
             return ExecuteTaskAsync<Dictionary<String, Summoner>>(GetSummonersBySummonerNamesRequest(summonerNames));
         }
@@ -59,7 +59,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, Summoner>> GetSummonersBySummonerIdsAsync(params long[] summonerIds)
+        public Task<Dictionary<String, Summoner>> GetSummonersBySummonerIdsTaskAsync(params long[] summonerIds)
         {
             return ExecuteTaskAsync<Dictionary<String, Summoner>>(GetSummonersBySummonerIdsRequest(summonerIds));
         }
@@ -86,7 +86,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, MasteryPages>> GetSummonerMasteriesBySummonerIdsAsync(params long[] summonerIds)
+        public Task<Dictionary<String, MasteryPages>> GetSummonerMasteriesBySummonerIdsTaskAsync(params long[] summonerIds)
         {
             return ExecuteTaskAsync<Dictionary<String, MasteryPages>>(GetSummonerMasteriesBySummonerIdsRequest(summonerIds));
         }
@@ -113,7 +113,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, String>> GetSummonerNameBySummonerIdsAsync(params long[] summonerIds)
+        public Task<Dictionary<String, String>> GetSummonerNameBySummonerIdsTaskAsync(params long[] summonerIds)
         {
             return ExecuteTaskAsync<Dictionary<String, String>>(GetSummonerNameBySummonerIdsRequest(summonerIds));
         }
@@ -140,7 +140,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, RunePages>> GetSummonerRunesBySummonerIdsAsync(params long[] summonerIds)
+        public Task<Dictionary<String, RunePages>> GetSummonerRunesBySummonerIdsTaskAsync(params long[] summonerIds)
         {
             return ExecuteTaskAsync<Dictionary<String, RunePages>>(GetSummonerRunesBySummonerIdsRequest(summonerIds));
         }
