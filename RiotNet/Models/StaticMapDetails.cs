@@ -11,7 +11,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets data for the map's image.
         /// </summary>
-        public virtual StaticImage Image { get; set; }
+        public Image Image { get; set; }
 
         /// <summary>
         /// Gets or sets the map ID.

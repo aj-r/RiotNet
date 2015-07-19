@@ -42,7 +42,7 @@ namespace RiotNet.Tests
         public IDbSet<SpellVars> SpellVars { get; set; }
         public IDbSet<StaticChampion> StaticChampions { get; set; }
         public IDbSet<StaticChampionSpell> StaticChampionSpells { get; set; }
-        public IDbSet<StaticImage> StaticImages { get; set; }
+        public IDbSet<AltImage> StaticImages { get; set; }
         public IDbSet<StaticItem> StaticItems { get; set; }
         public IDbSet<StaticItemTree> StaticItemTrees { get; set; }
         public IDbSet<StaticMapDetails> StaticMapDetails { get; set; }

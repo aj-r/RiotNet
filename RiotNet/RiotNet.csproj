@@ -95,6 +95,7 @@
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\Shard.cs" />
     <Compile Include="Models\ShardStatus.cs" />
+    <Compile Include="Models\AltImage.cs" />
     <Compile Include="Models\StaticMasteryTree.cs" />
     <Compile Include="Models\MatchDetail.cs" />
     <Compile Include="Models\MatchHistorySummary.cs" />
@@ -114,7 +115,7 @@
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\Gold.cs" />
     <Compile Include="Models\Group.cs" />
-    <Compile Include="Models\StaticImage.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\StaticItem.cs" />
     <Compile Include="Models\StaticLanuageStrings.cs" />
     <Compile Include="Models\StaticMapDetails.cs" />

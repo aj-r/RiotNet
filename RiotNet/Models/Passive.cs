@@ -17,7 +17,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the image data for the passive's icon.
         /// </summary>
-        public virtual StaticImage Image { get; set; }
+        public Image Image { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the passive.

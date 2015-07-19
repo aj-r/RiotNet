@@ -61,7 +61,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the image data for the current item/rune.
         /// </summary>
-        public virtual StaticImage Image { get; set; }
+        public Image Image { get; set; }
 
         /// <summary>
         /// Gets or sets the maps that the item is used on, indexed by map ID.

@@ -4,10 +4,12 @@ using Newtonsoft.Json;
 
 namespace RiotNet.Models
 {
+    // Note: unfortunately we cannot inherit from Image here because it is configured as a [ComplexType], and AltImage needs to NOT be a [ComplexType].
+
     /// <summary>
-    /// Contains image data.
+    /// Contains alternate image data.
     /// </summary>
-    public class StaticImage
+    public class AltImage
     {
         /// <summary>
         /// Gets or sets the file name of the full-size image.
@@ -46,7 +48,7 @@ namespace RiotNet.Models
 
 #if DB_READY
         /// <summary>
-        /// Gets or sets the ID of the <see cref="StaticImage"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
+        /// Gets or sets the ID of the <see cref="AltImage"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

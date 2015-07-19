@@ -56,7 +56,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the image data for the current spell.
         /// </summary>
-        public virtual StaticImage Image { get; set; }
+        public Image Image { get; set; }
 
         /// <summary>
         /// Gets or sets the key of the current spell.

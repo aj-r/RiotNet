@@ -14,7 +14,7 @@ namespace RiotNet.Models
         /// Gets or sets the alternate image data for the current ability.
         /// </summary>
         [JsonProperty("altimages")]
-        public virtual List<StaticImage> AltImages { get; set; }
+        public virtual List<AltImage> AltImages { get; set; }
 
 #if DB_READY
         /// <summary>
