@@ -1,6 +1,6 @@
 # RiotNet
 
-A .NET/C# API for the Riot Games API
+A .NET/C# client for the Riot Games API
 
 This project is still in development! It will have the following features:
 - **Compatible** with .NET 4.5 and later.

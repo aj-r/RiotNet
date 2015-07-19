@@ -60,10 +60,10 @@
     <Compile Include="Models\Block.cs" />
     <Compile Include="Models\BlockItem.cs" />
     <Compile Include="Models\CurrentGameInfo.cs" />
-    <Compile Include="Models\CurrentGameParticipant.cs" />
+    <Compile Include="Models\MatchParticipantFrameCollection.cs" />
+    <Compile Include="Models\Participant.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Frame.cs" />
-    <Compile Include="Models\MatchBannedChampion.cs" />
     <Compile Include="Models\MatchParticipant.cs" />
     <Compile Include="Models\MatchParticipantFrame.cs" />
     <Compile Include="Models\MatchParticipantIdentity.cs" />
@@ -94,7 +94,6 @@
     <Compile Include="Models\MatchDetail.cs" />
     <Compile Include="Models\MatchHistorySummary.cs" />
     <Compile Include="Models\Observer.cs" />
-    <Compile Include="Models\Participant.cs" />
     <Compile Include="Models\PersistableDictionary.cs" />
     <Compile Include="Models\PersistableList.cs" />
     <Compile Include="Models\Player.cs" />

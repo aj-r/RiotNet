@@ -41,6 +41,16 @@ namespace RiotNet.Models
                 }
             }
         }
+
+        /// <summary>
+        /// Gets or sets the total number of elements the internal data structure can hold without resizing.
+        /// </summary>
+        [NotMapped]
+        public new int Capacity
+        {
+            get { return base.Capacity; }
+            set { base.Capacity = value; }
+        }
     }
 
     /// <summary>

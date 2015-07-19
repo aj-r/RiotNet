@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
 namespace RiotNet.Models
 {
     /// <summary>
-    /// This object contains match team information.
+    /// Represents a team in a particular match.
     /// </summary>
     public class MatchTeam
     {
         /// <summary>
         /// Gets or sets banned champion data if game was draft mode, otherwise null.
         /// </summary>
-        public List<MatchBannedChampion> Bans { get; set; }
+        public virtual List<BannedChampion> Bans { get; set; }
 
         /// <summary>
         /// Gets or sets number of times the team killed baron.
@@ -63,7 +63,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets team ID.
         /// </summary>
-        public int TeamId { get; set; }
+        public TeamSide TeamId { get; set; }
 
         /// <summary>
         /// Gets or sets number of towers the team destroyed.
@@ -79,5 +79,15 @@ namespace RiotNet.Models
         /// Gets or sets flag indicating whether or not the team won.
         /// </summary>
         public bool Winner { get; set; }
+
+#if DB_READY
+        /// <summary>
+        /// Gets or sets the ID of the <see cref="StaticImage"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
+        /// </summary>
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [JsonIgnore]
+        public long DatabaseId { get; set; }
+#endif
     }
 }

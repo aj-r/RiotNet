@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RiotNet.Models
 {
     /// <summary>
     /// This object contains all timeline information.
     /// </summary>
+    [ComplexType]
     public class MatchParticipantTimeline
     {
         /// <summary>
@@ -96,13 +94,13 @@ namespace RiotNet.Models
         public MatchParticipantTimelineData InhibitorKillsPerMinCounts { get; set; }
 
         /// <summary>
-        /// Gets or sets participant's lane.
+        /// Gets or sets the participant's lane.
         /// </summary>
         // TODO: create converter so that "MID" and "MIDDLE", and "BOT" and "BOTTOM" are converted to same thing.
         public PlayerPosition Lane { get; set; }
 
         /// <summary>
-        /// Gets or sets participant's role (Legal values: DUO, NONE, SOLO, DUO_CARRY, DUO_SUPPORT).
+        /// Gets or sets the participant's role.
         /// </summary>
         public MatchRole Role { get; set; }
 

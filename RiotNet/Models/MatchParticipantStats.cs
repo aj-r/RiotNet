@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RiotNet.Models
 {
     /// <summary>
     /// This object contains participant statistics information.
     /// </summary>
+    [ComplexType]
     public class MatchParticipantStats
     {
         /// <summary>

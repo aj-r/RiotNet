@@ -1,11 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace RiotNet.Models
 {
@@ -15,9 +10,11 @@ namespace RiotNet.Models
     public class RuneSlot
     {
         /// <summary>
-        /// Gets or sets the ID of the rune in this rune slot.
-        /// For static information regarding runes, please refer to the Static Data API.
+        /// Gets or sets the ID of the rune in this rune slot. This corresponds to the ID of a <see cref="StaticRune"/>.
         /// </summary>
+        /// <remarks>
+        /// For static information regarding runes, please refer to the Static Data API.
+        /// </remarks>
         public int RuneId { get; set; }
 
         /// <summary>

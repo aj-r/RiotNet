@@ -15,7 +15,7 @@ namespace RiotNet.Models
         public int MapId { get; set; }
 
         /// <summary>
-        /// Gets or sets match creation time. Designates when the team select lobby is created and/or the match is made through match making, not when the game actually starts.
+        /// Gets or sets match creation time. Designates when the team select lobby is created and/or the match is made through match making; not when the game actually starts.
         /// </summary>
         public DateTime MatchCreation { get; set; }
 
@@ -48,12 +48,12 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets list of participants' identity information.
         /// </summary>
-        public List<MatchParticipantIdentity> ParticipantIdentities { get; set; }
+        public virtual List<MatchParticipantIdentity> ParticipantIdentities { get; set; }
 
         /// <summary>
         /// Gets or sets list of participants' information.
         /// </summary>
-        public List<MatchParticipant> Participants { get; set; }
+        public virtual List<MatchParticipant> Participants { get; set; }
 
         /// <summary>
         /// Gets or sets platform ID of the match.
@@ -78,11 +78,11 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets team information.
         /// </summary>
-        public List<MatchTeam> Teams { get; set; }
+        public virtual List<MatchTeam> Teams { get; set; }
 
         /// <summary>
         /// Gets or sets match timeline data (not included by default)
         /// </summary>
-        public Timeline Timeline { get; set; }
+        public virtual Timeline Timeline { get; set; }
     }
 }

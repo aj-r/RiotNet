@@ -24,26 +24,89 @@ namespace RiotNet.Tests
         }
 
         /// <summary>
+        /// Gets whether a type is a Nullable&lt;T&gt;.
+        /// </summary>
+        /// <param name="type">A type</param>
+        /// <returns>A boolean value that indicates whether the type is a Nullable&lt;T&gt;.</returns>
+        public static bool IsNullableType(Type type)
+        {
+            return type != null && type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
+        }
+
+        /// <summary>
+        /// Gets the underlying type if the type is a Nullable&lt;T&gt;. Otherwise gets the type itself.
+        /// </summary>
+        /// <param name="t">A type</param>
+        /// <returns>A boolean value that indicates whether the type is a Nullable&lt;T&gt;.</returns>
+        public static Type GetUnderlyingType(Type type)
+        {
+            return IsNullableType(type) ? type.GetGenericArguments()[0] : type;
+        }
+
+        private static int sampleInt = 2;
+        private static long sampleLong = 2L;
+        private static double sampleDouble = 2;
+        private static int sampleStringCount = 1;
+        private static DateTime sampleDateTime = new DateTime(2015, 5, 16, 3, 4, 0, 500, DateTimeKind.Utc);
+        private static TimeSpan sampleTimeSpan = TimeSpan.FromMilliseconds(250);
+        private static int sampleListCount = 1;
+        private static int sampleDictionaryCount = 1;
+
+        /// <summary>
         /// Creates an instance of the specified object with each of its properties initialized to non-default values.
         /// </summary>
         /// <param name="type">The type of object to create.</param>
         /// <returns>An object.</returns>
         public static object Create(Type type)
         {
+            type = GetUnderlyingType(type);
             if (type == typeof(int))
-                return 2;
+                return sampleInt++;
             if (type == typeof(long))
-                return 2L;
+                return sampleLong++;
             if (type == typeof(double))
-                return 1.5;
+                return sampleDouble++;
             if (type == typeof(string))
-                return "test";
+                return "test" + (sampleStringCount++);
             if (type == typeof(bool))
                 return true;
             if (type == typeof(DateTime))
-                return new DateTime(2015, 5, 16, 3, 4, 5, 500, DateTimeKind.Utc);
+            {
+                sampleDateTime += TimeSpan.FromSeconds(1);
+                return sampleDateTime;
+            }
+            if (type == typeof(TimeSpan))
+            {
+                sampleTimeSpan += TimeSpan.FromSeconds(1);
+                return sampleTimeSpan;
+            }
             if (type.IsEnum)
                 return Enum.GetValues(type).Cast<object>().Last();
+            if (type.IsInterface)
+            {
+                if (type.IsGenericType)
+                {
+                    var typeArguments = type.GetGenericArguments();
+                    if (typeArguments.Length == 1)
+                    {
+                        var genericTypeDefinition = type.GetGenericTypeDefinition();
+                        if (genericTypeDefinition == typeof(IEnumerable<>) || genericTypeDefinition == typeof(ICollection<>) || genericTypeDefinition == typeof(IList<>))
+                        {
+                            type = typeof(List<>).MakeGenericType(typeArguments);
+                        }
+                    }
+                    else if (typeArguments.Length == 2)
+                    {
+                        var genericTypeDefinition = type.GetGenericTypeDefinition();
+                        if (genericTypeDefinition == typeof(IDictionary<,>))
+                        {
+                            type = typeof(Dictionary<,>).MakeGenericType(typeArguments);
+                        }
+                    }
+                }
+                if (type.IsInterface)
+                    throw new Exception("Unsupported interface type: " + type.FullName);
+            }
             if (!type.IsClass)
                 throw new Exception("Unsupported struct type: " + type.FullName);
 
@@ -53,19 +116,30 @@ namespace RiotNet.Tests
             if (dictionaryType != null)
             {
                 var typeArgs = dictionaryType.GetGenericArguments();
-                var key = Create(typeArgs[0]);
-                var value = Create(typeArgs[1]);
                 var dictionary = (IDictionary)obj;
-                dictionary.Add(key, value);
+                var keyType = typeArgs[0];
+                var valueType = typeArgs[1];
+                for (var i = 0; i < sampleDictionaryCount; ++i)
+                {
+                    var key = Create(keyType);
+                    var value = Create(valueType);
+                    dictionary.Add(key, value);
+                }
+                sampleDictionaryCount = sampleDictionaryCount % 2 + 1;
                 return obj;
             }
             var collectionType = GetListInterface(type);
             if (collectionType != null)
             {
                 var typeArgs = collectionType.GetGenericArguments();
-                var value = Create(typeArgs[0]);
+                var itemType = typeArgs[0];
                 var collection = (IList)obj;
-                collection.Add(value);
+                for (var i = 0; i < sampleListCount; ++i)
+                {
+                    var value = Create(itemType);
+                    collection.Add(value);
+                }
+                sampleListCount = sampleListCount % 2 + 1;
                 return obj;
             }
 
@@ -136,7 +210,7 @@ namespace RiotNet.Tests
             Assert.That(b, Is.Not.Null);
             var type = b.GetType();
             Assert.That(a, Is.InstanceOf(type), "Objects have different types (" + propertyName + ").");
-            if (!type.IsClass)
+            if (!type.IsClass || type == typeof(string))
             {
                 Assert.That(a, Is.EqualTo(b), "Default value for " + propertyName + " is incorrect.");
                 return;

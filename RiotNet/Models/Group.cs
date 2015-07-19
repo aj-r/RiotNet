@@ -27,7 +27,7 @@ namespace RiotNet.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [JsonIgnore]
-        public int DatabaseId { get; set; }
+        public long DatabaseId { get; set; }
 #endif
     }
 }

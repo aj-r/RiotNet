@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RiotNet.Models
 {
@@ -61,7 +58,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the participant information.
         /// </summary>
-        public List<CurrentGameParticipant> Participants { get; set; }
+        public List<Participant> Participants { get; set; }
 
         /// <summary>
         /// Gets or sets the ID of the platform on which the game is being played.

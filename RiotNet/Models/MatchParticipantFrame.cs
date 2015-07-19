@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
 namespace RiotNet.Models
 {
@@ -59,5 +58,15 @@ namespace RiotNet.Models
         /// Gets or sets experience earned by participant.
         /// </summary>
         public int Xp { get; set; }
+
+#if DB_READY
+        /// <summary>
+        /// Gets or sets the ID of the <see cref="MatchParticipantFrame"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
+        /// </summary>
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [JsonIgnore]
+        public long DatabaseId { get; set; }
+#endif
     }
 }

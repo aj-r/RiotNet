@@ -19,7 +19,7 @@ namespace RiotNet.Models
         public int ChampionId { get; set; }
 
         /// <summary>
-        ///  Gets or sets date that end game data was recorded, specified as epoch milliseconds.
+        ///  Gets or sets date that end game data was recorded.
         /// </summary>
         public DateTime CreateDate { get; set; }
 
@@ -85,8 +85,8 @@ namespace RiotNet.Models
         public GameSubType SubType { get; set; }
 
         /// <summary>
-        ///  Gets or sets team ID associated with game. Team ID 100 is blue team. Team ID 200 is purple team.
+        ///  Gets or sets team ID associated with game.
         /// </summary>
-        public int TeamId { get; set; }
+        public TeamSide TeamId { get; set; }
     }
 }

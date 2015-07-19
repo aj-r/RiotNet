@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RiotNet.Models
 {
     /// <summary>
     /// This object contains participant frame position information.
     /// </summary>
+    [ComplexType]
     public class Position
     {
         /// <summary>

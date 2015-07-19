@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace RiotNet.Models
 {
@@ -11,74 +14,84 @@ namespace RiotNet.Models
     public class Event
     {
         /// <summary>
-        /// Gets or sets the ascended type of the event. Only present if relevant. Note that CLEAR_ASCENDED refers to when a participants kills the ascended player. (Legal values: CHAMPION_ASCENDED, CLEAR_ASCENDED, MINION_ASCENDED).
+        /// Creates a new <see cref="Event"/> instance.
         /// </summary>
-        public AscendedType AscendedType { get; set; }
+        public Event()
+        {
+            AssistingParticipantIds = new ListOfInt();
+            // Because position is a complex type, it CANNOT be null when saving to the database (at least for Entity Framework 6 and earlier).
+            Position = new Position();
+        }
+
+        /// <summary>
+        /// Gets or sets the ascended type of the event. Only present if relevant.
+        /// </summary>
+        public AscendedType? AscendedType { get; set; }
 
         /// <summary>
         /// Gets or sets the assisting participant IDs of the event. Only present if relevant.
         /// </summary>
-        public List<int> AssistingParticipantIds { get; set; }
+        public ListOfInt AssistingParticipantIds { get; set; }
 
         /// <summary>
-        /// Gets or sets the building type of the event. Only present if relevant. (Legal values: INHIBITOR_BUILDING, TOWER_BUILDING).
+        /// Gets or sets the building type of the event. Only present if relevant.
         /// </summary>
-        public BuildingType BuildingType { get; set; }
+        public BuildingType? BuildingType { get; set; }
 
         /// <summary>
         /// Gets or sets the creator ID of the event. Only present if relevant.
         /// </summary>
-        public int CreatorId { get; set; }
+        public int? CreatorId { get; set; }
 
         /// <summary>
-        /// Gets or sets event type. (Legal values: ASCENDED_EVENT, BUILDING_KILL, CAPTURE_POINT, CHAMPION_KILL, ELITE_MONSTER_KILL, ITEM_DESTROYED, ITEM_PURCHASED, ITEM_SOLD, ITEM_UNDO, PORO_KING_SUMMON, SKILL_LEVEL_UP, WARD_KILL, WARD_PLACED).
+        /// Gets or sets event type.
         /// </summary>
         public EventType EventType { get; set; }
 
         /// <summary>
         /// Gets or sets the ending item ID of the event. Only present if relevant.
         /// </summary>
-        public int ItemAfter { get; set; }
+        public int? ItemAfter { get; set; }
 
         /// <summary>
         /// Gets or sets the starting item ID of the event. Only present if relevant.
         /// </summary>
-        public int ItemBefore { get; set; }
+        public int? ItemBefore { get; set; }
 
         /// <summary>
         /// Gets or sets the item ID of the event. Only present if relevant.
         /// </summary>
-        public int ItemId { get; set; }
+        public int? ItemId { get; set; }
 
         /// <summary>
         /// Gets or sets the killer ID of the event. Only present if relevant. Killer ID 0 indicates a minion.
         /// </summary>
-        public int KillerId { get; set; }
+        public int? KillerId { get; set; }
 
         /// <summary>
-        /// Gets or sets the lane type of the event. Only present if relevant. (Legal values: BOT_LANE, MID_LANE, TOP_LANE).
+        /// Gets or sets the lane type of the event. Only present if relevant.
         /// </summary>
-        public LaneType LaneType { get; set; }
+        public LaneType? LaneType { get; set; }
 
         /// <summary>
-        /// Gets or sets the level up type of the event. Only present if relevant. (Legal values: EVOLVE, NORMAL).
+        /// Gets or sets the level up type of the event. Only present if relevant.
         /// </summary>
-        public LevelUpType LevelUpType { get; set; }
+        public LevelUpType? LevelUpType { get; set; }
 
         /// <summary>
-        /// Gets or sets the monster type of the event. Only present if relevant. (Legal values: BARON_NASHOR, BLUE_GOLEM, DRAGON, RED_LIZARD, VILEMAW).
+        /// Gets or sets the monster type of the event. Only present if relevant.
         /// </summary>
-        public MonsterType MonsterType { get; set; }
+        public MonsterType? MonsterType { get; set; }
 
         /// <summary>
         /// Gets or sets the participant ID of the event. Only present if relevant.
         /// </summary>
-        public int ParticipantId { get; set; }
+        public int? ParticipantId { get; set; }
 
         /// <summary>
-        /// Gets or sets the point captured in the event. Only present if relevant. (Legal values: POINT_A, POINT_B, POINT_C, POINT_D, POINT_E).
+        /// Gets or sets the point captured in the event. Only present if relevant.
         /// </summary>
-        public Point PointCaptured { get; set; }
+        public Point? PointCaptured { get; set; }
 
         /// <summary>
         /// Gets or sets the position of the event. Only present if relevant.
@@ -88,31 +101,41 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the skill slot of the event. Only present if relevant.
         /// </summary>
-        public int SkillSlot { get; set; }
+        public int? SkillSlot { get; set; }
 
         /// <summary>
         /// Gets or sets the team ID of the event. Only present if relevant.
         /// </summary>
-        public int TeamId { get; set; }
+        public TeamSide? TeamId { get; set; }
 
         /// <summary>
-        /// Gets or sets represents how many milliseconds into the game the event occurred.
+        /// Gets or sets the game time at which the event occurred.
         /// </summary>
-        public long Timestamp { get; set; }
+        public TimeSpan Timestamp { get; set; }
 
         /// <summary>
-        /// Gets or sets the tower type of the event. Only present if relevant. (Legal values: BASE_TURRET, FOUNTAIN_TURRET, INNER_TURRET, NEXUS_TURRET, OUTER_TURRET, UNDEFINED_TURRET).
+        /// Gets or sets the tower type of the event. Only present if relevant.
         /// </summary>
-        public TowerType TowerType { get; set; }
+        public TowerType? TowerType { get; set; }
 
         /// <summary>
         /// Gets or sets the victim ID of the event. Only present if relevant.
         /// </summary>
-        public int VictimId { get; set; }
+        public int? VictimId { get; set; }
 
         /// <summary>
-        /// Gets or sets the ward type of the event. Only present if relevant. (Legal values: SIGHT_WARD, TEEMO_MUSHROOM, UNDEFINED, VISION_WARD, YELLOW_TRINKET, YELLOW_TRINKET_UPGRADE).
+        /// Gets or sets the ward type of the event. Only present if relevant.
         /// </summary>
-        public WardType WardType { get; set; }
+        public WardType? WardType { get; set; }
+
+#if DB_READY
+        /// <summary>
+        /// Gets or sets the ID of the <see cref="Event"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
+        /// </summary>
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [JsonIgnore]
+        public long DatabaseId { get; set; }
+#endif
     }
 }

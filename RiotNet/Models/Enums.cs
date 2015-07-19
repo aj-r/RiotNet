@@ -1,20 +1,20 @@
 ﻿namespace RiotNet.Models
 {
     /// <summary>
-    /// Represents ascended type (for match events).
+    /// Represents the ascended type. Only applies to event of type <see cref="EventType.ASCENDED_EVENT"/>.
     /// </summary>
     public enum AscendedType
     {
         /// <summary>
-        /// Champion ascended
+        /// Indicates that a player has become ascended.
         /// </summary>
         CHAMPION_ASCENDED,
         /// <summary>
-        /// Clear ascended
+        /// Inticates that a player has killed the ascended player.
         /// </summary>
         CLEAR_ASCENDED,
         /// <summary>
-        /// Minion ascended
+        /// Indicates that a minion has ascended.
         /// </summary>
         MINION_ASCENDED,
     }
@@ -289,7 +289,7 @@
     }
 
     /// <summary>
-    /// Represents player's role. Very similar to PlayerRole but used in the Match api...
+    /// Represents a player's role. Very similar to PlayerRole but used in the Match API.
     /// </summary>
     public enum MatchRole
     {
@@ -404,7 +404,7 @@
     }
 
     /// <summary>
-    /// Represents a point (in dominion?).
+    /// Represents a capturable point in Dominion.
     /// </summary>
     public enum Point
     {
