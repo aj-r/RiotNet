@@ -100,6 +100,12 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        public void RankedStatsDbTest()
+        {
+            VerifyDbStorage<RankedStats>();
+        }
+
+        [Test]
         public void TeamDbTest()
         {
             VerifyDbStorage<Team>();

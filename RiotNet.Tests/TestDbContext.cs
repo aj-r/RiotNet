@@ -19,6 +19,7 @@ namespace RiotNet.Tests
         public IDbSet<Block> Blocks { get; set; }
         public IDbSet<BlockItem> BlockItems { get; set; }
         public IDbSet<Champion> Champions { get; set; }
+        public IDbSet<ChampionStats> ChampionStats { get; set; }
         public IDbSet<Event> Events { get; set; }
         public IDbSet<Game> Games { get; set; }
         public IDbSet<Group> Groups { get; set; }
@@ -33,6 +34,7 @@ namespace RiotNet.Tests
         public IDbSet<MatchTeam> MatchTeams { get; set; }
         public IDbSet<Passive> Passives { get; set; }
         public IDbSet<Player> Players { get; set; }
+        public IDbSet<RankedStats> RankedStats { get; set; }
         public IDbSet<Recommended> RecommendedItemSets { get; set; }
         public IDbSet<Roster> Rosters { get; set; }
         public IDbSet<Rune> Runes { get; set; }
