@@ -76,6 +76,8 @@
     <Compile Include="Models\MatchSummary.cs" />
     <Compile Include="Models\MatchTeam.cs" />
     <Compile Include="Models\PlayerHistory.cs" />
+    <Compile Include="Models\PlayerStatsSummary.cs" />
+    <Compile Include="Models\PlayerStatsSummaryList.cs" />
     <Compile Include="Models\Position.cs" />
     <Compile Include="Models\RankedStats.cs" />
     <Compile Include="Models\Rune.cs" />
