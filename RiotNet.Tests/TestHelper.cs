@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Reflection;
 using Newtonsoft.Json;
@@ -194,15 +195,21 @@ namespace RiotNet.Tests
         /// </summary>
         /// <param name="a">An object.</param>
         /// <param name="b">An object.</param>
-        /// <param name="json">Indicates whether only JSON-serializable properties should be compared. If true, any property with a JsonIgnoreAttribute is ignored.</param>
+        /// <param name="forDefaults">Indicates whether the comparison is for default values. In defaults mode, only JSON-serializable properties should be compared, and [ComplexType] objects may be set even if the default is null.</param>
         /// <param name="propertyName">The property name to display in the error message if the assertion fails.</param>
-        public static void AssertObjectEqualityRecursive(object a, object b, bool json = false, string propertyName = null)
+        public static void AssertObjectEqualityRecursive(object a, object b, bool forDefaults = false, string propertyName = null)
         {
             if (propertyName == null)
                 propertyName = b != null ? b.GetType().Name : "object";
 
             if (b == null)
             {
+                if (forDefaults && a != null)
+                {
+                    // If the default value for a [ComplexType] object is null, we permit it to be set, because it must be non-null to be saveable in the database.
+                    if (a.GetType().GetCustomAttribute<ComplexTypeAttribute>() != null)
+                        return;
+                }
                 Assert.That(a, Is.Null, "Value for " + propertyName + " is incorrect.");
                 return;
             }
@@ -225,7 +232,7 @@ namespace RiotNet.Tests
                 var nextB = enumeratorB.MoveNext();
                 while (nextA && nextB)
                 {
-                    AssertObjectEqualityRecursive(enumeratorA.Current, enumeratorB.Current, json, propertyName + "[" + i + "]");
+                    AssertObjectEqualityRecursive(enumeratorA.Current, enumeratorB.Current, forDefaults, propertyName + "[" + i + "]");
                     nextA = enumeratorA.MoveNext();
                     nextB = enumeratorB.MoveNext();
                     ++i;
@@ -240,11 +247,11 @@ namespace RiotNet.Tests
                 propertyName += ".";
                 foreach (var property in type.GetProperties(BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.Instance))
                 {
-                    if (json && property.GetCustomAttribute<JsonIgnoreAttribute>() != null)
+                    if (forDefaults && property.GetCustomAttribute<JsonIgnoreAttribute>() != null)
                         continue;
                     var value1 = property.GetValue(a);
                     var value2 = property.GetValue(b);
-                    AssertObjectEqualityRecursive(value1, value2, json, propertyName + property.Name);
+                    AssertObjectEqualityRecursive(value1, value2, forDefaults, propertyName + property.Name);
                 }
             }
         }

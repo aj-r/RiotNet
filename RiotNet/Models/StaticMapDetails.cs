@@ -9,6 +9,15 @@ namespace RiotNet.Models
     public class StaticMapDetails
     {
         /// <summary>
+        /// Creates a new <see cref="StaticMapDetails"/> instance.
+        /// </summary>
+        public StaticMapDetails()
+        {
+            Image = new Image();
+            UnpurchasableItemList = new ListOfString();
+        }
+
+        /// <summary>
         /// Gets or sets data for the map's image.
         /// </summary>
         public Image Image { get; set; }

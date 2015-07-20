@@ -12,6 +12,15 @@ namespace RiotNet.Models
     public class LevelTip
     {
         /// <summary>
+        /// Creates a new <see cref="LevelTip"/> instance.
+        /// </summary>
+        public LevelTip()
+        {
+            Effect = new ListOfString();
+            Label = new ListOfString();
+        }
+
+        /// <summary>
         /// Gets or sets the effects that change for each rank of the ability.
         /// </summary>
         public ListOfString Effect { get; set; }

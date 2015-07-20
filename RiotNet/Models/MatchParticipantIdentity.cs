@@ -10,6 +10,14 @@ namespace RiotNet.Models
     public class MatchParticipantIdentity
     {
         /// <summary>
+        /// Creates a new <see cref="MatchParticipantIdentity"/> instance.
+        /// </summary>
+        public MatchParticipantIdentity()
+        {
+            Player = new MatchPlayer();
+        }
+
+        /// <summary>
         /// Gets or sets participant ID (1-10).
         /// </summary>
         public int ParticipantId { get; set; }

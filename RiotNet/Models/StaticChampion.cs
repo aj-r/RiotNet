@@ -10,6 +10,21 @@ namespace RiotNet.Models
     public class StaticChampion
     {
         /// <summary>
+        /// Creates a new <see cref="StaticChampion"/> instance.
+        /// </summary>
+        public StaticChampion()
+        {
+            // ComplexTypes CANNOT be null when saving to the database.
+            AllyTips = new ListOfString();
+            EnemyTips = new ListOfString();
+            Image = new Image();
+            Info = new StaticChampionInfo();
+            Passive = new Passive();
+            Stats = new Stats();
+            Tags = new ListOfString();
+        }
+
+        /// <summary>
         /// Gets or sets a list of tips for how to play as this champion.
         /// </summary>
         [JsonProperty("allytips")]
@@ -66,7 +81,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the champion's passive ability.
         /// </summary>
-        public virtual Passive Passive { get; set; }
+        public Passive Passive { get; set; }
 
         /// <summary>
         /// Gets or sets the champion's recommended item sets.

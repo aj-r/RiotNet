@@ -9,6 +9,38 @@ namespace RiotNet.Models
     public class MatchParticipantTimeline
     {
         /// <summary>
+        /// Creates a new <see cref="MatchParticipantTimeline"/> instance.
+        /// </summary>
+        public MatchParticipantTimeline()
+        {
+            AncientGolemAssistsPerMinCounts = new MatchParticipantTimelineData();
+            AncientGolemKillsPerMinCounts = new MatchParticipantTimelineData();
+            AssistedLaneDeathsPerMinDeltas = new MatchParticipantTimelineData();
+            AssistedLaneKillsPerMinDeltas = new MatchParticipantTimelineData();
+            BaronAssistsPerMinCounts = new MatchParticipantTimelineData();
+            BaronKillsPerMinCounts = new MatchParticipantTimelineData();
+            CreepsPerMinDeltas = new MatchParticipantTimelineData();
+            CsDiffPerMinDeltas = new MatchParticipantTimelineData();
+            DamageTakenDiffPerMinDeltas = new MatchParticipantTimelineData();
+            DamageTakenPerMinDeltas = new MatchParticipantTimelineData();
+            DragonAssistsPerMinCounts = new MatchParticipantTimelineData();
+            DragonKillsPerMinCounts = new MatchParticipantTimelineData();
+            ElderLizardAssistsPerMinCounts = new MatchParticipantTimelineData();
+            ElderLizardKillsPerMinCounts = new MatchParticipantTimelineData();
+            GoldPerMinDeltas = new MatchParticipantTimelineData();
+            InhibitorAssistsPerMinCounts = new MatchParticipantTimelineData();
+            InhibitorKillsPerMinCounts = new MatchParticipantTimelineData();
+            TowerAssistsPerMinCounts = new MatchParticipantTimelineData();
+            TowerKillsPerMinCounts = new MatchParticipantTimelineData();
+            TowerKillsPerMinDeltas = new MatchParticipantTimelineData();
+            VilemawAssistsPerMinCounts = new MatchParticipantTimelineData();
+            VilemawAssistsPerMinCounts = new MatchParticipantTimelineData();
+            WardsPerMinDeltas = new MatchParticipantTimelineData();
+            XpDiffPerMinDeltas = new MatchParticipantTimelineData();
+            XpPerMinDeltas = new MatchParticipantTimelineData();
+        }
+
+        /// <summary>
         /// Gets or sets ancient golem assists per minute timeline counts.
         /// </summary>
         public MatchParticipantTimelineData AncientGolemAssistsPerMinCounts { get; set; }

@@ -10,6 +10,14 @@ namespace RiotNet.Models
     public class MatchParticipantFrame
     {
         /// <summary>
+        /// Creates a new <see cref="MatchParticipantFrame"/> instance.
+        /// </summary>
+        public MatchParticipantFrame()
+        {
+            Position = new Position();
+        }
+
+        /// <summary>
         /// Gets or sets participant's current gold.
         /// </summary>
         public int CurrentGold { get; set; }

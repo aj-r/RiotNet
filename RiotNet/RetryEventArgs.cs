@@ -14,7 +14,7 @@ namespace RiotNet
         private readonly int attemptCount;
 
         /// <summary>
-        /// Creates a new <see cref="RetryEventArgs"/> instnace.
+        /// Creates a new <see cref="RetryEventArgs"/> instance.
         /// </summary>
         /// <param name="attemptCount">The number of times that the same request has been attempted.</param>
         public RetryEventArgs(int attemptCount)

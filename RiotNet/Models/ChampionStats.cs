@@ -10,6 +10,14 @@ namespace RiotNet.Models
     public class ChampionStats
     {
         /// <summary>
+        /// Creates a new <see cref="ChampionStats"/> instance.
+        /// </summary>
+        public ChampionStats()
+        {
+            Stats = new AggregatedStats();
+        }
+
+        /// <summary>
         /// Gets or sets champion ID. Note that champion ID 0 represents the combined stats for all champions. For static information correlating to champion IDs, please refer to the LoL Static Data API.
         /// </summary>
         public int Id { get; set; }

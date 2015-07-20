@@ -18,6 +18,7 @@ namespace RiotNet.Models
             Colloq = string.Empty;
             Description = string.Empty;
             Group = string.Empty;
+            Image = new Image();
             Maps = new DictionaryOfBoolean
             { 
                 { "1", true },

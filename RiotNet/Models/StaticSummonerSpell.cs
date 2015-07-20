@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace RiotNet.Models
 {
@@ -12,6 +7,14 @@ namespace RiotNet.Models
     /// </summary>
     public class StaticSummonerSpell : StaticSpell
     {
+        /// <summary>
+        /// Creates a new <see cref="StaticSummonerSpell"/> instance.
+        /// </summary>
+        public StaticSummonerSpell()
+        {
+            Modes = new ListOfString();
+        }
+
         /// <summary>
         /// Gets or sets the summoner spell ID.
         /// </summary>

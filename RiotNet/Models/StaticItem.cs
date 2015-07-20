@@ -14,6 +14,7 @@ namespace RiotNet.Models
         {
             // Note: default values are defined in the "basic" property of an ItemList or RuneList.
             Depth = 1;
+            Effect = new DictionaryOfString();
             From = new ListOfInt();
             Gold = new Gold();
             InStore = true;

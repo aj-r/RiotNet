@@ -14,6 +14,14 @@ namespace RiotNet.Models
     public class Game
     {
         /// <summary>
+        /// Creates a new <see cref="Game"/> instance.
+        /// </summary>
+        public Game()
+        {
+            Stats = new RawStats();
+        }
+
+        /// <summary>
         ///  Gets or sets champion ID associated with game.
         /// </summary>
         public int ChampionId { get; set; }

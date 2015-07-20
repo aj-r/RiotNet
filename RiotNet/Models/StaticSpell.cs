@@ -1,18 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RiotNet.Converters;
 
 namespace RiotNet.Models
 {
     /// <summary>
-    /// Represents a champion ability or summoner spell.
+    /// The base class for a champion ability or summoner spell.
     /// </summary>
     public class StaticSpell
     {
+        /// <summary>
+        /// Creates a new <see cref="StaticSpell"/> instance.
+        /// </summary>
+        public StaticSpell()
+        {
+            Cooldown = new ListOfDouble();
+            Cost = new ListOfInt();
+            Effect = new ListOfListOfDouble();
+            EffectBurn = new ListOfString();
+            Image = new Image();
+            LevelTip = new LevelTip();
+            Range = new ListOfInt();
+        }
+
         /// <summary>
         /// Gets or sets the cooldowns of this spell at each rank.
         /// </summary>

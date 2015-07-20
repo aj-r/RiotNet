@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace RiotNet.Models
@@ -14,6 +9,14 @@ namespace RiotNet.Models
     /// </summary>
     public class StaticRealm
     {
+        /// <summary>
+        /// Creates a new <see cref="StaticRealm"/> instance.
+        /// </summary>
+        public StaticRealm()
+        {
+            N = new DictionaryOfString();
+        }
+
         /// <summary>
         /// Gets or sets the base CDN URL.
         /// </summary>

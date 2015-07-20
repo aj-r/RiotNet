@@ -11,6 +11,14 @@ namespace RiotNet.Models
     public class StaticItemTree
     {
         /// <summary>
+        /// Creates a new <see cref="StaticItemTree"/> instance.
+        /// </summary>
+        public StaticItemTree()
+        {
+            Tags = new ListOfString();
+        }
+
+        /// <summary>
         /// Gets or sets the item tree header.
         /// </summary>
         public string Header { get; set; }

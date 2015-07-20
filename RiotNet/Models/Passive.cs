@@ -1,14 +1,21 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Newtonsoft.Json;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RiotNet.Models
 {
     /// <summary>
     /// Contains champion passive ability data.
     /// </summary>
+    [ComplexType]
     public class Passive
     {
+        /// <summary>
+        /// Creates a new <see cref="Passive"/> instance.
+        /// </summary>
+        public Passive()
+        {
+            Image = new Image();
+        }
+
         /// <summary>
         /// Gets or sets the description of the passive.
         /// </summary>
@@ -28,15 +35,5 @@ namespace RiotNet.Models
         /// Gets or sets the sanitized description of the passive.
         /// </summary>
         public string SanitizedDescription { get; set; }
-
-#if DB_READY
-        /// <summary>
-        /// Gets or sets the ID of the current <see cref="Passive"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
-        /// </summary>
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [JsonIgnore]
-        public long DatabaseId { get; set; }
-#endif
     }
 }

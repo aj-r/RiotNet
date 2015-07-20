@@ -11,6 +11,14 @@ namespace RiotNet.Models
     public class SpellVars
     {
         /// <summary>
+        /// Creates a new <see cref="SpellVars"/> instance.
+        /// </summary>
+        public SpellVars()
+        {
+            Coeff = new ListOfDouble();
+        }
+
+        /// <summary>
         /// Gets or sets the scaling coefficients for the current spell.
         /// </summary>
         public ListOfDouble Coeff { get; set; }

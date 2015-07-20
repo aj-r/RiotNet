@@ -10,6 +10,14 @@ namespace RiotNet.Models
     public class LeagueEntry
     {
         /// <summary>
+        /// Creates a new <see cref="LeagueEntry"/> instance.
+        /// </summary>
+        public LeagueEntry()
+        {
+            MiniSeries = new MiniSeries();
+        }
+
+        /// <summary>
         /// Gets or sets a Roman numeral representing the division that the participant is in.
         /// </summary>
         public string Division { get; set; }

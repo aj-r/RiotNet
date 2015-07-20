@@ -8,6 +8,16 @@ namespace RiotNet.Models
     public class StaticMastery
     {
         /// <summary>
+        /// Creates a new <see cref="StaticMastery"/> instance.
+        /// </summary>
+        public StaticMastery()
+        {
+            Description = new ListOfString();
+            Image = new Image();
+            SanitizedDescription = new ListOfString();
+        }
+
+        /// <summary>
         /// Gets or sets the mastery ID.
         /// </summary>
         [Key]
