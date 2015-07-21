@@ -17,7 +17,7 @@ namespace RiotNet.Models
         public List<PlayerStatsSummary> PlayerStatSummaries { get; set; }
 
         /// <summary>
-        /// Gets or sets summoner ID.
+        /// Gets or sets the summoner ID.
         /// </summary>
         public long SummonerId { get; set; }
     }

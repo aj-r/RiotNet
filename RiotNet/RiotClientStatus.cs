@@ -39,7 +39,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the status of a shard.
+        /// Gets the status of the shard for the current region.
         /// </summary>
         /// <returns>The shard's status.</returns>
         public ShardStatus GetShardStatus()
@@ -48,7 +48,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the status of a shard.
+        /// Gets the status of the shard for the current region.
         /// </summary>
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<ShardStatus> GetShardStatusTaskAsync()

@@ -11,29 +11,29 @@ namespace RiotNet.Models
     public class PlayerStatsSummary
     {
         /// <summary>
-        /// Gets or sets aggregated stats.
+        /// Gets or sets the aggregated stats.
         /// </summary>
         public AggregatedStats AggregatedStats { get; set; }
 
         /// <summary>
-        /// Gets or sets number of losses for this queue type. Returned for ranked queue types only.
+        /// Gets or sets the number of losses for this queue type. Returned for ranked queue types only.
         /// </summary>
         public int Losses { get; set; }
 
         /// <summary>
-        /// Gets or sets date stats were last modified.
+        /// Gets or sets the date when the stats were last modified.
         /// </summary>
         public DateTime ModifyDate { get; set; }
 
         /// <summary>
-        /// Gets or sets player stats summary type.
+        /// Gets or sets the player stats summary type.
         /// </summary>
         // TODO: we should be able to use the enum GameMode, except that the strings are slightly different (no underscores...)
         // TODO: create custom converter.
         public GameMode PlayerStatSummaryType { get; set; }
 
         /// <summary>
-        /// Gets or sets number of wins for this queue type.
+        /// Gets or sets the number of wins for this queue type.
         /// </summary>
         public int Wins { get; set; }
     }
