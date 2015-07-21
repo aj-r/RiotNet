@@ -12,7 +12,7 @@ namespace RiotNet
     {
         private IRestRequest GetSummonersBySummonerNamesRequest(params String[] summonerNames)
         {
-            var request = Get("/api/lol/{region}/v1.4/summoner/by-name/{summonerNames}");
+            var request = Get("api/lol/{region}/v1.4/summoner/by-name/{summonerNames}");
             request.AddUrlSegment("summonerNames", String.Join(",", summonerNames));
             return request;
         }
@@ -39,7 +39,7 @@ namespace RiotNet
 
         private IRestRequest GetSummonersBySummonerIdsRequest(params long[] summonerIds)
         {
-            var request = Get("/api/lol/{region}/v1.4/summoner/by-name/{summonerIds}");
+            var request = Get("api/lol/{region}/v1.4/summoner/by-name/{summonerIds}");
             request.AddUrlSegment("summonerIds", String.Join(",", summonerIds));
             return request;
         }
@@ -66,7 +66,7 @@ namespace RiotNet
 
         private IRestRequest GetSummonerMasteriesBySummonerIdsRequest(params long[] summonerIds)
         {
-            var request = Get("/api/lol/{region}/v1.4/summoner/{summonerIds}/masteries");
+            var request = Get("api/lol/{region}/v1.4/summoner/{summonerIds}/masteries");
             request.AddUrlSegment("summonerIds", String.Join(",", summonerIds));
             return request;
         }
@@ -93,7 +93,7 @@ namespace RiotNet
 
         private IRestRequest GetSummonerNameBySummonerIdsRequest(params long[] summonerIds)
         {
-            var request = Get("/api/lol/{region}/v1.4/summoner/{summonerIds}/name");
+            var request = Get("api/lol/{region}/v1.4/summoner/{summonerIds}/name");
             request.AddUrlSegment("summonerIds", String.Join(",", summonerIds));
             return request;
         }
@@ -120,7 +120,7 @@ namespace RiotNet
 
         private IRestRequest GetSummonerRunesBySummonerIdsRequest(params long[] summonerIds)
         {
-            var request = Get("/api/lol/{region}/v1.4/summoner/{summonerIds}/runes");
+            var request = Get("api/lol/{region}/v1.4/summoner/{summonerIds}/runes");
             request.AddUrlSegment("summonerIds", String.Join(",", summonerIds));
             return request;
         }

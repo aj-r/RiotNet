@@ -12,7 +12,7 @@ namespace RiotNet
     {
         private IRestRequest GetFeaturedGamesRequest()
         {
-            return Get("/observer-mode/rest/featured");
+            return Get("observer-mode/rest/featured");
         }
 
         /// <summary>

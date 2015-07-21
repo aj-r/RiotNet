@@ -10,7 +10,7 @@ namespace RiotNet
     {
         private IRestRequest GetLeaguesBySummonerIdsRequest(params long[] summonerIds)
         {
-            var request = Get("/api/lol/{region}/v2.5/league/by-summoner/{summonerIds}");
+            var request = Get("api/lol/{region}/v2.5/league/by-summoner/{summonerIds}");
             request.AddUrlSegment("summonerIds", String.Join(",", summonerIds));
             return request;
         }
@@ -37,7 +37,7 @@ namespace RiotNet
 
         private IRestRequest GetLeagueEntriesBySummonerIdsRequest(params long[] summonerIds)
         {
-            var request = Get("/api/lol/{region}/v2.5/league/by-summoner/{summonerIds}/entry");
+            var request = Get("api/lol/{region}/v2.5/league/by-summoner/{summonerIds}/entry");
             request.AddUrlSegment("summonerIds", String.Join(",", summonerIds));
             return request;
         }
@@ -64,7 +64,7 @@ namespace RiotNet
 
         private IRestRequest GetLeaguesByTeamIdsRequest(params long[] teamIds)
         {
-            var request = Get("/api/lol/{region}/v2.5/league/by-team/{teamIds}");
+            var request = Get("api/lol/{region}/v2.5/league/by-team/{teamIds}");
             request.AddUrlSegment("teamIds", String.Join(",", teamIds));
             return request;
         }
@@ -91,7 +91,7 @@ namespace RiotNet
 
         private IRestRequest GetLeagueEntriesByTeamIdsRequest(params long[] teamIds)
         {
-            var request = Get("/api/lol/{region}/v2.5/league/by-team/{teamIds}/entry");
+            var request = Get("api/lol/{region}/v2.5/league/by-team/{teamIds}/entry");
             request.AddUrlSegment("teamIds", String.Join(",", teamIds));
             return request;
         }

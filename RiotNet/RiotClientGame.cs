@@ -12,7 +12,7 @@ namespace RiotNet
     {
         private IRestRequest GetGamesBySummonerIdRequest(long summonerId)
         {
-            var request = Get("/api/lol/{region}/v1.3/game/by-summoner/{summonerId}/recent");
+            var request = Get("api/lol/{region}/v1.3/game/by-summoner/{summonerId}/recent");
             request.AddUrlSegment("summonerId", summonerId.ToString());
             return request;
         }

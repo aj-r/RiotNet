@@ -12,7 +12,7 @@ namespace RiotNet
     {
         private IRestRequest GetCurrentGameBySummonerIdRequest(long summonerId)
         {
-            var request = Get("/observer-mode/rest/consumer/getSpectatorGameInfo/{platformId}/{summonerId}");
+            var request = Get("observer-mode/rest/consumer/getSpectatorGameInfo/{platformId}/{summonerId}");
             request.AddUrlSegment("summonerId", summonerId.ToString());
             return request;
         }
