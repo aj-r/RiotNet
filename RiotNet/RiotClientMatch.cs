@@ -10,10 +10,11 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
-        private IRestRequest GetMatchRequest(long matchId)
+        private IRestRequest GetMatchRequest(long matchId, Boolean includeTimeline)
         {
             var request = Get("api/lol/{region}/v2.2/match/{matchId}");
             request.AddUrlSegment("matchId", matchId.ToString());
+            request.AddQueryParameter("includeTimeline", includeTimeline.ToString().ToLower());
             return request;
         }
 
@@ -21,20 +22,22 @@ namespace RiotNet
         /// Gets the details of a match.
         /// </summary>
         /// <param name="matchId">The ID of the match.</param>
+        /// <param name="includeTimeline">Whether or not to include the match timeline data.</param>
         /// <returns>The details of the match.</returns>
-        public MatchDetail GetMatch(long matchId)
+        public MatchDetail GetMatch(long matchId, Boolean includeTimeline)
         {
-            return Execute<MatchDetail>(GetMatchRequest(matchId));
+            return Execute<MatchDetail>(GetMatchRequest(matchId, includeTimeline));
         }
 
         /// <summary>
         /// Gets the details of a match.
         /// </summary>
         /// <param name="matchId">The ID of the match.</param>
+        /// <param name="includeTimeline">Whether or not to include the match timeline data.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<MatchDetail> GetMatchTaskAsync(long matchId)
+        public Task<MatchDetail> GetMatchTaskAsync(long matchId, Boolean includeTimeline)
         {
-            return ExecuteTaskAsync<MatchDetail>(GetMatchRequest(matchId));
+            return ExecuteTaskAsync<MatchDetail>(GetMatchRequest(matchId, includeTimeline));
         }
     }
 }
