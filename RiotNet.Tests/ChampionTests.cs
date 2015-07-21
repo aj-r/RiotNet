@@ -36,9 +36,10 @@ namespace RiotNet.Tests
         public async Task GetChampionByIdTaskAsyncTest()
         {
             var client = new RiotClient();
-            var champions = await client.GetChampionByIdTaskAsync(50);
+            var champion = await client.GetChampionByIdTaskAsync(103);
 
-            Assert.That(champions, Is.Not.Null.And.Not.Empty);
+            Assert.That(champion, Is.Not.Null);
+            Assert.That(champion.Id, Is.EqualTo(103));
         }
 
         [Test]
