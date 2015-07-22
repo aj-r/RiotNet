@@ -8,28 +8,31 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
-        private IRestRequest GetChampionsRequest()
+        private IRestRequest GetChampionsRequest(Boolean freeToPlay)
         {
             var request = Get("api/lol/{region}/v1.2/champion");
+            request.AddQueryParameter("freeToPlay", freeToPlay.ToString().ToLower());
             return request;
         }
 
         /// <summary>
         /// Gets all champion information (bot enabled, free to play, etc. Also see static champion data).
         /// </summary>
+        /// <param name="freeToPlay">True if only requesting free to play champion information. Default is false.</param>
         /// <returns>List of champion information.</returns>
-        public List<Champion> GetChampions()
+        public List<Champion> GetChampions(Boolean freeToPlay = false)
         {
-            return Execute<ChampionList>(GetChampionsRequest()).Champions;
+            return Execute<ChampionList>(GetChampionsRequest(freeToPlay)).Champions;
         }
 
         /// <summary>
         /// Gets all champion information (bot enabled, free to play, etc. Also see static champion data).
         /// </summary>
+        /// <param name="freeToPlay">True if only requesting free to play champion information. Default is false.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public async Task<List<Champion>> GetChampionsTaskAsync()
+        public async Task<List<Champion>> GetChampionsTaskAsync(Boolean freeToPlay = false)
         {
-            var champions = await ExecuteTaskAsync<ChampionList>(GetChampionsRequest());
+            var champions = await ExecuteTaskAsync<ChampionList>(GetChampionsRequest(freeToPlay));
             return champions.Champions;
         }
 
