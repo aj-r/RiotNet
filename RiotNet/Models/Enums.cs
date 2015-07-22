@@ -1,7 +1,7 @@
 ﻿namespace RiotNet.Models
 {
     /// <summary>
-    /// Represents the ascended type. Only applies to event of type <see cref="EventType.ASCENDED_EVENT"/>.
+    /// Represents the ascension event type.  Used in <see cref="Event"/> for event type <see cref="EventType.ASCENDED_EVENT"/>.
     /// </summary>
     public enum AscendedType
     {
@@ -20,7 +20,7 @@
     }
 
     /// <summary>
-    /// Represents building type (used for match events).
+    /// Represents the building type. Used in <see cref="Event"/> for event type <see cref="EventType.BUILDING_KILL"/>.
     /// </summary>
     public enum BuildingType
     {
@@ -35,7 +35,7 @@
     }
 
     /// <summary>
-    /// Represents the event type (for match events).
+    /// Represents the event type. Used in <see cref="Event"/>.
     /// </summary>
     public enum EventType
     {
@@ -94,7 +94,7 @@
     }
 
     /// <summary>
-    /// Represents a game mode.
+    /// Represents the game mode.
     /// </summary>
     public enum GameMode
     {
@@ -133,7 +133,7 @@
     }
 
     /// <summary>
-    /// Represents a game sub-type.
+    /// Represents the game sub-type.
     /// </summary>
     public enum GameSubType
     {
@@ -245,17 +245,17 @@
         /// </summary>
         CUSTOM_GAME,
         /// <summary>
-        /// Matched game (queued up for)
+        /// Matched game (any game that is queued up for)
         /// </summary>
         MATCHED_GAME,
         /// <summary>
-        /// Tutorial game
+        /// Tutorial
         /// </summary>
         TUTORIAL_GAME,
     }
 
     /// <summary>
-    /// Represents the lane an event occured (for match events).
+    /// Represents the lane an event occured.  Used in <see cref="Event"/>.
     /// </summary>
     public enum LaneType
     {
@@ -274,7 +274,7 @@
     }
 
     /// <summary>
-    /// Represents level up type.
+    /// Represents the level up type. Used in <see cref="Event"/> for event type <see cref="EventType.SKILL_LEVEL_UP"/>.
     /// </summary>
     public enum LevelUpType
     {
@@ -289,7 +289,7 @@
     }
 
     /// <summary>
-    /// Represents a player's role. Very similar to PlayerRole but used in the Match API.
+    /// Represents a player's role. Very similar to <see cref="PlayerRole"/> but used in the Match API instead of Game API.
     /// </summary>
     public enum MatchRole
     {
@@ -381,7 +381,7 @@
     }
 
     /// <summary>
-    /// Represents player's role.
+    /// Represents a player's role. Very similar to <see cref="MatchRole"/> but used in the Game API instead of the Match API.
     /// </summary>
     public enum PlayerRole
     {
@@ -404,7 +404,7 @@
     }
 
     /// <summary>
-    /// Represents a capturable point in Dominion.
+    /// Represents a capturable point in Dominion. Used in <see cref="Event"/> for event type <see cref="EventType.CAPTURE_POINT"/>.
     /// </summary>
     public enum Point
     {
@@ -667,7 +667,7 @@
     }
 
     /// <summary>
-    /// Represents server status.
+    /// Represents the status of one of the services on the Riot servers.
     /// </summary>
     public enum ServerStatus
     {
@@ -690,7 +690,7 @@
     }
 
     /// <summary>
-    /// Represents server incident message severity.
+    /// Represents the server incident message severity.
     /// </summary>
     public enum Severity
     {
@@ -763,7 +763,7 @@
     }
 
     /// <summary>
-    /// Represents tower type (used in match events).
+    /// Represents the tower type. Used in <see cref="Event"/> for event type <see cref="EventType.BUILDING_KILL"/>.
     /// </summary>
     public enum TowerType
     {
@@ -794,7 +794,7 @@
     }
 
     /// <summary>
-    /// Represents ward type (used in match events).
+    /// Represents the ward type. Used in <see cref="Event"/> for event types <see cref="EventType.WARD_KILL"/> and <see cref="EventType.WARD_PLACED"/>.
     /// </summary>
     public enum WardType
     {
