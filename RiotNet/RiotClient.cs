@@ -81,7 +81,7 @@ namespace RiotNet
             Converters = new List<JsonConverter>
             {
                 new EpochDateTimeConverter(),
-                new SecondsToTimespanConverter(),
+                new SecondsToTimeSpanConverter(),
             }
         };
 
@@ -135,7 +135,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the server name for the specified region.
+        /// Gets the server domain name for the specified region.
         /// </summary>
         /// <param name="region">The region corresponding to the server.</param>
         /// <returns>The server name.</returns>

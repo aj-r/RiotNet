@@ -37,6 +37,28 @@ namespace RiotNet
             return ExecuteTaskAsync<Dictionary<String, Summoner>>(GetSummonersBySummonerNamesRequest(summonerNames));
         }
 
+        /// <summary>
+        /// Gets the summoner information for the specified summoner.
+        /// </summary>
+        /// <param name="summonerNames">The summoner name.</param>
+        /// <returns>A <see cref="Summoner"/>.</returns>
+        public Summoner GetSummonerBySummonerName(String summonerName)
+        {
+            var summoners = GetSummonersBySummonerNames(summonerName);
+            return summoners.Values.FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Gets the summoner information for the specified summoner.
+        /// </summary>
+        /// <param name="summonerNames">The summoner name.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        public async Task<Summoner> GetSummonerBySummonerNameTaskAsync(String summonerName)
+        {
+            var summoners = await GetSummonersBySummonerNamesTaskAsync(summonerName).ConfigureAwait(false);
+            return summoners.Values.FirstOrDefault();
+        }
+
         private IRestRequest GetSummonersBySummonerIdsRequest(params long[] summonerIds)
         {
             var request = Get("api/lol/{region}/v1.4/summoner/by-name/{summonerIds}");
@@ -62,6 +84,28 @@ namespace RiotNet
         public Task<Dictionary<String, Summoner>> GetSummonersBySummonerIdsTaskAsync(params long[] summonerIds)
         {
             return ExecuteTaskAsync<Dictionary<String, Summoner>>(GetSummonersBySummonerIdsRequest(summonerIds));
+        }
+
+        /// <summary>
+        /// Gets the summoner information for the specified summoner.
+        /// </summary>
+        /// <param name="summonerId">The summoner ID.</param>
+        /// <returns>A <see cref="Summoner"/>.</returns>
+        public Summoner GetSummonerById(long summonerId)
+        {
+            var summoners = GetSummonersBySummonerIds(summonerId);
+            return summoners.Values.FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Gets the summoner information for the specified summoner.
+        /// </summary>
+        /// <param name="summonerId">The summoner ID.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        public async Task<Summoner> GetSummonerByIdTaskAsync(long summonerId)
+        {
+            var summoners = await GetSummonersBySummonerIdsTaskAsync(summonerId).ConfigureAwait(false);
+            return summoners.Values.FirstOrDefault();
         }
 
         private IRestRequest GetSummonerMasteriesBySummonerIdsRequest(params long[] summonerIds)

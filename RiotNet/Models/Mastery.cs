@@ -15,11 +15,9 @@ namespace RiotNet.Models
     public class Mastery
     {
         /// <summary>
-        /// Gets or sets the ID of this mastery.
-        /// For static information regarding masteries, please refer to the Static Data API.
+        /// Gets or sets the ID of this mastery. This corresponds to a <see cref="StaticMastery"/> ID.
         /// </summary>
-        // TODO: put custom converter so that "masteryId" also works as a name.
-        public int Id { get; set; }
+        public int MasteryId { get; set; }
 
         /// <summary>
         /// Gets or sets the number of mastery points put into this mastery.

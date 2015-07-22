@@ -6,7 +6,7 @@ namespace RiotNet.Converters
     /// <summary>
     /// Converts a <see cref="TimeSpan"/> to and from a number of seconds in JSON.
     /// </summary>
-    public class SecondsToTimeSpanConverter : JsonConverter
+    public class MillisecondsToTimeSpanConverter : JsonConverter
     {
         /// <summary>
         /// Determines whether this instance can convert the specified object type.
@@ -32,10 +32,10 @@ namespace RiotNet.Converters
             {
                 case JsonToken.Integer:
                     var seconds = (long)reader.Value;
-                    return TimeSpan.FromSeconds(seconds);
+                    return TimeSpan.FromMilliseconds(seconds);
                 case JsonToken.Float:
                     var dobuleSeconds = (double)reader.Value;
-                    return TimeSpan.FromSeconds(dobuleSeconds);
+                    return TimeSpan.FromMilliseconds(dobuleSeconds);
                 default:
                     throw new JsonException("Can only deseialize TimeSpan from integer or float.");
             }
@@ -53,7 +53,7 @@ namespace RiotNet.Converters
             if (time == null)
                 writer.WriteNull();
             else
-                writer.WriteValue((long)time.Value.TotalSeconds);
+                writer.WriteValue((long)time.Value.TotalMilliseconds);
         }
     }
 }

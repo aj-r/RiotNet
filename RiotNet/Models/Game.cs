@@ -22,78 +22,78 @@ namespace RiotNet.Models
         }
 
         /// <summary>
-        ///  Gets or sets champion ID associated with game.
+        ///  Gets or sets the player's champion ID.
         /// </summary>
         public int ChampionId { get; set; }
 
         /// <summary>
-        ///  Gets or sets date that end game data was recorded.
+        ///  Gets or sets the date that end game data was recorded.
         /// </summary>
         public DateTime CreateDate { get; set; }
 
         /// <summary>
-        ///  Gets or sets other players associated with the game.
+        ///  Gets or sets the other players associated with the game.
         /// </summary>
         public virtual List<Player> FellowPlayers { get; set; }
 
         /// <summary>
-        ///  Gets or sets game ID.
+        ///  Gets or sets the game ID.
         /// </summary>
         [Key]
         public long GameId { get; set; }
 
         /// <summary>
-        ///  Gets or sets game mode.
+        ///  Gets or sets the game mode.
         /// </summary>
         public GameMode GameMode { get; set; }
 
         /// <summary>
-        ///  Gets or sets game type.
+        ///  Gets or sets the game type.
         /// </summary>
         public GameType GameType { get; set; }
 
         /// <summary>
-        ///  Gets or sets invalid flag.
+        ///  Gets or sets whether the game resulted in a loss prevented for either team.
         /// </summary>
         public bool Invalid { get; set; }
 
         /// <summary>
-        ///  Gets or sets IP Earned.
+        ///  Gets or sets the amount IP earned by the summoner.
         /// </summary>
         public int IpEarned { get; set; }
 
         /// <summary>
-        ///  Gets or sets level (presumably of the player's champion at end of game).
+        ///  Gets or sets the level of the player's champion at the end of the game.
         /// </summary>
         public int Level { get; set; }
 
         /// <summary>
-        ///  Gets or sets map ID.
+        ///  Gets or sets the map ID.
         /// </summary>
         public int MapId { get; set; }
 
         /// <summary>
-        ///  Gets or sets ID of first summoner spell.
+        ///  Gets or sets the ID of first summoner spell.
         /// </summary>
         public int Spell1 { get; set; }
 
         /// <summary>
-        ///  Gets or sets ID of second summoner spell.
+        ///  Gets or sets the ID of second summoner spell.
         /// </summary>
         public int Spell2 { get; set; }
 
         /// <summary>
-        ///  Gets or sets statistics associated with the game for this summoner.
+        ///  Gets or sets the statistics associated with the game for this summoner.
         /// </summary>
         public RawStats Stats { get; set; }
 
         /// <summary>
-        ///  Gets or sets game sub-type.
+        ///  Gets or sets the game sub-type.
         /// </summary>
         public GameSubType SubType { get; set; }
 
         /// <summary>
-        ///  Gets or sets team ID associated with game.
+        ///  Gets or sets the team ID associated with game.
         /// </summary>
         public TeamSide TeamId { get; set; }
     }

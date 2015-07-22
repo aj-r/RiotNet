@@ -9,10 +9,25 @@ namespace RiotNet.Models
     /// </summary>
     public class Rune
     {
+        private long count;
+
         /// <summary>
-        /// Gets or sets number of instances of the rune used on the rune page.
+        /// Gets or sets number of instances of the rune used on the rune page. This is equal to Rank, but it is set by the Current Game API.
         /// </summary>
-        public long Rank { get; set; }
+        public long Count
+        {
+            get { return count; }
+            set { count = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets number of instances of the rune used on the rune page. This is equal to Count, but it is set by the Match API.
+        /// </summary>
+        public long Rank
+        {
+            get { return count; }
+            set { count = value; }
+        }
 
         /// <summary>
         /// Gets or sets rune ID. This corresponds to the ID of a <see cref="StaticRune"/>.

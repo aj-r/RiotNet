@@ -13,7 +13,7 @@ namespace RiotNet.Models
     public class Summoner
     {
         /// <summary>
-        /// Gets or sets the summoner's summoner ID.
+        /// Gets or sets the summoner ID.
         /// </summary>
         [Key]
         public long Id { get; set; }
@@ -24,7 +24,7 @@ namespace RiotNet.Models
         public String Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the ID of the summoner's summoner icon.
+        /// Gets or sets the ID of the summoner's profile icon.
         /// </summary>
         public int ProfileIconId { get; set; }
 
@@ -36,7 +36,7 @@ namespace RiotNet.Models
         public DateTime RevisionDate { get; set; }
 
         /// <summary>
-        /// Gets or sets the summoner's summoner level.
+        /// Gets or sets the summoner's level.
         /// </summary>
         public long SummonerLevel { get; set; }
     }

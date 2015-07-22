@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
+using RiotNet.Converters;
 
 namespace RiotNet.Models
 {
@@ -111,6 +112,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the game time at which the event occurred.
         /// </summary>
+        [JsonConverter(typeof(MillisecondsToTimeSpanConverter))]
         public TimeSpan Timestamp { get; set; }
 
         /// <summary>

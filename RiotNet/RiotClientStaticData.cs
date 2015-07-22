@@ -539,7 +539,7 @@ namespace RiotNet
         /// </remarks>
         public async Task<StaticRuneList> GetStaticRunesTaskAsync(string locale = null, string version = null, IEnumerable<string> runeListData = null)
         {
-            var runeList = await ExecuteTaskAsync<StaticRuneList>(GetStaticRunesRequest(locale, version, runeListData));
+            var runeList = await ExecuteTaskAsync<StaticRuneList>(GetStaticRunesRequest(locale, version, runeListData)).ConfigureAwait(false);
 
             // Add missing default values to the Maps dictionary.
             var defaultMaps = runeList.Basic.Maps;

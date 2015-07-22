@@ -12,9 +12,6 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the ID of the rune in this rune slot. This corresponds to the ID of a <see cref="StaticRune"/>.
         /// </summary>
-        /// <remarks>
-        /// For static information regarding runes, please refer to the Static Data API.
-        /// </remarks>
         public int RuneId { get; set; }
 
         /// <summary>

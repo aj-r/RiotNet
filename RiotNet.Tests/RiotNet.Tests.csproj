@@ -61,6 +61,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ChampionTests.cs" />
+    <Compile Include="CurrentGameTests.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

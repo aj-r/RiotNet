@@ -23,7 +23,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the amount of time in seconds that has passed since the game started.
         /// </summary>
-        public long GameLength { get; set; }
+        public TimeSpan GameLength { get; set; }
 
         /// <summary>
         /// Gets or sets the game mode.

@@ -73,7 +73,7 @@ namespace RiotNet.Tests
                 return true;
             if (type == typeof(DateTime))
             {
-                sampleDateTime += TimeSpan.FromSeconds(1);
+                sampleDateTime = sampleDateTime.AddSeconds(1);
                 return sampleDateTime;
             }
             if (type == typeof(TimeSpan))

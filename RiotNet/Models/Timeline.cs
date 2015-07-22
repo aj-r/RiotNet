@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Newtonsoft.Json;
+using RiotNet.Converters;
 
 namespace RiotNet.Models
 {
@@ -14,6 +15,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets time between each returned frame.
         /// </summary>
+        [JsonConverter(typeof(MillisecondsToTimeSpanConverter))]
         public TimeSpan FrameInterval { get; set; }
 
         /// <summary>

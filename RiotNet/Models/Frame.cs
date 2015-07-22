@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using Newtonsoft.Json;
+using RiotNet.Converters;
 
 namespace RiotNet.Models
 {
@@ -25,6 +26,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets game time at which the frame occurred.
         /// </summary>
+        [JsonConverter(typeof(MillisecondsToTimeSpanConverter))]
         public TimeSpan Timestamp { get; set; }
 
 #if DB_READY

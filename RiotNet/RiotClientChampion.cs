@@ -29,7 +29,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public async Task<List<Champion>> GetChampionsTaskAsync()
         {
-            var champions = await ExecuteTaskAsync<ChampionList>(GetChampionsRequest());
+            var champions = await ExecuteTaskAsync<ChampionList>(GetChampionsRequest()).ConfigureAwait(false);
             return champions.Champions;
         }
 

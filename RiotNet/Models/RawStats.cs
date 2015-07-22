@@ -303,12 +303,12 @@ namespace RiotNet.Models
         public int TeamObjective { get; set; }
 
         /// <summary>
-        /// Gets or sets the length of the game in seconds (probably).
+        /// Gets or sets the length of the game.
         /// </summary>
-        public int TimePlayed { get; set; }
+        public TimeSpan TimePlayed { get; set; }
 
         /// <summary>
-        /// Gets or sets the total amount of damage dealt by player (probably).
+        /// Gets or sets the total amount of damage dealt by player.
         /// </summary>
         public int TotalDamageDealt { get; set; }
 
@@ -353,7 +353,7 @@ namespace RiotNet.Models
         public int TripleKills { get; set; }
 
         /// <summary>
-        /// Gets or sets the amount of total true damage dealt (probably).
+        /// Gets or sets the amount of total true damage dealt by the player.
         /// </summary>
         public int TrueDamageDealtPlayer { get; set; }
 

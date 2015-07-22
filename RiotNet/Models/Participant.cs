@@ -34,17 +34,17 @@ namespace RiotNet.Models
         public virtual List<Rune> Runes { get; set; }
 
         /// <summary>
-        ///  Gets or sets the ID of the first summoner spell used by this participant.
+        ///  Gets or sets the ID of the first summoner spell used by this participant. This corresponds to a <see cref="StaticSummonerSpell"/> ID.
         /// </summary>
         public long Spell1Id { get; set; }
 
         /// <summary>
-        ///  Gets or sets the ID of the second summoner spell used by this participant.
+        ///  Gets or sets the ID of the second summoner spell used by this participant. This corresponds to a <see cref="StaticSummonerSpell"/> ID.
         /// </summary>
         public long Spell2Id { get; set; }
 
         /// <summary>
-        ///  Gets or sets the summoner ID of this participant.
+        ///  Gets or sets the summoner ID of this participant. This property is not specified for featured games.
         /// </summary>
         public long SummonerId { get; set; }
 
