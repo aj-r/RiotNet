@@ -163,6 +163,7 @@
     <Compile Include="RiotClientGame.cs" />
     <Compile Include="RiotClientLeague.cs" />
     <Compile Include="RiotClientMatch.cs" />
+    <Compile Include="RiotClientMatchHistory.cs" />
     <Compile Include="RiotClientSettings.cs" />
     <Compile Include="RiotClientStaticData.cs" />
     <Compile Include="RiotClientStatus.cs" />
