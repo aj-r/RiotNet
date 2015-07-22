@@ -25,8 +25,7 @@ namespace RiotNet.Tests
         public async Task GetChampionsTaskAsyncTest_FreeToPlay()
         {
             var client = new RiotClient();
-            // TODO: add freeToPlay parameter to this call once that parameter exists
-            var champions = await client.GetChampionsTaskAsync();
+            var champions = await client.GetChampionsTaskAsync(true);
 
             Assert.That(champions, Is.Not.Null);
             Assert.That(champions.Count, Is.LessThan(20));
