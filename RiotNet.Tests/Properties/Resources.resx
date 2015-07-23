@@ -271,4 +271,32 @@
         "championId": 223
     }</value>
   </data>
+  <data name="SampleLeague" xml:space="preserve">
+    <value>{
+   "queue": "RANKED_TEAM_5x5",
+   "name": "Galio's Brood",
+   "participantId": "35870943",
+   "entries": [
+      {
+         "leaguePoints": 2,
+         "isFreshBlood": true,
+         "isHotStreak": true,
+         "division": "I",
+         "isInactive": true,
+         "isVeteran": true,
+         "losses": 11,
+         "playerOrTeamName": "ApeX R Gaming",
+         "playerOrTeamId": "TEAM-a77c7a20-7f0e-11e4-8c36-c81f66dd45c9",
+         "wins": 36,
+         "miniSeries": {
+           "losses": 2,
+           "progress": "WWLLN",
+           "target": 3,
+           "wins": 2
+         }
+      }
+   ],
+   "tier": "MASTER"
+}</value>
+  </data>
 </root>

@@ -36,8 +36,9 @@ namespace RiotNet.Tests
         [SetUp]
         public void TestSetUp()
         {
+            // Reset the settings after every test because some tests will mess up the settings.
             RiotClient.DefaultRegion = Region.NA;
-            RiotClient.DefaultSettings = () => new RiotClientSettings { ApiKey = apiKey };
+            RiotClient.DefaultSettings = () => new RiotClientSettings { ApiKey = apiKey, MaxRequestAttempts = 4 };
         }
 
         /// <summary>
@@ -289,7 +290,7 @@ namespace RiotNet.Tests
         /// <param name="propertyName">The property name to display in the error message if the assertion fails.</param>
         public static void AssertNonDefaultValuesRecursive(object a, string propertyName = null)
         {
-            Assert.That(a, Is.Not.Null);
+            Assert.That(a, Is.Not.Null, propertyName + " was not deserialized correctly.");
 
             var type = a.GetType();
             if (propertyName == null)

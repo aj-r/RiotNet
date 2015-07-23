@@ -14,6 +14,8 @@ namespace RiotNet
         /// </summary>
         public RiotClientSettings()
         {
+            MaxRequestAttempts = 2;
+            RetryOnRateLimitExceededTimeDelay = TimeSpan.FromSeconds(10);
             RetryOnTimeout = false;
             RetryOnConnectionFailure = false;
             RetryOnRateLimitExceeded = true;
@@ -40,6 +42,11 @@ namespace RiotNet
         /// Gets or sets how the <see cref="RiotClient"/> should handle the case where the rate limit is exceeded.
         /// </summary>
         public bool RetryOnRateLimitExceeded { get; set; }
+
+        /// <summary>
+        /// Gets or sets the amount of time to wait before retrying a request due to a rate limit exceeded error.
+        /// </summary>
+        public TimeSpan RetryOnRateLimitExceededTimeDelay { get; set; }
 
         /// <summary>
         /// Gets or sets whether the client should throw an exception if an error occurred during the request (that is, the request did not complete, or it completed with a response code of 400 or higher).

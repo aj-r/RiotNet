@@ -104,5 +104,31 @@ namespace RiotNet.Tests.Properties {
                 return ResourceManager.GetString("SampleGame", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///   &quot;queue&quot;: &quot;RANKED_TEAM_5x5&quot;,
+        ///   &quot;name&quot;: &quot;Galio&apos;s Brood&quot;,
+        ///   &quot;participantId&quot;: &quot;35870943&quot;,
+        ///   &quot;entries&quot;: [
+        ///      {
+        ///         &quot;leaguePoints&quot;: 2,
+        ///         &quot;isFreshBlood&quot;: true,
+        ///         &quot;isHotStreak&quot;: true,
+        ///         &quot;division&quot;: &quot;I&quot;,
+        ///         &quot;isInactive&quot;: true,
+        ///         &quot;isVeteran&quot;: true,
+        ///         &quot;losses&quot;: 11,
+        ///         &quot;playerOrTeamName&quot;: &quot;ApeX R Gaming&quot;,
+        ///         &quot;playerOrTeamId&quot;: &quot;TEAM-a77c7a20-7f0e-11e4-8c36-c81f66dd45c9&quot;,
+        ///         &quot;wins&quot;: 36,
+        ///         &quot;miniSeries&quot;: {
+        ///           &quot;losses&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SampleLeague {
+            get {
+                return ResourceManager.GetString("SampleLeague", resourceCulture);
+            }
+        }
     }
 }

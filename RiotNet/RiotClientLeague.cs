@@ -16,7 +16,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the full league information for all leagues that the summoners, or teams they are on, are in.
+        /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID.
         /// </summary>
         /// <param name="summonerIds">The summoners' summoner IDs.</param>
         /// <returns>The mapping from summoner IDs to the collection of leagues.</returns>
@@ -26,7 +26,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the full league information for all leagues that the summoners, or teams they are on, are in.
+        /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID.
         /// </summary>
         /// <param name="summonerIds">The summoners' summoner IDs.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
@@ -43,7 +43,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the summoner's league information for all leagues that the summoners, or teams they are on, are in.
+        /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Only includes the league entry for the specified summoner(s). Data is mapped by summoner ID.
         /// </summary>
         /// <param name="summonerIds">The summoners' summoner IDs.</param>
         /// <returns>The mapping from summoner IDs to the collection of league entries for the summoner.</returns>
@@ -53,7 +53,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the summoner's league information for all leagues that the summoners, or teams they are on, are in.
+        /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Only includes the league entry for the specified summoner(s). Data is mapped by summoner ID.
         /// </summary>
         /// <param name="summonerIds">The summoners' summoner IDs.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
@@ -62,7 +62,7 @@ namespace RiotNet
             return ExecuteTaskAsync<Dictionary<String, List<League>>>(GetLeagueEntriesBySummonerIdsRequest(summonerIds));
         }
 
-        private IRestRequest GetLeaguesByTeamIdsRequest(params long[] teamIds)
+        private IRestRequest GetLeaguesByTeamIdsRequest(params string[] teamIds)
         {
             var request = Get("api/lol/{region}/v2.5/league/by-team/{teamIds}");
             request.AddUrlSegment("teamIds", String.Join(",", teamIds));
@@ -70,26 +70,26 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the full league information for all leagues that the teams are in.
+        /// Gets the full league information for all leagues that the teams are in. Data is mapped by team ID.
         /// </summary>
         /// <param name="teamIds">The teams' team IDs.</param>
         /// <returns>The mapping from team IDs to the collection of leagues.</returns>
-        public Dictionary<String, List<League>> GetLeaguesByTeamIds(params long[] teamIds)
+        public Dictionary<String, List<League>> GetLeaguesByTeamIds(params string[] teamIds)
         {
             return Execute<Dictionary<String, List<League>>>(GetLeaguesByTeamIdsRequest(teamIds));
         }
 
         /// <summary>
-        /// Gets the full league information for all leagues that the teams are in.
+        /// Gets the full league information for all leagues that the teams are in. Data is mapped by team ID.
         /// </summary>
         /// <param name="teamIds">The teams' team IDs.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, List<League>>> GetLeaguesByTeamIdsTaskAsync(params long[] teamIds)
+        public Task<Dictionary<String, List<League>>> GetLeaguesByTeamIdsTaskAsync(params string[] teamIds)
         {
             return ExecuteTaskAsync<Dictionary<String, List<League>>>(GetLeaguesByTeamIdsRequest(teamIds));
         }
 
-        private IRestRequest GetLeagueEntriesByTeamIdsRequest(params long[] teamIds)
+        private IRestRequest GetLeagueEntriesByTeamIdsRequest(params string[] teamIds)
         {
             var request = Get("api/lol/{region}/v2.5/league/by-team/{teamIds}/entry");
             request.AddUrlSegment("teamIds", String.Join(",", teamIds));
@@ -97,21 +97,21 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the team's league information for all leagues that the teams are in.
+        /// Gets the league information for all leagues that the teams are in. Only includes the league entry for the specified team(s). Data is mapped by team ID.
         /// </summary>
         /// <param name="teamIds">The teams' team IDs.</param>
         /// <returns>The mapping from team IDs to the collection of league entries for the team.</returns>
-        public Dictionary<String, List<League>> GetLeagueEntriesByTeamIds(params long[] teamIds)
+        public Dictionary<String, List<League>> GetLeagueEntriesByTeamIds(params string[] teamIds)
         {
             return Execute<Dictionary<String, List<League>>>(GetLeagueEntriesByTeamIdsRequest(teamIds));
         }
 
         /// <summary>
-        /// Gets the team's league information for all leagues that the teams are in.
+        /// Gets the league information for all leagues that the teams are in. Only includes the league entry for the specified team(s). Data is mapped by team ID.
         /// </summary>
         /// <param name="teamIds">The teams' team IDs.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, List<League>>> GetLeagueEntriesByTeamIdsTaskAsync(params long[] teamIds)
+        public Task<Dictionary<String, List<League>>> GetLeagueEntriesByTeamIdsTaskAsync(params string[] teamIds)
         {
             return ExecuteTaskAsync<Dictionary<String, List<League>>>(GetLeagueEntriesByTeamIdsRequest(teamIds));
         }

@@ -239,8 +239,9 @@ namespace RiotNet
                 if (response.ResponseStatus == ResponseStatus.TimedOut)
                 {
                     var args = new RetryEventArgs(attemptCount);
+                    args.Retry = Settings.RetryOnTimeout;
                     OnRequestTimedOut(args);
-                    if (args.Retry || Settings.RetryOnTimeout)
+                    if (args.Retry)
                     {
                         retry = true;
                         continue;
@@ -250,11 +251,12 @@ namespace RiotNet
                     else
                         break;
                 }
-                if (response.ResponseStatus == ResponseStatus.Error)
+                if (response.ResponseStatus == ResponseStatus.Error && response.StatusCode == 0)
                 {
                     var args = new RetryEventArgs(attemptCount);
+                    args.Retry = Settings.RetryOnConnectionFailure;
                     OnConnectionFailed(args);
-                    if (args.Retry || Settings.RetryOnConnectionFailure)
+                    if (args.Retry)
                     {
                         retry = true;
                         continue;
@@ -264,16 +266,15 @@ namespace RiotNet
                     else
                         break;
                 }
-                if (response.ResponseStatus != ResponseStatus.Completed)
-                    break;
                 if ((int)response.StatusCode == 429)
                 {
                     var args = new RetryEventArgs(attemptCount);
+                    args.Retry = Settings.RetryOnRateLimitExceeded;
                     OnRateLimitExceeded(args);
-                    if (args.Retry || Settings.RetryOnRateLimitExceeded)
+                    if (args.Retry)
                     {
                         retry = true;
-                        Thread.Sleep(10000);
+                        Thread.Sleep(Settings.RetryOnRateLimitExceededTimeDelay);
                         continue;
                     }
                     if (Settings.ThrowOnError)
@@ -281,8 +282,14 @@ namespace RiotNet
                     else
                         break;
                 }
-                if (Settings.ThrowOnError && (int)response.StatusCode >= 400)
-                    throw new RestException(response);
+                if ((int)response.StatusCode >= 400 || response.ResponseStatus != ResponseStatus.Completed)
+                {
+                    if (Settings.ThrowOnError)
+                        throw new ConnectionFailedException(response);
+                    else
+                        break;
+                }
+
                 return response.Data;
             } while (retry && attemptCount < Settings.MaxRequestAttempts);
 
@@ -306,8 +313,9 @@ namespace RiotNet
                 if (response.ResponseStatus == ResponseStatus.TimedOut)
                 {
                     var args = new RetryEventArgs(attemptCount);
+                    args.Retry = Settings.RetryOnTimeout;
                     OnRequestTimedOut(args);
-                    if (args.Retry || Settings.RetryOnTimeout)
+                    if (args.Retry)
                     {
                         retry = true;
                         continue;
@@ -317,38 +325,30 @@ namespace RiotNet
                     else
                         break;
                 }
-                if (response.ResponseStatus == ResponseStatus.Error)
+                if (response.ResponseStatus == ResponseStatus.Error && response.StatusCode == 0)
                 {
-                    if (response.StatusCode == 0)
+                    var args = new RetryEventArgs(attemptCount);
+                    args.Retry = Settings.RetryOnConnectionFailure;
+                    OnConnectionFailed(args);
+                    if (args.Retry)
                     {
-                        var args = new RetryEventArgs(attemptCount);
-                        OnConnectionFailed(args);
-                        if (args.Retry || Settings.RetryOnConnectionFailure)
-                        {
-                            retry = true;
-                            continue;
-                        }
-                        if (Settings.ThrowOnError)
-                            throw new ConnectionFailedException(response);
-                        else
-                            break;
+                        retry = true;
+                        continue;
                     }
-
                     if (Settings.ThrowOnError)
-                        throw new RestException(response, response.ErrorMessage, response.ErrorException);
+                        throw new ConnectionFailedException(response);
                     else
                         break;
                 }
-                if (response.ResponseStatus != ResponseStatus.Completed)
-                    break;
                 if ((int)response.StatusCode == 429)
                 {
                     var args = new RetryEventArgs(attemptCount);
+                    args.Retry = Settings.RetryOnRateLimitExceeded;
                     OnRateLimitExceeded(args);
-                    if (args.Retry || Settings.RetryOnRateLimitExceeded)
+                    if (args.Retry)
                     {
                         retry = true;
-                        await Task.Delay(10000).ConfigureAwait(false);
+                        await Task.Delay(Settings.RetryOnRateLimitExceededTimeDelay).ConfigureAwait(false);
                         continue;
                     }
                     if (Settings.ThrowOnError)
@@ -356,8 +356,14 @@ namespace RiotNet
                     else
                         break;
                 }
-                if (Settings.ThrowOnError && (int)response.StatusCode >= 400)
-                    throw new RestException(response);
+                if ((int)response.StatusCode >= 400 || response.ResponseStatus != ResponseStatus.Completed)
+                {
+                    if (Settings.ThrowOnError)
+                        throw new RestException(response);
+                    else
+                        break;
+                }
+
                 return response.Data;
             } while (retry && attemptCount < Settings.MaxRequestAttempts);
 
