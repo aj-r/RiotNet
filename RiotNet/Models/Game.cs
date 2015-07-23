@@ -5,11 +5,11 @@ using System.ComponentModel.DataAnnotations;
 namespace RiotNet.Models
 {
     /// <summary>
-    /// Contains game information (unlike *GameInfo, this is from the perspective of one of the participants).
+    /// Contains information about a historical game, as well as stats associated with the player for which this game was requested.
     /// </summary>
     /// <remarks>
     /// This object comes from the Games API, which gets the 10 most recent games played by a player.
-    /// For more detailed game information, use the <see cref="MatchDetail"/> object.
+    /// For more detailed game information, use the <see cref="MatchDetail"/> object from the Match API instead.
     /// </remarks>
     public class Game
     {
@@ -22,17 +22,17 @@ namespace RiotNet.Models
         }
 
         /// <summary>
-        ///  Gets or sets the player's champion ID.
+        ///  Gets or sets the player's champion ID. This corresponds to a <see cref="StaticChampion"/> ID.
         /// </summary>
         public int ChampionId { get; set; }
 
         /// <summary>
-        ///  Gets or sets the date that end game data was recorded.
+        ///  Gets or sets the date and time (in UTC) that end game data was recorded.
         /// </summary>
         public DateTime CreateDate { get; set; }
 
         /// <summary>
-        ///  Gets or sets the other players associated with the game.
+        ///  Gets or sets the other players in the game.
         /// </summary>
         public virtual List<Player> FellowPlayers { get; set; }
 
@@ -73,12 +73,12 @@ namespace RiotNet.Models
         public int MapId { get; set; }
 
         /// <summary>
-        ///  Gets or sets the ID of first summoner spell.
+        ///  Gets or sets the ID of first summoner spell. This corresponds to a <see cref="StaticSummonerSpell"/> ID.
         /// </summary>
         public int Spell1 { get; set; }
 
         /// <summary>
-        ///  Gets or sets the ID of second summoner spell.
+        ///  Gets or sets the ID of second summoner spell. This corresponds to a <see cref="StaticSummonerSpell"/> ID.
         /// </summary>
         public int Spell2 { get; set; }
 
@@ -93,7 +93,7 @@ namespace RiotNet.Models
         public GameSubType SubType { get; set; }
 
         /// <summary>
-        ///  Gets or sets the team ID associated with game.
+        ///  Gets or sets the team ID of the team that the player was on.
         /// </summary>
         public TeamSide TeamId { get; set; }
     }

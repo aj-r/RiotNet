@@ -127,4 +127,148 @@
    "freeToPlay": true
 }</value>
   </data>
+  <data name="SampleGame" xml:space="preserve">
+    <value>{
+        "fellowPlayers": [
+          {
+              "championId": 412,
+              "teamId": 200,
+              "summonerId": 29743501
+          },
+          {
+              "championId": 150,
+              "teamId": 200,
+              "summonerId": 28949950
+          },
+          {
+              "championId": 76,
+              "teamId": 100,
+              "summonerId": 57421691
+          },
+          {
+              "championId": 43,
+              "teamId": 100,
+              "summonerId": 32164012
+          },
+          {
+              "championId": 117,
+              "teamId": 100,
+              "summonerId": 51457230
+          },
+          {
+              "championId": 75,
+              "teamId": 100,
+              "summonerId": 47299505
+          },
+          {
+              "championId": 67,
+              "teamId": 200,
+              "summonerId": 35560052
+          },
+          {
+              "championId": 69,
+              "teamId": 200,
+              "summonerId": 28902917
+          },
+          {
+              "championId": 81,
+              "teamId": 100,
+              "summonerId": 29177307
+          }
+        ],
+        "gameType": "MATCHED_GAME",
+        "stats": {
+          "totalDamageDealtToChampions": 13929,
+          "item2": 3800,
+          "goldEarned": 15812,
+          "item1": 3190,
+          "wardPlaced": 12,
+          "totalDamageTaken": 42253,
+          "item0": 3211,
+          "trueDamageDealtPlayer": 30764,
+          "physicalDamageDealtPlayer": 38206,
+          "trueDamageDealtToChampions": 69,
+          "killingSprees": 1,
+          "totalUnitsHealed": 1,
+          "playerPosition": 3,
+          "playerRole": 2,
+          "level": 18,
+          "neutralMinionsKilledYourJungle": 109,
+          "magicDamageDealtToChampions": 12053,
+          "magicDamageDealtPlayer": 160794,
+          "neutralMinionsKilledEnemyJungle": 16,
+          "assists": 14,
+          "magicDamageTaken": 14373,
+          "numDeaths": 2,
+          "totalTimeCrowdControlDealt": 1035,
+          "largestMultiKill": 1,
+          "physicalDamageTaken": 26772,
+          "sightWardsBought": 5,
+          "win": true,
+          "team": 200,
+          "totalDamageDealt": 229765,
+          "largestKillingSpree": 2,
+          "totalHeal": 14075,
+          "item4": 1324,
+          "item3": 3143,
+          "item6": 3341,
+          "item5": 3725,
+          "minionsKilled": 71,
+          "timePlayed": 2365,
+          "wardKilled": 3,
+          "physicalDamageDealtToChampions": 1806,
+          "championsKilled": 3,
+          "trueDamageTaken": 1108,
+          "goldSpent": 13825,
+          "neutralMinionsKilled": 125,
+          "barracksKilled": 2,
+          "combatPlayerScore": 2,
+          "consumablesPurchased": 2,
+          "damageDealtPlayer": 2,
+          "doubleKills": 2,
+          "firstBlood": 2,
+          "gold": 2,
+          "itemsPurchased": 2,
+          "largestCriticalStrike": 2,
+          "legendaryItemsCreated": 2,
+          "minionsDenied": 2,
+          "nexusKilled": true,
+          "nodeCapture": 2,
+          "nodeCaptureAssist": 2,
+          "nodeNeutralize": 2,
+          "nodeNeutralizeAssist": 2,
+          "numItemsBought": 2,
+          "objectivePlayerScore": 2,
+          "pentaKills": 2,
+          "quadraKills": 2,
+          "spell1Cast": 2,
+          "spell2Cast": 2,
+          "spell3Cast": 2,
+          "spell4Cast": 2,
+          "summonSpell1Cast": 2,
+          "summonSpell2Cast": 2,
+          "superMonsterKilled": 2,
+          "teamObjective": 2,
+          "totalPlayerScore": 2,
+          "totalScoreRank": 2,
+          "tripleKills": 2,
+          "turretsKilled": 2,
+          "unrealKills": 2,
+          "victoryPointTotal": 2,
+          "visionWardsBought": 2
+        },
+        "gameId": 1894093090,
+        "ipEarned": 258,
+        "spell1": 11,
+        "teamId": 200,
+        "spell2": 4,
+        "gameMode": "ODIN",
+        "mapId": 11,
+        "level": 30,
+        "invalid": true,
+        "subType": "CAP_5x5",
+        "createDate": 1437535896681,
+        "championId": 223
+    }</value>
+  </data>
 </root>

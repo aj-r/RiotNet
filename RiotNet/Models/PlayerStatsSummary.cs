@@ -21,7 +21,7 @@ namespace RiotNet.Models
         public int Losses { get; set; }
 
         /// <summary>
-        /// Gets or sets the date when the stats were last modified.
+        /// Gets or sets the date when the stats were last modified in UTC.
         /// </summary>
         public DateTime ModifyDate { get; set; }
 

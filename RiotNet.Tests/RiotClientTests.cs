@@ -73,7 +73,7 @@ namespace RiotNet.Tests
         public void ShouldCreateClientWithDefaultSettings()
         {
             var apiKey = "46633DC8-0034-4691-A002-49E234D5D0E8"; // No, this is not a real API key. It's just used for this test.
-            RiotClientSettings.Default = () => new RiotClientSettings
+            RiotClient.DefaultSettings = () => new RiotClientSettings
             {
                 ApiKey = apiKey,
                 RetryOnTimeout = true,

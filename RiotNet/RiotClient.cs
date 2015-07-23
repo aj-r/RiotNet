@@ -38,7 +38,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="region">The region indicating which server to connect to.</param>
         public RiotClient(Region region)
-            : this(region, RiotClientSettings.Default != null ? RiotClientSettings.Default() : new RiotClientSettings())
+            : this(region, DefaultSettings != null ? DefaultSettings() : new RiotClientSettings())
         { }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace RiotNet
         };
 
         /// <summary>
-        /// Gets the JsonSerializerSettings that are used for requests to the Riot API. 
+        /// Gets the JsonSerializerSettings that are used to deserialize responses from the Riot API. 
         /// </summary>
         public static JsonSerializerSettings JsonSettings
         {
@@ -97,6 +97,11 @@ namespace RiotNet
         /// Gets or sets the default region to use when creating a new <see cref="RiotClient"/>.
         /// </summary>
         public static Region DefaultRegion { get; set; }
+
+        /// <summary>
+        /// Gets or sets a function that defines the default <see cref="RiotClientSettings"/> to use when creating a new <see cref="RiotClient"/>.
+        /// </summary>
+        public static Func<RiotClientSettings> DefaultSettings { get; set; }
 
         /// <summary>
         /// Gets the platform ID for the specified region.

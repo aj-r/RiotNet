@@ -18,7 +18,7 @@ namespace RiotNet.Models
         public bool Active { get; set; }
 
         /// <summary>
-        /// Gets or sets incident created time.
+        /// Gets or sets incident created time in UTC.
         /// </summary>
         [JsonProperty("created_at")]
         public DateTime CreatedAt { get; set; }

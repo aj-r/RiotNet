@@ -12,7 +12,7 @@ namespace RiotNet.Models
     public class Team
     {
         /// <summary>
-        /// Gets or sets the date the team was created.
+        /// Gets or sets the date and time (in UTC) when the team was created.
         /// </summary>
         public DateTime CreateDate { get; set; }
 
@@ -22,17 +22,17 @@ namespace RiotNet.Models
         public String FullId { get; set; }
 
         /// <summary>
-        /// Gets or sets the date the last game played by the team ended.
+        /// Gets or sets the date and time (in UTC) of the last game played by the team ended.
         /// </summary>
         public DateTime LastGameDate { get; set; }
 
         /// <summary>
-        /// Gets or sets the most recent date a team member was added to the team.
+        /// Gets or sets the most recent date and time (in UTC) when a member was added to the team.
         /// </summary>
         public DateTime LastJoinDate { get; set; }
 
         /// <summary>
-        /// Gets or sets the date the team last joined the ranked team queue.
+        /// Gets or sets the date and time (in UTC) when the team last joined the ranked team queue.
         /// </summary>
         public DateTime LastJoinedRankedTeamQueueDate { get; set; }
 
@@ -42,7 +42,7 @@ namespace RiotNet.Models
         public virtual List<MatchHistorySummary> MatchHistory { get; set; }
 
         /// <summary>
-        /// Gets or sets the date the team was last modified.
+        /// Gets or sets the date and time (in UTC) when the team was last modified.
         /// </summary>
         public DateTime ModifyDate { get; set; }
 
@@ -57,7 +57,7 @@ namespace RiotNet.Models
         public virtual Roster Roster { get; set; }
 
         /// <summary>
-        /// Gets or sets the date the second most recent date a team member was added to the team.
+        /// Gets or sets the date and time (in UTC) when the second most recent member was added to the team.
         /// </summary>
         public DateTime SecondLastJoinDate { get; set; }
 
@@ -77,7 +77,7 @@ namespace RiotNet.Models
         public virtual List<TeamStatDetail> TeamStatDetails { get; set; }
 
         /// <summary>
-        /// Gets or sets the date the third most recent date a team member was added to the team.
+        /// Gets or sets the date and time (in UTC) when the third most recent member was added to the team.
         /// </summary>
         public DateTime ThirdLastJoinDate { get; set; }
 

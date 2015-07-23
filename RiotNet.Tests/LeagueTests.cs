@@ -9,7 +9,7 @@ namespace RiotNet.Tests
     public class LeagueTests : TestBase
     {
         [Test]
-        public async Task GetMasterLeagueTest()
+        public async Task GetMasterLeagueTaskAsyncTest()
         {
             var client = new RiotClient();
             var league = await client.GetMasterLeagueTaskAsync(RankedQueue.RANKED_TEAM_3x3);

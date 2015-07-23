@@ -75,5 +75,34 @@ namespace RiotNet.Tests.Properties {
                 return ResourceManager.GetString("SampleChampion", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///        &quot;fellowPlayers&quot;: [
+        ///          {
+        ///              &quot;championId&quot;: 412,
+        ///              &quot;teamId&quot;: 200,
+        ///              &quot;summonerId&quot;: 29743501
+        ///          },
+        ///          {
+        ///              &quot;championId&quot;: 150,
+        ///              &quot;teamId&quot;: 200,
+        ///              &quot;summonerId&quot;: 28949950
+        ///          },
+        ///          {
+        ///              &quot;championId&quot;: 76,
+        ///              &quot;teamId&quot;: 100,
+        ///              &quot;summonerId&quot;: 57421691
+        ///          },
+        ///          {
+        ///              &quot;championId&quot;: 43,
+        ///              &quot;teamId&quot;: 100,
+        ///              &quot;summ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SampleGame {
+            get {
+                return ResourceManager.GetString("SampleGame", resourceCulture);
+            }
+        }
     }
 }

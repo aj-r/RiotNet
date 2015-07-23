@@ -16,7 +16,7 @@ namespace RiotNet.Models
         public int Assists { get; set; }
 
         /// <summary>
-        /// Gets or sets the date the match was completed.
+        /// Gets or sets the date and time (in UTC) when the match was completed.
         /// </summary>
         public DateTime Date { get; set; }
 

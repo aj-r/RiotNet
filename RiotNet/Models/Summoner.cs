@@ -29,7 +29,7 @@ namespace RiotNet.Models
         public int ProfileIconId { get; set; }
 
         /// <summary>
-        /// Gets or sets the date the summoner was last modified.
+        /// Gets or sets the date and time (int UTC) when the summoner was last modified.
         /// The summoner is modified by the following events: changing summoner icon,
         /// playing a tutorial, finishing a game, or changing summoner name.
         /// </summary>

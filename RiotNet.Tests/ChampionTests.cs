@@ -46,12 +46,7 @@ namespace RiotNet.Tests
         {
             var champion = JsonConvert.DeserializeObject<Champion>(Resources.SampleChampion, RiotClient.JsonSettings);
 
-            Assert.That(champion.Active);
-            Assert.That(champion.BotEnabled);
-            Assert.That(champion.BotMmEnabled);
-            Assert.That(champion.FreeToPlay);
-            Assert.That(champion.Id, Is.GreaterThan(0));
-            Assert.That(champion.RankedPlayEnabled);
+            AssertNonDefaultValuesRecursive(champion);
         }
     }
 }

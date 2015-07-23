@@ -11,7 +11,7 @@ namespace RiotNet.Tests
     public class CurrentGameTests : TestBase
     {
         [Test]
-        public async Task GetCurrentGameBySummonerIdTest()
+        public async Task GetCurrentGameBySummonerIdTaskAsyncTest()
         {
             var client = new RiotClient();
             // In order to get a summoner ID that is guaranteed to be in a game, we need to get a featured game.

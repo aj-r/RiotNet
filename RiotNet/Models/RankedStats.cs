@@ -17,7 +17,7 @@ namespace RiotNet.Models
         public virtual List<ChampionStats> Champions { get; set; }
 
         /// <summary>
-        /// Gets or sets the date stats were last modified specified.
+        /// Gets or sets the date and time (in UTC) when the stats were last modified.
         /// </summary>
         public DateTime ModifyDate { get; set; }
 

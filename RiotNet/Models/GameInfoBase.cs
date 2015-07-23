@@ -36,7 +36,7 @@ namespace RiotNet.Models
         public QueueType GameQueueConfigId { get; set; }
 
         /// <summary>
-        /// Gets or sets the game start time represented in epoch milliseconds.
+        /// Gets or sets the game start time in UTC.
         /// </summary>
         public DateTime GameStartTime { get; set; }
 

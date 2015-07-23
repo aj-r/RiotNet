@@ -17,7 +17,7 @@ namespace RiotNet.Models
         public int MapId { get; set; }
 
         /// <summary>
-        /// Gets or sets match creation time. Designates when the team select lobby is created and/or the match is made through match making; not when the game actually starts.
+        /// Gets or sets match creation time in UTC. Designates when the team select lobby is created and/or the match is made through match making; not when the game actually starts.
         /// </summary>
         public DateTime MatchCreation { get; set; }
 

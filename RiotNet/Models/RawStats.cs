@@ -13,17 +13,17 @@ namespace RiotNet.Models
     public class RawStats
     {
         /// <summary>
-        /// Gets or sets the number of assists.
+        /// Gets or sets the number of assists by the player.
         /// </summary>
         public int Assists { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of enemy inhibitors killed.
+        /// Gets or sets the number of enemy inhibitors killed by the player.
         /// </summary>
         public int BarracksKilled { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of champions killed.
+        /// Gets or sets the number of champions killed by the player.
         /// </summary>
         public int ChampionsKilled { get; set; }
 
@@ -43,12 +43,12 @@ namespace RiotNet.Models
         public int DamageDealtPlayer { get; set; }
 
         /// <summary>
-        /// Gets or sets number of double kills.
+        /// Gets or sets number of double kills by the player.
         /// </summary>
         public int DoubleKills { get; set; }
 
         /// <summary>
-        /// (TODO) Not sure how this is used yet. It does not appear to ever be set.
+        /// This appears to be unused. It may have been used for Snowdown Showdown games.
         /// </summary>
         public int FirstBlood { get; set; }
 
@@ -58,47 +58,47 @@ namespace RiotNet.Models
         public int Gold { get; set; }
 
         /// <summary>
-        /// Gets or sets the amount of gold earned.
+        /// Gets or sets the amount of gold earned by the player.
         /// </summary>
         public int GoldEarned { get; set; }
 
         /// <summary>
-        /// Gets or sets the amount of gold spend.
+        /// Gets or sets the amount of gold spent by the player.
         /// </summary>
         public int GoldSpent { get; set; }
 
         /// <summary>
-        /// Gets or sets the ID of item 0.
+        /// Gets or sets the ID of the item in slot 0. This corresponds to a <see cref="StaticItem"/> ID.
         /// </summary>
         public int Item0 { get; set; }
 
         /// <summary>
-        /// Gets or sets the ID of item 1.
+        /// Gets or sets the ID of the item in slot 1. This corresponds to a <see cref="StaticItem"/> ID.
         /// </summary>
         public int Item1 { get; set; }
 
         /// <summary>
-        /// Gets or sets the ID of item 2.
+        /// Gets or sets the ID of the item in slot 2. This corresponds to a <see cref="StaticItem"/> ID.
         /// </summary>
         public int Item2 { get; set; }
 
         /// <summary>
-        /// Gets or sets the ID of item 3.
+        /// Gets or sets the ID of the item in slot 3. This corresponds to a <see cref="StaticItem"/> ID.
         /// </summary>
         public int Item3 { get; set; }
 
         /// <summary>
-        /// Gets or sets the ID of item 4.
+        /// Gets or sets the ID of the item in slot 4. This corresponds to a <see cref="StaticItem"/> ID.
         /// </summary>
         public int Item4 { get; set; }
 
         /// <summary>
-        /// Gets or sets the ID of item 5.
+        /// Gets or sets the ID of the item in slot 5. This corresponds to a <see cref="StaticItem"/> ID.
         /// </summary>
         public int Item5 { get; set; }
 
         /// <summary>
-        /// Gets or sets the ID of item 6.
+        /// Gets or sets the ID of the item in slot 6. This corresponds to a <see cref="StaticItem"/> ID.
         /// </summary>
         public int Item6 { get; set; }
 
@@ -108,17 +108,17 @@ namespace RiotNet.Models
         public int ItemsPurchased { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of killing sprees (number of times player got two (or three?) or more kills without dying).
+        /// Gets or sets the number of killing sprees (number of times the player got three or more kills without dying).
         /// </summary>
         public int KillingSprees { get; set; }
 
         /// <summary>
-        /// Gets or sets the largest critical strike values.
+        /// Gets or sets the amount of damage dealt by the player's most damaging critical strike.
         /// </summary>
         public int LargestCriticalStrike { get; set; }
 
         /// <summary>
-        /// Gets or sets the largest killing spree.
+        /// Gets or sets the player's largest killing spree.
         /// </summary>
         public int LargestKillingSpree { get; set; }
 
@@ -128,12 +128,12 @@ namespace RiotNet.Models
         public int LargestMultiKill { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of tier 3 items built.
+        /// Gets or sets the number of tier 3 items built by the player.
         /// </summary>
         public int LegendaryItemsCreated { get; set; }
 
         /// <summary>
-        /// Gets or sets the player champion level.
+        /// Gets or sets the player's champion level at the end of the game.
         /// </summary>
         public int Level { get; set; }
 
@@ -143,12 +143,12 @@ namespace RiotNet.Models
         public int MagicDamageDealtPlayer { get; set; }
 
         /// <summary>
-        /// Gets or sets the amount of magic damage dealt to champions.
+        /// Gets or sets the amount of magic damage dealt to champions by the player.
         /// </summary>
         public int MagicDamageDealtToChampions { get; set; }
 
         /// <summary>
-        /// Gets or sets amount of magic damage taken.
+        /// Gets or sets amount of magic damage takenby the player.
         /// </summary>
         public int MagicDamageTaken { get; set; }
 
@@ -158,22 +158,22 @@ namespace RiotNet.Models
         public int MinionsDenied { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of minions killed.
+        /// Gets or sets the number of minions killed by the player.
         /// </summary>
         public int MinionsKilled { get; set; }
 
         /// <summary>
-        /// Gets or sets the numner of neutral monsters killed.
+        /// Gets or sets the number of neutral monsters killed by the player.
         /// </summary>
         public int NeutralMinionsKilled { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of neutral monsters killed in the enemy jungle.
+        /// Gets or sets the number of neutral monsters killed by the player in the enemy jungle.
         /// </summary>
         public int NeutralMinionsKilledEnemyJungle { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of neutral monsters killed in your jungle.
+        /// Gets or sets the number of neutral monsters killed by the player in their jungle.
         /// </summary>
         public int NeutralMinionsKilledYourJungle { get; set; }
 
@@ -203,7 +203,7 @@ namespace RiotNet.Models
         public int NodeNeutralizeAssist { get; set; }
 
         /// <summary>
-        /// Gets or sets number of deaths.
+        /// Gets or sets number of deaths by the player.
         /// </summary>
         public int NumDeaths { get; set; }
 
@@ -218,17 +218,17 @@ namespace RiotNet.Models
         public int ObjectivePlayerScore { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of penta kills.
+        /// Gets or sets the number of penta kills by the player.
         /// </summary>
         public int PentaKills { get; set; }
 
         /// <summary>
-        /// Gets or sets total amount of physical damage dealt.
+        /// Gets or sets total amount of physical damage dealt by the player.
         /// </summary>
         public int PhysicalDamageDealtPlayer { get; set; }
 
         /// <summary>
-        /// Gets or sets amount of physical damage dealt to champions.
+        /// Gets or sets amount of physical damage dealt to champions by the player.
         /// </summary>
         public int PhysicalDamageDealtToChampions { get; set; }
 
@@ -238,52 +238,52 @@ namespace RiotNet.Models
         public int PhysicalDamageTaken { get; set; }
 
         /// <summary>
-        /// Gets or sets player position.
+        /// Gets or sets player's position (lane or jungle).
         /// </summary>
-        public PlayerPosition PlayerPosition { get; set; }
+        public PlayerPosition? PlayerPosition { get; set; }
 
         /// <summary>
         /// Gets or sets player role.
         /// </summary>
-        public PlayerRole PlayerRole { get; set; }
+        public PlayerRole? PlayerRole { get; set; }
 
         /// <summary>
-        /// Gets or sets number of quadra kills.
+        /// Gets or sets number of quadra kills by the player.
         /// </summary>
         public int QuadraKills { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of sight wards purchased.
+        /// Gets or sets the number of sight wards purchased by the player.
         /// </summary>
         public int SightWardsBought { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of times the first champion spell was cast.
+        /// Gets or sets the number of times the player cast the first champion spell.
         /// </summary>
         public int Spell1Cast { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of times the second champion spell was cast.
+        /// Gets or sets the number of times the player cast the second champion spell.
         /// </summary>
         public int Spell2Cast { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of times the third champion spell was cast.
+        /// Gets or sets the number of times the player cast the third champion spell.
         /// </summary>
         public int Spell3Cast { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of times the fourth champion spell was cast.
+        /// Gets or sets the number of times the player cast the fourth champion spell.
         /// </summary>
         public int Spell4Cast { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of times summoner spell 1 was cast.
+        /// Gets or sets the number of times the player cast the first summoner spell.
         /// </summary>
         public int SummonSpell1Cast { get; set; }
 
         /// <summary>
-        /// Gets or sets  the number of times summoner spell 2 was cast.
+        /// Gets or sets  the number of times the player cast the second summoner spell 2.
         /// </summary>
         public int SummonSpell2Cast { get; set; }
 
@@ -298,7 +298,7 @@ namespace RiotNet.Models
         public TeamSide Team { get; set; }
 
         /// <summary>
-        /// Gets or sets if game was a dominion game, number of completed team objectives (i.e., quests).
+        /// Gets or sets the number of completed team objectives (Dominion).
         /// </summary>
         public int TeamObjective { get; set; }
 
@@ -313,17 +313,17 @@ namespace RiotNet.Models
         public int TotalDamageDealt { get; set; }
 
         /// <summary>
-        /// Gets or sets the total amount of damage dealt to champions.
+        /// Gets or sets the total amount of damage dealt to champions by the player.
         /// </summary>
         public int TotalDamageDealtToChampions { get; set; }
 
         /// <summary>
-        /// Gets or sets the total amount of damage taken.
+        /// Gets or sets the total amount of damage taken by the player.
         /// </summary>
         public int TotalDamageTaken { get; set; }
 
         /// <summary>
-        /// Gets or sets the total amount of healing done.
+        /// Gets or sets the total amount of healing done by the player.
         /// </summary>
         public int TotalHeal { get; set; }
 
@@ -338,17 +338,17 @@ namespace RiotNet.Models
         public int TotalScoreRank { get; set; }
 
         /// <summary>
-        /// Gets or sets the total time of dealt crowd control.
+        /// Gets or sets the total crowd control time dealt by the player.
         /// </summary>
         public int TotalTimeCrowdControlDealt { get; set; }
 
         /// <summary>
-        /// Gets or sets the total number of units healed in the game.
+        /// Gets or sets the total number of units healed in the game by the player.
         /// </summary>
         public int TotalUnitsHealed { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of triple kills.
+        /// Gets or sets the number of triple kills by the player.
         /// </summary>
         public int TripleKills { get; set; }
 
@@ -358,22 +358,22 @@ namespace RiotNet.Models
         public int TrueDamageDealtPlayer { get; set; }
 
         /// <summary>
-        /// Gets or sets the amount of true damage dealt to champions.
+        /// Gets or sets the amount of true damage dealt to champions by the player.
         /// </summary>
         public int TrueDamageDealtToChampions { get; set; }
 
         /// <summary>
-        /// Gets or sets the amount of true damage taken.
+        /// Gets or sets the amount of true damage taken by the player.
         /// </summary>
         public int TrueDamageTaken { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of turrets killed by player.
+        /// Gets or sets the number of turrets killed by the player.
         /// </summary>
         public int TurretsKilled { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of unreal kills (beyond pentakill, probably).
+        /// Gets or sets the number of unreal kills by the player. An "unreal" kill is bigger than a pentakill (so 6 or more kills).
         /// </summary>
         public int UnrealKills { get; set; }
 
@@ -383,22 +383,22 @@ namespace RiotNet.Models
         public int VictoryPointTotal { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of vision wards bought in the game.
+        /// Gets or sets the number of vision wards bought by the player.
         /// </summary>
         public int VisionWardsBought { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of wards killed.
+        /// Gets or sets the number of wards killed by the player.
         /// </summary>
         public int WardKilled { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of wards placed.
+        /// Gets or sets the number of wards placed by the player.
         /// </summary>
         public int WardPlaced { get; set; }
 
         /// <summary>
-        /// Gets or sets flag specifying whether or not this game was won.
+        /// Gets or sets flag specifying whether or not the player won the game.
         /// </summary>
         public bool Win { get; set; }
     }

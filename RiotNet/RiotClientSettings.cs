@@ -22,11 +22,6 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets or sets a function that defines the default settings.
-        /// </summary>
-        public static Func<RiotClientSettings> Default { get; set; }
-
-        /// <summary>
         /// Gets or sets the Riot API key to use.
         /// </summary>
         public string ApiKey { get; set; }

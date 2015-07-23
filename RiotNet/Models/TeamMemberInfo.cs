@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace RiotNet.Models
@@ -15,17 +12,17 @@ namespace RiotNet.Models
     public class TeamMemberInfo
     {
         /// <summary>
-        /// Gets or sets the date this team member was invited to the team.
+        /// Gets or sets the date and time (in UTC) when this team member was invited to the team.
         /// </summary>
         public DateTime InviteDate { get; set; }
 
         /// <summary>
-        /// Gets or sets the date this team member joined the team.
+        /// Gets or sets the date and time (in UTC) when this team member joined the team.
         /// </summary>
         public DateTime JoinDate { get; set; }
 
         /// <summary>
-        /// Gets or sets this team member's player ID.
+        /// Gets or sets this team member's summoner ID.
         /// </summary>
         public long PlayerId { get; set; }
 
