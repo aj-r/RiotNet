@@ -8,21 +8,18 @@ using RiotNet.Models;
 namespace RiotNet.Tests
 {
     [TestFixture]
-    public class CurrentGameTests : TestBase
+    public class FeaturedGameTests : TestBase
     {
         [Test]
-        public async Task GetCurrentGameBySummonerIdTest()
+        public async Task GetFeaturedGamesAsyncTaskTest()
         {
             var client = new RiotClient();
-            // In order to get a summoner ID that is guaranteed to be in a game, we need to get a featured game.
             var featuredGameList = await client.GetFeaturedGamesTaskAsync();
-            var featuredGame = featuredGameList.GameList.First();
-            var summonerName = featuredGame.Participants.First().SummonerName;
-            var summoner = await client.GetSummonerBySummonerNameTaskAsync(summonerName);
 
-            var game = await client.GetCurrentGameBySummonerIdTaskAsync(summoner.Id);
-
-            Assert.That(game, Is.Not.Null);
+            Assert.That(featuredGameList, Is.Not.Null);
+            Assert.That(featuredGameList.ClientRefreshInterval, Is.GreaterThan(0));
+            Assert.That(featuredGameList.GameList, Is.Not.Null.And.Not.Empty);
+            var game = featuredGameList.GameList.First();
             Assert.That(game.BannedChampions, Is.Not.Null.And.Not.Empty);
             var bannedChampion = game.BannedChampions.First();
             Assert.That(bannedChampion.ChampionId, Is.GreaterThan(0));
@@ -42,19 +39,9 @@ namespace RiotNet.Tests
             var participant = game.Participants.First();
             Assert.That(participant.Bot, Is.False);
             Assert.That(participant.ChampionId, Is.GreaterThan(0));
-            Assert.That(participant.Masteries, Is.Not.Null.And.Not.Empty);
-            var mastery = participant.Masteries.First();
-            Assert.That(mastery.MasteryId, Is.GreaterThan(0));
-            Assert.That(mastery.Rank, Is.GreaterThan(0));
             Assert.That(participant.ProfileIconId, Is.GreaterThan(0));
-            Assert.That(participant.Runes, Is.Not.Null.And.Not.Empty);
-            var rune = participant.Runes.First();
-            Assert.That(rune.Count, Is.GreaterThan(0));
-            Assert.That(rune.Rank, Is.GreaterThan(0));
-            Assert.That(rune.RuneId, Is.GreaterThan(0));
             Assert.That(participant.Spell1Id, Is.GreaterThan(0));
             Assert.That(participant.Spell2Id, Is.GreaterThan(0));
-            Assert.That(participant.SummonerId, Is.GreaterThan(0));
             Assert.That(participant.SummonerName, Is.Not.Null.And.Not.Empty);
             Assert.That(game.Participants.Any(p => p.TeamId == TeamSide.Team2));
             Assert.That(game.PlatformId, Is.EqualTo(client.PlatformId));

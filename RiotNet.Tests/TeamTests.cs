@@ -8,7 +8,7 @@ using RiotNet.Models;
 namespace RiotNet.Tests
 {
     [TestFixture]
-    public class TeamTests
+    public class TeamTests : TestBase
     {
         [Test]
         public async Task GetTeamsBySummonerIdsTest()

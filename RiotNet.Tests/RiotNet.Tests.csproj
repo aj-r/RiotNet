@@ -61,20 +61,21 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ChampionTests.cs" />
+    <Compile Include="FeaturedGameTests.cs" />
     <Compile Include="CurrentGameTests.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RiotClientTests.cs" />
     <Compile Include="TeamTests.cs" />
     <Compile Include="DbTests.cs" />
     <Compile Include="LeagueTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestTests.cs" />
-    <Compile Include="Setup.cs" />
     <Compile Include="StaticDataTests.cs" />
-    <Compile Include="TestHelper.cs" />
+    <Compile Include="TestBase.cs" />
     <Compile Include="TestDbContext.cs" />
   </ItemGroup>
   <ItemGroup>

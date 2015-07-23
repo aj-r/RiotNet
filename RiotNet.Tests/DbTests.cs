@@ -13,7 +13,7 @@ namespace RiotNet.Tests
     /// Tests that the necessary objects can be easily saved in a database.
     /// </summary>
     [TestFixture]
-    public class DbTests
+    public class DbTests : TestBase
     {
         [Test]
         public void ChampionDbTest()
@@ -113,7 +113,7 @@ namespace RiotNet.Tests
 
         private static void VerifyDbStorage<T>() where T : class
         {
-            var value = TestHelper.Create<T>();
+            var value = Create<T>();
             var dbSetProperty = typeof(TestDbContext).GetProperties().First(p => p.PropertyType == typeof(IDbSet<T>));
             // Try to save the value to the database and make sure there are no errors.
             using (var context = new TestDbContext())
@@ -128,7 +128,7 @@ namespace RiotNet.Tests
                 // Read the value from the database and make sure all properties are set.
                 var dbSet = (IDbSet<T>)dbSetProperty.GetValue(context);
                 var dbValue = dbSet.First();
-                TestHelper.AssertObjectEqualityRecursive(dbValue, value);
+                AssertObjectEqualityRecursive(dbValue, value);
             }
         }
     }

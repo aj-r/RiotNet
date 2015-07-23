@@ -197,7 +197,7 @@ namespace RiotNet
         public event EventHandler<RetryEventArgs> RequestTimedOut;
 
         /// <summary>
-        /// Occurs when the client fails to connect to the server while executing a request.
+        /// Occurs when the client fails to connect to the server, or when an exception occurs while executing a request.
         /// </summary>
         public event EventHandler<RetryEventArgs> ConnectionFailed;
 

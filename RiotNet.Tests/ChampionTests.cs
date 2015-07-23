@@ -9,7 +9,7 @@ using RiotNet.Tests.Properties;
 namespace RiotNet.Tests
 {
     [TestFixture]
-    public class ChampionTests
+    public class ChampionTests : TestBase
     {
         [Test]
         public async Task GetChampionsTaskAsyncTest()

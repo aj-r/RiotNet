@@ -11,7 +11,7 @@ using RiotNet.Models;
 namespace RiotNet.Tests
 {
     [TestFixture]
-    public class StaticDataTests
+    public class StaticDataTests : TestBase
     {
         #region Champions
 
@@ -256,7 +256,7 @@ namespace RiotNet.Tests
             var client = new RiotClient();
             var itemList = await client.GetStaticItemsTaskAsync(itemListData: new[] { "all" });
             var defaultItem = new StaticItem();
-            TestHelper.AssertObjectEqualityRecursive(defaultItem, itemList.Basic, true);
+            AssertObjectEqualityRecursive(defaultItem, itemList.Basic, true);
         }
 
         #endregion
@@ -479,7 +479,7 @@ namespace RiotNet.Tests
             var client = new RiotClient();
             var runeList = await client.GetStaticRunesTaskAsync(runeListData: new[] { "all" });
             var defaultRune = new StaticRune();
-            TestHelper.AssertObjectEqualityRecursive(defaultRune, runeList.Basic, true);
+            AssertObjectEqualityRecursive(defaultRune, runeList.Basic, true);
         }
 
         #endregion
