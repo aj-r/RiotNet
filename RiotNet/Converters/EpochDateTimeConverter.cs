@@ -6,21 +6,11 @@ using Newtonsoft.Json.Converters;
 namespace RiotNet.Converters
 {
     /// <summary>
-    /// Converts a <see cref="DateTime"/> to and from JSON in epoch milliseconds format.
+    /// Converts a <see cref="DateTime"/> to and from JSON in epoch milliseconds format. Can also deserialize from a string in ISO format.
     /// </summary>
-    public class EpochDateTimeConverter : DateTimeConverterBase
+    public class EpochDateTimeConverter : IsoDateTimeConverter
     {
         private static DateTime epochReferenceDate = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-
-        /// <summary>
-        /// Determines whether this instance can convert the specified object type.
-        /// </summary>
-        /// <param name="objectType">The type to convert.</param>
-        /// <returns><value>true</value> if this converter can convert the specified type; otherwise <value>false</value>.</returns>
-        public override bool CanConvert(Type objectType)
-        {
-            return objectType == typeof(DateTime) || objectType == typeof(DateTime?);
-        }
 
         /// <summary>
         /// Reads the JSON representation of the date.
@@ -34,13 +24,14 @@ namespace RiotNet.Converters
         {
             if (reader.TokenType == JsonToken.Null)
             {
-                if (objectType != typeof(DateTime?))
-                    throw new JsonException("Cannot deserialize null as a non-nullable DateTime.");
+                if (objectType != typeof(DateTime?) && objectType != typeof(DateTimeOffset?))
+                    throw new JsonSerializationException("Cannot deserialize null as a non-nullable DateTime.");
                 return null;
-
             }
+            if (reader.TokenType == JsonToken.String || reader.TokenType == JsonToken.Date)
+                return base.ReadJson(reader, objectType, existingValue, serializer);
             if (reader.TokenType != JsonToken.Integer)
-                throw new JsonException("Can only deseialize DateTime from integer representing epoch time.");
+                throw new JsonSerializationException("Unexpected token parsing date. Expected Integer, String, or Date; got " + reader.TokenType + ".");
             var epochTime = (long)reader.Value;
             // Riot's "epoch time" is actually in milliseconds, not seconds.
             return epochReferenceDate.AddMilliseconds(epochTime);
@@ -55,6 +46,12 @@ namespace RiotNet.Converters
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             var dateTime = value as DateTime?;
+            if (dateTime == null)
+            {
+                var dateTimeOffset = value as DateTimeOffset?;
+                if (dateTimeOffset != null)
+                    dateTime = dateTimeOffset.Value.UtcDateTime;
+            }
             if (dateTime == null)
             {
                 writer.WriteNull();

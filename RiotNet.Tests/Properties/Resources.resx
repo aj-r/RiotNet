@@ -299,4 +299,60 @@
    "tier": "MASTER"
 }</value>
   </data>
+  <data name="SampleShardStatus" xml:space="preserve">
+    <value>{
+   "region_tag": "na1",
+   "services": [
+      {
+         "incidents": [{
+            "id": 2740,
+            "updates": [{
+               "content": "Skrill has been disabled while we investigate an issue causing this payment method to fail to grant Riot Points.",
+               "id": 3182,
+               "author": "test",
+               "updated_at": "2015-07-19T02:23:43.000Z",
+               "translations": [
+                  {
+                     "content": "Platební metodu Skrill jsme dočasně deaktivovali, dokud nezjistíme, proč při jejím využití nedochází k připisování Riot Points.",
+                     "updated_at": "2015-07-19T02:24:19.000Z",
+                     "locale": "cs_CZ"
+                  },
+                  {
+                     "content": "Η μέθοδος πληρωμής Skrill έχει απενεργοποιηθεί για το διάστημα που διερευνούμε ένα ζήτημα, όπου αυτή η μέθοδος πληρωμής δεν παρέχει Riot Points.",
+                     "updated_at": "2015-07-19T02:24:02.000Z",
+                     "locale": "el_GR"
+                  },
+                  {
+                     "content": "A fizetési mód Skrill nem érhető el, amíg el nem hárítunk egy hibát, amely miatt a fizetési mód használatakor a rendszer nem ír jóvá Riot Pontokat.",
+                     "updated_at": "2015-07-19T02:24:30.000Z",
+                     "locale": "hu_HU"
+                  },
+                  {
+                     "content": "Skrill – wyłączyliśmy tę formę płatności, gdyż sprawdzamy, dlaczego nie przyznaje ona Riot Points.",
+                     "updated_at": "2015-07-19T02:23:54.000Z",
+                     "locale": "pl_PL"
+                  },
+                  {
+                     "content": "Metoda de plată Skrill a fost dezactivată cât timp investigăm o problemă care face ca această metodă de plată să nu acorde Riot Points.",
+                     "updated_at": "2015-07-19T02:24:10.000Z",
+                     "locale": "ro_RO"
+                  }
+               ],
+               "created_at": "2015-07-19T02:23:36.000Z",
+               "severity": "alert"
+            }],
+            "created_at": "2015-07-19T02:23:10.000Z",
+            "active": true
+         }],
+         "status": "offline",
+         "name": "Boards",
+         "slug": "boards"
+      }
+   ],
+   "locales": ["en_US"],
+   "name": "North America",
+   "hostname": "prod.na1.lol.riotgames.com",
+   "slug": "na"
+}</value>
+  </data>
 </root>

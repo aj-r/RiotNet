@@ -100,7 +100,7 @@ namespace RiotNet.Tests
         [Test]
         public void DeserializeLeagueTest()
         {
-            var league = JsonConvert.DeserializeObject<League>(Resources.SampleLeague);
+            var league = JsonConvert.DeserializeObject<League>(Resources.SampleLeague, RiotClient.JsonSettings);
 
             AssertNonDefaultValuesRecursive(league);
         }

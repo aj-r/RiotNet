@@ -130,5 +130,27 @@ namespace RiotNet.Tests.Properties {
                 return ResourceManager.GetString("SampleLeague", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///   &quot;region_tag&quot;: &quot;na1&quot;,
+        ///   &quot;services&quot;: [
+        ///      {
+        ///         &quot;incidents&quot;: [{
+        ///            &quot;id&quot;: 2740,
+        ///            &quot;updates&quot;: [{
+        ///               &quot;content&quot;: &quot;Skrill has been disabled while we investigate an issue causing this payment method to fail to grant Riot Points.&quot;,
+        ///               &quot;id&quot;: 3182,
+        ///               &quot;author&quot;: &quot;test&quot;,
+        ///               &quot;updated_at&quot;: &quot;2015-07-19T02:23:43.000Z&quot;,
+        ///               &quot;translations&quot;: [
+        ///                  {
+        ///                     &quot;content&quot;: &quot;Platební metodu Skrill jsme  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SampleShardStatus {
+            get {
+                return ResourceManager.GetString("SampleShardStatus", resourceCulture);
+            }
+        }
     }
 }

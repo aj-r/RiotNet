@@ -28,7 +28,7 @@ namespace RiotNet.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the region tag for the server.
+        /// Gets or sets the region tag for the server. This is similar to the platform ID, but it is not set for all regions.
         /// </summary>
         [JsonProperty("region_tag")]
         public string RegionTag { get; set; }

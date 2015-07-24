@@ -19,6 +19,7 @@ namespace RiotNet
         private readonly string platformId;
         private readonly RiotClientSettings settings;
         private readonly IRestClient client;
+        private readonly IRestClient statusClient;
         private readonly RestSharpJsonNetSerializer serializer;
 
         static RiotClient()
@@ -47,7 +48,7 @@ namespace RiotNet
         /// <param name="region">The region indicating which server to connect to.</param>
         /// <param name="settings">The settings to use.</param>
         public RiotClient(Region region, RiotClientSettings settings)
-            : this(region, settings, new RestClient())
+            : this(region, settings, new RestClient(), new RestClient())
         { }
 
         /// <summary>
@@ -56,10 +57,13 @@ namespace RiotNet
         /// <param name="region">The region indicating which server to connect to.</param>
         /// <param name="settings">The settings to use.</param>
         /// <param name="client">The IRestClient implementation to use.</param>
-        public RiotClient(Region region, RiotClientSettings settings, IRestClient client)
+        /// <param name="statusClient">The IRestClient implementation to use for lol-status API calls.</param>
+        public RiotClient(Region region, RiotClientSettings settings, IRestClient client, IRestClient statusClient)
         {
             if (client == null)
                 throw new ArgumentNullException("client");
+            if (statusClient == null)
+                throw new ArgumentNullException("statusClient");
             if (settings == null)
                 throw new ArgumentNullException("settings");
             this.region = region;
@@ -69,14 +73,18 @@ namespace RiotNet
 
             if (client.BaseUrl == null)
                 client.BaseUrl = new Uri("https://" + GetServerName(region));
+            if (statusClient.BaseUrl == null)
+                statusClient.BaseUrl = new Uri("http://status.leagueoflegends.com");
             client.AddHandler("application/json", serializer);
             client.AddHandler("text/json", serializer);
             this.client = client;
+            this.statusClient = statusClient;
         }
 
         private static readonly JsonSerializerSettings jsonSettings = new JsonSerializerSettings
         {
             ContractResolver = new RiotNetContractResolver(),
+            DateTimeZoneHandling = DateTimeZoneHandling.Utc,
             MissingMemberHandling = MissingMemberHandling.Ignore,
             Converters = new List<JsonConverter>
             {
@@ -221,14 +229,26 @@ namespace RiotNet
         {
             get { return client; }
         }
-
+        
         /// <summary>
         /// Executes a REST request synchronously.
         /// </summary>
         /// <typeparam name="T">The type of data to expect in the response.</typeparam>
         /// <param name="request">The request to execute.</param>
         /// <returns>The deserialized response.</returns>
-        protected virtual T Execute<T>(IRestRequest request) where T : new()
+        protected T Execute<T>(IRestRequest request) where T : new()
+        {
+            return Execute<T>(request, client);
+        }
+
+        /// <summary>
+        /// Executes a REST request synchronously.
+        /// </summary>
+        /// <typeparam name="T">The type of data to expect in the response.</typeparam>
+        /// <param name="request">The request to execute.</param>
+        /// <param name="client">The client to use when executing the request.</param>
+        /// <returns>The deserialized response.</returns>
+        protected virtual T Execute<T>(IRestRequest request, IRestClient client) where T : new()
         {
             var retry = false;
             var attemptCount = 0;
@@ -295,14 +315,26 @@ namespace RiotNet
 
             return default(T);
         }
-
+        
         /// <summary>
         /// Executes a REST request asynchronously.
         /// </summary>
         /// <typeparam name="T">The type of data to expect in the response.</typeparam>
         /// <param name="request">The request to execute.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        protected virtual async Task<T> ExecuteTaskAsync<T>(IRestRequest request)
+        protected Task<T> ExecuteTaskAsync<T>(IRestRequest request) where T : new()
+        {
+            return ExecuteTaskAsync<T>(request, client);
+        }
+
+        /// <summary>
+        /// Executes a REST request asynchronously.
+        /// </summary>
+        /// <typeparam name="T">The type of data to expect in the response.</typeparam>
+        /// <param name="request">The request to execute.</param>
+        /// <param name="client">The client to use when executing the request.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        protected virtual async Task<T> ExecuteTaskAsync<T>(IRestRequest request, IRestClient client) where T : new()
         {
             var retry = false;
             var attemptCount = 0;

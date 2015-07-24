@@ -12,13 +12,21 @@ namespace RiotNet
     {
         private IRestRequest GetShardsRequest()
         {
-            return Get("shards");
+            var request = Get("shards");
+            // API key is not required.
+            var apiKeyParam = request.Parameters.FirstOrDefault(p => p.Name == "api_key");
+            if (apiKeyParam != null)
+                request.Parameters.Remove(apiKeyParam);
+            return request;
         }
 
         /// <summary>
         /// Gets the list of shards.
         /// </summary>
         /// <returns>The shards.</returns>
+        /// <remarks>
+        /// Calls to this method will not count toward your API rate limit.
+        /// </remarks>
         public List<Shard> GetShards()
         {
             return Execute<List<Shard>>(GetShardsRequest());
@@ -28,14 +36,22 @@ namespace RiotNet
         /// Gets the list of shards.
         /// </summary>
         /// <returns>A task representing the asynchronous operation.</returns>
+        /// <remarks>
+        /// Calls to this method will not count toward your API rate limit.
+        /// </remarks>
         public Task<List<Shard>> GetShardsTaskAsync()
         {
-            return ExecuteTaskAsync<List<Shard>>(GetShardsRequest());
+            return ExecuteTaskAsync<List<Shard>>(GetShardsRequest(), statusClient);
         }
 
         private IRestRequest GetShardStatusRequest()
         {
-            return Get("shards/{region}");
+            var request = Get("shards/{region}");
+            // API key is not required.
+            var apiKeyParam = request.Parameters.FirstOrDefault(p => p.Name == "api_key");
+            if (apiKeyParam != null)
+                request.Parameters.Remove(apiKeyParam);
+            return request;
         }
 
         /// <summary>
@@ -53,7 +69,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<ShardStatus> GetShardStatusTaskAsync()
         {
-            return ExecuteTaskAsync<ShardStatus>(GetShardStatusRequest());
+            return ExecuteTaskAsync<ShardStatus>(GetShardStatusRequest(), statusClient);
         }
     }
 }

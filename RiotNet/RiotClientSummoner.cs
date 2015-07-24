@@ -40,7 +40,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the summoner information for the specified summoner.
         /// </summary>
-        /// <param name="summonerNames">The summoner name.</param>
+        /// <param name="summonerName">The summoner name.</param>
         /// <returns>A <see cref="Summoner"/>.</returns>
         public Summoner GetSummonerBySummonerName(String summonerName)
         {
@@ -51,7 +51,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the summoner information for the specified summoner.
         /// </summary>
-        /// <param name="summonerNames">The summoner name.</param>
+        /// <param name="summonerName">The summoner name.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         public async Task<Summoner> GetSummonerBySummonerNameTaskAsync(String summonerName)
         {
