@@ -63,7 +63,9 @@
     <Compile Include="Models\BlockItem.cs" />
     <Compile Include="Models\ChampionStats.cs" />
     <Compile Include="Models\CurrentGameInfo.cs" />
+    <Compile Include="Models\MatchList.cs" />
     <Compile Include="Models\MatchParticipantFrameCollection.cs" />
+    <Compile Include="Models\MatchReference.cs" />
     <Compile Include="Models\Participant.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Frame.cs" />
