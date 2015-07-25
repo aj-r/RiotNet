@@ -34,7 +34,7 @@ namespace RiotNet.Models
             TowerKillsPerMinCounts = new MatchParticipantTimelineData();
             TowerKillsPerMinDeltas = new MatchParticipantTimelineData();
             VilemawAssistsPerMinCounts = new MatchParticipantTimelineData();
-            VilemawAssistsPerMinCounts = new MatchParticipantTimelineData();
+            VilemawKillsPerMinCounts = new MatchParticipantTimelineData();
             WardsPerMinDeltas = new MatchParticipantTimelineData();
             XpDiffPerMinDeltas = new MatchParticipantTimelineData();
             XpPerMinDeltas = new MatchParticipantTimelineData();

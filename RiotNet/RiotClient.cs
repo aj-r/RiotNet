@@ -90,6 +90,7 @@ namespace RiotNet
             {
                 new EpochDateTimeConverter(),
                 new SecondsToTimeSpanConverter(),
+                new PlayerPositionConverter(),
             }
         };
 
@@ -255,77 +256,27 @@ namespace RiotNet
         /// <returns>The deserialized response.</returns>
         protected virtual T Execute<T>(IRestRequest request, IRestClient client) where T : new()
         {
-            var retry = false;
             var attemptCount = 0;
             do
             {
                 var response = client.Execute<T>(request);
                 ++attemptCount;
-                if (response.ResponseStatus == ResponseStatus.TimedOut)
+                var action = DetermineResponseAction(response, attemptCount);
+                if (action == ResponseAction.Return)
+                    return response.Data;
+                if (action == ResponseAction.ReturnDefault)
+                    break;
+                if (action == ResponseAction.Retry)
                 {
-                    var args = new RetryEventArgs(response, attemptCount);
-                    args.Retry = Settings.RetryOnTimeout;
-                    OnRequestTimedOut(args);
-                    if (args.Retry)
+                    var retryAfterHeader = response.Headers.FirstOrDefault(h => string.Equals(h.Name, "Retry-After", StringComparison.InvariantCultureIgnoreCase));
+                    if (retryAfterHeader != null)
                     {
-                        retry = true;
-                        continue;
+                        int delaySeconds;
+                        if (int.TryParse(retryAfterHeader.Value as string, out delaySeconds))
+                            Thread.Sleep(delaySeconds * 1000);
                     }
-                    if (Settings.ThrowOnError)
-                        throw new RestTimeoutException(response);
-                    else
-                        break;
                 }
-                if (response.ResponseStatus == ResponseStatus.Error && response.StatusCode == 0)
-                {
-                    var args = new RetryEventArgs(response, attemptCount);
-                    args.Retry = Settings.RetryOnConnectionFailure;
-                    OnConnectionFailed(args);
-                    if (args.Retry)
-                    {
-                        retry = true;
-                        continue;
-                    }
-                    if (Settings.ThrowOnError)
-                        throw new ConnectionFailedException(response);
-                    else
-                        break;
-                }
-                var statusCode = (int)response.StatusCode;
-                if (statusCode == 429)
-                {
-                    var args = new RetryEventArgs(response, attemptCount);
-                    args.Retry = Settings.RetryOnRateLimitExceeded;
-                    OnRateLimitExceeded(args);
-                    if (args.Retry)
-                    {
-                        retry = true;
-                        Thread.Sleep(Settings.RetryOnRateLimitExceededTimeDelay);
-                        continue;
-                    }
-                    if (Settings.ThrowOnError)
-                        throw new RateLimitExceededException(response);
-                    else
-                        break;
-                }
-                if (statusCode == 404)
-                {
-                    OnResourceNotFound(new ResponseEventArgs(response));
-                    if (Settings.ThrowOnNotFound)
-                        throw new NotFoundException(response);
-                    else
-                        break;
-                }
-                if (statusCode >= 400 || response.ResponseStatus != ResponseStatus.Completed)
-                {
-                    if ((statusCode != 404 && Settings.ThrowOnError) || (statusCode == 404 && Settings.ThrowOnNotFound))
-                        throw new ConnectionFailedException(response);
-                    else
-                        break;
-                }
-
-                return response.Data;
-            } while (retry && attemptCount < Settings.MaxRequestAttempts);
+            } while (attemptCount < Settings.MaxRequestAttempts);
 
             return default(T);
         }
@@ -350,79 +301,92 @@ namespace RiotNet
         /// <returns>A task that represents the asynchronous operation.</returns>
         protected virtual async Task<T> ExecuteTaskAsync<T>(IRestRequest request, IRestClient client) where T : new()
         {
-            var retry = false;
             var attemptCount = 0;
             do
             {
                 var response = await client.ExecuteTaskAsync<T>(request).ConfigureAwait(false);
                 ++attemptCount;
-                if (response.ResponseStatus == ResponseStatus.TimedOut)
+                var action = DetermineResponseAction(response, attemptCount);
+                if (action == ResponseAction.Return)
+                    return response.Data;
+                if (action == ResponseAction.ReturnDefault)
+                    break;
+                if (action == ResponseAction.Retry)
                 {
-                    var args = new RetryEventArgs(response, attemptCount);
-                    args.Retry = Settings.RetryOnTimeout;
-                    OnRequestTimedOut(args);
-                    if (args.Retry)
+                    var retryAfterHeader = response.Headers.FirstOrDefault(h => string.Equals(h.Name, "Retry-After", StringComparison.InvariantCultureIgnoreCase));
+                    if (retryAfterHeader != null)
                     {
-                        retry = true;
-                        continue;
+                        int delaySeconds;
+                        if (int.TryParse(retryAfterHeader.Value as string, out delaySeconds))
+                            await Task.Delay(delaySeconds * 1000);
                     }
-                    if (Settings.ThrowOnError)
-                        throw new RestTimeoutException(response);
-                    else
-                        break;
                 }
-                if (response.ResponseStatus == ResponseStatus.Error && response.StatusCode == 0)
-                {
-                    var args = new RetryEventArgs(response, attemptCount);
-                    args.Retry = Settings.RetryOnConnectionFailure;
-                    OnConnectionFailed(args);
-                    if (args.Retry)
-                    {
-                        retry = true;
-                        continue;
-                    }
-                    if (Settings.ThrowOnError)
-                        throw new ConnectionFailedException(response);
-                    else
-                        break;
-                }
-                var statusCode = (int)response.StatusCode;
-                if (statusCode == 429)
-                {
-                    var args = new RetryEventArgs(response, attemptCount);
-                    args.Retry = Settings.RetryOnRateLimitExceeded;
-                    OnRateLimitExceeded(args);
-                    if (args.Retry)
-                    {
-                        retry = true;
-                        await Task.Delay(Settings.RetryOnRateLimitExceededTimeDelay).ConfigureAwait(false);
-                        continue;
-                    }
-                    if (Settings.ThrowOnError)
-                        throw new RateLimitExceededException(response);
-                    else
-                        break;
-                }
-                if (statusCode == 404)
-                {
-                    OnResourceNotFound(new ResponseEventArgs(response));
-                    if (Settings.ThrowOnNotFound)
-                        throw new NotFoundException(response);
-                    else
-                        break;
-                }
-                if (statusCode >= 400 || response.ResponseStatus != ResponseStatus.Completed)
-                {
-                    if (Settings.ThrowOnError)
-                        throw new RestException(response);
-                    else
-                        break;
-                }
-
-                return response.Data;
-            } while (retry && attemptCount < Settings.MaxRequestAttempts);
+            } while (attemptCount < Settings.MaxRequestAttempts);
 
             return default(T);
+        }
+
+        /// <summary>
+        /// Determines which action to take for the given response.
+        /// </summary>
+        /// <param name="response">A <see cref="IRestResponse"/>.</param>
+        /// <param name="attemptCount">The number of times the request has been attempted so far.</param>
+        /// <returns>A <see cref="ResponseAction"/>.</returns>
+        protected virtual ResponseAction DetermineResponseAction(IRestResponse response, int attemptCount)
+        {
+            if (response.ResponseStatus == ResponseStatus.TimedOut)
+            {
+                var args = new RetryEventArgs(response, attemptCount);
+                args.Retry = Settings.RetryOnTimeout;
+                OnRequestTimedOut(args);
+                if (args.Retry)
+                    return ResponseAction.Retry;
+                if (Settings.ThrowOnError)
+                    throw new RestTimeoutException(response);
+                else
+                    return ResponseAction.ReturnDefault;
+            }
+            if (response.ResponseStatus == ResponseStatus.Error && response.StatusCode == 0)
+            {
+                var args = new RetryEventArgs(response, attemptCount);
+                args.Retry = Settings.RetryOnConnectionFailure;
+                OnConnectionFailed(args);
+                if (args.Retry)
+                    return ResponseAction.Retry;
+                if (Settings.ThrowOnError)
+                    throw new ConnectionFailedException(response, response.ErrorException);
+                else
+                    return ResponseAction.ReturnDefault;
+            }
+            var statusCode = (int)response.StatusCode;
+            if (statusCode == 429)
+            {
+                var args = new RetryEventArgs(response, attemptCount);
+                args.Retry = Settings.RetryOnRateLimitExceeded;
+                OnRateLimitExceeded(args);
+                if (args.Retry)
+                    return ResponseAction.Retry;
+                if (Settings.ThrowOnError)
+                    throw new RateLimitExceededException(response);
+                else
+                    return ResponseAction.ReturnDefault;
+            }
+            if (statusCode == 404)
+            {
+                OnResourceNotFound(new ResponseEventArgs(response));
+                if (Settings.ThrowOnNotFound)
+                    throw new NotFoundException(response);
+                else
+                    return ResponseAction.ReturnDefault;
+            }
+            if (statusCode >= 400 || response.ResponseStatus != ResponseStatus.Completed)
+            {
+                if (Settings.ThrowOnError)
+                    throw new RestException(response, response.ErrorException);
+                else
+                    return ResponseAction.ReturnDefault;
+            }
+            return ResponseAction.Return;
         }
 
         /// <summary>
@@ -477,6 +441,25 @@ namespace RiotNet
         {
             if (ResourceNotFound != null)
                 ResourceNotFound(this, e);
+        }
+
+        /// <summary>
+        /// Specifies the action to take after processing a request.
+        /// </summary>
+        protected enum ResponseAction
+        {
+            /// <summary>
+            /// Indicates that the response was received successfully, and its data should be returned.
+            /// </summary>
+            Return,
+            /// <summary>
+            /// Indicates that the response was NOT received successfully, and the default value of the return type should be returned (null in most cases).
+            /// </summary>
+            ReturnDefault,
+            /// <summary>
+            /// Indicates that the response was NOT received successfully, and the request should be re-sent (unless the maximum number of attempts has been exceeded).
+            /// </summary>
+            Retry
         }
     }
 }

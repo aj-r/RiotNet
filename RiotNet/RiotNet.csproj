@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\EpochDateTimeConverter.cs" />
+    <Compile Include="Converters\PlayerPositionConverter.cs" />
     <Compile Include="Converters\RangeConverter.cs" />
     <Compile Include="Converters\MillisecondsToTimeSpanConverter.cs" />
     <Compile Include="Converters\SecondsToTimeSpanConverter.cs" />

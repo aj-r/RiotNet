@@ -20,7 +20,7 @@ namespace RiotNet
         /// <summary>
         /// Creates a new <see cref="RestSharpJsonNetSerializer"/> instance.
         /// </summary>
-        internal RestSharpJsonNetSerializer(RiotClientSettings settings)
+        public RestSharpJsonNetSerializer(RiotClientSettings settings)
         {
             this.settings = settings;
             ContentType = "application/json";

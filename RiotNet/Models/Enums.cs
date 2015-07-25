@@ -358,7 +358,7 @@
     }
 
     /// <summary>
-    /// Represents player's position.
+    /// Represents player's position, or lane.
     /// </summary>
     public enum PlayerPosition
     {
@@ -385,6 +385,10 @@
     /// </summary>
     public enum PlayerRole
     {
+        /// <summary>
+        /// None of the other roles
+        /// </summary>
+        NONE = 0,
         /// <summary>
         /// Duo lane
         /// </summary>

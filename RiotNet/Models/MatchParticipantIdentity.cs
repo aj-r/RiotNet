@@ -18,7 +18,7 @@ namespace RiotNet.Models
         }
 
         /// <summary>
-        /// Gets or sets participant ID (1-10).
+        /// Gets or sets participant ID (normally 1-10; this value appears to always be 0 when coming from the Match History API).
         /// </summary>
         public int ParticipantId { get; set; }
 

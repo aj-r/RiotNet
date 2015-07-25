@@ -133,6 +133,68 @@ namespace RiotNet.Tests.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///   &quot;region&quot;: &quot;NA&quot;,
+        ///   &quot;matchType&quot;: &quot;MATCHED_GAME&quot;,
+        ///   &quot;matchCreation&quot;: 1436660796872,
+        ///   &quot;participants&quot;: [
+        ///      {
+        ///         &quot;masteries&quot;: [
+        ///            {
+        ///               &quot;rank&quot;: 1,
+        ///               &quot;masteryId&quot;: 4111
+        ///            },
+        ///            {
+        ///               &quot;rank&quot;: 4,
+        ///               &quot;masteryId&quot;: 4112
+        ///            },
+        ///            {
+        ///               &quot;rank&quot;: 1,
+        ///               &quot;masteryId&quot;: 4114
+        ///            },
+        ///            {
+        ///               &quot;rank&quot;: 3,
+        ///               &quot;masteryId&quot;: 4122
+        ///             [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SampleMatch {
+            get {
+                return ResourceManager.GetString("SampleMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///   &quot;matchVersion&quot;: &quot;5.14.0.329&quot;,
+        ///   &quot;region&quot;: &quot;NA&quot;,
+        ///   &quot;mapId&quot;: 11,
+        ///   &quot;season&quot;: &quot;SEASON2015&quot;,
+        ///   &quot;queueType&quot;: &quot;RANKED_TEAM_5x5&quot;,
+        ///   &quot;matchDuration&quot;: 3091,
+        ///   &quot;matchCreation&quot;: 1437696529521,
+        ///   &quot;matchType&quot;: &quot;MATCHED_GAME&quot;,
+        ///   &quot;matchId&quot;: 1896376478,
+        ///   &quot;participants&quot;: [{
+        ///      &quot;masteries&quot;: [
+        ///         {
+        ///            &quot;rank&quot;: 2,
+        ///            &quot;masteryId&quot;: 4211
+        ///         },
+        ///         {
+        ///            &quot;rank&quot;: 2,
+        ///            &quot;masteryId&quot;: 4213
+        ///         },
+        ///         {
+        ///            &quot;rank&quot;: 1,
+        ///           [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SampleMatchSummary {
+            get {
+                return ResourceManager.GetString("SampleMatchSummary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
         ///   &quot;region_tag&quot;: &quot;na1&quot;,
         ///   &quot;services&quot;: [
         ///      {

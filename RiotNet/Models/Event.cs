@@ -85,7 +85,7 @@ namespace RiotNet.Models
         public MonsterType? MonsterType { get; set; }
 
         /// <summary>
-        /// Gets or sets the participant ID of the event. Only present if relevant.
+        /// Gets or sets the participant ID (1-10) of the event. Only present if relevant.
         /// </summary>
         public int? ParticipantId { get; set; }
 
