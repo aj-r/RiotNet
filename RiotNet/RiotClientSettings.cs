@@ -20,6 +20,7 @@ namespace RiotNet
             RetryOnConnectionFailure = false;
             RetryOnRateLimitExceeded = true;
             ThrowOnError = true;
+            ThrowOnNotFound = false;
             JsonFormatting = Formatting.None;
         }
 
@@ -49,9 +50,14 @@ namespace RiotNet
         public TimeSpan RetryOnRateLimitExceededTimeDelay { get; set; }
 
         /// <summary>
-        /// Gets or sets whether the client should throw an exception if an error occurred during the request (that is, the request did not complete, or it completed with a response code of 400 or higher).
+        /// Gets or sets whether the client should throw an exception if an error occurred during the request (that is, the request did not complete, or it completed with a response code of 400 or higher, except for 404 errors).
         /// </summary>
         public bool ThrowOnError { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether the client should throw an exception if the server responded with a Not Found (404) error.
+        /// </summary>
+        public bool ThrowOnNotFound { get; set; }
 
         /// <summary>
         /// Gets or sets the maximum number of times that the same request should be attempted. Applies only if one of the RequestErrorHandling modes is set to Retry.

@@ -200,19 +200,24 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Occurs when the client executes a request when the API rate limit has been exceeded.
+        /// Occurs when the client executes a request when the API rate limit has been exceeded (status code 429).
         /// </summary>
-        public event EventHandler<RetryEventArgs> RateLimitExceeded;
+        public event RetryEventHandler RateLimitExceeded;
 
         /// <summary>
-        /// Occurs when the a request times out.
+        /// Occurs when a request times out.
         /// </summary>
-        public event EventHandler<RetryEventArgs> RequestTimedOut;
+        public event RetryEventHandler RequestTimedOut;
 
         /// <summary>
         /// Occurs when the client fails to connect to the server, or when an exception occurs while executing a request.
         /// </summary>
-        public event EventHandler<RetryEventArgs> ConnectionFailed;
+        public event RetryEventHandler ConnectionFailed;
+
+        /// <summary>
+        /// Occurs when a request fails because a resource was not found (status code 404).
+        /// </summary>
+        public event ResponseEventHandler ResourceNotFound;
 
         /// <summary>
         /// Gets the settings for the <see cref="RiotClient"/>.
@@ -258,7 +263,7 @@ namespace RiotNet
                 ++attemptCount;
                 if (response.ResponseStatus == ResponseStatus.TimedOut)
                 {
-                    var args = new RetryEventArgs(attemptCount);
+                    var args = new RetryEventArgs(response, attemptCount);
                     args.Retry = Settings.RetryOnTimeout;
                     OnRequestTimedOut(args);
                     if (args.Retry)
@@ -273,7 +278,7 @@ namespace RiotNet
                 }
                 if (response.ResponseStatus == ResponseStatus.Error && response.StatusCode == 0)
                 {
-                    var args = new RetryEventArgs(attemptCount);
+                    var args = new RetryEventArgs(response, attemptCount);
                     args.Retry = Settings.RetryOnConnectionFailure;
                     OnConnectionFailed(args);
                     if (args.Retry)
@@ -286,9 +291,10 @@ namespace RiotNet
                     else
                         break;
                 }
-                if ((int)response.StatusCode == 429)
+                var statusCode = (int)response.StatusCode;
+                if (statusCode == 429)
                 {
-                    var args = new RetryEventArgs(attemptCount);
+                    var args = new RetryEventArgs(response, attemptCount);
                     args.Retry = Settings.RetryOnRateLimitExceeded;
                     OnRateLimitExceeded(args);
                     if (args.Retry)
@@ -302,9 +308,17 @@ namespace RiotNet
                     else
                         break;
                 }
-                if ((int)response.StatusCode >= 400 || response.ResponseStatus != ResponseStatus.Completed)
+                if (statusCode == 404)
                 {
-                    if (Settings.ThrowOnError)
+                    OnResourceNotFound(new ResponseEventArgs(response));
+                    if (Settings.ThrowOnNotFound)
+                        throw new NotFoundException(response);
+                    else
+                        break;
+                }
+                if (statusCode >= 400 || response.ResponseStatus != ResponseStatus.Completed)
+                {
+                    if ((statusCode != 404 && Settings.ThrowOnError) || (statusCode == 404 && Settings.ThrowOnNotFound))
                         throw new ConnectionFailedException(response);
                     else
                         break;
@@ -344,7 +358,7 @@ namespace RiotNet
                 ++attemptCount;
                 if (response.ResponseStatus == ResponseStatus.TimedOut)
                 {
-                    var args = new RetryEventArgs(attemptCount);
+                    var args = new RetryEventArgs(response, attemptCount);
                     args.Retry = Settings.RetryOnTimeout;
                     OnRequestTimedOut(args);
                     if (args.Retry)
@@ -359,7 +373,7 @@ namespace RiotNet
                 }
                 if (response.ResponseStatus == ResponseStatus.Error && response.StatusCode == 0)
                 {
-                    var args = new RetryEventArgs(attemptCount);
+                    var args = new RetryEventArgs(response, attemptCount);
                     args.Retry = Settings.RetryOnConnectionFailure;
                     OnConnectionFailed(args);
                     if (args.Retry)
@@ -372,9 +386,10 @@ namespace RiotNet
                     else
                         break;
                 }
-                if ((int)response.StatusCode == 429)
+                var statusCode = (int)response.StatusCode;
+                if (statusCode == 429)
                 {
-                    var args = new RetryEventArgs(attemptCount);
+                    var args = new RetryEventArgs(response, attemptCount);
                     args.Retry = Settings.RetryOnRateLimitExceeded;
                     OnRateLimitExceeded(args);
                     if (args.Retry)
@@ -388,7 +403,15 @@ namespace RiotNet
                     else
                         break;
                 }
-                if ((int)response.StatusCode >= 400 || response.ResponseStatus != ResponseStatus.Completed)
+                if (statusCode == 404)
+                {
+                    OnResourceNotFound(new ResponseEventArgs(response));
+                    if (Settings.ThrowOnNotFound)
+                        throw new NotFoundException(response);
+                    else
+                        break;
+                }
+                if (statusCode >= 400 || response.ResponseStatus != ResponseStatus.Completed)
                 {
                     if (Settings.ThrowOnError)
                         throw new RestException(response);
@@ -437,13 +460,23 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Occurs when a request fails because the rate limit has been exceeded.
+        /// Occurs when a request fails because the rate limit has been exceeded (status code 429).
         /// </summary>
         /// <param name="e">Arguments for the event.</param>
         protected virtual void OnRateLimitExceeded(RetryEventArgs e)
         {
             if (RateLimitExceeded != null)
                 RateLimitExceeded(this, e);
+        }
+
+        /// <summary>
+        /// Occurs when a request fails because a resource was not found (status code 404).
+        /// </summary>
+        /// <param name="e">Arguments for the event.</param>
+        protected virtual void OnResourceNotFound(ResponseEventArgs e)
+        {
+            if (ResourceNotFound != null)
+                ResourceNotFound(this, e);
         }
     }
 }

@@ -150,10 +150,12 @@
     <Compile Include="Models\TeamStatDetail.cs" />
     <Compile Include="Models\Timeline.cs" />
     <Compile Include="Models\Translation.cs" />
+    <Compile Include="NotFoundException.cs" />
     <Compile Include="RestSharpJsonNetSerializer.cs" />
     <Compile Include="RestTimeoutException.cs" />
     <Compile Include="RateLimitExceededException.cs" />
     <Compile Include="RestException.cs" />
+    <Compile Include="ResponseEventArgs.cs" />
     <Compile Include="RetryEventArgs.cs" />
     <Compile Include="RiotClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

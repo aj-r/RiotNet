@@ -1,23 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using RestSharp;
 
 namespace RiotNet
 {
     /// <summary>
-    /// Contains event data for an error that could trigger a retry of an operation.
+    /// Represents a method that will handle an event that could trigger a retry of a request.
     /// </summary>
-    public class RetryEventArgs : EventArgs
+    /// <param name="sender">The object that created the event.</param>
+    /// <param name="e">Arguments for the event.</param>
+    public delegate void RetryEventHandler(object sender, RetryEventArgs e);
+
+    /// <summary>
+    /// Contains event data for an error that could trigger a retry of a request.
+    /// </summary>
+    public class RetryEventArgs : ResponseEventArgs
     {
         private readonly int attemptCount;
 
         /// <summary>
         /// Creates a new <see cref="RetryEventArgs"/> instance.
         /// </summary>
+        /// <param name="response">The response for the request that caused the event.</param>
         /// <param name="attemptCount">The number of times that the same request has been attempted.</param>
-        public RetryEventArgs(int attemptCount)
+        public RetryEventArgs(IRestResponse response, int attemptCount)
+            : base(response)
         {
             this.attemptCount = attemptCount;
         }

@@ -15,17 +15,22 @@ namespace RiotNet
         /// <summary>
         /// Occurs when the client executes a request when the API rate limit has been exceeded.
         /// </summary>
-        event EventHandler<RetryEventArgs> RateLimitExceeded;
+        event RetryEventHandler RateLimitExceeded;
 
         /// <summary>
         /// Occurs when the a request times out.
         /// </summary>
-        event EventHandler<RetryEventArgs> RequestTimedOut;
+        event RetryEventHandler RequestTimedOut;
 
         /// <summary>
         /// Occurs when the client fails to connect to the server while executing a request.
         /// </summary>
-        event EventHandler<RetryEventArgs> ConnectionFailed;
+        event RetryEventHandler ConnectionFailed;
+
+        /// <summary>
+        /// Occurs when a request fails because a resource was not found.
+        /// </summary>
+        event ResponseEventHandler ResourceNotFound;
 
         /// <summary>
         /// Gets the region that the current <see cref="IRiotClient"/> connects to.
