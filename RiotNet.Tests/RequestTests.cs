@@ -13,9 +13,10 @@ namespace RiotNet.Tests
         public async Task RateLimitTest_Async_ShouldRetry()
         {
             IRiotClient client = new RiotClient();
+            client.Settings.MaxRequestAttempts = 2;
             client.Settings.RetryOnRateLimitExceeded = true;
             client.Settings.ThrowOnError = true;
-            for (var i = 0; i < 12; ++i)
+            for (var i = 0; i < 11; ++i)
             {
                 var league = await client.GetMasterLeagueTaskAsync(RankedQueue.RANKED_SOLO_5x5);
                 Assert.That(league, Is.Not.Null);
@@ -26,9 +27,10 @@ namespace RiotNet.Tests
         public void RateLimitTest_Sync_ShouldRetry()
         {
             IRiotClient client = new RiotClient();
+            client.Settings.MaxRequestAttempts = 2;
             client.Settings.RetryOnRateLimitExceeded = true;
             client.Settings.ThrowOnError = true;
-            for (var i = 0; i < 12; ++i)
+            for (var i = 0; i < 11; ++i)
             {
                 var league = client.GetMasterLeague(RankedQueue.RANKED_SOLO_5x5);
                 Assert.That(league, Is.Not.Null);
@@ -42,7 +44,7 @@ namespace RiotNet.Tests
             IRiotClient client = new RiotClient();
             client.Settings.RetryOnRateLimitExceeded = false;
             client.Settings.ThrowOnError = true;
-            for (var i = 0; i < 12; ++i)
+            for (var i = 0; i < 11; ++i)
                 await client.GetMasterLeagueTaskAsync(RankedQueue.RANKED_SOLO_5x5);
         }
 
@@ -53,7 +55,7 @@ namespace RiotNet.Tests
             IRiotClient client = new RiotClient();
             client.Settings.RetryOnRateLimitExceeded = false;
             client.Settings.ThrowOnError = true;
-            for (var i = 0; i < 12; ++i)
+            for (var i = 0; i < 11; ++i)
                 client.GetMasterLeague(RankedQueue.RANKED_SOLO_5x5);
         }
 
@@ -63,7 +65,7 @@ namespace RiotNet.Tests
             IRiotClient client = new RiotClient();
             client.Settings.RetryOnRateLimitExceeded = false;
             client.Settings.ThrowOnError = false;
-            for (var i = 0; i < 10; ++i)
+            for (var i = 0; i < 11; ++i)
                 await client.GetMasterLeagueTaskAsync(RankedQueue.RANKED_SOLO_5x5);
 
             var league = await client.GetMasterLeagueTaskAsync(RankedQueue.RANKED_SOLO_5x5);
@@ -77,7 +79,7 @@ namespace RiotNet.Tests
             IRiotClient client = new RiotClient();
             client.Settings.RetryOnRateLimitExceeded = false;
             client.Settings.ThrowOnError = false;
-            for (var i = 0; i < 10; ++i)
+            for (var i = 0; i < 11; ++i)
                 client.GetMasterLeague(RankedQueue.RANKED_SOLO_5x5);
 
             var league = client.GetMasterLeague(RankedQueue.RANKED_SOLO_5x5);

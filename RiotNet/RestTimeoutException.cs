@@ -22,7 +22,16 @@ namespace RiotNet
         /// </summary>
         /// <param name="response">The response.</param>
         public RestTimeoutException(IRestResponse response)
-            : this(response, "A REST request timed out.")
+            : this(response, (Exception)null)
+        { }
+
+        /// <summary>
+        /// Creates a new <see cref="RestTimeoutException"/> instance.
+        /// </summary>
+        /// <param name="response">The response.</param>
+        /// <param name="innerException">The exception that is the cause of the current exception.</param>
+        public RestTimeoutException(IRestResponse response, Exception innerException)
+            : base(response, "A REST request timed out.", innerException)
         { }
 
         /// <summary>

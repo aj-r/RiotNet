@@ -24,7 +24,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="response">The response.</param>
         public RestException(IRestResponse response)
-            : this(response, "A REST request failed." + (response != null && (int)response.StatusCode > 0 ? " Status code: " + (int)response.StatusCode : string.Empty))
+            : this(response, (Exception)null)
         { }
 
         /// <summary>
@@ -33,10 +33,17 @@ namespace RiotNet
         /// <param name="response">The response.</param>
         /// <param name="message">A message that describes the error.</param>
         public RestException(IRestResponse response, string message)
-            : base(message)
-        {
-            this.response = response;
-        }
+            : this(response, message, null)
+        { }
+
+        /// <summary>
+        /// Creates a new <see cref="RestException"/> instance.
+        /// </summary>
+        /// <param name="response">The response.</param>
+        /// <param name="innerException">The exception that is the cause of the current exception.</param>
+        public RestException(IRestResponse response, Exception innerException)
+            : this(response, "A REST request failed." + (response != null && (int)response.StatusCode > 0 ? " Status code: " + (int)response.StatusCode : string.Empty), innerException)
+        { }
 
         /// <summary>
         /// Creates a new <see cref="RestException"/> instance.

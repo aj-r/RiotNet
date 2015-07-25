@@ -22,7 +22,16 @@ namespace RiotNet
         /// </summary>
         /// <param name="response">The response.</param>
         public RateLimitExceededException(IRestResponse response)
-            : this(response, "The rate limit for the current API key was exceeded.")
+            : this(response, (Exception)null)
+        { }
+
+        /// <summary>
+        /// Creates a new <see cref="RateLimitExceededException"/> instance.
+        /// </summary>
+        /// <param name="response">The response.</param>
+        /// <param name="innerException">The exception that is the cause of the current exception.</param>
+        public RateLimitExceededException(IRestResponse response, Exception innerException)
+            : base(response, "The rate limit for the current API key was exceeded.", innerException)
         { }
 
         /// <summary>

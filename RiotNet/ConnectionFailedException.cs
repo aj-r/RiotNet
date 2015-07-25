@@ -22,7 +22,16 @@ namespace RiotNet
         /// </summary>
         /// <param name="response">The response.</param>
         public ConnectionFailedException(IRestResponse response)
-            : this(response, "Failed to connect to the server.")
+            : this(response, (Exception)null)
+        { }
+
+        /// <summary>
+        /// Creates a new <see cref="ConnectionFailedException"/> instance.
+        /// </summary>
+        /// <param name="response">The response.</param>
+        /// <param name="innerException">The exception that is the cause of the current exception.</param>
+        public ConnectionFailedException(IRestResponse response, Exception innerException)
+            : base(response, "Failed to connect to the server.", innerException)
         { }
 
         /// <summary>
