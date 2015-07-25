@@ -3,13 +3,17 @@ using RiotNet.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace RiotNet
 {
     public partial class RiotClient
     {
+        /// <summary>
+        /// Gets the currently supported version of the LoL Status API that the client communicates with.
+        /// </summary>
+        public string LolStatusApiVersion { get { return "v1.0"; } }
+
         private IRestRequest GetShardsRequest()
         {
             var request = Get("shards");

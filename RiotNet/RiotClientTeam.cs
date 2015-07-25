@@ -11,6 +11,11 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
+        /// <summary>
+        /// Gets the currently supported version of the Team API that the client communicates with.
+        /// </summary>
+        public string TeamApiVersion { get { return "v2.4"; } }
+
         private IRestRequest GetTeamsBySummonerIdsRequest(params long[] summonerIds)
         {
             var request = Get("api/lol/{region}/v2.4/team/by-summoner/{summonerIds}");

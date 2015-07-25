@@ -8,6 +8,11 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
+        /// <summary>
+        /// Gets the currently supported version of the Match History API that the client communicates with.
+        /// </summary>
+        public string MatchHistoryApiVersion { get { return "v2.2"; } }
+
         private IRestRequest GetMatchHistoryRequest(long summonerId, long[] championIds, RankedQueue[] rankedQueues, int? beginIndex, int? endIndex)
         {
             var request = Get("api/lol/{region}/v2.2/matchhistory/{summonerId}");

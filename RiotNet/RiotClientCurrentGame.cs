@@ -10,6 +10,11 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
+        /// <summary>
+        /// Gets the currently supported version of the Current Game API that the client communicates with.
+        /// </summary>
+        public string CurrentGameApiVersion { get { return "v1.0"; } }
+
         private IRestRequest GetCurrentGameBySummonerIdRequest(long summonerId)
         {
             var request = Get("observer-mode/rest/consumer/getSpectatorGameInfo/{platformId}/{summonerId}");

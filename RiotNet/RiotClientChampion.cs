@@ -8,6 +8,11 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
+        /// <summary>
+        /// Gets the currently supported version of the Champion API that the client communicates with.
+        /// </summary>
+        public string ChampionApiVersion { get { return "v1.2"; } }
+
         private IRestRequest GetChampionsRequest(Boolean freeToPlay)
         {
             var request = Get("api/lol/{region}/v1.2/champion");

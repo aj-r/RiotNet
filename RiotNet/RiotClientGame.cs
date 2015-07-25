@@ -1,15 +1,17 @@
 ﻿using RestSharp;
 using RiotNet.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace RiotNet
 {
     public partial class RiotClient
     {
+        /// <summary>
+        /// Gets the currently supported version of the Game API that the client communicates with.
+        /// </summary>
+        public string GameApiVersion { get { return "v1.3"; } }
+
         private IRestRequest GetGamesBySummonerIdRequest(long summonerId)
         {
             var request = Get("api/lol/{region}/v1.3/game/by-summoner/{summonerId}/recent");

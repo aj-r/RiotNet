@@ -8,6 +8,11 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
+        /// <summary>
+        /// Gets the currently supported version of the League API that the client communicates with.
+        /// </summary>
+        public string LeagueApiVersion { get { return "v2.5"; } }
+
         private IRestRequest GetLeaguesBySummonerIdsRequest(params long[] summonerIds)
         {
             var request = Get("api/lol/{region}/v2.5/league/by-summoner/{summonerIds}");

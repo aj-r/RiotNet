@@ -10,6 +10,11 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
+        /// <summary>
+        /// Gets the currently supported version of the Match API that the client communicates with.
+        /// </summary>
+        public string MatchApiVersion { get { return "v2.2"; } }
+
         private IRestRequest GetMatchRequest(long matchId, Boolean includeTimeline)
         {
             var request = Get("api/lol/{region}/v2.2/match/{matchId}");

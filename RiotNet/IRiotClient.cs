@@ -47,6 +47,11 @@ namespace RiotNet
         #region Champion API
 
         /// <summary>
+        /// Gets the currently supported version of the Champion API that the client communicates with.
+        /// </summary>
+        string ChampionApiVersion { get; }
+
+        /// <summary>
         /// Gets all champion information (bot enabled, free to play, etc. Also see static champion data).
         /// </summary>
         /// <param name="freeToPlay">True if only requesting free to play champion information. Default is false.</param>
@@ -79,6 +84,11 @@ namespace RiotNet
         #region Current Game API
 
         /// <summary>
+        /// Gets the currently supported version of the Current Game API that the client communicates with.
+        /// </summary>
+        string CurrentGameApiVersion { get; }
+
+        /// <summary>
         /// Gets information about the current game a summoner is playing.
         /// </summary>
         /// <param name="summonerId">The summoner's summoner ID.</param>
@@ -97,6 +107,11 @@ namespace RiotNet
         #region Featured Game API
 
         /// <summary>
+        /// Gets the currently supported version of the Featured Game API that the client communicates with.
+        /// </summary>
+        string FeaturedGameApiVersion { get; }
+
+        /// <summary>
         /// Gets the games currently featured in the League of Legends client.
         /// </summary>
         /// <returns>The featured games.</returns>
@@ -111,6 +126,11 @@ namespace RiotNet
         #endregion
 
         #region Game API
+
+        /// <summary>
+        /// Gets the currently supported version of the Game API that the client communicates with.
+        /// </summary>
+        string GameApiVersion { get; }
 
         /// <summary>
         /// Gets the recent games for a summoner.
@@ -129,6 +149,11 @@ namespace RiotNet
         #endregion
 
         #region League API
+
+        /// <summary>
+        /// Gets the currently supported version of the League API that the client communicates with.
+        /// </summary>
+        string LeagueApiVersion { get; }
 
         /// <summary>
         /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID.
@@ -216,59 +241,12 @@ namespace RiotNet
 
         #endregion
 
-        #region Match API
+        #region LoL Static Data API
 
         /// <summary>
-        /// Gets the details of a match.
+        /// Gets the currently supported version of the LoL Static Data API that the client communicates with.
         /// </summary>
-        /// <param name="matchId">The ID of the match (a.k.a. game ID).</param>
-        /// <param name="includeTimeline">Whether or not to include the match timeline data.</param>
-        /// <returns>The details of the match.</returns>
-        MatchDetail GetMatch(long matchId, Boolean includeTimeline);
-
-        /// <summary>
-        /// Gets the details of a match.
-        /// </summary>
-        /// <param name="matchId">The ID of the match (a.k.a. game ID).</param>
-        /// <param name="includeTimeline">Whether or not to include the match timeline data.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        Task<MatchDetail> GetMatchTaskAsync(long matchId, Boolean includeTimeline);
-
-        #endregion
-
-        #region Match History API
-
-        /// <summary>
-        /// Gets the match history for a summoner.
-        /// </summary>
-        /// <param name="summonerId">The summoner's summoner IDs.</param>
-        /// <param name="championIds">Only get games where the summoner played one of these champions.</param>
-        /// <param name="rankedQueues">Only get games from these ranked queues.</param>
-        /// <param name="beginIndex">The begin index to use for fetching games.</param>
-        /// <param name="endIndex">The end index to use for fetching games. The maximum allowed difference between beginIndex and endIndex; if it is larger than 15, endIndex will be modified to satisfy this restriction.</param>
-        /// <returns>The match history for the summoner.</returns>
-        PlayerHistory GetMatchHistory(long summonerId, long[] championIds = null, RankedQueue[] rankedQueues = null, int? beginIndex = null, int? endIndex = null);
-
-        /// <summary>
-        /// Gets the match history for a summoner.
-        /// </summary>
-        /// <param name="summonerId">The summoner's summoner IDs.</param>
-        /// <param name="championIds">Only get games where the summoner played one of these champions.</param>
-        /// <param name="rankedQueues">Only get games from these ranked queues.</param>
-        /// <param name="beginIndex">The begin index to use for fetching games.</param>
-        /// <param name="endIndex">The end index to use for fetching games. The maximum allowed difference between beginIndex and endIndex; if it is larger than 15, endIndex will be modified to satisfy this restriction.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        Task<PlayerHistory> GetMatchHistoryTaskAsync(long summonerId, long[] championIds = null, RankedQueue[] rankedQueues = null, int? beginIndex = null, int? endIndex = null);
-
-        #endregion
-
-        #region Match List API
-
-        // TODO: implement
-
-        #endregion
-
-        #region Static Data API
+        string LolStaticDataApiVersion { get; }
 
         /// <summary>
         /// Gets the details for all champions from the static data API.
@@ -624,7 +602,113 @@ namespace RiotNet
 
         #endregion
 
+        #region LoL Status API
+
+        /// <summary>
+        /// Gets the currently supported version of the LoL Status API that the client communicates with.
+        /// </summary>
+        string LolStatusApiVersion { get; }
+
+        /// <summary>
+        /// Gets the list of shards for all reagions.
+        /// </summary>
+        /// <returns>The shards.</returns>
+        /// <remarks>
+        /// Calls to this method will not count toward your API rate limit.
+        /// </remarks>
+        List<Shard> GetShards();
+
+        /// <summary>
+        /// Gets the list of shards for all reagions.
+        /// </summary>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <remarks>
+        /// Calls to this method will not count toward your API rate limit.
+        /// </remarks>
+        Task<List<Shard>> GetShardsTaskAsync();
+
+        /// <summary>
+        /// Gets the status of the shard for the current region.
+        /// </summary>
+        /// <returns>The shard's status.</returns>
+        ShardStatus GetShardStatus();
+
+        /// <summary>
+        /// Gets the status of the shard for the current region.
+        /// </summary>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task<ShardStatus> GetShardStatusTaskAsync();
+
+        #endregion
+
+        #region Match API
+
+        /// <summary>
+        /// Gets the currently supported version of the Match API that the client communicates with.
+        /// </summary>
+        string MatchApiVersion { get; }
+
+        /// <summary>
+        /// Gets the details of a match.
+        /// </summary>
+        /// <param name="matchId">The ID of the match (a.k.a. game ID).</param>
+        /// <param name="includeTimeline">Whether or not to include the match timeline data.</param>
+        /// <returns>The details of the match.</returns>
+        MatchDetail GetMatch(long matchId, Boolean includeTimeline);
+
+        /// <summary>
+        /// Gets the details of a match.
+        /// </summary>
+        /// <param name="matchId">The ID of the match (a.k.a. game ID).</param>
+        /// <param name="includeTimeline">Whether or not to include the match timeline data.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task<MatchDetail> GetMatchTaskAsync(long matchId, Boolean includeTimeline);
+
+        #endregion
+
+        #region Match History API
+
+        /// <summary>
+        /// Gets the currently supported version of the Match History API that the client communicates with.
+        /// </summary>
+        string MatchHistoryApiVersion { get; }
+
+        /// <summary>
+        /// Gets the match history for a summoner.
+        /// </summary>
+        /// <param name="summonerId">The summoner's summoner IDs.</param>
+        /// <param name="championIds">Only get games where the summoner played one of these champions.</param>
+        /// <param name="rankedQueues">Only get games from these ranked queues.</param>
+        /// <param name="beginIndex">The begin index to use for fetching games.</param>
+        /// <param name="endIndex">The end index to use for fetching games. The maximum allowed difference between beginIndex and endIndex; if it is larger than 15, endIndex will be modified to satisfy this restriction.</param>
+        /// <returns>The match history for the summoner.</returns>
+        PlayerHistory GetMatchHistory(long summonerId, long[] championIds = null, RankedQueue[] rankedQueues = null, int? beginIndex = null, int? endIndex = null);
+
+        /// <summary>
+        /// Gets the match history for a summoner.
+        /// </summary>
+        /// <param name="summonerId">The summoner's summoner IDs.</param>
+        /// <param name="championIds">Only get games where the summoner played one of these champions.</param>
+        /// <param name="rankedQueues">Only get games from these ranked queues.</param>
+        /// <param name="beginIndex">The begin index to use for fetching games.</param>
+        /// <param name="endIndex">The end index to use for fetching games. The maximum allowed difference between beginIndex and endIndex; if it is larger than 15, endIndex will be modified to satisfy this restriction.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task<PlayerHistory> GetMatchHistoryTaskAsync(long summonerId, long[] championIds = null, RankedQueue[] rankedQueues = null, int? beginIndex = null, int? endIndex = null);
+
+        #endregion
+
+        #region Match List API
+
+        // TODO: implement
+
+        #endregion
+
         #region Stats API
+
+        /// <summary>
+        /// Gets the currently supported version of the Stats API that the client communicates with.
+        /// </summary>
+        string StatsApiVersion { get; }
 
         /// <summary>
         /// Gets the ranked stats for a summoner. Includes ranked stats for Summoner's Rift and Twisted Treeline.
@@ -660,41 +744,12 @@ namespace RiotNet
 
         #endregion
 
-        #region Status API
-
-        /// <summary>
-        /// Gets the list of shards for all reagions.
-        /// </summary>
-        /// <returns>The shards.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        List<Shard> GetShards();
-
-        /// <summary>
-        /// Gets the list of shards for all reagions.
-        /// </summary>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        Task<List<Shard>> GetShardsTaskAsync();
-
-        /// <summary>
-        /// Gets the status of the shard for the current region.
-        /// </summary>
-        /// <returns>The shard's status.</returns>
-        ShardStatus GetShardStatus();
-
-        /// <summary>
-        /// Gets the status of the shard for the current region.
-        /// </summary>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        Task<ShardStatus> GetShardStatusTaskAsync();
-
-        #endregion
-
         #region Summoner API
+
+        /// <summary>
+        /// Gets the currently supported version of the Summoner API that the client communicates with.
+        /// </summary>
+        string SummonerApiVersion { get; }
 
         /// <summary>
         /// Gets the summoner information for each summoner whose summoner name is in summonerNames.
@@ -797,6 +852,11 @@ namespace RiotNet
         #endregion
 
         #region Team API
+
+        /// <summary>
+        /// Gets the currently supported version of the Team API that the client communicates with.
+        /// </summary>
+        string TeamApiVersion { get; }
 
         /// <summary>
         /// Gets, for every summoner in summonerIds, the teams that summoner is on.

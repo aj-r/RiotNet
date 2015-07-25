@@ -10,6 +10,11 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
+        /// <summary>
+        /// Gets the currently supported version of the Summoner API that the client communicates with.
+        /// </summary>
+        public string SummonerApiVersion { get { return "v1.4"; } }
+
         private IRestRequest GetSummonersBySummonerNamesRequest(params String[] summonerNames)
         {
             var request = Get("api/lol/{region}/v1.4/summoner/by-name/{summonerNames}");

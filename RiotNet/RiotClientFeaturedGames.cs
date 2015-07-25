@@ -10,6 +10,11 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
+        /// <summary>
+        /// Gets the currently supported version of the Featured Game API that the client communicates with.
+        /// </summary>
+        public string FeaturedGameApiVersion { get { return "v1.0"; } }
+
         private IRestRequest GetFeaturedGamesRequest()
         {
             return Get("observer-mode/rest/featured");

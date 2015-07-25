@@ -11,7 +11,14 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
-        private const string staticBaseUrl = "api/lol/static-data/{region}/v1.2/";
+        private const string lolStaticDataApiVersion = "v1.2";
+        private const string staticBaseUrl = "api/lol/static-data/{region}/" + lolStaticDataApiVersion + "/";
+
+        /// <summary>
+        /// Gets the currently supported version of the LoL Static Data API that the client communicates with.
+        /// </summary>
+        public string LolStaticDataApiVersion { get { return lolStaticDataApiVersion; } }
+
 
         #region Champions
 

@@ -7,6 +7,11 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
+        /// <summary>
+        /// Gets the currently supported version of the Stats API that the client communicates with.
+        /// </summary>
+        public string StatsApiVersion { get { return "v1.3"; } }
+
         private IRestRequest GetStatsRequest(long summonerId, Season? season)
         {
             var request = Get("api/lol/{region}/v1.3/stats/by-summoner/{summonerId}/ranked");
