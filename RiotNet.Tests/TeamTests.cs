@@ -13,7 +13,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetTeamsBySummonerIdsTaskAsyncTest()
         {
-            var client = new RiotClient(Region.NA);
+            IRiotClient client = new RiotClient(Region.NA);
             var teams = await client.GetTeamsBySummonerIdsTaskAsync(35870943, 34317083);
 
             Assert.That(teams.Keys.Count, Is.GreaterThan(0));
@@ -71,7 +71,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetTeamsByTeamIdsTaskAsyncTest()
         {
-            var client = new RiotClient(Region.NA);
+            IRiotClient client = new RiotClient(Region.NA);
             var teams = await client.GetTeamsByTeamIdsTaskAsync("TEAM-3503e740-b492-11e3-809d-782bcb4d0bb2", "TEAM-2a88df50-da0d-11e3-b43f-782bcb4d1861");
 
             Assert.That(teams.Keys.Count, Is.GreaterThan(0));

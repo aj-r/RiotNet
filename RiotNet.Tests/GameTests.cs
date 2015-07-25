@@ -15,7 +15,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetGamesBySummonerIdTaskAsyncTests()
         {
-            var client = new RiotClient();
+            IRiotClient client = new RiotClient();
             var summonerId = 35870943;
             var games = await client.GetGamesBySummonerIdTaskAsync(summonerId);
 

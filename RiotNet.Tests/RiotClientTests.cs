@@ -36,7 +36,7 @@ namespace RiotNet.Tests
         {
             foreach (Region region in Enum.GetValues(typeof(Region)))
             {
-                var client = new RiotClient(region);
+                IRiotClient client = new RiotClient(region);
                 var expectedPlatformId = RiotClient.GetPlatformId(region);
                 Assert.That(client.PlatformId, Is.EqualTo(expectedPlatformId));
             }
@@ -63,10 +63,9 @@ namespace RiotNet.Tests
         public void ShouldCreateClientWithDefaultRegion()
         {
             RiotClient.DefaultRegion = Region.EUNE;
-            var client = new RiotClient();
+            IRiotClient client = new RiotClient();
 
             Assert.That(client.Region, Is.EqualTo(Region.EUNE));
-            Assert.That(client.PlatformId, Is.EqualTo("EUN1"));
         }
 
         [Test]
@@ -81,7 +80,7 @@ namespace RiotNet.Tests
                 RetryOnRateLimitExceeded = true
             };
 
-            var client = new RiotClient();
+            IRiotClient client = new RiotClient();
 
             Assert.That(client.Settings.ApiKey, Is.EqualTo(apiKey));
             Assert.That(client.Settings.RetryOnTimeout);
@@ -94,7 +93,7 @@ namespace RiotNet.Tests
         {
             var apiKey = "46633DC8-0034-4691-A002-49E234D5D0E8"; // No, this is not a real API key. It's just used for this test.
 
-            var client = new RiotClient(Region.OCE, new RiotClientSettings
+            IRiotClient client = new RiotClient(Region.OCE, new RiotClientSettings
             {
                 ApiKey = apiKey,
                 RetryOnTimeout = true,

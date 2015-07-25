@@ -13,7 +13,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetCurrentGameBySummonerIdTaskAsyncTest()
         {
-            var client = new RiotClient();
+            IRiotClient client = new RiotClient();
             // In order to get a summoner ID that is guaranteed to be in a game, we need to get a featured game.
             var featuredGameList = await client.GetFeaturedGamesTaskAsync();
             var featuredGame = featuredGameList.GameList.First();

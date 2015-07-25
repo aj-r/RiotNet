@@ -19,7 +19,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the details of a match.
+        /// Gets the details of a match (a.k.a. game ID).
         /// </summary>
         /// <param name="matchId">The ID of the match.</param>
         /// <param name="includeTimeline">Whether or not to include the match timeline data.</param>
@@ -30,7 +30,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the details of a match.
+        /// Gets the details of a match (a.k.a. game ID).
         /// </summary>
         /// <param name="matchId">The ID of the match.</param>
         /// <param name="includeTimeline">Whether or not to include the match timeline data.</param>

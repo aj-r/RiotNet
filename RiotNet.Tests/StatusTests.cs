@@ -15,7 +15,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetShardsTaskAsyncTest()
         {
-            var client = new RiotClient();
+            IRiotClient client = new RiotClient();
             var shards = await client.GetShardsTaskAsync();
 
             Assert.That(shards, Is.Not.Null.And.Not.Empty);
@@ -26,7 +26,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetShardStatusTaskAsyncTest()
         {
-            var client = new RiotClient();
+            IRiotClient client = new RiotClient();
             var shard = await client.GetShardStatusTaskAsync();
 
             Assert.That(shard, Is.Not.Null);

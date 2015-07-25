@@ -21,7 +21,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the list of shards.
+        /// Gets the list of shards for all reagions.
         /// </summary>
         /// <returns>The shards.</returns>
         /// <remarks>
@@ -33,7 +33,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the list of shards.
+        /// Gets the list of shards for all reagions.
         /// </summary>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>

@@ -14,7 +14,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetChampionsTaskAsyncTest()
         {
-            var client = new RiotClient();
+            IRiotClient client = new RiotClient();
             var champions = await client.GetChampionsTaskAsync();
 
             Assert.That(champions, Is.Not.Null);
@@ -24,7 +24,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetChampionsTaskAsyncTest_FreeToPlay()
         {
-            var client = new RiotClient();
+            IRiotClient client = new RiotClient();
             var champions = await client.GetChampionsTaskAsync(true);
 
             Assert.That(champions, Is.Not.Null);
@@ -34,7 +34,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetChampionByIdTaskAsyncTest()
         {
-            var client = new RiotClient();
+            IRiotClient client = new RiotClient();
             var champion = await client.GetChampionByIdTaskAsync(103);
 
             Assert.That(champion, Is.Not.Null);

@@ -14,7 +14,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetLeaguesBySummonerIdsTaskAsyncTest()
         {
-            var client = new RiotClient();
+            IRiotClient client = new RiotClient();
             var summonerIds = new[] { 35870943L, 34317083L };
             var leagues = await client.GetLeaguesBySummonerIdsTaskAsync(summonerIds);
 
@@ -29,7 +29,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetLeagueEntriesBySummonerIdsTaskAsyncTest()
         {
-            var client = new RiotClient();
+            IRiotClient client = new RiotClient();
             var summonerIds = new[] { 35870943L, 34317083L };
             var leagues = await client.GetLeagueEntriesBySummonerIdsTaskAsync(summonerIds);
 
@@ -44,7 +44,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetLeaguesByTeamIdsTaskAsyncTest()
         {
-            var client = new RiotClient();
+            IRiotClient client = new RiotClient();
             var teamIds = new[] { "TEAM-3503e740-b492-11e3-809d-782bcb4d0bb2", "TEAM-2a88df50-da0d-11e3-b43f-782bcb4d1861" };
             var leagues = await client.GetLeaguesByTeamIdsTaskAsync(teamIds);
 
@@ -59,7 +59,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetLeagueEntriesByTeamIdsTaskAsyncTest()
         {
-            var client = new RiotClient();
+            IRiotClient client = new RiotClient();
             var teamIds = new[] { "TEAM-3503e740-b492-11e3-809d-782bcb4d0bb2", "TEAM-2a88df50-da0d-11e3-b43f-782bcb4d1861" };
             var leagues = await client.GetLeagueEntriesByTeamIdsTaskAsync(teamIds);
 
@@ -74,7 +74,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetChallengerLeagueTaskAsyncTest()
         {
-            var client = new RiotClient();
+            IRiotClient client = new RiotClient();
             var league = await client.GetChallengerLeagueTaskAsync(RankedQueue.RANKED_SOLO_5x5);
 
             Assert.That(league, Is.Not.Null);
@@ -87,7 +87,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetMasterLeagueTaskAsyncTest()
         {
-            var client = new RiotClient();
+            IRiotClient client = new RiotClient();
             var league = await client.GetMasterLeagueTaskAsync(RankedQueue.RANKED_TEAM_3x3);
 
             Assert.That(league, Is.Not.Null);

@@ -13,7 +13,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetFeaturedGamesAsyncTaskTest()
         {
-            var client = new RiotClient();
+            IRiotClient client = new RiotClient();
             var featuredGameList = await client.GetFeaturedGamesTaskAsync();
 
             Assert.That(featuredGameList, Is.Not.Null);
