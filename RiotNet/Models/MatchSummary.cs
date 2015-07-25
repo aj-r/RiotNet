@@ -12,68 +12,68 @@ namespace RiotNet.Models
     public class MatchSummary
     {
         /// <summary>
-        /// Gets or sets match map ID.
+        /// Gets or sets the map ID of the map where the match was played.
         /// </summary>
         public int MapId { get; set; }
 
         /// <summary>
-        /// Gets or sets match creation time in UTC. Designates when the team select lobby is created and/or the match is made through match making; not when the game actually starts.
+        /// Gets or sets the match creation time in UTC. Designates when the team select lobby is created and/or the match is made through match making; not when the game actually starts.
         /// </summary>
         public DateTime MatchCreation { get; set; }
 
         /// <summary>
-        /// Gets or sets match duration.
+        /// Gets or sets the match duration.
         /// </summary>
         public long MatchDuration { get; set; }
 
         /// <summary>
-        /// Gets or sets ID of the match.
+        /// Gets or sets the ID of the match (also referred to as Game ID).
         /// </summary>
         [Key]
         public long MatchId { get; set; }
 
         /// <summary>
-        /// Gets or sets match mode.
+        /// Gets or sets the match mode.
         /// </summary>
         public GameMode MatchMode { get; set; }
 
         /// <summary>
-        /// Gets or sets match type.
+        /// Gets or sets the match type.
         /// </summary>
         public GameType MatchType { get; set; }
 
         /// <summary>
-        /// Gets or sets match version (patch number).
+        /// Gets or sets the match version (patch number).
         /// </summary>
         public string MatchVersion { get; set; }
 
         /// <summary>
-        /// Gets or sets list of participants' identity information.
+        /// Gets or sets the list of participants' identity information.
         /// </summary>
         public virtual List<MatchParticipantIdentity> ParticipantIdentities { get; set; }
 
         /// <summary>
-        /// Gets or sets list of participants' information.
+        /// Gets or sets the list of participants' information.
         /// </summary>
         public virtual List<MatchParticipant> Participants { get; set; }
 
         /// <summary>
-        /// Gets or sets platform ID of the match.
+        /// Gets or sets the platform ID of the match.
         /// </summary>
         public string PlatformId { get; set; }
 
         /// <summary>
-        /// Gets or sets match queue type.
+        /// Gets or sets the match queue type.
         /// </summary>
         public QueueType QueueType { get; set; }
 
         /// <summary>
-        /// Gets or sets region where the match was played.
+        /// Gets or sets the region where the match was played.
         /// </summary>
         public Region Region { get; set; }
 
         /// <summary>
-        /// Gets or sets season match was played.
+        /// Gets or sets season when the match was played.
         /// </summary>
         public Season Season { get; set; }
     }

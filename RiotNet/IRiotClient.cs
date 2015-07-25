@@ -656,7 +656,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the details of a match.
         /// </summary>
-        /// <param name="matchId">The ID of the match (a.k.a. game ID).</param>
+        /// <param name="matchId">The ID of the match (also referred to as Game ID).</param>
         /// <param name="includeTimeline">Whether or not to include the match timeline data.</param>
         /// <returns>The details of the match.</returns>
         MatchDetail GetMatch(long matchId, Boolean includeTimeline);
@@ -664,7 +664,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the details of a match.
         /// </summary>
-        /// <param name="matchId">The ID of the match (a.k.a. game ID).</param>
+        /// <param name="matchId">The ID of the match (also referred to as Game ID).</param>
         /// <param name="includeTimeline">Whether or not to include the match timeline data.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         Task<MatchDetail> GetMatchTaskAsync(long matchId, Boolean includeTimeline);
