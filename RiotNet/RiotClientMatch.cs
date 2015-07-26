@@ -2,6 +2,7 @@
 using RiotNet.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace RiotNet
             var request = Get("api/lol/{region}/v2.2/match/{matchId}");
             request.AddUrlSegment("matchId", matchId.ToString());
             if (includeTimeline)
-                request.AddQueryParameter("includeTimeline", includeTimeline.ToString().ToLowerInvariant());
+                request.AddQueryParameter("includeTimeline", includeTimeline.ToString(CultureInfo.InvariantCulture).ToLowerInvariant());
             return request;
         }
 

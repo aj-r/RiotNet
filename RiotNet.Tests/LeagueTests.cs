@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -20,7 +21,7 @@ namespace RiotNet.Tests
 
             Assert.That(leagues, Is.Not.Null);
             foreach (var id in summonerIds)
-                Assert.That(leagues.ContainsKey(id.ToString()));
+                Assert.That(leagues.ContainsKey(id.ToString(CultureInfo.InvariantCulture)));
             var league = leagues.Values.First().First();
             Assert.That(league.Entries.Count, Is.GreaterThan(1));
             Assert.That(league.Name, Is.Not.Null.And.Not.Empty);
@@ -35,7 +36,7 @@ namespace RiotNet.Tests
 
             Assert.That(leagues, Is.Not.Null);
             foreach (var id in summonerIds)
-                Assert.That(leagues.ContainsKey(id.ToString()));
+                Assert.That(leagues.ContainsKey(id.ToString(CultureInfo.InvariantCulture)));
             var league = leagues.Values.First().First();
             Assert.That(league.Entries.Count, Is.EqualTo(1));
             Assert.That(league.Name, Is.Not.Null.And.Not.Empty);

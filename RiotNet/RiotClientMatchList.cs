@@ -16,7 +16,7 @@ namespace RiotNet
         private IRestRequest GetMatchListRequest(long summonerId, long[] championIds, RankedQueue[] rankedQueues, Season[] seasons, DateTime? beginTime, DateTime? endTime, int? beginIndex, int? endIndex)
         {
             var request = Get("api/lol/{region}/v2.2/matchlist/by-summoner/{summonerId}");
-            request.AddUrlSegment("summonerId", summonerId.ToString());
+            request.AddUrlSegment("summonerId", summonerId.ToString(CultureInfo.InvariantCulture));
             if (championIds != null && championIds.Length > 0)
                 request.AddQueryParameter("championIds", String.Join(",", championIds));
             if (rankedQueues != null && rankedQueues.Length > 0)

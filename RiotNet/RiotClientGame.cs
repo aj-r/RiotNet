@@ -1,6 +1,7 @@
 ﻿using RestSharp;
 using RiotNet.Models;
 using System;
+using System.Globalization;
 using System.Threading.Tasks;
 
 namespace RiotNet
@@ -15,7 +16,7 @@ namespace RiotNet
         private IRestRequest GetGamesBySummonerIdRequest(long summonerId)
         {
             var request = Get("api/lol/{region}/v1.3/game/by-summoner/{summonerId}/recent");
-            request.AddUrlSegment("summonerId", summonerId.ToString());
+            request.AddUrlSegment("summonerId", summonerId.ToString(CultureInfo.InvariantCulture));
             return request;
         }
 

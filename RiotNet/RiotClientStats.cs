@@ -1,6 +1,7 @@
 ﻿using RestSharp;
 using RiotNet.Models;
 using System;
+using System.Globalization;
 using System.Threading.Tasks;
 
 namespace RiotNet
@@ -15,7 +16,7 @@ namespace RiotNet
         private IRestRequest GetStatsRequest(long summonerId, Season? season)
         {
             var request = Get("api/lol/{region}/v1.3/stats/by-summoner/{summonerId}/ranked");
-            request.AddUrlSegment("summonerId", summonerId.ToString());
+            request.AddUrlSegment("summonerId", summonerId.ToString(CultureInfo.InvariantCulture));
             if (season != null)
                 request.AddQueryParameter("season", season.ToString());
             return request;
@@ -46,7 +47,7 @@ namespace RiotNet
         private IRestRequest GetStatsSummaryRequest(long summonerId, Season? season)
         {
             var request = Get("api/lol/{region}/v1.3/stats/by-summoner/{summonerId}/summary");
-            request.AddUrlSegment("summonerId", summonerId.ToString());
+            request.AddUrlSegment("summonerId", summonerId.ToString(CultureInfo.InvariantCulture));
             if (season != null)
                 request.AddQueryParameter("season", season.ToString());
             return request;
