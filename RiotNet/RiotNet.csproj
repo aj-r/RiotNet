@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conversions.cs" />
     <Compile Include="Converters\EpochDateTimeConverter.cs" />
     <Compile Include="Converters\PlayerPositionConverter.cs" />
     <Compile Include="Converters\RangeConverter.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="RiotClientGame.cs" />
     <Compile Include="RiotClientLeague.cs" />
     <Compile Include="RiotClientMatch.cs" />
+    <Compile Include="RiotClientMatchList.cs" />
     <Compile Include="RiotClientMatchHistory.cs" />
     <Compile Include="RiotClientSettings.cs" />
     <Compile Include="RiotClientStaticData.cs" />
