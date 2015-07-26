@@ -31,6 +31,7 @@ namespace RiotNet.Tests
         public IDbSet<MatchParticipant> MatchParticipants { get; set; }
         public IDbSet<MatchParticipantFrame> MatchParticipantFrames { get; set; }
         public IDbSet<MatchParticipantIdentity> MatchParticipantIdentities { get; set; }
+        public IDbSet<MatchReference> MatchReferences { get; set; }
         public IDbSet<MatchTeam> MatchTeams { get; set; }
         public IDbSet<Player> Players { get; set; }
         public IDbSet<RankedStats> RankedStats { get; set; }

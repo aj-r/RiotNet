@@ -28,9 +28,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the player stats summary type.
         /// </summary>
-        // TODO: we should be able to use the enum GameMode, except that the strings are slightly different (no underscores...)
-        // TODO: create custom converter.
-        public GameMode PlayerStatSummaryType { get; set; }
+        public GameSubType PlayerStatSummaryType { get; set; }
 
         /// <summary>
         /// Gets or sets the number of wins for this queue type.

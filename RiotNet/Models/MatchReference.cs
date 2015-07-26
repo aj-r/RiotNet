@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RiotNet.Models
 {
@@ -23,6 +22,8 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the match ID (also referred to as Game ID).
         /// </summary>
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long MatchId { get; set; }
 
         /// <summary>

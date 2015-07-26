@@ -16,6 +16,7 @@ namespace RiotNet.Tests
             IRiotClient client = new RiotClient(Region.NA);
             var teams = await client.GetTeamsBySummonerIdsTaskAsync(35870943, 34317083);
 
+            Assert.That(teams, Is.Not.Null);
             Assert.That(teams.Keys.Count, Is.GreaterThan(0));
             Assert.That(teams.Count, Is.GreaterThan(0));
 

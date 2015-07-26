@@ -752,7 +752,7 @@ namespace RiotNet
         /// <param name="summonerId">The summoner's summoner IDs.</param>
         /// <param name="season">The season to get ranked stats for. If unspecified, stats for the current season are returned.</param>
         /// <returns>The ranked stats for the summoner for the specified season.</returns>
-        RankedStats GetStats(long summonerId, Season? season = null);
+        RankedStats GetRankedStats(long summonerId, Season? season = null);
 
         /// <summary>
         /// Gets the ranked stats for a summoner. Includes ranked stats for Summoner's Rift and Twisted Treeline.
@@ -760,7 +760,7 @@ namespace RiotNet
         /// <param name="summonerId">The summoner's summoner IDs.</param>
         /// <param name="season">The season to get ranked stats for. If unspecified, stats for the current season are returned.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task<RankedStats> GetStatsTaskAsync(long summonerId, Season? season);
+        Task<RankedStats> GetRankedStatsTaskAsync(long summonerId, Season? season = null);
 
         /// <summary>
         /// Gets aggregated stats for a summoner.

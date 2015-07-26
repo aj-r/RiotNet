@@ -13,7 +13,7 @@ namespace RiotNet
         /// </summary>
         public string StatsApiVersion { get { return "v1.3"; } }
 
-        private IRestRequest GetStatsRequest(long summonerId, Season? season)
+        private IRestRequest GetRankedStatsRequest(long summonerId, Season? season)
         {
             var request = Get("api/lol/{region}/v1.3/stats/by-summoner/{summonerId}/ranked");
             request.AddUrlSegment("summonerId", summonerId.ToString(CultureInfo.InvariantCulture));
@@ -28,9 +28,9 @@ namespace RiotNet
         /// <param name="summonerId">The summoner's summoner IDs.</param>
         /// <param name="season">The season to get ranked stats for. If unspecified, stats for the current season are returned.</param>
         /// <returns>The ranked stats for the summoner for the specified season.</returns>
-        public RankedStats GetStats(long summonerId, Season? season = null)
+        public RankedStats GetRankedStats(long summonerId, Season? season = null)
         {
-            return Execute<RankedStats>(GetStatsRequest(summonerId, season));
+            return Execute<RankedStats>(GetRankedStatsRequest(summonerId, season));
         }
 
         /// <summary>
@@ -39,9 +39,9 @@ namespace RiotNet
         /// <param name="summonerId">The summoner's summoner IDs.</param>
         /// <param name="season">The season to get ranked stats for. If unspecified, stats for the current season are returned.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<RankedStats> GetStatsTaskAsync(long summonerId, Season? season)
+        public Task<RankedStats> GetRankedStatsTaskAsync(long summonerId, Season? season = null)
         {
-            return ExecuteTaskAsync<RankedStats>(GetStatsRequest(summonerId, season));
+            return ExecuteTaskAsync<RankedStats>(GetRankedStatsRequest(summonerId, season));
         }
 
         private IRestRequest GetStatsSummaryRequest(long summonerId, Season? season)

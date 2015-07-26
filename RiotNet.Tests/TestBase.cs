@@ -38,7 +38,14 @@ namespace RiotNet.Tests
         {
             // Reset the settings after every test because some tests will mess up the settings.
             RiotClient.DefaultRegion = Region.NA;
-            RiotClient.DefaultSettings = () => new RiotClientSettings { ApiKey = apiKey, MaxRequestAttempts = 4 };
+            RiotClient.DefaultSettings = () => new RiotClientSettings
+            {
+                ApiKey = apiKey,
+                MaxRequestAttempts = 4,
+                RetryOnConnectionFailure = true,
+                RetryOnRateLimitExceeded = true,
+                RetryOnTimeout = true,
+            };
         }
 
         /// <summary>
@@ -271,51 +278,78 @@ namespace RiotNet.Tests
 
         /// <summary>
         /// Asserts that an object (and its child objects) contains non-default values for each property.
+        /// For list and dictionary types, asserts that at least one item has non-default values.
         /// </summary>
-        /// <param name="a">An object.</param>
+        /// <param name="obj">An object.</param>
         /// <param name="propertyName">The property name to display in the error message if the assertion fails.</param>
-        public static void AssertNonDefaultValuesRecursive(object a, string propertyName = null)
+        public static void AssertNonDefaultValuesRecursive(object obj, string propertyName = null)
         {
-            Assert.That(a, Is.Not.Null, propertyName + " was not deserialized correctly.");
+            AssertNonDefaultValuesRecursive(new[] { obj }, propertyName);
+        }
 
-            var type = a.GetType();
+        /// <summary>
+        /// Asserts that an object (and its child objects) contains non-default values for each property.
+        /// For list and dictionary types, asserts that at least one item has non-default values.
+        /// </summary>
+        /// <param name="objects">A list of objects.</param>
+        /// <param name="propertyName">The property name to display in the error message if the assertion fails.</param>
+        public static void AssertNonDefaultValuesRecursive(IEnumerable<object> objects, string propertyName = null)
+        {
+            Assert.That(objects, Is.Not.Null);
+
+            var first = objects.FirstOrDefault();
             if (propertyName == null)
-                propertyName = a != null ? a.GetType().Name : "object";
+                propertyName = first != null ? first.GetType().Name : "Object";
+            var defaultMessage = propertyName + " was not deserialized correctly. ";
 
-            if (a is int || a is long || a is uint || a is ulong || a is double || a is float || a is decimal)
+            Assert.That(objects.Any(), defaultMessage + "Collection is empty.");
+            Assert.That(objects.All(o => o != null), defaultMessage + "Value is null.");
+
+            var type = first.GetType();
+
+            if (first is int)
             {
-                Assert.That(a, Is.Not.EqualTo(0), propertyName + " was not deserialized correctly.");
+                Assert.That(objects.Cast<int>().Any(x => x != 0), defaultMessage + "Value is 0.");
             }
-            else if (a is string)
+            else if (first is long)
             {
-                Assert.That(a, Is.Not.Null.And.Not.Empty, propertyName + " was not deserialized correctly.");
+                Assert.That(objects.Cast<long>().Any(x => x != 0L), defaultMessage + "Value is 0.");
             }
-            else if (a is bool)
+            else if (first is double)
             {
-                Assert.That(a, Is.True, propertyName + " was not deserialized correctly.");
+                Assert.That(objects.Cast<double>().Any(x => x != 0.0), defaultMessage + "Value is 0.");
             }
-            else if (a is DateTime)
+            else if (first is string)
             {
-                Assert.That(((DateTime)a).Kind, Is.EqualTo(DateTimeKind.Utc), propertyName + " was not deserialized correctly: incorrect DateTimeKind.");
-                Assert.That(a, Is.GreaterThan(default(DateTime)).And.LessThan(DateTime.UtcNow), propertyName + " was not deserialized correctly.");
+                Assert.That(objects.Cast<string>().Any(x => !string.IsNullOrEmpty(x)), defaultMessage + "Value is null or empty.");
             }
-            else if (a is TimeSpan)
+            else if (first is bool)
             {
-                Assert.That(a, Is.GreaterThan(TimeSpan.Zero), propertyName + " was not deserialized correctly.");
+                Assert.That(objects.Cast<bool>().Any(x => x), defaultMessage + "Value is false.");
+            }
+            else if (first is DateTime)
+            {
+                var dates = objects as ICollection<DateTime> ?? objects.Cast<DateTime>().ToList();
+                Assert.That(dates.All(x => x.Kind == DateTimeKind.Utc), defaultMessage + "Date has wrong kind. Expected Utc.");
+                Assert.That(dates.Any(x => x > default(DateTime) && x < DateTime.UtcNow), defaultMessage + "DateTime is equal to the default value.");
+                Assert.That(dates.All(x => x < DateTime.UtcNow), defaultMessage + "Date is out of range.");
+            }
+            else if (first is TimeSpan)
+            {
+                Assert.That(objects.Cast<TimeSpan>().Any(x => x > TimeSpan.Zero), defaultMessage + "TimeSpan is equal to the default value.");
             }
             else if (type.IsEnum)
             {
-                var defaultValue = Activator.CreateInstance(type);
-                Assert.That(a, Is.Not.EqualTo(defaultValue), propertyName + " was not deserialized correctly.");
+                var defaultValue = Enum.GetValues(type).GetValue(0);
+                Assert.That(objects.Any(x => !x.Equals(defaultValue)), defaultMessage + type.Name + " is equal to the default value.");
             }
-            else if (a is IEnumerable)
+            else if (first is IEnumerable<object>)
             {
-                int i = 0;
-                foreach (var item in (IEnumerable)a)
-                {
-                    AssertNonDefaultValuesRecursive(item, propertyName + "[" + i + "]");
-                    ++i;
-                }
+                AssertNonDefaultValuesRecursive(objects.Cast<IEnumerable<object>>().SelectMany(x => x), propertyName + "[]");
+            }
+            else if (first is IEnumerable)
+            {
+                AssertNonDefaultValuesRecursive(objects.Cast<IEnumerable>().Select(x => x.Cast<object>()).SelectMany(x => x), propertyName + "[]");
             }
             else
             {
@@ -324,10 +358,10 @@ namespace RiotNet.Tests
                     Assert.Fail("Type '" + type.FullName + "' is not supported.");
 
                 propertyName += ".";
-                foreach (var property in properties)
+                foreach (var property in properties.Where(p => !p.GetIndexParameters().Any()))
                 {
-                    var value = property.GetValue(a);
-                    AssertNonDefaultValuesRecursive(value, propertyName + property.Name);
+                    var values = objects.Select(x => property.GetValue(x)).ToList();
+                    AssertNonDefaultValuesRecursive(values, propertyName + property.Name);
                 }
             }
         }

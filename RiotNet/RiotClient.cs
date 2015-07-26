@@ -105,6 +105,7 @@ namespace RiotNet
             Converters = new List<JsonConverter>
             {
                 new EpochDateTimeConverter(),
+                new GameSubTypeConverter(),
                 new KeyedCollectionConverter(),
                 new PlayerPositionConverter(),
                 new SecondsToTimeSpanConverter(),
@@ -296,7 +297,7 @@ namespace RiotNet
                     {
                         int delaySeconds;
                         if (int.TryParse(retryAfterHeader.Value as string, out delaySeconds))
-                            Thread.Sleep(delaySeconds * 1000);
+                            Thread.Sleep((delaySeconds + 1) * 1000);
                     }
                 }
             } while (attemptCount < Settings.MaxRequestAttempts);
@@ -341,7 +342,7 @@ namespace RiotNet
                     {
                         int delaySeconds;
                         if (int.TryParse(retryAfterHeader.Value as string, out delaySeconds))
-                            await Task.Delay(delaySeconds * 1000);
+                            await Task.Delay((delaySeconds + 1) * 1000);
                     }
                 }
             } while (attemptCount < Settings.MaxRequestAttempts);

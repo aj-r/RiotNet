@@ -34,7 +34,6 @@ namespace RiotNet.Tests
             Assert.That(game.FellowPlayers.Any(p => p.TeamId == TeamSide.Team1));
             Assert.That(game.FellowPlayers.Any(p => p.TeamId == TeamSide.Team2));
             Assert.That(game.GameId, Is.GreaterThan(0));
-            // TODO: GameMode, GameType, Invalid, IpEarned
             Assert.That(game.Level, Is.GreaterThan(0));
             Assert.That(game.MapId, Is.GreaterThan(0));
             Assert.That(game.Spell1, Is.GreaterThan(0));

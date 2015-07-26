@@ -209,6 +209,31 @@ namespace RiotNet.Tests.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///   &quot;modifyDate&quot;: 1437703154000,
+        ///   &quot;champions&quot;: [
+        ///      {
+        ///         &quot;id&quot;: 111,
+        ///         &quot;stats&quot;: {
+        ///            &quot;totalDeathsPerSession&quot;: 64,
+        ///            &quot;totalSessionsPlayed&quot;: 12,
+        ///            &quot;totalDamageTaken&quot;: 275590,
+        ///            &quot;totalQuadraKills&quot;: 2,
+        ///            &quot;totalTripleKills&quot;: 2,
+        ///            &quot;totalMinionKills&quot;: 783,
+        ///            &quot;maxChampionsKilled&quot;: 5,
+        ///            &quot;totalDoubleKills&quot;: 1,
+        ///            &quot;totalPhysicalDamageDealt&quot;: 162031,
+        ///            &quot;totalChampionKills&quot;: 21,
+        ///            [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SampleRankedStats {
+            get {
+                return ResourceManager.GetString("SampleRankedStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
         ///   &quot;region_tag&quot;: &quot;na1&quot;,
         ///   &quot;services&quot;: [
         ///      {
@@ -226,6 +251,29 @@ namespace RiotNet.Tests.Properties {
         internal static string SampleShardStatus {
             get {
                 return ResourceManager.GetString("SampleShardStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///   &quot;playerStatSummaries&quot;: [
+        ///      {
+        ///         &quot;playerStatSummaryType&quot;: &quot;CoopVsAI&quot;,
+        ///         &quot;aggregatedStats&quot;: {
+        ///            &quot;averageNodeCaptureAssist&quot;: 2,
+        ///            &quot;maxNodeNeutralizeAssist&quot;: 2,
+        ///            &quot;totalMinionKills&quot;: 9390,
+        ///            &quot;maxChampionsKilled&quot;: 21,
+        ///            &quot;totalChampionKills&quot;: 1321,
+        ///            &quot;averageChampionsKilled&quot;: 11,
+        ///            &quot;averageNumDeaths&quot;: 3,
+        ///            &quot;maxNodeCapture&quot;: 11,
+        ///            &quot;maxObjectivePlayerScore&quot;: 1174,
+        ///            &quot;totalNeutralMi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SampleStatsSummary {
+            get {
+                return ResourceManager.GetString("SampleStatsSummary", resourceCulture);
             }
         }
     }

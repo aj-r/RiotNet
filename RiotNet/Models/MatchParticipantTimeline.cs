@@ -128,7 +128,6 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the participant's lane.
         /// </summary>
-        // TODO: create converter so that "MID" and "MIDDLE", and "BOT" and "BOTTOM" are converted to same thing.
         public PlayerPosition Lane { get; set; }
 
         /// <summary>

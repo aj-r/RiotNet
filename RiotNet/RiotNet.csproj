@@ -52,6 +52,7 @@
     <Compile Include="Conversions.cs" />
     <Compile Include="Converters\EpochDateTimeConverter.cs" />
     <Compile Include="Converters\KeyedCollectionConverter.cs" />
+    <Compile Include="Converters\GameSubTypeConverter.cs" />
     <Compile Include="Converters\PlayerPositionConverter.cs" />
     <Compile Include="Converters\RangeConverter.cs" />
     <Compile Include="Converters\MillisecondsToTimeSpanConverter.cs" />
