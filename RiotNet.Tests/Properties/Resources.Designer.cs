@@ -160,6 +160,24 @@ namespace RiotNet.Tests.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///         &quot;timestamp&quot;: 1437700807871,
+        ///         &quot;champion&quot;: 254,
+        ///         &quot;queue&quot;: &quot;RANKED_TEAM_5x5&quot;,
+        ///         &quot;season&quot;: &quot;SEASON2015&quot;,
+        ///         &quot;matchId&quot;: 1896442090,
+        ///         &quot;role&quot;: &quot;NONE&quot;,
+        ///         &quot;platformId&quot;: &quot;NA1&quot;,
+        ///         &quot;lane&quot;: &quot;JUNGLE&quot;
+        ///      }.
+        /// </summary>
+        internal static string SampleMatchReference {
+            get {
+                return ResourceManager.GetString("SampleMatchReference", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
         ///   &quot;matchVersion&quot;: &quot;5.14.0.329&quot;,
         ///   &quot;region&quot;: &quot;NA&quot;,
         ///   &quot;mapId&quot;: 11,

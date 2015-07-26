@@ -21,7 +21,7 @@ namespace RiotNet.Models
         public PlayerPosition Lane { get; set; }
 
         /// <summary>
-        /// Gets or sets the match ID.
+        /// Gets or sets the match ID (also referred to as Game ID).
         /// </summary>
         public long MatchId { get; set; }
 
@@ -46,7 +46,7 @@ namespace RiotNet.Models
         public Season Season { get; set; }
 
         /// <summary>
-        /// Gets or sets the time the match was played.
+        /// Gets or sets the time the match was played, in UTC.
         /// </summary>
         public DateTime Timestamp { get; set; }
     }

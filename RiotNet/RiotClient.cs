@@ -39,7 +39,16 @@ namespace RiotNet
         /// </summary>
         /// <param name="region">The region indicating which server to connect to.</param>
         public RiotClient(Region region)
-            : this(region, DefaultSettings != null ? DefaultSettings() : new RiotClientSettings())
+            : this(region, DefaultSettings())
+        { }
+
+        /// <summary>
+        /// Creates a new <see cref="RiotClient"/> instance.
+        /// </summary>
+        /// <param name="region">The region indicating which server to connect to.</param>
+        /// <param name="apiKey">The API key to use.</param>
+        public RiotClient(Region region, string apiKey)
+            : this(region, GetSettingsForApiKey(apiKey))
         { }
 
         /// <summary>
@@ -81,6 +90,13 @@ namespace RiotNet
             this.statusClient = statusClient;
         }
 
+        private static RiotClientSettings GetSettingsForApiKey(string apiKey)
+        {
+            var settings = DefaultSettings();
+            settings.ApiKey = apiKey;
+            return settings;
+        }
+
         private static readonly JsonSerializerSettings jsonSettings = new JsonSerializerSettings
         {
             ContractResolver = new RiotNetContractResolver(),
@@ -108,10 +124,16 @@ namespace RiotNet
         /// </summary>
         public static Region DefaultRegion { get; set; }
 
+        private static Func<RiotClientSettings> defaultSettings = () => new RiotClientSettings();
+
         /// <summary>
         /// Gets or sets a function that defines the default <see cref="RiotClientSettings"/> to use when creating a new <see cref="RiotClient"/>.
         /// </summary>
-        public static Func<RiotClientSettings> DefaultSettings { get; set; }
+        public static Func<RiotClientSettings> DefaultSettings
+        {
+            get { return defaultSettings; }
+            set { defaultSettings = value ?? (() => new RiotClientSettings()); }
+        }
 
         /// <summary>
         /// Gets the platform ID for the specified region.
@@ -344,8 +366,8 @@ namespace RiotNet
                     return ResponseAction.Retry;
                 if (Settings.ThrowOnError)
                     throw new RestTimeoutException(response);
-                else
-                    return ResponseAction.ReturnDefault;
+                
+                return ResponseAction.ReturnDefault;
             }
             if (response.ResponseStatus == ResponseStatus.Error && response.StatusCode == 0)
             {
@@ -356,8 +378,8 @@ namespace RiotNet
                     return ResponseAction.Retry;
                 if (Settings.ThrowOnError)
                     throw new ConnectionFailedException(response, response.ErrorException);
-                else
-                    return ResponseAction.ReturnDefault;
+                
+                return ResponseAction.ReturnDefault;
             }
             var statusCode = (int)response.StatusCode;
             if (statusCode == 429)
@@ -369,29 +391,29 @@ namespace RiotNet
                     return ResponseAction.Retry;
                 if (Settings.ThrowOnError)
                     throw new RateLimitExceededException(response);
-                else
-                    return ResponseAction.ReturnDefault;
+                
+                return ResponseAction.ReturnDefault;
             }
             if (statusCode == 404)
             {
                 OnResourceNotFound(new ResponseEventArgs(response));
                 if (Settings.ThrowOnNotFound)
                     throw new NotFoundException(response);
-                else
-                    return ResponseAction.ReturnDefault;
+                
+                return ResponseAction.ReturnDefault;
             }
             if (statusCode >= 400 || response.ResponseStatus != ResponseStatus.Completed)
             {
                 if (Settings.ThrowOnError)
                     throw new RestException(response, response.ErrorException);
-                else
-                    return ResponseAction.ReturnDefault;
+                
+                return ResponseAction.ReturnDefault;
             }
             return ResponseAction.Return;
         }
 
         /// <summary>
-        /// Creates a GET request for the specified resource.
+        /// Creates a GET request for the specified resource. The region, platformId, and api_key parameters are automatically added to the request.
         /// </summary>
         /// <param name="resource">The resource path, relative to the base URL.</param>
         /// <returns>A rest request.</returns>
@@ -454,7 +476,7 @@ namespace RiotNet
             /// </summary>
             Return,
             /// <summary>
-            /// Indicates that the response was NOT received successfully, and the default value of the return type should be returned (null in most cases).
+            /// Indicates that the response was NOT received successfully, and the default value of the type (null in most cases) should be returned.
             /// </summary>
             ReturnDefault,
             /// <summary>

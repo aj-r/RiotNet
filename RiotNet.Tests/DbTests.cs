@@ -52,6 +52,18 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        public void MatchReferenceDbTest()
+        {
+            VerifyDbStorage<MatchReference>();
+        }
+
+        [Test]
+        public void MatchSummaryDbTest()
+        {
+            VerifyDbStorage<MatchSummary>();
+        }
+
+        [Test]
         public void RankedStatsDbTest()
         {
             VerifyDbStorage<RankedStats>();

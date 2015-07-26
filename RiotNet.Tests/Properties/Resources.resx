@@ -3632,6 +3632,18 @@
    "matchDuration": 1284
 }</value>
   </data>
+  <data name="SampleMatchReference" xml:space="preserve">
+    <value>{
+         "timestamp": 1437700807871,
+         "champion": 254,
+         "queue": "RANKED_TEAM_5x5",
+         "season": "SEASON2015",
+         "matchId": 1896442090,
+         "role": "NONE",
+         "platformId": "NA1",
+         "lane": "JUNGLE"
+      }</value>
+  </data>
   <data name="SampleMatchSummary" xml:space="preserve">
     <value>{
    "matchVersion": "5.14.0.329",
