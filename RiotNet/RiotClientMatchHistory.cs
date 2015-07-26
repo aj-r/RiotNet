@@ -8,6 +8,8 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
+        // TODO: the Match History API will be removed on September 22. We should probably just remove it from this client.
+
         /// <summary>
         /// Gets the currently supported version of the Match History API that the client communicates with.
         /// </summary>

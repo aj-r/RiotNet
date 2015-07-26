@@ -10,8 +10,6 @@ namespace RiotNet.Converters
     /// </summary>
     public class EpochDateTimeConverter : IsoDateTimeConverter
     {
-        private static DateTime epochReferenceDate = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-
         /// <summary>
         /// Reads the JSON representation of the date.
         /// </summary>
@@ -34,7 +32,7 @@ namespace RiotNet.Converters
                 throw new JsonSerializationException("Unexpected token parsing date. Expected Integer, String, or Date; got " + reader.TokenType + ".");
             var epochTime = (long)reader.Value;
             // Riot's "epoch time" is actually in milliseconds, not seconds.
-            return epochReferenceDate.AddMilliseconds(epochTime);
+            return Conversions.EpochMillisecondsToDateTime(epochTime);
         }
 
         /// <summary>
@@ -58,11 +56,7 @@ namespace RiotNet.Converters
             }
             else
             {
-                var d = dateTime.Value;
-                if (d.Kind == DateTimeKind.Local)
-                    d = d.ToUniversalTime();
-                var difference = d - epochReferenceDate;
-                var time = Convert.ToInt64(difference.TotalSeconds);
+                var time = Conversions.DateTimeToEpochMilliseconds(dateTime.Value);
                 writer.WriteValue(time);
             }
         }
