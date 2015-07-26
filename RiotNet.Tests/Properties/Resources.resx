@@ -304,6 +304,56 @@
    "region": "NA",
    "matchType": "MATCHED_GAME",
    "matchCreation": 1436660796872,
+   "timeline": {
+      "frameInterval": 60000,
+      "frames": [
+         {
+            "timestamp": 200,
+            "participantFrames": {
+               "3": {
+                  "currentGold": 475,
+                  "position": {
+                     "y": 293,
+                     "x": 351
+                  },
+                  "minionsKilled": 2,
+                  "level": 1,
+                  "jungleMinionsKilled": 2,
+                  "totalGold": 475,
+                  "dominionScore": 2,
+                  "participantId": 3,
+                  "xp": 2,
+                  "teamScore": 2
+               },
+            },
+            "events": [
+               {
+                  "timestamp": 2345,
+                  "levelUpType": "NORMAL",
+                  "participantId": 9,
+                  "eventType": "SKILL_LEVEL_UP",
+                  "skillSlot": 2,
+                  "ascendedType": "CLEAR_ASCENDED",
+                  "assistingParticipantIds": [2],
+                  "buildingType": "TOWER_BUILDING",
+                  "creatorId": 2,
+                  "itemAfter": 2,
+                  "itemBefore": 2,
+                  "itemId": 2,
+                  "killerId": 2,
+                  "laneType": "MID_LANE",
+                  "monsterType": "RED_LIZARD",
+                  "pointCaptured": "POINT_B",
+                  "position": { "x": 2, "y": 2 },
+                  "teamId": 200,
+                  "towerType": "INNER_TURRET",
+                  "victimId": 2,
+                  "wardType": "TEEMO_MUSHROOM"
+               }
+            ]
+         }
+      ]
+   },
    "participants": [
       {
          "masteries": [
@@ -369,64 +419,69 @@
             }
          ],
          "stats": {
-            "unrealKills": 0,
-            "item2": 3077,
-            "item1": 0,
-            "totalDamageTaken": 11318,
-            "item0": 0,
-            "pentaKills": 0,
-            "sightWardsBoughtInGame": 4,
-            "winner": true,
-            "magicDamageDealt": 27280,
-            "wardsKilled": 6,
-            "largestCriticalStrike": 192,
-            "trueDamageDealt": 9340,
-            "doubleKills": 0,
-            "physicalDamageDealt": 44131,
-            "tripleKills": 0,
-            "deaths": 2,
-            "firstBloodAssist": false,
-            "magicDamageDealtToChampions": 2624,
-            "assists": 5,
-            "visionWardsBoughtInGame": 1,
-            "totalTimeCrowdControlDealt": 1456,
-            "champLevel": 11,
-            "physicalDamageTaken": 9481,
-            "totalDamageDealt": 80752,
-            "largestKillingSpree": 0,
-            "inhibitorKills": 0,
-            "minionsKilled": 12,
-            "towerKills": 0,
-            "physicalDamageDealtToChampions": 2013,
-            "quadraKills": 0,
-            "goldSpent": 5830,
-            "totalDamageDealtToChampions": 5119,
-            "goldEarned": 7061,
-            "neutralMinionsKilledTeamJungle": 53,
-            "firstBloodKill": false,
-            "firstTowerKill": false,
-            "wardsPlaced": 7,
-            "trueDamageDealtToChampions": 481,
-            "killingSprees": 0,
-            "firstInhibitorKill": false,
-            "totalScoreRank": 0,
-            "totalUnitsHealed": 1,
-            "kills": 2,
-            "firstInhibitorAssist": false,
-            "totalPlayerScore": 0,
-            "neutralMinionsKilledEnemyJungle": 12,
-            "magicDamageTaken": 1837,
-            "largestMultiKill": 1,
-            "totalHeal": 181,
-            "item4": 3006,
-            "item3": 0,
-            "objectivePlayerScore": 0,
-            "item6": 3341,
-            "firstTowerAssist": false,
-            "item5": 3930,
-            "trueDamageTaken": 0,
-            "neutralMinionsKilled": 65,
-            "combatPlayerScore": 0
+           "unrealKills": 2,
+           "item2": 3401,
+           "item1": 3143,
+           "totalDamageTaken": 63485,
+           "item0": 2045,
+           "pentaKills": 2,
+           "sightWardsBoughtInGame": 1,
+           "winner": true,
+           "magicDamageDealt": 120124,
+           "wardsKilled": 1,
+           "largestCriticalStrike": 2,
+           "trueDamageDealt": 9335,
+           "doubleKills": 1,
+           "physicalDamageDealt": 17993,
+           "tripleKills": 2,
+           "deaths": 10,
+           "firstBloodAssist": true,
+           "magicDamageDealtToChampions": 34177,
+           "assists": 24,
+           "visionWardsBoughtInGame": 2,
+           "totalTimeCrowdControlDealt": 3625,
+           "champLevel": 18,
+           "physicalDamageTaken": 33476,
+           "totalDamageDealt": 147453,
+           "largestKillingSpree": 4,
+           "inhibitorKills": 2,
+           "minionsKilled": 84,
+           "towerKills": 2,
+           "physicalDamageDealtToChampions": 5477,
+           "quadraKills": 2,
+           "goldSpent": 13615,
+           "totalDamageDealtToChampions": 39694,
+           "goldEarned": 16488,
+           "neutralMinionsKilledTeamJungle": 2,
+           "firstBloodKill": true,
+           "firstTowerKill": true,
+           "wardsPlaced": 33,
+           "trueDamageDealtToChampions": 40,
+           "killingSprees": 4,
+           "firstInhibitorKill": true,
+           "totalScoreRank": 2,
+           "totalUnitsHealed": 5,
+           "kills": 13,
+           "firstInhibitorAssist": true,
+           "totalPlayerScore": 2,
+           "neutralMinionsKilledEnemyJungle": 2,
+           "magicDamageTaken": 21503,
+           "largestMultiKill": 2,
+           "totalHeal": 12565,
+           "item4": 3110,
+           "item3": 1319,
+           "objectivePlayerScore": 2,
+           "item6": 3364,
+           "firstTowerAssist": true,
+           "item5": 3075,
+           "trueDamageTaken": 8505,
+           "neutralMinionsKilled": 2,
+           "combatPlayerScore": 2,
+           "nodeCapture": 2,
+           "nodeCaptureAssist": 2,
+           "nodeNeutralize": 2,
+           "nodeNeutralizeAssist": 2,
+           "teamObjective": 2
          },
          "runes": [
             {
@@ -446,38 +501,160 @@
                "runeId": 5335
             }
          ],
-         "timeline": {
-            "xpDiffPerMinDeltas": {
-               "zeroToTen": -25.799999999999997,
-               "tenToTwenty": 91.80000000000001
-            },
-            "damageTakenDiffPerMinDeltas": {
-               "zeroToTen": -2.0000000000000284,
-               "tenToTwenty": -206.49999999999997
-            },
-            "xpPerMinDeltas": {
-               "zeroToTen": 271.1,
-               "tenToTwenty": 417.6
-            },
-            "goldPerMinDeltas": {
-               "zeroToTen": 213.8,
-               "tenToTwenty": 359.20000000000005
-            },
-            "role": "NONE",
-            "creepsPerMinDeltas": {
-               "zeroToTen": 0.1,
-               "tenToTwenty": 0.6000000000000001
-            },
-            "csDiffPerMinDeltas": {
-               "zeroToTen": -0.7000000000000001,
-               "tenToTwenty": -0.8999999999999999
-            },
-            "damageTakenPerMinDeltas": {
-               "zeroToTen": 497.9,
-               "tenToTwenty": 528.9
-            },
-            "lane": "JUNGLE"
-         },
+        "timeline": {
+           "xpDiffPerMinDeltas": {
+              "zeroToTen": 34.35000000000001,
+              "thirtyToEnd": 3.4249999999999687,
+              "tenToTwenty": 18.650000000000034,
+              "twentyToThirty": 57
+           },
+           "damageTakenDiffPerMinDeltas": {
+              "zeroToTen": -52.099999999999994,
+              "thirtyToEnd": -141.97500000000008,
+              "tenToTwenty": -113.9500000000001,
+              "twentyToThirty": -238.29999999999995
+           },
+           "xpPerMinDeltas": {
+              "zeroToTen": 316.2,
+              "thirtyToEnd": 519.85,
+              "tenToTwenty": 372.20000000000005,
+              "twentyToThirty": 488.9
+           },
+           "goldPerMinDeltas": {
+              "zeroToTen": 257.1,
+              "thirtyToEnd": 299.95,
+              "tenToTwenty": 306.6,
+              "twentyToThirty": 387.29999999999995
+           },
+           "role": "DUO_SUPPORT",
+           "creepsPerMinDeltas": {
+              "zeroToTen": 1.6,
+              "thirtyToEnd": 1.75,
+              "tenToTwenty": 1.5,
+              "twentyToThirty": 1.8
+           },
+           "csDiffPerMinDeltas": {
+              "zeroToTen": 0.30000000000000004,
+              "thirtyToEnd": 0.8249999999999997,
+              "tenToTwenty": -0.8499999999999996,
+              "twentyToThirty": 1.0000000000000004
+           },
+           "damageTakenPerMinDeltas": {
+              "zeroToTen": 372.6,
+              "thirtyToEnd": 1751.3999999999999,
+              "tenToTwenty": 966.8,
+              "twentyToThirty": 1171.9
+           },
+           "ancientGolemAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "ancientGolemKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "assistedLaneDeathsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "assistedLaneKillsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "baronAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "baronKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "dragonAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "dragonKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "elderLizardAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "elderLizardKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "inhibitorAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "inhibitorKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "towerAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "towerKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "towerKillsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "vilemawAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "vilemawKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "wardsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "lane": "BOTTOM"
+        },
          "spell2Id": 14,
          "participantId": 1,
          "championId": 35,
@@ -549,64 +726,69 @@
             }
          ],
          "stats": {
-            "unrealKills": 0,
-            "item2": 3006,
-            "item1": 1038,
-            "totalDamageTaken": 5752,
-            "item0": 1055,
-            "pentaKills": 0,
-            "sightWardsBoughtInGame": 0,
-            "winner": true,
-            "magicDamageDealt": 1047,
-            "wardsKilled": 1,
-            "largestCriticalStrike": 407,
-            "trueDamageDealt": 290,
-            "doubleKills": 0,
-            "physicalDamageDealt": 71239,
-            "tripleKills": 0,
-            "deaths": 0,
-            "firstBloodAssist": false,
-            "magicDamageDealtToChampions": 525,
-            "assists": 5,
-            "visionWardsBoughtInGame": 2,
-            "totalTimeCrowdControlDealt": 136,
-            "champLevel": 11,
-            "physicalDamageTaken": 4565,
-            "totalDamageDealt": 72577,
-            "largestKillingSpree": 2,
-            "inhibitorKills": 0,
-            "minionsKilled": 155,
-            "towerKills": 0,
-            "physicalDamageDealtToChampions": 7947,
-            "quadraKills": 0,
-            "goldSpent": 4905,
-            "totalDamageDealtToChampions": 8501,
-            "goldEarned": 7253,
-            "neutralMinionsKilledTeamJungle": 0,
-            "firstBloodKill": false,
-            "firstTowerKill": false,
-            "wardsPlaced": 4,
-            "trueDamageDealtToChampions": 29,
-            "killingSprees": 1,
-            "firstInhibitorKill": false,
-            "totalScoreRank": 0,
-            "totalUnitsHealed": 2,
-            "kills": 2,
-            "firstInhibitorAssist": false,
-            "totalPlayerScore": 0,
-            "neutralMinionsKilledEnemyJungle": 0,
-            "magicDamageTaken": 1186,
-            "largestMultiKill": 1,
-            "totalHeal": 623,
-            "item4": 1018,
-            "item3": 1037,
-            "objectivePlayerScore": 0,
-            "item6": 3340,
-            "firstTowerAssist": false,
-            "item5": 0,
-            "trueDamageTaken": 0,
-            "neutralMinionsKilled": 0,
-            "combatPlayerScore": 0
+           "unrealKills": 2,
+           "item2": 3401,
+           "item1": 3143,
+           "totalDamageTaken": 63485,
+           "item0": 2045,
+           "pentaKills": 2,
+           "sightWardsBoughtInGame": 1,
+           "winner": true,
+           "magicDamageDealt": 120124,
+           "wardsKilled": 1,
+           "largestCriticalStrike": 2,
+           "trueDamageDealt": 9335,
+           "doubleKills": 1,
+           "physicalDamageDealt": 17993,
+           "tripleKills": 2,
+           "deaths": 10,
+           "firstBloodAssist": true,
+           "magicDamageDealtToChampions": 34177,
+           "assists": 24,
+           "visionWardsBoughtInGame": 2,
+           "totalTimeCrowdControlDealt": 3625,
+           "champLevel": 18,
+           "physicalDamageTaken": 33476,
+           "totalDamageDealt": 147453,
+           "largestKillingSpree": 4,
+           "inhibitorKills": 2,
+           "minionsKilled": 84,
+           "towerKills": 2,
+           "physicalDamageDealtToChampions": 5477,
+           "quadraKills": 2,
+           "goldSpent": 13615,
+           "totalDamageDealtToChampions": 39694,
+           "goldEarned": 16488,
+           "neutralMinionsKilledTeamJungle": 2,
+           "firstBloodKill": true,
+           "firstTowerKill": true,
+           "wardsPlaced": 33,
+           "trueDamageDealtToChampions": 40,
+           "killingSprees": 4,
+           "firstInhibitorKill": true,
+           "totalScoreRank": 2,
+           "totalUnitsHealed": 5,
+           "kills": 13,
+           "firstInhibitorAssist": true,
+           "totalPlayerScore": 2,
+           "neutralMinionsKilledEnemyJungle": 2,
+           "magicDamageTaken": 21503,
+           "largestMultiKill": 2,
+           "totalHeal": 12565,
+           "item4": 3110,
+           "item3": 1319,
+           "objectivePlayerScore": 2,
+           "item6": 3364,
+           "firstTowerAssist": true,
+           "item5": 3075,
+           "trueDamageTaken": 8505,
+           "neutralMinionsKilled": 2,
+           "combatPlayerScore": 2,
+           "nodeCapture": 2,
+           "nodeCaptureAssist": 2,
+           "nodeNeutralize": 2,
+           "nodeNeutralizeAssist": 2,
+           "teamObjective": 2
          },
          "runes": [
             {
@@ -626,38 +808,160 @@
                "runeId": 5337
             }
          ],
-         "timeline": {
-            "xpDiffPerMinDeltas": {
-               "zeroToTen": 6.5,
-               "tenToTwenty": 56.299999999999955
-            },
-            "damageTakenDiffPerMinDeltas": {
-               "zeroToTen": 15.049999999999997,
-               "tenToTwenty": -297.75
-            },
-            "xpPerMinDeltas": {
-               "zeroToTen": 289,
-               "tenToTwenty": 424.5
-            },
-            "goldPerMinDeltas": {
-               "zeroToTen": 226.5,
-               "tenToTwenty": 371.8
-            },
-            "role": "DUO_CARRY",
-            "creepsPerMinDeltas": {
-               "zeroToTen": 6.300000000000001,
-               "tenToTwenty": 8.1
-            },
-            "csDiffPerMinDeltas": {
-               "zeroToTen": -0.30000000000000016,
-               "tenToTwenty": -0.10000000000000031
-            },
-            "damageTakenPerMinDeltas": {
-               "zeroToTen": 257.6,
-               "tenToTwenty": 272.6
-            },
-            "lane": "BOTTOM"
-         },
+        "timeline": {
+           "xpDiffPerMinDeltas": {
+              "zeroToTen": 34.35000000000001,
+              "thirtyToEnd": 3.4249999999999687,
+              "tenToTwenty": 18.650000000000034,
+              "twentyToThirty": 57
+           },
+           "damageTakenDiffPerMinDeltas": {
+              "zeroToTen": -52.099999999999994,
+              "thirtyToEnd": -141.97500000000008,
+              "tenToTwenty": -113.9500000000001,
+              "twentyToThirty": -238.29999999999995
+           },
+           "xpPerMinDeltas": {
+              "zeroToTen": 316.2,
+              "thirtyToEnd": 519.85,
+              "tenToTwenty": 372.20000000000005,
+              "twentyToThirty": 488.9
+           },
+           "goldPerMinDeltas": {
+              "zeroToTen": 257.1,
+              "thirtyToEnd": 299.95,
+              "tenToTwenty": 306.6,
+              "twentyToThirty": 387.29999999999995
+           },
+           "role": "DUO_SUPPORT",
+           "creepsPerMinDeltas": {
+              "zeroToTen": 1.6,
+              "thirtyToEnd": 1.75,
+              "tenToTwenty": 1.5,
+              "twentyToThirty": 1.8
+           },
+           "csDiffPerMinDeltas": {
+              "zeroToTen": 0.30000000000000004,
+              "thirtyToEnd": 0.8249999999999997,
+              "tenToTwenty": -0.8499999999999996,
+              "twentyToThirty": 1.0000000000000004
+           },
+           "damageTakenPerMinDeltas": {
+              "zeroToTen": 372.6,
+              "thirtyToEnd": 1751.3999999999999,
+              "tenToTwenty": 966.8,
+              "twentyToThirty": 1171.9
+           },
+           "ancientGolemAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "ancientGolemKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "assistedLaneDeathsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "assistedLaneKillsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "baronAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "baronKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "dragonAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "dragonKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "elderLizardAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "elderLizardKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "inhibitorAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "inhibitorKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "towerAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "towerKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "towerKillsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "vilemawAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "vilemawKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "wardsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "lane": "BOTTOM"
+        },
          "spell2Id": 4,
          "participantId": 2,
          "championId": 222,
@@ -729,64 +1033,69 @@
             }
          ],
          "stats": {
-            "unrealKills": 0,
-            "item2": 3089,
-            "item1": 3028,
-            "totalDamageTaken": 4122,
-            "item0": 1056,
-            "pentaKills": 0,
-            "sightWardsBoughtInGame": 0,
-            "winner": true,
-            "magicDamageDealt": 63659,
-            "wardsKilled": 1,
-            "largestCriticalStrike": 0,
-            "trueDamageDealt": 0,
-            "doubleKills": 0,
-            "physicalDamageDealt": 12281,
-            "tripleKills": 0,
-            "deaths": 1,
-            "firstBloodAssist": false,
-            "magicDamageDealtToChampions": 14997,
-            "assists": 4,
-            "visionWardsBoughtInGame": 0,
-            "totalTimeCrowdControlDealt": 180,
-            "champLevel": 13,
-            "physicalDamageTaken": 1687,
-            "totalDamageDealt": 75940,
-            "largestKillingSpree": 6,
-            "inhibitorKills": 0,
-            "minionsKilled": 125,
-            "towerKills": 1,
-            "physicalDamageDealtToChampions": 1837,
-            "quadraKills": 0,
-            "goldSpent": 7170,
-            "totalDamageDealtToChampions": 16834,
-            "goldEarned": 7984,
-            "neutralMinionsKilledTeamJungle": 0,
-            "firstBloodKill": false,
-            "firstTowerKill": true,
-            "wardsPlaced": 8,
-            "trueDamageDealtToChampions": 0,
-            "killingSprees": 1,
-            "firstInhibitorKill": false,
-            "totalScoreRank": 0,
-            "totalUnitsHealed": 0,
-            "kills": 7,
-            "firstInhibitorAssist": false,
-            "totalPlayerScore": 0,
-            "neutralMinionsKilledEnemyJungle": 0,
-            "magicDamageTaken": 2434,
-            "largestMultiKill": 1,
-            "totalHeal": 0,
-            "item4": 3057,
-            "item3": 3020,
-            "objectivePlayerScore": 0,
-            "item6": 3340,
-            "firstTowerAssist": false,
-            "item5": 0,
-            "trueDamageTaken": 0,
-            "neutralMinionsKilled": 0,
-            "combatPlayerScore": 0
+           "unrealKills": 2,
+           "item2": 3401,
+           "item1": 3143,
+           "totalDamageTaken": 63485,
+           "item0": 2045,
+           "pentaKills": 2,
+           "sightWardsBoughtInGame": 1,
+           "winner": true,
+           "magicDamageDealt": 120124,
+           "wardsKilled": 1,
+           "largestCriticalStrike": 2,
+           "trueDamageDealt": 9335,
+           "doubleKills": 1,
+           "physicalDamageDealt": 17993,
+           "tripleKills": 2,
+           "deaths": 10,
+           "firstBloodAssist": true,
+           "magicDamageDealtToChampions": 34177,
+           "assists": 24,
+           "visionWardsBoughtInGame": 2,
+           "totalTimeCrowdControlDealt": 3625,
+           "champLevel": 18,
+           "physicalDamageTaken": 33476,
+           "totalDamageDealt": 147453,
+           "largestKillingSpree": 4,
+           "inhibitorKills": 2,
+           "minionsKilled": 84,
+           "towerKills": 2,
+           "physicalDamageDealtToChampions": 5477,
+           "quadraKills": 2,
+           "goldSpent": 13615,
+           "totalDamageDealtToChampions": 39694,
+           "goldEarned": 16488,
+           "neutralMinionsKilledTeamJungle": 2,
+           "firstBloodKill": true,
+           "firstTowerKill": true,
+           "wardsPlaced": 33,
+           "trueDamageDealtToChampions": 40,
+           "killingSprees": 4,
+           "firstInhibitorKill": true,
+           "totalScoreRank": 2,
+           "totalUnitsHealed": 5,
+           "kills": 13,
+           "firstInhibitorAssist": true,
+           "totalPlayerScore": 2,
+           "neutralMinionsKilledEnemyJungle": 2,
+           "magicDamageTaken": 21503,
+           "largestMultiKill": 2,
+           "totalHeal": 12565,
+           "item4": 3110,
+           "item3": 1319,
+           "objectivePlayerScore": 2,
+           "item6": 3364,
+           "firstTowerAssist": true,
+           "item5": 3075,
+           "trueDamageTaken": 8505,
+           "neutralMinionsKilled": 2,
+           "combatPlayerScore": 2,
+           "nodeCapture": 2,
+           "nodeCaptureAssist": 2,
+           "nodeNeutralize": 2,
+           "nodeNeutralizeAssist": 2,
+           "teamObjective": 2
          },
          "runes": [
             {
@@ -806,38 +1115,160 @@
                "runeId": 5357
             }
          ],
-         "timeline": {
-            "xpDiffPerMinDeltas": {
-               "zeroToTen": 84.9,
-               "tenToTwenty": 308
-            },
-            "damageTakenDiffPerMinDeltas": {
-               "zeroToTen": -185.09999999999997,
-               "tenToTwenty": -577.1
-            },
-            "xpPerMinDeltas": {
-               "zeroToTen": 472.2,
-               "tenToTwenty": 573.5
-            },
-            "goldPerMinDeltas": {
-               "zeroToTen": 244.4,
-               "tenToTwenty": 429.09999999999997
-            },
-            "role": "SOLO",
-            "creepsPerMinDeltas": {
-               "zeroToTen": 6,
-               "tenToTwenty": 6.1
-            },
-            "csDiffPerMinDeltas": {
-               "zeroToTen": 2.6999999999999997,
-               "tenToTwenty": 3.3999999999999995
-            },
-            "damageTakenPerMinDeltas": {
-               "zeroToTen": 185.70000000000002,
-               "tenToTwenty": 144
-            },
-            "lane": "MIDDLE"
-         },
+        "timeline": {
+           "xpDiffPerMinDeltas": {
+              "zeroToTen": 34.35000000000001,
+              "thirtyToEnd": 3.4249999999999687,
+              "tenToTwenty": 18.650000000000034,
+              "twentyToThirty": 57
+           },
+           "damageTakenDiffPerMinDeltas": {
+              "zeroToTen": -52.099999999999994,
+              "thirtyToEnd": -141.97500000000008,
+              "tenToTwenty": -113.9500000000001,
+              "twentyToThirty": -238.29999999999995
+           },
+           "xpPerMinDeltas": {
+              "zeroToTen": 316.2,
+              "thirtyToEnd": 519.85,
+              "tenToTwenty": 372.20000000000005,
+              "twentyToThirty": 488.9
+           },
+           "goldPerMinDeltas": {
+              "zeroToTen": 257.1,
+              "thirtyToEnd": 299.95,
+              "tenToTwenty": 306.6,
+              "twentyToThirty": 387.29999999999995
+           },
+           "role": "DUO_SUPPORT",
+           "creepsPerMinDeltas": {
+              "zeroToTen": 1.6,
+              "thirtyToEnd": 1.75,
+              "tenToTwenty": 1.5,
+              "twentyToThirty": 1.8
+           },
+           "csDiffPerMinDeltas": {
+              "zeroToTen": 0.30000000000000004,
+              "thirtyToEnd": 0.8249999999999997,
+              "tenToTwenty": -0.8499999999999996,
+              "twentyToThirty": 1.0000000000000004
+           },
+           "damageTakenPerMinDeltas": {
+              "zeroToTen": 372.6,
+              "thirtyToEnd": 1751.3999999999999,
+              "tenToTwenty": 966.8,
+              "twentyToThirty": 1171.9
+           },
+           "ancientGolemAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "ancientGolemKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "assistedLaneDeathsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "assistedLaneKillsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "baronAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "baronKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "dragonAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "dragonKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "elderLizardAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "elderLizardKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "inhibitorAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "inhibitorKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "towerAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "towerKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "towerKillsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "vilemawAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "vilemawKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "wardsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "lane": "BOTTOM"
+        },
          "spell2Id": 12,
          "participantId": 3,
          "championId": 99,
@@ -905,64 +1336,69 @@
             }
          ],
          "stats": {
-            "unrealKills": 0,
-            "item2": 0,
-            "item1": 3143,
-            "totalDamageTaken": 6713,
-            "item0": 1054,
-            "pentaKills": 0,
-            "sightWardsBoughtInGame": 0,
-            "winner": true,
-            "magicDamageDealt": 34253,
-            "wardsKilled": 0,
-            "largestCriticalStrike": 0,
-            "trueDamageDealt": 0,
-            "doubleKills": 0,
-            "physicalDamageDealt": 29180,
-            "tripleKills": 0,
-            "deaths": 0,
-            "firstBloodAssist": false,
-            "magicDamageDealtToChampions": 7784,
-            "assists": 2,
-            "visionWardsBoughtInGame": 0,
-            "totalTimeCrowdControlDealt": 348,
-            "champLevel": 13,
-            "physicalDamageTaken": 5202,
-            "totalDamageDealt": 63434,
-            "largestKillingSpree": 3,
-            "inhibitorKills": 0,
-            "minionsKilled": 147,
-            "towerKills": 0,
-            "physicalDamageDealtToChampions": 2429,
-            "quadraKills": 0,
-            "goldSpent": 5340,
-            "totalDamageDealtToChampions": 10213,
-            "goldEarned": 7060,
-            "neutralMinionsKilledTeamJungle": 0,
-            "firstBloodKill": false,
-            "firstTowerKill": false,
-            "wardsPlaced": 4,
-            "trueDamageDealtToChampions": 0,
-            "killingSprees": 1,
-            "firstInhibitorKill": false,
-            "totalScoreRank": 0,
-            "totalUnitsHealed": 1,
-            "kills": 3,
-            "firstInhibitorAssist": false,
-            "totalPlayerScore": 0,
-            "neutralMinionsKilledEnemyJungle": 0,
-            "magicDamageTaken": 1047,
-            "largestMultiKill": 1,
-            "totalHeal": 4021,
-            "item4": 1033,
-            "item3": 3111,
-            "objectivePlayerScore": 0,
-            "item6": 3340,
-            "firstTowerAssist": false,
-            "item5": 0,
-            "trueDamageTaken": 464,
-            "neutralMinionsKilled": 0,
-            "combatPlayerScore": 0
+           "unrealKills": 2,
+           "item2": 3401,
+           "item1": 3143,
+           "totalDamageTaken": 63485,
+           "item0": 2045,
+           "pentaKills": 2,
+           "sightWardsBoughtInGame": 1,
+           "winner": true,
+           "magicDamageDealt": 120124,
+           "wardsKilled": 1,
+           "largestCriticalStrike": 2,
+           "trueDamageDealt": 9335,
+           "doubleKills": 1,
+           "physicalDamageDealt": 17993,
+           "tripleKills": 2,
+           "deaths": 10,
+           "firstBloodAssist": true,
+           "magicDamageDealtToChampions": 34177,
+           "assists": 24,
+           "visionWardsBoughtInGame": 2,
+           "totalTimeCrowdControlDealt": 3625,
+           "champLevel": 18,
+           "physicalDamageTaken": 33476,
+           "totalDamageDealt": 147453,
+           "largestKillingSpree": 4,
+           "inhibitorKills": 2,
+           "minionsKilled": 84,
+           "towerKills": 2,
+           "physicalDamageDealtToChampions": 5477,
+           "quadraKills": 2,
+           "goldSpent": 13615,
+           "totalDamageDealtToChampions": 39694,
+           "goldEarned": 16488,
+           "neutralMinionsKilledTeamJungle": 2,
+           "firstBloodKill": true,
+           "firstTowerKill": true,
+           "wardsPlaced": 33,
+           "trueDamageDealtToChampions": 40,
+           "killingSprees": 4,
+           "firstInhibitorKill": true,
+           "totalScoreRank": 2,
+           "totalUnitsHealed": 5,
+           "kills": 13,
+           "firstInhibitorAssist": true,
+           "totalPlayerScore": 2,
+           "neutralMinionsKilledEnemyJungle": 2,
+           "magicDamageTaken": 21503,
+           "largestMultiKill": 2,
+           "totalHeal": 12565,
+           "item4": 3110,
+           "item3": 1319,
+           "objectivePlayerScore": 2,
+           "item6": 3364,
+           "firstTowerAssist": true,
+           "item5": 3075,
+           "trueDamageTaken": 8505,
+           "neutralMinionsKilled": 2,
+           "combatPlayerScore": 2,
+           "nodeCapture": 2,
+           "nodeCaptureAssist": 2,
+           "nodeNeutralize": 2,
+           "nodeNeutralizeAssist": 2,
+           "teamObjective": 2
          },
          "runes": [
             {
@@ -982,38 +1418,160 @@
                "runeId": 5345
             }
          ],
-         "timeline": {
-            "xpDiffPerMinDeltas": {
-               "zeroToTen": 115.19999999999999,
-               "tenToTwenty": 189.9
-            },
-            "damageTakenDiffPerMinDeltas": {
-               "zeroToTen": -109.70000000000002,
-               "tenToTwenty": -466.80000000000007
-            },
-            "xpPerMinDeltas": {
-               "zeroToTen": 473.2,
-               "tenToTwenty": 506.8
-            },
-            "goldPerMinDeltas": {
-               "zeroToTen": 252.9,
-               "tenToTwenty": 313.8
-            },
-            "role": "SOLO",
-            "creepsPerMinDeltas": {
-               "zeroToTen": 6.4,
-               "tenToTwenty": 7.5
-            },
-            "csDiffPerMinDeltas": {
-               "zeroToTen": 3.4000000000000004,
-               "tenToTwenty": 4.1
-            },
-            "damageTakenPerMinDeltas": {
-               "zeroToTen": 320.8,
-               "tenToTwenty": 220.60000000000002
-            },
-            "lane": "TOP"
-         },
+        "timeline": {
+           "xpDiffPerMinDeltas": {
+              "zeroToTen": 34.35000000000001,
+              "thirtyToEnd": 3.4249999999999687,
+              "tenToTwenty": 18.650000000000034,
+              "twentyToThirty": 57
+           },
+           "damageTakenDiffPerMinDeltas": {
+              "zeroToTen": -52.099999999999994,
+              "thirtyToEnd": -141.97500000000008,
+              "tenToTwenty": -113.9500000000001,
+              "twentyToThirty": -238.29999999999995
+           },
+           "xpPerMinDeltas": {
+              "zeroToTen": 316.2,
+              "thirtyToEnd": 519.85,
+              "tenToTwenty": 372.20000000000005,
+              "twentyToThirty": 488.9
+           },
+           "goldPerMinDeltas": {
+              "zeroToTen": 257.1,
+              "thirtyToEnd": 299.95,
+              "tenToTwenty": 306.6,
+              "twentyToThirty": 387.29999999999995
+           },
+           "role": "DUO_SUPPORT",
+           "creepsPerMinDeltas": {
+              "zeroToTen": 1.6,
+              "thirtyToEnd": 1.75,
+              "tenToTwenty": 1.5,
+              "twentyToThirty": 1.8
+           },
+           "csDiffPerMinDeltas": {
+              "zeroToTen": 0.30000000000000004,
+              "thirtyToEnd": 0.8249999999999997,
+              "tenToTwenty": -0.8499999999999996,
+              "twentyToThirty": 1.0000000000000004
+           },
+           "damageTakenPerMinDeltas": {
+              "zeroToTen": 372.6,
+              "thirtyToEnd": 1751.3999999999999,
+              "tenToTwenty": 966.8,
+              "twentyToThirty": 1171.9
+           },
+           "ancientGolemAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "ancientGolemKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "assistedLaneDeathsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "assistedLaneKillsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "baronAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "baronKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "dragonAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "dragonKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "elderLizardAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "elderLizardKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "inhibitorAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "inhibitorKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "towerAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "towerKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "towerKillsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "vilemawAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "vilemawKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "wardsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "lane": "JUNGLE"
+        },
          "spell2Id": 6,
          "participantId": 4,
          "championId": 36,
@@ -1085,64 +1643,69 @@
             }
          ],
          "stats": {
-            "unrealKills": 0,
-            "item2": 2049,
-            "item1": 0,
-            "totalDamageTaken": 5816,
-            "item0": 3303,
-            "pentaKills": 0,
-            "sightWardsBoughtInGame": 2,
-            "winner": true,
-            "magicDamageDealt": 8654,
-            "wardsKilled": 0,
-            "largestCriticalStrike": 0,
-            "trueDamageDealt": 0,
-            "doubleKills": 0,
-            "physicalDamageDealt": 1533,
-            "tripleKills": 0,
-            "deaths": 0,
-            "firstBloodAssist": false,
-            "magicDamageDealtToChampions": 5232,
-            "assists": 7,
-            "visionWardsBoughtInGame": 1,
-            "totalTimeCrowdControlDealt": 63,
-            "champLevel": 10,
-            "physicalDamageTaken": 3151,
-            "totalDamageDealt": 10188,
-            "largestKillingSpree": 3,
-            "inhibitorKills": 0,
-            "minionsKilled": 5,
-            "towerKills": 0,
-            "physicalDamageDealtToChampions": 1031,
-            "quadraKills": 0,
-            "goldSpent": 4060,
-            "totalDamageDealtToChampions": 6263,
-            "goldEarned": 5528,
-            "neutralMinionsKilledTeamJungle": 0,
-            "firstBloodKill": false,
-            "firstTowerKill": false,
-            "wardsPlaced": 13,
-            "trueDamageDealtToChampions": 0,
-            "killingSprees": 1,
-            "firstInhibitorKill": false,
-            "totalScoreRank": 0,
-            "totalUnitsHealed": 1,
-            "kills": 3,
-            "firstInhibitorAssist": false,
-            "totalPlayerScore": 0,
-            "neutralMinionsKilledEnemyJungle": 0,
-            "magicDamageTaken": 2664,
-            "largestMultiKill": 1,
-            "totalHeal": 165,
-            "item4": 3028,
-            "item3": 3020,
-            "objectivePlayerScore": 0,
-            "item6": 3341,
-            "firstTowerAssist": false,
-            "item5": 1052,
-            "trueDamageTaken": 0,
-            "neutralMinionsKilled": 0,
-            "combatPlayerScore": 0
+           "unrealKills": 2,
+           "item2": 3401,
+           "item1": 3143,
+           "totalDamageTaken": 63485,
+           "item0": 2045,
+           "pentaKills": 2,
+           "sightWardsBoughtInGame": 1,
+           "winner": true,
+           "magicDamageDealt": 120124,
+           "wardsKilled": 1,
+           "largestCriticalStrike": 2,
+           "trueDamageDealt": 9335,
+           "doubleKills": 1,
+           "physicalDamageDealt": 17993,
+           "tripleKills": 2,
+           "deaths": 10,
+           "firstBloodAssist": true,
+           "magicDamageDealtToChampions": 34177,
+           "assists": 24,
+           "visionWardsBoughtInGame": 2,
+           "totalTimeCrowdControlDealt": 3625,
+           "champLevel": 18,
+           "physicalDamageTaken": 33476,
+           "totalDamageDealt": 147453,
+           "largestKillingSpree": 4,
+           "inhibitorKills": 2,
+           "minionsKilled": 84,
+           "towerKills": 2,
+           "physicalDamageDealtToChampions": 5477,
+           "quadraKills": 2,
+           "goldSpent": 13615,
+           "totalDamageDealtToChampions": 39694,
+           "goldEarned": 16488,
+           "neutralMinionsKilledTeamJungle": 2,
+           "firstBloodKill": true,
+           "firstTowerKill": true,
+           "wardsPlaced": 33,
+           "trueDamageDealtToChampions": 40,
+           "killingSprees": 4,
+           "firstInhibitorKill": true,
+           "totalScoreRank": 2,
+           "totalUnitsHealed": 5,
+           "kills": 13,
+           "firstInhibitorAssist": true,
+           "totalPlayerScore": 2,
+           "neutralMinionsKilledEnemyJungle": 2,
+           "magicDamageTaken": 21503,
+           "largestMultiKill": 2,
+           "totalHeal": 12565,
+           "item4": 3110,
+           "item3": 1319,
+           "objectivePlayerScore": 2,
+           "item6": 3364,
+           "firstTowerAssist": true,
+           "item5": 3075,
+           "trueDamageTaken": 8505,
+           "neutralMinionsKilled": 2,
+           "combatPlayerScore": 2,
+           "nodeCapture": 2,
+           "nodeCaptureAssist": 2,
+           "nodeNeutralize": 2,
+           "nodeNeutralizeAssist": 2,
+           "teamObjective": 2
          },
          "runes": [
             {
@@ -1162,38 +1725,160 @@
                "runeId": 5357
             }
          ],
-         "timeline": {
-            "xpDiffPerMinDeltas": {
-               "zeroToTen": 6.5,
-               "tenToTwenty": 56.299999999999955
-            },
-            "damageTakenDiffPerMinDeltas": {
-               "zeroToTen": 15.049999999999997,
-               "tenToTwenty": -297.75
-            },
-            "xpPerMinDeltas": {
-               "zeroToTen": 271.3,
-               "tenToTwenty": 327.29999999999995
-            },
-            "goldPerMinDeltas": {
-               "zeroToTen": 160.3,
-               "tenToTwenty": 266.4
-            },
-            "role": "DUO_SUPPORT",
-            "creepsPerMinDeltas": {
-               "zeroToTen": 0.1,
-               "tenToTwenty": 0.4
-            },
-            "csDiffPerMinDeltas": {
-               "zeroToTen": -0.30000000000000016,
-               "tenToTwenty": -0.10000000000000031
-            },
-            "damageTakenPerMinDeltas": {
-               "zeroToTen": 177.6,
-               "tenToTwenty": 246.8
-            },
-            "lane": "BOTTOM"
-         },
+        "timeline": {
+           "xpDiffPerMinDeltas": {
+              "zeroToTen": 34.35000000000001,
+              "thirtyToEnd": 3.4249999999999687,
+              "tenToTwenty": 18.650000000000034,
+              "twentyToThirty": 57
+           },
+           "damageTakenDiffPerMinDeltas": {
+              "zeroToTen": -52.099999999999994,
+              "thirtyToEnd": -141.97500000000008,
+              "tenToTwenty": -113.9500000000001,
+              "twentyToThirty": -238.29999999999995
+           },
+           "xpPerMinDeltas": {
+              "zeroToTen": 316.2,
+              "thirtyToEnd": 519.85,
+              "tenToTwenty": 372.20000000000005,
+              "twentyToThirty": 488.9
+           },
+           "goldPerMinDeltas": {
+              "zeroToTen": 257.1,
+              "thirtyToEnd": 299.95,
+              "tenToTwenty": 306.6,
+              "twentyToThirty": 387.29999999999995
+           },
+           "role": "DUO_SUPPORT",
+           "creepsPerMinDeltas": {
+              "zeroToTen": 1.6,
+              "thirtyToEnd": 1.75,
+              "tenToTwenty": 1.5,
+              "twentyToThirty": 1.8
+           },
+           "csDiffPerMinDeltas": {
+              "zeroToTen": 0.30000000000000004,
+              "thirtyToEnd": 0.8249999999999997,
+              "tenToTwenty": -0.8499999999999996,
+              "twentyToThirty": 1.0000000000000004
+           },
+           "damageTakenPerMinDeltas": {
+              "zeroToTen": 372.6,
+              "thirtyToEnd": 1751.3999999999999,
+              "tenToTwenty": 966.8,
+              "twentyToThirty": 1171.9
+           },
+           "ancientGolemAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "ancientGolemKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "assistedLaneDeathsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "assistedLaneKillsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "baronAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "baronKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "dragonAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "dragonKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "elderLizardAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "elderLizardKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "inhibitorAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "inhibitorKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "towerAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "towerKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "towerKillsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "vilemawAssistsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "vilemawKillsPerMinCounts": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "wardsPerMinDeltas": {
+              "zeroToTen": 2.5,
+              "thirtyToEnd": 2.5,
+              "tenToTwenty": 2.5,
+              "twentyToThirty": 2.5
+           },
+           "lane": "TOP"
+        },
          "spell2Id": 3,
          "participantId": 5,
          "championId": 25,
@@ -1277,64 +1962,69 @@
             }
          ],
          "stats": {
-            "unrealKills": 0,
-            "item2": 1052,
-            "item1": 3027,
-            "totalDamageTaken": 12677,
-            "item0": 1056,
-            "pentaKills": 0,
-            "sightWardsBoughtInGame": 1,
-            "winner": false,
-            "magicDamageDealt": 23361,
-            "wardsKilled": 0,
-            "largestCriticalStrike": 0,
-            "trueDamageDealt": 0,
-            "doubleKills": 0,
-            "physicalDamageDealt": 8801,
-            "tripleKills": 0,
-            "deaths": 6,
-            "firstBloodAssist": false,
-            "magicDamageDealtToChampions": 4415,
-            "assists": 1,
-            "visionWardsBoughtInGame": 0,
-            "totalTimeCrowdControlDealt": 28,
-            "champLevel": 10,
-            "physicalDamageTaken": 2855,
-            "totalDamageDealt": 32163,
-            "largestKillingSpree": 0,
-            "inhibitorKills": 0,
-            "minionsKilled": 63,
-            "towerKills": 0,
-            "physicalDamageDealtToChampions": 525,
-            "quadraKills": 0,
-            "goldSpent": 4040,
-            "totalDamageDealtToChampions": 4941,
-            "goldEarned": 4602,
-            "neutralMinionsKilledTeamJungle": 1,
-            "firstBloodKill": true,
-            "firstTowerKill": false,
-            "wardsPlaced": 5,
-            "trueDamageDealtToChampions": 0,
-            "killingSprees": 0,
-            "firstInhibitorKill": false,
-            "totalScoreRank": 0,
-            "totalUnitsHealed": 0,
-            "kills": 1,
-            "firstInhibitorAssist": false,
-            "totalPlayerScore": 0,
-            "neutralMinionsKilledEnemyJungle": 0,
-            "magicDamageTaken": 9802,
-            "largestMultiKill": 1,
-            "totalHeal": 0,
-            "item4": 0,
-            "item3": 1001,
-            "objectivePlayerScore": 0,
-            "item6": 3340,
-            "firstTowerAssist": false,
-            "item5": 0,
-            "trueDamageTaken": 20,
-            "neutralMinionsKilled": 1,
-            "combatPlayerScore": 0
+           "unrealKills": 2,
+           "item2": 3401,
+           "item1": 3143,
+           "totalDamageTaken": 63485,
+           "item0": 2045,
+           "pentaKills": 2,
+           "sightWardsBoughtInGame": 1,
+           "winner": true,
+           "magicDamageDealt": 120124,
+           "wardsKilled": 1,
+           "largestCriticalStrike": 2,
+           "trueDamageDealt": 9335,
+           "doubleKills": 1,
+           "physicalDamageDealt": 17993,
+           "tripleKills": 2,
+           "deaths": 10,
+           "firstBloodAssist": true,
+           "magicDamageDealtToChampions": 34177,
+           "assists": 24,
+           "visionWardsBoughtInGame": 2,
+           "totalTimeCrowdControlDealt": 3625,
+           "champLevel": 18,
+           "physicalDamageTaken": 33476,
+           "totalDamageDealt": 147453,
+           "largestKillingSpree": 4,
+           "inhibitorKills": 2,
+           "minionsKilled": 84,
+           "towerKills": 2,
+           "physicalDamageDealtToChampions": 5477,
+           "quadraKills": 2,
+           "goldSpent": 13615,
+           "totalDamageDealtToChampions": 39694,
+           "goldEarned": 16488,
+           "neutralMinionsKilledTeamJungle": 2,
+           "firstBloodKill": true,
+           "firstTowerKill": true,
+           "wardsPlaced": 33,
+           "trueDamageDealtToChampions": 40,
+           "killingSprees": 4,
+           "firstInhibitorKill": true,
+           "totalScoreRank": 2,
+           "totalUnitsHealed": 5,
+           "kills": 13,
+           "firstInhibitorAssist": true,
+           "totalPlayerScore": 2,
+           "neutralMinionsKilledEnemyJungle": 2,
+           "magicDamageTaken": 21503,
+           "largestMultiKill": 2,
+           "totalHeal": 12565,
+           "item4": 3110,
+           "item3": 1319,
+           "objectivePlayerScore": 2,
+           "item6": 3364,
+           "firstTowerAssist": true,
+           "item5": 3075,
+           "trueDamageTaken": 8505,
+           "neutralMinionsKilled": 2,
+           "combatPlayerScore": 2,
+           "nodeCapture": 2,
+           "nodeCaptureAssist": 2,
+           "nodeNeutralize": 2,
+           "nodeNeutralizeAssist": 2,
+           "teamObjective": 2
          },
          "runes": [
             {
@@ -1358,38 +2048,160 @@
                "runeId": 5357
             }
          ],
-         "timeline": {
-            "xpDiffPerMinDeltas": {
-               "zeroToTen": -84.9,
-               "tenToTwenty": -308
-            },
-            "damageTakenDiffPerMinDeltas": {
-               "zeroToTen": 185.09999999999997,
-               "tenToTwenty": 577.1
-            },
-            "xpPerMinDeltas": {
-               "zeroToTen": 387.29999999999995,
-               "tenToTwenty": 265.5
-            },
-            "goldPerMinDeltas": {
-               "zeroToTen": 218,
-               "tenToTwenty": 172.5
-            },
-            "role": "SOLO",
-            "creepsPerMinDeltas": {
-               "zeroToTen": 3.3,
-               "tenToTwenty": 2.7
-            },
-            "csDiffPerMinDeltas": {
-               "zeroToTen": -2.6999999999999997,
-               "tenToTwenty": -3.3999999999999995
-            },
-            "damageTakenPerMinDeltas": {
-               "zeroToTen": 370.79999999999995,
-               "tenToTwenty": 721.1
-            },
-            "lane": "MIDDLE"
+      "timeline": {
+         "xpDiffPerMinDeltas": {
+            "zeroToTen": 34.35000000000001,
+            "thirtyToEnd": 3.4249999999999687,
+            "tenToTwenty": 18.650000000000034,
+            "twentyToThirty": 57
          },
+         "damageTakenDiffPerMinDeltas": {
+            "zeroToTen": -52.099999999999994,
+            "thirtyToEnd": -141.97500000000008,
+            "tenToTwenty": -113.9500000000001,
+            "twentyToThirty": -238.29999999999995
+         },
+         "xpPerMinDeltas": {
+            "zeroToTen": 316.2,
+            "thirtyToEnd": 519.85,
+            "tenToTwenty": 372.20000000000005,
+            "twentyToThirty": 488.9
+         },
+         "goldPerMinDeltas": {
+            "zeroToTen": 257.1,
+            "thirtyToEnd": 299.95,
+            "tenToTwenty": 306.6,
+            "twentyToThirty": 387.29999999999995
+         },
+         "role": "DUO_SUPPORT",
+         "creepsPerMinDeltas": {
+            "zeroToTen": 1.6,
+            "thirtyToEnd": 1.75,
+            "tenToTwenty": 1.5,
+            "twentyToThirty": 1.8
+         },
+         "csDiffPerMinDeltas": {
+            "zeroToTen": 0.30000000000000004,
+            "thirtyToEnd": 0.8249999999999997,
+            "tenToTwenty": -0.8499999999999996,
+            "twentyToThirty": 1.0000000000000004
+         },
+         "damageTakenPerMinDeltas": {
+            "zeroToTen": 372.6,
+            "thirtyToEnd": 1751.3999999999999,
+            "tenToTwenty": 966.8,
+            "twentyToThirty": 1171.9
+         },
+         "ancientGolemAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "ancientGolemKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "assistedLaneDeathsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "assistedLaneKillsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "baronAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "baronKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "dragonAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "dragonKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "elderLizardAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "elderLizardKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "inhibitorAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "inhibitorKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "towerAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "towerKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "towerKillsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "vilemawAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "vilemawKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "wardsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "lane": "MIDDLE"
+      },
          "spell2Id": 4,
          "participantId": 6,
          "championId": 1,
@@ -1469,64 +2281,69 @@
             }
          ],
          "stats": {
-            "unrealKills": 0,
-            "item2": 0,
-            "item1": 2049,
-            "totalDamageTaken": 14952,
-            "item0": 3725,
-            "pentaKills": 0,
-            "sightWardsBoughtInGame": 0,
-            "winner": false,
-            "magicDamageDealt": 38905,
-            "wardsKilled": 2,
-            "largestCriticalStrike": 382,
-            "trueDamageDealt": 13150,
-            "doubleKills": 0,
-            "physicalDamageDealt": 11992,
-            "tripleKills": 0,
-            "deaths": 2,
-            "firstBloodAssist": false,
-            "magicDamageDealtToChampions": 1849,
-            "assists": 1,
-            "visionWardsBoughtInGame": 2,
-            "totalTimeCrowdControlDealt": 378,
-            "champLevel": 10,
-            "physicalDamageTaken": 9192,
-            "totalDamageDealt": 64047,
-            "largestKillingSpree": 0,
-            "inhibitorKills": 0,
-            "minionsKilled": 26,
-            "towerKills": 0,
-            "physicalDamageDealtToChampions": 445,
-            "quadraKills": 0,
-            "goldSpent": 4470,
-            "totalDamageDealtToChampions": 2503,
-            "goldEarned": 5347,
-            "neutralMinionsKilledTeamJungle": 43,
-            "firstBloodKill": false,
-            "firstTowerKill": false,
-            "wardsPlaced": 7,
-            "trueDamageDealtToChampions": 209,
-            "killingSprees": 0,
-            "firstInhibitorKill": false,
-            "totalScoreRank": 0,
-            "totalUnitsHealed": 1,
-            "kills": 1,
-            "firstInhibitorAssist": false,
-            "totalPlayerScore": 0,
-            "neutralMinionsKilledEnemyJungle": 1,
-            "magicDamageTaken": 5614,
-            "largestMultiKill": 1,
-            "totalHeal": 5018,
-            "item4": 1033,
-            "item3": 1028,
-            "objectivePlayerScore": 0,
-            "item6": 3364,
-            "firstTowerAssist": false,
-            "item5": 0,
-            "trueDamageTaken": 145,
-            "neutralMinionsKilled": 44,
-            "combatPlayerScore": 0
+           "unrealKills": 2,
+           "item2": 3401,
+           "item1": 3143,
+           "totalDamageTaken": 63485,
+           "item0": 2045,
+           "pentaKills": 2,
+           "sightWardsBoughtInGame": 1,
+           "winner": true,
+           "magicDamageDealt": 120124,
+           "wardsKilled": 1,
+           "largestCriticalStrike": 2,
+           "trueDamageDealt": 9335,
+           "doubleKills": 1,
+           "physicalDamageDealt": 17993,
+           "tripleKills": 2,
+           "deaths": 10,
+           "firstBloodAssist": true,
+           "magicDamageDealtToChampions": 34177,
+           "assists": 24,
+           "visionWardsBoughtInGame": 2,
+           "totalTimeCrowdControlDealt": 3625,
+           "champLevel": 18,
+           "physicalDamageTaken": 33476,
+           "totalDamageDealt": 147453,
+           "largestKillingSpree": 4,
+           "inhibitorKills": 2,
+           "minionsKilled": 84,
+           "towerKills": 2,
+           "physicalDamageDealtToChampions": 5477,
+           "quadraKills": 2,
+           "goldSpent": 13615,
+           "totalDamageDealtToChampions": 39694,
+           "goldEarned": 16488,
+           "neutralMinionsKilledTeamJungle": 2,
+           "firstBloodKill": true,
+           "firstTowerKill": true,
+           "wardsPlaced": 33,
+           "trueDamageDealtToChampions": 40,
+           "killingSprees": 4,
+           "firstInhibitorKill": true,
+           "totalScoreRank": 2,
+           "totalUnitsHealed": 5,
+           "kills": 13,
+           "firstInhibitorAssist": true,
+           "totalPlayerScore": 2,
+           "neutralMinionsKilledEnemyJungle": 2,
+           "magicDamageTaken": 21503,
+           "largestMultiKill": 2,
+           "totalHeal": 12565,
+           "item4": 3110,
+           "item3": 1319,
+           "objectivePlayerScore": 2,
+           "item6": 3364,
+           "firstTowerAssist": true,
+           "item5": 3075,
+           "trueDamageTaken": 8505,
+           "neutralMinionsKilled": 2,
+           "combatPlayerScore": 2,
+           "nodeCapture": 2,
+           "nodeCaptureAssist": 2,
+           "nodeNeutralize": 2,
+           "nodeNeutralizeAssist": 2,
+           "teamObjective": 2
          },
          "runes": [
             {
@@ -1558,38 +2375,160 @@
                "runeId": 5357
             }
          ],
-         "timeline": {
-            "xpDiffPerMinDeltas": {
-               "zeroToTen": 25.799999999999997,
-               "tenToTwenty": -91.80000000000001
-            },
-            "damageTakenDiffPerMinDeltas": {
-               "zeroToTen": 2.0000000000000284,
-               "tenToTwenty": 206.49999999999997
-            },
-            "xpPerMinDeltas": {
-               "zeroToTen": 296.9,
-               "tenToTwenty": 325.79999999999995
-            },
-            "goldPerMinDeltas": {
-               "zeroToTen": 244.39999999999998,
-               "tenToTwenty": 219.8
-            },
-            "role": "NONE",
-            "creepsPerMinDeltas": {
-               "zeroToTen": 0.8,
-               "tenToTwenty": 1.5
-            },
-            "csDiffPerMinDeltas": {
-               "zeroToTen": 0.7000000000000001,
-               "tenToTwenty": 0.8999999999999999
-            },
-            "damageTakenPerMinDeltas": {
-               "zeroToTen": 499.9,
-               "tenToTwenty": 735.4
-            },
-            "lane": "JUNGLE"
+      "timeline": {
+         "xpDiffPerMinDeltas": {
+            "zeroToTen": 34.35000000000001,
+            "thirtyToEnd": 3.4249999999999687,
+            "tenToTwenty": 18.650000000000034,
+            "twentyToThirty": 57
          },
+         "damageTakenDiffPerMinDeltas": {
+            "zeroToTen": -52.099999999999994,
+            "thirtyToEnd": -141.97500000000008,
+            "tenToTwenty": -113.9500000000001,
+            "twentyToThirty": -238.29999999999995
+         },
+         "xpPerMinDeltas": {
+            "zeroToTen": 316.2,
+            "thirtyToEnd": 519.85,
+            "tenToTwenty": 372.20000000000005,
+            "twentyToThirty": 488.9
+         },
+         "goldPerMinDeltas": {
+            "zeroToTen": 257.1,
+            "thirtyToEnd": 299.95,
+            "tenToTwenty": 306.6,
+            "twentyToThirty": 387.29999999999995
+         },
+         "role": "DUO_SUPPORT",
+         "creepsPerMinDeltas": {
+            "zeroToTen": 1.6,
+            "thirtyToEnd": 1.75,
+            "tenToTwenty": 1.5,
+            "twentyToThirty": 1.8
+         },
+         "csDiffPerMinDeltas": {
+            "zeroToTen": 0.30000000000000004,
+            "thirtyToEnd": 0.8249999999999997,
+            "tenToTwenty": -0.8499999999999996,
+            "twentyToThirty": 1.0000000000000004
+         },
+         "damageTakenPerMinDeltas": {
+            "zeroToTen": 372.6,
+            "thirtyToEnd": 1751.3999999999999,
+            "tenToTwenty": 966.8,
+            "twentyToThirty": 1171.9
+         },
+         "ancientGolemAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "ancientGolemKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "assistedLaneDeathsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "assistedLaneKillsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "baronAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "baronKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "dragonAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "dragonKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "elderLizardAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "elderLizardKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "inhibitorAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "inhibitorKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "towerAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "towerKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "towerKillsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "vilemawAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "vilemawKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "wardsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "lane": "BOTTOM"
+      },
          "spell2Id": 4,
          "participantId": 7,
          "championId": 79,
@@ -1677,64 +2616,69 @@
             }
          ],
          "stats": {
-            "unrealKills": 0,
-            "item2": 1028,
-            "item1": 3097,
-            "totalDamageTaken": 9618,
-            "item0": 3801,
-            "pentaKills": 0,
-            "sightWardsBoughtInGame": 0,
-            "winner": false,
-            "magicDamageDealt": 17727,
-            "wardsKilled": 0,
-            "largestCriticalStrike": 0,
-            "trueDamageDealt": 1500,
-            "doubleKills": 0,
-            "physicalDamageDealt": 5041,
-            "tripleKills": 0,
-            "deaths": 3,
-            "firstBloodAssist": false,
-            "magicDamageDealtToChampions": 2579,
-            "assists": 0,
-            "visionWardsBoughtInGame": 1,
-            "totalTimeCrowdControlDealt": 228,
-            "champLevel": 9,
-            "physicalDamageTaken": 5402,
-            "totalDamageDealt": 24269,
-            "largestKillingSpree": 0,
-            "inhibitorKills": 0,
-            "minionsKilled": 32,
-            "towerKills": 0,
-            "physicalDamageDealtToChampions": 876,
-            "quadraKills": 0,
-            "goldSpent": 2940,
-            "totalDamageDealtToChampions": 3455,
-            "goldEarned": 3654,
-            "neutralMinionsKilledTeamJungle": 0,
-            "firstBloodKill": false,
-            "firstTowerKill": false,
-            "wardsPlaced": 12,
-            "trueDamageDealtToChampions": 0,
-            "killingSprees": 0,
-            "firstInhibitorKill": false,
-            "totalScoreRank": 0,
-            "totalUnitsHealed": 2,
-            "kills": 0,
-            "firstInhibitorAssist": false,
-            "totalPlayerScore": 0,
-            "neutralMinionsKilledEnemyJungle": 0,
-            "magicDamageTaken": 4215,
-            "largestMultiKill": 0,
-            "totalHeal": 847,
-            "item4": 0,
-            "item3": 0,
-            "objectivePlayerScore": 0,
-            "item6": 3340,
-            "firstTowerAssist": false,
-            "item5": 2049,
-            "trueDamageTaken": 0,
-            "neutralMinionsKilled": 0,
-            "combatPlayerScore": 0
+           "unrealKills": 2,
+           "item2": 3401,
+           "item1": 3143,
+           "totalDamageTaken": 63485,
+           "item0": 2045,
+           "pentaKills": 2,
+           "sightWardsBoughtInGame": 1,
+           "winner": true,
+           "magicDamageDealt": 120124,
+           "wardsKilled": 1,
+           "largestCriticalStrike": 2,
+           "trueDamageDealt": 9335,
+           "doubleKills": 1,
+           "physicalDamageDealt": 17993,
+           "tripleKills": 2,
+           "deaths": 10,
+           "firstBloodAssist": true,
+           "magicDamageDealtToChampions": 34177,
+           "assists": 24,
+           "visionWardsBoughtInGame": 2,
+           "totalTimeCrowdControlDealt": 3625,
+           "champLevel": 18,
+           "physicalDamageTaken": 33476,
+           "totalDamageDealt": 147453,
+           "largestKillingSpree": 4,
+           "inhibitorKills": 2,
+           "minionsKilled": 84,
+           "towerKills": 2,
+           "physicalDamageDealtToChampions": 5477,
+           "quadraKills": 2,
+           "goldSpent": 13615,
+           "totalDamageDealtToChampions": 39694,
+           "goldEarned": 16488,
+           "neutralMinionsKilledTeamJungle": 2,
+           "firstBloodKill": true,
+           "firstTowerKill": true,
+           "wardsPlaced": 33,
+           "trueDamageDealtToChampions": 40,
+           "killingSprees": 4,
+           "firstInhibitorKill": true,
+           "totalScoreRank": 2,
+           "totalUnitsHealed": 5,
+           "kills": 13,
+           "firstInhibitorAssist": true,
+           "totalPlayerScore": 2,
+           "neutralMinionsKilledEnemyJungle": 2,
+           "magicDamageTaken": 21503,
+           "largestMultiKill": 2,
+           "totalHeal": 12565,
+           "item4": 3110,
+           "item3": 1319,
+           "objectivePlayerScore": 2,
+           "item6": 3364,
+           "firstTowerAssist": true,
+           "item5": 3075,
+           "trueDamageTaken": 8505,
+           "neutralMinionsKilled": 2,
+           "combatPlayerScore": 2,
+           "nodeCapture": 2,
+           "nodeCaptureAssist": 2,
+           "nodeNeutralize": 2,
+           "nodeNeutralizeAssist": 2,
+           "teamObjective": 2
          },
          "runes": [
             {
@@ -1758,38 +2702,160 @@
                "runeId": 5347
             }
          ],
-         "timeline": {
-            "xpDiffPerMinDeltas": {
-               "zeroToTen": -6.5,
-               "tenToTwenty": -56.299999999999955
-            },
-            "damageTakenDiffPerMinDeltas": {
-               "zeroToTen": -15.049999999999997,
-               "tenToTwenty": 297.75
-            },
-            "xpPerMinDeltas": {
-               "zeroToTen": 266.5,
-               "tenToTwenty": 324.2
-            },
-            "goldPerMinDeltas": {
-               "zeroToTen": 127,
-               "tenToTwenty": 167.39999999999998
-            },
-            "role": "DUO_SUPPORT",
-            "creepsPerMinDeltas": {
-               "zeroToTen": 0.9,
-               "tenToTwenty": 2.2
-            },
-            "csDiffPerMinDeltas": {
-               "zeroToTen": 0.30000000000000016,
-               "tenToTwenty": 0.10000000000000031
-            },
-            "damageTakenPerMinDeltas": {
-               "zeroToTen": 142.6,
-               "tenToTwenty": 597.1
-            },
-            "lane": "BOTTOM"
+      "timeline": {
+         "xpDiffPerMinDeltas": {
+            "zeroToTen": 34.35000000000001,
+            "thirtyToEnd": 3.4249999999999687,
+            "tenToTwenty": 18.650000000000034,
+            "twentyToThirty": 57
          },
+         "damageTakenDiffPerMinDeltas": {
+            "zeroToTen": -52.099999999999994,
+            "thirtyToEnd": -141.97500000000008,
+            "tenToTwenty": -113.9500000000001,
+            "twentyToThirty": -238.29999999999995
+         },
+         "xpPerMinDeltas": {
+            "zeroToTen": 316.2,
+            "thirtyToEnd": 519.85,
+            "tenToTwenty": 372.20000000000005,
+            "twentyToThirty": 488.9
+         },
+         "goldPerMinDeltas": {
+            "zeroToTen": 257.1,
+            "thirtyToEnd": 299.95,
+            "tenToTwenty": 306.6,
+            "twentyToThirty": 387.29999999999995
+         },
+         "role": "DUO_SUPPORT",
+         "creepsPerMinDeltas": {
+            "zeroToTen": 1.6,
+            "thirtyToEnd": 1.75,
+            "tenToTwenty": 1.5,
+            "twentyToThirty": 1.8
+         },
+         "csDiffPerMinDeltas": {
+            "zeroToTen": 0.30000000000000004,
+            "thirtyToEnd": 0.8249999999999997,
+            "tenToTwenty": -0.8499999999999996,
+            "twentyToThirty": 1.0000000000000004
+         },
+         "damageTakenPerMinDeltas": {
+            "zeroToTen": 372.6,
+            "thirtyToEnd": 1751.3999999999999,
+            "tenToTwenty": 966.8,
+            "twentyToThirty": 1171.9
+         },
+         "ancientGolemAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "ancientGolemKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "assistedLaneDeathsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "assistedLaneKillsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "baronAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "baronKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "dragonAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "dragonKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "elderLizardAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "elderLizardKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "inhibitorAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "inhibitorKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "towerAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "towerKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "towerKillsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "vilemawAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "vilemawKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "wardsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "lane": "BOTTOM"
+      },
          "spell2Id": 4,
          "participantId": 8,
          "championId": 111,
@@ -1849,64 +2915,69 @@
             }
          ],
          "stats": {
-            "unrealKills": 0,
-            "item2": 3057,
-            "item1": 3044,
-            "totalDamageTaken": 12465,
-            "item0": 2041,
-            "pentaKills": 0,
-            "sightWardsBoughtInGame": 0,
-            "winner": false,
-            "magicDamageDealt": 1412,
-            "wardsKilled": 0,
-            "largestCriticalStrike": 0,
-            "trueDamageDealt": 1065,
-            "doubleKills": 0,
-            "physicalDamageDealt": 23705,
-            "tripleKills": 0,
-            "deaths": 3,
-            "firstBloodAssist": false,
-            "magicDamageDealtToChampions": 96,
-            "assists": 0,
-            "visionWardsBoughtInGame": 0,
-            "totalTimeCrowdControlDealt": 24,
-            "champLevel": 10,
-            "physicalDamageTaken": 5201,
-            "totalDamageDealt": 26182,
-            "largestKillingSpree": 0,
-            "inhibitorKills": 0,
-            "minionsKilled": 64,
-            "towerKills": 0,
-            "physicalDamageDealtToChampions": 1539,
-            "quadraKills": 0,
-            "goldSpent": 3825,
-            "totalDamageDealtToChampions": 1891,
-            "goldEarned": 4073,
-            "neutralMinionsKilledTeamJungle": 0,
-            "firstBloodKill": false,
-            "firstTowerKill": false,
-            "wardsPlaced": 2,
-            "trueDamageDealtToChampions": 255,
-            "killingSprees": 0,
-            "firstInhibitorKill": false,
-            "totalScoreRank": 0,
-            "totalUnitsHealed": 1,
-            "kills": 0,
-            "firstInhibitorAssist": false,
-            "totalPlayerScore": 0,
-            "neutralMinionsKilledEnemyJungle": 0,
-            "magicDamageTaken": 7264,
-            "largestMultiKill": 0,
-            "totalHeal": 1479,
-            "item4": 1051,
-            "item3": 1042,
-            "objectivePlayerScore": 0,
-            "item6": 3340,
-            "firstTowerAssist": false,
-            "item5": 0,
-            "trueDamageTaken": 0,
-            "neutralMinionsKilled": 0,
-            "combatPlayerScore": 0
+           "unrealKills": 2,
+           "item2": 3401,
+           "item1": 3143,
+           "totalDamageTaken": 63485,
+           "item0": 2045,
+           "pentaKills": 2,
+           "sightWardsBoughtInGame": 1,
+           "winner": true,
+           "magicDamageDealt": 120124,
+           "wardsKilled": 1,
+           "largestCriticalStrike": 2,
+           "trueDamageDealt": 9335,
+           "doubleKills": 1,
+           "physicalDamageDealt": 17993,
+           "tripleKills": 2,
+           "deaths": 10,
+           "firstBloodAssist": true,
+           "magicDamageDealtToChampions": 34177,
+           "assists": 24,
+           "visionWardsBoughtInGame": 2,
+           "totalTimeCrowdControlDealt": 3625,
+           "champLevel": 18,
+           "physicalDamageTaken": 33476,
+           "totalDamageDealt": 147453,
+           "largestKillingSpree": 4,
+           "inhibitorKills": 2,
+           "minionsKilled": 84,
+           "towerKills": 2,
+           "physicalDamageDealtToChampions": 5477,
+           "quadraKills": 2,
+           "goldSpent": 13615,
+           "totalDamageDealtToChampions": 39694,
+           "goldEarned": 16488,
+           "neutralMinionsKilledTeamJungle": 2,
+           "firstBloodKill": true,
+           "firstTowerKill": true,
+           "wardsPlaced": 33,
+           "trueDamageDealtToChampions": 40,
+           "killingSprees": 4,
+           "firstInhibitorKill": true,
+           "totalScoreRank": 2,
+           "totalUnitsHealed": 5,
+           "kills": 13,
+           "firstInhibitorAssist": true,
+           "totalPlayerScore": 2,
+           "neutralMinionsKilledEnemyJungle": 2,
+           "magicDamageTaken": 21503,
+           "largestMultiKill": 2,
+           "totalHeal": 12565,
+           "item4": 3110,
+           "item3": 1319,
+           "objectivePlayerScore": 2,
+           "item6": 3364,
+           "firstTowerAssist": true,
+           "item5": 3075,
+           "trueDamageTaken": 8505,
+           "neutralMinionsKilled": 2,
+           "combatPlayerScore": 2,
+           "nodeCapture": 2,
+           "nodeCaptureAssist": 2,
+           "nodeNeutralize": 2,
+           "nodeNeutralizeAssist": 2,
+           "teamObjective": 2
          },
          "runes": [
             {
@@ -1930,38 +3001,160 @@
                "runeId": 5335
             }
          ],
-         "timeline": {
-            "xpDiffPerMinDeltas": {
-               "zeroToTen": -115.19999999999999,
-               "tenToTwenty": -189.9
-            },
-            "damageTakenDiffPerMinDeltas": {
-               "zeroToTen": 109.70000000000002,
-               "tenToTwenty": 466.80000000000007
-            },
-            "xpPerMinDeltas": {
-               "zeroToTen": 358,
-               "tenToTwenty": 316.9
-            },
-            "goldPerMinDeltas": {
-               "zeroToTen": 162.3,
-               "tenToTwenty": 181.60000000000002
-            },
-            "role": "SOLO",
-            "creepsPerMinDeltas": {
-               "zeroToTen": 3,
-               "tenToTwenty": 3.4
-            },
-            "csDiffPerMinDeltas": {
-               "zeroToTen": -3.4000000000000004,
-               "tenToTwenty": -4.1
-            },
-            "damageTakenPerMinDeltas": {
-               "zeroToTen": 430.5,
-               "tenToTwenty": 687.4000000000001
-            },
-            "lane": "TOP"
+      "timeline": {
+         "xpDiffPerMinDeltas": {
+            "zeroToTen": 34.35000000000001,
+            "thirtyToEnd": 3.4249999999999687,
+            "tenToTwenty": 18.650000000000034,
+            "twentyToThirty": 57
          },
+         "damageTakenDiffPerMinDeltas": {
+            "zeroToTen": -52.099999999999994,
+            "thirtyToEnd": -141.97500000000008,
+            "tenToTwenty": -113.9500000000001,
+            "twentyToThirty": -238.29999999999995
+         },
+         "xpPerMinDeltas": {
+            "zeroToTen": 316.2,
+            "thirtyToEnd": 519.85,
+            "tenToTwenty": 372.20000000000005,
+            "twentyToThirty": 488.9
+         },
+         "goldPerMinDeltas": {
+            "zeroToTen": 257.1,
+            "thirtyToEnd": 299.95,
+            "tenToTwenty": 306.6,
+            "twentyToThirty": 387.29999999999995
+         },
+         "role": "DUO_SUPPORT",
+         "creepsPerMinDeltas": {
+            "zeroToTen": 1.6,
+            "thirtyToEnd": 1.75,
+            "tenToTwenty": 1.5,
+            "twentyToThirty": 1.8
+         },
+         "csDiffPerMinDeltas": {
+            "zeroToTen": 0.30000000000000004,
+            "thirtyToEnd": 0.8249999999999997,
+            "tenToTwenty": -0.8499999999999996,
+            "twentyToThirty": 1.0000000000000004
+         },
+         "damageTakenPerMinDeltas": {
+            "zeroToTen": 372.6,
+            "thirtyToEnd": 1751.3999999999999,
+            "tenToTwenty": 966.8,
+            "twentyToThirty": 1171.9
+         },
+         "ancientGolemAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "ancientGolemKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "assistedLaneDeathsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "assistedLaneKillsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "baronAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "baronKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "dragonAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "dragonKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "elderLizardAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "elderLizardKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "inhibitorAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "inhibitorKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "towerAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "towerKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "towerKillsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "vilemawAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "vilemawKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "wardsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "lane": "BOTTOM"
+      },
          "spell2Id": 4,
          "participantId": 9,
          "championId": 39,
@@ -2025,64 +3218,69 @@
             }
          ],
          "stats": {
-            "unrealKills": 0,
-            "item2": 1018,
-            "item1": 1037,
-            "totalDamageTaken": 9165,
-            "item0": 1055,
-            "pentaKills": 0,
-            "sightWardsBoughtInGame": 0,
-            "winner": false,
-            "magicDamageDealt": 508,
-            "wardsKilled": 0,
-            "largestCriticalStrike": 398,
-            "trueDamageDealt": 0,
-            "doubleKills": 0,
-            "physicalDamageDealt": 51173,
-            "tripleKills": 0,
-            "deaths": 3,
-            "firstBloodAssist": false,
-            "magicDamageDealtToChampions": 199,
-            "assists": 0,
-            "visionWardsBoughtInGame": 1,
-            "totalTimeCrowdControlDealt": 0,
-            "champLevel": 9,
-            "physicalDamageTaken": 4553,
-            "totalDamageDealt": 51682,
-            "largestKillingSpree": 0,
-            "inhibitorKills": 0,
-            "minionsKilled": 129,
-            "towerKills": 0,
-            "physicalDamageDealtToChampions": 6432,
-            "quadraKills": 0,
-            "goldSpent": 5265,
-            "totalDamageDealtToChampions": 6632,
-            "goldEarned": 5630,
-            "neutralMinionsKilledTeamJungle": 0,
-            "firstBloodKill": false,
-            "firstTowerKill": false,
-            "wardsPlaced": 1,
-            "trueDamageDealtToChampions": 0,
-            "killingSprees": 0,
-            "firstInhibitorKill": false,
-            "totalScoreRank": 0,
-            "totalUnitsHealed": 3,
-            "kills": 1,
-            "firstInhibitorAssist": false,
-            "totalPlayerScore": 0,
-            "neutralMinionsKilledEnemyJungle": 0,
-            "magicDamageTaken": 4266,
-            "largestMultiKill": 1,
-            "totalHeal": 1243,
-            "item4": 1036,
-            "item3": 3006,
-            "objectivePlayerScore": 0,
-            "item6": 3342,
-            "firstTowerAssist": false,
-            "item5": 1038,
-            "trueDamageTaken": 345,
-            "neutralMinionsKilled": 0,
-            "combatPlayerScore": 0
+           "unrealKills": 2,
+           "item2": 3401,
+           "item1": 3143,
+           "totalDamageTaken": 63485,
+           "item0": 2045,
+           "pentaKills": 2,
+           "sightWardsBoughtInGame": 1,
+           "winner": true,
+           "magicDamageDealt": 120124,
+           "wardsKilled": 1,
+           "largestCriticalStrike": 2,
+           "trueDamageDealt": 9335,
+           "doubleKills": 1,
+           "physicalDamageDealt": 17993,
+           "tripleKills": 2,
+           "deaths": 10,
+           "firstBloodAssist": true,
+           "magicDamageDealtToChampions": 34177,
+           "assists": 24,
+           "visionWardsBoughtInGame": 2,
+           "totalTimeCrowdControlDealt": 3625,
+           "champLevel": 18,
+           "physicalDamageTaken": 33476,
+           "totalDamageDealt": 147453,
+           "largestKillingSpree": 4,
+           "inhibitorKills": 2,
+           "minionsKilled": 84,
+           "towerKills": 2,
+           "physicalDamageDealtToChampions": 5477,
+           "quadraKills": 2,
+           "goldSpent": 13615,
+           "totalDamageDealtToChampions": 39694,
+           "goldEarned": 16488,
+           "neutralMinionsKilledTeamJungle": 2,
+           "firstBloodKill": true,
+           "firstTowerKill": true,
+           "wardsPlaced": 33,
+           "trueDamageDealtToChampions": 40,
+           "killingSprees": 4,
+           "firstInhibitorKill": true,
+           "totalScoreRank": 2,
+           "totalUnitsHealed": 5,
+           "kills": 13,
+           "firstInhibitorAssist": true,
+           "totalPlayerScore": 2,
+           "neutralMinionsKilledEnemyJungle": 2,
+           "magicDamageTaken": 21503,
+           "largestMultiKill": 2,
+           "totalHeal": 12565,
+           "item4": 3110,
+           "item3": 1319,
+           "objectivePlayerScore": 2,
+           "item6": 3364,
+           "firstTowerAssist": true,
+           "item5": 3075,
+           "trueDamageTaken": 8505,
+           "neutralMinionsKilled": 2,
+           "combatPlayerScore": 2,
+           "nodeCapture": 2,
+           "nodeCaptureAssist": 2,
+           "nodeNeutralize": 2,
+           "nodeNeutralizeAssist": 2,
+           "teamObjective": 2
          },
          "runes": [
             {
@@ -2110,38 +3308,160 @@
                "runeId": 5337
             }
          ],
-         "timeline": {
-            "xpDiffPerMinDeltas": {
-               "zeroToTen": -6.5,
-               "tenToTwenty": -56.299999999999955
-            },
-            "damageTakenDiffPerMinDeltas": {
-               "zeroToTen": -15.049999999999997,
-               "tenToTwenty": 297.75
-            },
-            "xpPerMinDeltas": {
-               "zeroToTen": 280.8,
-               "tenToTwenty": 315
-            },
-            "goldPerMinDeltas": {
-               "zeroToTen": 216.29999999999998,
-               "tenToTwenty": 275.2
-            },
-            "role": "DUO_CARRY",
-            "creepsPerMinDeltas": {
-               "zeroToTen": 6.1,
-               "tenToTwenty": 6.5
-            },
-            "csDiffPerMinDeltas": {
-               "zeroToTen": 0.30000000000000016,
-               "tenToTwenty": 0.10000000000000031
-            },
-            "damageTakenPerMinDeltas": {
-               "zeroToTen": 262.5,
-               "tenToTwenty": 517.8
-            },
-            "lane": "BOTTOM"
+      "timeline": {
+         "xpDiffPerMinDeltas": {
+            "zeroToTen": 34.35000000000001,
+            "thirtyToEnd": 3.4249999999999687,
+            "tenToTwenty": 18.650000000000034,
+            "twentyToThirty": 57
          },
+         "damageTakenDiffPerMinDeltas": {
+            "zeroToTen": -52.099999999999994,
+            "thirtyToEnd": -141.97500000000008,
+            "tenToTwenty": -113.9500000000001,
+            "twentyToThirty": -238.29999999999995
+         },
+         "xpPerMinDeltas": {
+            "zeroToTen": 316.2,
+            "thirtyToEnd": 519.85,
+            "tenToTwenty": 372.20000000000005,
+            "twentyToThirty": 488.9
+         },
+         "goldPerMinDeltas": {
+            "zeroToTen": 257.1,
+            "thirtyToEnd": 299.95,
+            "tenToTwenty": 306.6,
+            "twentyToThirty": 387.29999999999995
+         },
+         "role": "DUO_SUPPORT",
+         "creepsPerMinDeltas": {
+            "zeroToTen": 1.6,
+            "thirtyToEnd": 1.75,
+            "tenToTwenty": 1.5,
+            "twentyToThirty": 1.8
+         },
+         "csDiffPerMinDeltas": {
+            "zeroToTen": 0.30000000000000004,
+            "thirtyToEnd": 0.8249999999999997,
+            "tenToTwenty": -0.8499999999999996,
+            "twentyToThirty": 1.0000000000000004
+         },
+         "damageTakenPerMinDeltas": {
+            "zeroToTen": 372.6,
+            "thirtyToEnd": 1751.3999999999999,
+            "tenToTwenty": 966.8,
+            "twentyToThirty": 1171.9
+         },
+         "ancientGolemAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "ancientGolemKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "assistedLaneDeathsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "assistedLaneKillsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "baronAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "baronKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "dragonAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "dragonKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "elderLizardAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "elderLizardKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "inhibitorAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "inhibitorKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "towerAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "towerKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "towerKillsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "vilemawAssistsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "vilemawKillsPerMinCounts": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "wardsPerMinDeltas": {
+            "zeroToTen": 2.5,
+            "thirtyToEnd": 2.5,
+            "tenToTwenty": 2.5,
+            "twentyToThirty": 2.5
+         },
+         "lane": "BOTTOM"
+      },
          "spell2Id": 4,
          "participantId": 10,
          "championId": 236,
@@ -2151,7 +3471,7 @@
       }
    ],
    "platformId": "NA1",
-   "matchMode": "CLASSIC",
+   "matchMode": "ODIN",
    "participantIdentities": [
       {
          "player": {
@@ -2247,8 +3567,8 @@
    "matchVersion": "5.13.0.329",
    "teams": [
       {
-         "inhibitorKills": 0,
-         "dominionVictoryScore": 0,
+         "inhibitorKills": 2,
+         "dominionVictoryScore": 2,
          "bans": [
             {
                "pickTurn": 1,
@@ -2265,19 +3585,19 @@
          ],
          "towerKills": 3,
          "firstTower": true,
-         "firstBlood": false,
-         "firstBaron": false,
-         "firstInhibitor": false,
+         "firstBlood": true,
+         "firstBaron": true,
+         "firstInhibitor": true,
          "firstDragon": true,
          "winner": true,
-         "vilemawKills": 0,
-         "baronKills": 0,
+         "vilemawKills": 2,
+         "baronKills": 2,
          "dragonKills": 1,
          "teamId": 100
       },
       {
-         "inhibitorKills": 0,
-         "dominionVictoryScore": 0,
+         "inhibitorKills": 2,
+         "dominionVictoryScore": 2,
          "bans": [
             {
                "pickTurn": 2,
@@ -2292,16 +3612,16 @@
                "championId": 105
             }
          ],
-         "towerKills": 0,
-         "firstTower": false,
+         "towerKills": 2,
+         "firstTower": true,
          "firstBlood": true,
-         "firstBaron": false,
-         "firstInhibitor": false,
-         "firstDragon": false,
-         "winner": false,
-         "vilemawKills": 0,
-         "baronKills": 0,
-         "dragonKills": 0,
+         "firstBaron": true,
+         "firstInhibitor": true,
+         "firstDragon": true,
+         "winner": true,
+         "vilemawKills": 2,
+         "baronKills": 2,
+         "dragonKills": 2,
          "teamId": 200
       }
    ],

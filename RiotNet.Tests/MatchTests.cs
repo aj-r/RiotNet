@@ -21,7 +21,6 @@ namespace RiotNet.Tests
             Assert.That(match, Is.Not.Null);
             Assert.That(match.MatchId, Is.EqualTo(matchId));
             Assert.That(match.Region, Is.EqualTo(client.Region));
-            AssertNonDefaultValuesRecursive(match);
         }
 
         [Test]

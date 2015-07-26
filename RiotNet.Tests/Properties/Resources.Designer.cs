@@ -136,25 +136,21 @@ namespace RiotNet.Tests.Properties {
         ///   &quot;region&quot;: &quot;NA&quot;,
         ///   &quot;matchType&quot;: &quot;MATCHED_GAME&quot;,
         ///   &quot;matchCreation&quot;: 1436660796872,
-        ///   &quot;participants&quot;: [
-        ///      {
-        ///         &quot;masteries&quot;: [
-        ///            {
-        ///               &quot;rank&quot;: 1,
-        ///               &quot;masteryId&quot;: 4111
-        ///            },
-        ///            {
-        ///               &quot;rank&quot;: 4,
-        ///               &quot;masteryId&quot;: 4112
-        ///            },
-        ///            {
-        ///               &quot;rank&quot;: 1,
-        ///               &quot;masteryId&quot;: 4114
-        ///            },
-        ///            {
-        ///               &quot;rank&quot;: 3,
-        ///               &quot;masteryId&quot;: 4122
-        ///             [rest of string was truncated]&quot;;.
+        ///   &quot;timeline&quot;: {
+        ///      &quot;frameInterval&quot;: 60000,
+        ///      &quot;frames&quot;: [
+        ///         {
+        ///            &quot;timestamp&quot;: 200,
+        ///            &quot;participantFrames&quot;: {
+        ///               &quot;3&quot;: {
+        ///                  &quot;currentGold&quot;: 475,
+        ///                  &quot;position&quot;: {
+        ///                     &quot;y&quot;: 293,
+        ///                     &quot;x&quot;: 351
+        ///                  },
+        ///                  &quot;minionsKilled&quot;: 2,
+        ///                  &quot;level&quot;: 1,
+        ///                  &quot;jung [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SampleMatch {
             get {

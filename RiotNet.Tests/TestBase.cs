@@ -140,7 +140,7 @@ namespace RiotNet.Tests
 
             var obj = Activator.CreateInstance(type);
 
-            var dictionaryType = GetDictionaryInterface(type);
+            var dictionaryType = ReflectionUtils.GetDictionaryInterface(type);
             if (dictionaryType != null)
             {
                 var typeArgs = dictionaryType.GetGenericArguments();
@@ -156,7 +156,7 @@ namespace RiotNet.Tests
                 sampleDictionaryCount = sampleDictionaryCount % 2 + 1;
                 return obj;
             }
-            var collectionType = GetListInterface(type);
+            var collectionType = ReflectionUtils.GetListInterface(type);
             if (collectionType != null)
             {
                 var typeArgs = collectionType.GetGenericArguments();
@@ -177,44 +177,6 @@ namespace RiotNet.Tests
                 property.SetValue(obj, value);
             }
             return obj;
-        }
-
-        /// <summary>
-        /// Gets the IList&lt;&gt; interface that the type implements, if any.
-        /// </summary>
-        /// <param name="type">The type of object that implements the interface.</param>
-        /// <returns>The first IList&lt;&gt; interface found, or null if no interface was found.</returns>
-        public static Type GetListInterface(Type type)
-        {
-            return GetGenericInterface(type, typeof(IList<>));
-        }
-
-        /// <summary>
-        /// Gets the IDictionary&lt;,&gt; interface that the type implements, if any.
-        /// </summary>
-        /// <param name="type">The type of object that implements the interface.</param>
-        /// <returns>The first IDictionary&lt;,&gt; interface found, or null if no interface was found.</returns>
-        public static Type GetDictionaryInterface(Type type)
-        {
-            return GetGenericInterface(type, typeof(IDictionary<,>));
-        }
-
-        /// <summary>
-        /// Gets the interface that a type implements that matches the specified generic interface definition.
-        /// </summary>
-        /// <param name="type">The type of object that implements the interface.</param>
-        /// <param name="genericInterfaceDefinition">A generic type definition for an interface (e.g. typeof(IEnumerable&lt;&gt;)).</param>
-        /// <returns>The first interface found that matches the generic interface definition, or null if no match was found.</returns>
-        public static Type GetGenericInterface(Type type, Type genericInterfaceDefinition)
-        {
-            while (type != null)
-            {
-                var genericInterface = type.GetInterfaces().Where(t => t.IsGenericType && t.GetGenericTypeDefinition() == genericInterfaceDefinition).FirstOrDefault();
-                if (genericInterface != null)
-                    return genericInterface;
-                type = type.BaseType;
-            }
-            return null;
         }
 
         /// <summary>

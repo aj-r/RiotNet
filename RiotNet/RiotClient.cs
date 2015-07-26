@@ -89,8 +89,9 @@ namespace RiotNet
             Converters = new List<JsonConverter>
             {
                 new EpochDateTimeConverter(),
-                new SecondsToTimeSpanConverter(),
+                new KeyedCollectionConverter(),
                 new PlayerPositionConverter(),
+                new SecondsToTimeSpanConverter(),
             }
         };
 

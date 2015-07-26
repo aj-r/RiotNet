@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\EpochDateTimeConverter.cs" />
+    <Compile Include="Converters\KeyedCollectionConverter.cs" />
     <Compile Include="Converters\PlayerPositionConverter.cs" />
     <Compile Include="Converters\RangeConverter.cs" />
     <Compile Include="Converters\MillisecondsToTimeSpanConverter.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="Models\Timeline.cs" />
     <Compile Include="Models\Translation.cs" />
     <Compile Include="NotFoundException.cs" />
+    <Compile Include="ReflectionUtils.cs" />
     <Compile Include="RestSharpJsonNetSerializer.cs" />
     <Compile Include="RestTimeoutException.cs" />
     <Compile Include="RateLimitExceededException.cs" />
