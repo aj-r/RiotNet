@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conversions.cs" />
     <Compile Include="Converters\EpochDateTimeConverter.cs" />
     <Compile Include="Converters\KeyedCollectionConverter.cs" />
     <Compile Include="Converters\PlayerPositionConverter.cs" />
@@ -64,7 +65,9 @@
     <Compile Include="Models\BlockItem.cs" />
     <Compile Include="Models\ChampionStats.cs" />
     <Compile Include="Models\CurrentGameInfo.cs" />
+    <Compile Include="Models\MatchList.cs" />
     <Compile Include="Models\MatchParticipantFrameCollection.cs" />
+    <Compile Include="Models\MatchReference.cs" />
     <Compile Include="Models\Participant.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Frame.cs" />
@@ -168,6 +171,7 @@
     <Compile Include="RiotClientGame.cs" />
     <Compile Include="RiotClientLeague.cs" />
     <Compile Include="RiotClientMatch.cs" />
+    <Compile Include="RiotClientMatchList.cs" />
     <Compile Include="RiotClientMatchHistory.cs" />
     <Compile Include="RiotClientSettings.cs" />
     <Compile Include="RiotClientStaticData.cs" />
