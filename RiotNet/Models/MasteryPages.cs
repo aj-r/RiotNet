@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace RiotNet.Models
 {
     /// <summary>
-    /// Contains information about a single summoner's master.
+    /// Contains information about a summoner's mastery pages.
     /// </summary>
     public class MasteryPages
     {

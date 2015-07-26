@@ -42,16 +42,6 @@ namespace RiotNet.Tests
         }
 
         /// <summary>
-        /// Creates an instance of the specified object and initializes each of its properties to non-default values.
-        /// </summary>
-        /// <typeparam name="T">The type of object to create.</typeparam>
-        /// <returns>An object.</returns>
-        public static T Create<T>() where T : class
-        {
-            return (T)Create(typeof(T));
-        }
-
-        /// <summary>
         /// Gets whether a type is a Nullable&lt;T&gt;.
         /// </summary>
         /// <param name="type">A type</param>
@@ -73,12 +63,22 @@ namespace RiotNet.Tests
 
         private static int sampleInt = 2;
         private static long sampleLong = 2L;
-        private static double sampleDouble = 2;
+        private static double sampleDouble = 2.0;
         private static int sampleStringCount = 1;
         private static DateTime sampleDateTime = new DateTime(2015, 5, 16, 3, 4, 0, 500, DateTimeKind.Utc);
         private static TimeSpan sampleTimeSpan = TimeSpan.FromMilliseconds(250);
         private static int sampleListCount = 1;
         private static int sampleDictionaryCount = 1;
+
+        /// <summary>
+        /// Creates an instance of the specified object and initializes each of its properties to non-default values.
+        /// </summary>
+        /// <typeparam name="T">The type of object to create.</typeparam>
+        /// <returns>An object.</returns>
+        public static T Create<T>() where T : class
+        {
+            return (T)Create(typeof(T));
+        }
 
         /// <summary>
         /// Creates an instance of the specified object with each of its properties initialized to non-default values.
@@ -180,13 +180,29 @@ namespace RiotNet.Tests
         }
 
         /// <summary>
+        /// Resets the sample values used for the Create method.
+        /// </summary>
+        public static void ResetSampleValues()
+        {
+            sampleInt = 2;
+            sampleLong = 2L;
+            sampleDouble = 2.0;
+            sampleStringCount = 1;
+            sampleDateTime = new DateTime(2015, 5, 16, 3, 4, 0, 500, DateTimeKind.Utc);
+            sampleTimeSpan = TimeSpan.FromMilliseconds(250);
+            sampleListCount = 1;
+            sampleDictionaryCount = 1;
+        }
+
+        /// <summary>
         /// Asserts value equality for two objects.
         /// </summary>
         /// <param name="a">An object.</param>
         /// <param name="b">An object.</param>
         /// <param name="forDefaults">Indicates whether the comparison is for default values. In defaults mode, only JSON-serializable properties should be compared, and [ComplexType] objects may be set even if the default is null.</param>
+        /// <param name="forDatabase">Indicates whether the comparison is for database values. In database mode, properties named 'DatabaseId' are not compared; instead they are checked for non-zero values.</param>
         /// <param name="propertyName">The property name to display in the error message if the assertion fails.</param>
-        public static void AssertObjectEqualityRecursive(object a, object b, bool forDefaults = false, string propertyName = null)
+        public static void AssertObjectEqualityRecursive(object a, object b, bool forDefaults = false, bool forDatabase = false, string propertyName = null)
         {
             if (propertyName == null)
                 propertyName = b != null ? b.GetType().Name : "object";
@@ -208,7 +224,7 @@ namespace RiotNet.Tests
             Assert.That(a, Is.InstanceOf(type), "Objects have different types (" + propertyName + ").");
             if (!type.IsClass || type == typeof(string))
             {
-                Assert.That(a, Is.EqualTo(b), "Default value for " + propertyName + " is incorrect.");
+                Assert.That(a, Is.EqualTo(b), "Value for " + propertyName + " is incorrect.");
                 return;
             }
 
@@ -221,7 +237,7 @@ namespace RiotNet.Tests
                 var nextB = enumeratorB.MoveNext();
                 while (nextA && nextB)
                 {
-                    AssertObjectEqualityRecursive(enumeratorA.Current, enumeratorB.Current, forDefaults, propertyName + "[" + i + "]");
+                    AssertObjectEqualityRecursive(enumeratorA.Current, enumeratorB.Current, forDefaults, forDatabase, propertyName + "[" + i + "]");
                     nextA = enumeratorA.MoveNext();
                     nextB = enumeratorB.MoveNext();
                     ++i;
@@ -238,9 +254,17 @@ namespace RiotNet.Tests
                 {
                     if (forDefaults && property.GetCustomAttribute<JsonIgnoreAttribute>() != null)
                         continue;
-                    var value1 = property.GetValue(a);
-                    var value2 = property.GetValue(b);
-                    AssertObjectEqualityRecursive(value1, value2, forDefaults, propertyName + property.Name);
+                    if (forDatabase && property.Name == "DatabaseId")
+                    {
+                        var value1 = property.GetValue(a);
+                        AssertNonDefaultValuesRecursive(value1);
+                    }
+                    else
+                    {
+                        var value1 = property.GetValue(a);
+                        var value2 = property.GetValue(b);
+                        AssertObjectEqualityRecursive(value1, value2, forDefaults, forDatabase, propertyName + property.Name);
+                    }
                 }
             }
         }

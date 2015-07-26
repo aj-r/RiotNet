@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
@@ -24,12 +25,16 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the match duration.
         /// </summary>
-        public long MatchDuration { get; set; }
+        /// <remarks>
+        /// The match duration is serialized as an integer representing the duration of the match in seconds.
+        /// </remarks>
+        public TimeSpan MatchDuration { get; set; }
 
         /// <summary>
         /// Gets or sets the ID of the match (also referred to as Game ID).
         /// </summary>
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long MatchId { get; set; }
 
         /// <summary>

@@ -28,7 +28,6 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets incident id.
         /// </summary>
-        [Key]
         public long Id { get; set; }
 
         /// <summary>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RiotNet.Models
 {
@@ -17,7 +18,6 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the game Id.
         /// </summary>
-        [Key]
         public long GameId { get; set; }
 
         /// <summary>

@@ -31,7 +31,6 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the message id.
         /// </summary>
-        [Key]
         public long Id { get; set; }
 
         /// <summary>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using RiotNet.Converters;
 
 namespace RiotNet.Models
@@ -41,6 +42,7 @@ namespace RiotNet.Models
         ///  Gets or sets the game ID.
         /// </summary>
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long GameId { get; set; }
 
         /// <summary>

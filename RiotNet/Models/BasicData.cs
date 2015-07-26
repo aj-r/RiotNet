@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Newtonsoft.Json;
 
 namespace RiotNet.Models
@@ -57,6 +58,7 @@ namespace RiotNet.Models
         /// This property is used as the primary key when storing the current object in a database.
         /// </remarks>
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         /// <summary>

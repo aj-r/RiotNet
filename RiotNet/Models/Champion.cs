@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RiotNet.Models
 {
@@ -28,9 +29,10 @@ namespace RiotNet.Models
         public bool FreeToPlay { get; set; }
 
         /// <summary>
-        /// Gets or sets the champion id (see StaticChampion Id).
+        /// Gets or sets the champion id. This corresponds to a <see cref="StaticChampion"/> ID.
         /// </summary>
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long Id { get; set; }
 
         /// <summary>

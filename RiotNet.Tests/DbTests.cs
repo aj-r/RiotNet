@@ -40,9 +40,27 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        public void MasteryPagesDbTest()
+        {
+            VerifyDbStorage<MasteryPages>();
+        }
+
+        [Test]
         public void MatchDetailDbTest()
         {
             VerifyDbStorage<MatchDetail>();
+        }
+
+        [Test]
+        public void RankedStatsDbTest()
+        {
+            VerifyDbStorage<RankedStats>();
+        }
+
+        [Test]
+        public void RunePagesDbTest()
+        {
+            VerifyDbStorage<RunePages>();
         }
 
         [Test]
@@ -70,12 +88,6 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public void StaticMasteryDbTest()
-        {
-            VerifyDbStorage<StaticMastery>();
-        }
-
-        [Test]
         public void StaticMasteryTreeDbTest()
         {
             VerifyDbStorage<StaticMasteryTree>();
@@ -100,9 +112,9 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public void RankedStatsDbTest()
+        public void SummonerDbTest()
         {
-            VerifyDbStorage<RankedStats>();
+            VerifyDbStorage<Summoner>();
         }
 
         [Test]
@@ -113,6 +125,7 @@ namespace RiotNet.Tests
 
         private static void VerifyDbStorage<T>() where T : class
         {
+            ResetSampleValues();
             var value = Create<T>();
             var dbSetProperty = typeof(TestDbContext).GetProperties().First(p => p.PropertyType == typeof(IDbSet<T>));
             // Try to save the value to the database and make sure there are no errors.
@@ -122,13 +135,18 @@ namespace RiotNet.Tests
                 dbSet.Add(value);
                 context.SaveChanges();
             }
+
+            // Re-create the object because 'value' may have been modified by Entity Framework during SaveChanges().
+            ResetSampleValues();
+            var expectedValue = Create<T>();
+
             // Use a new context to ensure that we aren't getting cached data.
             using (var context = new TestDbContext())
             {
                 // Read the value from the database and make sure all properties are set.
                 var dbSet = (IDbSet<T>)dbSetProperty.GetValue(context);
                 var dbValue = dbSet.First();
-                AssertObjectEqualityRecursive(dbValue, value);
+                AssertObjectEqualityRecursive(dbValue, expectedValue, forDatabase: true);
             }
         }
     }

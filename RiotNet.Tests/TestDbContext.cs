@@ -25,7 +25,7 @@ namespace RiotNet.Tests
         public IDbSet<Group> Groups { get; set; }
         public IDbSet<League> Leagues { get; set; }
         public IDbSet<LeagueEntry> LeagueEntries { get; set; }
-        public IDbSet<Mastery> Masteries { get; set; }
+        public IDbSet<MasteryPages> MasteryPages { get; set; }
         public IDbSet<MatchHistorySummary> MatchHistorySummaries { get; set; }
         public IDbSet<MatchDetail> MatchDetails { get; set; }
         public IDbSet<MatchParticipant> MatchParticipants { get; set; }
@@ -37,6 +37,7 @@ namespace RiotNet.Tests
         public IDbSet<Recommended> RecommendedItemSets { get; set; }
         public IDbSet<Roster> Rosters { get; set; }
         public IDbSet<Rune> Runes { get; set; }
+        public IDbSet<RunePages> RunePages { get; set; }
         public IDbSet<Skin> Skins { get; set; }
         public IDbSet<SpellVars> SpellVars { get; set; }
         public IDbSet<StaticChampion> StaticChampions { get; set; }
@@ -51,6 +52,7 @@ namespace RiotNet.Tests
         public IDbSet<StaticRealm> StaticRealms { get; set; }
         public IDbSet<StaticRune> StaticRunes { get; set; }
         public IDbSet<StaticSummonerSpell> StaticSummonerSpells { get; set; }
+        public IDbSet<Summoner> Summoners { get; set; }
         public IDbSet<Team> Teams { get; set; }
         public IDbSet<TeamMemberInfo> TeamMemberInfos { get; set; }
         public IDbSet<TeamStatDetail> TeamStatDetails { get; set; }
