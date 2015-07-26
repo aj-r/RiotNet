@@ -704,7 +704,38 @@ namespace RiotNet
 
         #region Match List API
 
-        // TODO: implement
+        /// <summary>
+        /// Gets the currently supported version of the Match List API that the client communicates with.
+        /// </summary>
+        string MatchListApiVersion { get; }
+
+        /// <summary>
+        /// Gets the match list for a summoner.
+        /// </summary>
+        /// <param name="summonerId">The summoner's summoner IDs.</param>
+        /// <param name="championIds">Only get games where the summoner played one of these champions.</param>
+        /// <param name="rankedQueues">Only get games from these ranked queues.</param>
+        /// <param name="seasons">Only get games from these seasons.</param>
+        /// <param name="beginTime">Only get games played after this time.</param>
+        /// <param name="endTime">Only get games played before this time.</param>
+        /// <param name="beginIndex">The begin index to use for fetching games.</param>
+        /// <param name="endIndex">The end index to use for fetching games. The maximum allowed difference between beginIndex and endIndex is 20; if it is larger than 20, endIndex will be modified to satisfy this restriction.</param>
+        /// <returns>The match list for the summoner.</returns>
+        MatchList GetMatchList(long summonerId, long[] championIds = null, RankedQueue[] rankedQueues = null, Season[] seasons = null, DateTime? beginTime = null, DateTime? endTime = null, int? beginIndex = null, int? endIndex = null);
+
+        /// <summary>
+        /// Gets the match list for a summoner.
+        /// </summary>
+        /// <param name="summonerId">The summoner's summoner IDs.</param>
+        /// <param name="championIds">Only get games where the summoner played one of these champions.</param>
+        /// <param name="rankedQueues">Only get games from these ranked queues.</param>
+        /// <param name="seasons">Only get games from these seasons.</param>
+        /// <param name="beginTime">Only get games played after this time.</param>
+        /// <param name="endTime">Only get games played before this time.</param>
+        /// <param name="beginIndex">The begin index to use for fetching games.</param>
+        /// <param name="endIndex">The end index to use for fetching games. The maximum allowed difference between beginIndex and endIndex is 20; if it is larger than 20, endIndex will be modified to satisfy this restriction.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task<MatchList> GetMatchListTaskAsync(long summonerId, long[] championIds = null, RankedQueue[] rankedQueues = null, Season[] seasons = null, DateTime? beginTime = null, DateTime? endTime = null, int? beginIndex = null, int? endIndex = null);
 
         #endregion
 
