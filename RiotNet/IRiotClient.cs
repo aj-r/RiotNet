@@ -671,37 +671,6 @@ namespace RiotNet
 
         #endregion
 
-        #region Match History API
-
-        /// <summary>
-        /// Gets the currently supported version of the Match History API that the client communicates with.
-        /// </summary>
-        string MatchHistoryApiVersion { get; }
-
-        /// <summary>
-        /// Gets the match history for a summoner.
-        /// </summary>
-        /// <param name="summonerId">The summoner's summoner IDs.</param>
-        /// <param name="championIds">Only get games where the summoner played one of these champions.</param>
-        /// <param name="rankedQueues">Only get games from these ranked queues.</param>
-        /// <param name="beginIndex">The begin index to use for fetching games.</param>
-        /// <param name="endIndex">The end index to use for fetching games. The maximum allowed difference between beginIndex and endIndex; if it is larger than 15, endIndex will be modified to satisfy this restriction.</param>
-        /// <returns>The match history for the summoner.</returns>
-        PlayerHistory GetMatchHistory(long summonerId, long[] championIds = null, RankedQueue[] rankedQueues = null, int? beginIndex = null, int? endIndex = null);
-
-        /// <summary>
-        /// Gets the match history for a summoner.
-        /// </summary>
-        /// <param name="summonerId">The summoner's summoner IDs.</param>
-        /// <param name="championIds">Only get games where the summoner played one of these champions.</param>
-        /// <param name="rankedQueues">Only get games from these ranked queues.</param>
-        /// <param name="beginIndex">The begin index to use for fetching games.</param>
-        /// <param name="endIndex">The end index to use for fetching games. The maximum allowed difference between beginIndex and endIndex; if it is larger than 15, endIndex will be modified to satisfy this restriction.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        Task<PlayerHistory> GetMatchHistoryTaskAsync(long summonerId, long[] championIds = null, RankedQueue[] rankedQueues = null, int? beginIndex = null, int? endIndex = null);
-
-        #endregion
-
         #region Match List API
 
         /// <summary>

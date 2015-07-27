@@ -80,9 +80,7 @@
     <Compile Include="Models\MatchParticipantTimeline.cs" />
     <Compile Include="Models\MatchParticipantTimelineData.cs" />
     <Compile Include="Models\MatchPlayer.cs" />
-    <Compile Include="Models\MatchSummary.cs" />
     <Compile Include="Models\MatchTeam.cs" />
-    <Compile Include="Models\PlayerHistory.cs" />
     <Compile Include="Models\PlayerStatsSummary.cs" />
     <Compile Include="Models\PlayerStatsSummaryList.cs" />
     <Compile Include="Models\Position.cs" />
@@ -174,7 +172,6 @@
     <Compile Include="RiotClientLeague.cs" />
     <Compile Include="RiotClientMatch.cs" />
     <Compile Include="RiotClientMatchList.cs" />
-    <Compile Include="RiotClientMatchHistory.cs" />
     <Compile Include="RiotClientSettings.cs" />
     <Compile Include="RiotClientStaticData.cs" />
     <Compile Include="RiotClientStats.cs" />

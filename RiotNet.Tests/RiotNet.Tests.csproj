@@ -68,7 +68,6 @@
     <Compile Include="CurrentGameTests.cs" />
     <Compile Include="GameTests.cs" />
     <Compile Include="MatchListTests.cs" />
-    <Compile Include="MatchHistoryTests.cs" />
     <Compile Include="MatchTests.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
