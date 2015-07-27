@@ -14,10 +14,25 @@ namespace RiotNet.Models
     /// </summary>
     public class Mastery
     {
+        private int id;
+
         /// <summary>
-        /// Gets or sets the ID of this mastery. This corresponds to a <see cref="StaticMastery"/> ID.
+        /// Gets or sets the ID of this mastery. This corresponds to a <see cref="StaticMastery"/> ID. This is equal to <see cref="MasteryId"/>, but it is set by the Summoner API.
         /// </summary>
-        public int MasteryId { get; set; }
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets the ID of this mastery. This corresponds to a <see cref="StaticMastery"/> ID. This is equal to <see cref="Id"/>, but it is set by the Match API.
+        /// </summary>
+        public int MasteryId
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         /// <summary>
         /// Gets or sets the number of mastery points put into this mastery.

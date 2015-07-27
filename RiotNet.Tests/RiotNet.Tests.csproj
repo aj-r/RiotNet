@@ -76,6 +76,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="RiotClientTests.cs" />
+    <Compile Include="SummonerTests.cs" />
     <Compile Include="StatsTests.cs" />
     <Compile Include="StatusTests.cs" />
     <Compile Include="TeamTests.cs" />

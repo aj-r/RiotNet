@@ -50,7 +50,7 @@ namespace RiotNet
         public Summoner GetSummonerBySummonerName(String summonerName)
         {
             var summoners = GetSummonersBySummonerNames(summonerName);
-            return summoners.Values.FirstOrDefault();
+            return summoners != null ? summoners.Values.FirstOrDefault() : null;
         }
 
         /// <summary>
@@ -61,12 +61,12 @@ namespace RiotNet
         public async Task<Summoner> GetSummonerBySummonerNameTaskAsync(String summonerName)
         {
             var summoners = await GetSummonersBySummonerNamesTaskAsync(summonerName).ConfigureAwait(false);
-            return summoners.Values.FirstOrDefault();
+            return summoners != null ? summoners.Values.FirstOrDefault() : null;
         }
 
         private IRestRequest GetSummonersBySummonerIdsRequest(params long[] summonerIds)
         {
-            var request = Get("api/lol/{region}/v1.4/summoner/by-name/{summonerIds}");
+            var request = Get("api/lol/{region}/v1.4/summoner/{summonerIds}");
             request.AddUrlSegment("summonerIds", String.Join(",", summonerIds));
             return request;
         }
@@ -96,10 +96,10 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerId">The summoner ID.</param>
         /// <returns>A <see cref="Summoner"/>.</returns>
-        public Summoner GetSummonerById(long summonerId)
+        public Summoner GetSummonerBySummonerId(long summonerId)
         {
             var summoners = GetSummonersBySummonerIds(summonerId);
-            return summoners.Values.FirstOrDefault();
+            return summoners != null ? summoners.Values.FirstOrDefault() : null;
         }
 
         /// <summary>
@@ -107,10 +107,10 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerId">The summoner ID.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public async Task<Summoner> GetSummonerByIdTaskAsync(long summonerId)
+        public async Task<Summoner> GetSummonerBySummonerIdTaskAsync(long summonerId)
         {
             var summoners = await GetSummonersBySummonerIdsTaskAsync(summonerId).ConfigureAwait(false);
-            return summoners.Values.FirstOrDefault();
+            return summoners != null ? summoners.Values.FirstOrDefault() : null;
         }
 
         private IRestRequest GetSummonerMasteriesBySummonerIdsRequest(params long[] summonerIds)
@@ -152,7 +152,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs.</param>
         /// <returns>The mapping from summoner ID to summoner name.</returns>
-        public Dictionary<String, String> GetSummonerNameBySummonerIds(params long[] summonerIds)
+        public Dictionary<String, String> GetSummonerNamesBySummonerIds(params long[] summonerIds)
         {
             return Execute<Dictionary<String, String>>(GetSummonerNameBySummonerIdsRequest(summonerIds));
         }
@@ -162,7 +162,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, String>> GetSummonerNameBySummonerIdsTaskAsync(params long[] summonerIds)
+        public Task<Dictionary<String, String>> GetSummonerNamesBySummonerIdsTaskAsync(params long[] summonerIds)
         {
             return ExecuteTaskAsync<Dictionary<String, String>>(GetSummonerNameBySummonerIdsRequest(summonerIds));
         }

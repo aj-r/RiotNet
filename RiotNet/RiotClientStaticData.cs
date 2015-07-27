@@ -158,6 +158,9 @@ namespace RiotNet
         {
             var itemList = Execute<StaticItemList>(GetStaticItemsRequest(locale, version, itemListData));
 
+            if (itemList == null)
+                return null;
+
             // Add missing default values to the Maps dictionary.
             var defaultMaps = itemList.Basic.Maps;
             foreach (var item in itemList.Data.Values)
@@ -181,6 +184,9 @@ namespace RiotNet
         public async Task<StaticItemList> GetStaticItemsTaskAsync(string locale = null, string version = null, IEnumerable<string> itemListData = null)
         {
             var itemList = await ExecuteTaskAsync<StaticItemList>(GetStaticItemsRequest(locale, version, itemListData)).ConfigureAwait(false);
+
+            if (itemList == null)
+                return null;
 
             // Add missing default values to the Maps dictionary.
             var defaultMaps = itemList.Basic.Maps;
@@ -524,6 +530,9 @@ namespace RiotNet
         {
             var runeList = Execute<StaticRuneList>(GetStaticRunesRequest(locale, version, runeListData));
 
+            if (runeList == null)
+                return null;
+
             // Add missing default values to the Maps dictionary.
             var defaultMaps = runeList.Basic.Maps;
             foreach (var item in runeList.Data.Values)
@@ -547,6 +556,9 @@ namespace RiotNet
         public async Task<StaticRuneList> GetStaticRunesTaskAsync(string locale = null, string version = null, IEnumerable<string> runeListData = null)
         {
             var runeList = await ExecuteTaskAsync<StaticRuneList>(GetStaticRunesRequest(locale, version, runeListData)).ConfigureAwait(false);
+
+            if (runeList == null)
+                return null;
 
             // Add missing default values to the Maps dictionary.
             var defaultMaps = runeList.Basic.Maps;

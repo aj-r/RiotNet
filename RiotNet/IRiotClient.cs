@@ -834,14 +834,14 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerId">The summoner ID.</param>
         /// <returns>A <see cref="Summoner"/>.</returns>
-        Summoner GetSummonerById(long summonerId);
+        Summoner GetSummonerBySummonerId(long summonerId);
 
         /// <summary>
         /// Gets the summoner information for the specified summoner.
         /// </summary>
         /// <param name="summonerId">The summoner ID.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task<Summoner> GetSummonerByIdTaskAsync(long summonerId);
+        Task<Summoner> GetSummonerBySummonerIdTaskAsync(long summonerId);
 
         /// <summary>
         /// Gets the mastery pages for each summoner whose summoner ID is in summonerIds.
@@ -862,14 +862,14 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs.</param>
         /// <returns>The mapping from summoner ID to summoner name.</returns>
-        Dictionary<String, String> GetSummonerNameBySummonerIds(params long[] summonerIds);
+        Dictionary<String, String> GetSummonerNamesBySummonerIds(params long[] summonerIds);
 
         /// <summary>
         /// Gets the summoner name for each summoner whose summoner ID is in summonerIds.
         /// </summary>
         /// <param name="summonerIds">The summoner IDs.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task<Dictionary<String, String>> GetSummonerNameBySummonerIdsTaskAsync(params long[] summonerIds);
+        Task<Dictionary<String, String>> GetSummonerNamesBySummonerIdsTaskAsync(params long[] summonerIds);
 
         /// <summary>
         /// Gets the rune pages for each summoner whose summoner ID is in summonerIds.

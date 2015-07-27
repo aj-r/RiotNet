@@ -27,7 +27,8 @@ namespace RiotNet
         /// <returns>List of champion information.</returns>
         public List<Champion> GetChampions(Boolean freeToPlay = false)
         {
-            return Execute<ChampionList>(GetChampionsRequest(freeToPlay)).Champions;
+            var championList = Execute<ChampionList>(GetChampionsRequest(freeToPlay));
+            return championList != null ? championList.Champions : null;
         }
 
         /// <summary>
@@ -37,8 +38,8 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public async Task<List<Champion>> GetChampionsTaskAsync(Boolean freeToPlay = false)
         {
-            var champions = await ExecuteTaskAsync<ChampionList>(GetChampionsRequest(freeToPlay)).ConfigureAwait(false);
-            return champions.Champions;
+            var championList = await ExecuteTaskAsync<ChampionList>(GetChampionsRequest(freeToPlay)).ConfigureAwait(false);
+            return championList != null ? championList.Champions : null;
         }
 
         private IRestRequest GetChampionByIdRequest(long id)

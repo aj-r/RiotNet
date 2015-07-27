@@ -27,7 +27,7 @@ namespace RiotNet.Models
         public string Format { get; set; }
 
         /// <summary>
-        /// Gets or sets the keys.
+        /// Gets or sets the keys. This maps champion IDs to champion names.
         /// </summary>
         public Dictionary<string, string> Keys { get; set; }
     }
