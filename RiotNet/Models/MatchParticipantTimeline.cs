@@ -10,6 +10,8 @@ namespace RiotNet.Models
     {
         /// <summary>
         /// Creates a new <see cref="MatchParticipantTimeline"/> instance.
+        /// Delta fields refer to values for the specified period (e.g., the gold per minute over the first 10 minutes of the game versus the second 20 minutes of the game).
+        /// Diffs fields refer to the deltas versus the calculated lane opponent(s).
         /// </summary>
         public MatchParticipantTimeline()
         {

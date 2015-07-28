@@ -21,6 +21,21 @@ namespace RiotNet.Tests
             Assert.That(match, Is.Not.Null);
             Assert.That(match.MatchId, Is.EqualTo(matchId));
             Assert.That(match.Region, Is.EqualTo(client.Region));
+            Assert.That(match.Timeline, Is.Null);
+        }
+
+        [Test]
+        public async Task GetMatchTaskAsyncTest_WithTimeline()
+        {
+            IRiotClient client = new RiotClient();
+            const long matchId = 1883925941L;
+            var match = await client.GetMatchTaskAsync(matchId, true);
+
+            Assert.That(match, Is.Not.Null);
+            Assert.That(match.MatchId, Is.EqualTo(matchId));
+            Assert.That(match.Region, Is.EqualTo(client.Region));
+            Assert.That(match.Timeline, Is.Not.Null);
+            Assert.That(match.Timeline.Frames, Is.Not.Null.And.Not.Empty);
         }
 
         [Test]

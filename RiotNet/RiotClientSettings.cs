@@ -43,6 +43,8 @@ namespace RiotNet
         /// </summary>
         public bool RetryOnRateLimitExceeded { get; set; }
 
+         // TODO: retry on server error (>= 500)
+
         /// <summary>
         /// Gets or sets whether the client should throw an exception if an error occurred during the request (that is, the request did not complete, or it completed with a response code of 400 or higher, except for 404 errors).
         /// </summary>

@@ -48,7 +48,7 @@ namespace RiotNet
         RiotClientSettings Settings { get; }
 
         #endregion
-
+        //TODO: specify which API each method is for.
         #region Champion API
 
         /// <summary>
