@@ -18,6 +18,7 @@ namespace RiotNet
             RetryOnTimeout = false;
             RetryOnConnectionFailure = false;
             RetryOnRateLimitExceeded = true;
+            RetryOnServerError = true;
             ThrowOnError = true;
             ThrowOnNotFound = false;
             JsonFormatting = Formatting.None;
@@ -43,7 +44,13 @@ namespace RiotNet
         /// </summary>
         public bool RetryOnRateLimitExceeded { get; set; }
 
-         // TODO: retry on server error (>= 500)
+        /// <summary>
+        /// Gets or sets how the <see cref="RiotClient"/> should handle the case where server returns an error code of 500 or higher.
+        /// </summary>
+        /// <remarks>
+        /// This is true by default because it seems that the Riot Games API intermittently returns 50x response codes. This can be resolved by re-sending the request.
+        /// </remarks>
+        public bool RetryOnServerError { get; set; }
 
         /// <summary>
         /// Gets or sets whether the client should throw an exception if an error occurred during the request (that is, the request did not complete, or it completed with a response code of 400 or higher, except for 404 errors).

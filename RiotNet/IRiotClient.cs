@@ -13,26 +13,6 @@ namespace RiotNet
         #region General Members (not related to a specific API)
 
         /// <summary>
-        /// Occurs when the client executes a request when the API rate limit has been exceeded.
-        /// </summary>
-        event RetryEventHandler RateLimitExceeded;
-
-        /// <summary>
-        /// Occurs when the a request times out.
-        /// </summary>
-        event RetryEventHandler RequestTimedOut;
-
-        /// <summary>
-        /// Occurs when the client fails to connect to the server while executing a request.
-        /// </summary>
-        event RetryEventHandler ConnectionFailed;
-
-        /// <summary>
-        /// Occurs when a request fails because a resource was not found.
-        /// </summary>
-        event ResponseEventHandler ResourceNotFound;
-
-        /// <summary>
         /// Gets the region that the current <see cref="IRiotClient"/> connects to.
         /// </summary>
         Region Region { get; }
@@ -46,6 +26,31 @@ namespace RiotNet
         /// Gets the settings for the current <see cref="IRiotClient"/>.
         /// </summary>
         RiotClientSettings Settings { get; }
+
+        /// <summary>
+        /// Occurs when the a request times out.
+        /// </summary>
+        event RetryEventHandler RequestTimedOut;
+
+        /// <summary>
+        /// Occurs when the client fails to connect to the server while executing a request.
+        /// </summary>
+        event RetryEventHandler ConnectionFailed;
+
+        /// <summary>
+        /// Occurs when the client executes a request when the API rate limit has been exceeded.
+        /// </summary>
+        event RetryEventHandler RateLimitExceeded;
+
+        /// <summary>
+        /// Occurs when the server returns an error code of 500 or higher.
+        /// </summary>
+        event RetryEventHandler ServerError;
+
+        /// <summary>
+        /// Occurs when a request fails because a resource was not found.
+        /// </summary>
+        event ResponseEventHandler ResourceNotFound;
 
         #endregion
         //TODO: specify which API each method is for.

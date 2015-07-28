@@ -227,11 +227,6 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Occurs when the client executes a request when the API rate limit has been exceeded (status code 429).
-        /// </summary>
-        public event RetryEventHandler RateLimitExceeded;
-
-        /// <summary>
         /// Occurs when a request times out.
         /// </summary>
         public event RetryEventHandler RequestTimedOut;
@@ -240,6 +235,16 @@ namespace RiotNet
         /// Occurs when the client fails to connect to the server, or when an exception occurs while executing a request.
         /// </summary>
         public event RetryEventHandler ConnectionFailed;
+
+        /// <summary>
+        /// Occurs when the client executes a request when the API rate limit has been exceeded (status code 429).
+        /// </summary>
+        public event RetryEventHandler RateLimitExceeded;
+
+        /// <summary>
+        /// Occurs when the server returns an error code of 500 or higher.
+        /// </summary>
+        public event RetryEventHandler ServerError;
 
         /// <summary>
         /// Occurs when a request fails because a resource was not found (status code 404).
@@ -405,6 +410,18 @@ namespace RiotNet
                 
                 return ResponseAction.ReturnDefault;
             }
+            if (statusCode >= 500)
+            {
+                var args = new RetryEventArgs(response, attemptCount);
+                args.Retry = Settings.RetryOnServerError;
+                OnServerError(args);
+                if (args.Retry)
+                    return ResponseAction.Retry;
+                if (Settings.ThrowOnError)
+                    throw new RestException(response);
+
+                return ResponseAction.ReturnDefault;
+            }
             if (statusCode >= 400 || response.ResponseStatus != ResponseStatus.Completed)
             {
                 if (Settings.ThrowOnError)
@@ -457,6 +474,16 @@ namespace RiotNet
         {
             if (RateLimitExceeded != null)
                 RateLimitExceeded(this, e);
+        }
+
+        /// <summary>
+        /// Occurs when the server returns an error code of 500 or higher.
+        /// </summary>
+        /// <param name="e">Arguments for the event.</param>
+        protected virtual void OnServerError(RetryEventArgs e)
+        {
+            if (ServerError != null)
+                ServerError(this, e);
         }
 
         /// <summary>
