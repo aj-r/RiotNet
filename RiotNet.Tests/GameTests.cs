@@ -27,12 +27,13 @@ namespace RiotNet.Tests
             Assert.That(game.ChampionId, Is.GreaterThan(0));
             Assert.That(game.CreateDate.Kind, Is.EqualTo(DateTimeKind.Utc));
             Assert.That(game.CreateDate, Is.GreaterThan(default(DateTime)).And.LessThan(DateTime.UtcNow));
-            Assert.That(game.FellowPlayers, Is.Not.Null.And.Not.Empty);
-            var player = game.FellowPlayers.First();
+            var fellowPlayers = games.Games.Where(g => g.FellowPlayers != null).SelectMany(g => g.FellowPlayers).ToList();
+            Assert.That(fellowPlayers, Is.Not.Empty);
+            var player = fellowPlayers.First();
             Assert.That(player.ChampionId, Is.GreaterThan(0));
             Assert.That(player.SummonerId, Is.GreaterThan(0));
-            Assert.That(game.FellowPlayers.Any(p => p.TeamId == TeamSide.Team1));
-            Assert.That(game.FellowPlayers.Any(p => p.TeamId == TeamSide.Team2));
+            Assert.That(fellowPlayers.Any(p => p.TeamId == TeamSide.Team1));
+            Assert.That(fellowPlayers.Any(p => p.TeamId == TeamSide.Team2));
             Assert.That(game.GameId, Is.GreaterThan(0));
             Assert.That(game.Level, Is.GreaterThan(0));
             Assert.That(game.MapId, Is.GreaterThan(0));

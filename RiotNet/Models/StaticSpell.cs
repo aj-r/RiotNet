@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using RiotNet.Converters;
 
@@ -89,6 +90,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the name of the spell.
         /// </summary>
+        [Required]
         public string Name { get; set; }
 
         /// <summary>

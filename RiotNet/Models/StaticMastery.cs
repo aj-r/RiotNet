@@ -43,6 +43,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the name of the mastery.
         /// </summary>
+        [Required]
         public string Name { get; set; }
 
         /// <summary>

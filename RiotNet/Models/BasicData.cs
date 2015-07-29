@@ -74,6 +74,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the name of the item/rune.
         /// </summary>
+        [Required]
         public string Name { get; set; }
 
         /// <summary>

@@ -33,6 +33,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the name of the map.
         /// </summary>
+        [Required]
         public string MapName { get; set; }
 
         /// <summary>

@@ -18,6 +18,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the skin name.
         /// </summary>
+        [Required]
         public string Name { get; set; }
 
         /// <summary>
