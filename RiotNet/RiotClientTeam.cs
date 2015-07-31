@@ -26,7 +26,7 @@ namespace RiotNet
         /// <summary>
         /// Gets, for every summoner in summonerIds, the teams that summoner is on.
         /// </summary>
-        /// <param name="summonerIds">The summoner IDs.</param>
+        /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 10.</param>
         /// <returns>The mapping from summoner ID to the teams that summoner is on.</returns>
         public TeamsBySummonerIdsDictionary GetTeamsBySummonerIds(params long[] summonerIds)
         {
@@ -36,7 +36,7 @@ namespace RiotNet
         /// <summary>
         /// Gets, for every summoner in summonerIds, the teams that summoner is on.
         /// </summary>
-        /// <param name="summonerIds">The summoner IDs.</param>
+        /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<TeamsBySummonerIdsDictionary> GetTeamsBySummonerIdsTaskAsync(params long[] summonerIds)
         {
@@ -53,7 +53,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the team corresponding to each team ID.
         /// </summary>
-        /// <param name="teamIds">The team IDs.</param>
+        /// <param name="teamIds">The team IDs. The maximum allowed at once is 10.</param>
         /// <returns>The mapping from team IDs to teams.</returns>
         public TeamByTeamIdDictionary GetTeamsByTeamIds(params String[] teamIds)
         {
@@ -63,7 +63,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the team corresponding to each team ID.
         /// </summary>
-        /// <param name="teamIds">The team IDs.</param>
+        /// <param name="teamIds">The team IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<TeamByTeamIdDictionary> GetTeamsByTeamIdsTaskAsync(params String[] teamIds)
         {

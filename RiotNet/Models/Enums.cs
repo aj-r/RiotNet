@@ -310,7 +310,7 @@
         /// </summary>
         DUO_CARRY,
         /// <summary>
-        /// Jungle
+        /// Duo support
         /// </summary>
         DUO_SUPPORT
     }

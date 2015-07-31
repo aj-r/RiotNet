@@ -23,7 +23,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID.
         /// </summary>
-        /// <param name="summonerIds">The summoners' summoner IDs.</param>
+        /// <param name="summonerIds">The summoners' summoner IDs. The maximum allowed at once is 10.</param>
         /// <returns>The mapping from summoner IDs to the collection of leagues.</returns>
         public Dictionary<String, List<League>> GetLeaguesBySummonerIds(params long[] summonerIds)
         {
@@ -33,7 +33,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID.
         /// </summary>
-        /// <param name="summonerIds">The summoners' summoner IDs.</param>
+        /// <param name="summonerIds">The summoners' summoner IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Dictionary<String, List<League>>> GetLeaguesBySummonerIdsTaskAsync(params long[] summonerIds)
         {
@@ -50,7 +50,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Only includes the league entry for the specified summoner(s). Data is mapped by summoner ID.
         /// </summary>
-        /// <param name="summonerIds">The summoners' summoner IDs.</param>
+        /// <param name="summonerIds">The summoners' summoner IDs. The maximum allowed at once is 10.</param>
         /// <returns>The mapping from summoner IDs to the collection of league entries for the summoner.</returns>
         public Dictionary<String, List<League>> GetLeagueEntriesBySummonerIds(params long[] summonerIds)
         {
@@ -60,7 +60,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Only includes the league entry for the specified summoner(s). Data is mapped by summoner ID.
         /// </summary>
-        /// <param name="summonerIds">The summoners' summoner IDs.</param>
+        /// <param name="summonerIds">The summoners' summoner IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Dictionary<String, List<League>>> GetLeagueEntriesBySummonerIdsTaskAsync(params long[] summonerIds)
         {
@@ -77,7 +77,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the full league information for all leagues that the teams are in. Data is mapped by team ID.
         /// </summary>
-        /// <param name="teamIds">The teams' team IDs.</param>
+        /// <param name="teamIds">The teams' team IDs. The maximum allowed at once is 10.</param>
         /// <returns>The mapping from team IDs to the collection of leagues.</returns>
         public Dictionary<String, List<League>> GetLeaguesByTeamIds(params string[] teamIds)
         {
@@ -87,7 +87,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the full league information for all leagues that the teams are in. Data is mapped by team ID.
         /// </summary>
-        /// <param name="teamIds">The teams' team IDs.</param>
+        /// <param name="teamIds">The teams' team IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Dictionary<String, List<League>>> GetLeaguesByTeamIdsTaskAsync(params string[] teamIds)
         {
@@ -104,7 +104,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the league information for all leagues that the teams are in. Only includes the league entry for the specified team(s). Data is mapped by team ID.
         /// </summary>
-        /// <param name="teamIds">The teams' team IDs.</param>
+        /// <param name="teamIds">The teams' team IDs. The maximum allowed at once is 10.</param>
         /// <returns>The mapping from team IDs to the collection of league entries for the team.</returns>
         public Dictionary<String, List<League>> GetLeagueEntriesByTeamIds(params string[] teamIds)
         {
@@ -114,7 +114,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the league information for all leagues that the teams are in. Only includes the league entry for the specified team(s). Data is mapped by team ID.
         /// </summary>
-        /// <param name="teamIds">The teams' team IDs.</param>
+        /// <param name="teamIds">The teams' team IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Dictionary<String, List<League>>> GetLeagueEntriesByTeamIdsTaskAsync(params string[] teamIds)
         {
