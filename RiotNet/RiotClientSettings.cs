@@ -21,7 +21,6 @@ namespace RiotNet
             RetryOnServerError = true;
             ThrowOnError = true;
             ThrowOnNotFound = false;
-            JsonFormatting = Formatting.None;
         }
 
         /// <summary>
@@ -66,10 +65,5 @@ namespace RiotNet
         /// Gets or sets the maximum number of times that the same request should be attempted. Applies only if one of the RequestErrorHandling modes is set to Retry.
         /// </summary>
         public int MaxRequestAttempts { get; set; }
-
-        /// <summary>
-        /// Gets or sets the formatting to use for JSON serialization.
-        /// </summary>
-        public Formatting JsonFormatting { get; set; }
     }
 }

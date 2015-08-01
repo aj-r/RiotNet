@@ -36,9 +36,6 @@ namespace RiotNet
             using (var stringWriter = new StringWriter())
             using (var jsonTextWriter = new JsonTextWriter(stringWriter))
             {
-                jsonTextWriter.Formatting = settings.JsonFormatting;
-                jsonTextWriter.QuoteChar = '"';
-
                 var serializer = JsonSerializer.CreateDefault(RiotClient.JsonSettings);
                 serializer.Serialize(jsonTextWriter, obj);
 
