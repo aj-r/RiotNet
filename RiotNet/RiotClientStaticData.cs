@@ -42,7 +42,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the details for all champions from the static data API.
+        /// Gets the details for all champions. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
@@ -58,7 +58,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the details for all champions from the static data API.
+        /// Gets the details for all champions. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
@@ -92,7 +92,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets champion details by ID from the static data API.
+        /// Gets champion details by ID. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="id">The champion ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
@@ -108,7 +108,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets champion details by ID from the static data API.
+        /// Gets champion details by ID. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="id">The champion ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
@@ -145,7 +145,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a list of all available items from the static data API.
+        /// Gets a list of all available items. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetStaticVersions"/>.</param>
@@ -172,7 +172,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a list of all available items from the static data API.
+        /// Gets a list of all available items. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
@@ -217,7 +217,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets an item by ID from the static data API.
+        /// Gets an item by ID. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="id">The rune ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
@@ -233,7 +233,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets an item by ID from the static data API.
+        /// Gets an item by ID. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="id">The rune ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
@@ -258,7 +258,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a list of available languages from the static data API.
+        /// Gets a list of available languages. This method uses the LoL Static Data API.
         /// </summary>
         /// <returns>A list of strings that represent a language.</returns>
         /// <remarks>
@@ -270,7 +270,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a list of available languages from the static data API.
+        /// Gets a list of available languages. This method uses the LoL Static Data API.
         /// </summary>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
@@ -292,7 +292,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a list of available language strings from the static data API.
+        /// Gets a list of available language strings. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetStaticVersions"/>.</param>
@@ -306,7 +306,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a list of available language strings from the static data API.
+        /// Gets a list of available language strings. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
@@ -334,7 +334,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a list of all maps from the static data API.
+        /// Gets a list of all maps. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetStaticVersions"/>.</param>
@@ -348,7 +348,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a list of all maps from the static data API.
+        /// Gets a list of all maps. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
@@ -383,7 +383,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the details for all masteries from the static data API.
+        /// Gets the details for all masteries. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
@@ -398,7 +398,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the details for all masteries from the static data API.
+        /// Gets the details for all masteries. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
@@ -431,7 +431,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets mastery details by ID from the static data API.
+        /// Gets mastery details by ID. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="id">The mastery ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
@@ -447,7 +447,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets mastery details by ID from the static data API.
+        /// Gets mastery details by ID. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="id">The mastery ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
@@ -472,7 +472,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the realm data from the static data API.
+        /// Gets the realm data. This method uses the LoL Static Data API.
         /// </summary>
         /// <returns>The current realm data.</returns>
         /// <remarks>
@@ -484,7 +484,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the realm data from the static data API.
+        /// Gets the realm data. This method uses the LoL Static Data API.
         /// </summary>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
@@ -517,7 +517,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a list of all available runes from the static data API.
+        /// Gets a list of all available runes. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetStaticVersions"/>.</param>
@@ -544,7 +544,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a list of all available runes from the static data API.
+        /// Gets a list of all available runes. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
@@ -589,7 +589,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a rune by ID from the static data API.
+        /// Gets a rune by ID. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="id">The rune ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
@@ -605,7 +605,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a rune by ID from the static data API.
+        /// Gets a rune by ID. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="id">The rune ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
@@ -644,7 +644,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the details for all summoner spells from the static data API.
+        /// Gets the details for all summoner spells. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
@@ -660,7 +660,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the details for all summoner spells from the static data API.
+        /// Gets the details for all summoner spells. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
@@ -694,7 +694,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets summoner spell details by ID from the static data API.
+        /// Gets summoner spell details by ID. This method uses the LoL Static Data API.
         /// </summary>
         /// <param name="id">The summoner spell ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
@@ -735,7 +735,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the list of available game versions from the static data API.
+        /// Gets the list of available game versions. This method uses the LoL Static Data API.
         /// </summary>
         /// <returns>The list of versions.</returns>
         /// <remarks>
@@ -747,7 +747,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the list of available game versions from the static data API.
+        /// Gets the list of available game versions. This method uses the LoL Static Data API.
         /// </summary>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>

@@ -26,7 +26,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the details of a match (also referred to as Game ID).
+        /// Gets the details of a match (also referred to as Game ID). This method uses the Match API.
         /// </summary>
         /// <param name="matchId">The ID of the match.</param>
         /// <param name="includeTimeline">Whether or not to include the match timeline data.</param>
@@ -37,7 +37,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the details of a match (also referred to as Game ID).
+        /// Gets the details of a match (also referred to as Game ID). This method uses the Match API.
         /// </summary>
         /// <param name="matchId">The ID of the match.</param>
         /// <param name="includeTimeline">Whether or not to include the match timeline data.</param>

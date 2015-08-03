@@ -21,7 +21,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets all champion information (bot enabled, free to play, etc. Also see static champion data).
+        /// Gets dynamic champion information for all champions. This method uses the Champion API.
         /// </summary>
         /// <param name="freeToPlay">True if only requesting free to play champion information. Default is false.</param>
         /// <returns>List of champion information.</returns>
@@ -32,7 +32,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets all champion information (bot enabled, free to play, etc. Also see static champion data).
+        /// Gets dynamic champion information for all champions. This method uses the Champion API.
         /// </summary>
         /// <param name="freeToPlay">True if only requesting free to play champion information. Default is false.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
@@ -50,9 +50,9 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets chosen champion information (bot enabled, free to play, etc. Also see static champion data).
+        /// Gets dynamic champion information for the specified champion. This method uses the Champion API.
         /// </summary>
-        /// <param name="id">Champion id.</param>
+        /// <param name="id">The champion id.</param>
         /// <returns>Champion information.</returns>
         public Champion GetChampionById(long id)
         {
@@ -60,9 +60,9 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets chosen champion information (bot enabled, free to play, etc. Also see static champion data).
+        /// Gets dynamic champion information for the specified champion. This method uses the Champion API.
         /// </summary>
-        /// <param name="id">Champion id.</param>
+        /// <param name="id">The champion id.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Champion> GetChampionByIdAsync(long id)
         {

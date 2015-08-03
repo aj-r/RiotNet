@@ -35,7 +35,7 @@ namespace RiotNet
         }
         
         /// <summary>
-        /// Gets the match list for a summoner.
+        /// Gets the match list for a summoner. This method uses the Match List API.
         /// </summary>
         /// <param name="summonerId">The summoner's summoner IDs.</param>
         /// <param name="championIds">Only get games where the summoner played one of these champions.</param>
@@ -52,7 +52,7 @@ namespace RiotNet
         }
         
         /// <summary>
-        /// Gets the match list for a summoner.
+        /// Gets the match list for a summoner. This method uses the Match List API.
         /// </summary>
         /// <param name="summonerId">The summoner's summoner IDs.</param>
         /// <param name="championIds">Only get games where the summoner played one of these champions.</param>

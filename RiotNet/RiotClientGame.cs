@@ -21,7 +21,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the recent games for a summoner.
+        /// Gets the recent games for a summoner. This method uses the Game API.
         /// </summary>
         /// <param name="summonerId">The summoner's summoner ID.</param>
         /// <returns>The summoner's recent games.</returns>
@@ -31,7 +31,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the recent games for a summoner.
+        /// Gets the recent games for a summoner. This method uses the Game API.
         /// </summary>
         /// <param name="summonerId">The summoner's summoner ID.</param>
         /// <returns>A task representing the asynchronous operation.</returns>

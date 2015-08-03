@@ -24,7 +24,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets information about the current game a summoner is playing.
+        /// Gets information about the current game a summoner is playing. This method uses the Current Game API.
         /// </summary>
         /// <param name="summonerId">The summoner's summoner ID.</param>
         /// <returns>The current game information.</returns>
@@ -34,7 +34,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets information about the current game a summoner is playing.
+        /// Gets information about the current game a summoner is playing. This method uses the Current Game API.
         /// </summary>
         /// <param name="summonerId">The summoner's summoner ID.</param>
         /// <returns>A task representing the asynchronous operation.</returns>

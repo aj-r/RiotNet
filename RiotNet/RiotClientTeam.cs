@@ -24,7 +24,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets, for every summoner in summonerIds, the teams that summoner is on.
+        /// Gets, for every summoner in summonerIds, the teams that summoner is on. This method uses the Team API.
         /// </summary>
         /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 10.</param>
         /// <returns>The mapping from summoner ID to the teams that summoner is on.</returns>
@@ -34,7 +34,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets, for every summoner in summonerIds, the teams that summoner is on.
+        /// Gets, for every summoner in summonerIds, the teams that summoner is on. This method uses the Team API.
         /// </summary>
         /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
@@ -51,7 +51,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the team corresponding to each team ID.
+        /// Gets the team corresponding to each team ID. This method uses the Team API.
         /// </summary>
         /// <param name="teamIds">The team IDs. The maximum allowed at once is 10.</param>
         /// <returns>The mapping from team IDs to teams.</returns>
@@ -61,7 +61,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the team corresponding to each team ID.
+        /// Gets the team corresponding to each team ID. This method uses the Team API.
         /// </summary>
         /// <param name="teamIds">The team IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>

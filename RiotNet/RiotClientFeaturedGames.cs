@@ -21,7 +21,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the games currently featured in the League of Legends client.
+        /// Gets the games currently featured in the League of Legends client. This method uses the Featured Game API.
         /// </summary>
         /// <returns>The featured games.</returns>
         public FeaturedGames GetFeaturedGames()
@@ -30,7 +30,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the games currently featured in the League of Legends client.
+        /// Gets the games currently featured in the League of Legends client. This method uses the Featured Game API.
         /// </summary>
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<FeaturedGames> GetFeaturedGamesAsync()

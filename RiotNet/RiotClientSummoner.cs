@@ -23,7 +23,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the summoner information for each summoner whose summoner name is in summonerNames.
+        /// Gets the summoner information for each summoner whose summoner name is in summonerNames. This method uses the Summoner API.
         /// </summary>
         /// <param name="summonerNames">The summoner names. The maximum allowed at once is 40.</param>
         /// <returns>The mapping from standardized summoner name (all lowercase, spaces removed) to summoner information.</returns>
@@ -33,7 +33,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the summoner information for each summoner whose summoner name is in summonerNames.
+        /// Gets the summoner information for each summoner whose summoner name is in summonerNames. This method uses the Summoner API.
         /// </summary>
         /// <param name="summonerNames">The summoner names. The maximum allowed at once is 40.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
@@ -43,7 +43,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the summoner information for the specified summoner.
+        /// Gets the summoner information for the specified summoner. This method uses the Summoner API.
         /// </summary>
         /// <param name="summonerName">The summoner name.</param>
         /// <returns>A <see cref="Summoner"/>.</returns>
@@ -54,7 +54,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the summoner information for the specified summoner.
+        /// Gets the summoner information for the specified summoner. This method uses the Summoner API.
         /// </summary>
         /// <param name="summonerName">The summoner name.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
@@ -72,7 +72,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the summoner information for each summoner whose summoner ID is in summonerIds.
+        /// Gets the summoner information for each summoner whose summoner ID is in summonerIds. This method uses the Summoner API.
         /// </summary>
         /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
         /// <returns>The mapping from summoner ID to summoner information.</returns>
@@ -82,7 +82,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the summoner information for each summoner whose summoner ID is in summonerIds.
+        /// Gets the summoner information for each summoner whose summoner ID is in summonerIds. This method uses the Summoner API.
         /// </summary>
         /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
@@ -92,7 +92,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the summoner information for the specified summoner.
+        /// Gets the summoner information for the specified summoner. This method uses the Summoner API.
         /// </summary>
         /// <param name="summonerId">The summoner ID.</param>
         /// <returns>A <see cref="Summoner"/>.</returns>
@@ -103,7 +103,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the summoner information for the specified summoner.
+        /// Gets the summoner information for the specified summoner. This method uses the Summoner API.
         /// </summary>
         /// <param name="summonerId">The summoner ID.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
@@ -121,7 +121,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the mastery pages for each summoner whose summoner ID is in summonerIds.
+        /// Gets the mastery pages for each summoner whose summoner ID is in summonerIds. This method uses the Summoner API.
         /// </summary>
         /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
         /// <returns>The mapping from summoner ID to collection of mastery pages.</returns>
@@ -131,7 +131,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the mastery pages for each summoner whose summoner ID is in summonerIds.
+        /// Gets the mastery pages for each summoner whose summoner ID is in summonerIds. This method uses the Summoner API.
         /// </summary>
         /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
@@ -148,7 +148,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the summoner name for each summoner whose summoner ID is in summonerIds.
+        /// Gets the summoner name for each summoner whose summoner ID is in summonerIds. This method uses the Summoner API.
         /// </summary>
         /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
         /// <returns>The mapping from summoner ID to summoner name.</returns>
@@ -158,7 +158,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the summoner name for each summoner whose summoner ID is in summonerIds.
+        /// Gets the summoner name for each summoner whose summoner ID is in summonerIds. This method uses the Summoner API.
         /// </summary>
         /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
@@ -175,7 +175,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the rune pages for each summoner whose summoner ID is in summonerIds.
+        /// Gets the rune pages for each summoner whose summoner ID is in summonerIds. This method uses the Summoner API.
         /// </summary>
         /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
         /// <returns>The mapping from summoner ID to collection of rune pages.</returns>
@@ -185,7 +185,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the rune pages for each summoner whose summoner ID is in summonerIds.
+        /// Gets the rune pages for each summoner whose summoner ID is in summonerIds. This method uses the Summoner API.
         /// </summary>
         /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
         /// <returns>A task representing the asynchronous operation.</returns>

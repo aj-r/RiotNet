@@ -21,7 +21,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID.
+        /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID. This method uses the League API.
         /// </summary>
         /// <param name="summonerIds">The summoners' summoner IDs. The maximum allowed at once is 10.</param>
         /// <returns>The mapping from summoner IDs to the collection of leagues.</returns>
@@ -31,7 +31,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID.
+        /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID. This method uses the League API.
         /// </summary>
         /// <param name="summonerIds">The summoners' summoner IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
@@ -48,7 +48,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Only includes the league entry for the specified summoner(s). Data is mapped by summoner ID.
+        /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Only includes the league entry for the specified summoner(s). Data is mapped by summoner ID. This method uses the League API.
         /// </summary>
         /// <param name="summonerIds">The summoners' summoner IDs. The maximum allowed at once is 10.</param>
         /// <returns>The mapping from summoner IDs to the collection of league entries for the summoner.</returns>
@@ -58,7 +58,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Only includes the league entry for the specified summoner(s). Data is mapped by summoner ID.
+        /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Only includes the league entry for the specified summoner(s). Data is mapped by summoner ID. This method uses the League API.
         /// </summary>
         /// <param name="summonerIds">The summoners' summoner IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
@@ -75,7 +75,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the full league information for all leagues that the teams are in. Data is mapped by team ID.
+        /// Gets the full league information for all leagues that the teams are in. Data is mapped by team ID. This method uses the League API.
         /// </summary>
         /// <param name="teamIds">The teams' team IDs. The maximum allowed at once is 10.</param>
         /// <returns>The mapping from team IDs to the collection of leagues.</returns>
@@ -85,7 +85,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the full league information for all leagues that the teams are in. Data is mapped by team ID.
+        /// Gets the full league information for all leagues that the teams are in. Data is mapped by team ID. This method uses the League API.
         /// </summary>
         /// <param name="teamIds">The teams' team IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
@@ -102,7 +102,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the league information for all leagues that the teams are in. Only includes the league entry for the specified team(s). Data is mapped by team ID.
+        /// Gets the league information for all leagues that the teams are in. Only includes the league entry for the specified team(s). Data is mapped by team ID. This method uses the League API.
         /// </summary>
         /// <param name="teamIds">The teams' team IDs. The maximum allowed at once is 10.</param>
         /// <returns>The mapping from team IDs to the collection of league entries for the team.</returns>
@@ -112,7 +112,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the league information for all leagues that the teams are in. Only includes the league entry for the specified team(s). Data is mapped by team ID.
+        /// Gets the league information for all leagues that the teams are in. Only includes the league entry for the specified team(s). Data is mapped by team ID. This method uses the League API.
         /// </summary>
         /// <param name="teamIds">The teams' team IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
@@ -129,7 +129,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the challenger league.
+        /// Gets the challenger league. This method uses the League API.
         /// </summary>
         /// <param name="type">The queue type.</param>
         /// <returns>The challenger league.</returns>
@@ -139,7 +139,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the challenger league.
+        /// Gets the challenger league. This method uses the League API.
         /// </summary>
         /// <param name="type">The queue type.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
@@ -156,7 +156,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the master league.
+        /// Gets the master league. This method uses the League API.
         /// </summary>
         /// <param name="type">The queue type.</param>
         /// <returns>The master league.</returns>
@@ -166,7 +166,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the master league.
+        /// Gets the master league. This method uses the League API.
         /// </summary>
         /// <param name="type">The queue type.</param>
         /// <returns>A task representing the asynchronous operation.</returns>

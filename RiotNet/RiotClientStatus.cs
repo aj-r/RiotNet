@@ -25,7 +25,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the list of shards for all reagions.
+        /// Gets the list of shards for all reagions. This method uses the LoL Status API.
         /// </summary>
         /// <returns>The shards.</returns>
         /// <remarks>
@@ -37,7 +37,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the list of shards for all reagions.
+        /// Gets the list of shards for all reagions. This method uses the LoL Status API.
         /// </summary>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
@@ -59,7 +59,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the status of the shard for the current region.
+        /// Gets the status of the shard for the current region. This method uses the LoL Status API.
         /// </summary>
         /// <returns>The shard's status.</returns>
         public ShardStatus GetShardStatus()
@@ -68,7 +68,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the status of the shard for the current region.
+        /// Gets the status of the shard for the current region. This method uses the LoL Status API.
         /// </summary>
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<ShardStatus> GetShardStatusAsync()

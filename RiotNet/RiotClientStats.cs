@@ -23,7 +23,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the ranked stats for a summoner. Includes ranked stats for Summoner's Rift and Twisted Treeline.
+        /// Gets the ranked stats for a summoner. Includes ranked stats for Summoner's Rift and Twisted Treeline. This method uses the Stats API.
         /// </summary>
         /// <param name="summonerId">The summoner's summoner IDs.</param>
         /// <param name="season">The season to get ranked stats for. If unspecified, stats for the current season are returned.</param>
@@ -34,7 +34,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the ranked stats for a summoner. Includes ranked stats for Summoner's Rift and Twisted Treeline.
+        /// Gets the ranked stats for a summoner. Includes ranked stats for Summoner's Rift and Twisted Treeline. This method uses the Stats API.
         /// </summary>
         /// <param name="summonerId">The summoner's summoner IDs.</param>
         /// <param name="season">The season to get ranked stats for. If unspecified, stats for the current season are returned.</param>
@@ -54,7 +54,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets aggregated stats for a summoner.
+        /// Gets aggregated stats for a summoner. This method uses the Stats API.
         /// </summary>
         /// <param name="summonerId">The summoner's summoner IDs.</param>
         /// <param name="season">The season to get stats for. If unspecified, stats for the current season are returned.</param>
@@ -65,7 +65,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets aggregated stats for a summoner.
+        /// Gets aggregated stats for a summoner. This method uses the Stats API.
         /// </summary>
         /// <param name="summonerId">The summoner's summoner IDs.</param>
         /// <param name="season">The season to get stats for. If unspecified, stats for the current season are returned.</param>
