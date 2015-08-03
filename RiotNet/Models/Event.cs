@@ -40,7 +40,7 @@ namespace RiotNet.Models
         public BuildingType? BuildingType { get; set; }
 
         /// <summary>
-        /// Gets or sets the creator ID of the event. Only present if relevant.
+        /// Gets or sets the participant ID of the participant who created the object. Only present if relevant.
         /// </summary>
         public int? CreatorId { get; set; }
 
@@ -65,7 +65,7 @@ namespace RiotNet.Models
         public int? ItemId { get; set; }
 
         /// <summary>
-        /// Gets or sets the killer ID of the event. Only present if relevant. Killer ID 0 indicates a minion.
+        /// Gets or sets the participant ID of the killer. Only present if relevant. Killer ID 0 indicates a minion.
         /// </summary>
         public int? KillerId { get; set; }
 
@@ -121,7 +121,7 @@ namespace RiotNet.Models
         public TowerType? TowerType { get; set; }
 
         /// <summary>
-        /// Gets or sets the victim ID of the event. Only present if relevant.
+        /// Gets or sets the participant ID of the victiom of the event. Only present if relevant.
         /// </summary>
         public int? VictimId { get; set; }
 
