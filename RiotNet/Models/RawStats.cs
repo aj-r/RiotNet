@@ -33,12 +33,12 @@ namespace RiotNet.Models
         public int CombatPlayerScore { get; set; }
 
         /// <summary>
-        /// (TODO) Don't know, stat does not appear to be used.
+        /// This stat appears to be unused. It may have been used for a special game mode.
         /// </summary>
         public int ConsumablesPurchased { get; set; }
 
         /// <summary>
-        /// (TODO) Don't know, stat does not appear to be used.
+        /// This stat appears to be unused. It may have been used for a special game mode.
         /// </summary>
         public int DamageDealtPlayer { get; set; }
 
@@ -53,7 +53,7 @@ namespace RiotNet.Models
         public int FirstBlood { get; set; }
 
         /// <summary>
-        /// (TODO) Don't know, stat does not appear to be used.
+        /// This stat appears to be unused. It may have been used for a special game mode.
         /// </summary>
         public int Gold { get; set; }
 
@@ -103,7 +103,7 @@ namespace RiotNet.Models
         public int Item6 { get; set; }
 
         /// <summary>
-        /// (TODO) Don't know, stat does not appear to be used.
+        /// This stat appears to be unused. It may have been used for a special game mode.
         /// </summary>
         public int ItemsPurchased { get; set; }
 
@@ -153,7 +153,7 @@ namespace RiotNet.Models
         public int MagicDamageTaken { get; set; }
 
         /// <summary>
-        /// (TODO) Don't know, stat does not appear to be used.
+        /// This stat appears to be unused. It may have been used for a special game mode.
         /// </summary>
         public int MinionsDenied { get; set; }
 
@@ -208,7 +208,7 @@ namespace RiotNet.Models
         public int NumDeaths { get; set; }
 
         /// <summary>
-        /// (TODO) Don't know, stat does not appear to be used.
+        /// This stat appears to be unused. It may have been used for a special game mode.
         /// </summary>
         public int NumItemsBought { get; set; }
 
@@ -288,7 +288,7 @@ namespace RiotNet.Models
         public int SummonSpell2Cast { get; set; }
 
         /// <summary>
-        /// (TODO) Don't know, stat does not appear to be used.
+        /// This stat appears to be unused. It may have been used for a special game mode.
         /// </summary>
         public int SuperMonsterKilled { get; set; }
 
@@ -378,7 +378,7 @@ namespace RiotNet.Models
         public int UnrealKills { get; set; }
 
         /// <summary>
-        /// (TODO) Don't know, stat does not appear to be used. Possibly in some special game modes.
+        /// This stat appears to be unused. It may have been used for a special game mode.
         /// </summary>
         public int VictoryPointTotal { get; set; }
 
