@@ -40,7 +40,7 @@ namespace RiotNet.Converters
                 case JsonToken.String:
                     GameSubType t;
                     var stringValue = (string)reader.Value;
-                    if (Enum.TryParse(stringValue, out t))
+                    if (Enum.TryParse(stringValue, true, out t))
                         return t;
                     // The stats API uses the same values for this enum but with slightly different names. Map those names here.
                     switch (stringValue)
@@ -91,6 +91,8 @@ namespace RiotNet.Converters
                             return GameSubType.URF;
                         case "URFBots":
                             return GameSubType.URF_BOT;
+                        case "Bilgewater":
+                            return GameSubType.BILGEWATER;
                     }
                     throw new JsonException("'" + stringValue + "' is not a valid GameSubType.");
                 default:
