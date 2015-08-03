@@ -37,9 +37,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerNames">The summoner names. The maximum allowed at once is 40.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, Summoner>> GetSummonersBySummonerNamesTaskAsync(params String[] summonerNames)
+        public Task<Dictionary<String, Summoner>> GetSummonersBySummonerNamesAsync(params String[] summonerNames)
         {
-            return ExecuteTaskAsync<Dictionary<String, Summoner>>(GetSummonersBySummonerNamesRequest(summonerNames));
+            return ExecuteAsync<Dictionary<String, Summoner>>(GetSummonersBySummonerNamesRequest(summonerNames));
         }
 
         /// <summary>
@@ -58,9 +58,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerName">The summoner name.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public async Task<Summoner> GetSummonerBySummonerNameTaskAsync(String summonerName)
+        public async Task<Summoner> GetSummonerBySummonerNameAsync(String summonerName)
         {
-            var summoners = await GetSummonersBySummonerNamesTaskAsync(summonerName).ConfigureAwait(false);
+            var summoners = await GetSummonersBySummonerNamesAsync(summonerName).ConfigureAwait(false);
             return summoners != null ? summoners.Values.FirstOrDefault() : null;
         }
 
@@ -86,9 +86,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, Summoner>> GetSummonersBySummonerIdsTaskAsync(params long[] summonerIds)
+        public Task<Dictionary<String, Summoner>> GetSummonersBySummonerIdsAsync(params long[] summonerIds)
         {
-            return ExecuteTaskAsync<Dictionary<String, Summoner>>(GetSummonersBySummonerIdsRequest(summonerIds));
+            return ExecuteAsync<Dictionary<String, Summoner>>(GetSummonersBySummonerIdsRequest(summonerIds));
         }
 
         /// <summary>
@@ -107,9 +107,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerId">The summoner ID.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public async Task<Summoner> GetSummonerBySummonerIdTaskAsync(long summonerId)
+        public async Task<Summoner> GetSummonerBySummonerIdAsync(long summonerId)
         {
-            var summoners = await GetSummonersBySummonerIdsTaskAsync(summonerId).ConfigureAwait(false);
+            var summoners = await GetSummonersBySummonerIdsAsync(summonerId).ConfigureAwait(false);
             return summoners != null ? summoners.Values.FirstOrDefault() : null;
         }
 
@@ -135,9 +135,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, MasteryPages>> GetSummonerMasteriesBySummonerIdsTaskAsync(params long[] summonerIds)
+        public Task<Dictionary<String, MasteryPages>> GetSummonerMasteriesBySummonerIdsAsync(params long[] summonerIds)
         {
-            return ExecuteTaskAsync<Dictionary<String, MasteryPages>>(GetSummonerMasteriesBySummonerIdsRequest(summonerIds));
+            return ExecuteAsync<Dictionary<String, MasteryPages>>(GetSummonerMasteriesBySummonerIdsRequest(summonerIds));
         }
 
         private IRestRequest GetSummonerNameBySummonerIdsRequest(params long[] summonerIds)
@@ -162,9 +162,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, String>> GetSummonerNamesBySummonerIdsTaskAsync(params long[] summonerIds)
+        public Task<Dictionary<String, String>> GetSummonerNamesBySummonerIdsAsync(params long[] summonerIds)
         {
-            return ExecuteTaskAsync<Dictionary<String, String>>(GetSummonerNameBySummonerIdsRequest(summonerIds));
+            return ExecuteAsync<Dictionary<String, String>>(GetSummonerNameBySummonerIdsRequest(summonerIds));
         }
 
         private IRestRequest GetSummonerRunesBySummonerIdsRequest(params long[] summonerIds)
@@ -189,9 +189,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, RunePages>> GetSummonerRunesBySummonerIdsTaskAsync(params long[] summonerIds)
+        public Task<Dictionary<String, RunePages>> GetSummonerRunesBySummonerIdsAsync(params long[] summonerIds)
         {
-            return ExecuteTaskAsync<Dictionary<String, RunePages>>(GetSummonerRunesBySummonerIdsRequest(summonerIds));
+            return ExecuteAsync<Dictionary<String, RunePages>>(GetSummonerRunesBySummonerIdsRequest(summonerIds));
         }
     }
 }

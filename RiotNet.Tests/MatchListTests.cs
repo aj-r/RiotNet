@@ -12,10 +12,10 @@ namespace RiotNet.Tests
     public class MatchListTests : TestBase
     {
         [Test]
-        public async Task GetMatchListTaskAsyncTest()
+        public async Task GetMatchListAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var matchList = await client.GetMatchListTaskAsync(35870943L, beginIndex: 1, endIndex: 3);
+            var matchList = await client.GetMatchListAsync(35870943L, beginIndex: 1, endIndex: 3);
 
             Assert.That(matchList, Is.Not.Null);
             Assert.That(matchList.Matches, Is.Not.Null.And.Not.Empty);
@@ -29,13 +29,13 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetMatchListTaskAsyncTest_WithFilters()
+        public async Task GetMatchListAsyncTest_WithFilters()
         {
             IRiotClient client = new RiotClient();
             var championIds = new[] { 113L, 154L }; // Sejuani, Zac
             var rankedQueues = new[] { RankedQueue.RANKED_TEAM_3x3, RankedQueue.RANKED_TEAM_5x5 };
             var seasons = new[] { Season.PRESEASON2015, Season.SEASON2015 };
-            var matchList = await client.GetMatchListTaskAsync(35870943L, championIds, rankedQueues, seasons);
+            var matchList = await client.GetMatchListAsync(35870943L, championIds, rankedQueues, seasons);
 
             Assert.That(matchList, Is.Not.Null);
             Assert.That(matchList.Matches, Is.Not.Null.And.Not.Empty);
@@ -45,13 +45,13 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetMatchListTaskAsyncTest_WithDateFilters()
+        public async Task GetMatchListAsyncTest_WithDateFilters()
         {
             // Note: this test currently fails, but it appears to be a bug in Riot's API.
             IRiotClient client = new RiotClient();
             var beginTime = new DateTime(2015, 6, 1, 0, 0, 0, DateTimeKind.Utc);
             var endTime = new DateTime(2015, 7, 1, 0, 0, 0, DateTimeKind.Utc);
-            var matchList = await client.GetMatchListTaskAsync(35870943L, beginTime: beginTime, endTime: endTime);
+            var matchList = await client.GetMatchListAsync(35870943L, beginTime: beginTime, endTime: endTime);
 
             Assert.That(matchList, Is.Not.Null);
             Assert.That(matchList.Matches, Is.Not.Null.And.Not.Empty);

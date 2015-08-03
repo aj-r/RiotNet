@@ -18,7 +18,7 @@ namespace RiotNet.Tests
             client.Settings.ThrowOnError = true;
             for (var i = 0; i < 11; ++i)
             {
-                var league = await client.GetMasterLeagueTaskAsync(RankedQueue.RANKED_SOLO_5x5);
+                var league = await client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
                 Assert.That(league, Is.Not.Null);
             }
         }
@@ -45,7 +45,7 @@ namespace RiotNet.Tests
             client.Settings.RetryOnRateLimitExceeded = false;
             client.Settings.ThrowOnError = true;
             for (var i = 0; i < 11; ++i)
-                await client.GetMasterLeagueTaskAsync(RankedQueue.RANKED_SOLO_5x5);
+                await client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
         }
 
         [Test]
@@ -66,9 +66,9 @@ namespace RiotNet.Tests
             client.Settings.RetryOnRateLimitExceeded = false;
             client.Settings.ThrowOnError = false;
             for (var i = 0; i < 11; ++i)
-                await client.GetMasterLeagueTaskAsync(RankedQueue.RANKED_SOLO_5x5);
+                await client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
 
-            var league = await client.GetMasterLeagueTaskAsync(RankedQueue.RANKED_SOLO_5x5);
+            var league = await client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
 
             Assert.That(league, Is.Null);
         }

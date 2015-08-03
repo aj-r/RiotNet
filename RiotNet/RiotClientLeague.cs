@@ -35,9 +35,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoners' summoner IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, List<League>>> GetLeaguesBySummonerIdsTaskAsync(params long[] summonerIds)
+        public Task<Dictionary<String, List<League>>> GetLeaguesBySummonerIdsAsync(params long[] summonerIds)
         {
-            return ExecuteTaskAsync<Dictionary<String, List<League>>>(GetLeaguesBySummonerIdsRequest(summonerIds));
+            return ExecuteAsync<Dictionary<String, List<League>>>(GetLeaguesBySummonerIdsRequest(summonerIds));
         }
 
         private IRestRequest GetLeagueEntriesBySummonerIdsRequest(params long[] summonerIds)
@@ -62,9 +62,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoners' summoner IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, List<League>>> GetLeagueEntriesBySummonerIdsTaskAsync(params long[] summonerIds)
+        public Task<Dictionary<String, List<League>>> GetLeagueEntriesBySummonerIdsAsync(params long[] summonerIds)
         {
-            return ExecuteTaskAsync<Dictionary<String, List<League>>>(GetLeagueEntriesBySummonerIdsRequest(summonerIds));
+            return ExecuteAsync<Dictionary<String, List<League>>>(GetLeagueEntriesBySummonerIdsRequest(summonerIds));
         }
 
         private IRestRequest GetLeaguesByTeamIdsRequest(params string[] teamIds)
@@ -89,9 +89,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="teamIds">The teams' team IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, List<League>>> GetLeaguesByTeamIdsTaskAsync(params string[] teamIds)
+        public Task<Dictionary<String, List<League>>> GetLeaguesByTeamIdsAsync(params string[] teamIds)
         {
-            return ExecuteTaskAsync<Dictionary<String, List<League>>>(GetLeaguesByTeamIdsRequest(teamIds));
+            return ExecuteAsync<Dictionary<String, List<League>>>(GetLeaguesByTeamIdsRequest(teamIds));
         }
 
         private IRestRequest GetLeagueEntriesByTeamIdsRequest(params string[] teamIds)
@@ -116,9 +116,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="teamIds">The teams' team IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, List<League>>> GetLeagueEntriesByTeamIdsTaskAsync(params string[] teamIds)
+        public Task<Dictionary<String, List<League>>> GetLeagueEntriesByTeamIdsAsync(params string[] teamIds)
         {
-            return ExecuteTaskAsync<Dictionary<String, List<League>>>(GetLeagueEntriesByTeamIdsRequest(teamIds));
+            return ExecuteAsync<Dictionary<String, List<League>>>(GetLeagueEntriesByTeamIdsRequest(teamIds));
         }
 
         private IRestRequest GetChallengerLeagueRequest(RankedQueue type)
@@ -143,9 +143,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="type">The queue type.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<League> GetChallengerLeagueTaskAsync(RankedQueue type)
+        public Task<League> GetChallengerLeagueAsync(RankedQueue type)
         {
-            return ExecuteTaskAsync<League>(GetChallengerLeagueRequest(type));
+            return ExecuteAsync<League>(GetChallengerLeagueRequest(type));
         }
 
         private IRestRequest GetMasterLeagueRequest(RankedQueue type)
@@ -170,9 +170,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="type">The queue type.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<League> GetMasterLeagueTaskAsync(RankedQueue type)
+        public Task<League> GetMasterLeagueAsync(RankedQueue type)
         {
-            return ExecuteTaskAsync<League>(GetMasterLeagueRequest(type));
+            return ExecuteAsync<League>(GetMasterLeagueRequest(type));
         }
     }
 }

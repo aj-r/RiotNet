@@ -14,7 +14,7 @@ namespace RiotNet.Tests
         public async Task GetFeaturedGamesAsyncTaskTest()
         {
             IRiotClient client = new RiotClient();
-            var featuredGameList = await client.GetFeaturedGamesTaskAsync();
+            var featuredGameList = await client.GetFeaturedGamesAsync();
 
             Assert.That(featuredGameList, Is.Not.Null);
             Assert.That(featuredGameList.ClientRefreshInterval, Is.GreaterThan(0));

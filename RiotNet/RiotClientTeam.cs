@@ -38,9 +38,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<TeamsBySummonerIdsDictionary> GetTeamsBySummonerIdsTaskAsync(params long[] summonerIds)
+        public Task<TeamsBySummonerIdsDictionary> GetTeamsBySummonerIdsAsync(params long[] summonerIds)
         {
-            return ExecuteTaskAsync<TeamsBySummonerIdsDictionary>(GetTeamsBySummonerIdsRequest(summonerIds));
+            return ExecuteAsync<TeamsBySummonerIdsDictionary>(GetTeamsBySummonerIdsRequest(summonerIds));
         }
 
         private IRestRequest GetTeamsByTeamIdsRequest(params String[] teamIds)
@@ -65,9 +65,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="teamIds">The team IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<TeamByTeamIdDictionary> GetTeamsByTeamIdsTaskAsync(params String[] teamIds)
+        public Task<TeamByTeamIdDictionary> GetTeamsByTeamIdsAsync(params String[] teamIds)
         {
-            return ExecuteTaskAsync<TeamByTeamIdDictionary>(GetTeamsByTeamIdsRequest(teamIds));
+            return ExecuteAsync<TeamByTeamIdDictionary>(GetTeamsByTeamIdsRequest(teamIds));
         }
     }
 }

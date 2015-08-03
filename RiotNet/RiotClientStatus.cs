@@ -43,9 +43,9 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<List<Shard>> GetShardsTaskAsync()
+        public Task<List<Shard>> GetShardsAsync()
         {
-            return ExecuteTaskAsync<List<Shard>>(GetShardsRequest(), statusClient);
+            return ExecuteAsync<List<Shard>>(GetShardsRequest(), statusClient);
         }
 
         private IRestRequest GetShardStatusRequest()
@@ -71,9 +71,9 @@ namespace RiotNet
         /// Gets the status of the shard for the current region.
         /// </summary>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<ShardStatus> GetShardStatusTaskAsync()
+        public Task<ShardStatus> GetShardStatusAsync()
         {
-            return ExecuteTaskAsync<ShardStatus>(GetShardStatusRequest(), statusClient);
+            return ExecuteAsync<ShardStatus>(GetShardStatusRequest(), statusClient);
         }
     }
 }

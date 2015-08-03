@@ -36,9 +36,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="freeToPlay">True if only requesting free to play champion information. Default is false.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public async Task<List<Champion>> GetChampionsTaskAsync(Boolean freeToPlay = false)
+        public async Task<List<Champion>> GetChampionsAsync(Boolean freeToPlay = false)
         {
-            var championList = await ExecuteTaskAsync<ChampionList>(GetChampionsRequest(freeToPlay)).ConfigureAwait(false);
+            var championList = await ExecuteAsync<ChampionList>(GetChampionsRequest(freeToPlay)).ConfigureAwait(false);
             return championList != null ? championList.Champions : null;
         }
 
@@ -64,9 +64,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="id">Champion id.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Champion> GetChampionByIdTaskAsync(long id)
+        public Task<Champion> GetChampionByIdAsync(long id)
         {
-            return ExecuteTaskAsync<Champion>(GetChampionByIdRequest(id));
+            return ExecuteAsync<Champion>(GetChampionByIdRequest(id));
         }
     }
 }

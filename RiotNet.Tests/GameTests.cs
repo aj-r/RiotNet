@@ -13,11 +13,11 @@ namespace RiotNet.Tests
     public class GameTests : TestBase
     {
         [Test]
-        public async Task GetGamesBySummonerIdTaskAsyncTests()
+        public async Task GetGamesBySummonerIdAsyncTests()
         {
             IRiotClient client = new RiotClient();
             var summonerId = 35870943;
-            var games = await client.GetGamesBySummonerIdTaskAsync(summonerId);
+            var games = await client.GetGamesBySummonerIdAsync(summonerId);
 
             Assert.That(games, Is.Not.Null);
             Assert.That(games.Games, Is.Not.Null.And.Not.Empty);

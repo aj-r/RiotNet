@@ -318,9 +318,9 @@ namespace RiotNet
         /// <typeparam name="T">The type of data to expect in the response.</typeparam>
         /// <param name="request">The request to execute.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        protected Task<T> ExecuteTaskAsync<T>(IRestRequest request) where T : new()
+        protected Task<T> ExecuteAsync<T>(IRestRequest request) where T : new()
         {
-            return ExecuteTaskAsync<T>(request, client);
+            return ExecuteAsync<T>(request, client);
         }
 
         /// <summary>
@@ -330,7 +330,7 @@ namespace RiotNet
         /// <param name="request">The request to execute.</param>
         /// <param name="client">The client to use when executing the request.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        protected virtual async Task<T> ExecuteTaskAsync<T>(IRestRequest request, IRestClient client) where T : new()
+        protected virtual async Task<T> ExecuteAsync<T>(IRestRequest request, IRestClient client) where T : new()
         {
             var attemptCount = 0;
             do

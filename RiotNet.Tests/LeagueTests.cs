@@ -13,11 +13,11 @@ namespace RiotNet.Tests
     public class LeagueTests : TestBase
     {
         [Test]
-        public async Task GetLeaguesBySummonerIdsTaskAsyncTest()
+        public async Task GetLeaguesBySummonerIdsAsyncTest()
         {
             IRiotClient client = new RiotClient();
             var summonerIds = new[] { 35870943L, 34317083L };
-            var leagues = await client.GetLeaguesBySummonerIdsTaskAsync(summonerIds);
+            var leagues = await client.GetLeaguesBySummonerIdsAsync(summonerIds);
 
             Assert.That(leagues, Is.Not.Null);
             foreach (var id in summonerIds)
@@ -28,11 +28,11 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetLeagueEntriesBySummonerIdsTaskAsyncTest()
+        public async Task GetLeagueEntriesBySummonerIdsAsyncTest()
         {
             IRiotClient client = new RiotClient();
             var summonerIds = new[] { 35870943L, 34317083L };
-            var leagues = await client.GetLeagueEntriesBySummonerIdsTaskAsync(summonerIds);
+            var leagues = await client.GetLeagueEntriesBySummonerIdsAsync(summonerIds);
 
             Assert.That(leagues, Is.Not.Null);
             foreach (var id in summonerIds)
@@ -43,11 +43,11 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetLeaguesByTeamIdsTaskAsyncTest()
+        public async Task GetLeaguesByTeamIdsAsyncTest()
         {
             IRiotClient client = new RiotClient();
             var teamIds = new[] { "TEAM-3503e740-b492-11e3-809d-782bcb4d0bb2", "TEAM-2a88df50-da0d-11e3-b43f-782bcb4d1861" };
-            var leagues = await client.GetLeaguesByTeamIdsTaskAsync(teamIds);
+            var leagues = await client.GetLeaguesByTeamIdsAsync(teamIds);
 
             Assert.That(leagues, Is.Not.Null);
             foreach (var id in teamIds)
@@ -58,11 +58,11 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetLeagueEntriesByTeamIdsTaskAsyncTest()
+        public async Task GetLeagueEntriesByTeamIdsAsyncTest()
         {
             IRiotClient client = new RiotClient();
             var teamIds = new[] { "TEAM-3503e740-b492-11e3-809d-782bcb4d0bb2", "TEAM-2a88df50-da0d-11e3-b43f-782bcb4d1861" };
-            var leagues = await client.GetLeagueEntriesByTeamIdsTaskAsync(teamIds);
+            var leagues = await client.GetLeagueEntriesByTeamIdsAsync(teamIds);
 
             Assert.That(leagues, Is.Not.Null);
             foreach (var id in teamIds)
@@ -73,10 +73,10 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetChallengerLeagueTaskAsyncTest()
+        public async Task GetChallengerLeagueAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var league = await client.GetChallengerLeagueTaskAsync(RankedQueue.RANKED_SOLO_5x5);
+            var league = await client.GetChallengerLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
 
             Assert.That(league, Is.Not.Null);
             Assert.That(league.Entries.Count, Is.GreaterThan(1));
@@ -86,10 +86,10 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetMasterLeagueTaskAsyncTest()
+        public async Task GetMasterLeagueAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var league = await client.GetMasterLeagueTaskAsync(RankedQueue.RANKED_TEAM_3x3);
+            var league = await client.GetMasterLeagueAsync(RankedQueue.RANKED_TEAM_3x3);
 
             Assert.That(league, Is.Not.Null);
             Assert.That(league.Entries.Count, Is.GreaterThan(1));

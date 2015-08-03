@@ -13,10 +13,10 @@ namespace RiotNet.Tests
     public class StatsTests : TestBase
     {
         [Test]
-        public async Task GetRankedStatsTaskAsyncTest()
+        public async Task GetRankedStatsAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var stats = await client.GetRankedStatsTaskAsync(35870943L);
+            var stats = await client.GetRankedStatsAsync(35870943L);
 
             Assert.That(stats, Is.Not.Null);
             Assert.That(stats.Champions, Is.Not.Null.And.Not.Empty);
@@ -28,10 +28,10 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetRankedStatsTaskAsyncTest_WithSeason()
+        public async Task GetRankedStatsAsyncTest_WithSeason()
         {
             IRiotClient client = new RiotClient();
-            var stats = await client.GetRankedStatsTaskAsync(35870943L, Season.SEASON2014);
+            var stats = await client.GetRankedStatsAsync(35870943L, Season.SEASON2014);
 
             Assert.That(stats, Is.Not.Null);
             Assert.That(stats.Champions, Is.Not.Null.And.Not.Empty);
@@ -49,10 +49,10 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetStatsSummaryTaskAsyncTest()
+        public async Task GetStatsSummaryAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var stats = await client.GetStatsSummaryTaskAsync(35870943L);
+            var stats = await client.GetStatsSummaryAsync(35870943L);
 
             Assert.That(stats, Is.Not.Null);
             Assert.That(stats.PlayerStatSummaries, Is.Not.Null.And.Not.Empty);
@@ -60,10 +60,10 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetStatsSummaryTaskAsyncTest_WithSeason()
+        public async Task GetStatsSummaryAsyncTest_WithSeason()
         {
             IRiotClient client = new RiotClient();
-            var stats = await client.GetStatsSummaryTaskAsync(35870943L, Season.SEASON2014);
+            var stats = await client.GetStatsSummaryAsync(35870943L, Season.SEASON2014);
 
             Assert.That(stats, Is.Not.Null);
             Assert.That(stats.PlayerStatSummaries, Is.Not.Null.And.Not.Empty);

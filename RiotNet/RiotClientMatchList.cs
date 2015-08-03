@@ -63,9 +63,9 @@ namespace RiotNet
         /// <param name="beginIndex">The begin index to use for fetching games.</param>
         /// <param name="endIndex">The end index to use for fetching games. The maximum allowed difference between beginIndex and endIndex is 20; if it is larger than 20, endIndex will be modified to satisfy this restriction.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<MatchList> GetMatchListTaskAsync(long summonerId, long[] championIds = null, RankedQueue[] rankedQueues = null, Season[] seasons = null, DateTime? beginTime = null, DateTime? endTime = null, int? beginIndex = null, int? endIndex = null)
+        public Task<MatchList> GetMatchListAsync(long summonerId, long[] championIds = null, RankedQueue[] rankedQueues = null, Season[] seasons = null, DateTime? beginTime = null, DateTime? endTime = null, int? beginIndex = null, int? endIndex = null)
         {
-            return ExecuteTaskAsync<MatchList>(GetMatchListRequest(summonerId, championIds, rankedQueues, seasons, beginTime, endTime, beginIndex, endIndex));
+            return ExecuteAsync<MatchList>(GetMatchListRequest(summonerId, championIds, rankedQueues, seasons, beginTime, endTime, beginIndex, endIndex));
         }
     }
 }

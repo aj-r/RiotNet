@@ -13,10 +13,10 @@ namespace RiotNet.Tests
     public class StatusTests : TestBase
     {
         [Test]
-        public async Task GetShardsTaskAsyncTest()
+        public async Task GetShardsAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var shards = await client.GetShardsTaskAsync();
+            var shards = await client.GetShardsAsync();
 
             Assert.That(shards, Is.Not.Null.And.Not.Empty);
             var shard = shards.First();
@@ -24,10 +24,10 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetShardStatusTaskAsyncTest()
+        public async Task GetShardStatusAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var shard = await client.GetShardStatusTaskAsync();
+            var shard = await client.GetShardStatusAsync();
 
             Assert.That(shard, Is.Not.Null);
             Assert.That(shard.Name, Is.Not.Null.And.Not.Empty);

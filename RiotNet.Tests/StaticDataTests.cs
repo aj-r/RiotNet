@@ -16,10 +16,10 @@ namespace RiotNet.Tests
         #region Champions
 
         [Test]
-        public async Task GetStaticChampionsTaskAsyncTest()
+        public async Task GetStaticChampionsAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var championList = await client.GetStaticChampionsTaskAsync(champListData: new[] { "all" });
+            var championList = await client.GetStaticChampionsAsync(champListData: new[] { "all" });
 
             Assert.That(championList.Data.Count, Is.GreaterThan(0));
             Assert.That(championList.Format, Is.Not.Null.And.Not.Empty);
@@ -35,10 +35,10 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetStaticChampionsTaskAsyncTest_IndexedById()
+        public async Task GetStaticChampionsAsyncTest_IndexedById()
         {
             IRiotClient client = new RiotClient();
-            var championList = await client.GetStaticChampionsTaskAsync(dataById: true, champListData: new[] { "all" });
+            var championList = await client.GetStaticChampionsAsync(dataById: true, champListData: new[] { "all" });
 
             Assert.That(championList.Data.Count, Is.GreaterThan(0));
 
@@ -50,11 +50,11 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetStaticChampionByIdTaskAsyncTest()
+        public async Task GetStaticChampionByIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
             // 43 = Karma
-            var champion = await client.GetStaticChampionByIdTaskAsync(43, champData: new[] { "all" });
+            var champion = await client.GetStaticChampionByIdAsync(43, champData: new[] { "all" });
 
             Assert.That(champion, Is.Not.Null);
             Assert.That(champion.AllyTips, Is.Not.Null.And.Not.Empty);
@@ -165,10 +165,10 @@ namespace RiotNet.Tests
         #region Items
 
         [Test]
-        public async Task GetStaticItemsTaskAsyncTest()
+        public async Task GetStaticItemsAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var itemList = await client.GetStaticItemsTaskAsync(itemListData: new[] { "all" });
+            var itemList = await client.GetStaticItemsAsync(itemListData: new[] { "all" });
 
             Assert.That(itemList.Basic, Is.Not.Null);
             Assert.That(itemList.Data.Count, Is.GreaterThan(0));
@@ -212,12 +212,12 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetStaticItemByIdTaskAsyncTest()
+        public async Task GetStaticItemByIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
 
             // 3086 = Zeal
-            var item = await client.GetStaticItemByIdTaskAsync(3086, itemData: new[] { "all" });
+            var item = await client.GetStaticItemByIdAsync(3086, itemData: new[] { "all" });
             Assert.That(item, Is.Not.Null);
             Assert.That(item.Colloq, Is.EqualTo(string.Empty));
             Assert.That(item.ConsumeOnFull, Is.False);
@@ -244,7 +244,7 @@ namespace RiotNet.Tests
             Assert.That(item.Tags, Is.Not.Null.And.Not.Empty);
 
             // 2004 = Mana potion
-            item = await client.GetStaticItemByIdTaskAsync(2004, itemData: new[] { "all" });
+            item = await client.GetStaticItemByIdAsync(2004, itemData: new[] { "all" });
             Assert.That(item.Consumed);
             Assert.That(item.Stacks, Is.GreaterThan(1));
         }
@@ -254,7 +254,7 @@ namespace RiotNet.Tests
         {
             // Test that the hard-coded default values are correct.
             IRiotClient client = new RiotClient();
-            var itemList = await client.GetStaticItemsTaskAsync(itemListData: new[] { "all" });
+            var itemList = await client.GetStaticItemsAsync(itemListData: new[] { "all" });
             var defaultItem = new StaticItem();
             AssertObjectEqualityRecursive(defaultItem, itemList.Basic, true);
         }
@@ -264,10 +264,10 @@ namespace RiotNet.Tests
         #region Languages
 
         [Test]
-        public async Task GetStaticLanguagesTaskAsyncTest()
+        public async Task GetStaticLanguagesAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var languages = await client.GetStaticLanguagesTaskAsync();
+            var languages = await client.GetStaticLanguagesAsync();
 
             Assert.That(languages, Is.Not.Null.And.Not.Empty);
             var language = languages.First();
@@ -275,10 +275,10 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetStaticLanguageStringsTaskAsyncTest()
+        public async Task GetStaticLanguageStringsAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var languageStrings = await client.GetStaticLanguageStringsTaskAsync();
+            var languageStrings = await client.GetStaticLanguageStringsAsync();
 
             Assert.That(languageStrings, Is.Not.Null);
             Assert.That(languageStrings.Data, Is.Not.Null.And.Not.Empty);
@@ -291,10 +291,10 @@ namespace RiotNet.Tests
         #region Map
 
         [Test]
-        public async Task GetStaticMapsTaskAsyncTest()
+        public async Task GetStaticMapsAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var mapList = await client.GetStaticMapsTaskAsync();
+            var mapList = await client.GetStaticMapsAsync();
 
             Assert.That(mapList.Data, Is.Not.Null.And.Not.Empty);
             Assert.That(mapList.Type, Is.Not.Null.And.Not.Empty);
@@ -311,10 +311,10 @@ namespace RiotNet.Tests
         #region Masteries
 
         [Test]
-        public async Task GetStaticMasteriesTaskAsyncTest()
+        public async Task GetStaticMasteriesAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var masteryList = await client.GetStaticMasteriesTaskAsync(masteryListData: new[] { "all" });
+            var masteryList = await client.GetStaticMasteriesAsync(masteryListData: new[] { "all" });
 
             Assert.That(masteryList.Data.Count, Is.GreaterThan(0));
             Assert.That(masteryList.Tree, Is.Not.Null);
@@ -333,10 +333,10 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetStaticMasteryByIdTaskAsyncTest()
+        public async Task GetStaticMasteryByIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var mastery = await client.GetStaticMasteryByIdTaskAsync(4211, masteryData: new[] { "all" });
+            var mastery = await client.GetStaticMasteryByIdAsync(4211, masteryData: new[] { "all" });
 
             Assert.That(mastery, Is.Not.Null);
         }
@@ -346,10 +346,10 @@ namespace RiotNet.Tests
         #region Realm
 
         [Test]
-        public async Task GetStaticRealmTaskAsyncTest()
+        public async Task GetStaticRealmAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var realm = await client.GetStaticRealmTaskAsync();
+            var realm = await client.GetStaticRealmAsync();
 
             Assert.That(realm, Is.Not.Null);
             Assert.That(realm.Cdn, Is.Not.Null.And.Not.Empty);
@@ -367,10 +367,10 @@ namespace RiotNet.Tests
         #region Runes
 
         [Test]
-        public async Task GetStaticRunesTaskAsyncTest()
+        public async Task GetStaticRunesAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var runeList = await client.GetStaticRunesTaskAsync(runeListData: new[] { "all" });
+            var runeList = await client.GetStaticRunesAsync(runeListData: new[] { "all" });
 
             Assert.That(runeList.Basic, Is.Not.Null);
             Assert.That(runeList.Data.Count, Is.GreaterThan(0));
@@ -449,12 +449,12 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetStaticRuneByIdTaskAsyncTest()
+        public async Task GetStaticRuneByIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
 
             // 8020 = Greater Quintessence of the Deadly Wreath (armor pen).
-            var rune = await client.GetStaticRuneByIdTaskAsync(8020, runeData: new[] { "all" });
+            var rune = await client.GetStaticRuneByIdAsync(8020, runeData: new[] { "all" });
             Assert.That(rune, Is.Not.Null);
             Assert.That(rune.Colloq, Is.EqualTo(string.Empty));
             Assert.That(rune.Description, Is.Not.Null.And.Not.Empty);
@@ -477,7 +477,7 @@ namespace RiotNet.Tests
         {
             // Test that the hard-coded default values are correct.
             IRiotClient client = new RiotClient();
-            var runeList = await client.GetStaticRunesTaskAsync(runeListData: new[] { "all" });
+            var runeList = await client.GetStaticRunesAsync(runeListData: new[] { "all" });
             var defaultRune = new StaticRune();
             AssertObjectEqualityRecursive(defaultRune, runeList.Basic, true);
         }
@@ -487,10 +487,10 @@ namespace RiotNet.Tests
         #region Summoner Spells
 
         [Test]
-        public async Task GetStaticSummonerSpellsTaskAsyncTest()
+        public async Task GetStaticSummonerSpellsAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var spellList = await client.GetStaticSummonerSpellsTaskAsync(spellListData: new[] { "all" });
+            var spellList = await client.GetStaticSummonerSpellsAsync(spellListData: new[] { "all" });
 
             Assert.That(spellList.Data.Count, Is.GreaterThan(0));
             Assert.That(spellList.Type, Is.Not.Null.And.Not.Empty);
@@ -534,10 +534,10 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetStaticSummonerSpellTaskAsyncTest_IndexedById()
+        public async Task GetStaticSummonerSpellAsyncTest_IndexedById()
         {
             IRiotClient client = new RiotClient();
-            var spellList = await client.GetStaticSummonerSpellsTaskAsync(dataById: true, spellListData: new[] { "all" });
+            var spellList = await client.GetStaticSummonerSpellsAsync(dataById: true, spellListData: new[] { "all" });
 
             Assert.That(spellList.Data.Count, Is.GreaterThan(0));
 
@@ -549,12 +549,12 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetStaticSummonerSpellByIdTaskAsyncTest()
+        public async Task GetStaticSummonerSpellByIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
 
             // 1 = Cleanse
-            var spell = await client.GetStaticSummonerSpellByIdTaskAsync(1, spellData: new[] { "all" });
+            var spell = await client.GetStaticSummonerSpellByIdAsync(1, spellData: new[] { "all" });
 
             Assert.That(spell, Is.Not.Null);
             Assert.That(spell.Id, Is.EqualTo(1));
@@ -565,10 +565,10 @@ namespace RiotNet.Tests
         #region Versions
 
         [Test]
-        public async Task GetStaticVersionsTaskAsyncTest()
+        public async Task GetStaticVersionsAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var versions = await client.GetVersionsTaskAsync();
+            var versions = await client.GetVersionsAsync();
 
             Assert.That(versions, Is.Not.Null.And.Not.Empty);
         }

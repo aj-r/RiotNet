@@ -45,7 +45,7 @@ namespace RiotNet
         /// Gets the details for all champions from the static data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <param name="dataById">If true, the returned data map will use the champions' IDs as the keys. If false, the returned data map will use the champions' keys instead.</param>
         /// <param name="champListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> or <see cref="StaticChampionList"/> objects. Only type, version, data, id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A <see cref="StaticChampionList"/>.</returns>
@@ -61,16 +61,16 @@ namespace RiotNet
         /// Gets the details for all champions from the static data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <param name="dataById">If true, the returned data map will use the champions' IDs as the keys. If false, the returned data map will use the champions' keys instead.</param>
         /// <param name="champListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> or <see cref="StaticChampionList"/> objects. Only type, version, data, id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticChampionList> GetStaticChampionsTaskAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null)
+        public Task<StaticChampionList> GetStaticChampionsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null)
         {
-            return ExecuteTaskAsync<StaticChampionList>(GetStaticChampionsRequest(locale, version, dataById, champListData));
+            return ExecuteAsync<StaticChampionList>(GetStaticChampionsRequest(locale, version, dataById, champListData));
         }
 
         private IRestRequest GetStaticChampionByIdRequest(int id, string locale, string version, IEnumerable<string> champData)
@@ -112,15 +112,15 @@ namespace RiotNet
         /// </summary>
         /// <param name="id">The champion ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <param name="champData">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> object. Only id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticChampion> GetStaticChampionByIdTaskAsync(int id, string locale = null, string version = null, IEnumerable<string> champData = null)
+        public Task<StaticChampion> GetStaticChampionByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> champData = null)
         {
-            return ExecuteTaskAsync<StaticChampion>(GetStaticChampionByIdRequest(id, locale, version, champData));
+            return ExecuteAsync<StaticChampion>(GetStaticChampionByIdRequest(id, locale, version, champData));
         }
 
         #endregion
@@ -175,15 +175,15 @@ namespace RiotNet
         /// Gets a list of all available items from the static data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <param name="itemListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticItem"/> or <see cref="StaticItemList"/> objects. Only id, name, type, version, basic, data, plaintext, group, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public async Task<StaticItemList> GetStaticItemsTaskAsync(string locale = null, string version = null, IEnumerable<string> itemListData = null)
+        public async Task<StaticItemList> GetStaticItemsAsync(string locale = null, string version = null, IEnumerable<string> itemListData = null)
         {
-            var itemList = await ExecuteTaskAsync<StaticItemList>(GetStaticItemsRequest(locale, version, itemListData)).ConfigureAwait(false);
+            var itemList = await ExecuteAsync<StaticItemList>(GetStaticItemsRequest(locale, version, itemListData)).ConfigureAwait(false);
 
             if (itemList == null)
                 return null;
@@ -237,15 +237,15 @@ namespace RiotNet
         /// </summary>
         /// <param name="id">The rune ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <param name="itemData">Tags to return additional data. Valid tags are any property of the <see cref="StaticItem"/> object. Only id, name, runeMetaData, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticItem> GetStaticItemByIdTaskAsync(int id, string locale = null, string version = null, IEnumerable<string> itemData = null)
+        public Task<StaticItem> GetStaticItemByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> itemData = null)
         {
-            return ExecuteTaskAsync<StaticItem>(GetStaticItemByIdRequest(id, locale, version, itemData));
+            return ExecuteAsync<StaticItem>(GetStaticItemByIdRequest(id, locale, version, itemData));
         }
 
         #endregion
@@ -276,9 +276,9 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<List<string>> GetStaticLanguagesTaskAsync()
+        public Task<List<string>> GetStaticLanguagesAsync()
         {
-            return ExecuteTaskAsync<List<string>>(GetStaticLanguagesRequest());
+            return ExecuteAsync<List<string>>(GetStaticLanguagesRequest());
         }
 
         private IRestRequest GetStaticLanguageStringsRequest(string locale, string version)
@@ -309,14 +309,14 @@ namespace RiotNet
         /// Gets a list of available language strings from the static data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticLanuageStrings> GetStaticLanguageStringsTaskAsync(string locale = null, string version = null)
+        public Task<StaticLanuageStrings> GetStaticLanguageStringsAsync(string locale = null, string version = null)
         {
-            return ExecuteTaskAsync<StaticLanuageStrings>(GetStaticLanguageStringsRequest(locale, version));
+            return ExecuteAsync<StaticLanuageStrings>(GetStaticLanguageStringsRequest(locale, version));
         }
 
         #endregion
@@ -351,14 +351,14 @@ namespace RiotNet
         /// Gets a list of all maps from the static data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticMapList> GetStaticMapsTaskAsync(string locale = null, string version = null)
+        public Task<StaticMapList> GetStaticMapsAsync(string locale = null, string version = null)
         {
-            return ExecuteTaskAsync<StaticMapList>(GetStaticMapsRequest(locale, version));
+            return ExecuteAsync<StaticMapList>(GetStaticMapsRequest(locale, version));
         }
 
         #endregion
@@ -386,7 +386,7 @@ namespace RiotNet
         /// Gets the details for all masteries from the static data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <param name="masteryListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> or <see cref="StaticMasteryList"/> objects. Only type, version, data, id, name, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A <see cref="StaticMasteryList"/>.</returns>
         /// <remarks>
@@ -401,15 +401,15 @@ namespace RiotNet
         /// Gets the details for all masteries from the static data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <param name="masteryListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> or <see cref="StaticMasteryList"/> objects. Only type, version, data, id, name, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticMasteryList> GetStaticMasteriesTaskAsync(string locale = null, string version = null, IEnumerable<string> masteryListData = null)
+        public Task<StaticMasteryList> GetStaticMasteriesAsync(string locale = null, string version = null, IEnumerable<string> masteryListData = null)
         {
-            return ExecuteTaskAsync<StaticMasteryList>(GetStaticMasteriesRequest(locale, version, masteryListData));
+            return ExecuteAsync<StaticMasteryList>(GetStaticMasteriesRequest(locale, version, masteryListData));
         }
 
         private IRestRequest GetStaticMasteryByIdRequest(int id, string locale, string version, IEnumerable<string> masteryData)
@@ -451,15 +451,15 @@ namespace RiotNet
         /// </summary>
         /// <param name="id">The mastery ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <param name="masteryData">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> object. Only id, name, description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticChampion> GetStaticMasteryByIdTaskAsync(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null)
+        public Task<StaticChampion> GetStaticMasteryByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null)
         {
-            return ExecuteTaskAsync<StaticChampion>(GetStaticMasteryByIdRequest(id, locale, version, masteryData));
+            return ExecuteAsync<StaticChampion>(GetStaticMasteryByIdRequest(id, locale, version, masteryData));
         }
 
         #endregion
@@ -490,9 +490,9 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticRealm> GetStaticRealmTaskAsync()
+        public Task<StaticRealm> GetStaticRealmAsync()
         {
-            return ExecuteTaskAsync<StaticRealm>(GetStaticRealmRequest());
+            return ExecuteAsync<StaticRealm>(GetStaticRealmRequest());
         }
 
         #endregion
@@ -547,15 +547,15 @@ namespace RiotNet
         /// Gets a list of all available runes from the static data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <param name="runeListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticRune"/> or <see cref="StaticRuneList"/> objects. Only type, version, data, id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public async Task<StaticRuneList> GetStaticRunesTaskAsync(string locale = null, string version = null, IEnumerable<string> runeListData = null)
+        public async Task<StaticRuneList> GetStaticRunesAsync(string locale = null, string version = null, IEnumerable<string> runeListData = null)
         {
-            var runeList = await ExecuteTaskAsync<StaticRuneList>(GetStaticRunesRequest(locale, version, runeListData)).ConfigureAwait(false);
+            var runeList = await ExecuteAsync<StaticRuneList>(GetStaticRunesRequest(locale, version, runeListData)).ConfigureAwait(false);
 
             if (runeList == null)
                 return null;
@@ -609,15 +609,15 @@ namespace RiotNet
         /// </summary>
         /// <param name="id">The rune ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <param name="runeData">Tags to return additional data. Valid tags are any property of the <see cref="StaticRune"/> object. Only id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticRune> GetStaticRuneByIdTaskAsync(int id, string locale = null, string version = null, IEnumerable<string> runeData = null)
+        public Task<StaticRune> GetStaticRuneByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> runeData = null)
         {
-            return ExecuteTaskAsync<StaticRune>(GetStaticRuneByIdRequest(id, locale, version, runeData));
+            return ExecuteAsync<StaticRune>(GetStaticRuneByIdRequest(id, locale, version, runeData));
         }
 
         #endregion
@@ -647,7 +647,7 @@ namespace RiotNet
         /// Gets the details for all summoner spells from the static data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <param name="dataById">If true, the returned data map will use the spells' IDs as the keys. If false, the returned data map will use the spells' keys instead.</param>
         /// <param name="spellListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticSummonerSpell"/> or <see cref="StaticSummonerSpellList"/> objects. Only type, version, data, id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A <see cref="StaticSummonerSpellList"/>.</returns>
@@ -663,16 +663,16 @@ namespace RiotNet
         /// Gets the details for all summoner spells from the static data API.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <param name="dataById">If true, the returned data map will use the spells' IDs as the keys. If false, the returned data map will use the spells' keys instead.</param>
         /// <param name="spellListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticSummonerSpell"/> or <see cref="StaticSummonerSpellList"/> objects. Only type, version, data, id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticSummonerSpellList> GetStaticSummonerSpellsTaskAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> spellListData = null)
+        public Task<StaticSummonerSpellList> GetStaticSummonerSpellsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> spellListData = null)
         {
-            return ExecuteTaskAsync<StaticSummonerSpellList>(GetStaticSummonerSpellsRequest(locale, version, dataById, spellListData));
+            return ExecuteAsync<StaticSummonerSpellList>(GetStaticSummonerSpellsRequest(locale, version, dataById, spellListData));
         }
 
         private IRestRequest GetStaticSummonerSpellByIdRequest(int id, string locale, string version, IEnumerable<string> spellData)
@@ -714,15 +714,15 @@ namespace RiotNet
         /// </summary>
         /// <param name="id">The summoner spell ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsTaskAsync"/>.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <param name="spellData">Tags to return additional data. Valid tags are any property of the <see cref="StaticSummonerSpell"/> object. Only id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticSummonerSpell> GetStaticSummonerSpellByIdTaskAsync(int id, string locale = null, string version = null, IEnumerable<string> spellData = null)
+        public Task<StaticSummonerSpell> GetStaticSummonerSpellByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> spellData = null)
         {
-            return ExecuteTaskAsync<StaticSummonerSpell>(GetStaticSummonerSpellByIdRequest(id, locale, version, spellData));
+            return ExecuteAsync<StaticSummonerSpell>(GetStaticSummonerSpellByIdRequest(id, locale, version, spellData));
         }
 
         #endregion
@@ -753,9 +753,9 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<List<string>> GetVersionsTaskAsync()
+        public Task<List<string>> GetVersionsAsync()
         {
-            return ExecuteTaskAsync<List<string>>(GetStaticVersionsRequest());
+            return ExecuteAsync<List<string>>(GetStaticVersionsRequest());
         }
 
         #endregion

@@ -42,9 +42,9 @@ namespace RiotNet
         /// <param name="matchId">The ID of the match.</param>
         /// <param name="includeTimeline">Whether or not to include the match timeline data.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<MatchDetail> GetMatchTaskAsync(long matchId, Boolean includeTimeline = false)
+        public Task<MatchDetail> GetMatchAsync(long matchId, Boolean includeTimeline = false)
         {
-            return ExecuteTaskAsync<MatchDetail>(GetMatchRequest(matchId, includeTimeline));
+            return ExecuteAsync<MatchDetail>(GetMatchRequest(matchId, includeTimeline));
         }
     }
 }

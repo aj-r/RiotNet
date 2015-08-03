@@ -39,9 +39,9 @@ namespace RiotNet
         /// <param name="summonerId">The summoner's summoner IDs.</param>
         /// <param name="season">The season to get ranked stats for. If unspecified, stats for the current season are returned.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<RankedStats> GetRankedStatsTaskAsync(long summonerId, Season? season = null)
+        public Task<RankedStats> GetRankedStatsAsync(long summonerId, Season? season = null)
         {
-            return ExecuteTaskAsync<RankedStats>(GetRankedStatsRequest(summonerId, season));
+            return ExecuteAsync<RankedStats>(GetRankedStatsRequest(summonerId, season));
         }
 
         private IRestRequest GetStatsSummaryRequest(long summonerId, Season? season)
@@ -70,9 +70,9 @@ namespace RiotNet
         /// <param name="summonerId">The summoner's summoner IDs.</param>
         /// <param name="season">The season to get stats for. If unspecified, stats for the current season are returned.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<PlayerStatsSummaryList> GetStatsSummaryTaskAsync(long summonerId, Season? season = null)
+        public Task<PlayerStatsSummaryList> GetStatsSummaryAsync(long summonerId, Season? season = null)
         {
-            return ExecuteTaskAsync<PlayerStatsSummaryList>(GetStatsSummaryRequest(summonerId, season));
+            return ExecuteAsync<PlayerStatsSummaryList>(GetStatsSummaryRequest(summonerId, season));
         }
     }
 }

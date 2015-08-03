@@ -33,9 +33,9 @@ namespace RiotNet
         /// Gets the games currently featured in the League of Legends client.
         /// </summary>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<FeaturedGames> GetFeaturedGamesTaskAsync()
+        public Task<FeaturedGames> GetFeaturedGamesAsync()
         {
-            return ExecuteTaskAsync<FeaturedGames>(GetFeaturedGamesRequest());
+            return ExecuteAsync<FeaturedGames>(GetFeaturedGamesRequest());
         }
     }
 }

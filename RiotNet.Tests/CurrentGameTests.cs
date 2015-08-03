@@ -11,16 +11,16 @@ namespace RiotNet.Tests
     public class CurrentGameTests : TestBase
     {
         [Test]
-        public async Task GetCurrentGameBySummonerIdTaskAsyncTest()
+        public async Task GetCurrentGameBySummonerIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
             // In order to get a summoner ID that is guaranteed to be in a game, we need to get a featured game.
-            var featuredGameList = await client.GetFeaturedGamesTaskAsync();
+            var featuredGameList = await client.GetFeaturedGamesAsync();
             var featuredGame = featuredGameList.GameList.First();
             var summonerName = featuredGame.Participants.First().SummonerName;
-            var summoner = await client.GetSummonerBySummonerNameTaskAsync(summonerName);
+            var summoner = await client.GetSummonerBySummonerNameAsync(summonerName);
 
-            var game = await client.GetCurrentGameBySummonerIdTaskAsync(summoner.Id);
+            var game = await client.GetCurrentGameBySummonerIdAsync(summoner.Id);
 
             Assert.That(game, Is.Not.Null);
             Assert.That(game.BannedChampions, Is.Not.Null.And.Not.Empty);

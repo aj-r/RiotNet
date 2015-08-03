@@ -12,11 +12,11 @@ namespace RiotNet.Tests
     public class MatchTests : TestBase
     {
         [Test]
-        public async Task GetMatchTaskAsyncTest()
+        public async Task GetMatchAsyncTest()
         {
             IRiotClient client = new RiotClient();
             const long matchId = 1883925941L;
-            var match = await client.GetMatchTaskAsync(matchId);
+            var match = await client.GetMatchAsync(matchId);
 
             Assert.That(match, Is.Not.Null);
             Assert.That(match.MatchId, Is.EqualTo(matchId));
@@ -25,11 +25,11 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetMatchTaskAsyncTest_WithTimeline()
+        public async Task GetMatchAsyncTest_WithTimeline()
         {
             IRiotClient client = new RiotClient();
             const long matchId = 1883925941L;
-            var match = await client.GetMatchTaskAsync(matchId, true);
+            var match = await client.GetMatchAsync(matchId, true);
 
             Assert.That(match, Is.Not.Null);
             Assert.That(match.MatchId, Is.EqualTo(matchId));

@@ -14,11 +14,11 @@ namespace RiotNet.Tests
     public class SummonerTests : TestBase
     {
         [Test]
-        public async Task GetSummonersBySummonerIdsTaskAsyncTest()
+        public async Task GetSummonersBySummonerIdsAsyncTest()
         {
             IRiotClient client = new RiotClient();
             var summonerIds = new[] { 34172230L, 35870943L };
-            var summoners = await client.GetSummonersBySummonerIdsTaskAsync(summonerIds);
+            var summoners = await client.GetSummonersBySummonerIdsAsync(summonerIds);
 
             AssertNonDefaultValuesRecursive(summoners);
             foreach (var summonerId in summonerIds)
@@ -26,20 +26,20 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetSummonerBySummonerIdTaskAsyncTest()
+        public async Task GetSummonerBySummonerIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var summoner = await client.GetSummonerBySummonerIdTaskAsync(34172230L);
+            var summoner = await client.GetSummonerBySummonerIdAsync(34172230L);
 
             AssertNonDefaultValuesRecursive(summoner);
         }
 
         [Test]
-        public async Task GetSummonersBySummonerNamesTaskAsyncTest()
+        public async Task GetSummonersBySummonerNamesAsyncTest()
         {
             IRiotClient client = new RiotClient();
             var summonerNames = new[] { "KirkBerkley", "RndmInternetMan" };
-            var summoners = await client.GetSummonersBySummonerNamesTaskAsync(summonerNames);
+            var summoners = await client.GetSummonersBySummonerNamesAsync(summonerNames);
 
             AssertNonDefaultValuesRecursive(summoners);
             foreach (var summonerName in summonerNames)
@@ -47,20 +47,20 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetSummonerBySummonerNameTaskAsyncTest()
+        public async Task GetSummonerBySummonerNameAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var summoner = await client.GetSummonerBySummonerNameTaskAsync("KirkBerkley");
+            var summoner = await client.GetSummonerBySummonerNameAsync("KirkBerkley");
 
             AssertNonDefaultValuesRecursive(summoner);
         }
 
         [Test]
-        public async Task GetSummonerMasteriesBySummonerIdsTaskAsyncTest()
+        public async Task GetSummonerMasteriesBySummonerIdsAsyncTest()
         {
             IRiotClient client = new RiotClient();
             var summonerIds = new[] { 34172230L, 35870943L };
-            var masteryPages = await client.GetSummonerMasteriesBySummonerIdsTaskAsync(summonerIds);
+            var masteryPages = await client.GetSummonerMasteriesBySummonerIdsAsync(summonerIds);
 
             AssertNonDefaultValuesRecursive(masteryPages);
             foreach (var summonerId in summonerIds)
@@ -68,11 +68,11 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetSummonerNamesBySummonerIdsTaskAsyncTest()
+        public async Task GetSummonerNamesBySummonerIdsAsyncTest()
         {
             IRiotClient client = new RiotClient();
             var summonerIds = new[] { 34172230L, 35870943L };
-            var names = await client.GetSummonerNamesBySummonerIdsTaskAsync(summonerIds);
+            var names = await client.GetSummonerNamesBySummonerIdsAsync(summonerIds);
 
             AssertNonDefaultValuesRecursive(names);
             foreach (var summonerId in summonerIds)
@@ -80,11 +80,11 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetSummonerRunesBySummonerIdsTaskAsyncTest()
+        public async Task GetSummonerRunesBySummonerIdsAsyncTest()
         {
             IRiotClient client = new RiotClient();
             var summonerIds = new[] { 34172230L, 35870943L };
-            var runes = await client.GetSummonerRunesBySummonerIdsTaskAsync(summonerIds);
+            var runes = await client.GetSummonerRunesBySummonerIdsAsync(summonerIds);
 
             AssertNonDefaultValuesRecursive(runes);
             foreach (var summonerId in summonerIds)
