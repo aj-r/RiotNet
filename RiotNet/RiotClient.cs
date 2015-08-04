@@ -252,6 +252,11 @@ namespace RiotNet
         public event ResponseEventHandler ResourceNotFound;
 
         /// <summary>
+        /// Occurs when a response returns an error code that does not fit into any other category, or an exception occurs during the response.
+        /// </summary>
+        public event ResponseEventHandler ResponseError;
+
+        /// <summary>
         /// Gets the settings for the <see cref="RiotClient"/>.
         /// </summary>
         public RiotClientSettings Settings
@@ -424,6 +429,7 @@ namespace RiotNet
             }
             if (statusCode >= 400 || response.ResponseStatus != ResponseStatus.Completed)
             {
+                OnResponseError(new ResponseEventArgs(response));
                 if (Settings.ThrowOnError)
                     throw new RestException(response, response.ErrorException);
                 
@@ -494,6 +500,16 @@ namespace RiotNet
         {
             if (ResourceNotFound != null)
                 ResourceNotFound(this, e);
+        }
+
+        /// <summary>
+        /// Occurs when a response returns an error code that does not fit into any other category, or an exception occurs during the response.
+        /// </summary>
+        /// <param name="e">Arguments for the event.</param>
+        protected virtual void OnResponseError(ResponseEventArgs e)
+        {
+            if (ResponseError != null)
+                ResponseError(this, e);
         }
 
         /// <summary>

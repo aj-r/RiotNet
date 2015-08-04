@@ -3,7 +3,9 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using RestSharp;
 using RiotNet.Models;
 
@@ -33,9 +35,8 @@ namespace RiotNet
                 request.AddQueryParameter("dataById", dataById.ToString(CultureInfo.InvariantCulture));
             if (champListData != null)
             {
-                // Force the first letter of each data point to be lower case since that is what the API is expecting.
-                var champListDataParam = string.Join(",", champListData.Where(t => !string.IsNullOrEmpty(t)).Select(t => t.Remove(1).ToLowerInvariant() + t.Substring(1)));
-                if (champListDataParam.Length > 0)
+                var champListDataParam = CreateDataParam(champListData, typeof(StaticChampion), typeof(StaticChampionList));
+                if (!string.IsNullOrEmpty(champListDataParam))
                     request.AddQueryParameter("champData", champListDataParam);
             }
             return request;
@@ -83,9 +84,8 @@ namespace RiotNet
                 request.AddQueryParameter("version", version);
             if (champData != null)
             {
-                // Force the first letter of each data point to be lower case since that is what the API is expecting.
-                var champDataParam = string.Join(",", champData.Where(t => !string.IsNullOrEmpty(t)).Select(t => t.Remove(1).ToLowerInvariant() + t.Substring(1)));
-                if (champDataParam.Length > 0)
+                var champDataParam = CreateDataParam(champData, typeof(StaticChampion));
+                if (!string.IsNullOrEmpty(champDataParam))
                     request.AddQueryParameter("champData", champDataParam);
             }
             return request;
@@ -136,9 +136,8 @@ namespace RiotNet
                 request.AddQueryParameter("version", version);
             if (itemListData != null)
             {
-                // Force the first letter of each data point to be lower case since that is what the API is expecting.
-                var itemListDataParam = string.Join(",", itemListData.Where(t => !string.IsNullOrEmpty(t)).Select(t => t.Remove(1).ToLowerInvariant() + t.Substring(1)));
-                if (itemListDataParam.Length > 0)
+                var itemListDataParam = CreateDataParam(itemListData, typeof(StaticItem), typeof(StaticItemList));
+                if (!string.IsNullOrEmpty(itemListDataParam))
                     request.AddQueryParameter("itemListData", itemListDataParam);
             }
             return request;
@@ -208,9 +207,8 @@ namespace RiotNet
                 request.AddQueryParameter("version", version);
             if (itemData != null)
             {
-                // Force the first letter of each data point to be lower case since that is what the API is expecting.
-                var itemDataParam = string.Join(",", itemData.Where(t => !string.IsNullOrEmpty(t)).Select(t => t.Remove(1).ToLowerInvariant() + t.Substring(1)));
-                if (itemDataParam.Length > 0)
+                var itemDataParam = CreateDataParam(itemData, typeof(StaticItem));
+                if (!string.IsNullOrEmpty(itemDataParam))
                     request.AddQueryParameter("itemData", itemDataParam);
             }
             return request;
@@ -374,9 +372,8 @@ namespace RiotNet
                 request.AddQueryParameter("version", version);
             if (masteryListData != null)
             {
-                // Force the first letter of each data point to be lower case since that is what the API is expecting.
-                var masteryListDataParam = string.Join(",", masteryListData.Where(t => !string.IsNullOrEmpty(t)).Select(t => t.Remove(1).ToLowerInvariant() + t.Substring(1)));
-                if (masteryListDataParam.Length > 0)
+                var masteryListDataParam = CreateDataParam(masteryListData, typeof(StaticMastery), typeof(StaticMasteryList));
+                if (!string.IsNullOrEmpty(masteryListDataParam))
                     request.AddQueryParameter("masteryListData", masteryListDataParam);
             }
             return request;
@@ -422,9 +419,8 @@ namespace RiotNet
                 request.AddQueryParameter("version", version);
             if (masteryData != null)
             {
-                // Force the first letter of each data point to be lower case since that is what the API is expecting.
-                var masteryDataParam = string.Join(",", masteryData.Where(t => !string.IsNullOrEmpty(t)).Select(t => t.Remove(1).ToLowerInvariant() + t.Substring(1)));
-                if (masteryDataParam.Length > 0)
+                var masteryDataParam = CreateDataParam(masteryData, typeof(StaticMastery));
+                if (!string.IsNullOrEmpty(masteryDataParam))
                     request.AddQueryParameter("masteryData", masteryDataParam);
             }
             return request;
@@ -437,13 +433,13 @@ namespace RiotNet
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetStaticVersions"/>.</param>
         /// <param name="masteryData">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> object. Only id, name, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
-        /// <returns>A <see cref="StaticChampion"/>.</returns>
+        /// <returns>A <see cref="StaticMastery"/>.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public StaticChampion GetStaticMasteryById(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null)
+        public StaticMastery GetStaticMasteryById(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null)
         {
-            return Execute<StaticChampion>(GetStaticMasteryByIdRequest(id, locale, version, masteryData));
+            return Execute<StaticMastery>(GetStaticMasteryByIdRequest(id, locale, version, masteryData));
         }
 
         /// <summary>
@@ -457,9 +453,9 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticChampion> GetStaticMasteryByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null)
+        public Task<StaticMastery> GetStaticMasteryByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null)
         {
-            return ExecuteAsync<StaticChampion>(GetStaticMasteryByIdRequest(id, locale, version, masteryData));
+            return ExecuteAsync<StaticMastery>(GetStaticMasteryByIdRequest(id, locale, version, masteryData));
         }
 
         #endregion
@@ -508,10 +504,9 @@ namespace RiotNet
                 request.AddQueryParameter("version", version);
             if (runeListData != null)
             {
-                // Force the first letter of each data point to be lower case since that is what the API is expecting.
-                var itemDataParam = string.Join(",", runeListData.Where(t => !string.IsNullOrEmpty(t)).Select(t => t.Remove(1).ToLowerInvariant() + t.Substring(1)));
-                if (itemDataParam.Length > 0)
-                    request.AddQueryParameter("runeListData", itemDataParam);
+                var runeListDataParam = CreateDataParam(runeListData, typeof(StaticRune), typeof(StaticRuneList));
+                if (!string.IsNullOrEmpty(runeListDataParam))
+                    request.AddQueryParameter("runeListData", runeListDataParam);
             }
             return request;
         }
@@ -581,8 +576,8 @@ namespace RiotNet
             if (runeData != null)
             {
                 // Force the first letter of each data point to be lower case since that is what the API is expecting.
-                var runeDataParam = string.Join(",", runeData.Where(t => !string.IsNullOrEmpty(t)).Select(t => t.Remove(1).ToLowerInvariant() + t.Substring(1)));
-                if (runeDataParam.Length > 0)
+                var runeDataParam = CreateDataParam(runeData, typeof(StaticRune));
+                if (!string.IsNullOrEmpty(runeDataParam))
                     request.AddQueryParameter("runeData", runeDataParam);
             }
             return request;
@@ -636,8 +631,8 @@ namespace RiotNet
             if (spellListData != null)
             {
                 // Force the first letter of each data point to be lower case since that is what the API is expecting.
-                var spellListDataParam = string.Join(",", spellListData.Where(t => !string.IsNullOrEmpty(t)).Select(t => t.Remove(1).ToLowerInvariant() + t.Substring(1)));
-                if (spellListDataParam.Length > 0)
+                var spellListDataParam = CreateDataParam(spellListData, typeof(StaticSummonerSpell), typeof(StaticSummonerSpellList));
+                if (!string.IsNullOrEmpty(spellListDataParam))
                     request.AddQueryParameter("spellData", spellListDataParam);
             }
             return request;
@@ -686,8 +681,8 @@ namespace RiotNet
             if (spellData != null)
             {
                 // Force the first letter of each data point to be lower case since that is what the API is expecting.
-                var spellDataParam = string.Join(",", spellData.Where(t => !string.IsNullOrEmpty(t)).Select(t => t.Remove(1).ToLowerInvariant() + t.Substring(1)));
-                if (spellDataParam.Length > 0)
+                var spellDataParam = CreateDataParam(spellData, typeof(StaticSummonerSpell));
+                if (!string.IsNullOrEmpty(spellDataParam))
                     request.AddQueryParameter("spellData", spellDataParam);
             }
             return request;
@@ -756,6 +751,35 @@ namespace RiotNet
         public Task<List<string>> GetVersionsAsync()
         {
             return ExecuteAsync<List<string>>(GetStaticVersionsRequest());
+        }
+
+        #endregion
+
+        #region Helper Methods
+
+        private static string CreateDataParam(IEnumerable<string> propertyNames, Type type, Type listType = null)
+        {
+            return string.Join(",", propertyNames.Select(p => CorrectPropertyNameCase(p, type, listType)).Where(p => p != null));
+        }
+
+        private static string CorrectPropertyNameCase(string propertyName, Type type, Type listType = null)
+        {
+            if (string.IsNullOrEmpty(propertyName))
+                return null;
+            if (string.Equals(propertyName, "all", StringComparison.InvariantCultureIgnoreCase))
+                return "all";
+
+            var property = type.GetProperty(propertyName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
+            if (property == null && listType != null)
+                property = listType.GetProperty(propertyName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
+            if (property != null)
+            {
+                // If there is a JsonProperty attribute, get the name from the attribute.
+                var jsonPropertyAttribute = property.GetCustomAttribute<JsonPropertyAttribute>();
+                if (jsonPropertyAttribute != null && !string.IsNullOrEmpty(jsonPropertyAttribute.PropertyName))
+                    return jsonPropertyAttribute.PropertyName;
+            }
+            return propertyName.Remove(1).ToLowerInvariant() + propertyName.Substring(1);
         }
 
         #endregion

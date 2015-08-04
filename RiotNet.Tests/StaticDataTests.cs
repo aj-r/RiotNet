@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using RiotNet.Models;
+using RiotNet.Tests.Properties;
 
 namespace RiotNet.Tests
 {
@@ -38,15 +39,33 @@ namespace RiotNet.Tests
         public async Task GetStaticChampionsAsyncTest_IndexedById()
         {
             IRiotClient client = new RiotClient();
-            var championList = await client.GetStaticChampionsAsync(dataById: true, champListData: new[] { "all" });
+            var championList = await client.GetStaticChampionsAsync(dataById: true, champListData: new[] { "AllyTips", "Blurb" });
 
             Assert.That(championList.Data.Count, Is.GreaterThan(0));
 
-            // The key should be an integer
+            var champion = championList.Data.Values.First();
+            Assert.That(champion.AllyTips, Is.Not.Null.And.No.Empty);
+            Assert.That(champion.Blurb, Is.Not.Null.And.No.Empty);
+            Assert.That(champion.EnemyTips, Is.Null.Or.Empty);
+        }
+
+        [Test]
+        public async Task GetStaticChampionsAsyncTest_WithSelectedFields()
+        {
+            IRiotClient client = new RiotClient();
+            var championList = await client.GetStaticChampionsAsync(champListData: new[] { "all" });
+
+            Assert.That(championList.Data.Count, Is.GreaterThan(0));
+            Assert.That(championList.Format, Is.Not.Null.And.Not.Empty);
+            Assert.That(championList.Keys.Count, Is.GreaterThan(0));
+            Assert.That(championList.Type, Is.Not.Null.And.Not.Empty);
+            Assert.That(championList.Version, Is.Not.Null.And.Not.Empty);
+
+            // The key should NOT be an integer
             var key = championList.Data.Keys.First();
             int id;
             var isInteger = int.TryParse(key, out id);
-            Assert.That(isInteger, "Champs are not listed by ID.");
+            Assert.That(isInteger, Is.False, "Champs are listed by ID, but should be listed by key.");
         }
 
         [Test]
@@ -160,6 +179,18 @@ namespace RiotNet.Tests
             Assert.That(champion.Stats.MoveSpeed, Is.GreaterThan(0));
         }
 
+        [Test]
+        public async Task GetStaticChampionByIdAsyncTest_WithSelectedFields()
+        {
+            IRiotClient client = new RiotClient();
+            // 43 = Karma
+            var champion = await client.GetStaticChampionByIdAsync(43, champData: new[] { "EnemyTips", "Lore" });
+
+            Assert.That(champion.AllyTips, Is.Null.Or.Empty);
+            Assert.That(champion.EnemyTips, Is.Not.Null.And.No.Empty);
+            Assert.That(champion.Lore, Is.Not.Null.And.No.Empty);
+        }
+
         #endregion
 
         #region Items
@@ -212,6 +243,20 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        public async Task GetStaticItemsAsyncTest_WithSelectedFields()
+        {
+            IRiotClient client = new RiotClient();
+            var itemList = await client.GetStaticItemsAsync(itemListData: new[] { "Maps", "SanitizedDescription" });
+
+            Assert.That(itemList.Data, Is.Not.Null);
+            Assert.That(itemList.Data.Count, Is.GreaterThan(0));
+            var item = itemList.Data.Values.First();
+            Assert.That(item.Maps, Is.Not.Null.And.Not.Empty);
+            Assert.That(item.SanitizedDescription, Is.Not.Null.And.Not.Empty);
+            Assert.That(item.Image.Full, Is.Null.Or.Empty);
+        }
+
+        [Test]
         public async Task GetStaticItemByIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
@@ -247,6 +292,18 @@ namespace RiotNet.Tests
             item = await client.GetStaticItemByIdAsync(2004, itemData: new[] { "all" });
             Assert.That(item.Consumed);
             Assert.That(item.Stacks, Is.GreaterThan(1));
+        }
+
+        [Test]
+        public async Task GetStaticItemByIdAsyncTest_WithSelectedFields()
+        {
+            IRiotClient client = new RiotClient();
+            // 3086 = Zeal
+            var item = await client.GetStaticItemByIdAsync(3086, itemData: new[] { "Maps", "SanitizedDescription" });
+
+            Assert.That(item.Maps, Is.Not.Null.And.Not.Empty);
+            Assert.That(item.SanitizedDescription, Is.Not.Null.And.Not.Empty);
+            Assert.That(item.Image.Full, Is.Null.Or.Empty);
         }
 
         [Test]
@@ -333,12 +390,45 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        public async Task GetStaticMasteriesAsyncTest_WithSelectedFields()
+        {
+            IRiotClient client = new RiotClient();
+            var masteryList = await client.GetStaticMasteriesAsync(masteryListData: new[] { "Tree", "MasteryTree" });
+
+            Assert.That(masteryList.Data.Count, Is.GreaterThan(0));
+            Assert.That(masteryList.Tree, Is.Not.Null);
+
+            Assert.That(masteryList.Data.Values.Any(m => m.MasteryTree != MastertyTreeType.Offense));
+            Assert.That(masteryList.Data.Values.All(m => m.Ranks == 0));
+        }
+
+        [Test]
         public async Task GetStaticMasteryByIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
             var mastery = await client.GetStaticMasteryByIdAsync(4211, masteryData: new[] { "all" });
 
             Assert.That(mastery, Is.Not.Null);
+            Assert.That(mastery.Ranks, Is.GreaterThan(0));
+        }
+
+        [Test]
+        public async Task GetStaticMasteryByIdAsyncTest_WithSelectedFields()
+        {
+            IRiotClient client = new RiotClient();
+            var mastery = await client.GetStaticMasteryByIdAsync(4211, masteryData: new[] { "MasteryTree", "Ranks" });
+
+            Assert.That(mastery.MasteryTree != MastertyTreeType.Offense);
+            Assert.That(mastery.Ranks, Is.GreaterThan(0));
+            Assert.That(mastery.SanitizedDescription, Is.Null.Or.Empty);
+        }
+
+        [Test]
+        public void DeserializeMasteryTest()
+        {
+            var mastery = JsonConvert.DeserializeObject<StaticMastery>(Resources.SampleStaticMastery, RiotClient.JsonSettings);
+
+            AssertNonDefaultValuesRecursive(mastery);
         }
 
         #endregion
@@ -449,6 +539,20 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        public async Task GetStaticRunesAsyncTest_WithSelectedFields()
+        {
+            IRiotClient client = new RiotClient();
+            var runeList = await client.GetStaticRunesAsync(runeListData: new[] { "Basic", "Image", "SanitizedDescription" });
+
+            Assert.That(runeList.Basic, Is.Not.Null);
+            Assert.That(runeList.Data.Count, Is.GreaterThan(0));
+            var rune = runeList.Data.Values.First();
+            Assert.That(rune.Image.Full, Is.Not.Null.And.Not.Empty);
+            Assert.That(rune.SanitizedDescription, Is.Not.Null.And.Not.Empty);
+            Assert.That(rune.Tags, Is.Null.Or.Empty);
+        }
+
+        [Test]
         public async Task GetStaticRuneByIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
@@ -470,6 +574,18 @@ namespace RiotNet.Tests
             Assert.That(rune.Rune.IsRune);
             Assert.That(rune.Rune.Tier, Is.Not.Null.And.Not.Empty);
             Assert.That(rune.Rune.Type, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public async Task GetStaticRuneByIdAsyncTest_WithSelectedFields()
+        {
+            IRiotClient client = new RiotClient();
+            // 8020 = Greater Quintessence of the Deadly Wreath (armor pen).
+            var rune = await client.GetStaticRuneByIdAsync(8020, runeData: new[] { "Image", "SanitizedDescription" });
+
+            Assert.That(rune.Image.Full, Is.Not.Null.And.Not.Empty);
+            Assert.That(rune.SanitizedDescription, Is.Not.Null.And.Not.Empty);
+            Assert.That(rune.Tags, Is.Null.Or.Empty);
         }
 
         [Test]
@@ -534,6 +650,20 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        public async Task GetStaticSummonerSpellsAsyncTest_WithSelectedFields()
+        {
+            IRiotClient client = new RiotClient();
+            var spellList = await client.GetStaticSummonerSpellsAsync(spellListData: new[] { "Cooldown", "CooldownBurn" });
+
+            Assert.That(spellList.Data.Count, Is.GreaterThan(0));
+
+            var spell = spellList.Data.Values.First();
+            Assert.That(spell.Cooldown, Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.CooldownBurn, Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.Cost, Is.Null.Or.Empty);
+        }
+
+        [Test]
         public async Task GetStaticSummonerSpellAsyncTest_IndexedById()
         {
             IRiotClient client = new RiotClient();
@@ -558,6 +688,17 @@ namespace RiotNet.Tests
 
             Assert.That(spell, Is.Not.Null);
             Assert.That(spell.Id, Is.EqualTo(1));
+        }
+
+        [Test]
+        public async Task GetStaticSummonerSpellByIdAsyncTest_WithSelectedFields()
+        {
+            IRiotClient client = new RiotClient();
+            var spell = await client.GetStaticSummonerSpellByIdAsync(1, spellData: new[] { "Cooldown", "CooldownBurn" });
+
+            Assert.That(spell.Cooldown, Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.CooldownBurn, Is.Not.Null.And.Not.Empty);
+            Assert.That(spell.Cost, Is.Null.Or.Empty);
         }
 
         #endregion

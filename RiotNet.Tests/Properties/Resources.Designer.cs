@@ -256,6 +256,32 @@ namespace RiotNet.Tests.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///   &quot;ranks&quot;: 2,
+        ///   &quot;id&quot;: 4211,
+        ///   &quot;sanitizedDescription&quot;: [
+        ///      &quot;Reduces incoming damage from champion basic attacks by 1&quot;,
+        ///      &quot;Reduces incoming damage from champion basic attacks by 2&quot;
+        ///   ],
+        ///   &quot;description&quot;: [
+        ///      &quot;Reduces incoming damage from champion basic attacks by 1&quot;,
+        ///      &quot;Reduces incoming damage from champion basic attacks by 2&quot;
+        ///   ],
+        ///   &quot;name&quot;: &quot;Block&quot;,
+        ///   &quot;image&quot;: {
+        ///      &quot;w&quot;: 48,
+        ///      &quot;full&quot;: &quot;4211.png&quot;,
+        ///      &quot;sprite&quot;: &quot;mastery0.png&quot;,
+        ///      &quot;group&quot;: &quot;gray_mastery&quot;,
+        ///   [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SampleStaticMastery {
+            get {
+                return ResourceManager.GetString("SampleStaticMastery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
         ///   &quot;playerStatSummaries&quot;: [
         ///      {
         ///         &quot;playerStatSummaryType&quot;: &quot;CoopVsAI&quot;,

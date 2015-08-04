@@ -52,6 +52,11 @@ namespace RiotNet
         /// </summary>
         event ResponseEventHandler ResourceNotFound;
 
+        /// <summary>
+        /// Occurs when a response returns an error code that does not fit into any other category, or an exception occurs during the response.
+        /// </summary>
+        event ResponseEventHandler ResponseError;
+
         #endregion
 
         #region Champion API
@@ -457,7 +462,7 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        StaticChampion GetStaticMasteryById(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null);
+        StaticMastery GetStaticMasteryById(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null);
 
         /// <summary>
         /// Gets mastery details by ID. This method uses the LoL Static Data API.
@@ -470,7 +475,7 @@ namespace RiotNet
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        Task<StaticChampion> GetStaticMasteryByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null);
+        Task<StaticMastery> GetStaticMasteryByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null);
 
         /// <summary>
         /// Gets the realm data. This method uses the LoL Static Data API.
