@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['serialize',['Serialize',['../class_riot_net_1_1_rest_sharp_json_net_serializer.html#a11f51fe9d2f79f8e7ef71943e75167eb',1,'RiotNet::RestSharpJsonNetSerializer']]],
+  ['spellvars',['SpellVars',['../class_riot_net_1_1_models_1_1_spell_vars.html#a0945e6afdccfd3fcb2b5f3023b41416e',1,'RiotNet::Models::SpellVars']]],
+  ['staticchampion',['StaticChampion',['../class_riot_net_1_1_models_1_1_static_champion.html#a1c3d6985ac1edc7f9d371cb5ffe63613',1,'RiotNet::Models::StaticChampion']]],
+  ['staticchampionlist',['StaticChampionList',['../class_riot_net_1_1_models_1_1_static_champion_list.html#a4dfa67bb7b0914125a04f6ac6e3cbe49',1,'RiotNet::Models::StaticChampionList']]],
+  ['staticitem',['StaticItem',['../class_riot_net_1_1_models_1_1_static_item.html#ae8bd4f04ed3bec8bdff9c15210ec4f85',1,'RiotNet::Models::StaticItem']]],
+  ['staticitemlist',['StaticItemList',['../class_riot_net_1_1_models_1_1_static_item_list.html#ae8b001574efd5cb526cc94f775b59c36',1,'RiotNet::Models::StaticItemList']]],
+  ['staticitemtree',['StaticItemTree',['../class_riot_net_1_1_models_1_1_static_item_tree.html#a8fdfb3a36999276fbfa2a54e2da0c51c',1,'RiotNet::Models::StaticItemTree']]],
+  ['staticmapdetails',['StaticMapDetails',['../class_riot_net_1_1_models_1_1_static_map_details.html#ada62851f135545b29781cb4cd7380dc4',1,'RiotNet::Models::StaticMapDetails']]],
+  ['staticmaplist',['StaticMapList',['../class_riot_net_1_1_models_1_1_static_map_list.html#afce0a9b97df73ba7166ee09f7359aa3b',1,'RiotNet::Models::StaticMapList']]],
+  ['staticmastery',['StaticMastery',['../class_riot_net_1_1_models_1_1_static_mastery.html#a3a77c76556a80984bfa66f4af3d8b7a1',1,'RiotNet::Models::StaticMastery']]],
+  ['staticmasterylist',['StaticMasteryList',['../class_riot_net_1_1_models_1_1_static_mastery_list.html#a7083fdebcf4307fb8ac4459697dd34f0',1,'RiotNet::Models::StaticMasteryList']]],
+  ['staticrealm',['StaticRealm',['../class_riot_net_1_1_models_1_1_static_realm.html#a8128e116ef68e9bcf2075e03752af2a0',1,'RiotNet::Models::StaticRealm']]],
+  ['staticrune',['StaticRune',['../class_riot_net_1_1_models_1_1_static_rune.html#a8280da148456f9df158e636959d2b116',1,'RiotNet::Models::StaticRune']]],
+  ['staticrunelist',['StaticRuneList',['../class_riot_net_1_1_models_1_1_static_rune_list.html#ac66d5058bb6aa3dc8fff6a73fd87c7eb',1,'RiotNet::Models::StaticRuneList']]],
+  ['staticspell',['StaticSpell',['../class_riot_net_1_1_models_1_1_static_spell.html#a8d7a8257205bdc1b6ad8876edf157c6b',1,'RiotNet::Models::StaticSpell']]],
+  ['staticsummonerspell',['StaticSummonerSpell',['../class_riot_net_1_1_models_1_1_static_summoner_spell.html#ac1ade956f9a50ff26263250a43234c1c',1,'RiotNet::Models::StaticSummonerSpell']]]
+];

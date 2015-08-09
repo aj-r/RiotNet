@@ -1,0 +1,25 @@
+var class_riot_net_1_1_models_1_1_event =
+[
+    [ "Event", "class_riot_net_1_1_models_1_1_event.html#a63c3bbf6fdf7fb902decc2f4955f8b80", null ],
+    [ "AscendedType", "class_riot_net_1_1_models_1_1_event.html#a6323cb10883d0892210331bcf76b5e0d", null ],
+    [ "AssistingParticipantIds", "class_riot_net_1_1_models_1_1_event.html#a5f0a1b96764091293d17a68198a8dff8", null ],
+    [ "BuildingType", "class_riot_net_1_1_models_1_1_event.html#a35164fc373d0e084aa7b611d28000edc", null ],
+    [ "CreatorId", "class_riot_net_1_1_models_1_1_event.html#aed66b797cd6b09391d1a8550bc3ab7e2", null ],
+    [ "EventType", "class_riot_net_1_1_models_1_1_event.html#a4ddfdc4c9454f66fe0502073998ab917", null ],
+    [ "ItemAfter", "class_riot_net_1_1_models_1_1_event.html#a69ad26b0d4e8e083bddc1d042c34541d", null ],
+    [ "ItemBefore", "class_riot_net_1_1_models_1_1_event.html#ac01cc293442eb001f957a1a83416c69c", null ],
+    [ "ItemId", "class_riot_net_1_1_models_1_1_event.html#a8489fa6a78cd647c6ed5b7b1660c472b", null ],
+    [ "KillerId", "class_riot_net_1_1_models_1_1_event.html#a2b3db26f23afb395067e23b476356f0b", null ],
+    [ "LaneType", "class_riot_net_1_1_models_1_1_event.html#ad8d47497bfef02edfc52997a3449a1aa", null ],
+    [ "LevelUpType", "class_riot_net_1_1_models_1_1_event.html#a8958f773e402f1f8162d781f41d5e7cc", null ],
+    [ "MonsterType", "class_riot_net_1_1_models_1_1_event.html#a0438b8aa91d40384ba6ba7207d73a040", null ],
+    [ "ParticipantId", "class_riot_net_1_1_models_1_1_event.html#abc4bc5ab0f54cea8214fce83de3628de", null ],
+    [ "PointCaptured", "class_riot_net_1_1_models_1_1_event.html#a1693b8b84d6409d8583083fd1eb4c15c", null ],
+    [ "Position", "class_riot_net_1_1_models_1_1_event.html#ae8152a702afde8c80327753e57b27cde", null ],
+    [ "SkillSlot", "class_riot_net_1_1_models_1_1_event.html#a40e913ae0a980d497ddfaf52b11066ae", null ],
+    [ "TeamId", "class_riot_net_1_1_models_1_1_event.html#ad6936035da23b14abbd0b81cd702aee0", null ],
+    [ "Timestamp", "class_riot_net_1_1_models_1_1_event.html#ab1a26aa005fa622f542be438d6509232", null ],
+    [ "TowerType", "class_riot_net_1_1_models_1_1_event.html#a64042e3b11c1e681f5680164ce346896", null ],
+    [ "VictimId", "class_riot_net_1_1_models_1_1_event.html#ad44d501d9f37d8483d19664d358c7578", null ],
+    [ "WardType", "class_riot_net_1_1_models_1_1_event.html#a72892767574a857a996789592ef241a1", null ]
+];
