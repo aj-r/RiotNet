@@ -17,7 +17,7 @@ namespace RiotNet.Models
         public virtual List<BlockItem> Items { get; set; }
 
         /// <summary>
-        /// No idea what this is. Sorry.
+        /// Gets or sets a flag that indicates whether to use tutorial formatting when displaying items in the block. If true, all items within the block are separated by a plus sign with the last item being separated by an arrow indicating that the other items build into the last item.
         /// </summary>
         public bool RecMath { get; set; }
 
