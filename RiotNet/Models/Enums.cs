@@ -1,4 +1,7 @@
-﻿namespace RiotNet.Models
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
+namespace RiotNet.Models
 {
     /// <summary>
     /// Represents the ascension event type.  Used in <see cref="Event"/> for event type <see cref="EventType.ASCENDED_EVENT"/>.
@@ -603,6 +606,7 @@
     /// <summary>
     /// Represents a region (or server).
     /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
     public enum Region
     {
         /// <summary>
