@@ -296,6 +296,25 @@ namespace RiotNet.Models
     }
 
     /// <summary>
+    /// Represents a map type.
+    /// </summary>
+    public enum MapType
+    {
+        /// <summary>
+        /// Summoner's Rift
+        /// </summary>
+        SUMMONERS_RIFT,
+        /// <summary>
+        /// Crystal Scar (dominion)
+        /// </summary>
+        CRYSTAL_SCAR,
+        /// <summary>
+        /// Howling Abyss (ARAM)
+        /// </summary>
+        HOWLING_ABYSS
+    }
+
+    /// <summary>
     /// Represents a player's role. Very similar to <see cref="PlayerRole"/> but used in the Match API instead of Game API.
     /// </summary>
     public enum MatchRole
@@ -362,6 +381,29 @@ namespace RiotNet.Models
         /// Specifies the Resolve mastery tree.
         /// </summary>
         Resolve
+    }
+
+    /// <summary>
+    /// The method used for picking champions.
+    /// </summary>
+    public enum PickType
+    {
+        /// <summary>
+        /// Blind pick
+        /// </summary>
+        BLIND_PICK,
+        /// <summary>
+        /// Draft pick
+        /// </summary>
+        DRAFT_MODE,
+        /// <summary>
+        /// All randowm
+        /// </summary>
+        ALL_RANDOM,
+        /// <summary>
+        /// Tournament draft pick
+        /// </summary>
+        TOURNAMENT_DRAFT
     }
 
     /// <summary>
@@ -726,6 +768,25 @@ namespace RiotNet.Models
         /// Error
         /// </summary>
         Error,
+    }
+
+    /// <summary>
+    /// The type of spectators allowed for a game.
+    /// </summary>
+    public enum SpectatorType
+    {
+        /// <summary>
+        /// No spectators are allowed.
+        /// </summary>
+        NONE,
+        /// <summary>
+        /// Spectators are allowed only if they joined in the lobby.
+        /// </summary>
+        LOBBYONLY,
+        /// <summary>
+        /// Spectators can join at any point (in the lobby or after the game starts).
+        /// </summary>
+        ALL
     }
 
     /// <summary>
