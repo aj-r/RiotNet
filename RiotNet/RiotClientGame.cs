@@ -1,6 +1,5 @@
 ﻿using RestSharp;
 using RiotNet.Models;
-using System;
 using System.Globalization;
 using System.Threading.Tasks;
 

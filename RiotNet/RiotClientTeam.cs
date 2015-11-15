@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using RestSharp;
-using RiotNet.Models;
-using System.Collections.Generic;
 
 using TeamsBySummonerIdsDictionary = System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<RiotNet.Models.Team>>;
 using TeamByTeamIdDictionary = System.Collections.Generic.Dictionary<string, RiotNet.Models.Team>;

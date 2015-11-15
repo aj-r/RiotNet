@@ -351,17 +351,17 @@ namespace RiotNet.Models
     public enum MastertyTreeType
     {
         /// <summary>
-        /// Specifies the Offense mastery tree.
+        /// Specifies the Ferocity mastery tree.
         /// </summary>
-        Offense,
+        Ferocity,
         /// <summary>
-        /// Specifies the Defense mastery tree.
+        /// Specifies the Cunning mastery tree.
         /// </summary>
-        Defense,
+        Cunning,
         /// <summary>
-        /// Specifies the Utility mastery tree.
+        /// Specifies the Resolve mastery tree.
         /// </summary>
-        Utility
+        Resolve
     }
 
     /// <summary>

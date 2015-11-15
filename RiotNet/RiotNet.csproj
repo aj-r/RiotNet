@@ -85,6 +85,7 @@
     <Compile Include="Models\PlayerStatsSummaryList.cs" />
     <Compile Include="Models\Position.cs" />
     <Compile Include="Models\RankedStats.cs" />
+    <Compile Include="Models\RestSharpString.cs" />
     <Compile Include="Models\Rune.cs" />
     <Compile Include="Models\StaticDataList.cs" />
     <Compile Include="Models\FeaturedGameInfo.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="Models\StaticMapList.cs" />
     <Compile Include="Models\StaticMasteryList.cs" />
     <Compile Include="Models\StaticMastery.cs" />
+    <Compile Include="Models\StaticMasteryTreeItem.cs" />
     <Compile Include="Models\StaticRealm.cs" />
     <Compile Include="Models\StaticRuneList.cs" />
     <Compile Include="Models\StaticItemList.cs" />
@@ -177,6 +179,7 @@
     <Compile Include="RiotClientStats.cs" />
     <Compile Include="RiotClientStatus.cs" />
     <Compile Include="RiotClientSummoner.cs" />
+    <Compile Include="RiotClientTournament.cs" />
     <Compile Include="RiotClientTeam.cs" />
     <Compile Include="RiotNetContractResolver.cs" />
   </ItemGroup>

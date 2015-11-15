@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -196,56 +195,7 @@ namespace RiotNet
 
             return itemList;
         }
-
-        private IRestRequest GetStaticItemByIdRequest(int id, string locale, string version, IEnumerable<string> itemData)
-        {
-            var request = Get(staticBaseUrl + "item/{id}");
-            request.AddUrlSegment("id", id.ToString(CultureInfo.InvariantCulture));
-            if (locale != null)
-                request.AddQueryParameter("locale", locale);
-            if (version != null)
-                request.AddQueryParameter("version", version);
-            if (itemData != null)
-            {
-                var itemDataParam = CreateDataParam(itemData, typeof(StaticItem));
-                if (!string.IsNullOrEmpty(itemDataParam))
-                    request.AddQueryParameter("itemData", itemDataParam);
-            }
-            return request;
-        }
-
-        /// <summary>
-        /// Gets an item by ID. This method uses the LoL Static Data API.
-        /// </summary>
-        /// <param name="id">The rune ID.</param>
-        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetStaticVersions"/>.</param>
-        /// <param name="itemData">Tags to return additional data. Valid tags are any property of the <see cref="StaticItem"/> object. Only id, name, runeMetaData, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
-        /// <returns>A <see cref="StaticItem"/>.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public StaticItem GetStaticItemById(int id, string locale = null, string version = null, IEnumerable<string> itemData = null)
-        {
-            return Execute<StaticItem>(GetStaticItemByIdRequest(id, locale, version, itemData));
-        }
-
-        /// <summary>
-        /// Gets an item by ID. This method uses the LoL Static Data API.
-        /// </summary>
-        /// <param name="id">The rune ID.</param>
-        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="itemData">Tags to return additional data. Valid tags are any property of the <see cref="StaticItem"/> object. Only id, name, runeMetaData, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public Task<StaticItem> GetStaticItemByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> itemData = null)
-        {
-            return ExecuteAsync<StaticItem>(GetStaticItemByIdRequest(id, locale, version, itemData));
-        }
-
+        
         #endregion
 
         #region Languages

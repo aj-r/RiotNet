@@ -1,8 +1,4 @@
-﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-
-namespace RiotNet
+﻿namespace RiotNet
 {
     /// <summary>
     /// Contains settings for a <see cref="RiotClient"/>.
@@ -25,6 +21,8 @@ namespace RiotNet
 
         /// <summary>
         /// Gets or sets the Riot API key to use.
+        /// NOTE: If you are using a public repository, do NOT check you API key in to the repository.
+        /// It is recommended to load your API key from a separate file (e.g. key.txt) that is ignored by your repository.
         /// </summary>
         public string ApiKey { get; set; }
 

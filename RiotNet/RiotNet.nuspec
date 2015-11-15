@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/aj-r/RiotNet</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Initial release.</releaseNotes>
+    <releaseNotes>Serialize the Region enum as a string instead of a number.</releaseNotes>
     <copyright>Copyright 2015 AJ Richardson</copyright>
     <tags>riot games lol api client wrapper</tags>
   </metadata>

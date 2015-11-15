@@ -1,10 +1,6 @@
 ﻿using RestSharp;
 using RiotNet.Models;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace RiotNet
@@ -16,7 +12,7 @@ namespace RiotNet
         /// </summary>
         public string MatchApiVersion { get { return "v2.2"; } }
 
-        private IRestRequest GetMatchRequest(long matchId, Boolean includeTimeline)
+        private IRestRequest GetMatchRequest(long matchId, bool includeTimeline)
         {
             var request = Get("api/lol/{region}/v2.2/match/{matchId}");
             request.AddUrlSegment("matchId", matchId.ToString());
@@ -31,7 +27,7 @@ namespace RiotNet
         /// <param name="matchId">The ID of the match.</param>
         /// <param name="includeTimeline">Whether or not to include the match timeline data.</param>
         /// <returns>The details of the match.</returns>
-        public MatchDetail GetMatch(long matchId, Boolean includeTimeline = false)
+        public MatchDetail GetMatch(long matchId, bool includeTimeline = false)
         {
             return Execute<MatchDetail>(GetMatchRequest(matchId, includeTimeline));
         }
@@ -42,7 +38,7 @@ namespace RiotNet
         /// <param name="matchId">The ID of the match.</param>
         /// <param name="includeTimeline">Whether or not to include the match timeline data.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<MatchDetail> GetMatchAsync(long matchId, Boolean includeTimeline = false)
+        public Task<MatchDetail> GetMatchAsync(long matchId, bool includeTimeline = false)
         {
             return ExecuteAsync<MatchDetail>(GetMatchRequest(matchId, includeTimeline));
         }

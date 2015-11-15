@@ -1,8 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
-using RestSharp;
+﻿using RestSharp;
 using RiotNet.Models;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace RiotNet
 {

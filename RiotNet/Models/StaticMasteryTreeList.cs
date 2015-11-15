@@ -13,7 +13,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the items in the current <see cref="StaticMasteryTreeList"/>.
         /// </summary>
-        public virtual List<StaticMastery> MasteryTreeItems { get; set; }
+        public virtual List<StaticMasteryTreeItem> MasteryTreeItems { get; set; }
 
 #if DB_READY
         /// <summary>

@@ -12,19 +12,19 @@ namespace RiotNet.Models
     public class StaticMasteryTree
     {
         /// <summary>
-        /// Gets or sets the defense mastery tree.
+        /// Gets or sets the Cunning mastery tree.
         /// </summary>
-        public virtual List<StaticMasteryTreeList> Defense { get; set; }
+        public virtual List<StaticMasteryTreeList> Cunning { get; set; }
 
         /// <summary>
-        /// Gets or sets the offense mastery tree.
+        /// Gets or sets the Ferocity mastery tree.
         /// </summary>
-        public virtual List<StaticMasteryTreeList> Offense { get; set; }
+        public virtual List<StaticMasteryTreeList> Ferocity { get; set; }
 
         /// <summary>
-        /// Gets or sets the utility mastery tree.
+        /// Gets or sets the Resolve mastery tree.
         /// </summary>
-        public virtual List<StaticMasteryTreeList> Utility { get; set; }
+        public virtual List<StaticMasteryTreeList> Resolve { get; set; }
 
 #if DB_READY
         /// <summary>

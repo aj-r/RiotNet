@@ -255,57 +255,7 @@ namespace RiotNet.Tests
             Assert.That(item.SanitizedDescription, Is.Not.Null.And.Not.Empty);
             Assert.That(item.Image.Full, Is.Null.Or.Empty);
         }
-
-        [Test]
-        public async Task GetStaticItemByIdAsyncTest()
-        {
-            IRiotClient client = new RiotClient();
-
-            // 3086 = Zeal
-            var item = await client.GetStaticItemByIdAsync(3086, itemData: new[] { "all" });
-            Assert.That(item, Is.Not.Null);
-            Assert.That(item.Colloq, Is.EqualTo(string.Empty));
-            Assert.That(item.ConsumeOnFull, Is.False);
-            Assert.That(item.Consumed, Is.False);
-            Assert.That(item.Depth, Is.GreaterThan(1));
-            Assert.That(item.Description, Is.Not.Null.And.Not.Empty);
-            Assert.That(item.From, Is.Not.Null.And.Not.Empty);
-            Assert.That(item.Gold, Is.Not.Null);
-            Assert.That(item.Gold.Base, Is.GreaterThan(0));
-            Assert.That(item.Gold.Purchasable);
-            Assert.That(item.Gold.Sell, Is.GreaterThan(0));
-            Assert.That(item.Gold.Total, Is.GreaterThan(0));
-            Assert.That(item.HideFromAll, Is.False);
-            Assert.That(item.Id, Is.GreaterThan(0));
-            Assert.That(item.Image, Is.Not.Null);
-            Assert.That(item.InStore);
-            Assert.That(item.Into, Is.Not.Null.And.Not.Empty);
-            Assert.That(item.Maps, Is.Not.Null.And.Not.Empty);
-            Assert.That(item.Name, Is.Not.Null.And.Not.Empty);
-            Assert.That(item.PlainText, Is.Not.Null.And.Not.Empty);
-            Assert.That(item.SanitizedDescription, Is.Not.Null.And.Not.Empty);
-            Assert.That(item.Stacks, Is.EqualTo(1));
-            Assert.That(item.Stats, Is.Not.Null);
-            Assert.That(item.Tags, Is.Not.Null.And.Not.Empty);
-
-            // 2004 = Mana potion
-            item = await client.GetStaticItemByIdAsync(2004, itemData: new[] { "all" });
-            Assert.That(item.Consumed);
-            Assert.That(item.Stacks, Is.GreaterThan(1));
-        }
-
-        [Test]
-        public async Task GetStaticItemByIdAsyncTest_WithSelectedFields()
-        {
-            IRiotClient client = new RiotClient();
-            // 3086 = Zeal
-            var item = await client.GetStaticItemByIdAsync(3086, itemData: new[] { "Maps", "SanitizedDescription" });
-
-            Assert.That(item.Maps, Is.Not.Null.And.Not.Empty);
-            Assert.That(item.SanitizedDescription, Is.Not.Null.And.Not.Empty);
-            Assert.That(item.Image.Full, Is.Null.Or.Empty);
-        }
-
+        
         [Test]
         public async Task StaticItemDefaultsTest()
         {
@@ -382,9 +332,10 @@ namespace RiotNet.Tests
             Assert.That(mastery.Id, Is.GreaterThan(0));
             Assert.That(mastery.Description, Is.Not.Null.And.Not.Empty);
             Assert.That(mastery.Image, Is.Not.Null);
-            Assert.That(masteryList.Data.Values.Any(m => m.MasteryTree == MastertyTreeType.Utility));
+            Assert.That(masteryList.Data.Values.Any(m => m.MasteryTree == MastertyTreeType.Cunning));
             Assert.That(mastery.Name, Is.Not.Null.And.Not.Empty);
-            Assert.That(masteryList.Data.Values.Any(m => m.Prereq > 0));
+            // Season 6 does not have any masteries with prereqs.
+            //Assert.That(masteryList.Data.Values.Any(m => m.Prereq > 0));
             Assert.That(mastery.Ranks, Is.GreaterThan(0));
             Assert.That(mastery.SanitizedDescription, Is.Not.Null.And.Not.Empty);
         }
@@ -398,7 +349,7 @@ namespace RiotNet.Tests
             Assert.That(masteryList.Data.Count, Is.GreaterThan(0));
             Assert.That(masteryList.Tree, Is.Not.Null);
 
-            Assert.That(masteryList.Data.Values.Any(m => m.MasteryTree != MastertyTreeType.Offense));
+            Assert.That(masteryList.Data.Values.Any(m => m.MasteryTree != MastertyTreeType.Ferocity));
             Assert.That(masteryList.Data.Values.All(m => m.Ranks == 0));
         }
 
@@ -406,7 +357,7 @@ namespace RiotNet.Tests
         public async Task GetStaticMasteryByIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var mastery = await client.GetStaticMasteryByIdAsync(4211, masteryData: new[] { "all" });
+            var mastery = await client.GetStaticMasteryByIdAsync(6121, masteryData: new[] { "all" });
 
             Assert.That(mastery, Is.Not.Null);
             Assert.That(mastery.Ranks, Is.GreaterThan(0));
@@ -416,9 +367,9 @@ namespace RiotNet.Tests
         public async Task GetStaticMasteryByIdAsyncTest_WithSelectedFields()
         {
             IRiotClient client = new RiotClient();
-            var mastery = await client.GetStaticMasteryByIdAsync(4211, masteryData: new[] { "MasteryTree", "Ranks" });
+            var mastery = await client.GetStaticMasteryByIdAsync(6121, masteryData: new[] { "MasteryTree", "Ranks" });
 
-            Assert.That(mastery.MasteryTree != MastertyTreeType.Offense);
+            Assert.That(mastery.MasteryTree != MastertyTreeType.Resolve);
             Assert.That(mastery.Ranks, Is.GreaterThan(0));
             Assert.That(mastery.SanitizedDescription, Is.Null.Or.Empty);
         }

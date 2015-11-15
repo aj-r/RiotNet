@@ -46,7 +46,8 @@ namespace RiotNet
         /// Creates a new <see cref="RiotClient"/> instance.
         /// </summary>
         /// <param name="region">The region indicating which server to connect to.</param>
-        /// <param name="apiKey">The API key to use.</param>
+        /// <param name="apiKey">The API key to use. NOTE: If you are using a public repository, do NOT check you API key in to the repository.
+        /// It is recommended to load your API key from a separate file (e.g. key.txt) that is ignored by your repository.</param>
         public RiotClient(Region region, string apiKey)
             : this(region, GetSettingsForApiKey(apiKey))
         { }
@@ -445,7 +446,38 @@ namespace RiotNet
         /// <returns>A rest request.</returns>
         protected IRestRequest Get(string resource)
         {
-            var request = new RestRequest(resource, Method.GET) { RequestFormat = DataFormat.Json, JsonSerializer = serializer };
+            return CreateRequest(resource, Method.GET);
+        }
+
+        /// <summary>
+        /// Creates a POST request for the specified resource. The region, platformId, and api_key parameters are automatically added to the request.
+        /// </summary>
+        /// <param name="resource">The resource path, relative to the base URL.</param>
+        /// <returns>A rest request.</returns>
+        protected IRestRequest Post(string resource)
+        {
+            return CreateRequest(resource, Method.POST);
+        }
+
+        /// <summary>
+        /// Creates a PUT request for the specified resource. The region, platformId, and api_key parameters are automatically added to the request.
+        /// </summary>
+        /// <param name="resource">The resource path, relative to the base URL.</param>
+        /// <returns>A rest request.</returns>
+        protected IRestRequest Put(string resource)
+        {
+            return CreateRequest(resource, Method.PUT);
+        }
+
+        /// <summary>
+        /// Creates a request for the specified resource. The region, platformId, and api_key parameters are automatically added to the request.
+        /// </summary>
+        /// <param name="resource">The resource path, relative to the base URL.</param>
+        /// <param name="method">The method to use.</param>
+        /// <returns>A rest request.</returns>
+        private IRestRequest CreateRequest(string resource, Method method)
+        {
+            var request = new RestRequest(resource, method) { RequestFormat = DataFormat.Json, JsonSerializer = serializer };
             request.AddUrlSegment("region", Region.ToString().ToLowerInvariant());
             request.AddUrlSegment("platformId", platformId);
             request.AddQueryParameter("api_key", Settings.ApiKey);

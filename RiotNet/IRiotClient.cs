@@ -338,33 +338,7 @@ namespace RiotNet
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
         Task<StaticItemList> GetStaticItemsAsync(string locale = null, string version = null, IEnumerable<string> itemListData = null);
-
-        /// <summary>
-        /// Gets an item by ID. This method uses the LoL Static Data API.
-        /// </summary>
-        /// <param name="id">The rune ID.</param>
-        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetStaticVersions"/>.</param>
-        /// <param name="itemData">Tags to return additional data. Valid tags are any property of the <see cref="StaticItem"/> object. Only id, name, runeMetaData, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
-        /// <returns>A <see cref="StaticItem"/>.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        StaticItem GetStaticItemById(int id, string locale = null, string version = null, IEnumerable<string> itemData = null);
-
-        /// <summary>
-        /// Gets an item by ID. This method uses the LoL Static Data API.
-        /// </summary>
-        /// <param name="id">The rune ID.</param>
-        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="itemData">Tags to return additional data. Valid tags are any property of the <see cref="StaticItem"/> object. Only id, name, runeMetaData, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        Task<StaticItem> GetStaticItemByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> itemData = null);
-
+        
         /// <summary>
         /// Gets a list of available languages. This method uses the LoL Static Data API.
         /// </summary>
@@ -900,6 +874,41 @@ namespace RiotNet
         /// <param name="teamIds">The team IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         Task<Dictionary<string, Team>> GetTeamsByTeamIdsAsync(params String[] teamIds);
+
+        #endregion
+
+        #region Tournament API
+
+        /// <summary>
+        /// Gets the currently supported version of the Tournament API that the client communicates with.
+        /// </summary>
+        string TournamentApiVersion { get; }
+
+        /// <summary>
+        /// Registers the current client as a tournament provider.
+        /// </summary>
+        /// <returns>The registered providerID.</returns>
+        string CreateTournamentProvider();
+
+        /// <summary>
+        /// Registers the current client as a tournament provider.
+        /// </summary>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task<string> CreateTournamentProviderAsync();
+        
+        /// <summary>
+        /// Creates a tournament.
+        /// </summary>
+        /// <param name="providerID">The providerID obtained from <see cref="CreateTournamentProvider"/>.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        string CreateTournament(string providerID);
+
+        /// <summary>
+        /// Creates a tournament.
+        /// </summary>
+        /// <param name="providerID">The providerID obtained from <see cref="CreateTournamentProviderAsync"/>.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task<string> CreateTournamentAsync(string providerID);
 
         #endregion
     }
