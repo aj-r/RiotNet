@@ -1,4 +1,8 @@
-﻿namespace RiotNet.Models
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace RiotNet.Models
 {
     /// <summary>
     /// Represents one item in a mastery tree list.
@@ -15,5 +19,15 @@
         /// Season 6 does not have any masteries with prerequisites.
         /// </summary>
         public int Prereq { get; set; }
+
+#if DB_READY
+        /// <summary>
+        /// Gets or sets the ID of the <see cref="StaticMasteryTreeItem"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
+        /// </summary>
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [JsonIgnore]
+        public long DatabaseId { get; set; }
+#endif
     }
 }
