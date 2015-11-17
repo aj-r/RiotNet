@@ -179,7 +179,6 @@
     <Compile Include="RiotClientStats.cs" />
     <Compile Include="RiotClientStatus.cs" />
     <Compile Include="RiotClientSummoner.cs" />
-    <Compile Include="RiotClientTournament.cs" />
     <Compile Include="RiotClientTeam.cs" />
     <Compile Include="RiotNetContractResolver.cs" />
   </ItemGroup>
