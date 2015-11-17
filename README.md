@@ -11,7 +11,7 @@ It has the following features:
 - **Full Test Coverage** - so you can trust that it works.
   - However, if you think we missed something, or need to update something, please create an issue. Or better yet, create a pull request!
 - **Compatible** with .NET 4.5 and later.
-- **NuGet** package:
+- [**NuGet package**](https://www.nuget.org/packages/RiotNet/):
 
 ```
 > Install-Package RiotNet
