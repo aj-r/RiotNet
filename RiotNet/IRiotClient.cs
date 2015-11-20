@@ -876,6 +876,40 @@ namespace RiotNet
         Task<Dictionary<string, Team>> GetTeamsByTeamIdsAsync(params String[] teamIds);
 
         #endregion
+
+        #region Tournament API
+
+        /// <summary>
+        /// Gets the currently supported version of the Tournament API that the client communicates with.
+        /// </summary>
+        string TournamentApiVersion { get; }
+
+        /// <summary>
+        /// Registers the current client as a tournament provider.
+        /// </summary>
+        /// <returns>The registered providerID.</returns>
+        string CreateTournamentProvider();
+
+        /// <summary>
+        /// Registers the current client as a tournament provider.
+        /// </summary>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task<string> CreateTournamentProviderAsync();
         
+        /// <summary>
+        /// Creates a tournament.
+        /// </summary>
+        /// <param name="providerID">The providerID obtained from <see cref="CreateTournamentProvider"/>.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        string CreateTournament(string providerID);
+
+        /// <summary>
+        /// Creates a tournament.
+        /// </summary>
+        /// <param name="providerID">The providerID obtained from <see cref="CreateTournamentProviderAsync"/>.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task<string> CreateTournamentAsync(string providerID);
+
+        #endregion
     }
 }
