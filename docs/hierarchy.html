@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">2.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -48,9 +40,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Packages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -78,20 +69,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('hierarchy.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -238,29 +215,27 @@ $(document).ready(function(){initNavTree('hierarchy.html','');});
 <tr id="row_83_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_static_map_details.html" target="_self">RiotNet.Models.StaticMapDetails</a></td><td class="desc">Contains data for a map (e.g. <a class="el" href="class_riot_net_1_1_models_1_1_summoner.html" title="Contains summoner information. ">Summoner</a>'s Rift). </td></tr>
 <tr id="row_84_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_static_mastery.html" target="_self">RiotNet.Models.StaticMastery</a></td><td class="desc">Represents a mastery slot. </td></tr>
 <tr id="row_85_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_static_mastery_tree.html" target="_self">RiotNet.Models.StaticMasteryTree</a></td><td class="desc">Represents a mastery tree. </td></tr>
-<tr id="row_86_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_static_mastery_tree_list.html" target="_self">RiotNet.Models.StaticMasteryTreeList</a></td><td class="desc">Represents one row in a mastery tree. </td></tr>
-<tr id="row_87_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_static_realm.html" target="_self">RiotNet.Models.StaticRealm</a></td><td class="desc">Contains realm data. This is mainly version numbers related to Dragon Magic. </td></tr>
-<tr id="row_88_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_88_" class="arrow" onclick="toggleFolder('88_')">&#9658;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_static_spell.html" target="_self">RiotNet.Models.StaticSpell</a></td><td class="desc">The base class for a champion ability or summoner spell. </td></tr>
-<tr id="row_88_0_" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_static_champion_spell.html" target="_self">RiotNet.Models.StaticChampionSpell</a></td><td class="desc">Contains champion spell data. </td></tr>
-<tr id="row_88_1_" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_static_summoner_spell.html" target="_self">RiotNet.Models.StaticSummonerSpell</a></td><td class="desc">Represents a summoner spell. </td></tr>
-<tr id="row_89_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_stats.html" target="_self">RiotNet.Models.Stats</a></td><td class="desc">Contains champion stats data. </td></tr>
-<tr id="row_90_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_summoner.html" target="_self">RiotNet.Models.Summoner</a></td><td class="desc">Contains summoner information. </td></tr>
-<tr id="row_91_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_team.html" target="_self">RiotNet.Models.Team</a></td><td class="desc">Contains team information. </td></tr>
-<tr id="row_92_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_team_member_info.html" target="_self">RiotNet.Models.TeamMemberInfo</a></td><td class="desc">Contains team member information. </td></tr>
-<tr id="row_93_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_team_stat_detail.html" target="_self">RiotNet.Models.TeamStatDetail</a></td><td class="desc">Contains team statistics detail information. </td></tr>
-<tr id="row_94_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_timeline.html" target="_self">RiotNet.Models.Timeline</a></td><td class="desc">This object contains game timeline information. </td></tr>
-<tr id="row_95_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_translation.html" target="_self">RiotNet.Models.Translation</a></td><td class="desc">Represents a message translation. </td></tr>
+<tr id="row_86_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_static_mastery_tree_item.html" target="_self">RiotNet.Models.StaticMasteryTreeItem</a></td><td class="desc">Represents one item in a mastery tree list. </td></tr>
+<tr id="row_87_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_static_mastery_tree_list.html" target="_self">RiotNet.Models.StaticMasteryTreeList</a></td><td class="desc">Represents one row in a mastery tree. </td></tr>
+<tr id="row_88_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_static_realm.html" target="_self">RiotNet.Models.StaticRealm</a></td><td class="desc">Contains realm data. This is mainly version numbers related to Dragon Magic. </td></tr>
+<tr id="row_89_"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_89_" class="arrow" onclick="toggleFolder('89_')">&#9658;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_static_spell.html" target="_self">RiotNet.Models.StaticSpell</a></td><td class="desc">The base class for a champion ability or summoner spell. </td></tr>
+<tr id="row_89_0_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_static_champion_spell.html" target="_self">RiotNet.Models.StaticChampionSpell</a></td><td class="desc">Contains champion spell data. </td></tr>
+<tr id="row_89_1_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_static_summoner_spell.html" target="_self">RiotNet.Models.StaticSummonerSpell</a></td><td class="desc">Represents a summoner spell. </td></tr>
+<tr id="row_90_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_stats.html" target="_self">RiotNet.Models.Stats</a></td><td class="desc">Contains champion stats data. </td></tr>
+<tr id="row_91_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_summoner.html" target="_self">RiotNet.Models.Summoner</a></td><td class="desc">Contains summoner information. </td></tr>
+<tr id="row_92_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_team.html" target="_self">RiotNet.Models.Team</a></td><td class="desc">Contains team information. </td></tr>
+<tr id="row_93_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_team_member_info.html" target="_self">RiotNet.Models.TeamMemberInfo</a></td><td class="desc">Contains team member information. </td></tr>
+<tr id="row_94_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_team_stat_detail.html" target="_self">RiotNet.Models.TeamStatDetail</a></td><td class="desc">Contains team statistics detail information. </td></tr>
+<tr id="row_95_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_timeline.html" target="_self">RiotNet.Models.Timeline</a></td><td class="desc">This object contains game timeline information. </td></tr>
+<tr id="row_96_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_riot_net_1_1_models_1_1_translation.html" target="_self">RiotNet.Models.Translation</a></td><td class="desc">Represents a message translation. </td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
 </body>
 </html>

@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">2.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -48,9 +40,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li class="current"><a href="namespaces.html"><span>Packages</span></a></li>
+      <li class="current"><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -71,25 +62,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="namespaces.html"><span>Packages</span></a></li>
-      <li><a href="namespacemembers.html"><span>Package&#160;Functions</span></a></li>
+      <li><a href="namespaces.html"><span>Namespace&#160;List</span></a></li>
+      <li><a href="namespacemembers.html"><span>Namespace&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('namespace_riot_net_1_1_models.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -104,6 +80,11 @@ $(document).ready(function(){initNavTree('namespace_riot_net_1_1_models.html',''
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
@@ -301,6 +282,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_recommended.html">Recommended</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a recommended item set.  <a href="class_riot_net_1_1_models_1_1_recommended.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>RestSharpString</b></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_roster.html">Roster</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains roster information.  <a href="class_riot_net_1_1_models_1_1_roster.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -372,6 +355,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_static_mastery_tree.html">StaticMasteryTree</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a mastery tree.  <a href="class_riot_net_1_1_models_1_1_static_mastery_tree.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_static_mastery_tree_item.html">StaticMasteryTreeItem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents one item in a mastery tree list.  <a href="class_riot_net_1_1_models_1_1_static_mastery_tree_item.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_static_mastery_tree_list.html">StaticMasteryTreeList</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents one row in a mastery tree.  <a href="class_riot_net_1_1_models_1_1_static_mastery_tree_list.html#details">More...</a><br /></td></tr>
@@ -516,6 +502,12 @@ Enumerations</h2></td></tr>
  }<tr class="memdesc:a7a93d7fc2179d6364bb72a3aa6f994c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the level up type. Used in Event for event type EventType.SKILL_LEVEL_UP.  <a href="namespace_riot_net_1_1_models.html#a7a93d7fc2179d6364bb72a3aa6f994c2">More...</a><br /></td></tr>
 <tr class="separator:a7a93d7fc2179d6364bb72a3aa6f994c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </td></tr>
+<tr class="memitem:aa6da05d91aef6afab7307e8aa4bc15dd"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_riot_net_1_1_models.html#aa6da05d91aef6afab7307e8aa4bc15dd">MapType</a> { <a class="el" href="namespace_riot_net_1_1_models.html#aa6da05d91aef6afab7307e8aa4bc15ddaba65f4a1e456777a41dfc292885a4fca">MapType.SUMMONERS_RIFT</a>, 
+<a class="el" href="namespace_riot_net_1_1_models.html#aa6da05d91aef6afab7307e8aa4bc15dda6677c89f5bca51b785ccf3f3d4c3baea">MapType.CRYSTAL_SCAR</a>, 
+<a class="el" href="namespace_riot_net_1_1_models.html#aa6da05d91aef6afab7307e8aa4bc15dda77eaae5faba676dd5a93d8a9fb68cfbc">MapType.HOWLING_ABYSS</a>
+ }<tr class="memdesc:aa6da05d91aef6afab7307e8aa4bc15dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a map type.  <a href="namespace_riot_net_1_1_models.html#aa6da05d91aef6afab7307e8aa4bc15dd">More...</a><br /></td></tr>
+<tr class="separator:aa6da05d91aef6afab7307e8aa4bc15dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</td></tr>
 <tr class="memitem:a6f3c4662ffed2fc2f372740b29691d53"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_riot_net_1_1_models.html#a6f3c4662ffed2fc2f372740b29691d53">MatchRole</a> { <br />
 &#160;&#160;<a class="el" href="namespace_riot_net_1_1_models.html#a6f3c4662ffed2fc2f372740b29691d53a8a8880f73f97e0f2e8cadf3616cd2ee8">MatchRole.DUO</a>, 
 <a class="el" href="namespace_riot_net_1_1_models.html#a6f3c4662ffed2fc2f372740b29691d53ab50339a10e1de285ac99d4c3990b8693">MatchRole.NONE</a>, 
@@ -534,11 +526,18 @@ Enumerations</h2></td></tr>
  }<tr class="memdesc:aa5cdcae2ad34ad173f4d0e993d9ff44f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents monster type.  <a href="namespace_riot_net_1_1_models.html#aa5cdcae2ad34ad173f4d0e993d9ff44f">More...</a><br /></td></tr>
 <tr class="separator:aa5cdcae2ad34ad173f4d0e993d9ff44f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </td></tr>
-<tr class="memitem:a2b1c4db9d054998f8ca698fdb69cec44"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_riot_net_1_1_models.html#a2b1c4db9d054998f8ca698fdb69cec44">MastertyTreeType</a> { <a class="el" href="namespace_riot_net_1_1_models.html#a2b1c4db9d054998f8ca698fdb69cec44a19c09932da41621578010ba99cc1c795">MastertyTreeType.Offense</a>, 
-<a class="el" href="namespace_riot_net_1_1_models.html#a2b1c4db9d054998f8ca698fdb69cec44a4b088aaa68446b6ec08cdc385d03516d">MastertyTreeType.Defense</a>, 
-<a class="el" href="namespace_riot_net_1_1_models.html#a2b1c4db9d054998f8ca698fdb69cec44a94df2a6972ca1fa79411645fe9b42339">MastertyTreeType.Utility</a>
+<tr class="memitem:a2b1c4db9d054998f8ca698fdb69cec44"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_riot_net_1_1_models.html#a2b1c4db9d054998f8ca698fdb69cec44">MastertyTreeType</a> { <a class="el" href="namespace_riot_net_1_1_models.html#a2b1c4db9d054998f8ca698fdb69cec44a580b237904234638ab0a0fe61417744c">MastertyTreeType.Ferocity</a>, 
+<a class="el" href="namespace_riot_net_1_1_models.html#a2b1c4db9d054998f8ca698fdb69cec44a4ae2e73eb2550ae7fd213d8f330d06e6">MastertyTreeType.Cunning</a>, 
+<a class="el" href="namespace_riot_net_1_1_models.html#a2b1c4db9d054998f8ca698fdb69cec44a05d26e7d7c53744b903ae1f6f8a8c7ed">MastertyTreeType.Resolve</a>
  }<tr class="memdesc:a2b1c4db9d054998f8ca698fdb69cec44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates a type of mastery tree.  <a href="namespace_riot_net_1_1_models.html#a2b1c4db9d054998f8ca698fdb69cec44">More...</a><br /></td></tr>
 <tr class="separator:a2b1c4db9d054998f8ca698fdb69cec44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</td></tr>
+<tr class="memitem:aa0a3be6fae6a93e12d4299557c27c462"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462">PickType</a> { <a class="el" href="namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462a60c1fe85ef12de019a959e52fb04ff5b">PickType.BLIND_PICK</a>, 
+<a class="el" href="namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462a21d3ccbf6d7cd71d135baa15b51eeee8">PickType.DRAFT_MODE</a>, 
+<a class="el" href="namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462aaf0665f38c78b831f796ce4daeefec4f">PickType.ALL_RANDOM</a>, 
+<a class="el" href="namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462a0d0320addae44fd3c1eb90c7c7097dcc">PickType.TOURNAMENT_DRAFT</a>
+ }<tr class="memdesc:aa0a3be6fae6a93e12d4299557c27c462"><td class="mdescLeft">&#160;</td><td class="mdescRight">The method used for picking champions.  <a href="namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462">More...</a><br /></td></tr>
+<tr class="separator:aa0a3be6fae6a93e12d4299557c27c462"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </td></tr>
 <tr class="memitem:ab3e6d5574d469e50491adabceb1daaef"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_riot_net_1_1_models.html#ab3e6d5574d469e50491adabceb1daaef">PlayerPosition</a> { <a class="el" href="namespace_riot_net_1_1_models.html#ab3e6d5574d469e50491adabceb1daaefa6705777b712ee811e76fb07162081d63">PlayerPosition.TOP</a> = 1, 
 <a class="el" href="namespace_riot_net_1_1_models.html#ab3e6d5574d469e50491adabceb1daaefa43eedd8685eb86592022f8da962e3474">PlayerPosition.MIDDLE</a> = 2, 
@@ -665,6 +664,12 @@ Enumerations</h2></td></tr>
  }<tr class="memdesc:a4a8c73813dd528b3feb8ac516ce53adf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the server incident message severity.  <a href="namespace_riot_net_1_1_models.html#a4a8c73813dd528b3feb8ac516ce53adf">More...</a><br /></td></tr>
 <tr class="separator:a4a8c73813dd528b3feb8ac516ce53adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </td></tr>
+<tr class="memitem:ae642ab9a0a2028e0515eba744a9d4533"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_riot_net_1_1_models.html#ae642ab9a0a2028e0515eba744a9d4533">SpectatorType</a> { <a class="el" href="namespace_riot_net_1_1_models.html#ae642ab9a0a2028e0515eba744a9d4533ab50339a10e1de285ac99d4c3990b8693">SpectatorType.NONE</a>, 
+<a class="el" href="namespace_riot_net_1_1_models.html#ae642ab9a0a2028e0515eba744a9d4533a40afa2209dc0eefad455f76d0ee0b933">SpectatorType.LOBBYONLY</a>, 
+<a class="el" href="namespace_riot_net_1_1_models.html#ae642ab9a0a2028e0515eba744a9d4533a5fb1f955b45e38e31789286a1790398d">SpectatorType.ALL</a>
+ }<tr class="memdesc:ae642ab9a0a2028e0515eba744a9d4533"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of spectators allowed for a game.  <a href="namespace_riot_net_1_1_models.html#ae642ab9a0a2028e0515eba744a9d4533">More...</a><br /></td></tr>
+<tr class="separator:ae642ab9a0a2028e0515eba744a9d4533"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</td></tr>
 <tr class="memitem:acc31d122c9840a99f3b313c61f83d16b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_riot_net_1_1_models.html#acc31d122c9840a99f3b313c61f83d16b">TeamSide</a> { <a class="el" href="namespace_riot_net_1_1_models.html#acc31d122c9840a99f3b313c61f83d16bac8867457125653a9b4e61a12aa67df47">TeamSide.Team1</a> = 100, 
 <a class="el" href="namespace_riot_net_1_1_models.html#acc31d122c9840a99f3b313c61f83d16ba4dd507ad2b564b40b7a5c2ef8eb81a4e">TeamSide.Team2</a> = 200
  }<tr class="memdesc:acc31d122c9840a99f3b313c61f83d16b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifies which side/team the player was on.  <a href="namespace_riot_net_1_1_models.html#acc31d122c9840a99f3b313c61f83d16b">More...</a><br /></td></tr>
@@ -741,8 +746,6 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00006">6</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a0913e340e4b388d087bb956cff266d2a"></a>
@@ -772,8 +775,6 @@ Enumerations</h2></td></tr>
 <p>Tower building </p>
 </td></tr>
 </table>
-
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00025">25</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
 
 </div>
 </div>
@@ -838,8 +839,6 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00040">40</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ac7c27793721e27458de29dceed2ad29a"></a>
@@ -887,8 +886,6 @@ Enumerations</h2></td></tr>
 <p>Legend of the Poro King, played on the Howling Abyss. </p>
 </td></tr>
 </table>
-
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00099">99</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
 
 </div>
 </div>
@@ -989,8 +986,6 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00138">138</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ad28e452cee495ce5007b5a44ee926009"></a>
@@ -1023,8 +1018,6 @@ Enumerations</h2></td></tr>
 <p>Tutorial </p>
 </td></tr>
 </table>
-
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00245">245</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
 
 </div>
 </div>
@@ -1059,8 +1052,6 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00264">264</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a7a93d7fc2179d6364bb72a3aa6f994c2"></a>
@@ -1091,7 +1082,38 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00283">283</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
+</div>
+</div>
+<a class="anchor" id="aa6da05d91aef6afab7307e8aa4bc15dd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespace_riot_net_1_1_models.html#aa6da05d91aef6afab7307e8aa4bc15dd">RiotNet.Models.MapType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Represents a map type. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="aa6da05d91aef6afab7307e8aa4bc15ddaba65f4a1e456777a41dfc292885a4fca"></a>SUMMONERS_RIFT&#160;</td><td class="fielddoc">
+<p><a class="el" href="class_riot_net_1_1_models_1_1_summoner.html" title="Contains summoner information. ">Summoner</a>'s Rift </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aa6da05d91aef6afab7307e8aa4bc15dda6677c89f5bca51b785ccf3f3d4c3baea"></a>CRYSTAL_SCAR&#160;</td><td class="fielddoc">
+<p>Crystal Scar (dominion) </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aa6da05d91aef6afab7307e8aa4bc15dda77eaae5faba676dd5a93d8a9fb68cfbc"></a>HOWLING_ABYSS&#160;</td><td class="fielddoc">
+<p>Howling Abyss (ARAM) </p>
+</td></tr>
+</table>
 
 </div>
 </div>
@@ -1115,18 +1137,16 @@ Enumerations</h2></td></tr>
 
 <p>Indicates a type of mastery tree. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a2b1c4db9d054998f8ca698fdb69cec44a19c09932da41621578010ba99cc1c795"></a>Offense&#160;</td><td class="fielddoc">
-<p>Specifies the Offense mastery tree. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a2b1c4db9d054998f8ca698fdb69cec44a580b237904234638ab0a0fe61417744c"></a>Ferocity&#160;</td><td class="fielddoc">
+<p>Specifies the Ferocity mastery tree. </p>
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a2b1c4db9d054998f8ca698fdb69cec44a4b088aaa68446b6ec08cdc385d03516d"></a>Defense&#160;</td><td class="fielddoc">
-<p>Specifies the Defense mastery tree. </p>
+<tr><td class="fieldname"><a class="anchor" id="a2b1c4db9d054998f8ca698fdb69cec44a4ae2e73eb2550ae7fd213d8f330d06e6"></a>Cunning&#160;</td><td class="fielddoc">
+<p>Specifies the Cunning mastery tree. </p>
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a2b1c4db9d054998f8ca698fdb69cec44a94df2a6972ca1fa79411645fe9b42339"></a>Utility&#160;</td><td class="fielddoc">
-<p>Specifies the Utility mastery tree. </p>
+<tr><td class="fieldname"><a class="anchor" id="a2b1c4db9d054998f8ca698fdb69cec44a05d26e7d7c53744b903ae1f6f8a8c7ed"></a>Resolve&#160;</td><td class="fielddoc">
+<p>Specifies the Resolve mastery tree. </p>
 </td></tr>
 </table>
-
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00348">348</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
 
 </div>
 </div>
@@ -1167,8 +1187,6 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00298">298</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aa5cdcae2ad34ad173f4d0e993d9ff44f"></a>
@@ -1205,7 +1223,41 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00325">325</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
+</div>
+</div>
+<a class="anchor" id="aa0a3be6fae6a93e12d4299557c27c462"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462">RiotNet.Models.PickType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The method used for picking champions. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="aa0a3be6fae6a93e12d4299557c27c462a60c1fe85ef12de019a959e52fb04ff5b"></a>BLIND_PICK&#160;</td><td class="fielddoc">
+<p>Blind pick </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aa0a3be6fae6a93e12d4299557c27c462a21d3ccbf6d7cd71d135baa15b51eeee8"></a>DRAFT_MODE&#160;</td><td class="fielddoc">
+<p>Draft pick </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aa0a3be6fae6a93e12d4299557c27c462aaf0665f38c78b831f796ce4daeefec4f"></a>ALL_RANDOM&#160;</td><td class="fielddoc">
+<p>All randowm </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aa0a3be6fae6a93e12d4299557c27c462a0d0320addae44fd3c1eb90c7c7097dcc"></a>TOURNAMENT_DRAFT&#160;</td><td class="fielddoc">
+<p>Tournament draft pick </p>
+</td></tr>
+</table>
 
 </div>
 </div>
@@ -1242,8 +1294,6 @@ Enumerations</h2></td></tr>
 <p>Bot </p>
 </td></tr>
 </table>
-
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00367">367</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
 
 </div>
 </div>
@@ -1284,8 +1334,6 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00390">390</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a09b2af257c463383deefc6f7106b2583"></a>
@@ -1324,8 +1372,6 @@ Enumerations</h2></td></tr>
 <p>Point e </p>
 </td></tr>
 </table>
-
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00417">417</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
 
 </div>
 </div>
@@ -1453,8 +1499,6 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00444">444</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ae86fd8ac68195c1d7b7d839200c6d756"></a>
@@ -1487,8 +1531,6 @@ Enumerations</h2></td></tr>
 <p>Ranked <a class="el" href="class_riot_net_1_1_models_1_1_team.html" title="Contains team information. ">Team</a> 5v5 </p>
 </td></tr>
 </table>
-
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00587">587</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
 
 </div>
 </div>
@@ -1547,8 +1589,6 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00606">606</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a7081083073e41f3014b51d3c3c5d6903"></a>
@@ -1591,8 +1631,6 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00657">657</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ae5d4430c0e55f446d83ca33ccd5d4cb1"></a>
@@ -1629,8 +1667,6 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00688">688</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a4a8c73813dd528b3feb8ac516ce53adf"></a>
@@ -1664,7 +1700,38 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00711">711</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
+</div>
+</div>
+<a class="anchor" id="ae642ab9a0a2028e0515eba744a9d4533"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespace_riot_net_1_1_models.html#ae642ab9a0a2028e0515eba744a9d4533">RiotNet.Models.SpectatorType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The type of spectators allowed for a game. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="ae642ab9a0a2028e0515eba744a9d4533ab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc">
+<p>No spectators are allowed. </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ae642ab9a0a2028e0515eba744a9d4533a40afa2209dc0eefad455f76d0ee0b933"></a>LOBBYONLY&#160;</td><td class="fielddoc">
+<p>Spectators are allowed only if they joined in the lobby. </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ae642ab9a0a2028e0515eba744a9d4533a5fb1f955b45e38e31789286a1790398d"></a>ALL&#160;</td><td class="fielddoc">
+<p>Spectators can join at any point (in the lobby or after the game starts). </p>
+</td></tr>
+</table>
 
 </div>
 </div>
@@ -1695,8 +1762,6 @@ Enumerations</h2></td></tr>
 <p><a class="el" href="class_riot_net_1_1_models_1_1_team.html" title="Contains team information. ">Team</a> 2 (red). </p>
 </td></tr>
 </table>
-
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00730">730</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
 
 </div>
 </div>
@@ -1746,8 +1811,6 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00745">745</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a3e6fdd10fbb274ad898e3abadb410a74"></a>
@@ -1789,8 +1852,6 @@ Enumerations</h2></td></tr>
 <p>Undefined turret </p>
 </td></tr>
 </table>
-
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00784">784</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
 
 </div>
 </div>
@@ -1834,20 +1895,14 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_enums_8cs_source.html#l00815">815</a> of file <a class="el" href="_enums_8cs_source.html">Enums.cs</a>.</p>
-
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
 </body>
 </html>

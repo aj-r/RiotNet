@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">2.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -48,9 +40,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Packages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -77,21 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('interface_riot_net_1_1_i_riot_client.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -106,6 +82,11 @@ $(document).ready(function(){initNavTree('interface_riot_net_1_1_i_riot_client.h
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="interface_riot_net_1_1_i_riot_client.html">IRiotClient</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -215,12 +196,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0eab2c596c96daf1964dbaa169cda640"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_static_item_list.html">StaticItemList</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a0eab2c596c96daf1964dbaa169cda640">GetStaticItemsAsync</a> (string locale=null, string version=null, IEnumerable&lt; string &gt; itemListData=null)</td></tr>
 <tr class="memdesc:a0eab2c596c96daf1964dbaa169cda640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a list of all available items. This method uses the LoL Static Data API.  <a href="#a0eab2c596c96daf1964dbaa169cda640">More...</a><br /></td></tr>
 <tr class="separator:a0eab2c596c96daf1964dbaa169cda640"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a358698451da0a00aab1d07b8566ae842"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_riot_net_1_1_models_1_1_static_item.html">StaticItem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a358698451da0a00aab1d07b8566ae842">GetStaticItemById</a> (int id, string locale=null, string version=null, IEnumerable&lt; string &gt; itemData=null)</td></tr>
-<tr class="memdesc:a358698451da0a00aab1d07b8566ae842"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an item by ID. This method uses the LoL Static Data API.  <a href="#a358698451da0a00aab1d07b8566ae842">More...</a><br /></td></tr>
-<tr class="separator:a358698451da0a00aab1d07b8566ae842"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e9a21de4f634f8c0e57914db3cd000b"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_static_item.html">StaticItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a6e9a21de4f634f8c0e57914db3cd000b">GetStaticItemByIdAsync</a> (int id, string locale=null, string version=null, IEnumerable&lt; string &gt; itemData=null)</td></tr>
-<tr class="memdesc:a6e9a21de4f634f8c0e57914db3cd000b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an item by ID. This method uses the LoL Static Data API.  <a href="#a6e9a21de4f634f8c0e57914db3cd000b">More...</a><br /></td></tr>
-<tr class="separator:a6e9a21de4f634f8c0e57914db3cd000b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16c831a6c6fe68d6706b7f084fea765d"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a16c831a6c6fe68d6706b7f084fea765d">GetStaticLanguages</a> ()</td></tr>
 <tr class="memdesc:a16c831a6c6fe68d6706b7f084fea765d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a list of available languages. This method uses the LoL Static Data API.  <a href="#a16c831a6c6fe68d6706b7f084fea765d">More...</a><br /></td></tr>
 <tr class="separator:a16c831a6c6fe68d6706b7f084fea765d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -449,8 +424,6 @@ Events</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A client that interacts with the Riot Games API. </p>
-
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00011">11</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a05e90a6540d04aabc0ac1acf3261e5b9"></a>
 <div class="memitem">
@@ -1066,8 +1039,6 @@ Events</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The details of the match.</dd></dl>
 
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#acc5e7fd8fde1fde10147fcc2f60fcab4">RiotNet.RiotClient</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ae4f22dcc7c093739d8cd9e9e600d0c83"></a>
@@ -1103,8 +1074,6 @@ Events</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#ae603bbc7b91fea25cb7fb57607cb827a">RiotNet.RiotClient</a>.</p>
 
 </div>
 </div>
@@ -1635,112 +1604,6 @@ Events</h2></td></tr>
 <p>Calls to this method will not count toward your API rate limit. </p>
 
 <p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a3cdd10ab78210769909e9a7a79a72a88">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a358698451da0a00aab1d07b8566ae842"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_riot_net_1_1_models_1_1_static_item.html">StaticItem</a> RiotNet.IRiotClient.GetStaticItemById </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>locale</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>version</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IEnumerable&lt; string &gt;&#160;</td>
-          <td class="paramname"><em>itemData</em> = <code>null</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets an item by ID. This method uses the LoL Static Data API. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The rune ID.</td></tr>
-    <tr><td class="paramname">locale</td><td>Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</td></tr>
-    <tr><td class="paramname">version</td><td>The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a9cd2386eec52c0d6a8dc43caf9753bf0" title="Gets the list of available game versions. This method uses the LoL Static Data API. Each version represents a patch number. ">GetStaticVersions</a>.</td></tr>
-    <tr><td class="paramname">itemData</td><td>Tags to return additional data. Valid tags are any property of the StaticItem object. Only id, name, runeMetaData, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A StaticItem.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#af98a6d59daf850e2f220f38dfc4cbc89">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6e9a21de4f634f8c0e57914db3cd000b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_static_item.html">StaticItem</a>&gt; RiotNet.IRiotClient.GetStaticItemByIdAsync </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>locale</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>version</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IEnumerable&lt; string &gt;&#160;</td>
-          <td class="paramname"><em>itemData</em> = <code>null</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets an item by ID. This method uses the LoL Static Data API. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The rune ID.</td></tr>
-    <tr><td class="paramname">locale</td><td>Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</td></tr>
-    <tr><td class="paramname">version</td><td>The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a898e52935246cf0e6094d58f1b8c38d3" title="Gets the list of available game versions. This method uses the LoL Static Data API. ">GetVersionsAsync</a>.</td></tr>
-    <tr><td class="paramname">itemData</td><td>Tags to return additional data. Valid tags are any property of the StaticItem object. Only id, name, runeMetaData, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a917059395dbb3e047083740c316400c4">RiotNet.RiotClient</a>.</p>
 
 </div>
 </div>
@@ -3309,8 +3172,6 @@ Events</h2></td></tr>
 
 <p>Gets the currently supported version of the Champion API that the client communicates with. </p>
 
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00067">67</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aa6f495a2583b42d11eed63cb4c2903cb"></a>
@@ -3332,8 +3193,6 @@ Events</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the currently supported version of the Current Game API that the client communicates with. </p>
-
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00104">104</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
 
 </div>
 </div>
@@ -3357,8 +3216,6 @@ Events</h2></td></tr>
 
 <p>Gets the currently supported version of the Featured Game API that the client communicates with. </p>
 
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00127">127</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a00aa476e66ae6ccbc530a3b2261e8729"></a>
@@ -3380,8 +3237,6 @@ Events</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the currently supported version of the Game API that the client communicates with. </p>
-
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00148">148</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
 
 </div>
 </div>
@@ -3405,8 +3260,6 @@ Events</h2></td></tr>
 
 <p>Gets the currently supported version of the League API that the client communicates with. </p>
 
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00171">171</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a6ab887498ecadfd1289a2e1334306a93"></a>
@@ -3428,8 +3281,6 @@ Events</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the currently supported version of the LoL Static Data API that the client communicates with. </p>
-
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00264">264</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
 
 </div>
 </div>
@@ -3453,8 +3304,6 @@ Events</h2></td></tr>
 
 <p>Gets the currently supported version of the LoL Status API that the client communicates with. </p>
 
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00625">625</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ab9d68a7cb87d7ba255bb58a136661abe"></a>
@@ -3476,8 +3325,6 @@ Events</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the currently supported version of the Match API that the client communicates with. </p>
-
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00664">664</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
 
 </div>
 </div>
@@ -3501,8 +3348,6 @@ Events</h2></td></tr>
 
 <p>Gets the currently supported version of the Match List API that the client communicates with. </p>
 
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00689">689</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a5cd816c231aa917317ef53a1f664bfbe"></a>
@@ -3524,8 +3369,6 @@ Events</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the platform ID of the current region. </p>
-
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00023">23</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
 
 </div>
 </div>
@@ -3549,8 +3392,6 @@ Events</h2></td></tr>
 
 <p>Gets the region that the current <a class="el" href="interface_riot_net_1_1_i_riot_client.html" title="A client that interacts with the Riot Games API. ">IRiotClient</a> connects to. </p>
 
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00018">18</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a84ac3c6c3b3c9a98ab9b9a785166a3b2"></a>
@@ -3572,8 +3413,6 @@ Events</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the settings for the current <a class="el" href="interface_riot_net_1_1_i_riot_client.html" title="A client that interacts with the Riot Games API. ">IRiotClient</a>. </p>
-
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00028">28</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
 
 </div>
 </div>
@@ -3597,8 +3436,6 @@ Events</h2></td></tr>
 
 <p>Gets the currently supported version of the Stats API that the client communicates with. </p>
 
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00726">726</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a7474aa1d7d6edb424f948b6fd6573604"></a>
@@ -3620,8 +3457,6 @@ Events</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the currently supported version of the Summoner API that the client communicates with. </p>
-
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00767">767</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
 
 </div>
 </div>
@@ -3645,8 +3480,6 @@ Events</h2></td></tr>
 
 <p>Gets the currently supported version of the Team API that the client communicates with. </p>
 
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00874">874</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Event Documentation</h2>
@@ -3662,8 +3495,6 @@ Events</h2></td></tr>
 
 <p>Occurs when the client fails to connect to the server while executing a request. </p>
 
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00038">38</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ae740b77202728eb0287488ab0b029624"></a>
@@ -3677,8 +3508,6 @@ Events</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Occurs when the client executes a request when the API rate limit has been exceeded. </p>
-
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00043">43</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
 
 </div>
 </div>
@@ -3694,8 +3523,6 @@ Events</h2></td></tr>
 
 <p>Occurs when the a request times out. </p>
 
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00033">33</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a593ab11472a96a88542c374ced3bfb05"></a>
@@ -3709,8 +3536,6 @@ Events</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Occurs when a request fails because a resource was not found. </p>
-
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00053">53</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
 
 </div>
 </div>
@@ -3726,8 +3551,6 @@ Events</h2></td></tr>
 
 <p>Occurs when a response returns an error code that does not fit into any other category, or an exception occurs during the response. </p>
 
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00058">58</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="afe5ec0d9c5d0f2172b5d7319e7363fa2"></a>
@@ -3742,23 +3565,17 @@ Events</h2></td></tr>
 
 <p>Occurs when the server returns an error code of 500 or higher. </p>
 
-<p>Definition at line <a class="el" href="_i_riot_client_8cs_source.html#l00048">48</a> of file <a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
-<li><a class="el" href="_i_riot_client_8cs_source.html">IRiotClient.cs</a></li>
+<li>IRiotClient.cs</li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="interface_riot_net_1_1_i_riot_client.html">IRiotClient</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
 </body>
 </html>

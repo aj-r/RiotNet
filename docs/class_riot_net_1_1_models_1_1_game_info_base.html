@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">2.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -48,9 +40,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Packages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -77,21 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_game_info_base.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -106,6 +82,11 @@ $(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_game_inf
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li><li class="navelem"><a class="el" href="class_riot_net_1_1_models_1_1_game_info_base.html">GameInfoBase</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#properties">Properties</a> &#124;
@@ -166,8 +147,6 @@ Properties</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base information for games (used in <a class="el" href="class_riot_net_1_1_models_1_1_featured_game_info.html" title="Contains some information on a featured game. ">FeaturedGameInfo</a> and <a class="el" href="class_riot_net_1_1_models_1_1_current_game_info.html" title="Contains info about a game. ">CurrentGameInfo</a>). </p>
-
-<p>Definition at line <a class="el" href="_game_info_base_8cs_source.html#l00011">11</a> of file <a class="el" href="_game_info_base_8cs_source.html">GameInfoBase.cs</a>.</p>
 </div><h2 class="groupheader">Property Documentation</h2>
 <a class="anchor" id="a284ec383a1075abbee55403221057bb9"></a>
 <div class="memitem">
@@ -188,8 +167,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the list of banned champion information. </p>
-
-<p>Definition at line <a class="el" href="_game_info_base_8cs_source.html#l00016">16</a> of file <a class="el" href="_game_info_base_8cs_source.html">GameInfoBase.cs</a>.</p>
 
 </div>
 </div>
@@ -213,8 +190,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the game Id. </p>
 
-<p>Definition at line <a class="el" href="_game_info_base_8cs_source.html#l00021">21</a> of file <a class="el" href="_game_info_base_8cs_source.html">GameInfoBase.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a4333978453521693e63d1c74ac363520"></a>
@@ -236,8 +211,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the amount of time in seconds that has passed since the game started. </p>
-
-<p>Definition at line <a class="el" href="_game_info_base_8cs_source.html#l00026">26</a> of file <a class="el" href="_game_info_base_8cs_source.html">GameInfoBase.cs</a>.</p>
 
 </div>
 </div>
@@ -261,8 +234,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the game mode. </p>
 
-<p>Definition at line <a class="el" href="_game_info_base_8cs_source.html#l00031">31</a> of file <a class="el" href="_game_info_base_8cs_source.html">GameInfoBase.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="abbf1f7802e132a99d098d085bea75cbf"></a>
@@ -284,8 +255,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the queue type. </p>
-
-<p>Definition at line <a class="el" href="_game_info_base_8cs_source.html#l00036">36</a> of file <a class="el" href="_game_info_base_8cs_source.html">GameInfoBase.cs</a>.</p>
 
 </div>
 </div>
@@ -309,8 +278,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the game start time in UTC. </p>
 
-<p>Definition at line <a class="el" href="_game_info_base_8cs_source.html#l00041">41</a> of file <a class="el" href="_game_info_base_8cs_source.html">GameInfoBase.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aa7eae644ba72e9f4471a82e25c6454c5"></a>
@@ -332,8 +299,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets of sets the game type. </p>
-
-<p>Definition at line <a class="el" href="_game_info_base_8cs_source.html#l00046">46</a> of file <a class="el" href="_game_info_base_8cs_source.html">GameInfoBase.cs</a>.</p>
 
 </div>
 </div>
@@ -357,8 +322,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the map id. </p>
 
-<p>Definition at line <a class="el" href="_game_info_base_8cs_source.html#l00051">51</a> of file <a class="el" href="_game_info_base_8cs_source.html">GameInfoBase.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a99cccc3e75480b50ba5dd5d79b04d4d9"></a>
@@ -380,8 +343,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the observer information. </p>
-
-<p>Definition at line <a class="el" href="_game_info_base_8cs_source.html#l00056">56</a> of file <a class="el" href="_game_info_base_8cs_source.html">GameInfoBase.cs</a>.</p>
 
 </div>
 </div>
@@ -405,8 +366,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the participant information. </p>
 
-<p>Definition at line <a class="el" href="_game_info_base_8cs_source.html#l00061">61</a> of file <a class="el" href="_game_info_base_8cs_source.html">GameInfoBase.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a257a9de1c590e35acfa7d70c808b8c36"></a>
@@ -429,23 +388,17 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the ID of the platform on which the game is being played. </p>
 
-<p>Definition at line <a class="el" href="_game_info_base_8cs_source.html#l00066">66</a> of file <a class="el" href="_game_info_base_8cs_source.html">GameInfoBase.cs</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Models/<a class="el" href="_game_info_base_8cs_source.html">GameInfoBase.cs</a></li>
+<li>Models/GameInfoBase.cs</li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li><li class="navelem"><a class="el" href="class_riot_net_1_1_models_1_1_game_info_base.html">GameInfoBase</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
 </body>
 </html>

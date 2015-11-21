@@ -32,6 +32,7 @@ var searchData=
   ['critperlevel',['CritPerLevel',['../class_riot_net_1_1_models_1_1_stats.html#a14396ad98c8e67c8e2333757bb90cd18',1,'RiotNet::Models::Stats']]],
   ['csdiffpermindeltas',['CsDiffPerMinDeltas',['../class_riot_net_1_1_models_1_1_match_participant_timeline.html#a9d58a9b46e7ea74b9c52a2cec54e0572',1,'RiotNet::Models::MatchParticipantTimeline']]],
   ['css',['Css',['../class_riot_net_1_1_models_1_1_static_realm.html#ac2c9c493a203db68d9a8b393ef8e2c91',1,'RiotNet::Models::StaticRealm']]],
+  ['cunning',['Cunning',['../class_riot_net_1_1_models_1_1_static_mastery_tree.html#a34c2d0cca8915c1032ff01a55540ae79',1,'RiotNet::Models::StaticMasteryTree']]],
   ['current',['Current',['../class_riot_net_1_1_models_1_1_mastery_page.html#a944334f1f835e32c21f8af3684c7bfa9',1,'RiotNet.Models.MasteryPage.Current()'],['../class_riot_net_1_1_models_1_1_rune_page.html#a2992b578c397a1b41c468d67548bbe0e',1,'RiotNet.Models.RunePage.Current()']]],
   ['currentgameapiversion',['CurrentGameApiVersion',['../interface_riot_net_1_1_i_riot_client.html#aa6f495a2583b42d11eed63cb4c2903cb',1,'RiotNet.IRiotClient.CurrentGameApiVersion()'],['../class_riot_net_1_1_riot_client.html#a37cb85bb6b21beed1c72ebb9c2707f91',1,'RiotNet.RiotClient.CurrentGameApiVersion()']]],
   ['currentgold',['CurrentGold',['../class_riot_net_1_1_models_1_1_match_participant_frame.html#a8b9409de78a8c4f73b1bb7778bd6ad5c',1,'RiotNet::Models::MatchParticipantFrame']]]

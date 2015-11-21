@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">2.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -48,9 +40,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Packages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -77,21 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_basic_data_stats.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -106,6 +82,11 @@ $(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_basic_da
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li><li class="navelem"><a class="el" href="class_riot_net_1_1_models_1_1_basic_data_stats.html">BasicDataStats</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#properties">Properties</a> &#124;
@@ -318,8 +299,6 @@ Properties</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents stats, or buffs, of an object. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00011">11</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 </div><h2 class="groupheader">Property Documentation</h2>
 <a class="anchor" id="a636c6615610add458a37febd64d01f9d"></a>
 <div class="memitem">
@@ -340,8 +319,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat armor added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00016">16</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -365,8 +342,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat armor added per level to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00183">183</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a993004ef370b0017bcf0be388bea6e69"></a>
@@ -388,8 +363,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat armor penetration added to the target's stats. This value is only set for runes. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00189">189</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -413,8 +386,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat armor added per level to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00195">195</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a9574b0fc2fd05b00232118eecd8f6f75"></a>
@@ -436,8 +407,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat attack speed added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00021">21</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -461,8 +430,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat block chance added to the target's stats. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00026">26</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a31dd1dbe6ed4f12fa29f4f5fa4b5f401"></a>
@@ -484,8 +451,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat critical strike chance added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00031">31</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -509,8 +474,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat critical strike chance per level added to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00201">201</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a684e73ced08da78c25641bbb99804648"></a>
@@ -532,8 +495,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat critical strike damage added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00036">36</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -557,8 +518,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat critical strike damage per level added to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00207">207</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a6863cb775d5556d9d803831e2b504a57"></a>
@@ -580,8 +539,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat dodge chance added to the target's stats. This value is only set for runes. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00213">213</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -605,8 +562,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat dodge chance per level added to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00219">219</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="acb2b0087446bd95232092c18b0d34485"></a>
@@ -628,8 +583,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat energy per level added to the target's stats. This value is only set for runes. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00225">225</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -653,8 +606,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat energy added to the target's stats. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00046">46</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a5691d8fe34dd3d671f23b1943b1dbc93"></a>
@@ -676,8 +627,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat enery regeneration added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00051">51</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -701,8 +650,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat energy regeneration per level added to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00231">231</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ae05f86b06754569a9813756f9f39bd6e"></a>
@@ -724,8 +671,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat experience bonus added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00041">41</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -749,8 +694,6 @@ Properties</h2></td></tr>
 
 <p>Gets the gold per 10 seconds added to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00237">237</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="adb7e6fa3501593b4ebe3de5199cc7b47"></a>
@@ -772,8 +715,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat health per level added to the target's stats. This value is only set for runes. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00243">243</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -797,8 +738,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat health added to the target's stats. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00056">56</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a01ae4ab5a4fb255a66165d0001e0de58"></a>
@@ -820,8 +759,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat health regeneration added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00061">61</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -845,8 +782,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat health regen per level added to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00249">249</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a43c58b0c676674a5b5b53b04b83d09e9"></a>
@@ -868,8 +803,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat ability power added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00076">76</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -893,8 +826,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat ability power per level added to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00267">267</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a7981c467854a90e546cd14d6771cc75e"></a>
@@ -916,8 +847,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat magic penetration added to the target's stats. This value is only set for runes. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00273">273</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -941,8 +870,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat magic penetration per level added to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00279">279</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aff191203126cd5f23f612fce3f642698"></a>
@@ -964,8 +891,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat movement speed added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00081">81</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -989,8 +914,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat movement speed per level added to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00285">285</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a5b0c90d7181e8ef459c662b75b550d4b"></a>
@@ -1012,8 +935,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat mana per level added to the target's stats. This value is only set for runes. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00255">255</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1037,8 +958,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat mana modifiacation to the target's stats. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00066">66</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a6632218b8839ddeae42597385ba59912"></a>
@@ -1060,8 +979,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat mana regeneration added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00071">71</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1085,8 +1002,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat mana regeneration per level added to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00261">261</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a92ec7de8e21bfc123bca13bfb51ec8bb"></a>
@@ -1108,8 +1023,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat attack damage added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00086">86</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1133,8 +1046,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat attack damage per level added to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00291">291</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a10d951d16a4381cdf6935d73113f47ac"></a>
@@ -1156,8 +1067,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat spell block added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00091">91</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1181,8 +1090,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat spell block per level added to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00297">297</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a3a40150f7b8aab9237756b4a6b18078e"></a>
@@ -1204,8 +1111,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the flat time spent dead subtracted from the target's stats. This value is only set for runes. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00303">303</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1229,8 +1134,6 @@ Properties</h2></td></tr>
 
 <p>Gets the flat time spent dead per level subtracted from the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00309">309</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a7bbf8b0a92d1750518195eef104fa61a"></a>
@@ -1252,8 +1155,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the percent armor added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00096">96</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1277,8 +1178,6 @@ Properties</h2></td></tr>
 
 <p>Gets the percent armor penetration per level added to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00315">315</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ab9dfc85c51c92d38bba5fda3ba963ea0"></a>
@@ -1300,8 +1199,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the percent armor penetration per level added to the target's stats. This value is only set for runes. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00321">321</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1325,8 +1222,6 @@ Properties</h2></td></tr>
 
 <p>Gets the percent attack speed added to the target's stats. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00101">101</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a0808961ded08a5be560a149e8baead96"></a>
@@ -1348,8 +1243,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the percent attack speed per level added to the target's stats. This value is only set for runes. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00327">327</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1373,8 +1266,6 @@ Properties</h2></td></tr>
 
 <p>Gets the percent block added to the target's stats. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00106">106</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a161f32a01cae19cebd2bd93a4583a7b2"></a>
@@ -1396,8 +1287,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the percent cooldown reduction added to the target's stats. This value is only set for runes. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00333">333</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1421,8 +1310,6 @@ Properties</h2></td></tr>
 
 <p>Gets the percent cooldown reduction per level added to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00339">339</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a02667e7b0753dc63914d627906b94e10"></a>
@@ -1444,8 +1331,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the percent ctritical strike chance added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00111">111</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1469,8 +1354,6 @@ Properties</h2></td></tr>
 
 <p>Gets the percent critical strike damage added to the target's stats. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00116">116</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a5757d33d9586bbb9d30e630209003459"></a>
@@ -1492,8 +1375,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the percent dodge added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00121">121</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1517,8 +1398,6 @@ Properties</h2></td></tr>
 
 <p>Gets the percent experience bonus added to the target's stats. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00126">126</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a7d0e21a39815d7f52d41540a04ade98f"></a>
@@ -1540,8 +1419,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the percent health added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00131">131</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1565,8 +1442,6 @@ Properties</h2></td></tr>
 
 <p>Gets the percent health regeneration added to the target's stats. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00136">136</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aeaf2348129b12074c9a3b8d4ff84b59d"></a>
@@ -1588,8 +1463,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the percent life steal added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00141">141</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1613,8 +1486,6 @@ Properties</h2></td></tr>
 
 <p>Gets the percent ability power added to the target's stats. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00156">156</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a3462daff9ee61734e1e2c8ee08f480b4"></a>
@@ -1636,8 +1507,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the percent magic penetration added to the target's stats. This value is only set for runes. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00345">345</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1661,8 +1530,6 @@ Properties</h2></td></tr>
 
 <p>Gets the percent magic penetration per level added to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00351">351</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a127d038cf02b6a92a6b5c994d3c4cb5b"></a>
@@ -1684,8 +1551,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the percent movement speed added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00161">161</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1709,8 +1574,6 @@ Properties</h2></td></tr>
 
 <p>Gets the percent movement speed per level added to the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00357">357</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="af6891d5c5777d987ec3fc9ead89d5042"></a>
@@ -1732,8 +1595,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the percent mana added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00146">146</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1757,8 +1618,6 @@ Properties</h2></td></tr>
 
 <p>Gets the percent mana regeneration added to the target's stats. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00151">151</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aa33c0b591fa4cae7b51af1ea9061eccf"></a>
@@ -1780,8 +1639,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the percent attack damage added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00166">166</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1805,8 +1662,6 @@ Properties</h2></td></tr>
 
 <p>Gets the percent spell block added to the target's stats. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00171">171</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a1ff0a21a7fe3b316818d3c5c2515978d"></a>
@@ -1828,8 +1683,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the percent spell vamp added to the target's stats. </p>
-
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00176">176</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
 
 </div>
 </div>
@@ -1853,8 +1706,6 @@ Properties</h2></td></tr>
 
 <p>Gets the percent time spent dead subtracted from the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00363">363</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ab4e66a3619f4a1efe7a317d1839598e1"></a>
@@ -1877,23 +1728,17 @@ Properties</h2></td></tr>
 
 <p>Gets the percent time spent per level dead subtracted from the target's stats. This value is only set for runes. </p>
 
-<p>Definition at line <a class="el" href="_basic_data_stats_8cs_source.html#l00369">369</a> of file <a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Models/<a class="el" href="_basic_data_stats_8cs_source.html">BasicDataStats.cs</a></li>
+<li>Models/BasicDataStats.cs</li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li><li class="navelem"><a class="el" href="class_riot_net_1_1_models_1_1_basic_data_stats.html">BasicDataStats</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
 </body>
 </html>

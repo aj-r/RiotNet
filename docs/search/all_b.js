@@ -28,6 +28,7 @@ var searchData=
   ['listofint',['ListOfInt',['../class_riot_net_1_1_models_1_1_list_of_int.html',1,'RiotNet::Models']]],
   ['listoflistofdouble',['ListOfListOfDouble',['../class_riot_net_1_1_models_1_1_list_of_list_of_double.html',1,'RiotNet::Models']]],
   ['listofstring',['ListOfString',['../class_riot_net_1_1_models_1_1_list_of_string.html',1,'RiotNet::Models']]],
+  ['lobbyonly',['LOBBYONLY',['../namespace_riot_net_1_1_models.html#ae642ab9a0a2028e0515eba744a9d4533a40afa2209dc0eefad455f76d0ee0b933',1,'RiotNet::Models']]],
   ['locale',['Locale',['../class_riot_net_1_1_models_1_1_translation.html#a760054681336bc57d25bf57e4abfe8ef',1,'RiotNet::Models::Translation']]],
   ['locales',['Locales',['../class_riot_net_1_1_models_1_1_shard.html#ab0ec0bea172467e697041fe272c4f414',1,'RiotNet::Models::Shard']]],
   ['lolstaticdataapiversion',['LolStaticDataApiVersion',['../interface_riot_net_1_1_i_riot_client.html#a6ab887498ecadfd1289a2e1334306a93',1,'RiotNet.IRiotClient.LolStaticDataApiVersion()'],['../class_riot_net_1_1_riot_client.html#aa47de5a5fbc956dd54bff54b1721651c',1,'RiotNet.RiotClient.LolStaticDataApiVersion()']]],

@@ -52,7 +52,7 @@ var searchData=
   ['playerstatsummarytype',['PlayerStatSummaryType',['../class_riot_net_1_1_models_1_1_player_stats_summary.html#a0c80e5affe6b41a585218552c2e20667',1,'RiotNet::Models::PlayerStatsSummary']]],
   ['pointcaptured',['PointCaptured',['../class_riot_net_1_1_models_1_1_event.html#a1693b8b84d6409d8583083fd1eb4c15c',1,'RiotNet::Models::Event']]],
   ['position',['Position',['../class_riot_net_1_1_models_1_1_event.html#ae8152a702afde8c80327753e57b27cde',1,'RiotNet.Models.Event.Position()'],['../class_riot_net_1_1_models_1_1_match_participant_frame.html#a61d82c8c5bee5644852c1d4d0062ac82',1,'RiotNet.Models.MatchParticipantFrame.Position()']]],
-  ['prereq',['Prereq',['../class_riot_net_1_1_models_1_1_static_mastery.html#aabc84d6c647a3f75b08a697c92cb7db0',1,'RiotNet::Models::StaticMastery']]],
+  ['prereq',['Prereq',['../class_riot_net_1_1_models_1_1_static_mastery.html#aabc84d6c647a3f75b08a697c92cb7db0',1,'RiotNet.Models.StaticMastery.Prereq()'],['../class_riot_net_1_1_models_1_1_static_mastery_tree_item.html#a33e8646d142e1d31eac0d0a89fb0065a',1,'RiotNet.Models.StaticMasteryTreeItem.Prereq()']]],
   ['priority',['Priority',['../class_riot_net_1_1_models_1_1_recommended.html#a7813979be9734dd96e68c4025d3d8c0a',1,'RiotNet::Models::Recommended']]],
   ['profileicon',['ProfileIcon',['../class_riot_net_1_1_models_1_1_match_player.html#a3ba0ab0af4ea681d4b7dabd1bc26fb0c',1,'RiotNet::Models::MatchPlayer']]],
   ['profileiconid',['ProfileIconId',['../class_riot_net_1_1_models_1_1_participant.html#a69f613488a31915d06dee9e0ef029c3d',1,'RiotNet.Models.Participant.ProfileIconId()'],['../class_riot_net_1_1_models_1_1_summoner.html#ae5714a033d07aca0bcf50c96413c9b57',1,'RiotNet.Models.Summoner.ProfileIconId()']]],

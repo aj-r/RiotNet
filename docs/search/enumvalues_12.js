@@ -5,6 +5,7 @@ var searchData=
   ['teemo_5fmushroom',['TEEMO_MUSHROOM',['../namespace_riot_net_1_1_models.html#abfcf25d988816c0c8808f125f14704b6af691c9493982106f96dfa759ca344c18',1,'RiotNet::Models']]],
   ['top',['TOP',['../namespace_riot_net_1_1_models.html#ab3e6d5574d469e50491adabceb1daaefa6705777b712ee811e76fb07162081d63',1,'RiotNet::Models']]],
   ['top_5flane',['TOP_LANE',['../namespace_riot_net_1_1_models.html#acea74aaaba3006a9b3c89c90ef9bd5c5ae4e667ecd46304fb26a2057ed93b6edc',1,'RiotNet::Models']]],
+  ['tournament_5fdraft',['TOURNAMENT_DRAFT',['../namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462a0d0320addae44fd3c1eb90c7c7097dcc',1,'RiotNet::Models']]],
   ['tower_5fbuilding',['TOWER_BUILDING',['../namespace_riot_net_1_1_models.html#a0913e340e4b388d087bb956cff266d2aa3203a87a61c64c0cc45885caa4d984b9',1,'RiotNet::Models']]],
   ['tr',['TR',['../namespace_riot_net_1_1_models.html#a4d7348194651d9696ff39e0134f4d135aebe021079e5a3c4f42ca6119eab92633',1,'RiotNet::Models']]],
   ['tutorial',['TUTORIAL',['../namespace_riot_net_1_1_models.html#ac7c27793721e27458de29dceed2ad29aab8e2e6f28d96c901009d75312887a6da',1,'RiotNet::Models']]],

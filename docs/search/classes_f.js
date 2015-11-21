@@ -20,6 +20,7 @@ var searchData=
   ['staticmastery',['StaticMastery',['../class_riot_net_1_1_models_1_1_static_mastery.html',1,'RiotNet::Models']]],
   ['staticmasterylist',['StaticMasteryList',['../class_riot_net_1_1_models_1_1_static_mastery_list.html',1,'RiotNet::Models']]],
   ['staticmasterytree',['StaticMasteryTree',['../class_riot_net_1_1_models_1_1_static_mastery_tree.html',1,'RiotNet::Models']]],
+  ['staticmasterytreeitem',['StaticMasteryTreeItem',['../class_riot_net_1_1_models_1_1_static_mastery_tree_item.html',1,'RiotNet::Models']]],
   ['staticmasterytreelist',['StaticMasteryTreeList',['../class_riot_net_1_1_models_1_1_static_mastery_tree_list.html',1,'RiotNet::Models']]],
   ['staticrealm',['StaticRealm',['../class_riot_net_1_1_models_1_1_static_realm.html',1,'RiotNet::Models']]],
   ['staticrune',['StaticRune',['../class_riot_net_1_1_models_1_1_static_rune.html',1,'RiotNet::Models']]],

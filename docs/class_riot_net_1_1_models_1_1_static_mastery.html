@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">2.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -48,9 +40,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Packages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -77,21 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_static_mastery.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -106,6 +82,11 @@ $(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_static_m
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li><li class="navelem"><a class="el" href="class_riot_net_1_1_models_1_1_static_mastery.html">StaticMastery</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -143,7 +124,7 @@ Properties</h2></td></tr>
 <tr class="memdesc:a83ceefc2b223a2c12e60152bc51e0ce1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the name of the mastery.  <a href="#a83ceefc2b223a2c12e60152bc51e0ce1">More...</a><br /></td></tr>
 <tr class="separator:a83ceefc2b223a2c12e60152bc51e0ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabc84d6c647a3f75b08a697c92cb7db0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_static_mastery.html#aabc84d6c647a3f75b08a697c92cb7db0">Prereq</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:aabc84d6c647a3f75b08a697c92cb7db0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the ID of the mastery that must be filled before any points can be added to the current mastery. A value of zero indicates no prerequisites.  <a href="#aabc84d6c647a3f75b08a697c92cb7db0">More...</a><br /></td></tr>
+<tr class="memdesc:aabc84d6c647a3f75b08a697c92cb7db0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the ID of the mastery that must be filled before any points can be added to the current mastery. A value of zero indicates no prerequisites. Season 6 does not have any masteries with prerequisites.  <a href="#aabc84d6c647a3f75b08a697c92cb7db0">More...</a><br /></td></tr>
 <tr class="separator:aabc84d6c647a3f75b08a697c92cb7db0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a183c0d51967f4b5dbf1be971c0c95245"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_static_mastery.html#a183c0d51967f4b5dbf1be971c0c95245">Ranks</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a183c0d51967f4b5dbf1be971c0c95245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the maximum number of ranks that the mastery has.  <a href="#a183c0d51967f4b5dbf1be971c0c95245">More...</a><br /></td></tr>
@@ -154,12 +135,13 @@ Properties</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a mastery slot. </p>
-
-<p>Definition at line <a class="el" href="_static_mastery_8cs_source.html#l00009">9</a> of file <a class="el" href="_static_mastery_8cs_source.html">StaticMastery.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a3a77c76556a80984bfa66f4af3d8b7a1"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">RiotNet.Models.StaticMastery.StaticMastery </td>
@@ -168,11 +150,14 @@ Properties</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Creates a new <a class="el" href="class_riot_net_1_1_models_1_1_static_mastery.html" title="Represents a mastery slot. ">StaticMastery</a> instance. </p>
-
-<p>Definition at line <a class="el" href="_static_mastery_8cs_source.html#l00014">14</a> of file <a class="el" href="_static_mastery_8cs_source.html">StaticMastery.cs</a>.</p>
 
 </div>
 </div>
@@ -197,8 +182,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the description of the mastery at each rank. </p>
 
-<p>Definition at line <a class="el" href="_static_mastery_8cs_source.html#l00031">31</a> of file <a class="el" href="_static_mastery_8cs_source.html">StaticMastery.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a44a8f5228420054977a3e3fd550505c1"></a>
@@ -220,8 +203,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the mastery ID. </p>
-
-<p>Definition at line <a class="el" href="_static_mastery_8cs_source.html#l00026">26</a> of file <a class="el" href="_static_mastery_8cs_source.html">StaticMastery.cs</a>.</p>
 
 </div>
 </div>
@@ -245,8 +226,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the image data for the mastery's icon. </p>
 
-<p>Definition at line <a class="el" href="_static_mastery_8cs_source.html#l00036">36</a> of file <a class="el" href="_static_mastery_8cs_source.html">StaticMastery.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ab6694115b86c4463d557bb001f7e9b5a"></a>
@@ -268,8 +247,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the type of mastery tree that the current <a class="el" href="class_riot_net_1_1_models_1_1_static_mastery.html" title="Represents a mastery slot. ">StaticMastery</a> belongs to. </p>
-
-<p>Definition at line <a class="el" href="_static_mastery_8cs_source.html#l00041">41</a> of file <a class="el" href="_static_mastery_8cs_source.html">StaticMastery.cs</a>.</p>
 
 </div>
 </div>
@@ -293,8 +270,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the name of the mastery. </p>
 
-<p>Definition at line <a class="el" href="_static_mastery_8cs_source.html#l00047">47</a> of file <a class="el" href="_static_mastery_8cs_source.html">StaticMastery.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aabc84d6c647a3f75b08a697c92cb7db0"></a>
@@ -315,9 +290,7 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets or sets the ID of the mastery that must be filled before any points can be added to the current mastery. A value of zero indicates no prerequisites. </p>
-
-<p>Definition at line <a class="el" href="_static_mastery_8cs_source.html#l00052">52</a> of file <a class="el" href="_static_mastery_8cs_source.html">StaticMastery.cs</a>.</p>
+<p>Gets or sets the ID of the mastery that must be filled before any points can be added to the current mastery. A value of zero indicates no prerequisites. Season 6 does not have any masteries with prerequisites. </p>
 
 </div>
 </div>
@@ -341,8 +314,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the maximum number of ranks that the mastery has. </p>
 
-<p>Definition at line <a class="el" href="_static_mastery_8cs_source.html#l00057">57</a> of file <a class="el" href="_static_mastery_8cs_source.html">StaticMastery.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a186a9b40b715120cba5f320b6ca2a1bf"></a>
@@ -365,23 +336,17 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the sanitized description of the mastery at each rank. </p>
 
-<p>Definition at line <a class="el" href="_static_mastery_8cs_source.html#l00062">62</a> of file <a class="el" href="_static_mastery_8cs_source.html">StaticMastery.cs</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Models/<a class="el" href="_static_mastery_8cs_source.html">StaticMastery.cs</a></li>
+<li>Models/StaticMastery.cs</li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li><li class="navelem"><a class="el" href="class_riot_net_1_1_models_1_1_static_mastery.html">StaticMastery</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
 </body>
 </html>

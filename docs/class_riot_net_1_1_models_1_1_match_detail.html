@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">2.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -48,9 +40,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Packages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -77,21 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_match_detail.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -106,6 +82,11 @@ $(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_match_de
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li><li class="navelem"><a class="el" href="class_riot_net_1_1_models_1_1_match_detail.html">MatchDetail</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#properties">Properties</a> &#124;
@@ -168,8 +149,6 @@ Properties</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains detailed match information. </p>
-
-<p>Definition at line <a class="el" href="_match_detail_8cs_source.html#l00011">11</a> of file <a class="el" href="_match_detail_8cs_source.html">MatchDetail.cs</a>.</p>
 </div><h2 class="groupheader">Property Documentation</h2>
 <a class="anchor" id="abdcdeb4a9902632af8bbdf43b4b520e9"></a>
 <div class="memitem">
@@ -190,8 +169,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the map ID of the map where the match was played. </p>
-
-<p>Definition at line <a class="el" href="_match_detail_8cs_source.html#l00016">16</a> of file <a class="el" href="_match_detail_8cs_source.html">MatchDetail.cs</a>.</p>
 
 </div>
 </div>
@@ -214,8 +191,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the match creation time in UTC. Designates when the team select lobby is created and/or the match is made through match making; not when the game actually starts. </p>
-
-<p>Definition at line <a class="el" href="_match_detail_8cs_source.html#l00021">21</a> of file <a class="el" href="_match_detail_8cs_source.html">MatchDetail.cs</a>.</p>
 
 </div>
 </div>
@@ -240,8 +215,6 @@ Properties</h2></td></tr>
 <p>Gets or sets the match duration. </p>
 <p>The match duration is serialized as an integer representing the duration of the match in seconds. </p>
 
-<p>Definition at line <a class="el" href="_match_detail_8cs_source.html#l00029">29</a> of file <a class="el" href="_match_detail_8cs_source.html">MatchDetail.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a74030bedbb5baf8e2aac8b21cf737206"></a>
@@ -263,8 +236,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the ID of the match (also referred to as <a class="el" href="class_riot_net_1_1_models_1_1_game.html" title="Contains information about a historical game, as well as stats associated with the player for which t...">Game</a> ID). </p>
-
-<p>Definition at line <a class="el" href="_match_detail_8cs_source.html#l00036">36</a> of file <a class="el" href="_match_detail_8cs_source.html">MatchDetail.cs</a>.</p>
 
 </div>
 </div>
@@ -288,8 +259,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the match mode. </p>
 
-<p>Definition at line <a class="el" href="_match_detail_8cs_source.html#l00041">41</a> of file <a class="el" href="_match_detail_8cs_source.html">MatchDetail.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a6230c65c615d4409dd99ddf5eb361c98"></a>
@@ -311,8 +280,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the match type. </p>
-
-<p>Definition at line <a class="el" href="_match_detail_8cs_source.html#l00046">46</a> of file <a class="el" href="_match_detail_8cs_source.html">MatchDetail.cs</a>.</p>
 
 </div>
 </div>
@@ -336,8 +303,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the match version (patch number). </p>
 
-<p>Definition at line <a class="el" href="_match_detail_8cs_source.html#l00051">51</a> of file <a class="el" href="_match_detail_8cs_source.html">MatchDetail.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aac9a0bd2e793b3d02799bdb851ca923c"></a>
@@ -359,8 +324,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the list of participants' identity information. </p>
-
-<p>Definition at line <a class="el" href="_match_detail_8cs_source.html#l00056">56</a> of file <a class="el" href="_match_detail_8cs_source.html">MatchDetail.cs</a>.</p>
 
 </div>
 </div>
@@ -384,8 +347,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the list of participants' information. </p>
 
-<p>Definition at line <a class="el" href="_match_detail_8cs_source.html#l00061">61</a> of file <a class="el" href="_match_detail_8cs_source.html">MatchDetail.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a2c9c5c65e10ac0546b93efc25e4c39d4"></a>
@@ -407,8 +368,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the platform ID of the match. </p>
-
-<p>Definition at line <a class="el" href="_match_detail_8cs_source.html#l00066">66</a> of file <a class="el" href="_match_detail_8cs_source.html">MatchDetail.cs</a>.</p>
 
 </div>
 </div>
@@ -432,8 +391,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the match queue type. </p>
 
-<p>Definition at line <a class="el" href="_match_detail_8cs_source.html#l00071">71</a> of file <a class="el" href="_match_detail_8cs_source.html">MatchDetail.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a3544b6f02b9d4df0124feb158b24eb3a"></a>
@@ -455,8 +412,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the region where the match was played. </p>
-
-<p>Definition at line <a class="el" href="_match_detail_8cs_source.html#l00076">76</a> of file <a class="el" href="_match_detail_8cs_source.html">MatchDetail.cs</a>.</p>
 
 </div>
 </div>
@@ -480,8 +435,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets season when the match was played. </p>
 
-<p>Definition at line <a class="el" href="_match_detail_8cs_source.html#l00081">81</a> of file <a class="el" href="_match_detail_8cs_source.html">MatchDetail.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a8870106a20e8d7a957f642a33a37cbc7"></a>
@@ -503,8 +456,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets team information. </p>
-
-<p>Definition at line <a class="el" href="_match_detail_8cs_source.html#l00086">86</a> of file <a class="el" href="_match_detail_8cs_source.html">MatchDetail.cs</a>.</p>
 
 </div>
 </div>
@@ -528,23 +479,17 @@ Properties</h2></td></tr>
 
 <p>Gets or sets match timeline data (not included by default) </p>
 
-<p>Definition at line <a class="el" href="_match_detail_8cs_source.html#l00091">91</a> of file <a class="el" href="_match_detail_8cs_source.html">MatchDetail.cs</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Models/<a class="el" href="_match_detail_8cs_source.html">MatchDetail.cs</a></li>
+<li>Models/MatchDetail.cs</li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li><li class="navelem"><a class="el" href="class_riot_net_1_1_models_1_1_match_detail.html">MatchDetail</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
 </body>
 </html>

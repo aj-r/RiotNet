@@ -50,6 +50,7 @@ var searchData=
   ['physicaldamagedealttochampions',['PhysicalDamageDealtToChampions',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#a6358603460e9cb627d00e618d53a7212',1,'RiotNet.Models.MatchParticipantStats.PhysicalDamageDealtToChampions()'],['../class_riot_net_1_1_models_1_1_raw_stats.html#a0b104c8cedbed79fc0d237bbcf5acbc1',1,'RiotNet.Models.RawStats.PhysicalDamageDealtToChampions()']]],
   ['physicaldamagetaken',['PhysicalDamageTaken',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#afa1463c99ac78abd24e0c28d4c3a601d',1,'RiotNet.Models.MatchParticipantStats.PhysicalDamageTaken()'],['../class_riot_net_1_1_models_1_1_raw_stats.html#a5f335d436064331271f008baa23e42fe',1,'RiotNet.Models.RawStats.PhysicalDamageTaken()']]],
   ['pickturn',['PickTurn',['../class_riot_net_1_1_models_1_1_banned_champion.html#a2e05d61ce3175e8d33eff6b5f3cdcdc2',1,'RiotNet::Models::BannedChampion']]],
+  ['picktype',['PickType',['../namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462',1,'RiotNet::Models']]],
   ['plaintext',['PlainText',['../class_riot_net_1_1_models_1_1_basic_data.html#ae8161262868e57ca35ca41afcc98f0f8',1,'RiotNet::Models::BasicData']]],
   ['platformid',['PlatformId',['../interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe',1,'RiotNet.IRiotClient.PlatformId()'],['../class_riot_net_1_1_models_1_1_game_info_base.html#a257a9de1c590e35acfa7d70c808b8c36',1,'RiotNet.Models.GameInfoBase.PlatformId()'],['../class_riot_net_1_1_models_1_1_match_detail.html#a2c9c5c65e10ac0546b93efc25e4c39d4',1,'RiotNet.Models.MatchDetail.PlatformId()'],['../class_riot_net_1_1_models_1_1_match_reference.html#afc95376f4a9d9c101726caeeb2a16a07',1,'RiotNet.Models.MatchReference.PlatformId()'],['../class_riot_net_1_1_riot_client.html#a68116f933a2600c2263c06d6f0c2acbf',1,'RiotNet.RiotClient.PlatformId()']]],
   ['platinum',['PLATINUM',['../namespace_riot_net_1_1_models.html#ab061e2f25dfdae535a9af8afcf968c4fa0d2489f3616693c707709295fd091c84',1,'RiotNet::Models']]],
@@ -75,7 +76,8 @@ var searchData=
   ['poro_5fking_5fsummon',['PORO_KING_SUMMON',['../namespace_riot_net_1_1_models.html#a53a6557b8095df654f197de15fe05716af1dc9fa7bbb2bc6dcb8951b0d8fccaf9',1,'RiotNet::Models']]],
   ['position',['Position',['../class_riot_net_1_1_models_1_1_event.html#ae8152a702afde8c80327753e57b27cde',1,'RiotNet.Models.Event.Position()'],['../class_riot_net_1_1_models_1_1_match_participant_frame.html#a61d82c8c5bee5644852c1d4d0062ac82',1,'RiotNet.Models.MatchParticipantFrame.Position()']]],
   ['position',['Position',['../class_riot_net_1_1_models_1_1_position.html',1,'RiotNet::Models']]],
-  ['prereq',['Prereq',['../class_riot_net_1_1_models_1_1_static_mastery.html#aabc84d6c647a3f75b08a697c92cb7db0',1,'RiotNet::Models::StaticMastery']]],
+  ['post',['Post',['../class_riot_net_1_1_riot_client.html#a90e183b1b025f4c290c941de518ed6a1',1,'RiotNet::RiotClient']]],
+  ['prereq',['Prereq',['../class_riot_net_1_1_models_1_1_static_mastery.html#aabc84d6c647a3f75b08a697c92cb7db0',1,'RiotNet.Models.StaticMastery.Prereq()'],['../class_riot_net_1_1_models_1_1_static_mastery_tree_item.html#a33e8646d142e1d31eac0d0a89fb0065a',1,'RiotNet.Models.StaticMasteryTreeItem.Prereq()']]],
   ['preseason2014',['PRESEASON2014',['../namespace_riot_net_1_1_models.html#a7081083073e41f3014b51d3c3c5d6903a3e7fa7f8c00e9a8afffc8622d93d8c7d',1,'RiotNet::Models']]],
   ['preseason2015',['PRESEASON2015',['../namespace_riot_net_1_1_models.html#a7081083073e41f3014b51d3c3c5d6903a1cdaf5b9e38b8e299cf614a9e5a8f7d8',1,'RiotNet::Models']]],
   ['preseason3',['PRESEASON3',['../namespace_riot_net_1_1_models.html#a7081083073e41f3014b51d3c3c5d6903a2d1cdc47bf66cc2055cf995f0c4518d2',1,'RiotNet::Models']]],
@@ -84,5 +86,6 @@ var searchData=
   ['profileiconid',['ProfileIconId',['../class_riot_net_1_1_models_1_1_participant.html#a69f613488a31915d06dee9e0ef029c3d',1,'RiotNet.Models.Participant.ProfileIconId()'],['../class_riot_net_1_1_models_1_1_summoner.html#ae5714a033d07aca0bcf50c96413c9b57',1,'RiotNet.Models.Summoner.ProfileIconId()']]],
   ['profileiconmax',['ProfileIconMax',['../class_riot_net_1_1_models_1_1_static_realm.html#a3fe6edd3e4bc6302c31ef5b814247128',1,'RiotNet::Models::StaticRealm']]],
   ['progress',['Progress',['../class_riot_net_1_1_models_1_1_mini_series.html#a9ebc1f0a6cc22f39fcd83469364f346a',1,'RiotNet::Models::MiniSeries']]],
-  ['purchasable',['Purchasable',['../class_riot_net_1_1_models_1_1_gold.html#a81b1e8f0d835ac23a36334e1f540cfae',1,'RiotNet::Models::Gold']]]
+  ['purchasable',['Purchasable',['../class_riot_net_1_1_models_1_1_gold.html#a81b1e8f0d835ac23a36334e1f540cfae',1,'RiotNet::Models::Gold']]],
+  ['put',['Put',['../class_riot_net_1_1_riot_client.html#a42d8bccf20b38cd9bdbb31ff8b93002f',1,'RiotNet::RiotClient']]]
 ];

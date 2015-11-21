@@ -4,6 +4,8 @@ var searchData=
   ['aggregatedstats',['AggregatedStats',['../class_riot_net_1_1_models_1_1_player_stats_summary.html#ab18e40a03be0c1cb6eed3dfb887ce015',1,'RiotNet::Models::PlayerStatsSummary']]],
   ['aggregatedstats',['AggregatedStats',['../class_riot_net_1_1_models_1_1_aggregated_stats.html',1,'RiotNet::Models']]],
   ['alert',['Alert',['../namespace_riot_net_1_1_models.html#ae5d4430c0e55f446d83ca33ccd5d4cb1ab92071d61c88498171928745ca53078b',1,'RiotNet.Models.Alert()'],['../namespace_riot_net_1_1_models.html#a4a8c73813dd528b3feb8ac516ce53adfab92071d61c88498171928745ca53078b',1,'RiotNet.Models.Alert()']]],
+  ['all',['ALL',['../namespace_riot_net_1_1_models.html#ae642ab9a0a2028e0515eba744a9d4533a5fb1f955b45e38e31789286a1790398d',1,'RiotNet::Models']]],
+  ['all_5frandom',['ALL_RANDOM',['../namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462aaf0665f38c78b831f796ce4daeefec4f',1,'RiotNet::Models']]],
   ['allytips',['AllyTips',['../class_riot_net_1_1_models_1_1_static_champion.html#a5ddbdd2fb1cae801f74f765ae21023e3',1,'RiotNet::Models::StaticChampion']]],
   ['altimage',['AltImage',['../class_riot_net_1_1_models_1_1_alt_image.html',1,'RiotNet::Models']]],
   ['altimages',['AltImages',['../class_riot_net_1_1_models_1_1_static_champion_spell.html#a2f58f7013d33832a347bbc8374d6b5bc',1,'RiotNet::Models::StaticChampionSpell']]],

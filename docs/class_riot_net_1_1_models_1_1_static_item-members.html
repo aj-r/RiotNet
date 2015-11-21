@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">2.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -48,9 +40,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Packages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -77,21 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_static_item.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -106,6 +82,11 @@ $(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_static_i
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li><li class="navelem"><a class="el" href="class_riot_net_1_1_models_1_1_static_item.html">StaticItem</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">RiotNet.Models.StaticItem Member List</div>  </div>
@@ -114,7 +95,7 @@ $(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_static_i
 
 <p>This is the complete list of members for <a class="el" href="class_riot_net_1_1_models_1_1_static_item.html">RiotNet.Models.StaticItem</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_basic_data.html#af3849e6bbfbadfbf9dae20a1c78c5a63">BasicData</a>()</td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_basic_data.html">RiotNet.Models.BasicData</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_basic_data.html#af3849e6bbfbadfbf9dae20a1c78c5a63">BasicData</a>()</td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_basic_data.html">RiotNet.Models.BasicData</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_basic_data.html#a7ff0d045d1b03e0b05edfff8277af901">Colloq</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_basic_data.html">RiotNet.Models.BasicData</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_static_item.html#a3a1f8ba87689dd1f6cee2077438a6813">Consumed</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_static_item.html">RiotNet.Models.StaticItem</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_static_item.html#af91bfe61721918af9eddb96319941b9f">ConsumeOnFull</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_static_item.html">RiotNet.Models.StaticItem</a></td><td class="entry"></td></tr>
@@ -136,18 +117,15 @@ $(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_static_i
   <tr><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_basic_data.html#a688bb76b20c8c8d19bdda8cb815a33bc">SanitizedDescription</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_basic_data.html">RiotNet.Models.BasicData</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_static_item.html#adc3973a12d88c45cee88c461f16f3d43">SpecialRecipe</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_static_item.html">RiotNet.Models.StaticItem</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_basic_data.html#a9418e2f2df3db4bd39602c6dcc65f02f">Stacks</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_basic_data.html">RiotNet.Models.BasicData</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_static_item.html#ae8bd4f04ed3bec8bdff9c15210ec4f85">StaticItem</a>()</td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_static_item.html">RiotNet.Models.StaticItem</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_static_item.html#ae8bd4f04ed3bec8bdff9c15210ec4f85">StaticItem</a>()</td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_static_item.html">RiotNet.Models.StaticItem</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_basic_data.html#a89e8a8db73e26eb8a6223e002838bdf1">Stats</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_basic_data.html">RiotNet.Models.BasicData</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_basic_data.html#a5fc54a842a6396ab2c6ec80cfb6e0e7a">Tags</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_basic_data.html">RiotNet.Models.BasicData</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
 </body>
 </html>

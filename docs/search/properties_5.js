@@ -2,6 +2,7 @@ var searchData=
 [
   ['featuredgameapiversion',['FeaturedGameApiVersion',['../interface_riot_net_1_1_i_riot_client.html#a70c78aac4521a90ea941d8fa603bb1a0',1,'RiotNet.IRiotClient.FeaturedGameApiVersion()'],['../class_riot_net_1_1_riot_client.html#a4871b44a335c4f73cadcc5b178d2c5c2',1,'RiotNet.RiotClient.FeaturedGameApiVersion()']]],
   ['fellowplayers',['FellowPlayers',['../class_riot_net_1_1_models_1_1_game.html#a22e95f80410befd231d74111181e4f58',1,'RiotNet::Models::Game']]],
+  ['ferocity',['Ferocity',['../class_riot_net_1_1_models_1_1_static_mastery_tree.html#ab54bd99205f1c267e8268a4d2995225e',1,'RiotNet::Models::StaticMasteryTree']]],
   ['firstbaron',['FirstBaron',['../class_riot_net_1_1_models_1_1_match_team.html#a18a3fbf909d601e7b994590dd726acc2',1,'RiotNet::Models::MatchTeam']]],
   ['firstblood',['FirstBlood',['../class_riot_net_1_1_models_1_1_match_team.html#a55be7493c5e3422b87297d23db5778b6',1,'RiotNet.Models.MatchTeam.FirstBlood()'],['../class_riot_net_1_1_models_1_1_raw_stats.html#ad6e4991a6bff1a48325dc155f1c2d422',1,'RiotNet.Models.RawStats.FirstBlood()']]],
   ['firstbloodassist',['FirstBloodAssist',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#a21d16f18cfd931043dc90cf63bff70c1',1,'RiotNet::Models::MatchParticipantStats']]],

@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">2.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -48,9 +40,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Packages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -77,21 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_static_champion.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -106,6 +82,11 @@ $(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_static_c
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li><li class="navelem"><a class="el" href="class_riot_net_1_1_models_1_1_static_champion.html">StaticChampion</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -181,12 +162,13 @@ Properties</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains champion data. </p>
-
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00011">11</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a1c3d6985ac1edc7f9d371cb5ffe63613"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">RiotNet.Models.StaticChampion.StaticChampion </td>
@@ -195,11 +177,14 @@ Properties</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Creates a new <a class="el" href="class_riot_net_1_1_models_1_1_static_champion.html" title="Contains champion data. ">StaticChampion</a> instance. </p>
-
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00016">16</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
 
 </div>
 </div>
@@ -224,8 +209,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets a list of tips for how to play as this champion. </p>
 
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00032">32</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ac2162481e7d0b4f368a5e024b3a3f851"></a>
@@ -247,8 +230,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the blurb describing the champion. </p>
-
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00037">37</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
 
 </div>
 </div>
@@ -272,8 +253,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets a list of tips for how to play against this champion. </p>
 
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00043">43</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ab1fa63edd2656c370f100582621f59b8"></a>
@@ -295,8 +274,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the champion ID. </p>
-
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00050">50</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
 
 </div>
 </div>
@@ -320,8 +297,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the champion image data. </p>
 
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00055">55</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="af0dd4d975f83362ff002d1fe0ca89af8"></a>
@@ -343,8 +318,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the strength and difficulty information for the current champion. </p>
-
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00060">60</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
 
 </div>
 </div>
@@ -368,8 +341,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the champion key. </p>
 
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00065">65</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a51e665366e01a6b50f728c185442f523"></a>
@@ -391,8 +362,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the champion's lore text. </p>
-
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00070">70</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
 
 </div>
 </div>
@@ -416,8 +385,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the champion name. </p>
 
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00076">76</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a2893e0dc59ac3485a8a8ad91d7f3cc59"></a>
@@ -439,8 +406,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the type of resource this champion uses (e.g. Mana). </p>
-
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00082">82</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
 
 </div>
 </div>
@@ -464,8 +429,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the champion's passive ability. </p>
 
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00087">87</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a5396341dfd1f6311ca529e7c830f240c"></a>
@@ -487,8 +450,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the champion's recommended item sets. </p>
-
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00092">92</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
 
 </div>
 </div>
@@ -512,8 +473,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the available skins for the champion. </p>
 
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00097">97</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="af8d3dec580eb67bf71087b264807c120"></a>
@@ -535,8 +494,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the champion's spells. </p>
-
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00102">102</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
 
 </div>
 </div>
@@ -560,8 +517,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the champion's stats. </p>
 
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00107">107</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ad961af105ad25845110ae107badeff26"></a>
@@ -583,8 +538,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the champion's roles (e.g. Fighter, Tank). </p>
-
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00112">112</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
 
 </div>
 </div>
@@ -608,23 +561,17 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the champion's title. </p>
 
-<p>Definition at line <a class="el" href="_static_champion_8cs_source.html#l00117">117</a> of file <a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Models/<a class="el" href="_static_champion_8cs_source.html">StaticChampion.cs</a></li>
+<li>Models/StaticChampion.cs</li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li><li class="navelem"><a class="el" href="class_riot_net_1_1_models_1_1_static_champion.html">StaticChampion</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
 </body>
 </html>

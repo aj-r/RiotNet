@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">2.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -48,9 +40,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Packages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -77,21 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_static_spell.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -106,6 +82,11 @@ $(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_static_s
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li><li class="navelem"><a class="el" href="class_riot_net_1_1_models_1_1_static_spell.html">StaticSpell</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -200,12 +181,13 @@ Properties</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The base class for a champion ability or summoner spell. </p>
-
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00012">12</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a8d7a8257205bdc1b6ad8876edf157c6b"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">RiotNet.Models.StaticSpell.StaticSpell </td>
@@ -214,11 +196,14 @@ Properties</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Creates a new <a class="el" href="class_riot_net_1_1_models_1_1_static_spell.html" title="The base class for a champion ability or summoner spell. ">StaticSpell</a> instance. </p>
-
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00017">17</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
 
 </div>
 </div>
@@ -243,8 +228,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the cooldowns of this spell at each rank. </p>
 
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00031">31</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ac1fa1e4f2567c377db46751cbacbddeb"></a>
@@ -266,8 +249,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the cooldown at all ranks merged into a single string. </p>
-
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00036">36</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
 
 </div>
 </div>
@@ -291,8 +272,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the mana (or other resource) cost of the spell. </p>
 
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00041">41</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a4679d2f1975e081173acd2becb2c3d16"></a>
@@ -314,8 +293,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the cost at all ranks merged into a single string. </p>
-
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00046">46</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
 
 </div>
 </div>
@@ -339,8 +316,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the type of resource that this spell costs. </p>
 
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00051">51</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a7cbb2095a2aed2a94cc0f4534cbada8e"></a>
@@ -362,8 +337,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the description of the spell. </p>
-
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00056">56</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
 
 </div>
 </div>
@@ -387,8 +360,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the effect of the spell at each rank. </p>
 
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00061">61</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aa9cb1eeedee30e3b6a40158882b337be"></a>
@@ -410,8 +381,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the effects at all ranks, merged into a single string for each effect. </p>
-
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00066">66</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
 
 </div>
 </div>
@@ -435,8 +404,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the image data for the current spell. </p>
 
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00071">71</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ab8d674aa7656a5a9776b8a3f9a9e3350"></a>
@@ -458,8 +425,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the key of the current spell. </p>
-
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00076">76</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
 
 </div>
 </div>
@@ -483,8 +448,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the level-up tooltip of the current spell. </p>
 
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00082">82</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a487c62493ef865172cb6c03ffe073f94"></a>
@@ -506,8 +469,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the maximum number of points that a player can put into this spell. </p>
-
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00088">88</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
 
 </div>
 </div>
@@ -531,8 +492,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the name of the spell. </p>
 
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00094">94</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="af8802cd31c94c16468352825ed654c52"></a>
@@ -554,8 +513,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the range of the spell at each rank. A list with a single entry of 0 indicates that the spell is self-cast. </p>
-
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00100">100</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
 
 </div>
 </div>
@@ -579,8 +536,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the range at all ranks merged into a single string. </p>
 
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00105">105</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a43ae0ea789e8842e6ee2602382146203"></a>
@@ -602,8 +557,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the cost and type of resource that the spell uses. </p>
-
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00110">110</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
 
 </div>
 </div>
@@ -627,8 +580,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the sanitized descrption of the spell. </p>
 
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00115">115</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ab4ae6dbe797b379e15f192d9d82ce239"></a>
@@ -650,8 +601,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the sanitized spell tooltip. </p>
-
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00120">120</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
 
 </div>
 </div>
@@ -675,8 +624,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the spell tooltip. </p>
 
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00125">125</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="acc3739ba93a55744e748d1ccfe8c4286"></a>
@@ -699,23 +646,17 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the scaling coefficients of the spell. </p>
 
-<p>Definition at line <a class="el" href="_static_spell_8cs_source.html#l00130">130</a> of file <a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Models/<a class="el" href="_static_spell_8cs_source.html">StaticSpell.cs</a></li>
+<li>Models/StaticSpell.cs</li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li><li class="navelem"><a class="el" href="class_riot_net_1_1_models_1_1_static_spell.html">StaticSpell</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
 </body>
 </html>

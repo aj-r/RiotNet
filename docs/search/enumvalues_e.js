@@ -5,7 +5,6 @@ var searchData=
   ['odin_5f5x5_5fblind',['ODIN_5x5_BLIND',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a60d25a4b6c69be81e66777a5b3c8f6b5',1,'RiotNet::Models']]],
   ['odin_5f5x5_5fdraft',['ODIN_5x5_DRAFT',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a15604d6d6ab9a61cf2fc1f23b90bdfb3',1,'RiotNet::Models']]],
   ['odin_5funranked',['ODIN_UNRANKED',['../namespace_riot_net_1_1_models.html#a1feb539727378192c5ae4cf447084ea9a012859ea77459ecf559f1e7bd472db03',1,'RiotNet::Models']]],
-  ['offense',['Offense',['../namespace_riot_net_1_1_models.html#a2b1c4db9d054998f8ca698fdb69cec44a19c09932da41621578010ba99cc1c795',1,'RiotNet::Models']]],
   ['offline',['Offline',['../namespace_riot_net_1_1_models.html#ae5d4430c0e55f446d83ca33ccd5d4cb1a8d9da4bc0e49a50e09ac9f7e56789d39',1,'RiotNet::Models']]],
   ['oneforall',['ONEFORALL',['../namespace_riot_net_1_1_models.html#ac7c27793721e27458de29dceed2ad29aa876305c776da5b9d4cf77a172aa79f5b',1,'RiotNet::Models']]],
   ['oneforall_5f5x5',['ONEFORALL_5x5',['../namespace_riot_net_1_1_models.html#a1feb539727378192c5ae4cf447084ea9a7477153c55f36f1f3aa550d77ca786cf',1,'RiotNet.Models.ONEFORALL_5x5()'],['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a7477153c55f36f1f3aa550d77ca786cf',1,'RiotNet.Models.ONEFORALL_5x5()']]],

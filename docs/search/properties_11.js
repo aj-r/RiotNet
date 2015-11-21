@@ -13,6 +13,7 @@ var searchData=
   ['region',['Region',['../interface_riot_net_1_1_i_riot_client.html#a7ab19389912fcc87d57a8385e7b4a8e0',1,'RiotNet.IRiotClient.Region()'],['../class_riot_net_1_1_models_1_1_match_detail.html#a3544b6f02b9d4df0124feb158b24eb3a',1,'RiotNet.Models.MatchDetail.Region()'],['../class_riot_net_1_1_riot_client.html#aaf00602bf112cd454e4bbb60111d66d9',1,'RiotNet.RiotClient.Region()']]],
   ['regiontag',['RegionTag',['../class_riot_net_1_1_models_1_1_shard.html#a4179d3996bc762ca0e44437ac2824c4f',1,'RiotNet::Models::Shard']]],
   ['requiredchampion',['RequiredChampion',['../class_riot_net_1_1_models_1_1_basic_data.html#a66b97bc305430494af14ff14575234c2',1,'RiotNet::Models::BasicData']]],
+  ['resolve',['Resolve',['../class_riot_net_1_1_models_1_1_static_mastery_tree.html#a0ec8cb364692c98ef27fa573a9651cad',1,'RiotNet::Models::StaticMasteryTree']]],
   ['resource',['Resource',['../class_riot_net_1_1_models_1_1_static_spell.html#a43ae0ea789e8842e6ee2602382146203',1,'RiotNet::Models::StaticSpell']]],
   ['response',['Response',['../class_riot_net_1_1_response_event_args.html#a23723c25afc5c561ee66b99b90f24579',1,'RiotNet.ResponseEventArgs.Response()'],['../class_riot_net_1_1_rest_exception.html#a9dc9f63af9d2cd0dc98389262e9828d9',1,'RiotNet.RestException.Response()']]],
   ['retry',['Retry',['../class_riot_net_1_1_retry_event_args.html#a9dc739c7705e1b033ad467140b62eec5',1,'RiotNet::RetryEventArgs']]],

@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">2.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -48,9 +40,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Packages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -77,21 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_event.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -106,6 +82,11 @@ $(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_event.ht
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li><li class="navelem"><a class="el" href="class_riot_net_1_1_models_1_1_event.html">Event</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -193,12 +174,13 @@ Properties</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This object contains game event information. Note that not all legal type values documented below are valid for all games. <a class="el" href="class_riot_net_1_1_models_1_1_event.html" title="This object contains game event information. Note that not all legal type values documented below are...">Event</a> data evolves over time and certain values may be relevant only for older or newer games. </p>
-
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00015">15</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a63c3bbf6fdf7fb902decc2f4955f8b80"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">RiotNet.Models.Event.Event </td>
@@ -207,11 +189,14 @@ Properties</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Creates a new <a class="el" href="class_riot_net_1_1_models_1_1_event.html" title="This object contains game event information. Note that not all legal type values documented below are...">Event</a> instance. </p>
-
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00020">20</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
 
 </div>
 </div>
@@ -236,8 +221,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the ascended type of the event. Only present if relevant. </p>
 
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00030">30</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a5f0a1b96764091293d17a68198a8dff8"></a>
@@ -259,8 +242,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the assisting participant IDs of the event. Only present if relevant. </p>
-
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00035">35</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
 
 </div>
 </div>
@@ -284,8 +265,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the building type of the event. Only present if relevant. </p>
 
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00040">40</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="aed66b797cd6b09391d1a8550bc3ab7e2"></a>
@@ -307,8 +286,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the participant ID of the participant who created the object. Only present if relevant. </p>
-
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00045">45</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
 
 </div>
 </div>
@@ -332,8 +309,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets event type. </p>
 
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00050">50</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a69ad26b0d4e8e083bddc1d042c34541d"></a>
@@ -355,8 +330,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the ending item ID of the event. Only present if relevant. </p>
-
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00055">55</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
 
 </div>
 </div>
@@ -380,8 +353,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the starting item ID of the event. Only present if relevant. </p>
 
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00060">60</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a8489fa6a78cd647c6ed5b7b1660c472b"></a>
@@ -403,8 +374,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the item ID of the event. Only present if relevant. </p>
-
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00065">65</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
 
 </div>
 </div>
@@ -428,8 +397,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the participant ID of the killer. Only present if relevant. Killer ID 0 indicates a minion. </p>
 
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00070">70</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ad8d47497bfef02edfc52997a3449a1aa"></a>
@@ -451,8 +418,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the lane type of the event. Only present if relevant. </p>
-
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00075">75</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
 
 </div>
 </div>
@@ -476,8 +441,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the level up type of the event. Only present if relevant. </p>
 
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00080">80</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a0438b8aa91d40384ba6ba7207d73a040"></a>
@@ -499,8 +462,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the monster type of the event. Only present if relevant. </p>
-
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00085">85</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
 
 </div>
 </div>
@@ -524,8 +485,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the participant ID (1-10) of the event. Only present if relevant. </p>
 
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00090">90</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a1693b8b84d6409d8583083fd1eb4c15c"></a>
@@ -547,8 +506,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the point captured in the event. Only present if relevant. </p>
-
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00095">95</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
 
 </div>
 </div>
@@ -572,8 +529,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the position of the event. Only present if relevant. </p>
 
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00100">100</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a40e913ae0a980d497ddfaf52b11066ae"></a>
@@ -595,8 +550,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the skill slot of the event. Only present if relevant. </p>
-
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00105">105</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
 
 </div>
 </div>
@@ -620,8 +573,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the team ID of the event. Only present if relevant. </p>
 
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00110">110</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ab1a26aa005fa622f542be438d6509232"></a>
@@ -643,8 +594,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the game time at which the event occurred. </p>
-
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00116">116</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
 
 </div>
 </div>
@@ -668,8 +617,6 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the tower type of the event. Only present if relevant. </p>
 
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00121">121</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ad44d501d9f37d8483d19664d358c7578"></a>
@@ -691,8 +638,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the participant ID of the victiom of the event. Only present if relevant. </p>
-
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00126">126</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
 
 </div>
 </div>
@@ -716,23 +661,17 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the ward type of the event. Only present if relevant. </p>
 
-<p>Definition at line <a class="el" href="_event_8cs_source.html#l00131">131</a> of file <a class="el" href="_event_8cs_source.html">Event.cs</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Models/<a class="el" href="_event_8cs_source.html">Event.cs</a></li>
+<li>Models/Event.cs</li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li><li class="navelem"><a class="el" href="class_riot_net_1_1_models_1_1_event.html">Event</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
 </body>
 </html>

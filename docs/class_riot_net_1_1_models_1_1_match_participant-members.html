@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">2.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -48,9 +40,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Packages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -77,21 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_match_participant.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -106,6 +82,11 @@ $(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_match_pa
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="namespace_riot_net_1_1_models.html">Models</a></li><li class="navelem"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html">MatchParticipant</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">RiotNet.Models.MatchParticipant Member List</div>  </div>
@@ -117,7 +98,7 @@ $(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_match_pa
   <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html#a149479714eb18f6b7b54bba2c946a5d6">ChampionId</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html">RiotNet.Models.MatchParticipant</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html#ab1efd03606011576f7ad6a7bf0ae4f38">HighestAchievedSeasonTier</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html">RiotNet.Models.MatchParticipant</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html#afa69582edbb8ca12fd6642c45ecfc606">Masteries</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html">RiotNet.Models.MatchParticipant</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html#a67ccbfc8685de84aa26a2aeaf1299341">MatchParticipant</a>()</td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html">RiotNet.Models.MatchParticipant</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html#a67ccbfc8685de84aa26a2aeaf1299341">MatchParticipant</a>()</td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html">RiotNet.Models.MatchParticipant</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html#ad42268c54f11ac469338510a2b536eec">ParticipantId</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html">RiotNet.Models.MatchParticipant</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html#a96f85d306a19c33f84b62a1dee1c0995">Runes</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html">RiotNet.Models.MatchParticipant</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html#a204fe1ad48ddc67ff56be1ab409d1e30">Spell1Id</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html">RiotNet.Models.MatchParticipant</a></td><td class="entry"></td></tr>
@@ -126,14 +107,11 @@ $(document).ready(function(){initNavTree('class_riot_net_1_1_models_1_1_match_pa
   <tr><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html#a8f451dbcf86e860659b286afa104bd5c">TeamId</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html">RiotNet.Models.MatchParticipant</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html#adc65d5ca722137ee1c70e885e955b16b">Timeline</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_models_1_1_match_participant.html">RiotNet.Models.MatchParticipant</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
 </body>
 </html>

@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">2.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -48,9 +40,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Packages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -77,21 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_riot_net_1_1_rate_limit_exceeded_exception.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -106,6 +82,11 @@ $(document).ready(function(){initNavTree('class_riot_net_1_1_rate_limit_exceeded
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_riot_net.html">RiotNet</a></li><li class="navelem"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html">RateLimitExceededException</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">RiotNet.RateLimitExceededException Member List</div>  </div>
@@ -114,29 +95,26 @@ $(document).ready(function(){initNavTree('class_riot_net_1_1_rate_limit_exceeded
 
 <p>This is the complete list of members for <a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html">RiotNet.RateLimitExceededException</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html#aa9c4a90daf11d58f39eb2d63a3b5b8cb">GetObjectData</a>(SerializationInfo info, StreamingContext context)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html">RiotNet.RestException</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html#ab944e9e4300f1421e69817c1d623fbf0">RateLimitExceededException</a>()</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html">RiotNet.RateLimitExceededException</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html#a473472ab66f3ecf576e036439f76fd92">RateLimitExceededException</a>(IRestResponse response)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html">RiotNet.RateLimitExceededException</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html#ae2eb19306364d6f969e7590afbdf1e98">RateLimitExceededException</a>(IRestResponse response, Exception innerException)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html">RiotNet.RateLimitExceededException</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html#ad1bb0a47057705ebf008c8fa9c5afc6f">RateLimitExceededException</a>(IRestResponse response, string message)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html">RiotNet.RateLimitExceededException</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html#a7618ad33da678e7f2a75653952cd34d7">RateLimitExceededException</a>(IRestResponse response, string message, Exception innerException)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html">RiotNet.RateLimitExceededException</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html#ab3f1c9a9ad32b7d48b1a421296bf4e3a">RateLimitExceededException</a>(SerializationInfo info, StreamingContext context)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html">RiotNet.RateLimitExceededException</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html#aa9c4a90daf11d58f39eb2d63a3b5b8cb">GetObjectData</a>(SerializationInfo info, StreamingContext context)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html">RiotNet.RestException</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html#ab944e9e4300f1421e69817c1d623fbf0">RateLimitExceededException</a>()</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html">RiotNet.RateLimitExceededException</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html#a473472ab66f3ecf576e036439f76fd92">RateLimitExceededException</a>(IRestResponse response)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html">RiotNet.RateLimitExceededException</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html#ae2eb19306364d6f969e7590afbdf1e98">RateLimitExceededException</a>(IRestResponse response, Exception innerException)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html">RiotNet.RateLimitExceededException</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html#ad1bb0a47057705ebf008c8fa9c5afc6f">RateLimitExceededException</a>(IRestResponse response, string message)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html">RiotNet.RateLimitExceededException</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html#a7618ad33da678e7f2a75653952cd34d7">RateLimitExceededException</a>(IRestResponse response, string message, Exception innerException)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html">RiotNet.RateLimitExceededException</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html#ab3f1c9a9ad32b7d48b1a421296bf4e3a">RateLimitExceededException</a>(SerializationInfo info, StreamingContext context)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limit_exceeded_exception.html">RiotNet.RateLimitExceededException</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html#a9dc9f63af9d2cd0dc98389262e9828d9">Response</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html">RiotNet.RestException</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html#a6045680a57bf525113cbff9ac6f7c2a0">RestException</a>()</td><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html">RiotNet.RestException</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html#a79ed55cc5f2cd09d9d630cedfc743e17">RestException</a>(IRestResponse response)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html">RiotNet.RestException</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html#a5afcb0ab45932b6224143a05bcfd2303">RestException</a>(IRestResponse response, string message)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html">RiotNet.RestException</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html#a262bd7c6a9421babbd382176aa602153">RestException</a>(IRestResponse response, Exception innerException)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html">RiotNet.RestException</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html#ab78710a664d94ca3c5d6b11975da39fe">RestException</a>(IRestResponse response, string message, Exception innerException)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html">RiotNet.RestException</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html#a84ccd2e505bc1659814ee8910fbf5bd1">RestException</a>(SerializationInfo info, StreamingContext context)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html">RiotNet.RestException</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html#a6045680a57bf525113cbff9ac6f7c2a0">RestException</a>()</td><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html">RiotNet.RestException</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html#a79ed55cc5f2cd09d9d630cedfc743e17">RestException</a>(IRestResponse response)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html">RiotNet.RestException</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html#a5afcb0ab45932b6224143a05bcfd2303">RestException</a>(IRestResponse response, string message)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html">RiotNet.RestException</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html#a262bd7c6a9421babbd382176aa602153">RestException</a>(IRestResponse response, Exception innerException)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html">RiotNet.RestException</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html#ab78710a664d94ca3c5d6b11975da39fe">RestException</a>(IRestResponse response, string message, Exception innerException)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html">RiotNet.RestException</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html#a84ccd2e505bc1659814ee8910fbf5bd1">RestException</a>(SerializationInfo info, StreamingContext context)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rest_exception.html">RiotNet.RestException</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
 </table></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
 </body>
 </html>

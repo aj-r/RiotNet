@@ -9,6 +9,8 @@ var searchData=
   ['classic',['CLASSIC',['../namespace_riot_net_1_1_models.html#ac7c27793721e27458de29dceed2ad29aa21994d6177b29e1128b2d7f0f8342057',1,'RiotNet::Models']]],
   ['clear_5fascended',['CLEAR_ASCENDED',['../namespace_riot_net_1_1_models.html#a557e202a6d63923ba7889515b269b81ba0ebab1439274fda23279b008e5fba776',1,'RiotNet::Models']]],
   ['counter_5fpick',['COUNTER_PICK',['../namespace_riot_net_1_1_models.html#a1feb539727378192c5ae4cf447084ea9a8d47bf87446cf840955cefc790c595be',1,'RiotNet.Models.COUNTER_PICK()'],['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a8d47bf87446cf840955cefc790c595be',1,'RiotNet.Models.COUNTER_PICK()']]],
+  ['crystal_5fscar',['CRYSTAL_SCAR',['../namespace_riot_net_1_1_models.html#aa6da05d91aef6afab7307e8aa4bc15dda6677c89f5bca51b785ccf3f3d4c3baea',1,'RiotNet::Models']]],
+  ['cunning',['Cunning',['../namespace_riot_net_1_1_models.html#a2b1c4db9d054998f8ca698fdb69cec44a4ae2e73eb2550ae7fd213d8f330d06e6',1,'RiotNet::Models']]],
   ['custom',['CUSTOM',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a72baef04098f035e8a320b03ad197818',1,'RiotNet::Models']]],
   ['custom_5fgame',['CUSTOM_GAME',['../namespace_riot_net_1_1_models.html#ad28e452cee495ce5007b5a44ee926009ac68de30c685910055111e286f788d00c',1,'RiotNet::Models']]]
 ];
