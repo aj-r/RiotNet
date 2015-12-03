@@ -20,6 +20,7 @@ namespace RiotNet
         private readonly RiotClientSettings settings;
         private readonly IRestClient client;
         private readonly IRestClient statusClient;
+        private readonly IRestClient globalClient;
         private readonly RestSharpJsonNetSerializer serializer;
 
         static RiotClient()
@@ -58,7 +59,7 @@ namespace RiotNet
         /// <param name="region">The region indicating which server to connect to.</param>
         /// <param name="settings">The settings to use.</param>
         public RiotClient(Region region, RiotClientSettings settings)
-            : this(region, settings, new RestClient(), new RestClient())
+            : this(region, settings, new RestClient(), new RestClient(), new RestClient())
         { }
 
         /// <summary>
@@ -69,6 +70,18 @@ namespace RiotNet
         /// <param name="client">The IRestClient implementation to use.</param>
         /// <param name="statusClient">The IRestClient implementation to use for lol-status API calls.</param>
         public RiotClient(Region region, RiotClientSettings settings, IRestClient client, IRestClient statusClient)
+            : this(region, settings, client, statusClient, new RestClient())
+        { }
+
+        /// <summary>
+        /// Creates a new <see cref="RiotClient"/> instance.
+        /// </summary>
+        /// <param name="region">The region indicating which server to connect to.</param>
+        /// <param name="settings">The settings to use.</param>
+        /// <param name="client">The IRestClient implementation to use.</param>
+        /// <param name="statusClient">The IRestClient implementation to use for lol-status API calls.</param>
+        /// <param name="globalClient">The IRestClient implementation to use for lol-static API calls.</param>
+        public RiotClient(Region region, RiotClientSettings settings, IRestClient client, IRestClient statusClient, IRestClient globalClient)
         {
             if (client == null)
                 throw new ArgumentNullException("client");
@@ -85,10 +98,17 @@ namespace RiotNet
                 client.BaseUrl = new Uri("https://" + GetServerName(region));
             if (statusClient.BaseUrl == null)
                 statusClient.BaseUrl = new Uri("http://status.leagueoflegends.com");
+            if (globalClient.BaseUrl == null)
+                globalClient.BaseUrl = new Uri("https://global.api.pvp.net");
             client.AddHandler("application/json", serializer);
             client.AddHandler("text/json", serializer);
+            statusClient.AddHandler("application/json", serializer);
+            statusClient.AddHandler("text/json", serializer);
+            globalClient.AddHandler("application/json", serializer);
+            globalClient.AddHandler("text/json", serializer);
             this.client = client;
             this.statusClient = statusClient;
+            this.globalClient = globalClient;
         }
 
         private static RiotClientSettings GetSettingsForApiKey(string apiKey)

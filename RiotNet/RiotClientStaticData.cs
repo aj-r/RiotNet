@@ -54,7 +54,7 @@ namespace RiotNet
         /// </remarks>
         public StaticChampionList GetStaticChampions(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null)
         {
-            return Execute<StaticChampionList>(GetStaticChampionsRequest(locale, version, dataById, champListData));
+            return Execute<StaticChampionList>(GetStaticChampionsRequest(locale, version, dataById, champListData), globalClient);
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticChampionList> GetStaticChampionsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null)
         {
-            return ExecuteAsync<StaticChampionList>(GetStaticChampionsRequest(locale, version, dataById, champListData));
+            return ExecuteAsync<StaticChampionList>(GetStaticChampionsRequest(locale, version, dataById, champListData), globalClient);
         }
 
         private IRestRequest GetStaticChampionByIdRequest(int id, string locale, string version, IEnumerable<string> champData)
@@ -103,7 +103,7 @@ namespace RiotNet
         /// </remarks>
         public StaticChampion GetStaticChampionById(int id, string locale = null, string version = null, IEnumerable<string> champData = null)
         {
-            return Execute<StaticChampion>(GetStaticChampionByIdRequest(id, locale, version, champData));
+            return Execute<StaticChampion>(GetStaticChampionByIdRequest(id, locale, version, champData), globalClient);
         }
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticChampion> GetStaticChampionByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> champData = null)
         {
-            return ExecuteAsync<StaticChampion>(GetStaticChampionByIdRequest(id, locale, version, champData));
+            return ExecuteAsync<StaticChampion>(GetStaticChampionByIdRequest(id, locale, version, champData), globalClient);
         }
 
         #endregion
@@ -154,7 +154,7 @@ namespace RiotNet
         /// </remarks>
         public StaticItemList GetStaticItems(string locale = null, string version = null, IEnumerable<string> itemListData = null)
         {
-            var itemList = Execute<StaticItemList>(GetStaticItemsRequest(locale, version, itemListData));
+            var itemList = Execute<StaticItemList>(GetStaticItemsRequest(locale, version, itemListData), globalClient);
 
             if (itemList == null)
                 return null;
@@ -181,7 +181,7 @@ namespace RiotNet
         /// </remarks>
         public async Task<StaticItemList> GetStaticItemsAsync(string locale = null, string version = null, IEnumerable<string> itemListData = null)
         {
-            var itemList = await ExecuteAsync<StaticItemList>(GetStaticItemsRequest(locale, version, itemListData)).ConfigureAwait(false);
+            var itemList = await ExecuteAsync<StaticItemList>(GetStaticItemsRequest(locale, version, itemListData), globalClient).ConfigureAwait(false);
 
             if (itemList == null)
                 return null;
@@ -214,7 +214,7 @@ namespace RiotNet
         /// </remarks>
         public List<string> GetStaticLanguages()
         {
-            return Execute<List<string>>(GetStaticLanguagesRequest());
+            return Execute<List<string>>(GetStaticLanguagesRequest(), globalClient);
         }
 
         /// <summary>
@@ -226,7 +226,7 @@ namespace RiotNet
         /// </remarks>
         public Task<List<string>> GetStaticLanguagesAsync()
         {
-            return ExecuteAsync<List<string>>(GetStaticLanguagesRequest());
+            return ExecuteAsync<List<string>>(GetStaticLanguagesRequest(), globalClient);
         }
 
         private IRestRequest GetStaticLanguageStringsRequest(string locale, string version)
@@ -250,7 +250,7 @@ namespace RiotNet
         /// </remarks>
         public StaticLanuageStrings GetStaticLanguageStrings(string locale = null, string version = null)
         {
-            return Execute<StaticLanuageStrings>(GetStaticLanguageStringsRequest(locale, version));
+            return Execute<StaticLanuageStrings>(GetStaticLanguageStringsRequest(locale, version), globalClient);
         }
 
         /// <summary>
@@ -264,7 +264,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticLanuageStrings> GetStaticLanguageStringsAsync(string locale = null, string version = null)
         {
-            return ExecuteAsync<StaticLanuageStrings>(GetStaticLanguageStringsRequest(locale, version));
+            return ExecuteAsync<StaticLanuageStrings>(GetStaticLanguageStringsRequest(locale, version), globalClient);
         }
 
         #endregion
@@ -292,7 +292,7 @@ namespace RiotNet
         /// </remarks>
         public StaticMapList GetStaticMaps(string locale = null, string version = null)
         {
-            return Execute<StaticMapList>(GetStaticMapsRequest(locale, version));
+            return Execute<StaticMapList>(GetStaticMapsRequest(locale, version), globalClient);
         }
 
         /// <summary>
@@ -306,7 +306,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticMapList> GetStaticMapsAsync(string locale = null, string version = null)
         {
-            return ExecuteAsync<StaticMapList>(GetStaticMapsRequest(locale, version));
+            return ExecuteAsync<StaticMapList>(GetStaticMapsRequest(locale, version), globalClient);
         }
 
         #endregion
@@ -341,7 +341,7 @@ namespace RiotNet
         /// </remarks>
         public StaticMasteryList GetStaticMasteries(string locale = null, string version = null, IEnumerable<string> masteryListData = null)
         {
-            return Execute<StaticMasteryList>(GetStaticMasteriesRequest(locale, version, masteryListData));
+            return Execute<StaticMasteryList>(GetStaticMasteriesRequest(locale, version, masteryListData), globalClient);
         }
 
         /// <summary>
@@ -356,7 +356,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticMasteryList> GetStaticMasteriesAsync(string locale = null, string version = null, IEnumerable<string> masteryListData = null)
         {
-            return ExecuteAsync<StaticMasteryList>(GetStaticMasteriesRequest(locale, version, masteryListData));
+            return ExecuteAsync<StaticMasteryList>(GetStaticMasteriesRequest(locale, version, masteryListData), globalClient);
         }
 
         private IRestRequest GetStaticMasteryByIdRequest(int id, string locale, string version, IEnumerable<string> masteryData)
@@ -389,7 +389,7 @@ namespace RiotNet
         /// </remarks>
         public StaticMastery GetStaticMasteryById(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null)
         {
-            return Execute<StaticMastery>(GetStaticMasteryByIdRequest(id, locale, version, masteryData));
+            return Execute<StaticMastery>(GetStaticMasteryByIdRequest(id, locale, version, masteryData), globalClient);
         }
 
         /// <summary>
@@ -405,7 +405,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticMastery> GetStaticMasteryByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null)
         {
-            return ExecuteAsync<StaticMastery>(GetStaticMasteryByIdRequest(id, locale, version, masteryData));
+            return ExecuteAsync<StaticMastery>(GetStaticMasteryByIdRequest(id, locale, version, masteryData), globalClient);
         }
 
         #endregion
@@ -426,7 +426,7 @@ namespace RiotNet
         /// </remarks>
         public StaticRealm GetStaticRealm()
         {
-            return Execute<StaticRealm>(GetStaticRealmRequest());
+            return Execute<StaticRealm>(GetStaticRealmRequest(), globalClient);
         }
 
         /// <summary>
@@ -438,7 +438,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticRealm> GetStaticRealmAsync()
         {
-            return ExecuteAsync<StaticRealm>(GetStaticRealmRequest());
+            return ExecuteAsync<StaticRealm>(GetStaticRealmRequest(), globalClient);
         }
 
         #endregion
@@ -473,7 +473,7 @@ namespace RiotNet
         /// </remarks>
         public StaticRuneList GetStaticRunes(string locale = null, string version = null, IEnumerable<string> runeListData = null)
         {
-            var runeList = Execute<StaticRuneList>(GetStaticRunesRequest(locale, version, runeListData));
+            var runeList = Execute<StaticRuneList>(GetStaticRunesRequest(locale, version, runeListData), globalClient);
 
             if (runeList == null)
                 return null;
@@ -500,7 +500,7 @@ namespace RiotNet
         /// </remarks>
         public async Task<StaticRuneList> GetStaticRunesAsync(string locale = null, string version = null, IEnumerable<string> runeListData = null)
         {
-            var runeList = await ExecuteAsync<StaticRuneList>(GetStaticRunesRequest(locale, version, runeListData)).ConfigureAwait(false);
+            var runeList = await ExecuteAsync<StaticRuneList>(GetStaticRunesRequest(locale, version, runeListData), globalClient).ConfigureAwait(false);
 
             if (runeList == null)
                 return null;
@@ -546,7 +546,7 @@ namespace RiotNet
         /// </remarks>
         public StaticRune GetStaticRuneById(int id, string locale = null, string version = null, IEnumerable<string> runeData = null)
         {
-            return Execute<StaticRune>(GetStaticRuneByIdRequest(id, locale, version, runeData));
+            return Execute<StaticRune>(GetStaticRuneByIdRequest(id, locale, version, runeData), globalClient);
         }
 
         /// <summary>
@@ -562,7 +562,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticRune> GetStaticRuneByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> runeData = null)
         {
-            return ExecuteAsync<StaticRune>(GetStaticRuneByIdRequest(id, locale, version, runeData));
+            return ExecuteAsync<StaticRune>(GetStaticRuneByIdRequest(id, locale, version, runeData), globalClient);
         }
 
         #endregion
@@ -601,7 +601,7 @@ namespace RiotNet
         /// </remarks>
         public StaticSummonerSpellList GetStaticSummonerSpells(string locale = null, string version = null, bool dataById = false, IEnumerable<string> spellListData = null)
         {
-            return Execute<StaticSummonerSpellList>(GetStaticSummonerSpellsRequest(locale, version, dataById, spellListData));
+            return Execute<StaticSummonerSpellList>(GetStaticSummonerSpellsRequest(locale, version, dataById, spellListData), globalClient);
         }
 
         /// <summary>
@@ -617,7 +617,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticSummonerSpellList> GetStaticSummonerSpellsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> spellListData = null)
         {
-            return ExecuteAsync<StaticSummonerSpellList>(GetStaticSummonerSpellsRequest(locale, version, dataById, spellListData));
+            return ExecuteAsync<StaticSummonerSpellList>(GetStaticSummonerSpellsRequest(locale, version, dataById, spellListData), globalClient);
         }
 
         private IRestRequest GetStaticSummonerSpellByIdRequest(int id, string locale, string version, IEnumerable<string> spellData)
@@ -651,7 +651,7 @@ namespace RiotNet
         /// </remarks>
         public StaticSummonerSpell GetStaticSummonerSpellById(int id, string locale = null, string version = null, IEnumerable<string> spellData = null)
         {
-            return Execute<StaticSummonerSpell>(GetStaticSummonerSpellByIdRequest(id, locale, version, spellData));
+            return Execute<StaticSummonerSpell>(GetStaticSummonerSpellByIdRequest(id, locale, version, spellData), globalClient);
         }
 
         /// <summary>
@@ -667,7 +667,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticSummonerSpell> GetStaticSummonerSpellByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> spellData = null)
         {
-            return ExecuteAsync<StaticSummonerSpell>(GetStaticSummonerSpellByIdRequest(id, locale, version, spellData));
+            return ExecuteAsync<StaticSummonerSpell>(GetStaticSummonerSpellByIdRequest(id, locale, version, spellData), globalClient);
         }
 
         #endregion
@@ -688,7 +688,7 @@ namespace RiotNet
         /// </remarks>
         public List<string> GetStaticVersions()
         {
-            return Execute<List<string>>(GetStaticVersionsRequest());
+            return Execute<List<string>>(GetStaticVersionsRequest(), globalClient);
         }
 
         /// <summary>
@@ -700,7 +700,7 @@ namespace RiotNet
         /// </remarks>
         public Task<List<string>> GetVersionsAsync()
         {
-            return ExecuteAsync<List<string>>(GetStaticVersionsRequest());
+            return ExecuteAsync<List<string>>(GetStaticVersionsRequest(), globalClient);
         }
 
         #endregion
