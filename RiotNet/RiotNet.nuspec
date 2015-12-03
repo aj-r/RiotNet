@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/aj-r/RiotNet</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Updated masteries for season 6.</releaseNotes>
+    <releaseNotes>Fixed issue with static data for EUW and TR regions. Added Season enum values for season 6.</releaseNotes>
     <copyright>Copyright 2015 AJ Richardson</copyright>
     <tags>riot games lol api client wrapper</tags>
   </metadata>
