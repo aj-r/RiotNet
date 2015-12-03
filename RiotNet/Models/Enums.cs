@@ -726,6 +726,14 @@ namespace RiotNet.Models
         /// Season 5, 2015
         /// </summary>
         SEASON2015,
+        /// <summary>
+        /// Pre-season 6, 2016
+        /// </summary>
+        PRESEASON2016,
+        /// <summary>
+        /// Season 6, 2016
+        /// </summary>
+        SEASON2016,
     }
 
     /// <summary>
