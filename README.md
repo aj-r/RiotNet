@@ -17,6 +17,8 @@ It has the following features:
 > Install-Package RiotNet
 ```
 
+RiotNet is NOT endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends.
+
 ## Basic Usage
 
 ```
