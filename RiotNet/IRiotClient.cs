@@ -887,28 +887,32 @@ namespace RiotNet
         /// <summary>
         /// Registers the current client as a tournament provider.
         /// </summary>
+        /// <param name="url">The provider's callback URL to which tournament game results in this region should be posted.</param>
         /// <returns>The registered providerID.</returns>
-        string CreateTournamentProvider();
+        long CreateTournamentProvider(string url);
 
         /// <summary>
         /// Registers the current client as a tournament provider.
         /// </summary>
+        /// <param name="url">The provider's callback URL to which tournament game results in this region should be posted.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task<string> CreateTournamentProviderAsync();
-        
+        Task<long> CreateTournamentProviderAsync(string url);
+
         /// <summary>
         /// Creates a tournament.
         /// </summary>
         /// <param name="providerID">The providerID obtained from <see cref="CreateTournamentProvider"/>.</param>
+        /// <param name="name">The optional name of the tournament.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        string CreateTournament(string providerID);
+        long CreateTournament(long providerID, string name = null);
 
         /// <summary>
         /// Creates a tournament.
         /// </summary>
         /// <param name="providerID">The providerID obtained from <see cref="CreateTournamentProviderAsync"/>.</param>
+        /// <param name="name">The optional name of the tournament.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task<string> CreateTournamentAsync(string providerID);
+        Task<long> CreateTournamentAsync(long providerID, string name = null);
 
         #endregion
     }

@@ -78,6 +78,7 @@
     <Compile Include="SummonerTests.cs" />
     <Compile Include="StatsTests.cs" />
     <Compile Include="StatusTests.cs" />
+    <Compile Include="TournamentTests.cs" />
     <Compile Include="TeamTests.cs" />
     <Compile Include="DbTests.cs" />
     <Compile Include="LeagueTests.cs" />

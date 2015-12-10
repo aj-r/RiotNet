@@ -12,7 +12,7 @@ namespace RiotNet
         /// </summary>
         public string TournamentApiVersion { get { return "v1"; } }
 
-        private IRestRequest CreateTournamentProviderRequest(Region region, string url)
+        private IRestRequest CreateTournamentProviderRequest(string url)
         {
             var request = Post("tournament/public/{version}/provider");
             request.AddUrlSegment("version", TournamentApiVersion);
@@ -23,21 +23,21 @@ namespace RiotNet
         /// <summary>
         /// Registers the current client as a tournament provider.
         /// </summary>
-        /// <param name="region">The region in which the provider will be running tournaments.</param>
         /// <param name="url">The provider's callback URL to which tournament game results in this region should be posted.</param>
         /// <returns>The registered providerId.</returns>
-        public long CreateTournamentProvider(Region region, string url)
+        public long CreateTournamentProvider(string url)
         {
-            return Execute<long>(CreateTournamentProviderRequest(region, url));
+            return Execute<long>(CreateTournamentProviderRequest(url));
         }
 
         /// <summary>
         /// Registers the current client as a tournament provider.
         /// </summary>
+        /// <param name="url">The provider's callback URL to which tournament game results in this region should be posted.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<long> CreateTournamentProviderAsync(Region region, string url)
+        public Task<long> CreateTournamentProviderAsync(string url)
         {
-            return ExecuteAsync<long>(CreateTournamentProviderRequest(region, url));
+            return ExecuteAsync<long>(CreateTournamentProviderRequest(url));
         }
 
         private IRestRequest CreateTournamentRequest(long providerId, string name)
