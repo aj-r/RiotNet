@@ -5,7 +5,7 @@ using System.Linq;
 namespace RiotNet.Converters
 {
     /// <summary>
-    /// Converts an enum to and from JSON. If the JSON string value does not exist in the enum, the value is converted to -1 (or null for nullable types) instead of throwing an exception. Values are serialized as numbers.
+    /// Converts an enum to and from JSON. If the JSON string value does not exist in the enum, the value is still converted instead of throwing an exception. Values are serialized as numbers.
     /// </summary>
     public class TolerantEnumConverter : JsonConverter
     {
