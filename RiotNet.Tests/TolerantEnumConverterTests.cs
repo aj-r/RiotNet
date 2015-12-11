@@ -24,6 +24,38 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        public void ShouldDeserializeInt()
+        {
+            var value = JsonConvert.DeserializeObject<TestEnum>("2", jsonSettings);
+
+            Assert.That(value, Is.EqualTo(TestEnum.ThirdValue));
+        }
+
+        [Test]
+        public void ShouldDeserializeInt_ForNullableType()
+        {
+            var value = JsonConvert.DeserializeObject<TestEnum?>("2", jsonSettings);
+            
+            Assert.That(value, Is.EqualTo(TestEnum.ThirdValue));
+        }
+
+        [Test]
+        public void ShouldDeserializeNonExistentInt()
+        {
+            var value = JsonConvert.DeserializeObject<TestEnum>("10", jsonSettings);
+
+            Assert.That(value, Is.EqualTo((TestEnum)10));
+        }
+
+        [Test]
+        public void ShouldDeserializeNonExistentInt_ForNullableType()
+        {
+            var value = JsonConvert.DeserializeObject<TestEnum?>("10", jsonSettings);
+
+            Assert.That(value, Is.EqualTo((TestEnum)10));
+        }
+
+        [Test]
         public void ShouldDeserializeString()
         {
             var value = JsonConvert.DeserializeObject<TestEnum>("'SecondValue'", jsonSettings);
@@ -56,35 +88,51 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public void ShouldDeserializeInt()
+        public void ShouldDeserializeNull()
         {
-            var value = JsonConvert.DeserializeObject<TestEnum>("2", jsonSettings);
-
-            Assert.That(value, Is.EqualTo(TestEnum.ThirdValue));
-        }
-
-        [Test]
-        public void ShouldDeserializeInt_ForNullableType()
-        {
-            var value = JsonConvert.DeserializeObject<TestEnum?>("2", jsonSettings);
-            
-            Assert.That(value, Is.EqualTo(TestEnum.ThirdValue));
-        }
-
-        [Test]
-        public void ShouldDeserializeNonExistentInt()
-        {
-            var value = JsonConvert.DeserializeObject<TestEnum>("10", jsonSettings);
-
-            Assert.That(value, Is.EqualTo((TestEnum)10));
-        }
-
-        [Test]
-        public void ShouldDeserializeNonExistentInt_ForNullableType()
-        {
-            var value = JsonConvert.DeserializeObject<TestEnum?>("10", jsonSettings);
+            var value = JsonConvert.DeserializeObject<TestEnum?>("null", jsonSettings);
 
             Assert.That(value, Is.Null);
+        }
+
+        [Test]
+        public void ShouldSerializeInt()
+        {
+            var value = JsonConvert.SerializeObject(TestEnum.FourthValue, jsonSettings);
+
+            Assert.That(value, Is.EqualTo("3"));
+        }
+
+        [Test]
+        public void ShouldSerializeInt_ForNullableType()
+        {
+            var value = JsonConvert.SerializeObject((TestEnum?)TestEnum.FourthValue, jsonSettings);
+
+            Assert.That(value, Is.EqualTo("3"));
+        }
+
+        [Test]
+        public void ShouldSerializeString()
+        {
+            var value = JsonConvert.SerializeObject(TestEnum.FourthValue, new JsonSerializerSettings { Converters = { new TolerantStringEnumConverter() } });
+
+            Assert.That(value, Is.EqualTo("\"FourthValue\""));
+        }
+
+        [Test]
+        public void ShouldSerializeString_ForNullableType()
+        {
+            var value = JsonConvert.SerializeObject((TestEnum?)TestEnum.FourthValue, new JsonSerializerSettings { Converters = { new TolerantStringEnumConverter() } });
+
+            Assert.That(value, Is.EqualTo("\"FourthValue\""));
+        }
+
+        [Test]
+        public void ShouldSerializeNull()
+        {
+            var value = JsonConvert.SerializeObject((TestEnum?)null);
+
+            Assert.That(value, Is.EqualTo("null"));
         }
     }
 }

@@ -49,11 +49,7 @@ namespace RiotNet.Converters
             else if (reader.TokenType == JsonToken.Integer)
             {
                 // Note that Enum.ToObject will succeed even if the value is not in range of the enum.
-                // For nullable enums, we want to return null 
-                var underlyingType = Enum.GetUnderlyingType(enumType);
-                var value = Convert.ChangeType(reader.Value, underlyingType);
-                if (!isNullable || Enum.IsDefined(enumType, value))
-                    return Enum.ToObject(enumType, value);
+                return Enum.ToObject(enumType, reader.Value);
             }
 
             // Value not found.
