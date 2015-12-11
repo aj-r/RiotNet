@@ -342,7 +342,7 @@
                   "itemId": 2,
                   "killerId": 2,
                   "laneType": "MID_LANE",
-                  "monsterType": "RED_LIZARD",
+                  "monsterType": "RIFTHERALD",
                   "pointCaptured": "POINT_B",
                   "position": { "x": 2, "y": 2 },
                   "teamId": 200,
@@ -3587,12 +3587,14 @@
          "firstTower": true,
          "firstBlood": true,
          "firstBaron": true,
+         "firstRiftHerald": true,
          "firstInhibitor": true,
          "firstDragon": true,
          "winner": true,
          "vilemawKills": 2,
          "baronKills": 2,
          "dragonKills": 1,
+         "riftHeraldKills": 1,
          "teamId": 100
       },
       {

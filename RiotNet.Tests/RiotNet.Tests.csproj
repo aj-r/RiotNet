@@ -63,27 +63,28 @@
     <Compile Include="..\RiotNet\ReflectionUtils.cs">
       <Link>ReflectionUtils.cs</Link>
     </Compile>
-    <Compile Include="ChampionTests.cs" />
-    <Compile Include="FeaturedGameTests.cs" />
-    <Compile Include="CurrentGameTests.cs" />
-    <Compile Include="GameTests.cs" />
-    <Compile Include="MatchListTests.cs" />
-    <Compile Include="MatchTests.cs" />
+    <Compile Include="Apis\ChampionTests.cs" />
+    <Compile Include="Apis\FeaturedGameTests.cs" />
+    <Compile Include="Apis\CurrentGameTests.cs" />
+    <Compile Include="Apis\GameTests.cs" />
+    <Compile Include="Apis\MatchListTests.cs" />
+    <Compile Include="Apis\MatchTests.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="TolerantEnumConverterTests.cs" />
     <Compile Include="RiotClientTests.cs" />
-    <Compile Include="SummonerTests.cs" />
-    <Compile Include="StatsTests.cs" />
-    <Compile Include="StatusTests.cs" />
-    <Compile Include="TeamTests.cs" />
+    <Compile Include="Apis\SummonerTests.cs" />
+    <Compile Include="Apis\StatsTests.cs" />
+    <Compile Include="Apis\StatusTests.cs" />
+    <Compile Include="Apis\TeamTests.cs" />
     <Compile Include="DbTests.cs" />
-    <Compile Include="LeagueTests.cs" />
+    <Compile Include="Apis\LeagueTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestTests.cs" />
-    <Compile Include="StaticDataTests.cs" />
+    <Compile Include="Apis\StaticDataTests.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="TestDbContext.cs" />
   </ItemGroup>

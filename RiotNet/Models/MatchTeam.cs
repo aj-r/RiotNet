@@ -51,6 +51,11 @@ namespace RiotNet.Models
         public bool FirstInhibitor { get; set; }
 
         /// <summary>
+        /// Gets or sets the number of times the team killed the rift herald.
+        /// </summary>
+        public bool FirstRiftHerald { get; set; }
+
+        /// <summary>
         /// Gets or sets flag indicating whether or not the team destroyed the first tower.
         /// </summary>
         public bool FirstTower { get; set; }
@@ -59,6 +64,11 @@ namespace RiotNet.Models
         /// Gets or sets number of inhibitors the team destroyed.
         /// </summary>
         public int InhibitorKills { get; set; }
+
+        /// <summary>
+        /// Gets or sets the number of times the team killed the rift herald.
+        /// </summary>
+        public int RiftHeraldKills { get; set; }
 
         /// <summary>
         /// Gets or sets team ID.

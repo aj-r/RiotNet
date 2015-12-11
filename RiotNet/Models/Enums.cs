@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using RiotNet.Converters;
 
 namespace RiotNet.Models
 {
@@ -342,7 +342,7 @@ namespace RiotNet.Models
     }
 
     /// <summary>
-    /// Represents monster type.
+    /// Represents the type of monster that an event applies to. This is only valid for buff monsters and epic monsters.
     /// </summary>
     public enum MonsterType
     {
@@ -362,6 +362,14 @@ namespace RiotNet.Models
         /// Red lizard
         /// </summary>
         RED_LIZARD,
+        /// <summary>
+        /// Rift Herald
+        /// </summary>
+        RIFTHERALD,
+        /// <summary>
+        /// Vilemaw
+        /// </summary>
+        VILEMAW,
     }
 
     /// <summary>
@@ -648,7 +656,7 @@ namespace RiotNet.Models
     /// <summary>
     /// Represents a region (or server).
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonConverter(typeof(TolerantStringEnumConverter))]
     public enum Region
     {
         /// <summary>

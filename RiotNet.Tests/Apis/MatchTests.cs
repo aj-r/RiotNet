@@ -15,7 +15,7 @@ namespace RiotNet.Tests
         public async Task GetMatchAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            const long matchId = 1883925941L;
+            const long matchId = 2032332497L;
             var match = await client.GetMatchAsync(matchId);
 
             Assert.That(match, Is.Not.Null);
@@ -28,7 +28,7 @@ namespace RiotNet.Tests
         public async Task GetMatchAsyncTest_WithTimeline()
         {
             IRiotClient client = new RiotClient();
-            const long matchId = 1883925941L;
+            const long matchId = 2032332497L;
             var match = await client.GetMatchAsync(matchId, true);
 
             Assert.That(match, Is.Not.Null);

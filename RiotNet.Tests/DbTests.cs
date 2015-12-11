@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using NUnit.Framework;
+using RiotNet.Models;
 using System.Data.Entity;
 using System.Linq;
-using System.Reflection;
-using NUnit.Framework;
-using RiotNet.Models;
 
 namespace RiotNet.Tests
 {
