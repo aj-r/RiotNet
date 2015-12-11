@@ -1,7 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using RiotNet.Models;
+using System.Threading.Tasks;
 
 namespace RiotNet.Tests
 {

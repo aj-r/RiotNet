@@ -403,6 +403,23 @@ namespace RiotNet.Tests
             Assert.That(realm.V, Is.Not.Null.And.Not.Empty);
         }
 
+        [Test]
+        public async Task GetStaticRealmAsyncTest_EUW()
+        {
+            IRiotClient client = new RiotClient(Region.EUW);
+            var realm = await client.GetStaticRealmAsync();
+
+            Assert.That(realm, Is.Not.Null);
+            Assert.That(realm.Cdn, Is.Not.Null.And.Not.Empty);
+            Assert.That(realm.Css, Is.Not.Null.And.Not.Empty);
+            Assert.That(realm.Dd, Is.Not.Null.And.Not.Empty);
+            Assert.That(realm.L, Is.Not.Null.And.Not.Empty);
+            Assert.That(realm.Lg, Is.Not.Null.And.Not.Empty);
+            Assert.That(realm.N, Is.Not.Null.And.Not.Empty);
+            Assert.That(realm.ProfileIconMax, Is.GreaterThan(0));
+            Assert.That(realm.V, Is.Not.Null.And.Not.Empty);
+        }
+
         #endregion
 
         #region Runes
