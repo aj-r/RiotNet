@@ -296,14 +296,19 @@ namespace RiotNet.Models
     }
 
     /// <summary>
-    /// Represents a map type.
+    /// Represents a map type for a tournament game.
     /// </summary>
+    [JsonConverter(typeof(TolerantStringEnumConverter))]
     public enum MapType
     {
         /// <summary>
         /// Summoner's Rift
         /// </summary>
         SUMMONERS_RIFT,
+        /// <summary>
+        /// Twisted Treeline
+        /// </summary>
+        TWISTED_TREELINE,
         /// <summary>
         /// Crystal Scar (dominion)
         /// </summary>
@@ -394,6 +399,7 @@ namespace RiotNet.Models
     /// <summary>
     /// The method used for picking champions.
     /// </summary>
+    [JsonConverter(typeof(TolerantStringEnumConverter))]
     public enum PickType
     {
         /// <summary>
@@ -789,6 +795,7 @@ namespace RiotNet.Models
     /// <summary>
     /// The type of spectators allowed for a game.
     /// </summary>
+    [JsonConverter(typeof(TolerantStringEnumConverter))]
     public enum SpectatorType
     {
         /// <summary>

@@ -21,7 +21,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Registers the current client as a tournament provider.
+        /// Registers the current client as a tournament provider. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="url">The provider's callback URL to which tournament game results in this region should be posted.</param>
         /// <returns>The registered providerId.</returns>
@@ -31,7 +31,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Registers the current client as a tournament provider.
+        /// Registers the current client as a tournament provider. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="url">The provider's callback URL to which tournament game results in this region should be posted.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
@@ -49,7 +49,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Creates a tournament.
+        /// Creates a tournament. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="providerId">The providerId obtained from <see cref="CreateTournamentProvider"/>.</param>
         /// <param name="name">The optional name of the tournament.</param>
@@ -60,7 +60,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Creates a tournament.
+        /// Creates a tournament. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="providerId">The providerId obtained from <see cref="CreateTournamentProvider"/>.</param>
         /// <param name="name">The optional name of the tournament.</param>
@@ -73,17 +73,25 @@ namespace RiotNet
         private IRestRequest CreateTournamentCodeRequest(long tournamentId, int? count, List<long> allowedSummonerIds, MapType mapType,
             PickType pickType, SpectatorType spectatorType, int teamSize, string metadata)
         {
-            var request = Post("tournament/public/{version}/tournament");
+            var request = Post("tournament/public/{version}/code");
             request.AddUrlSegment("version", TournamentApiVersion);
             request.AddParameter("tournamentId", tournamentId, ParameterType.QueryString);
             if (count != null)
                 request.AddParameter("count", count.Value, ParameterType.QueryString);
-            request.AddBody(new { allowedSummonerIds, mapType, pickType, spectatorType, teamSize, metadata });
+            request.AddBody(new
+            {
+                allowedSummonerIds = allowedSummonerIds != null ? new { participants = allowedSummonerIds } : null,
+                mapType,
+                pickType,
+                spectatorType,
+                teamSize,
+                metadata
+            });
             return request;
         }
 
         /// <summary>
-        /// Creates one or more tournament codes.
+        /// Creates one or more tournament codes. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="tournamentId">The tournament ID obtained from <see cref="CreateTournament"/>.</param>
         /// <param name="count">The number of codes to create (max 1000).</param>
@@ -95,13 +103,13 @@ namespace RiotNet
         /// <param name="metadata">Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.</param>
         /// <returns>A list of tournament codes.</returns>
         public List<string> CreateTournamentCode(long tournamentId, int? count = null, List<long> allowedSummonerIds = null, MapType mapType = MapType.SUMMONERS_RIFT,
-            PickType pickType = PickType.TOURNAMENT_DRAFT, SpectatorType spectatorType = SpectatorType.NONE, int teamSize = 5, string metadata = null)
+            PickType pickType = PickType.TOURNAMENT_DRAFT, SpectatorType spectatorType = SpectatorType.ALL, int teamSize = 5, string metadata = null)
         {
             return Execute<List<string>>(CreateTournamentCodeRequest(tournamentId, count, allowedSummonerIds, mapType, pickType, spectatorType, teamSize, metadata));
         }
 
         /// <summary>
-        /// Creates one or more tournament codes.
+        /// Creates one or more tournament codes. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="tournamentId">The tournament ID obtained from <see cref="CreateTournamentAsync"/>.</param>
         /// <param name="count">The number of codes to create (max 1000).</param>
@@ -113,7 +121,7 @@ namespace RiotNet
         /// <param name="metadata">Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count = null, List<long> allowedSummonerIds = null, MapType mapType = MapType.SUMMONERS_RIFT,
-            PickType pickType = PickType.TOURNAMENT_DRAFT, SpectatorType spectatorType = SpectatorType.NONE, int teamSize = 5, string metadata = null)
+            PickType pickType = PickType.TOURNAMENT_DRAFT, SpectatorType spectatorType = SpectatorType.ALL, int teamSize = 5, string metadata = null)
         {
             return ExecuteAsync<List<string>>(CreateTournamentCodeRequest(tournamentId, count, allowedSummonerIds, mapType, pickType, spectatorType, teamSize, metadata));
         }

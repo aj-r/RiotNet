@@ -80,7 +80,7 @@
     <Compile Include="Apis\StatsTests.cs" />
     <Compile Include="Apis\StatusTests.cs" />
     <Compile Include="Apis\TeamTests.cs" />
-    <Compile Include="TournamentTests.cs" />
+    <Compile Include="Apis\TournamentTests.cs" />
     <Compile Include="DbTests.cs" />
     <Compile Include="Apis\LeagueTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,6 +110,11 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="tournament-key.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

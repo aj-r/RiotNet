@@ -18,6 +18,7 @@ namespace RiotNet.Tests
     public class TestBase
     {
         private static string apiKey;
+        private static string tournamentApiKey;
 
         static TestBase()
         {
@@ -29,6 +30,15 @@ namespace RiotNet.Tests
             catch (FileNotFoundException)
             {
                 Console.WriteLine("Please enter your API key in key.txt");
+                throw;
+            }
+            try
+            {
+                tournamentApiKey = File.ReadAllText("tournament-key.txt").Trim();
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("Please enter your tournament API key in tournament-key.txt");
                 throw;
             }
         }
@@ -44,8 +54,18 @@ namespace RiotNet.Tests
                 MaxRequestAttempts = 4,
                 RetryOnConnectionFailure = true,
                 RetryOnRateLimitExceeded = true,
-                RetryOnTimeout = true,
+                RetryOnTimeout = true
             };
+        }
+
+        public string ApiKey
+        {
+            get { return apiKey; }
+        }
+
+        public string TournamentApiKey
+        {
+            get { return tournamentApiKey; }
         }
 
         /// <summary>
