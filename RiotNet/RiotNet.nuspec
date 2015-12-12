@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package >
+<package>
   <metadata>
     <id>$id$</id>
     <version>$version$</version>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/aj-r/RiotNet</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Fixed issue with static data for EUW and TR regions. Added Season enum values for season 6.</releaseNotes>
+    <releaseNotes>Added tournament API. Added new items for match endpoints.</releaseNotes>
     <copyright>Copyright 2015 AJ Richardson</copyright>
     <tags>riot games lol api client wrapper</tags>
   </metadata>
