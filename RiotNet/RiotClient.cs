@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using RiotNet.Converters;
 using RiotNet.Models;
+using Newtonsoft.Json.Linq;
 
 namespace RiotNet
 {
@@ -445,7 +446,13 @@ namespace RiotNet
                 if (args.Retry)
                     return ResponseAction.Retry;
                 if (Settings.ThrowOnError)
-                    throw new RestException(response);
+                {
+                    var message = GetServerErrorMessage(response);
+                    if (message != null)
+                        throw new RestException(response, message);
+                    else
+                        throw new RestException(response);
+                }
 
                 return ResponseAction.ReturnDefault;
             }
@@ -453,11 +460,35 @@ namespace RiotNet
             {
                 OnResponseError(new ResponseEventArgs(response));
                 if (Settings.ThrowOnError)
-                    throw new RestException(response, response.ErrorException);
+                {
+                    var message = GetServerErrorMessage(response);
+                    if (message != null)
+                        throw new RestException(response, message);
+                    else
+                        throw new RestException(response, response.ErrorException);
+                }
                 
                 return ResponseAction.ReturnDefault;
             }
             return ResponseAction.Return;
+        }
+
+        private static string GetServerErrorMessage(IRestResponse response)
+        {
+            // Try to get the error message from the server if it exists.
+            if (string.IsNullOrEmpty(response.Content))
+                return null;
+
+            try
+            {
+                var token = JToken.Parse(response.Content);
+                var message = token.Value<string>("message");
+                return message;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         /// <summary>
