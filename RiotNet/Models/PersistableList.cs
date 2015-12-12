@@ -66,6 +66,12 @@ namespace RiotNet.Models
     { }
 
     /// <summary>
+    /// A list of long integers that can be stored in a database.
+    /// </summary>
+    public class ListOfLong : PersistableList<long>
+    { }
+
+    /// <summary>
     /// A list of doubles that can be stored in a database.
     /// </summary>
     public class ListOfDouble : PersistableList<double>

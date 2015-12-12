@@ -944,6 +944,68 @@ namespace RiotNet
         Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count = null, List<long> allowedSummonerIds = null, MapType mapType = MapType.SUMMONERS_RIFT,
             PickType pickType = PickType.TOURNAMENT_DRAFT, SpectatorType spectatorType = SpectatorType.ALL, int teamSize = 5, string metadata = null);
 
+        /// <summary>
+        /// Gets the details of a tournament code.
+        /// </summary>
+        /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCode"/>.</param>
+        /// <returns>The tournament code details.</returns>
+        TournamentCode GetTournamentCode(string tournamentCode);
+
+        /// <summary>
+        /// Gets the details of a tournament code.
+        /// </summary>
+        /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCodeAsync"/>.</param>
+        /// <returns>The tournament code details.</returns>
+        Task<TournamentCode> GetTournamentCodeAsync(string tournamentCode);
+
+        /// <summary>
+        /// Saves changes to a tournament code.
+        /// </summary>
+        /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCode"/>.</param>
+        /// <param name="allowedSummonerIds">Optional list of participants in order to validate the players eligible to join the lobby.</param>
+        /// <param name="mapType">The map type of the game.</param>
+        /// <param name="pickType">The pick type of the game.</param>
+        /// <param name="spectatorType">The spectator type of the game.</param>
+        void UpdateTournamentCode(string tournamentCode, List<long> allowedSummonerIds = null, MapType mapType = MapType.SUMMONERS_RIFT,
+            PickType pickType = PickType.TOURNAMENT_DRAFT, SpectatorType spectatorType = SpectatorType.ALL);
+
+        /// <summary>
+        /// Saves changes to a tournament code.
+        /// </summary>
+        /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCodeAsync"/>.</param>
+        /// <param name="allowedSummonerIds">Optional list of participants in order to validate the players eligible to join the lobby.</param>
+        /// <param name="mapType">The map type of the game.</param>
+        /// <param name="pickType">The pick type of the game.</param>
+        /// <param name="spectatorType">The spectator type of the game.</param>
+        Task UpdateTournamentCodeAsync(string tournamentCode, List<long> allowedSummonerIds = null, MapType mapType = MapType.SUMMONERS_RIFT,
+            PickType pickType = PickType.TOURNAMENT_DRAFT, SpectatorType spectatorType = SpectatorType.ALL);
+
+        /// <summary>
+        /// Saves changes to a tournament code.
+        /// </summary>
+        /// <param name="tournamentCode">The tournament code to update. Only the Code, Participants, MapType, PickType, and SpectatorType proerties are used.</param>
+        void UpdateTournamentCode(TournamentCode tournamentCode);
+
+        /// <summary>
+        /// Saves changes to a tournament code.
+        /// </summary>
+        /// <param name="tournamentCode">The tournament code to update. Only the Code, Participants, MapType, PickType, and SpectatorType proerties are used.</param>
+        Task UpdateTournamentCodeAsync(TournamentCode tournamentCode);
+
+        /// <summary>
+        /// Gets the events that happened in the lobby of atournament code game.
+        /// </summary>
+        /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCode"/>.</param>
+        /// <returns>The tournament code details.</returns>
+        List<LobbyEvent> GetTournamentCodeEvents(string tournamentCode);
+
+        /// <summary>
+        /// Gets the events that happened in the lobby of atournament code game.
+        /// </summary>
+        /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCodeAsync"/>.</param>
+        /// <returns>The tournament code details.</returns>
+        Task<List<LobbyEvent>> GetTournamentCodeEventsAsync(string tournamentCode);
+
         #endregion
     }
 }

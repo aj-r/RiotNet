@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RiotNet.Converters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using Newtonsoft.Json;
-using RiotNet.Converters;
 
 namespace RiotNet.Models
 {
