@@ -133,6 +133,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetTournamentCodeEventsAsyncTest()
         {
+            // TODO: create an actual game to test this.
             IRiotClient client = new RiotClient(Region.NA, TournamentApiKey);
             var events = await client.GetTournamentCodeEventsAsync("NA0418c-d541d70b-2865-4489-89bd-1d26b72b2edf");
 

@@ -21,7 +21,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Registers the current client as a tournament provider. This endpoint is only accessible if you have a tournament API key.
+        /// Registers the current client as a tournament provider. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="url">The provider's callback URL to which tournament game results in this region should be posted.</param>
         /// <returns>The registered providerId.</returns>
@@ -31,7 +31,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Registers the current client as a tournament provider. This endpoint is only accessible if you have a tournament API key.
+        /// Registers the current client as a tournament provider. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="url">The provider's callback URL to which tournament game results in this region should be posted.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
@@ -49,7 +49,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Creates a tournament. This endpoint is only accessible if you have a tournament API key.
+        /// Creates a tournament. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="providerId">The providerId obtained from <see cref="CreateTournamentProvider"/>.</param>
         /// <param name="name">The optional name of the tournament.</param>
@@ -60,7 +60,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Creates a tournament. This endpoint is only accessible if you have a tournament API key.
+        /// Creates a tournament. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="providerId">The providerId obtained from <see cref="CreateTournamentProvider"/>.</param>
         /// <param name="name">The optional name of the tournament.</param>
@@ -91,7 +91,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Creates one or more tournament codes. This endpoint is only accessible if you have a tournament API key.
+        /// Creates one or more tournament codes. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="tournamentId">The tournament ID obtained from <see cref="CreateTournament"/>.</param>
         /// <param name="count">The number of codes to create (max 1000).</param>
@@ -109,7 +109,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Creates one or more tournament codes. This endpoint is only accessible if you have a tournament API key.
+        /// Creates one or more tournament codes. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="tournamentId">The tournament ID obtained from <see cref="CreateTournamentAsync"/>.</param>
         /// <param name="count">The number of codes to create (max 1000).</param>
@@ -135,7 +135,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the details of a tournament code.
+        /// Gets the details of a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCode"/>.</param>
         /// <returns>The tournament code details.</returns>
@@ -145,7 +145,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the details of a tournament code.
+        /// Gets the details of a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCodeAsync"/>.</param>
         /// <returns>The tournament code details.</returns>
@@ -170,7 +170,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Saves changes to a tournament code.
+        /// Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCode"/>.</param>
         /// <param name="allowedSummonerIds">Optional list of participants in order to validate the players eligible to join the lobby.</param>
@@ -184,7 +184,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Saves changes to a tournament code.
+        /// Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCodeAsync"/>.</param>
         /// <param name="allowedSummonerIds">Optional list of participants in order to validate the players eligible to join the lobby.</param>
@@ -198,7 +198,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Saves changes to a tournament code.
+        /// Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="tournamentCode">The tournament code to update. Only the Code, Participants, MapType, PickType, and SpectatorType proerties are used.</param>
         public void UpdateTournamentCode(TournamentCode tournamentCode)
@@ -207,7 +207,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Saves changes to a tournament code.
+        /// Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="tournamentCode">The tournament code to update. Only the Code, Participants, MapType, PickType, and SpectatorType proerties are used.</param>
         public Task UpdateTournamentCodeAsync(TournamentCode tournamentCode)
@@ -224,7 +224,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the events that happened in the lobby of atournament code game.
+        /// Gets the events that happened in the lobby of atournament code game. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCode"/>.</param>
         /// <returns>The tournament code details.</returns>
@@ -235,7 +235,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the events that happened in the lobby of atournament code game.
+        /// Gets the events that happened in the lobby of atournament code game. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCodeAsync"/>.</param>
         /// <returns>The tournament code details.</returns>
