@@ -35,7 +35,7 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public void DeseializeShardStatusTest()
+        public void DeserializeShardStatusTest()
         {
             var shard = JsonConvert.DeserializeObject<ShardStatus>(Resources.SampleShardStatus, RiotClient.JsonSettings);
 

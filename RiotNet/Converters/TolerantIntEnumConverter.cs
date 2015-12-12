@@ -7,7 +7,7 @@ namespace RiotNet.Converters
     /// <summary>
     /// Converts an enum to and from JSON. If the JSON string value does not exist in the enum, the value is still converted instead of throwing an exception. Values are serialized as numbers.
     /// </summary>
-    public class TolerantEnumConverter : JsonConverter
+    public class TolerantIntEnumConverter : JsonConverter
     {
         /// <summary>
         /// Determines whether this instance can convert the specified object type.

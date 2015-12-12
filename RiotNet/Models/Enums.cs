@@ -298,7 +298,6 @@ namespace RiotNet.Models
     /// <summary>
     /// Represents a map type for a tournament game.
     /// </summary>
-    [JsonConverter(typeof(TolerantStringEnumConverter))]
     public enum MapType
     {
         /// <summary>
@@ -399,7 +398,6 @@ namespace RiotNet.Models
     /// <summary>
     /// The method used for picking champions.
     /// </summary>
-    [JsonConverter(typeof(TolerantStringEnumConverter))]
     public enum PickType
     {
         /// <summary>
@@ -511,7 +509,7 @@ namespace RiotNet.Models
         /// </summary>
         NORMAL_5x5_BLIND = 2,
         /// <summary>
-        /// Historical Summoner's Rift Coop vs AI
+        /// Historical Summoner's Rift Coop vs AI. This queue is deprecated.
         /// </summary>
         BOT_5x5 = 7,
         /// <summary>
@@ -551,11 +549,11 @@ namespace RiotNet.Models
         /// </summary>
         RANKED_SOLO_5x5 = 4,
         /// <summary>
-        /// Ranked Premade 3v3
+        /// Ranked Premade 3v3. This queue is deprecated.
         /// </summary>
         RANKED_PREMADE_3x3 = 9,
         /// <summary>
-        /// Ranked Premade 5v5
+        /// Ranked Premade 5v5. This queue is deprecated.
         /// </summary>
         RANKED_PREMADE_5x5 = 6,
         /// <summary>
@@ -633,11 +631,11 @@ namespace RiotNet.Models
         /// <summary>
         /// Bilgewater version of All Random All Mid
         /// </summary>
-        BILGEWATER_ARAM_5x5,
+        BILGEWATER_ARAM_5x5 = 100,
         /// <summary>
         /// Black Market Brawlers
         /// </summary>
-        BILGEWATER_5x5,
+        BILGEWATER_5x5 = 313,
     }
 
     /// <summary>
@@ -662,7 +660,6 @@ namespace RiotNet.Models
     /// <summary>
     /// Represents a region (or server).
     /// </summary>
-    [JsonConverter(typeof(TolerantStringEnumConverter))]
     public enum Region
     {
         /// <summary>
@@ -795,7 +792,6 @@ namespace RiotNet.Models
     /// <summary>
     /// The type of spectators allowed for a game.
     /// </summary>
-    [JsonConverter(typeof(TolerantStringEnumConverter))]
     public enum SpectatorType
     {
         /// <summary>
@@ -815,6 +811,7 @@ namespace RiotNet.Models
     /// <summary>
     /// Identifies which side/team the player was on.
     /// </summary>
+    [JsonConverter(typeof(TolerantIntEnumConverter))]
     public enum TeamSide
     {
         /// <summary>

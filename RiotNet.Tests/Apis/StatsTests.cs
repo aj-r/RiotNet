@@ -41,7 +41,7 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public void DeseializeRankedStatsTest()
+        public void DeserializeRankedStatsTest()
         {
             var stats = JsonConvert.DeserializeObject<RankedStats>(Resources.SampleRankedStats, RiotClient.JsonSettings);
 
@@ -73,7 +73,7 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public void DeseializePlayerStatsSummaryListTest()
+        public void DeserializePlayerStatsSummaryListTest()
         {
             var stats = JsonConvert.DeserializeObject<PlayerStatsSummaryList>(Resources.SampleStatsSummary, RiotClient.JsonSettings);
 

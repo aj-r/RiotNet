@@ -52,7 +52,7 @@
     <Compile Include="Conversions.cs" />
     <Compile Include="Converters\CaseInsensitiveDictionaryCreationConverter.cs" />
     <Compile Include="Converters\TolerantStringEnumConverter.cs" />
-    <Compile Include="Converters\TolerantEnumConverter.cs" />
+    <Compile Include="Converters\TolerantIntEnumConverter.cs" />
     <Compile Include="Converters\EpochDateTimeConverter.cs" />
     <Compile Include="Converters\KeyedCollectionConverter.cs" />
     <Compile Include="Converters\GameSubTypeConverter.cs" />

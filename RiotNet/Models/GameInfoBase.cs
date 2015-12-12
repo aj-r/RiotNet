@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RiotNet.Converters;
+using System;
 using System.Collections.Generic;
 
 namespace RiotNet.Models
@@ -31,6 +33,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the queue type.
         /// </summary>
+        [JsonConverter(typeof(TolerantIntEnumConverter))]
         public QueueType GameQueueConfigId { get; set; }
 
         /// <summary>

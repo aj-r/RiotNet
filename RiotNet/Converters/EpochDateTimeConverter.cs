@@ -26,11 +26,24 @@ namespace RiotNet.Converters
                     throw new JsonSerializationException("Cannot deserialize null as a non-nullable DateTime.");
                 return null;
             }
-            if (reader.TokenType == JsonToken.String || reader.TokenType == JsonToken.Date)
+            long epochTime;
+            if (reader.TokenType == JsonToken.String)
+            {
+                if (!long.TryParse((string)reader.Value, out epochTime))
+                    return base.ReadJson(reader, objectType, existingValue, serializer);
+            }
+            else if (reader.TokenType == JsonToken.String || reader.TokenType == JsonToken.Date)
+            {
                 return base.ReadJson(reader, objectType, existingValue, serializer);
-            if (reader.TokenType != JsonToken.Integer)
-                throw new JsonSerializationException("Unexpected token parsing date. Expected Integer, String, or Date; got " + reader.TokenType + ".");
-            var epochTime = (long)reader.Value;
+            }
+            else if (reader.TokenType != JsonToken.Integer)
+            {
+                throw new JsonSerializationException("Unexpected token found when parsing date. Expected Integer, String, or Date; got " + reader.TokenType + ".");
+            }
+            else
+            {
+                epochTime = (long)reader.Value;
+            }
             // Riot's "epoch time" is actually in milliseconds, not seconds.
             return Conversions.EpochMillisecondsToDateTime(epochTime);
         }

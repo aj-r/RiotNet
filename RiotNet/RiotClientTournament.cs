@@ -228,7 +228,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCode"/>.</param>
         /// <returns>The tournament code details.</returns>
-        public List<LobbyEvent> GetTournamentCodeEvents(string tournamentCode)
+        public List<LobbyEvent> GetTournamentCodeLobbyEvents(string tournamentCode)
         {
             var wrapper = Execute<LobbyEventWrapper>(GetTournamentCodeEventsRequest(tournamentCode), globalClient);
             return wrapper.EventList;
@@ -239,7 +239,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCodeAsync"/>.</param>
         /// <returns>The tournament code details.</returns>
-        public async Task<List<LobbyEvent>> GetTournamentCodeEventsAsync(string tournamentCode)
+        public async Task<List<LobbyEvent>> GetTournamentCodeLobbyEventsAsync(string tournamentCode)
         {
             var wrapper = await ExecuteAsync<LobbyEventWrapper>(GetTournamentCodeEventsRequest(tournamentCode), globalClient);
             return wrapper.EventList;

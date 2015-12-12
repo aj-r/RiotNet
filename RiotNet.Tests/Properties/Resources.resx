@@ -299,6 +299,42 @@
    "tier": "MASTER"
 }</value>
   </data>
+  <data name="SampleLobbyEvents" xml:space="preserve">
+    <value>[
+        {
+            "timestamp": "1234567890000",
+            "eventType": "PracticeGameCreatedEvent",
+            "summonerId": "12345678"
+        },
+        {
+            "timestamp": "1234567890000",
+            "eventType": "PlayerJoinedGameEvent",
+            "summonerId": "12345678"
+        },
+        {
+            "timestamp": "1234567890000",
+            "eventType": "PlayerSwitchedTeamEvent",
+            "summonerId": "12345678"
+        },
+        {
+            "timestamp": "1234567890000",
+            "eventType": "PlayerQuitGameEvent",
+            "summonerId": "12345678"
+        },
+        {
+            "timestamp": "1234567890000",
+            "eventType": "ChampSelectStartedEvent"
+        },
+        {
+            "timestamp": "1234567890000",
+            "eventType": "GameAllocationStartedEvent"
+        },
+        {
+            "timestamp": "1234567890000",
+            "eventType": "GameAllocatedToLsmEvent"
+        }
+    ]</value>
+  </data>
   <data name="SampleMatch" xml:space="preserve">
     <value>{
    "region": "NA",

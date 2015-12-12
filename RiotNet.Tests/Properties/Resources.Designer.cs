@@ -132,6 +132,32 @@ namespace RiotNet.Tests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [
+        ///        {
+        ///            &quot;timestamp&quot;: &quot;1234567890000&quot;,
+        ///            &quot;eventType&quot;: &quot;PracticeGameCreatedEvent&quot;,
+        ///            &quot;summonerId&quot;: &quot;12345678&quot;
+        ///        },
+        ///        {
+        ///            &quot;timestamp&quot;: &quot;1234567890000&quot;,
+        ///            &quot;eventType&quot;: &quot;PlayerJoinedGameEvent&quot;,
+        ///            &quot;summonerId&quot;: &quot;12345678&quot;
+        ///        },
+        ///        {
+        ///            &quot;timestamp&quot;: &quot;1234567890000&quot;,
+        ///            &quot;eventType&quot;: &quot;PlayerSwitchedTeamEvent&quot;,
+        ///            &quot;summonerId&quot;: &quot;12345678&quot;
+        ///        },
+        ///        {
+        ///            &quot;timestamp&quot;: &quot;12 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SampleLobbyEvents {
+            get {
+                return ResourceManager.GetString("SampleLobbyEvents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {
         ///   &quot;region&quot;: &quot;NA&quot;,
         ///   &quot;matchType&quot;: &quot;MATCHED_GAME&quot;,

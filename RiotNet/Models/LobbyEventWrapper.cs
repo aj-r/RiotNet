@@ -5,7 +5,7 @@ namespace RiotNet.Models
     /// <summary>
     /// Contains a list of lobby events.
     /// </summary>
-    internal class LobbyEventWrapper
+    public class LobbyEventWrapper
     {
         /// <summary>
         /// Gets or sets the list of events.

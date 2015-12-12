@@ -1027,14 +1027,14 @@ namespace RiotNet
         /// </summary>
         /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCode"/>.</param>
         /// <returns>The tournament code details.</returns>
-        List<LobbyEvent> GetTournamentCodeEvents(string tournamentCode);
+        List<LobbyEvent> GetTournamentCodeLobbyEvents(string tournamentCode);
 
         /// <summary>
         /// Gets the events that happened in the lobby of atournament code game. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
         /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCodeAsync"/>.</param>
         /// <returns>The tournament code details.</returns>
-        Task<List<LobbyEvent>> GetTournamentCodeEventsAsync(string tournamentCode);
+        Task<List<LobbyEvent>> GetTournamentCodeLobbyEventsAsync(string tournamentCode);
 
         #endregion
     }

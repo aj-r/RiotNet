@@ -129,7 +129,7 @@ namespace RiotNet
                 new GameSubTypeConverter(),
                 new KeyedCollectionConverter(),
                 new PlayerPositionConverter(),
-                new TolerantEnumConverter(),
+                new TolerantStringEnumConverter(),
                 new SecondsToTimeSpanConverter(),
                 // The summoner/by-name API returns data mapped by all-lowercase summoner names. Make the keys case-insensitive so we can access data using the properly-cased summer names.
                 new CaseInsensitiveDictionaryCreationConverter<Summoner>(),

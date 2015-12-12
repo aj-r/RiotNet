@@ -1,5 +1,7 @@
-﻿using NUnit.Framework;
+﻿using Newtonsoft.Json;
+using NUnit.Framework;
 using RiotNet.Models;
+using RiotNet.Tests.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -131,17 +133,25 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetTournamentCodeEventsAsyncTest()
+        public async Task GetTournamentCodeLobbyEventsAsyncTest()
         {
-            // TODO: create an actual game to test this.
             IRiotClient client = new RiotClient(Region.NA, TournamentApiKey);
-            var events = await client.GetTournamentCodeEventsAsync("NA0418c-d541d70b-2865-4489-89bd-1d26b72b2edf");
+            var events = await client.GetTournamentCodeLobbyEventsAsync("NA0418c-d541d70b-2865-4489-89bd-1d26b72b2edf");
 
+            Assert.That(events, Is.Not.Null);
+        }
+
+        [Test]
+        public void DeserializeLobbyEventsTest()
+        {
+            var events = JsonConvert.DeserializeObject<List<LobbyEvent>>(Resources.SampleLobbyEvents, RiotClient.JsonSettings);
+            
             Assert.That(events, Is.Not.Null.And.Not.Empty);
-            var e = events.First();
-            Assert.That(e.EventType, Is.Not.Null.And.Not.Empty);
-            Assert.That(e.SummonerId, Is.GreaterThan(0));
-            Assert.That(e.Timestamp, Is.Not.EqualTo(default(DateTime)));
+            var @event = events.First();
+            Assert.That(@event.EventType, Is.Not.Null.And.Not.Empty);
+            Assert.That(@event.SummonerId, Is.Not.Null);
+            Assert.That(@event.SummonerId.Value, Is.GreaterThan(0));
+            Assert.That(@event.Timestamp, Is.Not.EqualTo(default(DateTime)));
         }
     }
 }
