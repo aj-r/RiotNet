@@ -11,7 +11,7 @@ namespace RiotNet.Models
     public class MatchTeam
     {
         /// <summary>
-        /// Gets or sets banned champion data if game was draft mode, otherwise null.
+        /// Gets or sets banned champion data if the game was draft mode, otherwise null.
         /// </summary>
         public virtual List<BannedChampion> Bans { get; set; }
 
@@ -21,7 +21,7 @@ namespace RiotNet.Models
         public int BaronKills { get; set; }
 
         /// <summary>
-        /// Gets or sets if game was a dominion game, specifies the points the team had at game end, otherwise null.
+        /// Gets or sets the points the team had at game end if the game was a dominion game, otherwise 0.
         /// </summary>
         public long DominionVictoryScore { get; set; }
 

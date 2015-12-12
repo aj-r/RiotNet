@@ -119,7 +119,7 @@ namespace RiotNet.Tests
             await client.UpdateTournamentCodeAsync(new TournamentCode
             {
                 Code = "NA0418c-d541d70b-2865-4489-89bd-1d26b72b2edf",
-                Participants = new ListOfLong { 35870943L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L, 21204597L, 20028460L },
+                Participants = new ListOfLong { 22811529L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L, 21204597L, 20028460L },
                 Map = MapType.CRYSTAL_SCAR,
                 PickType = PickType.TOURNAMENT_DRAFT,
                 Spectators = SpectatorType.NONE
@@ -136,7 +136,7 @@ namespace RiotNet.Tests
         public async Task GetTournamentCodeLobbyEventsAsyncTest()
         {
             IRiotClient client = new RiotClient(Region.NA, TournamentApiKey);
-            var events = await client.GetTournamentCodeLobbyEventsAsync("NA0418c-d541d70b-2865-4489-89bd-1d26b72b2edf");
+            var events = await client.GetTournamentCodeLobbyEventsAsync("NA0418d-8899c00a-45a9-4898-9b8a-75370a67b9a0");
 
             Assert.That(events, Is.Not.Null);
         }

@@ -12,9 +12,8 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetMatchIdsByTournamentCodeAsyncTest()
         {
-            // TODO: create a match to test this
-            IRiotClient client = new RiotClient();
-            var matchIds = await client.GetMatchIdsByTournamentCodeAsync("NA0418c-d541d70b-2865-4489-89bd-1d26b72b2edf");
+            IRiotClient client = new RiotClient(Region.NA, TournamentApiKey);
+            var matchIds = await client.GetMatchIdsByTournamentCodeAsync("NA0418d-8899c00a-45a9-4898-9b8a-75370a67b9a0");
 
             Assert.That(matchIds, Is.Not.Null.And.Not.Empty);
         }
@@ -22,10 +21,9 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetMatchForTournamentAsyncTest()
         {
-            // TODO: create a match to test this
-            IRiotClient client = new RiotClient();
-            const long matchId = 2032332497L;
-            var match = await client.GetMatchForTournamentAsync(matchId, "NA0418c-d541d70b-2865-4489-89bd-1d26b72b2edf");
+            IRiotClient client = new RiotClient(Region.NA, TournamentApiKey);
+            const long matchId = 2035034934L;
+            var match = await client.GetMatchForTournamentAsync(matchId, "NA0418d-8899c00a-45a9-4898-9b8a-75370a67b9a0");
 
             Assert.That(match, Is.Not.Null);
             Assert.That(match.MatchId, Is.EqualTo(matchId));

@@ -98,7 +98,7 @@ namespace RiotNet.Tests
         [Test]
         public void ShouldSerializeInt()
         {
-            var value = JsonConvert.SerializeObject(TestEnum.FourthValue, jsonSettings);
+            var value = JsonConvert.SerializeObject(TestEnum.FourthValue, new JsonSerializerSettings { Converters = { new TolerantIntEnumConverter() } });
 
             Assert.That(value, Is.EqualTo("3"));
         }
@@ -106,7 +106,7 @@ namespace RiotNet.Tests
         [Test]
         public void ShouldSerializeInt_ForNullableType()
         {
-            var value = JsonConvert.SerializeObject((TestEnum?)TestEnum.FourthValue, jsonSettings);
+            var value = JsonConvert.SerializeObject((TestEnum?)TestEnum.FourthValue, new JsonSerializerSettings { Converters = { new TolerantIntEnumConverter() } });
 
             Assert.That(value, Is.EqualTo("3"));
         }
@@ -114,7 +114,7 @@ namespace RiotNet.Tests
         [Test]
         public void ShouldSerializeString()
         {
-            var value = JsonConvert.SerializeObject(TestEnum.FourthValue, new JsonSerializerSettings { Converters = { new TolerantStringEnumConverter() } });
+            var value = JsonConvert.SerializeObject(TestEnum.FourthValue, jsonSettings);
 
             Assert.That(value, Is.EqualTo("\"FourthValue\""));
         }
@@ -122,7 +122,7 @@ namespace RiotNet.Tests
         [Test]
         public void ShouldSerializeString_ForNullableType()
         {
-            var value = JsonConvert.SerializeObject((TestEnum?)TestEnum.FourthValue, new JsonSerializerSettings { Converters = { new TolerantStringEnumConverter() } });
+            var value = JsonConvert.SerializeObject((TestEnum?)TestEnum.FourthValue, jsonSettings);
 
             Assert.That(value, Is.EqualTo("\"FourthValue\""));
         }
