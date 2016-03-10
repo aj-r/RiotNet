@@ -127,6 +127,19 @@
    "freeToPlay": true
 }</value>
   </data>
+  <data name="SampleChampionMastery" xml:space="preserve">
+    <value>{
+   "championPoints": 61008,
+   "playerId": 34172230,
+   "championPointsUntilNextLevel": 1,
+   "championLevel": 5,
+   "championId": 412,
+   "championPointsSinceLastLevel": 39408,
+   "lastPlayTime": 1457400619000,
+   "chestGranted": true,
+   "highestGrade": "S+"
+}</value>
+  </data>
   <data name="SampleGame" xml:space="preserve">
     <value>{
         "fellowPlayers": [

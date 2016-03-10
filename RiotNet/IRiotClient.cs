@@ -1,7 +1,7 @@
-﻿using System;
+﻿using RiotNet.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using RiotNet.Models;
 
 namespace RiotNet
 {
@@ -93,6 +93,70 @@ namespace RiotNet
         /// <param name="id">The champion id.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         Task<Champion> GetChampionByIdAsync(long id);
+
+        #endregion
+
+        #region Champion Mastery API
+
+        /// <summary>
+        /// Gets information about a summoner's mastery of a champion. This method uses the Champion Mastery API.
+        /// </summary>
+        /// <param name="playerId">The summoner ID.</param>
+        /// <param name="championId">The champion ID.</param>
+        /// <returns>The champion mastery information.</returns>
+        ChampionMastery GetChampionMastery(long playerId, long championId);
+
+        /// <summary>
+        /// Gets information about a summoner's mastery of a champion. This method uses the Champion Mastery API.
+        /// </summary>
+        /// <param name="playerId">The summoner ID.</param>
+        /// <param name="championId">The champion ID.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task<ChampionMastery> GetChampionMasteryAsync(long playerId, long championId);
+
+        /// <summary>
+        /// Gets information about a summoner's mastery of all champions they have played. This method uses the Champion Mastery API.
+        /// </summary>
+        /// <param name="playerId">The summoner ID.</param>
+        /// <returns>The champion mastery information.</returns>
+        List<ChampionMastery> GetChampionMasteries(long playerId);
+
+        /// <summary>
+        /// Gets information about a summoner's mastery of all champions they have played. This method uses the Champion Mastery API.
+        /// </summary>
+        /// <param name="playerId">The summoner ID.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task<List<ChampionMastery>> GetChampionMasteriesAsync(long playerId);
+
+        /// <summary>
+        /// Gets a summoner's champion mastery score (the sum of the champion levels of all champions for that summoner). This method uses the Champion Mastery API.
+        /// </summary>
+        /// <param name="playerId">The summoner ID.</param>
+        /// <returns>The champion mastery information.</returns>
+        int GetChampionMasteryScore(long playerId);
+
+        /// <summary>
+        /// Gets a summoner's champion mastery score (the sum of the champion levels of all champions for that summoner). This method uses the Champion Mastery API.
+        /// </summary>
+        /// <param name="playerId">The summoner ID.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task<int> GetChampionMasteryScoreAsync(long playerId);
+
+        /// <summary>
+        /// Gets information about a summoner's mastery of their most mastered champions. This method uses the Champion Mastery API.
+        /// </summary>
+        /// <param name="playerId">The summoner ID.</param>
+        /// <param name="count">The number of entries to retrieve. Defaults to 3.</param>
+        /// <returns>The champion mastery information.</returns>
+        List<ChampionMastery> GetChampionMasteryTopChampions(long playerId, int? count = null);
+
+        /// <summary>
+        /// Gets information about a summoner's mastery of their most mastered champions. This method uses the Champion Mastery API.
+        /// </summary>
+        /// <param name="playerId">The summoner ID.</param>
+        /// <param name="count">The number of entries to retrieve. Defaults to 3.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task<List<ChampionMastery>> GetChampionMasteryTopChampionsAsync(long playerId, int? count = null);
 
         #endregion
 

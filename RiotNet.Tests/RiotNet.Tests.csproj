@@ -63,6 +63,7 @@
     <Compile Include="..\RiotNet\ReflectionUtils.cs">
       <Link>ReflectionUtils.cs</Link>
     </Compile>
+    <Compile Include="Apis\ChampionMasteryTests.cs" />
     <Compile Include="Apis\ChampionTests.cs" />
     <Compile Include="Apis\FeaturedGameTests.cs" />
     <Compile Include="Apis\CurrentGameTests.cs" />

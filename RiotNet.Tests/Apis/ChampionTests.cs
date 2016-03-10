@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using NUnit.Framework;
 using RiotNet.Models;
 using RiotNet.Tests.Properties;
+using System.Threading.Tasks;
 
 namespace RiotNet.Tests
 {

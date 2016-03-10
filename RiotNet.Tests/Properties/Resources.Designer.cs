@@ -78,6 +78,25 @@ namespace RiotNet.Tests.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
+        ///   &quot;championPoints&quot;: 61008,
+        ///   &quot;playerId&quot;: 34172230,
+        ///   &quot;championPointsUntilNextLevel&quot;: 1,
+        ///   &quot;championLevel&quot;: 5,
+        ///   &quot;championId&quot;: 412,
+        ///   &quot;championPointsSinceLastLevel&quot;: 39408,
+        ///   &quot;lastPlayTime&quot;: 1457400619000,
+        ///   &quot;chestGranted&quot;: true,
+        ///   &quot;highestGrade&quot;: &quot;S+&quot;
+        ///}.
+        /// </summary>
+        internal static string SampleChampionMastery {
+            get {
+                return ResourceManager.GetString("SampleChampionMastery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
         ///        &quot;fellowPlayers&quot;: [
         ///          {
         ///              &quot;championId&quot;: 412,

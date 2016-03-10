@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using NUnit.Framework;
+using RiotNet.Models;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using NUnit.Framework;
-using RiotNet.Models;
 
 namespace RiotNet.Tests
 {
