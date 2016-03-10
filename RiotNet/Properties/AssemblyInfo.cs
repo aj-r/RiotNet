@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("AJ Richardson")]
 [assembly: AssemblyProduct("RiotNet")]
-[assembly: AssemblyCopyright("Copyright 2015 AJ Richardson")]
+[assembly: AssemblyCopyright("Copyright 2016 AJ Richardson")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -22,5 +22,5 @@ using System.Runtime.InteropServices;
 [assembly: Guid("c2183835-da98-45e0-818f-eccfc391f73d")]
 
 [assembly: AssemblyVersion("2.1.0")]
-[assembly: AssemblyFileVersion("2.2.0")]
-[assembly: AssemblyInformationalVersion("2.2.0")]
+[assembly: AssemblyFileVersion("2.3.0")]
+[assembly: AssemblyInformationalVersion("2.3.0")]
