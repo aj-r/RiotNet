@@ -49,9 +49,9 @@ namespace RiotNet.Converters
                         return PlayerPosition.BOT;
                     if (stringValue == "MID")
                         return PlayerPosition.MIDDLE;
-                    throw new JsonException("'" + stringValue + "' is not a valid PlayerPosition.");
+                    throw new JsonException("'" + stringValue + "' is not a valid PlayerPosition. Path: " + reader.Path);
                 default:
-                    throw new JsonException("Unexpected token reading PlayerPosition. Expected Integer or String, but got " + reader.TokenType);
+                    throw new JsonException("Unexpected token reading PlayerPosition. Expected Integer or String, but got " + reader.TokenType + ". Path: " + reader.Path);
             }
         }
 

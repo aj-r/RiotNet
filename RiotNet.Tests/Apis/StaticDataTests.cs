@@ -39,7 +39,25 @@ namespace RiotNet.Tests
         public async Task GetStaticChampionsAsyncTest_IndexedById()
         {
             IRiotClient client = new RiotClient();
-            var championList = await client.GetStaticChampionsAsync(dataById: true, champListData: new[] { "AllyTips", "Blurb" });
+            var championList = await client.GetStaticChampionsAsync(dataById: true);
+
+            Assert.That(championList.Data.Count, Is.GreaterThan(0));
+            Assert.That(championList.Format, Is.Not.Null.And.Not.Empty);
+            Assert.That(championList.Keys.Count, Is.GreaterThan(0));
+            Assert.That(championList.Type, Is.Not.Null.And.Not.Empty);
+            Assert.That(championList.Version, Is.Not.Null.And.Not.Empty);
+
+            // The key should be an integer
+            var key = championList.Data.Keys.First();
+            int id;
+            var isInteger = int.TryParse(key, out id);
+            Assert.That(isInteger, Is.True, "Champs are listed by key, but should be listed by ID.");
+        }
+        [Test]
+        public async Task GetStaticChampionsAsyncTest_WithSelectedFields()
+        {
+            IRiotClient client = new RiotClient();
+            var championList = await client.GetStaticChampionsAsync(champListData: new[] { "AllyTips", "Blurb" });
 
             Assert.That(championList.Data.Count, Is.GreaterThan(0));
 
@@ -49,24 +67,6 @@ namespace RiotNet.Tests
             Assert.That(champion.EnemyTips, Is.Null.Or.Empty);
         }
 
-        [Test]
-        public async Task GetStaticChampionsAsyncTest_WithSelectedFields()
-        {
-            IRiotClient client = new RiotClient();
-            var championList = await client.GetStaticChampionsAsync(champListData: new[] { "all" });
-
-            Assert.That(championList.Data.Count, Is.GreaterThan(0));
-            Assert.That(championList.Format, Is.Not.Null.And.Not.Empty);
-            Assert.That(championList.Keys.Count, Is.GreaterThan(0));
-            Assert.That(championList.Type, Is.Not.Null.And.Not.Empty);
-            Assert.That(championList.Version, Is.Not.Null.And.Not.Empty);
-
-            // The key should NOT be an integer
-            var key = championList.Data.Keys.First();
-            int id;
-            var isInteger = int.TryParse(key, out id);
-            Assert.That(isInteger, Is.False, "Champs are listed by ID, but should be listed by key.");
-        }
 
         [Test]
         public async Task GetStaticChampionByIdAsyncTest()
@@ -128,7 +128,7 @@ namespace RiotNet.Tests
 
             Assert.That(champion.Spells, Is.Not.Null.And.Not.Empty);
             var spell = champion.Spells.First();
-            Assert.That(spell.AltImages, Is.Not.Null.And.Not.Empty);
+            //Assert.That(spell.AltImages, Is.Not.Null.And.Not.Empty);
             Assert.That(spell.Cooldown, Is.Not.Null.And.Not.Empty);
             foreach (var cooldown in spell.Cooldown)
                 Assert.That(cooldown, Is.GreaterThan(0));
@@ -234,7 +234,6 @@ namespace RiotNet.Tests
             Assert.That(itemList.Data.Values.Any(i => i.Stats.FlatMagicDamageMod > 0));
             Assert.That(itemList.Data.Values.Any(i => i.Stats.FlatMovementSpeedMod > 0));
             Assert.That(itemList.Data.Values.Any(i => i.Stats.FlatMPPoolMod > 0));
-            Assert.That(itemList.Data.Values.Any(i => i.Stats.FlatMPRegenMod > 0));
             Assert.That(itemList.Data.Values.Any(i => i.Stats.FlatPhysicalDamageMod > 0));
             Assert.That(itemList.Data.Values.Any(i => i.Stats.FlatSpellBlockMod > 0));
             Assert.That(itemList.Data.Values.Any(i => i.Stats.PercentAttackSpeedMod > 0));

@@ -43,16 +43,19 @@ namespace RiotNet.Converters
                 case JsonToken.StartArray:
                     while (reader.Read() && reader.TokenType != JsonToken.EndArray)
                     {
-                        if (reader.TokenType != JsonToken.Integer)
-                            throw new JsonException("Unexcpected token type when reading range value: " + reader.TokenType + ". Expected Integer.");
-                        ranges.Add((int)(long)reader.Value);
+                        if (reader.TokenType == JsonToken.Integer)
+                            ranges.Add((int)(long)reader.Value);
+                        else if (reader.TokenType == JsonToken.Float)
+                            ranges.Add((int)Math.Round((double)reader.Value));
+                        else
+                            throw new JsonException("Unexcpected token type when reading range value: " + reader.TokenType + ". Expected Integer. Path: " + reader.Path);
                     }
                     break;
                 case JsonToken.String:
                     ranges.Add(0);
                     break;
                 default:
-                    throw new JsonException("Can only deseialize 'range' from an array of integers, or the string 'self'.");
+                    throw new JsonException("Can only deseialize 'range' from an array of integers, or the string 'self'. Path: " + reader.Path);
             }
             return ranges;
         }

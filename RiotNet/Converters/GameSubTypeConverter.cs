@@ -94,9 +94,9 @@ namespace RiotNet.Converters
                         case "Bilgewater":
                             return GameSubType.BILGEWATER;
                     }
-                    throw new JsonException("'" + stringValue + "' is not a valid GameSubType.");
+                    throw new JsonException("'" + stringValue + "' is not a valid GameSubType. Path: " + reader.Path);
                 default:
-                    throw new JsonException("Unexpected token reading GameSubType. Expected String, but got " + reader.TokenType);
+                    throw new JsonException("Unexpected token reading GameSubType. Expected String, but got " + reader.TokenType + ". Path: " + reader.Path);
             }
         }
 

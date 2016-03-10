@@ -16,7 +16,7 @@ namespace RiotNet.Tests
         public async Task GetLeaguesBySummonerIdsAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var summonerIds = new[] { 35870943L, 34317083L };
+            var summonerIds = new[] { 35870943L, 34172230L };
             var leagues = await client.GetLeaguesBySummonerIdsAsync(summonerIds);
 
             Assert.That(leagues, Is.Not.Null);
@@ -31,7 +31,7 @@ namespace RiotNet.Tests
         public async Task GetLeagueEntriesBySummonerIdsAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var summonerIds = new[] { 35870943L, 34317083L };
+            var summonerIds = new[] { 35870943L, 34172230L };
             var leagues = await client.GetLeagueEntriesBySummonerIdsAsync(summonerIds);
 
             Assert.That(leagues, Is.Not.Null);
@@ -43,6 +43,7 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        [Explicit("Teams aren't really a thing anymore (except 3v3), so these teams might not even have a league entry.")]
         public async Task GetLeaguesByTeamIdsAsyncTest()
         {
             IRiotClient client = new RiotClient();
@@ -58,6 +59,7 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        [Explicit("Teams aren't really a thing anymore (except 3v3), so these teams might not even have a league entry.")]
         public async Task GetLeagueEntriesByTeamIdsAsyncTest()
         {
             IRiotClient client = new RiotClient();
@@ -89,12 +91,12 @@ namespace RiotNet.Tests
         public async Task GetMasterLeagueAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var league = await client.GetMasterLeagueAsync(RankedQueue.RANKED_TEAM_3x3);
+            var league = await client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
 
             Assert.That(league, Is.Not.Null);
             Assert.That(league.Entries.Count, Is.GreaterThan(1));
             Assert.That(league.Name, Is.Not.Null.And.Not.Empty);
-            Assert.That(league.Queue, Is.EqualTo(RankedQueue.RANKED_TEAM_3x3));
+            Assert.That(league.Queue, Is.EqualTo(RankedQueue.RANKED_SOLO_5x5));
             Assert.That(league.Tier, Is.EqualTo(Tier.MASTER));
         }
 

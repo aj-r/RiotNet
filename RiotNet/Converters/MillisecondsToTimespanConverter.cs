@@ -37,7 +37,7 @@ namespace RiotNet.Converters
                     var dobuleSeconds = (double)reader.Value;
                     return TimeSpan.FromMilliseconds(dobuleSeconds);
                 default:
-                    throw new JsonException("Can only deseialize TimeSpan from integer or float.");
+                    throw new JsonException("Can only deseialize TimeSpan from integer or float. Path: " + reader.Path);
             }
         }
 
