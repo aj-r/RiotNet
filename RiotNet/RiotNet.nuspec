@@ -10,8 +10,8 @@
     <projectUrl>https://github.com/aj-r/RiotNet</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Added champion mastery API.</releaseNotes>
-    <copyright>Copyright 2015 AJ Richardson</copyright>
+    <releaseNotes>Added enum values for dynamic queue and blue trinket wards.</releaseNotes>
+    <copyright>Copyright 2016 AJ Richardson</copyright>
     <tags>riot games lol api client wrapper</tags>
   </metadata>
 </package>
