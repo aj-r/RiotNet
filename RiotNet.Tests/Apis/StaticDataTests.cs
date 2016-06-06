@@ -42,8 +42,6 @@ namespace RiotNet.Tests
             var championList = await client.GetStaticChampionsAsync(dataById: true);
 
             Assert.That(championList.Data.Count, Is.GreaterThan(0));
-            Assert.That(championList.Format, Is.Not.Null.And.Not.Empty);
-            Assert.That(championList.Keys.Count, Is.GreaterThan(0));
             Assert.That(championList.Type, Is.Not.Null.And.Not.Empty);
             Assert.That(championList.Version, Is.Not.Null.And.Not.Empty);
 

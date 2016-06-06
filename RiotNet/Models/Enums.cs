@@ -636,6 +636,18 @@ namespace RiotNet.Models
         /// Black Market Brawlers
         /// </summary>
         BILGEWATER_5x5 = 313,
+        /// <summary>
+        /// Definitely Not Dominion
+        /// </summary>
+        DEFINITELY_NOT_DOMINION_5x5 = 317,
+        /// <summary>
+        /// Normal 5v5 Draft Pick
+        /// </summary>
+        TEAM_BUILDER_DRAFT_UNRANKED_5x5 = 400,
+        /// <summary>
+        /// Ranked Dynamic Queue
+        /// </summary>
+        TEAM_BUILDER_DRAFT_RANKED_5x5 = 410,
     }
 
     /// <summary>
@@ -923,5 +935,9 @@ namespace RiotNet.Models
         /// Yellow trinket upgrade
         /// </summary>
         YELLOW_TRINKET_UPGRADE,
+        /// <summary>
+        /// Blue trinket
+        /// </summary>
+        BLUE_TRINKET,
     }
 }

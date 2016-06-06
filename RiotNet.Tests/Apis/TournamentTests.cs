@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace RiotNet.Tests
 {
     [TestFixture]
+    [Explicit("These tests use the Tournament API. You need a special tournament key to run these tests.")]
     public class TournamentTests : TestBase
     {
         [Test]
