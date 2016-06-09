@@ -48,6 +48,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the highest grade (e.g. B+, S-, etc.) that the player has earned for this champion in the current season.
         /// </summary>
+        [Obsolete("This property is no longer returned by the Riot Games API. Do not use it.")]
         public string HighestGrade { get; set; }
 
         /// <summary>
