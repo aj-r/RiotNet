@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using RestSharp;
 using RiotNet.Converters;
 using RiotNet.Models;
 using Newtonsoft.Json.Linq;
+using System.Net.Http;
+using System.IO;
 
 namespace RiotNet
 {
@@ -19,10 +20,11 @@ namespace RiotNet
         private readonly Region region;
         private readonly string platformId;
         private readonly RiotClientSettings settings;
-        private readonly IRestClient client;
-        private readonly IRestClient statusClient;
-        private readonly IRestClient globalClient;
-        private readonly RestSharpJsonNetSerializer serializer;
+        //private readonly RestSharpJsonNetSerializer serializer;
+        private readonly HttpClient client = new HttpClient();
+        private readonly string mainBaseUrl;
+        private const string globalBaseUrl = "https://global.api.pvp.net";
+        private const string statusBaseUrl = "http://status.leagueoflegends.com";
 
         static RiotClient()
         {
@@ -60,56 +62,13 @@ namespace RiotNet
         /// <param name="region">The region indicating which server to connect to.</param>
         /// <param name="settings">The settings to use.</param>
         public RiotClient(Region region, RiotClientSettings settings)
-            : this(region, settings, new RestClient(), new RestClient(), new RestClient())
-        { }
-
-        /// <summary>
-        /// Creates a new <see cref="RiotClient"/> instance.
-        /// </summary>
-        /// <param name="region">The region indicating which server to connect to.</param>
-        /// <param name="settings">The settings to use.</param>
-        /// <param name="client">The IRestClient implementation to use.</param>
-        /// <param name="statusClient">The IRestClient implementation to use for lol-status API calls.</param>
-        public RiotClient(Region region, RiotClientSettings settings, IRestClient client, IRestClient statusClient)
-            : this(region, settings, client, statusClient, new RestClient())
-        { }
-
-        /// <summary>
-        /// Creates a new <see cref="RiotClient"/> instance.
-        /// </summary>
-        /// <param name="region">The region indicating which server to connect to.</param>
-        /// <param name="settings">The settings to use.</param>
-        /// <param name="client">The IRestClient implementation to use.</param>
-        /// <param name="statusClient">The IRestClient implementation to use for lol-status API calls.</param>
-        /// <param name="globalClient">The IRestClient implementation to use for lol-static API calls.</param>
-        public RiotClient(Region region, RiotClientSettings settings, IRestClient client, IRestClient statusClient, IRestClient globalClient)
         {
-            if (client == null)
-                throw new ArgumentNullException("client");
-            if (statusClient == null)
-                throw new ArgumentNullException("statusClient");
-            if (settings == null)
-                throw new ArgumentNullException("settings");
             this.region = region;
             this.platformId = GetPlatformId(region);
             this.settings = settings;
-            serializer = new RestSharpJsonNetSerializer(settings);
+            //serializer = new RestSharpJsonNetSerializer(settings);
 
-            if (client.BaseUrl == null)
-                client.BaseUrl = new Uri("https://" + GetServerName(region));
-            if (statusClient.BaseUrl == null)
-                statusClient.BaseUrl = new Uri("http://status.leagueoflegends.com");
-            if (globalClient.BaseUrl == null)
-                globalClient.BaseUrl = new Uri("https://global.api.pvp.net");
-            client.AddHandler("application/json", serializer);
-            client.AddHandler("text/json", serializer);
-            statusClient.AddHandler("application/json", serializer);
-            statusClient.AddHandler("text/json", serializer);
-            globalClient.AddHandler("application/json", serializer);
-            globalClient.AddHandler("text/json", serializer);
-            this.client = client;
-            this.statusClient = statusClient;
-            this.globalClient = globalClient;
+            mainBaseUrl = "https://" + GetServerName(region);
         }
 
         private static RiotClientSettings GetSettingsForApiKey(string apiKey)
@@ -288,9 +247,9 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a reference to the underlying REST client.
+        /// Gets a reference to the underlying HTTP client.
         /// </summary>
-        protected IRestClient Client
+        protected HttpClient Client
         {
             get { return client; }
         }
@@ -300,38 +259,27 @@ namespace RiotNet
         /// </summary>
         /// <typeparam name="T">The type of data to expect in the response.</typeparam>
         /// <param name="request">The request to execute.</param>
-        /// <returns>The deserialized response.</returns>
-        protected T Execute<T>(IRestRequest request) where T : new()
-        {
-            return Execute<T>(request, client);
-        }
-
-        /// <summary>
-        /// Executes a REST request synchronously.
-        /// </summary>
-        /// <typeparam name="T">The type of data to expect in the response.</typeparam>
-        /// <param name="request">The request to execute.</param>
         /// <param name="client">The client to use when executing the request.</param>
         /// <returns>The deserialized response.</returns>
-        protected virtual T Execute<T>(IRestRequest request, IRestClient client) where T : new()
+        protected virtual T Execute<T>(HttpRequestMessage request)
         {
             var attemptCount = 0;
             do
             {
-                var response = client.Execute<T>(request);
+                var response = SendAsync(request).Result;
                 ++attemptCount;
-                var action = DetermineResponseAction(response, attemptCount);
+                var action = DetermineResponseAction(response, attemptCount).Result;
                 if (action == ResponseAction.Return)
-                    return response.Data;
+                    return response.Response.Content.ReadAsAsync<T>().Result;
                 if (action == ResponseAction.ReturnDefault)
                     break;
                 if (action == ResponseAction.Retry)
                 {
-                    var retryAfterHeader = response.Headers.FirstOrDefault(h => string.Equals(h.Name, "Retry-After", StringComparison.InvariantCultureIgnoreCase));
-                    if (retryAfterHeader != null)
+                    var retryAfter = response.Response.Headers.GetValues("Retry-After").FirstOrDefault();
+                    if (retryAfter != null)
                     {
                         int delaySeconds;
-                        if (int.TryParse(retryAfterHeader.Value as string, out delaySeconds))
+                        if (int.TryParse(retryAfter, out delaySeconds))
                             Thread.Sleep((delaySeconds + 1) * 1000);
                     }
                 }
@@ -345,38 +293,27 @@ namespace RiotNet
         /// </summary>
         /// <typeparam name="T">The type of data to expect in the response.</typeparam>
         /// <param name="request">The request to execute.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        protected Task<T> ExecuteAsync<T>(IRestRequest request) where T : new()
-        {
-            return ExecuteAsync<T>(request, client);
-        }
-
-        /// <summary>
-        /// Executes a REST request asynchronously.
-        /// </summary>
-        /// <typeparam name="T">The type of data to expect in the response.</typeparam>
-        /// <param name="request">The request to execute.</param>
         /// <param name="client">The client to use when executing the request.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        protected virtual async Task<T> ExecuteAsync<T>(IRestRequest request, IRestClient client) where T : new()
+        protected virtual async Task<T> ExecuteAsync<T>(HttpRequestMessage request)
         {
             var attemptCount = 0;
             do
             {
-                var response = await client.ExecuteTaskAsync<T>(request).ConfigureAwait(false);
+                var response = await SendAsync(request).ConfigureAwait(false);
                 ++attemptCount;
-                var action = DetermineResponseAction(response, attemptCount);
+                var action = await DetermineResponseAction(response, attemptCount).ConfigureAwait(false);
                 if (action == ResponseAction.Return)
-                    return response.Data;
+                    return await response.Response.Content.ReadAsAsync<T>().ConfigureAwait(false);
                 if (action == ResponseAction.ReturnDefault)
                     break;
                 if (action == ResponseAction.Retry)
                 {
-                    var retryAfterHeader = response.Headers.FirstOrDefault(h => string.Equals(h.Name, "Retry-After", StringComparison.InvariantCultureIgnoreCase));
-                    if (retryAfterHeader != null)
+                    var retryAfter = response.Response.Headers.GetValues("Retry-After").FirstOrDefault();
+                    if (retryAfter != null)
                     {
                         int delaySeconds;
-                        if (int.TryParse(retryAfterHeader.Value as string, out delaySeconds))
+                        if (int.TryParse(retryAfter, out delaySeconds))
                             await Task.Delay((delaySeconds + 1) * 1000);
                     }
                 }
@@ -385,15 +322,32 @@ namespace RiotNet
             return default(T);
         }
 
+        protected async Task<RiotResponse> SendAsync(HttpRequestMessage request)
+        {
+            try
+            {
+                var response = await client.SendAsync(request).ConfigureAwait(false);
+                return new RiotResponse(response);
+            }
+            catch (TaskCanceledException ex)
+            {
+                return new RiotResponse(null, ex, true);
+            }
+            catch (Exception ex)
+            {
+                return new RiotResponse(null, ex);
+            }
+        }
+
         /// <summary>
         /// Determines which action to take for the given response.
         /// </summary>
-        /// <param name="response">A <see cref="IRestResponse"/>.</param>
+        /// <param name="response">An <see cref="HttpResponseMessage"/>.</param>
         /// <param name="attemptCount">The number of times the request has been attempted so far.</param>
         /// <returns>A <see cref="ResponseAction"/>.</returns>
-        protected virtual ResponseAction DetermineResponseAction(IRestResponse response, int attemptCount)
+        protected virtual async Task<ResponseAction> DetermineResponseAction(RiotResponse response, int attemptCount)
         {
-            if (response.ResponseStatus == ResponseStatus.TimedOut)
+            if (response.TimedOut)
             {
                 var args = new RetryEventArgs(response, attemptCount);
                 args.Retry = Settings.RetryOnTimeout;
@@ -401,11 +355,11 @@ namespace RiotNet
                 if (args.Retry)
                     return ResponseAction.Retry;
                 if (Settings.ThrowOnError)
-                    throw new RestTimeoutException(response);
+                    throw new RestTimeoutException(response, response.Exception);
                 
                 return ResponseAction.ReturnDefault;
             }
-            if (response.ResponseStatus == ResponseStatus.Error && response.StatusCode == 0)
+            if (response.Response == null)
             {
                 var args = new RetryEventArgs(response, attemptCount);
                 args.Retry = Settings.RetryOnConnectionFailure;
@@ -413,11 +367,11 @@ namespace RiotNet
                 if (args.Retry)
                     return ResponseAction.Retry;
                 if (Settings.ThrowOnError)
-                    throw new ConnectionFailedException(response, response.ErrorException);
+                    throw new ConnectionFailedException(response, response.Exception);
                 
                 return ResponseAction.ReturnDefault;
             }
-            var statusCode = (int)response.StatusCode;
+            var statusCode = (int)response.Response.StatusCode;
             if (statusCode == 429)
             {
                 var args = new RetryEventArgs(response, attemptCount);
@@ -447,7 +401,7 @@ namespace RiotNet
                     return ResponseAction.Retry;
                 if (Settings.ThrowOnError)
                 {
-                    var message = GetServerErrorMessage(response);
+                    var message = await GetServerErrorMessage(response).ConfigureAwait(false);
                     if (message != null)
                         throw new RestException(response, message);
                     else
@@ -456,16 +410,16 @@ namespace RiotNet
 
                 return ResponseAction.ReturnDefault;
             }
-            if (statusCode >= 400 || response.ResponseStatus != ResponseStatus.Completed)
+            if (statusCode >= 400)
             {
                 OnResponseError(new ResponseEventArgs(response));
                 if (Settings.ThrowOnError)
                 {
-                    var message = GetServerErrorMessage(response);
+                    var message = await GetServerErrorMessage(response).ConfigureAwait(false);
                     if (message != null)
-                        throw new RestException(response, message);
+                        throw new RestException(response, message, response.Exception);
                     else
-                        throw new RestException(response, response.ErrorException);
+                        throw new RestException(response, response.Exception);
                 }
                 
                 return ResponseAction.ReturnDefault;
@@ -473,15 +427,23 @@ namespace RiotNet
             return ResponseAction.Return;
         }
 
-        private static string GetServerErrorMessage(IRestResponse response)
+
+
+        private static async Task<string> GetServerErrorMessage(RiotResponse response)
         {
             // Try to get the error message from the server if it exists.
-            if (string.IsNullOrEmpty(response.Content))
+            if (response.Response.Content == null)
                 return null;
 
             try
             {
-                var token = JToken.Parse(response.Content);
+                JToken token;
+                using (var stream = await response.Response.Content.ReadAsStreamAsync().ConfigureAwait(false))
+                using (var reader = new StreamReader(stream))
+                using (var jsonReader = new JsonTextReader(reader))
+                {
+                    token = JToken.ReadFrom(jsonReader);
+                }
                 var message = token.Value<string>("message");
                 return message;
             }
@@ -496,9 +458,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="resource">The resource path, relative to the base URL.</param>
         /// <returns>A rest request.</returns>
-        protected IRestRequest Get(string resource)
+        protected HttpRequestMessage Get(string resource)
         {
-            return CreateRequest(resource, Method.GET);
+            return CreateRequest(resource, HttpMethod.Get);
         }
 
         /// <summary>
@@ -506,9 +468,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="resource">The resource path, relative to the base URL.</param>
         /// <returns>A rest request.</returns>
-        protected IRestRequest Post(string resource)
+        protected HttpRequestMessage Post(string resource)
         {
-            return CreateRequest(resource, Method.POST);
+            return CreateRequest(resource, HttpMethod.Post);
         }
 
         /// <summary>
@@ -516,9 +478,9 @@ namespace RiotNet
         /// </summary>
         /// <param name="resource">The resource path, relative to the base URL.</param>
         /// <returns>A rest request.</returns>
-        protected IRestRequest Put(string resource)
+        protected HttpRequestMessage Put(string resource)
         {
-            return CreateRequest(resource, Method.PUT);
+            return CreateRequest(resource, HttpMethod.Put);
         }
 
         /// <summary>
@@ -527,12 +489,12 @@ namespace RiotNet
         /// <param name="resource">The resource path, relative to the base URL.</param>
         /// <param name="method">The method to use.</param>
         /// <returns>A rest request.</returns>
-        private IRestRequest CreateRequest(string resource, Method method)
+        private HttpRequestMessage CreateRequest(string resource, HttpMethod method)
         {
-            var request = new RestRequest(resource, method) { RequestFormat = DataFormat.Json, JsonSerializer = serializer };
-            request.AddUrlSegment("region", Region.ToString().ToLowerInvariant());
-            request.AddUrlSegment("platformId", platformId);
-            request.AddQueryParameter("api_key", Settings.ApiKey);
+            if (!resource.Contains("?"))
+                resource += resource.Contains("?") ? "&" : "?";
+            resource += "api_key=" + Settings.ApiKey;
+            var request = new HttpRequestMessage(method, resource);
             return request;
         }
 

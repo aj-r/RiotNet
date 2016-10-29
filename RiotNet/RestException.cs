@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
-using RestSharp;
 
 namespace RiotNet
 {
@@ -10,7 +9,7 @@ namespace RiotNet
     /// </summary>
     public class RestException : Exception
     {
-        private IRestResponse response;
+        private readonly RiotResponse response;
 
         /// <summary>
         /// Creates a new <see cref="RestException"/> instance.
@@ -23,7 +22,7 @@ namespace RiotNet
         /// Creates a new <see cref="RestException"/> instance.
         /// </summary>
         /// <param name="response">The response.</param>
-        public RestException(IRestResponse response)
+        public RestException(RiotResponse response)
             : this(response, (Exception)null)
         { }
 
@@ -32,7 +31,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="response">The response.</param>
         /// <param name="message">A message that describes the error.</param>
-        public RestException(IRestResponse response, string message)
+        public RestException(RiotResponse response, string message)
             : this(response, message, null)
         { }
 
@@ -41,8 +40,8 @@ namespace RiotNet
         /// </summary>
         /// <param name="response">The response.</param>
         /// <param name="innerException">The exception that is the cause of the current exception.</param>
-        public RestException(IRestResponse response, Exception innerException)
-            : this(response, "A REST request failed." + (response != null && (int)response.StatusCode > 0 ? " Status code: " + (int)response.StatusCode : string.Empty), innerException)
+        public RestException(RiotResponse response, Exception innerException)
+            : this(response, "A REST request failed." + (response != null ? " Status code: " + (int)response.Response.StatusCode : string.Empty), innerException)
         { }
 
         /// <summary>
@@ -51,7 +50,7 @@ namespace RiotNet
         /// <param name="response">The response.</param>
         /// <param name="message">A message that describes the error.</param>
         /// <param name="innerException">The exception that is the cause of the current exception.</param>
-        public RestException(IRestResponse response, string message, Exception innerException)
+        public RestException(RiotResponse response, string message, Exception innerException)
             : base(message, innerException)
         {
             this.response = response;
@@ -66,7 +65,7 @@ namespace RiotNet
         protected RestException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
-            response = (IRestResponse)info.GetValue("Response", typeof(IRestResponse));
+            response = (RiotResponse)info.GetValue("Response", typeof(RiotResponse));
         }
 
         /// <summary>
@@ -84,7 +83,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the response.
         /// </summary>
-        public IRestResponse Response
+        public RiotResponse Response
         {
             get { return response; }
         }

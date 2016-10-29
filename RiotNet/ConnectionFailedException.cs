@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
-using RestSharp;
 
 namespace RiotNet
 {
@@ -21,7 +20,7 @@ namespace RiotNet
         /// Creates a new <see cref="ConnectionFailedException"/> instance.
         /// </summary>
         /// <param name="response">The response.</param>
-        public ConnectionFailedException(IRestResponse response)
+        public ConnectionFailedException(RiotResponse response)
             : this(response, (Exception)null)
         { }
 
@@ -30,7 +29,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="response">The response.</param>
         /// <param name="innerException">The exception that is the cause of the current exception.</param>
-        public ConnectionFailedException(IRestResponse response, Exception innerException)
+        public ConnectionFailedException(RiotResponse response, Exception innerException)
             : base(response, "Failed to connect to the server.", innerException)
         { }
 
@@ -39,7 +38,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="response">The response.</param>
         /// <param name="message">A message that describes the error.</param>
-        public ConnectionFailedException(IRestResponse response, string message)
+        public ConnectionFailedException(RiotResponse response, string message)
             : base(response, message)
         { }
 
@@ -49,7 +48,7 @@ namespace RiotNet
         /// <param name="response">The response.</param>
         /// <param name="message">A message that describes the error.</param>
         /// <param name="innerException">The exception that is the cause of the current exception.</param>
-        public ConnectionFailedException(IRestResponse response, string message, Exception innerException)
+        public ConnectionFailedException(RiotResponse response, string message, Exception innerException)
             : base(response, message, innerException)
         { }
 

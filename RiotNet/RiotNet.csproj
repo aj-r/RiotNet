@@ -60,8 +60,8 @@
     <Compile Include="Converters\RangeConverter.cs" />
     <Compile Include="Converters\MillisecondsToTimeSpanConverter.cs" />
     <Compile Include="Converters\SecondsToTimeSpanConverter.cs" />
-    <Compile Include="IRiotClient.cs" />
     <Compile Include="ConnectionFailedException.cs" />
+    <Compile Include="IRiotClient.cs" />
     <Compile Include="Models\AggregatedStats.cs" />
     <Compile Include="Models\BannedChampion.cs" />
     <Compile Include="Models\BasicDataStats.cs" />

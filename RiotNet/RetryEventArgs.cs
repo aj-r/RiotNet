@@ -1,6 +1,4 @@
-﻿using RestSharp;
-
-namespace RiotNet
+﻿namespace RiotNet
 {
     /// <summary>
     /// Represents a method that will handle an event that could trigger a retry of a request.
@@ -21,7 +19,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="response">The response for the request that caused the event.</param>
         /// <param name="attemptCount">The number of times that the same request has been attempted.</param>
-        public RetryEventArgs(IRestResponse response, int attemptCount)
+        public RetryEventArgs(RiotResponse response, int attemptCount)
             : base(response)
         {
             this.attemptCount = attemptCount;

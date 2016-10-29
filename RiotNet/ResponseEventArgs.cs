@@ -1,5 +1,4 @@
 ﻿using System;
-using RestSharp;
 
 namespace RiotNet
 {
@@ -15,13 +14,13 @@ namespace RiotNet
     /// </summary>
     public class ResponseEventArgs : EventArgs
     {
-        private readonly IRestResponse response;
+        private readonly RiotResponse response;
 
         /// <summary>
         /// Creates a new <see cref="ResponseEventArgs"/> instance.
         /// </summary>
         /// <param name="response">The response for the request that caused the event.</param>
-        public ResponseEventArgs(IRestResponse response)
+        public ResponseEventArgs(RiotResponse response)
         {
             this.response = response;
         }
@@ -29,7 +28,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the response for the request that caused the event.
         /// </summary>
-        public IRestResponse Response
+        public RiotResponse Response
         {
             get { return response; }
         }
