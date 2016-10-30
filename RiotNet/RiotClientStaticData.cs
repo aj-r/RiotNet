@@ -1,64 +1,27 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RiotNet.Models;
+using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using RestSharp;
-using RiotNet.Models;
 
 namespace RiotNet
 {
     public partial class RiotClient
     {
-        private const string lolStaticDataApiVersion = "v1.2";
-        private const string staticBaseUrl = "api/lol/static-data/{region}/" + lolStaticDataApiVersion + "/";
+        private const string staticDataBaseUrl = globalBaseUrl + "/api/lol/static-data";
+        private string itemListDataParam;
 
         /// <summary>
         /// Gets the currently supported version of the LoL Static Data API that the client communicates with.
         /// </summary>
-        public string LolStaticDataApiVersion { get { return lolStaticDataApiVersion; } }
-
+        public string LolStaticDataApiVersion { get { return "v1.2"; } }
 
         #region Champions
 
-        private IRestRequest GetStaticChampionsRequest(string locale, string version, bool dataById, IEnumerable<string> champListData)
-        {
-            var request = Get(staticBaseUrl + "champion");
-            if (locale != null)
-                request.AddQueryParameter("locale", locale);
-            if (version != null)
-                request.AddQueryParameter("version", version);
-            if (dataById)
-                request.AddQueryParameter("dataById", dataById.ToString(CultureInfo.InvariantCulture));
-            if (champListData != null)
-            {
-                var champListDataParam = CreateDataParam(champListData, typeof(StaticChampion), typeof(StaticChampionList));
-                if (!string.IsNullOrEmpty(champListDataParam))
-                    request.AddQueryParameter("champData", champListDataParam);
-            }
-            return request;
-        }
-
         /// <summary>
-        /// Gets the details for all champions. This method uses the LoL Static Data API.
-        /// </summary>
-        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="dataById">If true, the returned data map will use the champions' IDs as the keys. If false, the returned data map will use the champions' keys instead.</param>
-        /// <param name="champListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> or <see cref="StaticChampionList"/> objects. Only type, version, data, id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
-        /// <returns>A <see cref="StaticChampionList"/>.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public StaticChampionList GetStaticChampions(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null)
-        {
-            return Execute<StaticChampionList>(GetStaticChampionsRequest(locale, version, dataById, champListData), globalClient);
-        }
-
-        /// <summary>
-        /// Gets the details for all champions. This method uses the LoL Static Data API.
+        /// Gets the details for all champions. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the champListData parameter to specify which properties you want.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
@@ -70,44 +33,18 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticChampionList> GetStaticChampionsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null)
         {
-            return ExecuteAsync<StaticChampionList>(GetStaticChampionsRequest(locale, version, dataById, champListData), globalClient);
-        }
-
-        private IRestRequest GetStaticChampionByIdRequest(int id, string locale, string version, IEnumerable<string> champData)
-        {
-            var request = Get(staticBaseUrl + "champion/{id}");
-            request.AddUrlSegment("id", id.ToString(CultureInfo.InvariantCulture));
-            if (locale != null)
-                request.AddQueryParameter("locale", locale);
-            if (version != null)
-                request.AddQueryParameter("version", version);
-            if (champData != null)
-            {
-                var champDataParam = CreateDataParam(champData, typeof(StaticChampion));
-                if (!string.IsNullOrEmpty(champDataParam))
-                    request.AddQueryParameter("champData", champDataParam);
-            }
-            return request;
+            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/champion";
+            var queryParameters = GetStandardQueryParameters(locale, version);
+            if (dataById)
+                queryParameters["dataById"] = "true";
+            var dataParam = CreateDataParam(champListData, typeof(StaticChampion), typeof(StaticChampionList));
+            if (!string.IsNullOrEmpty(dataParam))
+                queryParameters["champData"] = dataParam;
+            return GetAsync<StaticChampionList>(request, queryParameters);
         }
 
         /// <summary>
-        /// Gets champion details by ID. This method uses the LoL Static Data API.
-        /// </summary>
-        /// <param name="id">The champion ID.</param>
-        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetStaticVersions"/>.</param>
-        /// <param name="champData">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> object. Only id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
-        /// <returns>A <see cref="StaticChampion"/>.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public StaticChampion GetStaticChampionById(int id, string locale = null, string version = null, IEnumerable<string> champData = null)
-        {
-            return Execute<StaticChampion>(GetStaticChampionByIdRequest(id, locale, version, champData), globalClient);
-        }
-
-        /// <summary>
-        /// Gets champion details by ID. This method uses the LoL Static Data API.
+        /// Gets champion details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the champData parameter to specify which properties you want.
         /// </summary>
         /// <param name="id">The champion ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
@@ -119,58 +56,23 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticChampion> GetStaticChampionByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> champData = null)
         {
-            return ExecuteAsync<StaticChampion>(GetStaticChampionByIdRequest(id, locale, version, champData), globalClient);
+            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/champion/{id}";
+            var queryParameters = GetStandardQueryParameters(locale, version);
+            if (champData != null)
+            {
+                var dataParam = CreateDataParam(champData, typeof(StaticChampion));
+                if (!string.IsNullOrEmpty(dataParam))
+                    queryParameters["champData"] = dataParam;
+            }
+            return GetAsync<StaticChampion>(request, queryParameters);
         }
 
         #endregion
 
         #region Items
 
-        private IRestRequest GetStaticItemsRequest(string locale, string version, IEnumerable<string> itemListData)
-        {
-            var request = Get(staticBaseUrl + "item");
-            if (locale != null)
-                request.AddQueryParameter("locale", locale);
-            if (version != null)
-                request.AddQueryParameter("version", version);
-            if (itemListData != null)
-            {
-                var itemListDataParam = CreateDataParam(itemListData, typeof(StaticItem), typeof(StaticItemList));
-                if (!string.IsNullOrEmpty(itemListDataParam))
-                    request.AddQueryParameter("itemListData", itemListDataParam);
-            }
-            return request;
-        }
-
         /// <summary>
-        /// Gets a list of all available items. This method uses the LoL Static Data API.
-        /// </summary>
-        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetStaticVersions"/>.</param>
-        /// <param name="itemListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticItem"/> or <see cref="StaticItemList"/> objects. Only id, name, type, version, basic, data, plaintext, group, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
-        /// <returns>A <see cref="StaticItemList"/>.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public StaticItemList GetStaticItems(string locale = null, string version = null, IEnumerable<string> itemListData = null)
-        {
-            var itemList = Execute<StaticItemList>(GetStaticItemsRequest(locale, version, itemListData), globalClient);
-
-            if (itemList == null)
-                return null;
-
-            // Add missing default values to the Maps dictionary.
-            var defaultMaps = itemList.Basic.Maps;
-            foreach (var item in itemList.Data.Values)
-                foreach (var kvp in defaultMaps)
-                    if (!item.Maps.ContainsKey(kvp.Key))
-                        item.Maps.Add(kvp.Key, kvp.Value);
-
-            return itemList;
-        }
-
-        /// <summary>
-        /// Gets a list of all available items. This method uses the LoL Static Data API.
+        /// Gets a list of all available items. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the itemListData parameter to specify which properties you want.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
@@ -181,7 +83,12 @@ namespace RiotNet
         /// </remarks>
         public async Task<StaticItemList> GetStaticItemsAsync(string locale = null, string version = null, IEnumerable<string> itemListData = null)
         {
-            var itemList = await ExecuteAsync<StaticItemList>(GetStaticItemsRequest(locale, version, itemListData), globalClient).ConfigureAwait(false);
+            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/item";
+            var queryParameters = GetStandardQueryParameters(locale, version);
+            var dataParam = CreateDataParam(itemListData, typeof(StaticItem), typeof(StaticItemList));
+            if (!string.IsNullOrEmpty(itemListDataParam))
+                queryParameters["itemListData"] = itemListDataParam;
+            var itemList = await GetAsync<StaticItemList>(request, queryParameters).ConfigureAwait(false);
 
             if (itemList == null)
                 return null;
@@ -195,28 +102,32 @@ namespace RiotNet
 
             return itemList;
         }
-        
-        #endregion
-
-        #region Languages
-
-        private IRestRequest GetStaticLanguagesRequest()
-        {
-            return Get(staticBaseUrl + "languages");
-        }
 
         /// <summary>
-        /// Gets a list of available languages. This method uses the LoL Static Data API.
+        /// Gets an item by its ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the itemData parameter to specify which properties you want.
         /// </summary>
-        /// <returns>A list of strings that represent a language.</returns>
+        /// <param name="id">The item ID.</param>
+        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
+        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
+        /// <param name="itemListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticItem"/> or <see cref="StaticItemList"/> objects. Only id, name, type, version, basic, data, plaintext, group, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public List<string> GetStaticLanguages()
+        public Task<StaticItem> GetStaticItemAsync(int id, string locale = null, string version = null, IEnumerable<string> itemData = null)
         {
-            return Execute<List<string>>(GetStaticLanguagesRequest(), globalClient);
+            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/item/{id}";
+            var queryParameters = GetStandardQueryParameters(locale, version);
+            var dataParam = CreateDataParam(itemData, typeof(StaticItem));
+            if (!string.IsNullOrEmpty(dataParam))
+                queryParameters["itemData"] = dataParam;
+            return GetAsync<StaticItem>(request, queryParameters);
         }
 
+        #endregion
+
+        #region Languages
+        
         /// <summary>
         /// Gets a list of available languages. This method uses the LoL Static Data API.
         /// </summary>
@@ -226,33 +137,9 @@ namespace RiotNet
         /// </remarks>
         public Task<List<string>> GetStaticLanguagesAsync()
         {
-            return ExecuteAsync<List<string>>(GetStaticLanguagesRequest(), globalClient);
+            return GetAsync<List<string>>($"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/languages");
         }
-
-        private IRestRequest GetStaticLanguageStringsRequest(string locale, string version)
-        {
-            var request = Get(staticBaseUrl + "language-strings");
-            if (locale != null)
-                request.AddQueryParameter("locale", locale);
-            if (version != null)
-                request.AddQueryParameter("version", version);
-            return request;
-        }
-
-        /// <summary>
-        /// Gets a list of available language strings. This method uses the LoL Static Data API.
-        /// </summary>
-        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetStaticVersions"/>.</param>
-        /// <returns>A <see cref="StaticLanuageStrings"/>.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public StaticLanuageStrings GetStaticLanguageStrings(string locale = null, string version = null)
-        {
-            return Execute<StaticLanuageStrings>(GetStaticLanguageStringsRequest(locale, version), globalClient);
-        }
-
+        
         /// <summary>
         /// Gets a list of available language strings. This method uses the LoL Static Data API.
         /// </summary>
@@ -264,37 +151,14 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticLanuageStrings> GetStaticLanguageStringsAsync(string locale = null, string version = null)
         {
-            return ExecuteAsync<StaticLanuageStrings>(GetStaticLanguageStringsRequest(locale, version), globalClient);
+            var queryParameters = GetStandardQueryParameters(locale, version);
+            return GetAsync<StaticLanuageStrings>($"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/language-strings", queryParameters);
         }
 
         #endregion
 
         #region Map
-
-        private IRestRequest GetStaticMapsRequest(string locale, string version)
-        {
-            var request = Get(staticBaseUrl + "map");
-            if (locale != null)
-                request.AddQueryParameter("locale", locale);
-            if (version != null)
-                request.AddQueryParameter("version", version);
-            return request;
-        }
-
-        /// <summary>
-        /// Gets a list of all maps. This method uses the LoL Static Data API.
-        /// </summary>
-        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetStaticVersions"/>.</param>
-        /// <returns>A <see cref="StaticMapList"/>.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public StaticMapList GetStaticMaps(string locale = null, string version = null)
-        {
-            return Execute<StaticMapList>(GetStaticMapsRequest(locale, version), globalClient);
-        }
-
+        
         /// <summary>
         /// Gets a list of all maps. This method uses the LoL Static Data API.
         /// </summary>
@@ -306,46 +170,16 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticMapList> GetStaticMapsAsync(string locale = null, string version = null)
         {
-            return ExecuteAsync<StaticMapList>(GetStaticMapsRequest(locale, version), globalClient);
+            var queryParameters = GetStandardQueryParameters(locale, version);
+            return GetAsync<StaticMapList>($"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/maps", queryParameters);
         }
 
         #endregion
 
         #region Masteries
 
-        private IRestRequest GetStaticMasteriesRequest(string locale, string version, IEnumerable<string> masteryListData)
-        {
-            var request = Get(staticBaseUrl + "mastery");
-            if (locale != null)
-                request.AddQueryParameter("locale", locale);
-            if (version != null)
-                request.AddQueryParameter("version", version);
-            if (masteryListData != null)
-            {
-                var masteryListDataParam = CreateDataParam(masteryListData, typeof(StaticMastery), typeof(StaticMasteryList));
-                if (!string.IsNullOrEmpty(masteryListDataParam))
-                    request.AddQueryParameter("masteryListData", masteryListDataParam);
-            }
-            return request;
-        }
-
         /// <summary>
-        /// Gets the details for all masteries. This method uses the LoL Static Data API.
-        /// </summary>
-        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="masteryListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> or <see cref="StaticMasteryList"/> objects. Only type, version, data, id, name, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
-        /// <returns>A <see cref="StaticMasteryList"/>.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public StaticMasteryList GetStaticMasteries(string locale = null, string version = null, IEnumerable<string> masteryListData = null)
-        {
-            return Execute<StaticMasteryList>(GetStaticMasteriesRequest(locale, version, masteryListData), globalClient);
-        }
-
-        /// <summary>
-        /// Gets the details for all masteries. This method uses the LoL Static Data API.
+        /// Gets the details for all masteries. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the masteryListData parameter to specify which properties you want.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
@@ -356,44 +190,16 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticMasteryList> GetStaticMasteriesAsync(string locale = null, string version = null, IEnumerable<string> masteryListData = null)
         {
-            return ExecuteAsync<StaticMasteryList>(GetStaticMasteriesRequest(locale, version, masteryListData), globalClient);
-        }
-
-        private IRestRequest GetStaticMasteryByIdRequest(int id, string locale, string version, IEnumerable<string> masteryData)
-        {
-            var request = Get(staticBaseUrl + "mastery/{id}");
-            request.AddUrlSegment("id", id.ToString(CultureInfo.InvariantCulture));
-            if (locale != null)
-                request.AddQueryParameter("locale", locale);
-            if (version != null)
-                request.AddQueryParameter("version", version);
-            if (masteryData != null)
-            {
-                var masteryDataParam = CreateDataParam(masteryData, typeof(StaticMastery));
-                if (!string.IsNullOrEmpty(masteryDataParam))
-                    request.AddQueryParameter("masteryData", masteryDataParam);
-            }
-            return request;
+            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/mastery";
+            var queryParameters = GetStandardQueryParameters(locale, version);
+            var dataParam = CreateDataParam(masteryListData, typeof(StaticMastery), typeof(StaticMasteryList));
+            if (!string.IsNullOrEmpty(dataParam))
+                queryParameters["masteryListData"] = dataParam;
+            return GetAsync<StaticMasteryList>(request, queryParameters);
         }
 
         /// <summary>
-        /// Gets mastery details by ID. This method uses the LoL Static Data API.
-        /// </summary>
-        /// <param name="id">The mastery ID.</param>
-        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetStaticVersions"/>.</param>
-        /// <param name="masteryData">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> object. Only id, name, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
-        /// <returns>A <see cref="StaticMastery"/>.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public StaticMastery GetStaticMasteryById(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null)
-        {
-            return Execute<StaticMastery>(GetStaticMasteryByIdRequest(id, locale, version, masteryData), globalClient);
-        }
-
-        /// <summary>
-        /// Gets mastery details by ID. This method uses the LoL Static Data API.
+        /// Gets mastery details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the masteryData parameter to specify which properties you want.
         /// </summary>
         /// <param name="id">The mastery ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
@@ -405,30 +211,18 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticMastery> GetStaticMasteryByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null)
         {
-            return ExecuteAsync<StaticMastery>(GetStaticMasteryByIdRequest(id, locale, version, masteryData), globalClient);
+            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/mastery/{id}";
+            var queryParameters = GetStandardQueryParameters(locale, version);
+            var dataParam = CreateDataParam(masteryData, typeof(StaticMastery));
+            if (!string.IsNullOrEmpty(dataParam))
+                queryParameters["masteryData"] = dataParam;
+            return GetAsync<StaticMastery>(request, queryParameters);
         }
 
         #endregion
 
         #region Realm
-
-        private IRestRequest GetStaticRealmRequest()
-        {
-            return Get(staticBaseUrl + "realm");
-        }
-
-        /// <summary>
-        /// Gets the realm data. This method uses the LoL Static Data API.
-        /// </summary>
-        /// <returns>The current realm data.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public StaticRealm GetStaticRealm()
-        {
-            return Execute<StaticRealm>(GetStaticRealmRequest(), globalClient);
-        }
-
+        
         /// <summary>
         /// Gets the realm data. This method uses the LoL Static Data API.
         /// </summary>
@@ -438,58 +232,15 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticRealm> GetStaticRealmAsync()
         {
-            return ExecuteAsync<StaticRealm>(GetStaticRealmRequest(), globalClient);
+            return GetAsync<StaticRealm>($"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/realm");
         }
 
         #endregion
 
         #region Runes
-
-        private IRestRequest GetStaticRunesRequest(string locale, string version, IEnumerable<string> runeListData)
-        {
-            var request = Get(staticBaseUrl + "rune");
-            if (locale != null)
-                request.AddQueryParameter("locale", locale);
-            if (version != null)
-                request.AddQueryParameter("version", version);
-            if (runeListData != null)
-            {
-                var runeListDataParam = CreateDataParam(runeListData, typeof(StaticRune), typeof(StaticRuneList));
-                if (!string.IsNullOrEmpty(runeListDataParam))
-                    request.AddQueryParameter("runeListData", runeListDataParam);
-            }
-            return request;
-        }
-
+        
         /// <summary>
-        /// Gets a list of all available runes. This method uses the LoL Static Data API.
-        /// </summary>
-        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetStaticVersions"/>.</param>
-        /// <param name="runeListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticRune"/> or <see cref="StaticRuneList"/> objects. Only type, version, data, id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
-        /// <returns>A dictionary of runes indexed by ID.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public StaticRuneList GetStaticRunes(string locale = null, string version = null, IEnumerable<string> runeListData = null)
-        {
-            var runeList = Execute<StaticRuneList>(GetStaticRunesRequest(locale, version, runeListData), globalClient);
-
-            if (runeList == null)
-                return null;
-
-            // Add missing default values to the Maps dictionary.
-            var defaultMaps = runeList.Basic.Maps;
-            foreach (var item in runeList.Data.Values)
-                foreach (var kvp in defaultMaps)
-                    if (!item.Maps.ContainsKey(kvp.Key))
-                        item.Maps.Add(kvp.Key, kvp.Value);
-
-            return runeList;
-        }
-
-        /// <summary>
-        /// Gets a list of all available runes. This method uses the LoL Static Data API.
+        /// Gets a list of all available runes. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the runeListData parameter to specify which properties you want.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
@@ -500,7 +251,12 @@ namespace RiotNet
         /// </remarks>
         public async Task<StaticRuneList> GetStaticRunesAsync(string locale = null, string version = null, IEnumerable<string> runeListData = null)
         {
-            var runeList = await ExecuteAsync<StaticRuneList>(GetStaticRunesRequest(locale, version, runeListData), globalClient).ConfigureAwait(false);
+            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/rune";
+            var queryParameters = GetStandardQueryParameters(locale, version);
+            var dataParam = CreateDataParam(runeListData, typeof(StaticRune), typeof(StaticRuneList));
+            if (!string.IsNullOrEmpty(dataParam))
+                queryParameters["runeListData"] = dataParam;
+            var runeList = await GetAsync<StaticRuneList>(request, queryParameters).ConfigureAwait(false);
 
             if (runeList == null)
                 return null;
@@ -515,42 +271,8 @@ namespace RiotNet
             return runeList;
         }
 
-        private IRestRequest GetStaticRuneByIdRequest(int id, string locale, string version, IEnumerable<string> runeData)
-        {
-            var request = Get("api/lol/static-data/{region}/v1.2/rune/{id}");
-            request.AddUrlSegment("id", id.ToString(CultureInfo.InvariantCulture));
-            if (locale != null)
-                request.AddQueryParameter("locale", locale);
-            if (version != null)
-                request.AddQueryParameter("version", version);
-            if (runeData != null)
-            {
-                // Force the first letter of each data point to be lower case since that is what the API is expecting.
-                var runeDataParam = CreateDataParam(runeData, typeof(StaticRune));
-                if (!string.IsNullOrEmpty(runeDataParam))
-                    request.AddQueryParameter("runeData", runeDataParam);
-            }
-            return request;
-        }
-
         /// <summary>
-        /// Gets a rune by ID. This method uses the LoL Static Data API.
-        /// </summary>
-        /// <param name="id">The rune ID.</param>
-        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetStaticVersions"/>.</param>
-        /// <param name="runeData">Tags to return additional data. Valid tags are any property of the <see cref="StaticRune"/> object. Only id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
-        /// <returns>A <see cref="StaticRune"/>.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public StaticRune GetStaticRuneById(int id, string locale = null, string version = null, IEnumerable<string> runeData = null)
-        {
-            return Execute<StaticRune>(GetStaticRuneByIdRequest(id, locale, version, runeData), globalClient);
-        }
-
-        /// <summary>
-        /// Gets a rune by ID. This method uses the LoL Static Data API.
+        /// Gets a rune by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the runeData parameter to specify which properties you want.
         /// </summary>
         /// <param name="id">The rune ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
@@ -562,47 +284,17 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticRune> GetStaticRuneByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> runeData = null)
         {
-            return ExecuteAsync<StaticRune>(GetStaticRuneByIdRequest(id, locale, version, runeData), globalClient);
+            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/rune/{id}";
+            var queryParameters = GetStandardQueryParameters(locale, version);
+            var dataParam = CreateDataParam(runeData, typeof(StaticRune));
+            if (!string.IsNullOrEmpty(dataParam))
+                queryParameters["runeData"] = dataParam;
+            return GetAsync<StaticRune>(request, queryParameters);
         }
 
         #endregion
 
         #region Summoner Spells
-
-        private IRestRequest GetStaticSummonerSpellsRequest(string locale, string version, bool dataById, IEnumerable<string> spellListData)
-        {
-            var request = Get(staticBaseUrl + "summoner-spell");
-            if (locale != null)
-                request.AddQueryParameter("locale", locale);
-            if (version != null)
-                request.AddQueryParameter("version", version);
-            if (dataById)
-                request.AddQueryParameter("dataById", dataById.ToString(CultureInfo.InvariantCulture));
-            if (spellListData != null)
-            {
-                // Force the first letter of each data point to be lower case since that is what the API is expecting.
-                var spellListDataParam = CreateDataParam(spellListData, typeof(StaticSummonerSpell), typeof(StaticSummonerSpellList));
-                if (!string.IsNullOrEmpty(spellListDataParam))
-                    request.AddQueryParameter("spellData", spellListDataParam);
-            }
-            return request;
-        }
-
-        /// <summary>
-        /// Gets the details for all summoner spells. This method uses the LoL Static Data API.
-        /// </summary>
-        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="dataById">If true, the returned data map will use the spells' IDs as the keys. If false, the returned data map will use the spells' keys instead.</param>
-        /// <param name="spellListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticSummonerSpell"/> or <see cref="StaticSummonerSpellList"/> objects. Only type, version, data, id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
-        /// <returns>A <see cref="StaticSummonerSpellList"/>.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public StaticSummonerSpellList GetStaticSummonerSpells(string locale = null, string version = null, bool dataById = false, IEnumerable<string> spellListData = null)
-        {
-            return Execute<StaticSummonerSpellList>(GetStaticSummonerSpellsRequest(locale, version, dataById, spellListData), globalClient);
-        }
 
         /// <summary>
         /// Gets the details for all summoner spells. This method uses the LoL Static Data API.
@@ -617,43 +309,16 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticSummonerSpellList> GetStaticSummonerSpellsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> spellListData = null)
         {
-            return ExecuteAsync<StaticSummonerSpellList>(GetStaticSummonerSpellsRequest(locale, version, dataById, spellListData), globalClient);
+            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/summoner-spell";
+            var queryParameters = GetStandardQueryParameters(locale, version);
+            if (dataById)
+                queryParameters["dataById"] = "true";
+            var dataParam = CreateDataParam(spellListData, typeof(StaticSummonerSpell), typeof(StaticSummonerSpellList));
+            if (!string.IsNullOrEmpty(dataParam))
+                queryParameters["spellData"] = dataParam;
+            return GetAsync<StaticSummonerSpellList>(request, queryParameters);
         }
-
-        private IRestRequest GetStaticSummonerSpellByIdRequest(int id, string locale, string version, IEnumerable<string> spellData)
-        {
-            var request = Get(staticBaseUrl + "summoner-spell/{id}");
-            request.AddUrlSegment("id", id.ToString(CultureInfo.InvariantCulture));
-            if (locale != null)
-                request.AddQueryParameter("locale", locale);
-            if (version != null)
-                request.AddQueryParameter("version", version);
-            if (spellData != null)
-            {
-                // Force the first letter of each data point to be lower case since that is what the API is expecting.
-                var spellDataParam = CreateDataParam(spellData, typeof(StaticSummonerSpell));
-                if (!string.IsNullOrEmpty(spellDataParam))
-                    request.AddQueryParameter("spellData", spellDataParam);
-            }
-            return request;
-        }
-
-        /// <summary>
-        /// Gets summoner spell details by ID. This method uses the LoL Static Data API.
-        /// </summary>
-        /// <param name="id">The summoner spell ID.</param>
-        /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
-        /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetStaticVersions"/>.</param>
-        /// <param name="spellData">Tags to return additional data. Valid tags are any property of the <see cref="StaticSummonerSpell"/> object. Only id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
-        /// <returns>A <see cref="StaticSummonerSpell"/>.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public StaticSummonerSpell GetStaticSummonerSpellById(int id, string locale = null, string version = null, IEnumerable<string> spellData = null)
-        {
-            return Execute<StaticSummonerSpell>(GetStaticSummonerSpellByIdRequest(id, locale, version, spellData), globalClient);
-        }
-
+        
         /// <summary>
         /// Gets summoner spell details by ID.
         /// </summary>
@@ -667,30 +332,18 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticSummonerSpell> GetStaticSummonerSpellByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> spellData = null)
         {
-            return ExecuteAsync<StaticSummonerSpell>(GetStaticSummonerSpellByIdRequest(id, locale, version, spellData), globalClient);
+            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/summoner-spell/{id}";
+            var queryParameters = GetStandardQueryParameters(locale, version);
+            var dataParam = CreateDataParam(spellData, typeof(StaticSummonerSpell));
+            if (!string.IsNullOrEmpty(dataParam))
+                queryParameters["spellData"] = dataParam;
+            return GetAsync<StaticSummonerSpell>(request, queryParameters);
         }
 
         #endregion
 
         #region Versions
-
-        private IRestRequest GetStaticVersionsRequest()
-        {
-            return Get(staticBaseUrl + "versions");
-        }
-
-        /// <summary>
-        /// Gets the list of available game versions. This method uses the LoL Static Data API.
-        /// </summary>
-        /// <returns>The list of versions.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public List<string> GetStaticVersions()
-        {
-            return Execute<List<string>>(GetStaticVersionsRequest(), globalClient);
-        }
-
+        
         /// <summary>
         /// Gets the list of available game versions. This method uses the LoL Static Data API.
         /// </summary>
@@ -700,7 +353,7 @@ namespace RiotNet
         /// </remarks>
         public Task<List<string>> GetVersionsAsync()
         {
-            return ExecuteAsync<List<string>>(GetStaticVersionsRequest(), globalClient);
+            return GetAsync<List<string>>($"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/versions");
         }
 
         #endregion
@@ -709,6 +362,8 @@ namespace RiotNet
 
         private static string CreateDataParam(IEnumerable<string> propertyNames, Type type, Type listType = null)
         {
+            if (propertyNames == null)
+                return "";
             return string.Join(",", propertyNames.Select(p => CorrectPropertyNameCase(p, type, listType)).Where(p => p != null));
         }
 
@@ -729,7 +384,18 @@ namespace RiotNet
                 if (jsonPropertyAttribute != null && !string.IsNullOrEmpty(jsonPropertyAttribute.PropertyName))
                     return jsonPropertyAttribute.PropertyName;
             }
+            // Otherwise just convert the first letter to lowercase
             return propertyName.Remove(1).ToLowerInvariant() + propertyName.Substring(1);
+        }
+
+        private static Dictionary<string, object> GetStandardQueryParameters(string locale, string version)
+        {
+            var queryParameters = new Dictionary<string, object>();
+            if (locale != null)
+                queryParameters["locale"] = locale;
+            if (version != null)
+                queryParameters["version"] = version;
+            return queryParameters;
         }
 
         #endregion

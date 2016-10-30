@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RiotNet.Converters;
 using RiotNet.Models;
-using Newtonsoft.Json.Linq;
-using System.Net.Http;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace RiotNet
 {
@@ -20,11 +20,10 @@ namespace RiotNet
         private readonly Region region;
         private readonly string platformId;
         private readonly RiotClientSettings settings;
-        //private readonly RestSharpJsonNetSerializer serializer;
         private readonly HttpClient client = new HttpClient();
         private readonly string mainBaseUrl;
-        private const string globalBaseUrl = "https://global.api.pvp.net";
-        private const string statusBaseUrl = "http://status.leagueoflegends.com";
+        protected const string globalBaseUrl = "https://global.api.pvp.net";
+        protected const string statusBaseUrl = "http://status.leagueoflegends.com";
 
         static RiotClient()
         {
@@ -66,7 +65,6 @@ namespace RiotNet
             this.region = region;
             this.platformId = GetPlatformId(region);
             this.settings = settings;
-            //serializer = new RestSharpJsonNetSerializer(settings);
 
             mainBaseUrl = "https://" + GetServerName(region);
         }
@@ -91,7 +89,7 @@ namespace RiotNet
                 new PlayerPositionConverter(),
                 new TolerantStringEnumConverter(),
                 new SecondsToTimeSpanConverter(),
-                // The summoner/by-name API returns data mapped by all-lowercase summoner names. Make the keys case-insensitive so we can access data using the properly-cased summer names.
+                // The summoner/by-name API returns data mapped by all-lowercase summoner names. Make the keys case-insensitive so we can access data using the properly-cased summoner names.
                 new CaseInsensitiveDictionaryCreationConverter<Summoner>(),
             }
         };
@@ -253,41 +251,76 @@ namespace RiotNet
         {
             get { return client; }
         }
-        
+
         /// <summary>
-        /// Executes a REST request synchronously.
+        /// Sends a GET request for the specified resource.
+        /// </summary>
+        /// <param name="resource">The resource path, relative to the base URL. Note: this method will automatically add the api_key parameter to the resource.</param>
+        /// <returns>A rest request.</returns>
+        protected Task<T> GetAsync<T>(string resource, IDictionary<string, object> queryParameters = null, bool useApiKey = true)
+        {
+            return ExecuteAsync<T>(HttpMethod.Get, resource, null, queryParameters, useApiKey);
+        }
+
+        /// <summary>
+        /// Creates a POST request for the specified resource. The region, platformId, and api_key parameters are automatically added to the request.
+        /// </summary>
+        /// <param name="resource">The resource path, relative to the base URL. Note: this method will automatically add the api_key parameter to the resource.</param>
+        /// <param name="body">The body of the request. This object will be serialized as a JSON string.</param>
+        /// <returns>A rest request.</returns>
+        protected Task<T> PostAsync<T>(string resource, object body, IDictionary<string, object> queryParameters = null, bool useApiKey = true)
+        {
+            return ExecuteAsync<T>(HttpMethod.Post, resource, body, queryParameters, useApiKey);
+        }
+
+        /// <summary>
+        /// Creates a PUT request for the specified resource. The region, platformId, and api_key parameters are automatically added to the request.
+        /// </summary>
+        /// <param name="resource">The resource path, relative to the base URL. Note: this method will automatically add the api_key parameter to the resource.</param>
+        /// <param name="body">The body of the request. This object will be serialized as a JSON string.</param>
+        /// <returns>A rest request.</returns>
+        protected Task<T> PutAsync<T>(string resource, object body, IDictionary<string, object> queryParameters = null, bool useApiKey = true)
+        {
+            return ExecuteAsync<T>(HttpMethod.Put, resource, body, queryParameters, useApiKey);
+        }
+
+        /// <summary>
+        /// Executes a REST request asynchronously.
         /// </summary>
         /// <typeparam name="T">The type of data to expect in the response.</typeparam>
         /// <param name="request">The request to execute.</param>
         /// <param name="client">The client to use when executing the request.</param>
-        /// <returns>The deserialized response.</returns>
-        protected virtual T Execute<T>(HttpRequestMessage request)
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        protected virtual async Task<T> ExecuteAsync<T>(HttpMethod method, string resource, object body = null, IDictionary<string, object> queryParameters = null, bool useApiKey = true)
         {
-            var attemptCount = 0;
-            do
+            var resourceBuilder = new StringBuilder();
+            var querySeparator = resource.Contains("?") ? "&" : "?";
+            if (queryParameters != null)
             {
-                var response = SendAsync(request).Result;
-                ++attemptCount;
-                var action = DetermineResponseAction(response, attemptCount).Result;
-                if (action == ResponseAction.Return)
-                    return response.Response.Content.ReadAsAsync<T>().Result;
-                if (action == ResponseAction.ReturnDefault)
-                    break;
-                if (action == ResponseAction.Retry)
+                foreach (var kvp in queryParameters)
                 {
-                    var retryAfter = response.Response.Headers.GetValues("Retry-After").FirstOrDefault();
-                    if (retryAfter != null)
-                    {
-                        int delaySeconds;
-                        if (int.TryParse(retryAfter, out delaySeconds))
-                            Thread.Sleep((delaySeconds + 1) * 1000);
-                    }
+                    resourceBuilder
+                        .Append(querySeparator)
+                        .Append(kvp.Key)
+                        .Append("=")
+                        .Append(kvp.Value);
+                    querySeparator = "&";
                 }
-            } while (attemptCount < Settings.MaxRequestAttempts);
-
-            return default(T);
+            }
+            if (useApiKey)
+            {
+                resourceBuilder
+                    .Append(querySeparator)
+                    .Append("api_key=")
+                    .Append(Settings.ApiKey);
+            }
+            var request = new HttpRequestMessage(method, resourceBuilder.ToString());
+            if (body != null)
+                request.Content = new JsonContent(body);
+            // TODO: headers?
+            return await ExecuteAsync<T>(request).ConfigureAwait(false);
         }
-        
+
         /// <summary>
         /// Executes a REST request asynchronously.
         /// </summary>
@@ -427,12 +460,15 @@ namespace RiotNet
             return ResponseAction.Return;
         }
 
-
-
-        private static async Task<string> GetServerErrorMessage(RiotResponse response)
+        /// <summary>
+        /// Gets the error message from the response body if it exists.
+        /// </summary>
+        /// <param name="response">The response from the server.</param>
+        /// <returns>The error messsage, or null if no error message was found.</returns>
+        protected static async Task<string> GetServerErrorMessage(RiotResponse response)
         {
             // Try to get the error message from the server if it exists.
-            if (response.Response.Content == null)
+            if (response?.Response?.Content == null)
                 return null;
 
             try
@@ -451,51 +487,6 @@ namespace RiotNet
             {
                 return null;
             }
-        }
-
-        /// <summary>
-        /// Creates a GET request for the specified resource. The region, platformId, and api_key parameters are automatically added to the request.
-        /// </summary>
-        /// <param name="resource">The resource path, relative to the base URL.</param>
-        /// <returns>A rest request.</returns>
-        protected HttpRequestMessage Get(string resource)
-        {
-            return CreateRequest(resource, HttpMethod.Get);
-        }
-
-        /// <summary>
-        /// Creates a POST request for the specified resource. The region, platformId, and api_key parameters are automatically added to the request.
-        /// </summary>
-        /// <param name="resource">The resource path, relative to the base URL.</param>
-        /// <returns>A rest request.</returns>
-        protected HttpRequestMessage Post(string resource)
-        {
-            return CreateRequest(resource, HttpMethod.Post);
-        }
-
-        /// <summary>
-        /// Creates a PUT request for the specified resource. The region, platformId, and api_key parameters are automatically added to the request.
-        /// </summary>
-        /// <param name="resource">The resource path, relative to the base URL.</param>
-        /// <returns>A rest request.</returns>
-        protected HttpRequestMessage Put(string resource)
-        {
-            return CreateRequest(resource, HttpMethod.Put);
-        }
-
-        /// <summary>
-        /// Creates a request for the specified resource. The region, platformId, and api_key parameters are automatically added to the request.
-        /// </summary>
-        /// <param name="resource">The resource path, relative to the base URL.</param>
-        /// <param name="method">The method to use.</param>
-        /// <returns>A rest request.</returns>
-        private HttpRequestMessage CreateRequest(string resource, HttpMethod method)
-        {
-            if (!resource.Contains("?"))
-                resource += resource.Contains("?") ? "&" : "?";
-            resource += "api_key=" + Settings.ApiKey;
-            var request = new HttpRequestMessage(method, resource);
-            return request;
         }
 
         /// <summary>

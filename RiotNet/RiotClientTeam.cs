@@ -1,9 +1,7 @@
-﻿using System;
+﻿using RiotNet.Models;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using RestSharp;
-
-using TeamsBySummonerIdsDictionary = System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<RiotNet.Models.Team>>;
-using TeamByTeamIdDictionary = System.Collections.Generic.Dictionary<string, RiotNet.Models.Team>;
 
 namespace RiotNet
 {
@@ -13,49 +11,16 @@ namespace RiotNet
         /// Gets the currently supported version of the Team API that the client communicates with.
         /// </summary>
         public string TeamApiVersion { get { return "v2.4"; } }
-
-        private IRestRequest GetTeamsBySummonerIdsRequest(params long[] summonerIds)
-        {
-            var request = Get("api/lol/{region}/v2.4/team/by-summoner/{summonerIds}");
-            request.AddUrlSegment("summonerIds", String.Join(",", summonerIds));
-            return request;
-        }
-
-        /// <summary>
-        /// Gets, for every summoner in summonerIds, the teams that summoner is on. This method uses the Team API.
-        /// </summary>
-        /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 10.</param>
-        /// <returns>The mapping from summoner ID to the teams that summoner is on.</returns>
-        public TeamsBySummonerIdsDictionary GetTeamsBySummonerIds(params long[] summonerIds)
-        {
-            return Execute<TeamsBySummonerIdsDictionary>(GetTeamsBySummonerIdsRequest(summonerIds));
-        }
-
+        
         /// <summary>
         /// Gets, for every summoner in summonerIds, the teams that summoner is on. This method uses the Team API.
         /// </summary>
         /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<TeamsBySummonerIdsDictionary> GetTeamsBySummonerIdsAsync(params long[] summonerIds)
+        public Task<Dictionary<string, List<Team>>> GetTeamsBySummonerIdsAsync(params long[] summonerIds)
         {
-            return ExecuteAsync<TeamsBySummonerIdsDictionary>(GetTeamsBySummonerIdsRequest(summonerIds));
-        }
-
-        private IRestRequest GetTeamsByTeamIdsRequest(params String[] teamIds)
-        {
-            var request = Get("api/lol/{region}/v2.4/team/{teamIds}");
-            request.AddUrlSegment("teamIds", String.Join(",", teamIds));
-            return request;
-        }
-
-        /// <summary>
-        /// Gets the team corresponding to each team ID. This method uses the Team API.
-        /// </summary>
-        /// <param name="teamIds">The team IDs. The maximum allowed at once is 10.</param>
-        /// <returns>The mapping from team IDs to teams.</returns>
-        public TeamByTeamIdDictionary GetTeamsByTeamIds(params String[] teamIds)
-        {
-            return Execute<TeamByTeamIdDictionary>(GetTeamsByTeamIdsRequest(teamIds));
+            var summonerIdString = string.Join(",", summonerIds);
+            return GetAsync<Dictionary<string, List<Team>>>($"{mainBaseUrl}/api/lol/{region}/{TeamApiVersion}/team/by-summoner/{summonerIdString}");
         }
 
         /// <summary>
@@ -63,9 +28,10 @@ namespace RiotNet
         /// </summary>
         /// <param name="teamIds">The team IDs. The maximum allowed at once is 10.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<TeamByTeamIdDictionary> GetTeamsByTeamIdsAsync(params String[] teamIds)
+        public Task<Dictionary<string, Team>> GetTeamsByTeamIdsAsync(params string[] teamIds)
         {
-            return ExecuteAsync<TeamByTeamIdDictionary>(GetTeamsByTeamIdsRequest(teamIds));
+            var teamIdString = string.Join(",", teamIds);
+            return GetAsync<Dictionary<string, Team>>($"{mainBaseUrl}/api/lol/{region}/{TeamApiVersion}/team/{teamIdString}");
         }
     }
 }

@@ -91,12 +91,6 @@
     <Compile Include="TestDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RiotNet\RiotNet.csproj">
-      <Project>{6f055d6f-a0b0-4895-ab88-f07fbad5d2d5}</Project>
-      <Name>RiotNet</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -116,6 +110,12 @@
     <None Include="tournament-key.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RiotNet\RiotNet.NetCore.xproj">
+      <Project>{2945392f-1aeb-4207-b7ca-6fae2449e987}</Project>
+      <Name>RiotNet.NetCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

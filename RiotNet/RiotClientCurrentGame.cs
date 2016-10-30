@@ -1,7 +1,5 @@
-﻿using RestSharp;
-using RiotNet.Models;
+﻿using RiotNet.Models;
 using System.Threading.Tasks;
-using System.Globalization;
 
 namespace RiotNet
 {
@@ -12,23 +10,6 @@ namespace RiotNet
         /// </summary>
         public string CurrentGameApiVersion { get { return "v1.0"; } }
 
-        private IRestRequest GetCurrentGameBySummonerIdRequest(long summonerId)
-        {
-            var request = Get("observer-mode/rest/consumer/getSpectatorGameInfo/{platformId}/{summonerId}");
-            request.AddUrlSegment("summonerId", summonerId.ToString(CultureInfo.InvariantCulture));
-            return request;
-        }
-
-        /// <summary>
-        /// Gets information about the current game a summoner is playing. This method uses the Current Game API.
-        /// </summary>
-        /// <param name="summonerId">The summoner ID.</param>
-        /// <returns>The current game information.</returns>
-        public CurrentGameInfo GetCurrentGameBySummonerId(long summonerId)
-        {
-            return Execute<CurrentGameInfo>(GetCurrentGameBySummonerIdRequest(summonerId));
-        }
-
         /// <summary>
         /// Gets information about the current game a summoner is playing. This method uses the Current Game API.
         /// </summary>
@@ -36,7 +17,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<CurrentGameInfo> GetCurrentGameBySummonerIdAsync(long summonerId)
         {
-            return ExecuteAsync<CurrentGameInfo>(GetCurrentGameBySummonerIdRequest(summonerId));
+            return GetAsync<CurrentGameInfo>($"{mainBaseUrl}/observer-mode/rest/consumer/getSpectatorGameInfo/{platformId}/{summonerId}");
         }
     }
 }
