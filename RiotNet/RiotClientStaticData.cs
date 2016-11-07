@@ -11,7 +11,6 @@ namespace RiotNet
     public partial class RiotClient
     {
         private const string staticDataBaseUrl = globalBaseUrl + "/api/lol/static-data";
-        private string itemListDataParam;
 
         /// <summary>
         /// Gets the currently supported version of the LoL Static Data API that the client communicates with.
@@ -86,8 +85,8 @@ namespace RiotNet
             var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/item";
             var queryParameters = GetStandardQueryParameters(locale, version);
             var dataParam = CreateDataParam(itemListData, typeof(StaticItem), typeof(StaticItemList));
-            if (!string.IsNullOrEmpty(itemListDataParam))
-                queryParameters["itemListData"] = itemListDataParam;
+            if (!string.IsNullOrEmpty(dataParam))
+                queryParameters["itemListData"] = dataParam;
             var itemList = await GetAsync<StaticItemList>(request, queryParameters).ConfigureAwait(false);
 
             if (itemList == null)
@@ -371,12 +370,12 @@ namespace RiotNet
         {
             if (string.IsNullOrEmpty(propertyName))
                 return null;
-            if (string.Equals(propertyName, "all", StringComparison.InvariantCultureIgnoreCase))
+            if (string.Equals(propertyName, "all", StringComparison.OrdinalIgnoreCase))
                 return "all";
 
-            var property = type.GetProperty(propertyName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
+            var property = type.GetTypeInfo().GetProperty(propertyName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
             if (property == null && listType != null)
-                property = listType.GetProperty(propertyName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
+                property = listType.GetTypeInfo().GetProperty(propertyName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
             if (property != null)
             {
                 // If there is a JsonProperty attribute, get the name from the attribute.

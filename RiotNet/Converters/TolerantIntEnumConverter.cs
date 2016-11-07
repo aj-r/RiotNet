@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Linq;
+using System.Reflection;
 
 namespace RiotNet.Converters
 {
@@ -17,7 +18,7 @@ namespace RiotNet.Converters
         public override bool CanConvert(Type objectType)
         {
             var type = IsNullableType(objectType) ? Nullable.GetUnderlyingType(objectType) : objectType;
-            return type.IsEnum;
+            return type.GetTypeInfo().IsEnum;
         }
 
         /// <summary>
@@ -73,7 +74,7 @@ namespace RiotNet.Converters
 
         private static bool IsNullableType(Type t)
         {
-            return t.IsGenericType && t.GetGenericTypeDefinition() == typeof(Nullable<>);
+            return t.GetTypeInfo().IsGenericType && t.GetGenericTypeDefinition() == typeof(Nullable<>);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace RiotNet
 {
@@ -39,10 +40,11 @@ namespace RiotNet
         {
             while (type != null)
             {
-                var genericInterface = type.GetInterfaces().Where(t => t.IsGenericType && t.GetGenericTypeDefinition() == genericInterfaceDefinition).FirstOrDefault();
+                var typeInfo = type.GetTypeInfo();
+                var genericInterface = typeInfo.GetInterfaces().Where(t => t.GetTypeInfo().IsGenericType && t.GetGenericTypeDefinition() == genericInterfaceDefinition).FirstOrDefault();
                 if (genericInterface != null)
                     return genericInterface;
-                type = type.BaseType;
+                type = typeInfo.BaseType;
             }
             return null;
         }
@@ -57,10 +59,11 @@ namespace RiotNet
         {
             while (objectType != null && objectType != typeof(object))
             {
-                var cur = objectType.IsGenericType ? objectType.GetGenericTypeDefinition() : objectType;
+                var typeInfo = objectType.GetTypeInfo();
+                var cur = typeInfo.IsGenericType ? objectType.GetGenericTypeDefinition() : objectType;
                 if (genericTypeDefinition == cur)
                     return true;
-                objectType = objectType.BaseType;
+                objectType = typeInfo.BaseType;
             }
             return false;
         }

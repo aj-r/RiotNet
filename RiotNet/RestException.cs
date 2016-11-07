@@ -1,6 +1,8 @@
 ﻿using System;
+#if NET_45
 using System.Runtime.Serialization;
 using System.Security.Permissions;
+#endif
 
 namespace RiotNet
 {
@@ -56,6 +58,7 @@ namespace RiotNet
             this.response = response;
         }
 
+#if NET_45
         /// <summary>
         /// Creates a new <see cref="RestException"/> instance.
         /// </summary>
@@ -79,6 +82,7 @@ namespace RiotNet
             info.AddValue("Response", response);
             base.GetObjectData(info, context);
         }
+#endif
 
         /// <summary>
         /// Gets the response.

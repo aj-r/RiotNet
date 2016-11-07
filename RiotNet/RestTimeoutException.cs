@@ -1,6 +1,8 @@
 ﻿using System;
+#if NET_45
 using System.Runtime.Serialization;
 using System.Security.Permissions;
+#endif
 
 namespace RiotNet
 {
@@ -52,6 +54,7 @@ namespace RiotNet
             : base(response, message, innerException)
         { }
 
+#if NET_45
         /// <summary>
         /// Creates a new <see cref="RestTimeoutException"/> instance.
         /// </summary>
@@ -61,5 +64,6 @@ namespace RiotNet
         protected RestTimeoutException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         { }
+#endif
     }
 }

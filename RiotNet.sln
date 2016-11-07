@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiotNet.Tests", "RiotNet.Tests\RiotNet.Tests.csproj", "{36792399-DB61-402C-BBDA-C85BE1A00024}"
-EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "RiotNet.NetCore", "RiotNet\RiotNet.NetCore.xproj", "{2945392F-1AEB-4207-B7CA-6FAE2449E987}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "RiotNet.Tests.NetCore", "RiotNet.Tests.NetCore\RiotNet.Tests.NetCore.xproj", "{CD7EBFFD-6CF9-4C3E-9F79-6CE9FE6372B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{615BFB46-74F4-49B2-BBD2-FC97EEA9FE61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3F76856E-77F2-4672-B231-75BC7EA0A513}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +17,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{36792399-DB61-402C-BBDA-C85BE1A00024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{36792399-DB61-402C-BBDA-C85BE1A00024}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{36792399-DB61-402C-BBDA-C85BE1A00024}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{36792399-DB61-402C-BBDA-C85BE1A00024}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2945392F-1AEB-4207-B7CA-6FAE2449E987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2945392F-1AEB-4207-B7CA-6FAE2449E987}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2945392F-1AEB-4207-B7CA-6FAE2449E987}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2945392F-1AEB-4207-B7CA-6FAE2449E987}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD7EBFFD-6CF9-4C3E-9F79-6CE9FE6372B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD7EBFFD-6CF9-4C3E-9F79-6CE9FE6372B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD7EBFFD-6CF9-4C3E-9F79-6CE9FE6372B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD7EBFFD-6CF9-4C3E-9F79-6CE9FE6372B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

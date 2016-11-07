@@ -1,12 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.Linq;
 using System.Reflection;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace RiotNet.Converters
 {
@@ -39,7 +37,7 @@ namespace RiotNet.Converters
             var obj = JObject.Load(reader);
             var collection = (IList)Activator.CreateInstance(objectType);
             var collectionType = ReflectionUtils.GetListInterface(objectType);
-            var itemType = collectionType.GetGenericArguments().First();
+            var itemType = collectionType.GetTypeInfo().GetGenericArguments().First();
             foreach (var property in obj.Properties())
             {
                 var item = property.Value.ToObject(itemType);
@@ -60,8 +58,8 @@ namespace RiotNet.Converters
             writer.WriteStartObject();
             var objectType = value.GetType();
             var collectionType = ReflectionUtils.GetListInterface(objectType);
-            var itemType = collectionType.GetGenericArguments().First();
-            var getKeyMethod = objectType.GetMethod("GetKeyForItem", BindingFlags.NonPublic | BindingFlags.Instance, null, new[] { itemType }, null);
+            var itemType = collectionType.GetTypeInfo().GetGenericArguments().First();
+            var getKeyMethod = objectType.GetTypeInfo().GetMethod("GetKeyForItem", BindingFlags.NonPublic | BindingFlags.Instance);
             foreach (var item in collection)
             {
                 var key = getKeyMethod.Invoke(value, new object[] { item });
