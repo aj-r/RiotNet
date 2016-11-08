@@ -18,7 +18,8 @@ namespace RiotNet.Tests
 
             Assert.That(championMastery, Is.Not.Null);
             Assert.That(championMastery.ChampionId, Is.EqualTo(412L));
-            Assert.That(championMastery.LastPlayTime, Is.GreaterThan(new DateTime(2015, 1, 1)).And.LessThanOrEqualTo(DateTime.Now));
+            Assert.That(championMastery.LastPlayTime.Kind, Is.EqualTo(DateTimeKind.Utc));
+            Assert.That(championMastery.LastPlayTime, Is.GreaterThan(new DateTime(2015, 1, 1, 0, 0, 0, DateTimeKind.Utc)).And.LessThanOrEqualTo(DateTime.UtcNow));
             Assert.That(championMastery.ChampionLevel, Is.AtLeast(1), "Invalid champion level.");
             Assert.That(championMastery.ChampionPoints, Is.AtLeast(1), "Invalid number of champion points.");
             Assert.That(championMastery.PlayerId, Is.EqualTo(34172230L));
@@ -35,7 +36,7 @@ namespace RiotNet.Tests
             {
                 Assert.That(championMastery, Is.Not.Null);
                 Assert.That(championMastery.ChampionId, Is.AtLeast(1), "Invalid champion ID.");
-                Assert.That(championMastery.LastPlayTime, Is.GreaterThan(new DateTime(2015, 1, 1)).And.LessThanOrEqualTo(DateTime.Now));
+                Assert.That(championMastery.LastPlayTime, Is.GreaterThan(new DateTime(2015, 1, 1, 0, 0, 0, DateTimeKind.Utc)).And.LessThanOrEqualTo(DateTime.UtcNow));
                 Assert.That(championMastery.ChampionLevel, Is.AtLeast(1), "Invalid champion level (champion ID: " + championMastery.ChampionId + ".");
                 Assert.That(championMastery.ChampionPoints, Is.AtLeast(1), "Invalid number of champion points (champion ID: " + championMastery.ChampionId + ".");
                 Assert.That(championMastery.PlayerId, Is.EqualTo(34172230L));
@@ -63,7 +64,7 @@ namespace RiotNet.Tests
             {
                 Assert.That(championMastery, Is.Not.Null);
                 Assert.That(championMastery.ChampionId, Is.AtLeast(1), "Invalid champion ID.");
-                Assert.That(championMastery.LastPlayTime, Is.GreaterThan(new DateTime(2015, 1, 1)).And.LessThanOrEqualTo(DateTime.Now));
+                Assert.That(championMastery.LastPlayTime, Is.GreaterThan(new DateTime(2015, 1, 1, 0, 0, 0, DateTimeKind.Utc)).And.LessThanOrEqualTo(DateTime.UtcNow));
                 Assert.That(championMastery.ChampionLevel, Is.AtLeast(1), "Invalid champion level (champion ID: " + championMastery.ChampionId + ".");
                 Assert.That(championMastery.ChampionPoints, Is.AtLeast(1), "Invalid number of champion points (champion ID: " + championMastery.ChampionId + ".");
                 Assert.That(championMastery.PlayerId, Is.EqualTo(34172230L));
