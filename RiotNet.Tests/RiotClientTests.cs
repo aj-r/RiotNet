@@ -50,7 +50,7 @@ namespace RiotNet.Tests
         {
             foreach (Region region in Enum.GetValues(typeof(Region)))
             {
-                var server = RiotClient.GetPlatformId(region);
+                var server = RiotClient.GetServerName(region);
                 Assert.That(server, Is.Not.Null.And.Not.Empty);
             }
         }
