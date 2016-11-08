@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/aj-r/RiotNet</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Added enum values for dynamic queue and blue trinket wards.</releaseNotes>
+    <releaseNotes>Added new constants, fixed a bug where shard updates were not deserialized correctly.</releaseNotes>
     <copyright>Copyright 2016 AJ Richardson</copyright>
     <tags>riot games lol api client wrapper</tags>
   </metadata>
