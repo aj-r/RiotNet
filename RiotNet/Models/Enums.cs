@@ -132,7 +132,11 @@ namespace RiotNet.Models
         /// <summary>
         /// Legend of the Poro King, played on the Howling Abyss.
         /// </summary>
-        KINGPORO
+        KINGPORO,
+        /// <summary>
+        /// Nexus Siege
+        /// </summary>
+        SIEGE,
     }
 
     /// <summary>
@@ -240,6 +244,10 @@ namespace RiotNet.Models
         /// Black Market Brawlers
         /// </summary>
         BILGEWATER,
+        /// <summary>
+        /// Nexus Siege
+        /// </summary>
+        SIEGE,
     }
 
     /// <summary>
@@ -637,9 +645,17 @@ namespace RiotNet.Models
         /// </summary>
         BILGEWATER_5x5 = 313,
         /// <summary>
+        /// Nexus Siege
+        /// </summary>
+        SIEGE = 315,
+        /// <summary>
         /// Definitely Not Dominion
         /// </summary>
         DEFINITELY_NOT_DOMINION_5x5 = 317,
+        /// <summary>
+        /// All Random URF
+        /// </summary>
+        ARURF_5x5 = 318,
         /// <summary>
         /// Normal 5v5 Draft Pick
         /// </summary>

@@ -37,7 +37,7 @@ namespace RiotNet.Models
         public string MapName { get; set; }
 
         /// <summary>
-        /// Gets or sets the list of item names for items that cannot be purchased on this map.
+        /// Gets or sets the list of item names for items that cannot be purchased on this map. NOTE: the Riot API never seems to set this property, so it is always empty.
         /// </summary>
         public ListOfString UnpurchasableItemList { get; set; }
     }
