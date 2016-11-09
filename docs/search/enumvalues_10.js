@@ -10,5 +10,6 @@ var searchData=
   ['retry',['Retry',['../class_riot_net_1_1_riot_client.html#a9d424fb929a242a890b71914d51d43cca6327b4e59f58137083214a1fec358855',1,'RiotNet::RiotClient']]],
   ['return',['Return',['../class_riot_net_1_1_riot_client.html#a9d424fb929a242a890b71914d51d43cca988fd738de9c6d177440c5dcf69e73ce',1,'RiotNet::RiotClient']]],
   ['returndefault',['ReturnDefault',['../class_riot_net_1_1_riot_client.html#a9d424fb929a242a890b71914d51d43cca51518d70078d4592195b101a236fb147',1,'RiotNet::RiotClient']]],
+  ['riftherald',['RIFTHERALD',['../namespace_riot_net_1_1_models.html#aa5cdcae2ad34ad173f4d0e993d9ff44fadf59155fec18a47518bf11651d669427',1,'RiotNet::Models']]],
   ['ru',['RU',['../namespace_riot_net_1_1_models.html#a4d7348194651d9696ff39e0134f4d135af9308c5d059650ee40cab30bad1e96d0',1,'RiotNet::Models']]]
 ];

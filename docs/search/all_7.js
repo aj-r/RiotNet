@@ -5,6 +5,7 @@ var searchData=
   ['hexakill',['HEXAKILL',['../namespace_riot_net_1_1_models.html#a1feb539727378192c5ae4cf447084ea9a7e002e74baefad234a6cbd4e646fc3bb',1,'RiotNet.Models.HEXAKILL()'],['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a7e002e74baefad234a6cbd4e646fc3bb',1,'RiotNet.Models.HEXAKILL()']]],
   ['hidefromall',['HideFromAll',['../class_riot_net_1_1_models_1_1_static_item.html#aa10d7fb9e61fbf7659fe1586fa5d93cb',1,'RiotNet::Models::StaticItem']]],
   ['highestachievedseasontier',['HighestAchievedSeasonTier',['../class_riot_net_1_1_models_1_1_match_participant.html#ab1efd03606011576f7ad6a7bf0ae4f38',1,'RiotNet::Models::MatchParticipant']]],
+  ['highestgrade',['HighestGrade',['../class_riot_net_1_1_models_1_1_champion_mastery.html#a022af60ceb1f43ed99eb95183dbe96dc',1,'RiotNet::Models::ChampionMastery']]],
   ['hostname',['Hostname',['../class_riot_net_1_1_models_1_1_shard.html#adf1dc3c02d18bdd06fef2a40b661bfbb',1,'RiotNet::Models::Shard']]],
   ['howling_5fabyss',['HOWLING_ABYSS',['../namespace_riot_net_1_1_models.html#aa6da05d91aef6afab7307e8aa4bc15dda77eaae5faba676dd5a93d8a9fb68cfbc',1,'RiotNet::Models']]],
   ['hp',['HP',['../class_riot_net_1_1_models_1_1_stats.html#a5a233c118dafc19331515c3b6eb970c0',1,'RiotNet::Models::Stats']]],

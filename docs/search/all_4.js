@@ -13,10 +13,11 @@ var searchData=
   ['error',['Error',['../namespace_riot_net_1_1_models.html#a4a8c73813dd528b3feb8ac516ce53adfa902b0d55fddef6f8d651fe1035b7d4bd',1,'RiotNet::Models']]],
   ['eune',['EUNE',['../namespace_riot_net_1_1_models.html#a4d7348194651d9696ff39e0134f4d135acc15dcdfee1886b70972a56eb9a40050',1,'RiotNet::Models']]],
   ['euw',['EUW',['../namespace_riot_net_1_1_models.html#a4d7348194651d9696ff39e0134f4d135a202a30d535d794107608930ca335d101',1,'RiotNet::Models']]],
-  ['event',['Event',['../class_riot_net_1_1_models_1_1_event.html#a63c3bbf6fdf7fb902decc2f4955f8b80',1,'RiotNet::Models::Event']]],
   ['event',['Event',['../class_riot_net_1_1_models_1_1_event.html',1,'RiotNet::Models']]],
+  ['event',['Event',['../class_riot_net_1_1_models_1_1_event.html#a63c3bbf6fdf7fb902decc2f4955f8b80',1,'RiotNet::Models::Event']]],
+  ['eventlist',['EventList',['../class_riot_net_1_1_models_1_1_lobby_event_wrapper.html#a03b7b05c5dd66aaf6ba98a0d34729a90',1,'RiotNet::Models::LobbyEventWrapper']]],
   ['events',['Events',['../class_riot_net_1_1_models_1_1_frame.html#ad805ebc9a07181f59ecc05f67d1ce246',1,'RiotNet::Models::Frame']]],
-  ['eventtype',['EventType',['../class_riot_net_1_1_models_1_1_event.html#a4ddfdc4c9454f66fe0502073998ab917',1,'RiotNet.Models.Event.EventType()'],['../namespace_riot_net_1_1_models.html#a53a6557b8095df654f197de15fe05716',1,'RiotNet.Models.EventType()']]],
+  ['eventtype',['EventType',['../class_riot_net_1_1_models_1_1_event.html#a4ddfdc4c9454f66fe0502073998ab917',1,'RiotNet.Models.Event.EventType()'],['../class_riot_net_1_1_models_1_1_lobby_event.html#aea0d26b6b2a2cab1cb4bbc4ffdee3441',1,'RiotNet.Models.LobbyEvent.EventType()'],['../namespace_riot_net_1_1_models.html#a53a6557b8095df654f197de15fe05716',1,'RiotNet.Models.EventType()']]],
   ['evolve',['EVOLVE',['../namespace_riot_net_1_1_models.html#a7a93d7fc2179d6364bb72a3aa6f994c2aeb1a384923bf9a900174479aa56298e5',1,'RiotNet::Models']]],
   ['execute_3c_20t_20_3e',['Execute&lt; T &gt;',['../class_riot_net_1_1_riot_client.html#ae6cbacbefcc0e0e8ce1978bd7f7d370d',1,'RiotNet.RiotClient.Execute&lt; T &gt;(IRestRequest request)'],['../class_riot_net_1_1_riot_client.html#a263891831f783e0c4a6b3174f0ce062b',1,'RiotNet.RiotClient.Execute&lt; T &gt;(IRestRequest request, IRestClient client)']]],
   ['executeasync_3c_20t_20_3e',['ExecuteAsync&lt; T &gt;',['../class_riot_net_1_1_riot_client.html#a982a54cf53f403964e9f1754936d5e09',1,'RiotNet.RiotClient.ExecuteAsync&lt; T &gt;(IRestRequest request)'],['../class_riot_net_1_1_riot_client.html#a119a5a3182a58b2c5617d2160d384463',1,'RiotNet.RiotClient.ExecuteAsync&lt; T &gt;(IRestRequest request, IRestClient client)']]]

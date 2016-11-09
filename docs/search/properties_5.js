@@ -11,6 +11,7 @@ var searchData=
   ['firstinhibitor',['FirstInhibitor',['../class_riot_net_1_1_models_1_1_match_team.html#a0f04f3e38a0e8179d5c0cd82342d66bc',1,'RiotNet::Models::MatchTeam']]],
   ['firstinhibitorassist',['FirstInhibitorAssist',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#a9f3ae4e4e95e440f43b55b3ec42c526b',1,'RiotNet::Models::MatchParticipantStats']]],
   ['firstinhibitorkill',['FirstInhibitorKill',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#af19922e46ced53a66370f50879512bf1',1,'RiotNet::Models::MatchParticipantStats']]],
+  ['firstriftherald',['FirstRiftHerald',['../class_riot_net_1_1_models_1_1_match_team.html#aa072f9954da3abfd0728b2c514ea24af',1,'RiotNet::Models::MatchTeam']]],
   ['firsttower',['FirstTower',['../class_riot_net_1_1_models_1_1_match_team.html#ad2021a9566817369efad5eda657c680b',1,'RiotNet::Models::MatchTeam']]],
   ['firsttowerassist',['FirstTowerAssist',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#a5aa937123622b1698f147db8de35241a',1,'RiotNet::Models::MatchParticipantStats']]],
   ['firsttowerkill',['FirstTowerKill',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#addd00caaf2fd46c6ee4df2db4fe7645a',1,'RiotNet::Models::MatchParticipantStats']]],

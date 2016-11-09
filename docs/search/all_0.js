@@ -17,6 +17,7 @@ var searchData=
   ['aram_5funranked_5f5x5',['ARAM_UNRANKED_5x5',['../namespace_riot_net_1_1_models.html#a1feb539727378192c5ae4cf447084ea9a72ee14aba2dd57bf757739b796e8440a',1,'RiotNet::Models']]],
   ['armor',['Armor',['../class_riot_net_1_1_models_1_1_stats.html#a4b3631acc5bed3823fa60f95f5e391b9',1,'RiotNet::Models::Stats']]],
   ['armorperlevel',['ArmorPerLevel',['../class_riot_net_1_1_models_1_1_stats.html#adb22f5ce6122273f1dac5400af7ad491',1,'RiotNet::Models::Stats']]],
+  ['arurf_5f5x5',['ARURF_5x5',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a31b85561a0befe0c34a78c6c27844a1d',1,'RiotNet::Models']]],
   ['ascended_5fevent',['ASCENDED_EVENT',['../namespace_riot_net_1_1_models.html#a53a6557b8095df654f197de15fe05716a36a16a8873403032dc78bed7ca6bf027',1,'RiotNet::Models']]],
   ['ascendedtype',['AscendedType',['../class_riot_net_1_1_models_1_1_event.html#a6323cb10883d0892210331bcf76b5e0d',1,'RiotNet.Models.Event.AscendedType()'],['../namespace_riot_net_1_1_models.html#a557e202a6d63923ba7889515b269b81b',1,'RiotNet.Models.AscendedType()']]],
   ['ascension',['ASCENSION',['../namespace_riot_net_1_1_models.html#ac7c27793721e27458de29dceed2ad29aa2973f43345c310c47f456ec9e662e161',1,'RiotNet.Models.ASCENSION()'],['../namespace_riot_net_1_1_models.html#a1feb539727378192c5ae4cf447084ea9a2973f43345c310c47f456ec9e662e161',1,'RiotNet.Models.ASCENSION()']]],

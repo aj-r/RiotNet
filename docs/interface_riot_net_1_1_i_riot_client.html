@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">2.0.0</span>
+   &#160;<span id="projectnumber">2.5.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -124,6 +124,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a17e5155d801f350c1897573f70e6edd6"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_champion.html">Champion</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a17e5155d801f350c1897573f70e6edd6">GetChampionByIdAsync</a> (long id)</td></tr>
 <tr class="memdesc:a17e5155d801f350c1897573f70e6edd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets dynamic champion information for the specified champion. This method uses the Champion API.  <a href="#a17e5155d801f350c1897573f70e6edd6">More...</a><br /></td></tr>
 <tr class="separator:a17e5155d801f350c1897573f70e6edd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e34d716c520b525d334d4d3aaf73e4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_riot_net_1_1_models_1_1_champion_mastery.html">ChampionMastery</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a6e34d716c520b525d334d4d3aaf73e4c">GetChampionMastery</a> (long playerId, long championId)</td></tr>
+<tr class="memdesc:a6e34d716c520b525d334d4d3aaf73e4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets information about a summoner's mastery of a champion. This method uses the Champion Mastery API.  <a href="#a6e34d716c520b525d334d4d3aaf73e4c">More...</a><br /></td></tr>
+<tr class="separator:a6e34d716c520b525d334d4d3aaf73e4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ccee9659da106c8cf66ac289014becf"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_champion_mastery.html">ChampionMastery</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a9ccee9659da106c8cf66ac289014becf">GetChampionMasteryAsync</a> (long playerId, long championId)</td></tr>
+<tr class="memdesc:a9ccee9659da106c8cf66ac289014becf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets information about a summoner's mastery of a champion. This method uses the Champion Mastery API.  <a href="#a9ccee9659da106c8cf66ac289014becf">More...</a><br /></td></tr>
+<tr class="separator:a9ccee9659da106c8cf66ac289014becf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5af5b5e26fbdda1484588cec316bbddc"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_riot_net_1_1_models_1_1_champion_mastery.html">ChampionMastery</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5af5b5e26fbdda1484588cec316bbddc">GetChampionMasteries</a> (long playerId)</td></tr>
+<tr class="memdesc:a5af5b5e26fbdda1484588cec316bbddc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets information about a summoner's mastery of all champions they have played. This method uses the Champion Mastery API.  <a href="#a5af5b5e26fbdda1484588cec316bbddc">More...</a><br /></td></tr>
+<tr class="separator:a5af5b5e26fbdda1484588cec316bbddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaa7e95f785dd2ca79353ff2ea6744fe"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="class_riot_net_1_1_models_1_1_champion_mastery.html">ChampionMastery</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#acaa7e95f785dd2ca79353ff2ea6744fe">GetChampionMasteriesAsync</a> (long playerId)</td></tr>
+<tr class="memdesc:acaa7e95f785dd2ca79353ff2ea6744fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets information about a summoner's mastery of all champions they have played. This method uses the Champion Mastery API.  <a href="#acaa7e95f785dd2ca79353ff2ea6744fe">More...</a><br /></td></tr>
+<tr class="separator:acaa7e95f785dd2ca79353ff2ea6744fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62182993a11db84e6f0179766889046b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a62182993a11db84e6f0179766889046b">GetChampionMasteryScore</a> (long playerId)</td></tr>
+<tr class="memdesc:a62182993a11db84e6f0179766889046b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a summoner's champion mastery score (the sum of the champion levels of all champions for that summoner). This method uses the Champion Mastery API.  <a href="#a62182993a11db84e6f0179766889046b">More...</a><br /></td></tr>
+<tr class="separator:a62182993a11db84e6f0179766889046b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52050a88a5782cbb8babc851bd7637aa"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a52050a88a5782cbb8babc851bd7637aa">GetChampionMasteryScoreAsync</a> (long playerId)</td></tr>
+<tr class="memdesc:a52050a88a5782cbb8babc851bd7637aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a summoner's champion mastery score (the sum of the champion levels of all champions for that summoner). This method uses the Champion Mastery API.  <a href="#a52050a88a5782cbb8babc851bd7637aa">More...</a><br /></td></tr>
+<tr class="separator:a52050a88a5782cbb8babc851bd7637aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a821c960b7c8c429007aa23929aeac071"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_riot_net_1_1_models_1_1_champion_mastery.html">ChampionMastery</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a821c960b7c8c429007aa23929aeac071">GetChampionMasteryTopChampions</a> (long playerId, int?count=null)</td></tr>
+<tr class="memdesc:a821c960b7c8c429007aa23929aeac071"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets information about a summoner's mastery of their most mastered champions. This method uses the Champion Mastery API.  <a href="#a821c960b7c8c429007aa23929aeac071">More...</a><br /></td></tr>
+<tr class="separator:a821c960b7c8c429007aa23929aeac071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32700381f0a0095f9dfa00fe6b5da2c3"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="class_riot_net_1_1_models_1_1_champion_mastery.html">ChampionMastery</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a32700381f0a0095f9dfa00fe6b5da2c3">GetChampionMasteryTopChampionsAsync</a> (long playerId, int?count=null)</td></tr>
+<tr class="memdesc:a32700381f0a0095f9dfa00fe6b5da2c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets information about a summoner's mastery of their most mastered champions. This method uses the Champion Mastery API.  <a href="#a32700381f0a0095f9dfa00fe6b5da2c3">More...</a><br /></td></tr>
+<tr class="separator:a32700381f0a0095f9dfa00fe6b5da2c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48b7562f79c67e8c24f8ca5094bcd3c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_riot_net_1_1_models_1_1_current_game_info.html">CurrentGameInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a48b7562f79c67e8c24f8ca5094bcd3c3">GetCurrentGameBySummonerId</a> (long summonerId)</td></tr>
 <tr class="memdesc:a48b7562f79c67e8c24f8ca5094bcd3c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets information about the current game a summoner is playing. This method uses the Current Game API.  <a href="#a48b7562f79c67e8c24f8ca5094bcd3c3">More...</a><br /></td></tr>
 <tr class="separator:a48b7562f79c67e8c24f8ca5094bcd3c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -274,12 +298,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab03b65cabc9967fc7e3c794acf235a5e"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_shard_status.html">ShardStatus</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#ab03b65cabc9967fc7e3c794acf235a5e">GetShardStatusAsync</a> ()</td></tr>
 <tr class="memdesc:ab03b65cabc9967fc7e3c794acf235a5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the status of the shard for the current region. This method uses the LoL Status API.  <a href="#ab03b65cabc9967fc7e3c794acf235a5e">More...</a><br /></td></tr>
 <tr class="separator:ab03b65cabc9967fc7e3c794acf235a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa14db5b4228d86bb2466463e5ba4a5fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_riot_net_1_1_models_1_1_match_detail.html">MatchDetail</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#aa14db5b4228d86bb2466463e5ba4a5fa">GetMatch</a> (long matchId, Boolean includeTimeline=false)</td></tr>
-<tr class="memdesc:aa14db5b4228d86bb2466463e5ba4a5fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details of a match. This method uses the Match API.  <a href="#aa14db5b4228d86bb2466463e5ba4a5fa">More...</a><br /></td></tr>
-<tr class="separator:aa14db5b4228d86bb2466463e5ba4a5fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4f22dcc7c093739d8cd9e9e600d0c83"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_match_detail.html">MatchDetail</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#ae4f22dcc7c093739d8cd9e9e600d0c83">GetMatchAsync</a> (long matchId, Boolean includeTimeline=false)</td></tr>
-<tr class="memdesc:ae4f22dcc7c093739d8cd9e9e600d0c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details of a match. This method uses the Match API.  <a href="#ae4f22dcc7c093739d8cd9e9e600d0c83">More...</a><br /></td></tr>
-<tr class="separator:ae4f22dcc7c093739d8cd9e9e600d0c83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c789b97c066401d35514e55b5b44b22"><td class="memItemLeft" align="right" valign="top">List&lt; long &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a7c789b97c066401d35514e55b5b44b22">GetMatchIdsByTournamentCode</a> (string tournamentCode)</td></tr>
+<tr class="memdesc:a7c789b97c066401d35514e55b5b44b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the list of match IDs for a tournament code. This method uses the Match API. This endpoint is only accessible if you have a tournament API key.  <a href="#a7c789b97c066401d35514e55b5b44b22">More...</a><br /></td></tr>
+<tr class="separator:a7c789b97c066401d35514e55b5b44b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab41cbee8e7e981a6189e5a34b6ee71ce"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; long &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#ab41cbee8e7e981a6189e5a34b6ee71ce">GetMatchIdsByTournamentCodeAsync</a> (string tournamentCode)</td></tr>
+<tr class="memdesc:ab41cbee8e7e981a6189e5a34b6ee71ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the list of match IDs for a tournament code. This method uses the Match API. This endpoint is only accessible if you have a tournament API key.  <a href="#ab41cbee8e7e981a6189e5a34b6ee71ce">More...</a><br /></td></tr>
+<tr class="separator:ab41cbee8e7e981a6189e5a34b6ee71ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71cd90671bae8c7d81968fd6e4b0beef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_riot_net_1_1_models_1_1_match_detail.html">MatchDetail</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a71cd90671bae8c7d81968fd6e4b0beef">GetMatchForTournament</a> (long matchId, string tournamentCode)</td></tr>
+<tr class="memdesc:a71cd90671bae8c7d81968fd6e4b0beef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details of a match. This method uses the Match API. This endpoint is only accessible if you have a tournament API key.  <a href="#a71cd90671bae8c7d81968fd6e4b0beef">More...</a><br /></td></tr>
+<tr class="separator:a71cd90671bae8c7d81968fd6e4b0beef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bf44123bfd1ff710857d7821d323b84"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_match_detail.html">MatchDetail</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a1bf44123bfd1ff710857d7821d323b84">GetMatchForTournamentAsync</a> (long matchId, string tournamentCode)</td></tr>
+<tr class="memdesc:a1bf44123bfd1ff710857d7821d323b84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details of a match. This method uses the Match API. This endpoint is only accessible if you have a tournament API key.  <a href="#a1bf44123bfd1ff710857d7821d323b84">More...</a><br /></td></tr>
+<tr class="separator:a1bf44123bfd1ff710857d7821d323b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3279a23e918366eca5f954c3a7fe4b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_riot_net_1_1_models_1_1_match_detail.html">MatchDetail</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#ae3279a23e918366eca5f954c3a7fe4b8">GetMatch</a> (long matchId, bool includeTimeline=false)</td></tr>
+<tr class="memdesc:ae3279a23e918366eca5f954c3a7fe4b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details of a match. This method uses the Match API.  <a href="#ae3279a23e918366eca5f954c3a7fe4b8">More...</a><br /></td></tr>
+<tr class="separator:ae3279a23e918366eca5f954c3a7fe4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1b47e0aca85b18e147c4a7c03c0b402"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_match_detail.html">MatchDetail</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#af1b47e0aca85b18e147c4a7c03c0b402">GetMatchAsync</a> (long matchId, bool includeTimeline=false)</td></tr>
+<tr class="memdesc:af1b47e0aca85b18e147c4a7c03c0b402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details of a match. This method uses the Match API.  <a href="#af1b47e0aca85b18e147c4a7c03c0b402">More...</a><br /></td></tr>
+<tr class="separator:af1b47e0aca85b18e147c4a7c03c0b402"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b791b71ddf6af94248f6e1983cffb03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_riot_net_1_1_models_1_1_match_list.html">MatchList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a3b791b71ddf6af94248f6e1983cffb03">GetMatchList</a> (long summonerId, long[] championIds=null, <a class="el" href="namespace_riot_net_1_1_models.html#ae86fd8ac68195c1d7b7d839200c6d756">RankedQueue</a>[] rankedQueues=null, <a class="el" href="namespace_riot_net_1_1_models.html#a7081083073e41f3014b51d3c3c5d6903">Season</a>[] seasons=null, DateTime?beginTime=null, DateTime?endTime=null, int?beginIndex=null, int?endIndex=null)</td></tr>
 <tr class="memdesc:a3b791b71ddf6af94248f6e1983cffb03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the match list for a summoner. This method uses the Match List API.  <a href="#a3b791b71ddf6af94248f6e1983cffb03">More...</a><br /></td></tr>
 <tr class="separator:a3b791b71ddf6af94248f6e1983cffb03"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -352,6 +388,48 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a32ba226af86a640538ecff7f2f398114"><td class="memItemLeft" align="right" valign="top">Task&lt; Dictionary&lt; string, <a class="el" href="class_riot_net_1_1_models_1_1_team.html">Team</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a32ba226af86a640538ecff7f2f398114">GetTeamsByTeamIdsAsync</a> (params String[] teamIds)</td></tr>
 <tr class="memdesc:a32ba226af86a640538ecff7f2f398114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the team corresponding to each team ID. This method uses the Team API.  <a href="#a32ba226af86a640538ecff7f2f398114">More...</a><br /></td></tr>
 <tr class="separator:a32ba226af86a640538ecff7f2f398114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7df85f4cfc12d7e28bd7b40977c84525"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a7df85f4cfc12d7e28bd7b40977c84525">CreateTournamentProvider</a> (string url)</td></tr>
+<tr class="memdesc:a7df85f4cfc12d7e28bd7b40977c84525"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers the current client as a tournament provider. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.  <a href="#a7df85f4cfc12d7e28bd7b40977c84525">More...</a><br /></td></tr>
+<tr class="separator:a7df85f4cfc12d7e28bd7b40977c84525"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1738c4228744e9640ea2982397c95e6"><td class="memItemLeft" align="right" valign="top">Task&lt; long &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#ae1738c4228744e9640ea2982397c95e6">CreateTournamentProviderAsync</a> (string url)</td></tr>
+<tr class="memdesc:ae1738c4228744e9640ea2982397c95e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers the current client as a tournament provider. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.  <a href="#ae1738c4228744e9640ea2982397c95e6">More...</a><br /></td></tr>
+<tr class="separator:ae1738c4228744e9640ea2982397c95e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d209665905b22419c2553fecf61da7c"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a6d209665905b22419c2553fecf61da7c">CreateTournament</a> (long providerID, string name=null)</td></tr>
+<tr class="memdesc:a6d209665905b22419c2553fecf61da7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a tournament. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.  <a href="#a6d209665905b22419c2553fecf61da7c">More...</a><br /></td></tr>
+<tr class="separator:a6d209665905b22419c2553fecf61da7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafa48264154f857a6545a145ad76435a"><td class="memItemLeft" align="right" valign="top">Task&lt; long &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#aafa48264154f857a6545a145ad76435a">CreateTournamentAsync</a> (long providerID, string name=null)</td></tr>
+<tr class="memdesc:aafa48264154f857a6545a145ad76435a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a tournament. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.  <a href="#aafa48264154f857a6545a145ad76435a">More...</a><br /></td></tr>
+<tr class="separator:aafa48264154f857a6545a145ad76435a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04b680441e0599c66474a966a3704f6c"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a04b680441e0599c66474a966a3704f6c">CreateTournamentCode</a> (long tournamentId, int?count=null, List&lt; long &gt; allowedSummonerIds=null, <a class="el" href="namespace_riot_net_1_1_models.html#aa6da05d91aef6afab7307e8aa4bc15dd">MapType</a> mapType=MapType.SUMMONERS_RIFT, <a class="el" href="namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462">PickType</a> pickType=PickType.TOURNAMENT_DRAFT, <a class="el" href="namespace_riot_net_1_1_models.html#ae642ab9a0a2028e0515eba744a9d4533">SpectatorType</a> spectatorType=SpectatorType.ALL, int teamSize=5, string metadata=null)</td></tr>
+<tr class="memdesc:a04b680441e0599c66474a966a3704f6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates one or more tournament codes. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.  <a href="#a04b680441e0599c66474a966a3704f6c">More...</a><br /></td></tr>
+<tr class="separator:a04b680441e0599c66474a966a3704f6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27f6bdd1c0520dd9c4f52e1a0744738c"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a27f6bdd1c0520dd9c4f52e1a0744738c">CreateTournamentCodeAsync</a> (long tournamentId, int?count=null, List&lt; long &gt; allowedSummonerIds=null, <a class="el" href="namespace_riot_net_1_1_models.html#aa6da05d91aef6afab7307e8aa4bc15dd">MapType</a> mapType=MapType.SUMMONERS_RIFT, <a class="el" href="namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462">PickType</a> pickType=PickType.TOURNAMENT_DRAFT, <a class="el" href="namespace_riot_net_1_1_models.html#ae642ab9a0a2028e0515eba744a9d4533">SpectatorType</a> spectatorType=SpectatorType.ALL, int teamSize=5, string metadata=null)</td></tr>
+<tr class="memdesc:a27f6bdd1c0520dd9c4f52e1a0744738c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates one or more tournament codes. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.  <a href="#a27f6bdd1c0520dd9c4f52e1a0744738c">More...</a><br /></td></tr>
+<tr class="separator:a27f6bdd1c0520dd9c4f52e1a0744738c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e86d229ae8c01a67aa0525df725540a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_riot_net_1_1_models_1_1_tournament_code.html">TournamentCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a9e86d229ae8c01a67aa0525df725540a">GetTournamentCode</a> (string tournamentCode)</td></tr>
+<tr class="memdesc:a9e86d229ae8c01a67aa0525df725540a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details of a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.  <a href="#a9e86d229ae8c01a67aa0525df725540a">More...</a><br /></td></tr>
+<tr class="separator:a9e86d229ae8c01a67aa0525df725540a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91259f8a73be8e0a2c8c93c58e3f06bd"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_tournament_code.html">TournamentCode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a91259f8a73be8e0a2c8c93c58e3f06bd">GetTournamentCodeAsync</a> (string tournamentCode)</td></tr>
+<tr class="memdesc:a91259f8a73be8e0a2c8c93c58e3f06bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details of a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.  <a href="#a91259f8a73be8e0a2c8c93c58e3f06bd">More...</a><br /></td></tr>
+<tr class="separator:a91259f8a73be8e0a2c8c93c58e3f06bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d8c49d3848f713e38b47dadec83f8f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a9d8c49d3848f713e38b47dadec83f8f4">UpdateTournamentCode</a> (string tournamentCode, List&lt; long &gt; allowedSummonerIds=null, <a class="el" href="namespace_riot_net_1_1_models.html#aa6da05d91aef6afab7307e8aa4bc15dd">MapType</a> mapType=MapType.SUMMONERS_RIFT, <a class="el" href="namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462">PickType</a> pickType=PickType.TOURNAMENT_DRAFT, <a class="el" href="namespace_riot_net_1_1_models.html#ae642ab9a0a2028e0515eba744a9d4533">SpectatorType</a> spectatorType=SpectatorType.ALL)</td></tr>
+<tr class="memdesc:a9d8c49d3848f713e38b47dadec83f8f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.  <a href="#a9d8c49d3848f713e38b47dadec83f8f4">More...</a><br /></td></tr>
+<tr class="separator:a9d8c49d3848f713e38b47dadec83f8f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4feb0ce9c4bf50f842364e748625245"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#aa4feb0ce9c4bf50f842364e748625245">UpdateTournamentCodeAsync</a> (string tournamentCode, List&lt; long &gt; allowedSummonerIds=null, <a class="el" href="namespace_riot_net_1_1_models.html#aa6da05d91aef6afab7307e8aa4bc15dd">MapType</a> mapType=MapType.SUMMONERS_RIFT, <a class="el" href="namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462">PickType</a> pickType=PickType.TOURNAMENT_DRAFT, <a class="el" href="namespace_riot_net_1_1_models.html#ae642ab9a0a2028e0515eba744a9d4533">SpectatorType</a> spectatorType=SpectatorType.ALL)</td></tr>
+<tr class="memdesc:aa4feb0ce9c4bf50f842364e748625245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.  <a href="#aa4feb0ce9c4bf50f842364e748625245">More...</a><br /></td></tr>
+<tr class="separator:aa4feb0ce9c4bf50f842364e748625245"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af83ec7c83df65273bb7676ea372260d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#af83ec7c83df65273bb7676ea372260d0">UpdateTournamentCode</a> (<a class="el" href="class_riot_net_1_1_models_1_1_tournament_code.html">TournamentCode</a> tournamentCode)</td></tr>
+<tr class="memdesc:af83ec7c83df65273bb7676ea372260d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.  <a href="#af83ec7c83df65273bb7676ea372260d0">More...</a><br /></td></tr>
+<tr class="separator:af83ec7c83df65273bb7676ea372260d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d2349f3ef2846f8053cc43107cfc058"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a3d2349f3ef2846f8053cc43107cfc058">UpdateTournamentCodeAsync</a> (<a class="el" href="class_riot_net_1_1_models_1_1_tournament_code.html">TournamentCode</a> tournamentCode)</td></tr>
+<tr class="memdesc:a3d2349f3ef2846f8053cc43107cfc058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.  <a href="#a3d2349f3ef2846f8053cc43107cfc058">More...</a><br /></td></tr>
+<tr class="separator:a3d2349f3ef2846f8053cc43107cfc058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1838624e0f93e7902aa3533cae35fe3"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_riot_net_1_1_models_1_1_lobby_event.html">LobbyEvent</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#ae1838624e0f93e7902aa3533cae35fe3">GetTournamentCodeLobbyEvents</a> (string tournamentCode)</td></tr>
+<tr class="memdesc:ae1838624e0f93e7902aa3533cae35fe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the events that happened in the lobby of atournament code game. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.  <a href="#ae1838624e0f93e7902aa3533cae35fe3">More...</a><br /></td></tr>
+<tr class="separator:ae1838624e0f93e7902aa3533cae35fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d2fa89aa11f8c3ca2332f4d6b142a8f"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="class_riot_net_1_1_models_1_1_lobby_event.html">LobbyEvent</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a9d2fa89aa11f8c3ca2332f4d6b142a8f">GetTournamentCodeLobbyEventsAsync</a> (string tournamentCode)</td></tr>
+<tr class="memdesc:a9d2fa89aa11f8c3ca2332f4d6b142a8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the events that happened in the lobby of atournament code game. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.  <a href="#a9d2fa89aa11f8c3ca2332f4d6b142a8f">More...</a><br /></td></tr>
+<tr class="separator:a9d2fa89aa11f8c3ca2332f4d6b142a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
@@ -400,6 +478,9 @@ Properties</h2></td></tr>
 <tr class="memitem:a1e4977372307f53da237642e5a91cd86"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a1e4977372307f53da237642e5a91cd86">TeamApiVersion</a><code> [get]</code></td></tr>
 <tr class="memdesc:a1e4977372307f53da237642e5a91cd86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the currently supported version of the Team API that the client communicates with.  <a href="#a1e4977372307f53da237642e5a91cd86">More...</a><br /></td></tr>
 <tr class="separator:a1e4977372307f53da237642e5a91cd86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0d2299fddfddb028195e1d5737803b2"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#ac0d2299fddfddb028195e1d5737803b2">TournamentApiVersion</a><code> [get]</code></td></tr>
+<tr class="memdesc:ac0d2299fddfddb028195e1d5737803b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the currently supported version of the Tournament API that the client communicates with.  <a href="#ac0d2299fddfddb028195e1d5737803b2">More...</a><br /></td></tr>
+<tr class="separator:ac0d2299fddfddb028195e1d5737803b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="events"></a>
 Events</h2></td></tr>
@@ -425,6 +506,296 @@ Events</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A client that interacts with the Riot Games API. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a6d209665905b22419c2553fecf61da7c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long RiotNet.IRiotClient.CreateTournament </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>providerID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a tournament. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">providerID</td><td>The providerID obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a7df85f4cfc12d7e28bd7b40977c84525" title="Registers the current client as a tournament provider. This method uses the Tournament API...">CreateTournamentProvider</a>.</td></tr>
+    <tr><td class="paramname">name</td><td>The optional name of the tournament.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a47a062fa1e63e57d747dff4abba90046">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aafa48264154f857a6545a145ad76435a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;long&gt; RiotNet.IRiotClient.CreateTournamentAsync </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>providerID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a tournament. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">providerID</td><td>The providerID obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#ae1738c4228744e9640ea2982397c95e6" title="Registers the current client as a tournament provider. This method uses the Tournament API...">CreateTournamentProviderAsync</a>.</td></tr>
+    <tr><td class="paramname">name</td><td>The optional name of the tournament.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a97220bab1f9e08544b47d1473fa4b3b9">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a04b680441e0599c66474a966a3704f6c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;string&gt; RiotNet.IRiotClient.CreateTournamentCode </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>tournamentId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int?&#160;</td>
+          <td class="paramname"><em>count</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">List&lt; long &gt;&#160;</td>
+          <td class="paramname"><em>allowedSummonerIds</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_riot_net_1_1_models.html#aa6da05d91aef6afab7307e8aa4bc15dd">MapType</a>&#160;</td>
+          <td class="paramname"><em>mapType</em> = <code>MapType.SUMMONERS_RIFT</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462">PickType</a>&#160;</td>
+          <td class="paramname"><em>pickType</em> = <code>PickType.TOURNAMENT_DRAFT</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_riot_net_1_1_models.html#ae642ab9a0a2028e0515eba744a9d4533">SpectatorType</a>&#160;</td>
+          <td class="paramname"><em>spectatorType</em> = <code>SpectatorType.ALL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>teamSize</em> = <code>5</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>metadata</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates one or more tournament codes. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tournamentId</td><td>The tournament ID obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a6d209665905b22419c2553fecf61da7c" title="Creates a tournament. This method uses the Tournament API. This endpoint is only accessible if you ha...">CreateTournament</a>.</td></tr>
+    <tr><td class="paramname">count</td><td>The number of codes to create (max 1000).</td></tr>
+    <tr><td class="paramname">allowedSummonerIds</td><td>Optional list of participants in order to validate the players eligible to join the lobby.</td></tr>
+    <tr><td class="paramname">mapType</td><td>The map type of the game.</td></tr>
+    <tr><td class="paramname">pickType</td><td>The pick type of the game.</td></tr>
+    <tr><td class="paramname">spectatorType</td><td>The spectator type of the game.</td></tr>
+    <tr><td class="paramname">teamSize</td><td>The team size of the game. Valid values are 1-5.</td></tr>
+    <tr><td class="paramname">metadata</td><td>Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A list of tournament codes.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a56ef2525f1d4071d98777ade29844808">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a27f6bdd1c0520dd9c4f52e1a0744738c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;List&lt;string&gt; &gt; RiotNet.IRiotClient.CreateTournamentCodeAsync </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>tournamentId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int?&#160;</td>
+          <td class="paramname"><em>count</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">List&lt; long &gt;&#160;</td>
+          <td class="paramname"><em>allowedSummonerIds</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_riot_net_1_1_models.html#aa6da05d91aef6afab7307e8aa4bc15dd">MapType</a>&#160;</td>
+          <td class="paramname"><em>mapType</em> = <code>MapType.SUMMONERS_RIFT</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462">PickType</a>&#160;</td>
+          <td class="paramname"><em>pickType</em> = <code>PickType.TOURNAMENT_DRAFT</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_riot_net_1_1_models.html#ae642ab9a0a2028e0515eba744a9d4533">SpectatorType</a>&#160;</td>
+          <td class="paramname"><em>spectatorType</em> = <code>SpectatorType.ALL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>teamSize</em> = <code>5</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>metadata</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates one or more tournament codes. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tournamentId</td><td>The tournament ID obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#aafa48264154f857a6545a145ad76435a" title="Creates a tournament. This method uses the Tournament API. This endpoint is only accessible if you ha...">CreateTournamentAsync</a>.</td></tr>
+    <tr><td class="paramname">count</td><td>The number of codes to create (max 1000).</td></tr>
+    <tr><td class="paramname">allowedSummonerIds</td><td>Optional list of participants in order to validate the players eligible to join the lobby.</td></tr>
+    <tr><td class="paramname">mapType</td><td>The map type of the game.</td></tr>
+    <tr><td class="paramname">pickType</td><td>The pick type of the game.</td></tr>
+    <tr><td class="paramname">spectatorType</td><td>The spectator type of the game.</td></tr>
+    <tr><td class="paramname">teamSize</td><td>The team size of the game. Valid values are 1-5.</td></tr>
+    <tr><td class="paramname">metadata</td><td>Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a72e9ae48b332375d798f511abc4088eb">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7df85f4cfc12d7e28bd7b40977c84525"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long RiotNet.IRiotClient.CreateTournamentProvider </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>url</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registers the current client as a tournament provider. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">url</td><td>The provider's callback URL to which tournament game results in this region should be posted.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The registered providerID.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#ab7a7630746f81fd6ffbccc5b3f8252e4">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae1738c4228744e9640ea2982397c95e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;long&gt; RiotNet.IRiotClient.CreateTournamentProviderAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>url</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registers the current client as a tournament provider. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">url</td><td>The provider's callback URL to which tournament game results in this region should be posted.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a315f85efd0a658592f520158bf04e39b">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a05e90a6540d04aabc0ac1acf3261e5b9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -530,6 +901,266 @@ Events</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a5607b118443b6698555eab2cab6c093e">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5af5b5e26fbdda1484588cec316bbddc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_riot_net_1_1_models_1_1_champion_mastery.html">ChampionMastery</a>&gt; RiotNet.IRiotClient.GetChampionMasteries </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>playerId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets information about a summoner's mastery of all champions they have played. This method uses the Champion Mastery API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerId</td><td>The summoner ID.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The champion mastery information.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#af616e2dea08b8a9ae1c79e9c9f4b949f">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acaa7e95f785dd2ca79353ff2ea6744fe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;List&lt;<a class="el" href="class_riot_net_1_1_models_1_1_champion_mastery.html">ChampionMastery</a>&gt; &gt; RiotNet.IRiotClient.GetChampionMasteriesAsync </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>playerId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets information about a summoner's mastery of all champions they have played. This method uses the Champion Mastery API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerId</td><td>The summoner ID.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a2a4d9a7dd9bde379cb695d8289cd5b5b">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6e34d716c520b525d334d4d3aaf73e4c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_riot_net_1_1_models_1_1_champion_mastery.html">ChampionMastery</a> RiotNet.IRiotClient.GetChampionMastery </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>playerId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>championId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets information about a summoner's mastery of a champion. This method uses the Champion Mastery API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerId</td><td>The summoner ID.</td></tr>
+    <tr><td class="paramname">championId</td><td>The champion ID.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The champion mastery information.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a6c2a1e0cfedade46974d9dc76f0612b1">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9ccee9659da106c8cf66ac289014becf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_champion_mastery.html">ChampionMastery</a>&gt; RiotNet.IRiotClient.GetChampionMasteryAsync </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>playerId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>championId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets information about a summoner's mastery of a champion. This method uses the Champion Mastery API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerId</td><td>The summoner ID.</td></tr>
+    <tr><td class="paramname">championId</td><td>The champion ID.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a963ebbd13cf0d0b241c6f0012242ca47">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a62182993a11db84e6f0179766889046b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RiotNet.IRiotClient.GetChampionMasteryScore </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>playerId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a summoner's champion mastery score (the sum of the champion levels of all champions for that summoner). This method uses the Champion Mastery API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerId</td><td>The summoner ID.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The champion mastery information.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a3fdce6a292080463035a897c1df12b12">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a52050a88a5782cbb8babc851bd7637aa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;int&gt; RiotNet.IRiotClient.GetChampionMasteryScoreAsync </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>playerId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a summoner's champion mastery score (the sum of the champion levels of all champions for that summoner). This method uses the Champion Mastery API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerId</td><td>The summoner ID.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a8e81cb99eee5f47d5e888a4a4ce30a2b">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a821c960b7c8c429007aa23929aeac071"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_riot_net_1_1_models_1_1_champion_mastery.html">ChampionMastery</a>&gt; RiotNet.IRiotClient.GetChampionMasteryTopChampions </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>playerId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int?&#160;</td>
+          <td class="paramname"><em>count</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets information about a summoner's mastery of their most mastered champions. This method uses the Champion Mastery API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerId</td><td>The summoner ID.</td></tr>
+    <tr><td class="paramname">count</td><td>The number of entries to retrieve. Defaults to 3.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The champion mastery information.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a546fe918f7de7adc20f6769496c28e29">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a32700381f0a0095f9dfa00fe6b5da2c3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;List&lt;<a class="el" href="class_riot_net_1_1_models_1_1_champion_mastery.html">ChampionMastery</a>&gt; &gt; RiotNet.IRiotClient.GetChampionMasteryTopChampionsAsync </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>playerId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int?&#160;</td>
+          <td class="paramname"><em>count</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets information about a summoner's mastery of their most mastered champions. This method uses the Champion Mastery API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerId</td><td>The summoner ID.</td></tr>
+    <tr><td class="paramname">count</td><td>The number of entries to retrieve. Defaults to 3.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a37d540b896dd7b4ce9f03b374ea6d0ad">RiotNet.RiotClient</a>.</p>
 
 </div>
 </div>
@@ -1005,7 +1636,7 @@ Events</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa14db5b4228d86bb2466463e5ba4a5fa"></a>
+<a class="anchor" id="ae3279a23e918366eca5f954c3a7fe4b8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1018,7 +1649,7 @@ Events</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Boolean&#160;</td>
+          <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>includeTimeline</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
@@ -1039,9 +1670,11 @@ Events</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The details of the match.</dd></dl>
 
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a60f9cbb1ade5a140c178aead2285ca7d">RiotNet.RiotClient</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="ae4f22dcc7c093739d8cd9e9e600d0c83"></a>
+<a class="anchor" id="af1b47e0aca85b18e147c4a7c03c0b402"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1054,7 +1687,7 @@ Events</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Boolean&#160;</td>
+          <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>includeTimeline</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
@@ -1074,6 +1707,138 @@ Events</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#add2f053e3c20fb9573bf4294e9b37e2b">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a71cd90671bae8c7d81968fd6e4b0beef"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_riot_net_1_1_models_1_1_match_detail.html">MatchDetail</a> RiotNet.IRiotClient.GetMatchForTournament </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>matchId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tournamentCode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the details of a match. This method uses the Match API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matchId</td><td>The ID of the match.</td></tr>
+    <tr><td class="paramname">tournamentCode</td><td>The tournament code.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The details of the match.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a0fe12f0f792cb17ea6f9399512007b59">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1bf44123bfd1ff710857d7821d323b84"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_match_detail.html">MatchDetail</a>&gt; RiotNet.IRiotClient.GetMatchForTournamentAsync </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>matchId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tournamentCode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the details of a match. This method uses the Match API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matchId</td><td>The ID of the match.</td></tr>
+    <tr><td class="paramname">tournamentCode</td><td>The tournament code.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a32c253341ad66241027ea64d9abbde05">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7c789b97c066401d35514e55b5b44b22"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;long&gt; RiotNet.IRiotClient.GetMatchIdsByTournamentCode </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tournamentCode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the list of match IDs for a tournament code. This method uses the Match API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tournamentCode</td><td>The tournament code.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The match IDs.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a8de3ccd53026e0546dfda83db1fc0ebb">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab41cbee8e7e981a6189e5a34b6ee71ce"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;List&lt;long&gt; &gt; RiotNet.IRiotClient.GetMatchIdsByTournamentCodeAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tournamentCode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the list of match IDs for a tournament code. This method uses the Match API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tournamentCode</td><td>The tournament code.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a0e60fe0e0b8a4c68f6da12160f70c5c5">RiotNet.RiotClient</a>.</p>
 
 </div>
 </div>
@@ -3130,6 +3895,114 @@ Events</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a9e86d229ae8c01a67aa0525df725540a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_riot_net_1_1_models_1_1_tournament_code.html">TournamentCode</a> RiotNet.IRiotClient.GetTournamentCode </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tournamentCode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the details of a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tournamentCode</td><td>The tournament code obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a04b680441e0599c66474a966a3704f6c" title="Creates one or more tournament codes. This method uses the Tournament API. This endpoint is only acce...">CreateTournamentCode</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The tournament code details.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a99e884f0cbaa14bd3f2fe0554667ff18">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a91259f8a73be8e0a2c8c93c58e3f06bd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_tournament_code.html">TournamentCode</a>&gt; RiotNet.IRiotClient.GetTournamentCodeAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tournamentCode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the details of a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tournamentCode</td><td>The tournament code obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a27f6bdd1c0520dd9c4f52e1a0744738c" title="Creates one or more tournament codes. This method uses the Tournament API. This endpoint is only acce...">CreateTournamentCodeAsync</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The tournament code details.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#aab4b24db366d30fa122cadf2d11c39cc">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae1838624e0f93e7902aa3533cae35fe3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_riot_net_1_1_models_1_1_lobby_event.html">LobbyEvent</a>&gt; RiotNet.IRiotClient.GetTournamentCodeLobbyEvents </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tournamentCode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the events that happened in the lobby of atournament code game. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tournamentCode</td><td>The tournament code obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a04b680441e0599c66474a966a3704f6c" title="Creates one or more tournament codes. This method uses the Tournament API. This endpoint is only acce...">CreateTournamentCode</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The tournament code details.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a4a5ceb6f148abc9a33dcd4850ebd945c">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9d2fa89aa11f8c3ca2332f4d6b142a8f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;List&lt;<a class="el" href="class_riot_net_1_1_models_1_1_lobby_event.html">LobbyEvent</a>&gt; &gt; RiotNet.IRiotClient.GetTournamentCodeLobbyEventsAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tournamentCode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the events that happened in the lobby of atournament code game. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tournamentCode</td><td>The tournament code obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a27f6bdd1c0520dd9c4f52e1a0744738c" title="Creates one or more tournament codes. This method uses the Tournament API. This endpoint is only acce...">CreateTournamentCodeAsync</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The tournament code details.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a30c7af00c1091f7b7d0446f98b4c6373">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a898e52935246cf0e6094d58f1b8c38d3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -3148,6 +4021,174 @@ Events</h2></td></tr>
 <p>Calls to this method will not count toward your API rate limit. </p>
 
 <p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#adf69c4c22c13771acf658046675b0b38">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9d8c49d3848f713e38b47dadec83f8f4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RiotNet.IRiotClient.UpdateTournamentCode </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tournamentCode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">List&lt; long &gt;&#160;</td>
+          <td class="paramname"><em>allowedSummonerIds</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_riot_net_1_1_models.html#aa6da05d91aef6afab7307e8aa4bc15dd">MapType</a>&#160;</td>
+          <td class="paramname"><em>mapType</em> = <code>MapType.SUMMONERS_RIFT</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462">PickType</a>&#160;</td>
+          <td class="paramname"><em>pickType</em> = <code>PickType.TOURNAMENT_DRAFT</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_riot_net_1_1_models.html#ae642ab9a0a2028e0515eba744a9d4533">SpectatorType</a>&#160;</td>
+          <td class="paramname"><em>spectatorType</em> = <code>SpectatorType.ALL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tournamentCode</td><td>The tournament code obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a04b680441e0599c66474a966a3704f6c" title="Creates one or more tournament codes. This method uses the Tournament API. This endpoint is only acce...">CreateTournamentCode</a>.</td></tr>
+    <tr><td class="paramname">allowedSummonerIds</td><td>Optional list of participants in order to validate the players eligible to join the lobby.</td></tr>
+    <tr><td class="paramname">mapType</td><td>The map type of the game.</td></tr>
+    <tr><td class="paramname">pickType</td><td>The pick type of the game.</td></tr>
+    <tr><td class="paramname">spectatorType</td><td>The spectator type of the game.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a1ff022dade6a8bd7dfcc7591d042df39">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af83ec7c83df65273bb7676ea372260d0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RiotNet.IRiotClient.UpdateTournamentCode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_riot_net_1_1_models_1_1_tournament_code.html">TournamentCode</a>&#160;</td>
+          <td class="paramname"><em>tournamentCode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tournamentCode</td><td>The tournament code to update. Only the Code, Participants, MapType, PickType, and SpectatorType proerties are used.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#af377028c8ea6b82c8d093c4ea49cbe9a">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa4feb0ce9c4bf50f842364e748625245"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task RiotNet.IRiotClient.UpdateTournamentCodeAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tournamentCode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">List&lt; long &gt;&#160;</td>
+          <td class="paramname"><em>allowedSummonerIds</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_riot_net_1_1_models.html#aa6da05d91aef6afab7307e8aa4bc15dd">MapType</a>&#160;</td>
+          <td class="paramname"><em>mapType</em> = <code>MapType.SUMMONERS_RIFT</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462">PickType</a>&#160;</td>
+          <td class="paramname"><em>pickType</em> = <code>PickType.TOURNAMENT_DRAFT</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_riot_net_1_1_models.html#ae642ab9a0a2028e0515eba744a9d4533">SpectatorType</a>&#160;</td>
+          <td class="paramname"><em>spectatorType</em> = <code>SpectatorType.ALL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tournamentCode</td><td>The tournament code obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a27f6bdd1c0520dd9c4f52e1a0744738c" title="Creates one or more tournament codes. This method uses the Tournament API. This endpoint is only acce...">CreateTournamentCodeAsync</a>.</td></tr>
+    <tr><td class="paramname">allowedSummonerIds</td><td>Optional list of participants in order to validate the players eligible to join the lobby.</td></tr>
+    <tr><td class="paramname">mapType</td><td>The map type of the game.</td></tr>
+    <tr><td class="paramname">pickType</td><td>The pick type of the game.</td></tr>
+    <tr><td class="paramname">spectatorType</td><td>The spectator type of the game.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a2525575f37f7709cad3b1062d8e90d59">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3d2349f3ef2846f8053cc43107cfc058"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task RiotNet.IRiotClient.UpdateTournamentCodeAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_riot_net_1_1_models_1_1_tournament_code.html">TournamentCode</a>&#160;</td>
+          <td class="paramname"><em>tournamentCode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tournamentCode</td><td>The tournament code to update. Only the Code, Participants, MapType, PickType, and SpectatorType proerties are used.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#acbbb800840253ccd31d74c32269a35e4">RiotNet.RiotClient</a>.</p>
 
 </div>
 </div>
@@ -3479,6 +4520,28 @@ Events</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the currently supported version of the Team API that the client communicates with. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac0d2299fddfddb028195e1d5737803b2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string RiotNet.IRiotClient.TournamentApiVersion</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the currently supported version of the Tournament API that the client communicates with. </p>
 
 </div>
 </div>

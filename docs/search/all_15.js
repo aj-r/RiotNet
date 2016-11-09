@@ -6,6 +6,7 @@ var searchData=
   ['version',['Version',['../class_riot_net_1_1_models_1_1_static_data_list.html#a94bd956789274a4073aaaefbc4a6048d',1,'RiotNet.Models.StaticDataList.Version()'],['../class_riot_net_1_1_models_1_1_static_lanuage_strings.html#adefec0ed0b2fdfbb74789672ea016c4a',1,'RiotNet.Models.StaticLanuageStrings.Version()']]],
   ['victimid',['VictimId',['../class_riot_net_1_1_models_1_1_event.html#ad44d501d9f37d8483d19664d358c7578',1,'RiotNet::Models::Event']]],
   ['victorypointtotal',['VictoryPointTotal',['../class_riot_net_1_1_models_1_1_raw_stats.html#ab6849309ecabadab274e8b1d2ff7ec69',1,'RiotNet::Models::RawStats']]],
+  ['vilemaw',['VILEMAW',['../namespace_riot_net_1_1_models.html#aa5cdcae2ad34ad173f4d0e993d9ff44fa0b228d640a02d542d1ddd704d7d9090c',1,'RiotNet::Models']]],
   ['vilemawassistspermincounts',['VilemawAssistsPerMinCounts',['../class_riot_net_1_1_models_1_1_match_participant_timeline.html#a6ac0099261f67c50674906931b8cabe4',1,'RiotNet::Models::MatchParticipantTimeline']]],
   ['vilemawkills',['VilemawKills',['../class_riot_net_1_1_models_1_1_match_team.html#a97938989ad3c514865f748a1568c6eda',1,'RiotNet::Models::MatchTeam']]],
   ['vilemawkillspermincounts',['VilemawKillsPerMinCounts',['../class_riot_net_1_1_models_1_1_match_participant_timeline.html#abd6d165341da71b2316fe849373ba14e',1,'RiotNet::Models::MatchParticipantTimeline']]],

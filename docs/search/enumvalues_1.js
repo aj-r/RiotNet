@@ -7,6 +7,7 @@ var searchData=
   ['bilgewater_5faram_5f5x5',['BILGEWATER_ARAM_5x5',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a9f79de0475db82a0363a179b244b83cb',1,'RiotNet::Models']]],
   ['blind_5fpick',['BLIND_PICK',['../namespace_riot_net_1_1_models.html#aa0a3be6fae6a93e12d4299557c27c462a60c1fe85ef12de019a959e52fb04ff5b',1,'RiotNet::Models']]],
   ['blue_5fgolem',['BLUE_GOLEM',['../namespace_riot_net_1_1_models.html#aa5cdcae2ad34ad173f4d0e993d9ff44fa59aeae61690f6968d0f7fbaa5801d402',1,'RiotNet::Models']]],
+  ['blue_5ftrinket',['BLUE_TRINKET',['../namespace_riot_net_1_1_models.html#abfcf25d988816c0c8808f125f14704b6aa81359cb63b0a62cc0d38bbdf0042527',1,'RiotNet::Models']]],
   ['bot',['BOT',['../namespace_riot_net_1_1_models.html#a1feb539727378192c5ae4cf447084ea9ab24436a7bab0fa6dc89ad0684c6fc675',1,'RiotNet.Models.BOT()'],['../namespace_riot_net_1_1_models.html#ab3e6d5574d469e50491adabceb1daaefab24436a7bab0fa6dc89ad0684c6fc675',1,'RiotNet.Models.BOT()']]],
   ['bot_5f3x3',['BOT_3x3',['../namespace_riot_net_1_1_models.html#a1feb539727378192c5ae4cf447084ea9a6643aa425395bd3a29fb2ed0ea72db43',1,'RiotNet::Models']]],
   ['bot_5f5x5',['BOT_5x5',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a0c4b79fe447b18767927968cc6999eb0',1,'RiotNet::Models']]],

@@ -22,6 +22,7 @@ var searchData=
   ['blockitem',['BlockItem',['../class_riot_net_1_1_models_1_1_block_item.html',1,'RiotNet::Models']]],
   ['blocks',['Blocks',['../class_riot_net_1_1_models_1_1_recommended.html#afdbbc4ab38fe6cd644e3550e27cab404',1,'RiotNet::Models::Recommended']]],
   ['blue_5fgolem',['BLUE_GOLEM',['../namespace_riot_net_1_1_models.html#aa5cdcae2ad34ad173f4d0e993d9ff44fa59aeae61690f6968d0f7fbaa5801d402',1,'RiotNet::Models']]],
+  ['blue_5ftrinket',['BLUE_TRINKET',['../namespace_riot_net_1_1_models.html#abfcf25d988816c0c8808f125f14704b6aa81359cb63b0a62cc0d38bbdf0042527',1,'RiotNet::Models']]],
   ['blurb',['Blurb',['../class_riot_net_1_1_models_1_1_static_champion.html#ac2162481e7d0b4f368a5e024b3a3f851',1,'RiotNet::Models::StaticChampion']]],
   ['bot',['Bot',['../class_riot_net_1_1_models_1_1_participant.html#ad175e21b3ea228806e8ca9b708c8d427',1,'RiotNet.Models.Participant.Bot()'],['../namespace_riot_net_1_1_models.html#a1feb539727378192c5ae4cf447084ea9ab24436a7bab0fa6dc89ad0684c6fc675',1,'RiotNet.Models.BOT()'],['../namespace_riot_net_1_1_models.html#ab3e6d5574d469e50491adabceb1daaefab24436a7bab0fa6dc89ad0684c6fc675',1,'RiotNet.Models.BOT()']]],
   ['bot_5f3x3',['BOT_3x3',['../namespace_riot_net_1_1_models.html#a1feb539727378192c5ae4cf447084ea9a6643aa425395bd3a29fb2ed0ea72db43',1,'RiotNet::Models']]],

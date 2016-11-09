@@ -10,6 +10,7 @@ var searchData=
   ['defaultregion',['DefaultRegion',['../class_riot_net_1_1_riot_client.html#ad3a240be6fb1fbd78e6239d1a8e2df80',1,'RiotNet::RiotClient']]],
   ['defaultsettings',['DefaultSettings',['../class_riot_net_1_1_riot_client.html#aac9f87ebed77ac228474d4e84eb92975',1,'RiotNet::RiotClient']]],
   ['defense',['Defense',['../class_riot_net_1_1_models_1_1_static_champion_info.html#a24fbe6c1dffafd360b97777f8eab8a92',1,'RiotNet::Models::StaticChampionInfo']]],
+  ['definitely_5fnot_5fdominion_5f5x5',['DEFINITELY_NOT_DOMINION_5x5',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a9b2a143178f93bfd28a06cf420b606d4',1,'RiotNet::Models']]],
   ['deploying',['Deploying',['../namespace_riot_net_1_1_models.html#ae5d4430c0e55f446d83ca33ccd5d4cb1a99da218397f313ea17892c90fa6ceefc',1,'RiotNet::Models']]],
   ['depth',['Depth',['../class_riot_net_1_1_models_1_1_static_item.html#a7eb8cf0c91482621f36af5998408e840',1,'RiotNet::Models::StaticItem']]],
   ['description',['Description',['../class_riot_net_1_1_models_1_1_basic_data.html#a165c1ec66b230fb3b836255f271c5acf',1,'RiotNet.Models.BasicData.Description()'],['../class_riot_net_1_1_models_1_1_passive.html#a927a97f7d695452d5eb3d7f5b415b219',1,'RiotNet.Models.Passive.Description()'],['../class_riot_net_1_1_models_1_1_static_mastery.html#aa97e61ec116e0ece11ad7d0023e4272d',1,'RiotNet.Models.StaticMastery.Description()'],['../class_riot_net_1_1_models_1_1_static_spell.html#a7cbb2095a2aed2a94cc0f4534cbada8e',1,'RiotNet.Models.StaticSpell.Description()']]],

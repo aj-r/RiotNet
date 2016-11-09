@@ -8,6 +8,7 @@ var searchData=
   ['endindex',['EndIndex',['../class_riot_net_1_1_models_1_1_match_list.html#a096267e41d2a182f721715fdefa4dd8b',1,'RiotNet::Models::MatchList']]],
   ['enemytips',['EnemyTips',['../class_riot_net_1_1_models_1_1_static_champion.html#ad51900bbcdf078e7e31b82b6512416df',1,'RiotNet::Models::StaticChampion']]],
   ['entries',['Entries',['../class_riot_net_1_1_models_1_1_league.html#af1fc69ba3c9beb2428621306ddf4887c',1,'RiotNet::Models::League']]],
+  ['eventlist',['EventList',['../class_riot_net_1_1_models_1_1_lobby_event_wrapper.html#a03b7b05c5dd66aaf6ba98a0d34729a90',1,'RiotNet::Models::LobbyEventWrapper']]],
   ['events',['Events',['../class_riot_net_1_1_models_1_1_frame.html#ad805ebc9a07181f59ecc05f67d1ce246',1,'RiotNet::Models::Frame']]],
-  ['eventtype',['EventType',['../class_riot_net_1_1_models_1_1_event.html#a4ddfdc4c9454f66fe0502073998ab917',1,'RiotNet::Models::Event']]]
+  ['eventtype',['EventType',['../class_riot_net_1_1_models_1_1_event.html#a4ddfdc4c9454f66fe0502073998ab917',1,'RiotNet.Models.Event.EventType()'],['../class_riot_net_1_1_models_1_1_lobby_event.html#aea0d26b6b2a2cab1cb4bbc4ffdee3441',1,'RiotNet.Models.LobbyEvent.EventType()']]]
 ];
