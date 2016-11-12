@@ -2,7 +2,7 @@ var searchData=
 [
   ['team1',['Team1',['../namespace_riot_net_1_1_models.html#acc31d122c9840a99f3b313c61f83d16bac8867457125653a9b4e61a12aa67df47',1,'RiotNet::Models']]],
   ['team2',['Team2',['../namespace_riot_net_1_1_models.html#acc31d122c9840a99f3b313c61f83d16ba4dd507ad2b564b40b7a5c2ef8eb81a4e',1,'RiotNet::Models']]],
-  ['team_5fbuilder_5fdraft_5franked_5f5x5',['TEAM_BUILDER_DRAFT_RANKED_5x5',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a341a5a951782c451b87e32aa3966e8ed',1,'RiotNet::Models']]],
+  ['team_5fbuilder_5fdraft_5franked_5f5x5',['TEAM_BUILDER_DRAFT_RANKED_5x5',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a341a5a951782c451b87e32aa3966e8ed',1,'RiotNet.Models.TEAM_BUILDER_DRAFT_RANKED_5x5()'],['../namespace_riot_net_1_1_models.html#ae86fd8ac68195c1d7b7d839200c6d756a341a5a951782c451b87e32aa3966e8ed',1,'RiotNet.Models.TEAM_BUILDER_DRAFT_RANKED_5x5()']]],
   ['team_5fbuilder_5fdraft_5funranked_5f5x5',['TEAM_BUILDER_DRAFT_UNRANKED_5x5',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35ac9eb4c52916c7a78cb0330fbeb2c91e5',1,'RiotNet::Models']]],
   ['teemo_5fmushroom',['TEEMO_MUSHROOM',['../namespace_riot_net_1_1_models.html#abfcf25d988816c0c8808f125f14704b6af691c9493982106f96dfa759ca344c18',1,'RiotNet::Models']]],
   ['top',['TOP',['../namespace_riot_net_1_1_models.html#ab3e6d5574d469e50491adabceb1daaefa6705777b712ee811e76fb07162081d63',1,'RiotNet::Models']]],
