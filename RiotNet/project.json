@@ -18,30 +18,17 @@
         "System.ComponentModel.DataAnnotations": "4.0.0.0"
       }
     },
-    "netcoreapp1.0": {
-      "buildOptions": {
-        "define": [ "NET_CORE" ]
-      },
-      "dependencies": {
-        "Newtonsoft.Json": "9.0.1",
-        "System.Threading.Thread": "4.0.0-rc2-24027"
-      }
-    },
-    "netstandard1.5": {
+    "netstandard1.6": {
       "buildOptions": {
         "define": [ "NET_STANDARD" ]
       },
       "imports": "dnxcore50",
       "dependencies": {
-        "NETStandard.Library": "1.5.0-rc2-24027",
+        "NETStandard.Library": "1.6.0",
         "Newtonsoft.Json": "9.0.1",
-        "System.Threading.Thread": "4.0.0-rc2-24027",
-        "System.ComponentModel.Annotations": "4.1.0-rc2-24027"
+        "System.Threading.Thread": "4.0.0",
+        "System.ComponentModel.Annotations": "4.1.0"
       }
     }
-  },
-
-  "runtimes": {
-    "win10-x64": { }
   }
 }
