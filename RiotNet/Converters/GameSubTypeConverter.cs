@@ -95,6 +95,10 @@ namespace RiotNet.Converters
                             return GameSubType.BILGEWATER;
                         case "Siege":
                             return GameSubType.SIEGE;
+                        case "RankedFlexSR":
+                            return GameSubType.RANKED_FLEX_SR;
+                        case "RankedFlexTT":
+                            return GameSubType.RANKED_FLEX_TT;
                         default:
                             return -1;
                     }

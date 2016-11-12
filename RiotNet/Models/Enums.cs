@@ -248,6 +248,14 @@ namespace RiotNet.Models
         /// Nexus Siege
         /// </summary>
         SIEGE,
+        /// <summary>
+        /// Ranked Flex Summoner's Rift
+        /// </summary>
+        RANKED_FLEX_SR,
+        /// <summary>
+        /// Ranked Flex Twisted Treeline
+        /// </summary>
+        RANKED_FLEX_TT,
     }
 
     /// <summary>
@@ -664,6 +672,10 @@ namespace RiotNet.Models
         /// Ranked Dynamic Queue
         /// </summary>
         TEAM_BUILDER_DRAFT_RANKED_5x5 = 410,
+        /// <summary>
+        /// Ranked Flex Summoner's Rift
+        /// </summary>
+        RANKED_FLEX_SR = 440,
     }
 
     /// <summary>
@@ -683,8 +695,21 @@ namespace RiotNet.Models
         /// Ranked Team 5v5
         /// </summary>
         RANKED_TEAM_5x5,
+        /// <summary>
+        /// Ranked dynamic queue (season 6 only)
+        /// </summary>
+        TEAM_BUILDER_DRAFT_RANKED_5x5,
+        /// <summary>
+        /// Ranked Flex Summoner's Rift
+        /// </summary>
+        RANKED_FLEX_SR,
+        /// <summary>
+        /// Ranked Flex Twisted Treeline. Note that this value is ONLY used in <see cref="League"/> objects.
+        /// <see cref="MatchReference"/> objects will use the <see cref="RANKED_TEAM_3x3"/> value instead.
+        /// </summary>
+        RANKED_FLEX_TT,
     }
-
+    
     /// <summary>
     /// Represents a region (or server).
     /// </summary>
@@ -773,6 +798,14 @@ namespace RiotNet.Models
         /// Season 6, 2016
         /// </summary>
         SEASON2016,
+        /// <summary>
+        /// Pre-season 7, 2017
+        /// </summary>
+        PRESEASON2017,
+        /// <summary>
+        /// Season 7, 2017
+        /// </summary>
+        SEASON2017,
     }
 
     /// <summary>
