@@ -1,4 +1,8 @@
-﻿using System.Data.Entity;
+﻿#if NET_CORE
+using Microsoft.EntityFrameworkCore;
+#else
+using System.Data.Entity;
+#endif
 using RiotNet.Models;
 
 namespace RiotNet.Tests
