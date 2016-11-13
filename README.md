@@ -5,7 +5,7 @@ A .NET/C# client for the Riot Games API.
 It has the following features:
 - **Synchronous and asynchronous** overloads for each method. Asynchronous methods are awaitable using the async/await keywords.
 - **Flexible and configurable** - uses interfaces and allows inheritance.
-- **Database Ready** - data structures have built-in database metadata, so you can easily persist results using Entity Framework without having to re-define all of the models.
+- **Database Ready** - data structures have built-in database metadata, so you can easily persist results using Entity Framework 6 without having to re-define all of the models.
 - [**Full Documentation**](http://aj-r.github.io/RiotNet/docs/interface_riot_net_1_1_i_riot_client.html) - documentation of every method and every property of every object. (Or at least as much as we can figure out from examining the JSON responses. Riot's API documentation is a bit lacking right now.)
 - **Full API coverage** - methods for accessing to every endpoint in the Riot Games API.
 - **Full Test Coverage** - so you can trust that it works.
