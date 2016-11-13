@@ -78,7 +78,7 @@ var searchData=
   ['poro_5fking_5fsummon',['PORO_KING_SUMMON',['../namespace_riot_net_1_1_models.html#a53a6557b8095df654f197de15fe05716af1dc9fa7bbb2bc6dcb8951b0d8fccaf9',1,'RiotNet::Models']]],
   ['position',['Position',['../class_riot_net_1_1_models_1_1_position.html',1,'RiotNet::Models']]],
   ['position',['Position',['../class_riot_net_1_1_models_1_1_event.html#ae8152a702afde8c80327753e57b27cde',1,'RiotNet.Models.Event.Position()'],['../class_riot_net_1_1_models_1_1_match_participant_frame.html#a61d82c8c5bee5644852c1d4d0062ac82',1,'RiotNet.Models.MatchParticipantFrame.Position()']]],
-  ['post',['Post',['../class_riot_net_1_1_riot_client.html#a90e183b1b025f4c290c941de518ed6a1',1,'RiotNet::RiotClient']]],
+  ['postasync_3c_20t_20_3e',['PostAsync&lt; T &gt;',['../class_riot_net_1_1_riot_client.html#af063a7ead1245c152812b9a092bb3377',1,'RiotNet::RiotClient']]],
   ['prereq',['Prereq',['../class_riot_net_1_1_models_1_1_static_mastery.html#aabc84d6c647a3f75b08a697c92cb7db0',1,'RiotNet.Models.StaticMastery.Prereq()'],['../class_riot_net_1_1_models_1_1_static_mastery_tree_item.html#a33e8646d142e1d31eac0d0a89fb0065a',1,'RiotNet.Models.StaticMasteryTreeItem.Prereq()']]],
   ['preseason2014',['PRESEASON2014',['../namespace_riot_net_1_1_models.html#a7081083073e41f3014b51d3c3c5d6903a3e7fa7f8c00e9a8afffc8622d93d8c7d',1,'RiotNet::Models']]],
   ['preseason2015',['PRESEASON2015',['../namespace_riot_net_1_1_models.html#a7081083073e41f3014b51d3c3c5d6903a1cdaf5b9e38b8e299cf614a9e5a8f7d8',1,'RiotNet::Models']]],
@@ -92,5 +92,5 @@ var searchData=
   ['progress',['Progress',['../class_riot_net_1_1_models_1_1_mini_series.html#a9ebc1f0a6cc22f39fcd83469364f346a',1,'RiotNet::Models::MiniSeries']]],
   ['providerid',['ProviderId',['../class_riot_net_1_1_models_1_1_tournament_code.html#a3b8790e8aa5dab1c05d40faa3b6cd557',1,'RiotNet::Models::TournamentCode']]],
   ['purchasable',['Purchasable',['../class_riot_net_1_1_models_1_1_gold.html#a81b1e8f0d835ac23a36334e1f540cfae',1,'RiotNet::Models::Gold']]],
-  ['put',['Put',['../class_riot_net_1_1_riot_client.html#a42d8bccf20b38cd9bdbb31ff8b93002f',1,'RiotNet::RiotClient']]]
+  ['putasync_3c_20t_20_3e',['PutAsync&lt; T &gt;',['../class_riot_net_1_1_riot_client.html#aac940897d4ebbbda3e396aa2f7c625fa',1,'RiotNet::RiotClient']]]
 ];

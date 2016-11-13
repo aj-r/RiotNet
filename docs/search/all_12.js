@@ -11,7 +11,7 @@ var searchData=
   ['secondlastjoindate',['SecondLastJoinDate',['../class_riot_net_1_1_models_1_1_team.html#a2bf4eef7f7de0073d8bf2ae367a09330',1,'RiotNet::Models::Team']]],
   ['secondstotimespanconverter',['SecondsToTimeSpanConverter',['../class_riot_net_1_1_converters_1_1_seconds_to_time_span_converter.html',1,'RiotNet::Converters']]],
   ['sell',['Sell',['../class_riot_net_1_1_models_1_1_gold.html#a3506cb10cc9aec1e6394e97be7d0c2dc',1,'RiotNet::Models::Gold']]],
-  ['serialize',['Serialize',['../class_riot_net_1_1_rest_sharp_json_net_serializer.html#a11f51fe9d2f79f8e7ef71943e75167eb',1,'RiotNet::RestSharpJsonNetSerializer']]],
+  ['serializetostreamasync',['SerializeToStreamAsync',['../class_riot_net_1_1_json_content.html#aed2a40a4931a49f3cb434768a3305297',1,'RiotNet::JsonContent']]],
   ['servererror',['ServerError',['../interface_riot_net_1_1_i_riot_client.html#afe5ec0d9c5d0f2172b5d7319e7363fa2',1,'RiotNet.IRiotClient.ServerError()'],['../class_riot_net_1_1_riot_client.html#ab3e1fe5e7f4f5bf1092fa695392563cd',1,'RiotNet.RiotClient.ServerError()']]],
   ['serverstatus',['ServerStatus',['../namespace_riot_net_1_1_models.html#ae5d4430c0e55f446d83ca33ccd5d4cb1',1,'RiotNet::Models']]],
   ['service',['Service',['../class_riot_net_1_1_models_1_1_service.html',1,'RiotNet::Models']]],

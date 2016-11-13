@@ -10,5 +10,6 @@ var searchData=
   ['entries',['Entries',['../class_riot_net_1_1_models_1_1_league.html#af1fc69ba3c9beb2428621306ddf4887c',1,'RiotNet::Models::League']]],
   ['eventlist',['EventList',['../class_riot_net_1_1_models_1_1_lobby_event_wrapper.html#a03b7b05c5dd66aaf6ba98a0d34729a90',1,'RiotNet::Models::LobbyEventWrapper']]],
   ['events',['Events',['../class_riot_net_1_1_models_1_1_frame.html#ad805ebc9a07181f59ecc05f67d1ce246',1,'RiotNet::Models::Frame']]],
-  ['eventtype',['EventType',['../class_riot_net_1_1_models_1_1_event.html#a4ddfdc4c9454f66fe0502073998ab917',1,'RiotNet.Models.Event.EventType()'],['../class_riot_net_1_1_models_1_1_lobby_event.html#aea0d26b6b2a2cab1cb4bbc4ffdee3441',1,'RiotNet.Models.LobbyEvent.EventType()']]]
+  ['eventtype',['EventType',['../class_riot_net_1_1_models_1_1_event.html#a4ddfdc4c9454f66fe0502073998ab917',1,'RiotNet.Models.Event.EventType()'],['../class_riot_net_1_1_models_1_1_lobby_event.html#aea0d26b6b2a2cab1cb4bbc4ffdee3441',1,'RiotNet.Models.LobbyEvent.EventType()']]],
+  ['exception',['Exception',['../class_riot_net_1_1_riot_response.html#aa4a78aeae11c7ae3fb126f2b914002f2',1,'RiotNet::RiotResponse']]]
 ];

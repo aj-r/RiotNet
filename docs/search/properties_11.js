@@ -15,7 +15,7 @@ var searchData=
   ['requiredchampion',['RequiredChampion',['../class_riot_net_1_1_models_1_1_basic_data.html#a66b97bc305430494af14ff14575234c2',1,'RiotNet::Models::BasicData']]],
   ['resolve',['Resolve',['../class_riot_net_1_1_models_1_1_static_mastery_tree.html#a0ec8cb364692c98ef27fa573a9651cad',1,'RiotNet::Models::StaticMasteryTree']]],
   ['resource',['Resource',['../class_riot_net_1_1_models_1_1_static_spell.html#a43ae0ea789e8842e6ee2602382146203',1,'RiotNet::Models::StaticSpell']]],
-  ['response',['Response',['../class_riot_net_1_1_response_event_args.html#a23723c25afc5c561ee66b99b90f24579',1,'RiotNet.ResponseEventArgs.Response()'],['../class_riot_net_1_1_rest_exception.html#a9dc9f63af9d2cd0dc98389262e9828d9',1,'RiotNet.RestException.Response()']]],
+  ['response',['Response',['../class_riot_net_1_1_response_event_args.html#a2188b7e46fb2b5120918e32d2ff50d10',1,'RiotNet.ResponseEventArgs.Response()'],['../class_riot_net_1_1_rest_exception.html#ae6449de9cdbf316a18cb872b5c74c336',1,'RiotNet.RestException.Response()'],['../class_riot_net_1_1_riot_response.html#a04d56d617d5994734ed00022741d545b',1,'RiotNet.RiotResponse.Response()']]],
   ['retry',['Retry',['../class_riot_net_1_1_retry_event_args.html#a9dc739c7705e1b033ad467140b62eec5',1,'RiotNet::RetryEventArgs']]],
   ['retryonconnectionfailure',['RetryOnConnectionFailure',['../class_riot_net_1_1_riot_client_settings.html#a1cca77336a702c0ff0d4c18d802e18e5',1,'RiotNet::RiotClientSettings']]],
   ['retryonratelimitexceeded',['RetryOnRateLimitExceeded',['../class_riot_net_1_1_riot_client_settings.html#ad66b8fd8e0483a5d5e49c585e03519e7',1,'RiotNet::RiotClientSettings']]],
