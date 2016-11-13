@@ -17,7 +17,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<RecentGames> GetGamesBySummonerIdAsync(long summonerId)
         {
-            return GetAsync<RecentGames>($"{mainBaseUrl}/api/lol/{region}/{GameApiVersion}/game/by-summoner/{summonerId}/recent");
+            return GetAsync<RecentGames>($"{mainBaseUrl}/api/lol/{lowerRegion}/{GameApiVersion}/game/by-summoner/{summonerId}/recent");
         }
     }
 }

@@ -18,12 +18,14 @@ namespace RiotNet
     public partial class RiotClient : IRiotClient
     {
         private readonly Region region;
+        private readonly string lowerRegion;
         private readonly string platformId;
         private readonly RiotClientSettings settings;
         private readonly HttpClient client = new HttpClient();
         private readonly string mainBaseUrl;
         protected const string globalBaseUrl = "https://global.api.pvp.net";
         protected const string statusBaseUrl = "http://status.leagueoflegends.com";
+
 
         static RiotClient()
         {
@@ -63,7 +65,8 @@ namespace RiotNet
         public RiotClient(Region region, RiotClientSettings settings)
         {
             this.region = region;
-            this.platformId = GetPlatformId(region);
+            lowerRegion = region.ToString().ToLowerInvariant();
+            platformId = GetPlatformId(region);
             this.settings = settings;
 
             mainBaseUrl = "https://" + GetServerName(region);
@@ -199,6 +202,14 @@ namespace RiotNet
         }
 
         /// <summary>
+        /// Gets the region in lowercase string format.
+        /// </summary>
+        public string LowerRegion
+        {
+            get { return lowerRegion; }
+        }
+
+        /// <summary>
         /// Gets the platform ID of the current region.
         /// </summary>
         public string PlatformId
@@ -314,24 +325,29 @@ namespace RiotNet
                     .Append("api_key=")
                     .Append(Settings.ApiKey);
             }
-            var request = new HttpRequestMessage(method, resourceBuilder.ToString());
-            if (body != null)
-                request.Content = new JsonContent(body);
-            return await ExecuteAsync<T>(request).ConfigureAwait(false);
+            Func<HttpRequestMessage> requestFactory = () =>
+            {
+                var request = new HttpRequestMessage(method, resourceBuilder.ToString());
+                if (body != null)
+                    request.Content = new JsonContent(body);
+                return request;
+            };
+            return await ExecuteAsync<T>(requestFactory).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Executes a REST request asynchronously.
         /// </summary>
         /// <typeparam name="T">The type of data to expect in the response.</typeparam>
-        /// <param name="request">The request to execute.</param>
+        /// <param name="requestFactory">A function that builds the request to execute.</param>
         /// <param name="client">The client to use when executing the request.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        protected virtual async Task<T> ExecuteAsync<T>(HttpRequestMessage request)
+        protected virtual async Task<T> ExecuteAsync<T>(Func<HttpRequestMessage> requestFactory)
         {
             var attemptCount = 0;
             do
             {
+                var request = requestFactory();
                 var response = await SendAsync(request).ConfigureAwait(false);
                 ++attemptCount;
                 var action = await DetermineResponseAction(response, attemptCount).ConfigureAwait(false);
@@ -344,11 +360,11 @@ namespace RiotNet
                     IEnumerable<string> retryAfterValues = null;
                     if (response.Response?.Headers.TryGetValues("Retry-After", out retryAfterValues) == true)
                     {
-                        var retryAfter = retryAfterValues.FirstOrDefault();
+                        var retryAfter = retryAfterValues.First();
                         int delaySeconds;
                         if (int.TryParse(retryAfter, out delaySeconds))
                             await Task.Delay((delaySeconds + 1) * 1000);
-                    }
+                   }
                 }
             } while (attemptCount < Settings.MaxRequestAttempts);
 

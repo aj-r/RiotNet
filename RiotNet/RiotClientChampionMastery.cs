@@ -25,7 +25,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<List<ChampionMastery>> GetChampionMasteriesAsync(long playerId)
         {
-            return GetAsync<List<ChampionMastery>>($"{mainBaseUrl}/championmastery/location/{platformId}/player/{playerId}/champion");
+            return GetAsync<List<ChampionMastery>>($"{mainBaseUrl}/championmastery/location/{platformId}/player/{playerId}/champions");
         }
 
         /// <summary>

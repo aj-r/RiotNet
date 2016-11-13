@@ -20,7 +20,7 @@ namespace RiotNet
         public Task<Dictionary<string, List<Team>>> GetTeamsBySummonerIdsAsync(params long[] summonerIds)
         {
             var summonerIdString = string.Join(",", summonerIds);
-            return GetAsync<Dictionary<string, List<Team>>>($"{mainBaseUrl}/api/lol/{region}/{TeamApiVersion}/team/by-summoner/{summonerIdString}");
+            return GetAsync<Dictionary<string, List<Team>>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{TeamApiVersion}/team/by-summoner/{summonerIdString}");
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace RiotNet
         public Task<Dictionary<string, Team>> GetTeamsByTeamIdsAsync(params string[] teamIds)
         {
             var teamIdString = string.Join(",", teamIds);
-            return GetAsync<Dictionary<string, Team>>($"{mainBaseUrl}/api/lol/{region}/{TeamApiVersion}/team/{teamIdString}");
+            return GetAsync<Dictionary<string, Team>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{TeamApiVersion}/team/{teamIdString}");
         }
     }
 }

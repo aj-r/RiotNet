@@ -19,7 +19,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<List<long>> GetMatchIdsByTournamentCodeAsync(string tournamentCode)
         {
-            return GetAsync<List<long>>($"{mainBaseUrl}/api/lol/{region}/{MatchApiVersion}/match/by-tournament/{tournamentCode}/ids");
+            return GetAsync<List<long>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{MatchApiVersion}/match/by-tournament/{tournamentCode}/ids");
         }
         
         /// <summary>
@@ -30,7 +30,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<MatchDetail> GetMatchForTournamentAsync(long matchId, string tournamentCode)
         {
-            return GetAsync<MatchDetail>($"{mainBaseUrl}/api/lol/{region}/{MatchApiVersion}/match/for-tournament/{matchId}?tournamentCode={tournamentCode}");
+            return GetAsync<MatchDetail>($"{mainBaseUrl}/api/lol/{lowerRegion}/{MatchApiVersion}/match/for-tournament/{matchId}?tournamentCode={tournamentCode}");
         }
         
         /// <summary>
@@ -44,7 +44,7 @@ namespace RiotNet
             var queryParameters = new Dictionary<string, object>();
             if (includeTimeline)
                 queryParameters["includeTimeline"] = "true";
-            return GetAsync<MatchDetail>($"{mainBaseUrl}/api/lol/{region}/{MatchApiVersion}/match/{matchId}", queryParameters);
+            return GetAsync<MatchDetail>($"{mainBaseUrl}/api/lol/{lowerRegion}/{MatchApiVersion}/match/{matchId}", queryParameters);
         }
     }
 }

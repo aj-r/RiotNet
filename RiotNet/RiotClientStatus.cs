@@ -39,7 +39,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<ShardStatus> GetShardStatusAsync(Region region)
         {
-            return GetAsync<ShardStatus>($"{statusBaseUrl}/shards/{region}");
+            return GetAsync<ShardStatus>($"{statusBaseUrl}/shards/{region.ToString().ToLowerInvariant()}");
         }
     }
 }

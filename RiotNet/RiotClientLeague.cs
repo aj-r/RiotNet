@@ -19,7 +19,7 @@ namespace RiotNet
         public Task<Dictionary<string, List<League>>> GetLeaguesBySummonerIdsAsync(params long[] summonerIds)
         {
             var summonerIdString = string.Join(",", summonerIds);
-            return GetAsync<Dictionary<string, List<League>>>($"{mainBaseUrl}/api/lol/{region}/{LeagueApiVersion}/league/by-summoner/{summonerIdString}");
+            return GetAsync<Dictionary<string, List<League>>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{LeagueApiVersion}/league/by-summoner/{summonerIdString}");
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace RiotNet
         public Task<Dictionary<string, List<League>>> GetLeagueEntriesBySummonerIdsAsync(params long[] summonerIds)
         {
             var summonerIdString = string.Join(",", summonerIds);
-            return GetAsync<Dictionary<string, List<League>>>($"{mainBaseUrl}/api/lol/{region}/{LeagueApiVersion}/league/by-summoner/{summonerIdString}/entry");
+            return GetAsync<Dictionary<string, List<League>>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{LeagueApiVersion}/league/by-summoner/{summonerIdString}/entry");
         }
         
         /// <summary>
@@ -41,7 +41,7 @@ namespace RiotNet
         public Task<Dictionary<string, List<League>>> GetLeaguesByTeamIdsAsync(params string[] teamIds)
         {
             var teamIdString = string.Join(",", teamIds);
-            return GetAsync<Dictionary<string, List<League>>>($"{mainBaseUrl}/api/lol/{region}/{LeagueApiVersion}/league/by-team/{teamIdString}");
+            return GetAsync<Dictionary<string, List<League>>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{LeagueApiVersion}/league/by-team/{teamIdString}");
         }
         
         /// <summary>
@@ -52,7 +52,7 @@ namespace RiotNet
         public Task<Dictionary<string, List<League>>> GetLeagueEntriesByTeamIdsAsync(params string[] teamIds)
         {
             var teamIdString = string.Join(",", teamIds);
-            return GetAsync<Dictionary<string, List<League>>>($"{mainBaseUrl}/api/lol/{region}/{LeagueApiVersion}/league/by-team/{teamIdString}/entry");
+            return GetAsync<Dictionary<string, List<League>>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{LeagueApiVersion}/league/by-team/{teamIdString}/entry");
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<League> GetChallengerLeagueAsync(RankedQueue type)
         {
-            return GetAsync<League>($"{mainBaseUrl}/api/lol/{region}/{LeagueApiVersion}/league/challenger?type={type}");
+            return GetAsync<League>($"{mainBaseUrl}/api/lol/{lowerRegion}/{LeagueApiVersion}/league/challenger?type={type}");
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<League> GetMasterLeagueAsync(RankedQueue type)
         {
-            return GetAsync<League>($"{mainBaseUrl}/api/lol/{region}/{LeagueApiVersion}/league/master?type={type}");
+            return GetAsync<League>($"{mainBaseUrl}/api/lol/{lowerRegion}/{LeagueApiVersion}/league/master?type={type}");
         }
     }
 }

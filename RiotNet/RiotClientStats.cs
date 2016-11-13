@@ -22,7 +22,7 @@ namespace RiotNet
             var queryParameters = new Dictionary<string, object>();
             if (season != null)
                 queryParameters["season"] = season;
-            return GetAsync<RankedStats>($"{mainBaseUrl}/api/lol/{region}/{StatsApiVersion}/stats/by-summoner/{summonerId}/ranked", queryParameters);
+            return GetAsync<RankedStats>($"{mainBaseUrl}/api/lol/{lowerRegion}/{StatsApiVersion}/stats/by-summoner/{summonerId}/ranked", queryParameters);
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace RiotNet
             var queryParameters = new Dictionary<string, object>();
             if (season != null)
                 queryParameters["season"] = season;
-            return GetAsync<PlayerStatsSummaryList>($"{mainBaseUrl}/api/lol/{region}/{StatsApiVersion}/stats/by-summoner/{summonerId}/summary", queryParameters);
+            return GetAsync<PlayerStatsSummaryList>($"{mainBaseUrl}/api/lol/{lowerRegion}/{StatsApiVersion}/stats/by-summoner/{summonerId}/summary", queryParameters);
         }
     }
 }

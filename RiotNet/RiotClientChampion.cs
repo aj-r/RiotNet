@@ -18,7 +18,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public async Task<List<Champion>> GetChampionsAsync(bool freeToPlay = false)
         {
-            var resource = $"{mainBaseUrl}/api/lol/{region}/{ChampionApiVersion}/champion?freeToPlay={freeToPlay.ToString().ToLower()}";
+            var resource = $"{mainBaseUrl}/api/lol/{lowerRegion}/{ChampionApiVersion}/champion?freeToPlay={freeToPlay.ToString().ToLowerInvariant()}";
             var championList = await GetAsync<ChampionList>(resource).ConfigureAwait(false);
             return championList != null ? championList.Champions : null;
         }
@@ -30,7 +30,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Champion> GetChampionByIdAsync(long id)
         {
-            return GetAsync<Champion>($"{mainBaseUrl}/api/lol/{region}/{ChampionApiVersion}/champion/{id}");
+            return GetAsync<Champion>($"{mainBaseUrl}/api/lol/{lowerRegion}/{ChampionApiVersion}/champion/{id}");
         }
     }
 }

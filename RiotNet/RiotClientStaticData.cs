@@ -32,7 +32,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticChampionList> GetStaticChampionsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null)
         {
-            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/champion";
+            var request = $"{staticDataBaseUrl}/{lowerRegion}/{LolStaticDataApiVersion}/champion";
             var queryParameters = GetStandardQueryParameters(locale, version);
             if (dataById)
                 queryParameters["dataById"] = "true";
@@ -55,7 +55,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticChampion> GetStaticChampionByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> champData = null)
         {
-            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/champion/{id}";
+            var request = $"{staticDataBaseUrl}/{lowerRegion}/{LolStaticDataApiVersion}/champion/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
             if (champData != null)
             {
@@ -82,7 +82,7 @@ namespace RiotNet
         /// </remarks>
         public async Task<StaticItemList> GetStaticItemsAsync(string locale = null, string version = null, IEnumerable<string> itemListData = null)
         {
-            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/item";
+            var request = $"{staticDataBaseUrl}/{lowerRegion}/{LolStaticDataApiVersion}/item";
             var queryParameters = GetStandardQueryParameters(locale, version);
             var dataParam = CreateDataParam(itemListData, typeof(StaticItem), typeof(StaticItemList));
             if (!string.IsNullOrEmpty(dataParam))
@@ -115,7 +115,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticItem> GetStaticItemAsync(int id, string locale = null, string version = null, IEnumerable<string> itemData = null)
         {
-            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/item/{id}";
+            var request = $"{staticDataBaseUrl}/{lowerRegion}/{LolStaticDataApiVersion}/item/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
             var dataParam = CreateDataParam(itemData, typeof(StaticItem));
             if (!string.IsNullOrEmpty(dataParam))
@@ -136,7 +136,7 @@ namespace RiotNet
         /// </remarks>
         public Task<List<string>> GetStaticLanguagesAsync()
         {
-            return GetAsync<List<string>>($"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/languages");
+            return GetAsync<List<string>>($"{staticDataBaseUrl}/{lowerRegion}/{LolStaticDataApiVersion}/languages");
         }
         
         /// <summary>
@@ -151,7 +151,7 @@ namespace RiotNet
         public Task<StaticLanuageStrings> GetStaticLanguageStringsAsync(string locale = null, string version = null)
         {
             var queryParameters = GetStandardQueryParameters(locale, version);
-            return GetAsync<StaticLanuageStrings>($"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/language-strings", queryParameters);
+            return GetAsync<StaticLanuageStrings>($"{staticDataBaseUrl}/{lowerRegion}/{LolStaticDataApiVersion}/language-strings", queryParameters);
         }
 
         #endregion
@@ -170,7 +170,7 @@ namespace RiotNet
         public Task<StaticMapList> GetStaticMapsAsync(string locale = null, string version = null)
         {
             var queryParameters = GetStandardQueryParameters(locale, version);
-            return GetAsync<StaticMapList>($"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/maps", queryParameters);
+            return GetAsync<StaticMapList>($"{staticDataBaseUrl}/{lowerRegion}/{LolStaticDataApiVersion}/map", queryParameters);
         }
 
         #endregion
@@ -189,7 +189,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticMasteryList> GetStaticMasteriesAsync(string locale = null, string version = null, IEnumerable<string> masteryListData = null)
         {
-            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/mastery";
+            var request = $"{staticDataBaseUrl}/{lowerRegion}/{LolStaticDataApiVersion}/mastery";
             var queryParameters = GetStandardQueryParameters(locale, version);
             var dataParam = CreateDataParam(masteryListData, typeof(StaticMastery), typeof(StaticMasteryList));
             if (!string.IsNullOrEmpty(dataParam))
@@ -210,7 +210,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticMastery> GetStaticMasteryByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null)
         {
-            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/mastery/{id}";
+            var request = $"{staticDataBaseUrl}/{lowerRegion}/{LolStaticDataApiVersion}/mastery/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
             var dataParam = CreateDataParam(masteryData, typeof(StaticMastery));
             if (!string.IsNullOrEmpty(dataParam))
@@ -231,7 +231,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticRealm> GetStaticRealmAsync()
         {
-            return GetAsync<StaticRealm>($"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/realm");
+            return GetAsync<StaticRealm>($"{staticDataBaseUrl}/{lowerRegion}/{LolStaticDataApiVersion}/realm");
         }
 
         #endregion
@@ -250,7 +250,7 @@ namespace RiotNet
         /// </remarks>
         public async Task<StaticRuneList> GetStaticRunesAsync(string locale = null, string version = null, IEnumerable<string> runeListData = null)
         {
-            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/rune";
+            var request = $"{staticDataBaseUrl}/{lowerRegion}/{LolStaticDataApiVersion}/rune";
             var queryParameters = GetStandardQueryParameters(locale, version);
             var dataParam = CreateDataParam(runeListData, typeof(StaticRune), typeof(StaticRuneList));
             if (!string.IsNullOrEmpty(dataParam))
@@ -283,7 +283,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticRune> GetStaticRuneByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> runeData = null)
         {
-            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/rune/{id}";
+            var request = $"{staticDataBaseUrl}/{lowerRegion}/{LolStaticDataApiVersion}/rune/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
             var dataParam = CreateDataParam(runeData, typeof(StaticRune));
             if (!string.IsNullOrEmpty(dataParam))
@@ -308,7 +308,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticSummonerSpellList> GetStaticSummonerSpellsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> spellListData = null)
         {
-            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/summoner-spell";
+            var request = $"{staticDataBaseUrl}/{lowerRegion}/{LolStaticDataApiVersion}/summoner-spell";
             var queryParameters = GetStandardQueryParameters(locale, version);
             if (dataById)
                 queryParameters["dataById"] = "true";
@@ -331,7 +331,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticSummonerSpell> GetStaticSummonerSpellByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> spellData = null)
         {
-            var request = $"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/summoner-spell/{id}";
+            var request = $"{staticDataBaseUrl}/{lowerRegion}/{LolStaticDataApiVersion}/summoner-spell/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
             var dataParam = CreateDataParam(spellData, typeof(StaticSummonerSpell));
             if (!string.IsNullOrEmpty(dataParam))
@@ -352,7 +352,7 @@ namespace RiotNet
         /// </remarks>
         public Task<List<string>> GetVersionsAsync()
         {
-            return GetAsync<List<string>>($"{staticDataBaseUrl}/{region}/{LolStaticDataApiVersion}/versions");
+            return GetAsync<List<string>>($"{staticDataBaseUrl}/{lowerRegion}/{LolStaticDataApiVersion}/versions");
         }
 
         #endregion

@@ -21,7 +21,7 @@ namespace RiotNet
         public Task<Dictionary<string, Summoner>> GetSummonersBySummonerNamesAsync(params string[] summonerNames)
         {
             var summonerNameString = string.Join(",", summonerNames);
-            return GetAsync<Dictionary<string, Summoner>>($"{mainBaseUrl}/api/lol/{region}/{SummonerApiVersion}/summoner/by-name/{summonerNameString}");
+            return GetAsync<Dictionary<string, Summoner>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{SummonerApiVersion}/summoner/by-name/{summonerNameString}");
         }
         
         /// <summary>
@@ -43,7 +43,7 @@ namespace RiotNet
         public Task<Dictionary<string, Summoner>> GetSummonersBySummonerIdsAsync(params long[] summonerIds)
         {
             var summonerIdString = string.Join(",", summonerIds);
-            return GetAsync<Dictionary<string, Summoner>>($"{mainBaseUrl}/api/lol/{region}/{SummonerApiVersion}/summoner/{summonerIdString}");
+            return GetAsync<Dictionary<string, Summoner>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{SummonerApiVersion}/summoner/{summonerIdString}");
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace RiotNet
         public Task<Dictionary<string, MasteryPages>> GetSummonerMasteriesBySummonerIdsAsync(params long[] summonerIds)
         {
             var summonerIdString = string.Join(",", summonerIds);
-            return GetAsync<Dictionary<string, MasteryPages>>($"{mainBaseUrl}/api/lol/{region}/{SummonerApiVersion}/summoner/{summonerIdString}/masteries");
+            return GetAsync<Dictionary<string, MasteryPages>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{SummonerApiVersion}/summoner/{summonerIdString}/masteries");
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace RiotNet
         public Task<Dictionary<String, String>> GetSummonerNamesBySummonerIdsAsync(params long[] summonerIds)
         {
             var summonerIdString = string.Join(",", summonerIds);
-            return GetAsync<Dictionary<string, string>>($"{mainBaseUrl}/api/lol/{region}/{SummonerApiVersion}/summoner/{summonerIdString}/name");
+            return GetAsync<Dictionary<string, string>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{SummonerApiVersion}/summoner/{summonerIdString}/name");
         }
         
         /// <summary>
@@ -87,7 +87,7 @@ namespace RiotNet
         public Task<Dictionary<String, RunePages>> GetSummonerRunesBySummonerIdsAsync(params long[] summonerIds)
         {
             var summonerIdString = string.Join(",", summonerIds);
-            return GetAsync<Dictionary<string, RunePages>>($"{mainBaseUrl}/api/lol/{region}/{SummonerApiVersion}/summoner/{summonerIdString}/runes");
+            return GetAsync<Dictionary<string, RunePages>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{SummonerApiVersion}/summoner/{summonerIdString}/runes");
         }
     }
 }

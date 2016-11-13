@@ -43,7 +43,7 @@ namespace RiotNet
             if (endIndex != null)
                 queryParameters["endIndex"] = endIndex.Value.ToString(CultureInfo.InvariantCulture);
 
-            return GetAsync<MatchList>($"{mainBaseUrl}/api/lol/{region}/{MatchApiVersion}/matchlist/by-summoner/{summonerId}", queryParameters);
+            return GetAsync<MatchList>($"{mainBaseUrl}/api/lol/{lowerRegion}/{MatchApiVersion}/matchlist/by-summoner/{summonerId}", queryParameters);
         }
     }
 }
