@@ -293,7 +293,7 @@ namespace RiotNet
         /// <returns>A task that represents the asynchronous operation.</returns>
         protected virtual async Task<T> ExecuteAsync<T>(HttpMethod method, string resource, object body = null, IDictionary<string, object> queryParameters = null, bool useApiKey = true)
         {
-            var resourceBuilder = new StringBuilder();
+            var resourceBuilder = new StringBuilder(resource);
             var querySeparator = resource.Contains("?") ? "&" : "?";
             if (queryParameters != null)
             {
@@ -317,7 +317,6 @@ namespace RiotNet
             var request = new HttpRequestMessage(method, resourceBuilder.ToString());
             if (body != null)
                 request.Content = new JsonContent(body);
-            // TODO: headers?
             return await ExecuteAsync<T>(request).ConfigureAwait(false);
         }
 
@@ -342,9 +341,10 @@ namespace RiotNet
                     break;
                 if (action == ResponseAction.Retry)
                 {
-                    var retryAfter = response.Response.Headers.GetValues("Retry-After").FirstOrDefault();
-                    if (retryAfter != null)
+                    IEnumerable<string> retryAfterValues = null;
+                    if (response.Response?.Headers.TryGetValues("Retry-After", out retryAfterValues) == true)
                     {
+                        var retryAfter = retryAfterValues.FirstOrDefault();
                         int delaySeconds;
                         if (int.TryParse(retryAfter, out delaySeconds))
                             await Task.Delay((delaySeconds + 1) * 1000);

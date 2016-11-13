@@ -2,10 +2,12 @@
   "version": "1.0.0-*",
 
   "dependencies": {
+    "Microsoft.EntityFrameworkCore": "1.1.0-preview1-final",
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.1.0-preview1-final",
     "NUnit": "3.5.0",
     "RiotNet": {
       "target": "project"
-    },
+    }
   },
 
   "testRunner": "nunit",

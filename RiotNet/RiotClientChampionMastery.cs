@@ -1,5 +1,6 @@
 ﻿using RiotNet.Models;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Threading.Tasks;
 
 namespace RiotNet
@@ -45,7 +46,10 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<List<ChampionMastery>> GetChampionMasteryTopChampionsAsync(long playerId, int? count = null)
         {
-            return GetAsync<List<ChampionMastery>>($"{mainBaseUrl}/championmastery/location/{platformId}/player/{playerId}/topchampions");
+            var queryParameters = new Dictionary<string, object>();
+            if (count != null)
+                queryParameters["count"] = count.Value.ToString(CultureInfo.InvariantCulture);
+            return GetAsync<List<ChampionMastery>>($"{mainBaseUrl}/championmastery/location/{platformId}/player/{playerId}/topchampions", queryParameters);
         }
     }
 }
