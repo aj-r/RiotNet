@@ -10,12 +10,12 @@
         "define": [ "NET_45", "DB_READY" ]
       },
       "dependencies": {
-        "Newtonsoft.Json": "6.0.1",
-        "Microsoft.Net.Http": "2.2.22",
-        "System.ComponentModel.Annotations": "4.0.0.0"
+        "Newtonsoft.Json": "6.0.1"
       },
       "frameworkAssemblies": {
-        "System.ComponentModel.DataAnnotations": "4.0.0.0"
+        "System.ComponentModel.Annotations": "4.0.0.0",
+        "System.ComponentModel.DataAnnotations": "4.0.0.0",
+        "System.Net.Http": "4.0.0.0"
       }
     },
     "netstandard1.6": {
