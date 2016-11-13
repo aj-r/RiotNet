@@ -93,10 +93,17 @@ namespace RiotNet.Converters
                             return GameSubType.URF_BOT;
                         case "Bilgewater":
                             return GameSubType.BILGEWATER;
+                        case "Siege":
+                            return GameSubType.SIEGE;
+                        case "RankedFlexSR":
+                            return GameSubType.RANKED_FLEX_SR;
+                        case "RankedFlexTT":
+                            return GameSubType.RANKED_FLEX_TT;
+                        default:
+                            return -1;
                     }
-                    throw new JsonException("'" + stringValue + "' is not a valid GameSubType. Path: " + reader.Path);
                 default:
-                    throw new JsonException("Unexpected token reading GameSubType. Expected String, but got " + reader.TokenType + ". Path: " + reader.Path);
+                    throw new JsonException($"Unexpected token reading GameSubType. Expected String, but got {reader.TokenType}. Path: {reader.Path}");
             }
         }
 

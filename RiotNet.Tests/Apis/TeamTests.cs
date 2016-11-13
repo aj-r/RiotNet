@@ -45,7 +45,8 @@ namespace RiotNet.Tests
             Assert.That(team.MatchHistory.Any((x) => x.Deaths > 0));
             Assert.That(matchHistory.GameId, Is.GreaterThan(0));
             Assert.That(matchHistory.GameMode, Is.EqualTo(GameMode.CLASSIC));
-            Assert.That(summonerTeams.Any((x) => x.MatchHistory.Any((y) => y.Invalid)));
+            // Loss prevented is pretty rare these days so Invalid is hard to test
+            //Assert.That(summonerTeams.Any((x) => x.MatchHistory?.Any((y) => y.Invalid) == true));
             Assert.That(team.MatchHistory.Any((x) => x.Kills > 0));
             Assert.That(matchHistory.MapId, Is.GreaterThan(0));
             Assert.That(team.MatchHistory.Any((x) => x.OpposingTeamKills > 0));

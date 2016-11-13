@@ -1,9 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
 
 namespace RiotNet.Models
 {
@@ -31,7 +28,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the message id.
         /// </summary>
-        public long Id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Gets or sets server incident message severity.

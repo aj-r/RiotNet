@@ -132,7 +132,11 @@ namespace RiotNet.Models
         /// <summary>
         /// Legend of the Poro King, played on the Howling Abyss.
         /// </summary>
-        KINGPORO
+        KINGPORO,
+        /// <summary>
+        /// Nexus Siege
+        /// </summary>
+        SIEGE,
     }
 
     /// <summary>
@@ -240,6 +244,18 @@ namespace RiotNet.Models
         /// Black Market Brawlers
         /// </summary>
         BILGEWATER,
+        /// <summary>
+        /// Nexus Siege
+        /// </summary>
+        SIEGE,
+        /// <summary>
+        /// Ranked Flex Summoner's Rift
+        /// </summary>
+        RANKED_FLEX_SR,
+        /// <summary>
+        /// Ranked Flex Twisted Treeline
+        /// </summary>
+        RANKED_FLEX_TT,
     }
 
     /// <summary>
@@ -637,9 +653,17 @@ namespace RiotNet.Models
         /// </summary>
         BILGEWATER_5x5 = 313,
         /// <summary>
+        /// Nexus Siege
+        /// </summary>
+        SIEGE = 315,
+        /// <summary>
         /// Definitely Not Dominion
         /// </summary>
         DEFINITELY_NOT_DOMINION_5x5 = 317,
+        /// <summary>
+        /// All Random URF
+        /// </summary>
+        ARURF_5x5 = 318,
         /// <summary>
         /// Normal 5v5 Draft Pick
         /// </summary>
@@ -648,6 +672,10 @@ namespace RiotNet.Models
         /// Ranked Dynamic Queue
         /// </summary>
         TEAM_BUILDER_DRAFT_RANKED_5x5 = 410,
+        /// <summary>
+        /// Ranked Flex Summoner's Rift
+        /// </summary>
+        RANKED_FLEX_SR = 440,
     }
 
     /// <summary>
@@ -667,8 +695,21 @@ namespace RiotNet.Models
         /// Ranked Team 5v5
         /// </summary>
         RANKED_TEAM_5x5,
+        /// <summary>
+        /// Ranked dynamic queue (season 6 only)
+        /// </summary>
+        TEAM_BUILDER_DRAFT_RANKED_5x5,
+        /// <summary>
+        /// Ranked Flex Summoner's Rift
+        /// </summary>
+        RANKED_FLEX_SR,
+        /// <summary>
+        /// Ranked Flex Twisted Treeline. Note that this value is ONLY used in <see cref="League"/> objects.
+        /// <see cref="MatchReference"/> objects will use the <see cref="RANKED_TEAM_3x3"/> value instead.
+        /// </summary>
+        RANKED_FLEX_TT,
     }
-
+    
     /// <summary>
     /// Represents a region (or server).
     /// </summary>
@@ -757,6 +798,14 @@ namespace RiotNet.Models
         /// Season 6, 2016
         /// </summary>
         SEASON2016,
+        /// <summary>
+        /// Pre-season 7, 2017
+        /// </summary>
+        PRESEASON2017,
+        /// <summary>
+        /// Season 7, 2017
+        /// </summary>
+        SEASON2017,
     }
 
     /// <summary>
