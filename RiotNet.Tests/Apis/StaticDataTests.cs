@@ -215,7 +215,8 @@ namespace RiotNet.Tests
             Assert.That(itemList.Data.Values.Any(i => !string.IsNullOrEmpty(i.Colloq)));
             Assert.That(itemList.Data.Values.Any(i => i.ConsumeOnFull));
             Assert.That(itemList.Data.Values.Any(i => i.Effect != null && i.Effect.Count > 0));
-            Assert.That(itemList.Data.Values.Any(i => !string.IsNullOrEmpty(i.Group)));
+            // Seems like items don't have groups in S7?
+            //Assert.That(itemList.Data.Values.Any(i => !string.IsNullOrEmpty(i.Group)));
             Assert.That(itemList.Data.Values.Any(i => i.HideFromAll));
             Assert.That(itemList.Data.Values.Any(i => !i.InStore));
             Assert.That(itemList.Data.Values.Any(i => i.Maps.Values.Any(m => m == false)));
@@ -429,8 +430,9 @@ namespace RiotNet.Tests
             Assert.That(runeList.Type, Is.Not.Null.And.Not.Empty);
             Assert.That(runeList.Version, Is.Not.Null.And.Not.Empty);
 
-            // All runes should have one non-zero stat. If a rune has all zero stats, then something is wrong.
+            // All runes should have one non-zero stat (except lethality runes for some reason). If a rune has all zero stats, then something is wrong.
             var statlessRune = runeList.Data.Values.FirstOrDefault(r =>
+                !r.Description.ToLowerInvariant().Contains("lethality") &&
                 r.Stats.FlatArmorMod == 0 &&
                 r.Stats.FlatArmorModPerLevel == 0 &&
                 r.Stats.FlatArmorPenetrationMod == 0 &&

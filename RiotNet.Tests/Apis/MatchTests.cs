@@ -10,7 +10,7 @@ namespace RiotNet.Tests
     public class MatchTests : TestBase
     {
         [Test]
-        [Explicit("This test uses the Tournament API. You need a special tournament key to run this test.")]
+        [Ignore("This test uses the Tournament API. You need a special tournament key to run this test.")]
         public async Task GetMatchIdsByTournamentCodeAsyncTest()
         {
             IRiotClient client = new RiotClient(Region.NA, TournamentApiKey);
@@ -20,7 +20,7 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        [Explicit("This test uses the Tournament API. You need a special tournament key to run this test.")]
+        [Ignore("This test uses the Tournament API. You need a special tournament key to run this test.")]
         public async Task GetMatchForTournamentAsyncTest()
         {
             IRiotClient client = new RiotClient(Region.NA, TournamentApiKey);

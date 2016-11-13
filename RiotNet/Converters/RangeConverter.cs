@@ -24,7 +24,7 @@ namespace RiotNet.Converters
         /// <returns><value>true</value> if this converter can convert the specified type; otherwise <value>false</value>.</returns>
         public override bool CanConvert(Type objectType)
         {
-            return objectType == typeof(List<int>);
+            return objectType == typeof(ListOfInt);
         }
 
         /// <summary>

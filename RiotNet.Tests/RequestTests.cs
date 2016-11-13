@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace RiotNet.Tests
 {
     [TestFixture]
-    [Explicit("These tests are desgned to max out the rate limit, and can only be run if explicitly selected.")]
+    [Ignore("These tests are desgned to max out the rate limit, and can only be run if explicitly selected.")]
     public class RequestTests : TestBase
     {
         [Test]

@@ -43,7 +43,7 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        [Explicit("Teams aren't really a thing anymore (except 3v3), so these teams might not even have a league entry.")]
+        [Ignore("Teams aren't really a thing anymore (except 3v3), so these teams might not even have a league entry.")]
         public async Task GetLeaguesByTeamIdsAsyncTest()
         {
             IRiotClient client = new RiotClient();
@@ -59,7 +59,7 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        [Explicit("Teams aren't really a thing anymore (except 3v3), so these teams might not even have a league entry.")]
+        [Ignore("Teams aren't really a thing anymore (except 3v3), so these teams might not even have a league entry.")]
         public async Task GetLeagueEntriesByTeamIdsAsyncTest()
         {
             IRiotClient client = new RiotClient();

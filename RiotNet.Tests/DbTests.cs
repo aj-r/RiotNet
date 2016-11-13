@@ -14,6 +14,9 @@ namespace RiotNet.Tests
     /// Tests that the necessary objects can be easily saved in a database.
     /// </summary>
     [TestFixture]
+#if NET_CORE
+    [Ignore("EF Core does not support data annotations yet, so it does not work with our models.")]
+#endif
     public class DbTests : TestBase
     {
         [Test]

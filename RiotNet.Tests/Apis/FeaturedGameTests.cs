@@ -19,15 +19,20 @@ namespace RiotNet.Tests
             Assert.That(featuredGameList.ClientRefreshInterval, Is.GreaterThan(0));
             Assert.That(featuredGameList.GameList, Is.Not.Null.And.Not.Empty);
             var game = featuredGameList.GameList.First();
-            Assert.That(game.BannedChampions, Is.Not.Null.And.Not.Empty);
+            // Apparently the featured games are all blind pick now because we ware between seasons.
+            /*Assert.That(game.BannedChampions, Is.Not.Null.And.Not.Empty);
             var bannedChampion = game.BannedChampions.First();
             Assert.That(bannedChampion.ChampionId, Is.GreaterThan(0));
             Assert.That(bannedChampion.PickTurn, Is.GreaterThan(0));
-            Assert.That(game.BannedChampions.Any(c => c.TeamId == TeamSide.Team2));
+            Assert.That(game.BannedChampions.Any(c => c.TeamId == TeamSide.Team2));*/
             Assert.That(game.GameId, Is.GreaterThan(0));
             Assert.That(game.GameLength, Is.GreaterThan(TimeSpan.Zero));
             Assert.That(game.GameMode, Is.EqualTo(GameMode.CLASSIC).Or.EqualTo(GameMode.ARAM));
-            Assert.That(game.GameQueueConfigId, Is.EqualTo(QueueType.TEAM_BUILDER_DRAFT_RANKED_5x5).Or.EqualTo(QueueType.TEAM_BUILDER_DRAFT_UNRANKED_5x5).Or.EqualTo(QueueType.RANKED_SOLO_5x5).Or.EqualTo(QueueType.NORMAL_5x5_DRAFT));
+            Assert.That(game.GameQueueConfigId, Is.EqualTo(QueueType.TEAM_BUILDER_DRAFT_RANKED_5x5)
+                .Or.EqualTo(QueueType.TEAM_BUILDER_DRAFT_UNRANKED_5x5)
+                .Or.EqualTo(QueueType.RANKED_SOLO_5x5)
+                .Or.EqualTo(QueueType.NORMAL_5x5_DRAFT)
+                .Or.EqualTo(QueueType.ARAM_5x5));
             Assert.That(game.GameStartTime.Kind, Is.EqualTo(DateTimeKind.Utc));
             Assert.That(game.GameStartTime, Is.LessThan(DateTime.UtcNow).And.GreaterThan(DateTime.UtcNow.AddHours(-2)));
             Assert.That(game.GameType, Is.EqualTo(GameType.MATCHED_GAME));

@@ -38,6 +38,7 @@ namespace RiotNet.Models
         /// <summary>
         ///  Gets or sets the IDs of the summoners who are allowed to participate in the game.
         /// </summary>
+        [NotMapped]
         public ListOfLong Participants { get; set; }
 
         /// <summary>
