@@ -75,7 +75,7 @@ namespace RiotNet.Tests
         /// <returns>A boolean value that indicates whether the type is a Nullable&lt;T&gt;.</returns>
         public static bool IsNullableType(Type type)
         {
-            return type != null && type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
+            return type != null && type.GetTypeInfo().IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
         }
 
         /// <summary>
@@ -135,11 +135,12 @@ namespace RiotNet.Tests
                 sampleTimeSpan += TimeSpan.FromSeconds(1);
                 return sampleTimeSpan;
             }
-            if (type.IsEnum)
+            var typeInfo = type.GetTypeInfo();
+            if (typeInfo.IsEnum)
                 return Enum.GetValues(type).Cast<object>().Last();
-            if (type.IsInterface)
+            if (typeInfo.IsInterface)
             {
-                if (type.IsGenericType)
+                if (typeInfo.IsGenericType)
                 {
                     var typeArguments = type.GetGenericArguments();
                     if (typeArguments.Length == 1)
@@ -148,6 +149,7 @@ namespace RiotNet.Tests
                         if (genericTypeDefinition == typeof(IEnumerable<>) || genericTypeDefinition == typeof(ICollection<>) || genericTypeDefinition == typeof(IList<>))
                         {
                             type = typeof(List<>).MakeGenericType(typeArguments);
+                            typeInfo = type.GetTypeInfo();
                         }
                     }
                     else if (typeArguments.Length == 2)
@@ -156,13 +158,14 @@ namespace RiotNet.Tests
                         if (genericTypeDefinition == typeof(IDictionary<,>))
                         {
                             type = typeof(Dictionary<,>).MakeGenericType(typeArguments);
+                            typeInfo = type.GetTypeInfo();
                         }
                     }
                 }
-                if (type.IsInterface)
+                if (typeInfo.IsInterface)
                     throw new Exception("Unsupported interface type: " + type.FullName);
             }
-            if (!type.IsClass)
+            if (!typeInfo.IsClass)
                 throw new Exception("Unsupported struct type: " + type.FullName);
 
             var obj = Activator.CreateInstance(type);
@@ -239,7 +242,7 @@ namespace RiotNet.Tests
                 if (forDefaults && a != null)
                 {
                     // If the default value for a [ComplexType] object is null, we permit it to be set, because it must be non-null to be saveable in the database.
-                    if (a.GetType().GetCustomAttribute<ComplexTypeAttribute>() != null)
+                    if (a.GetType().GetTypeInfo().GetCustomAttribute<ComplexTypeAttribute>() != null)
                         return;
                 }
                 Assert.That(a, Is.Null, "Value for " + propertyName + " is incorrect.");
@@ -249,7 +252,7 @@ namespace RiotNet.Tests
             Assert.That(b, Is.Not.Null);
             var type = b.GetType();
             Assert.That(a, Is.InstanceOf(type), "Objects have different types (" + propertyName + ").");
-            if (!type.IsClass || type == typeof(string))
+            if (!type.GetTypeInfo().IsClass || type == typeof(string))
             {
                 Assert.That(a, Is.EqualTo(b), "Value for " + propertyName + " is incorrect.");
                 return;
@@ -358,7 +361,7 @@ namespace RiotNet.Tests
             {
                 Assert.That(objects.Cast<TimeSpan>().Any(x => x > TimeSpan.Zero), defaultMessage + "TimeSpan is equal to the default value.");
             }
-            else if (type.IsEnum)
+            else if (type.GetTypeInfo().IsEnum)
             {
                 var defaultValue = Enum.GetValues(type).GetValue(0);
                 Assert.That(objects.Any(x => !x.Equals(defaultValue)), defaultMessage + type.Name + " is equal to the default value.");

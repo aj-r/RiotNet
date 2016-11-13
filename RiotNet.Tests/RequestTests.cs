@@ -9,7 +9,7 @@ namespace RiotNet.Tests
     public class RequestTests : TestBase
     {
         [Test]
-        public async Task RateLimitTest_Async_ShouldRetry()
+        public async Task RateLimitTest_ShouldRetry()
         {
             IRiotClient client = new RiotClient();
             client.Settings.MaxRequestAttempts = 2;
@@ -23,67 +23,31 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public void RateLimitTest_Sync_ShouldRetry()
-        {
-            IRiotClient client = new RiotClient();
-            client.Settings.MaxRequestAttempts = 2;
-            client.Settings.RetryOnRateLimitExceeded = true;
-            client.Settings.ThrowOnError = true;
-            for (var i = 0; i < 11; ++i)
-            {
-                var league = client.GetMasterLeague(RankedQueue.RANKED_SOLO_5x5);
-                Assert.That(league, Is.Not.Null);
-            }
-        }
-
-        [Test]
-        [ExpectedException(typeof(RateLimitExceededException))]
-        public async Task RateLimitTest_Async_ShouldThrow()
+        public void RateLimitTest_ShouldThrow()
         {
             IRiotClient client = new RiotClient();
             client.Settings.RetryOnRateLimitExceeded = false;
             client.Settings.ThrowOnError = true;
-            for (var i = 0; i < 11; ++i)
-                await client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
+            Assert.ThrowsAsync<RateLimitExceededException>(() => MaxOutRateLimit(client));
         }
 
         [Test]
-        [ExpectedException(typeof(RateLimitExceededException))]
-        public void RateLimitTest_Sync_ShouldThrow()
-        {
-            IRiotClient client = new RiotClient();
-            client.Settings.RetryOnRateLimitExceeded = false;
-            client.Settings.ThrowOnError = true;
-            for (var i = 0; i < 11; ++i)
-                client.GetMasterLeague(RankedQueue.RANKED_SOLO_5x5);
-        }
-
-        [Test]
-        public async Task RateLimitTest_Async_ShouldReturnNull()
+        public async Task RateLimitTest_ShouldReturnNull()
         {
             IRiotClient client = new RiotClient();
             client.Settings.RetryOnRateLimitExceeded = false;
             client.Settings.ThrowOnError = false;
-            for (var i = 0; i < 11; ++i)
-                await client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
+            await MaxOutRateLimit(client);
 
             var league = await client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
 
             Assert.That(league, Is.Null);
         }
 
-        [Test]
-        public void RateLimitTest_Sync_ShouldReturnNull()
+        private async Task MaxOutRateLimit(IRiotClient client)
         {
-            IRiotClient client = new RiotClient();
-            client.Settings.RetryOnRateLimitExceeded = false;
-            client.Settings.ThrowOnError = false;
             for (var i = 0; i < 11; ++i)
-                client.GetMasterLeague(RankedQueue.RANKED_SOLO_5x5);
-
-            var league = client.GetMasterLeague(RankedQueue.RANKED_SOLO_5x5);
-
-            Assert.That(league, Is.Null);
+                await client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
         }
     }
 }

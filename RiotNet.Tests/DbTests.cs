@@ -1,7 +1,12 @@
 ﻿using NUnit.Framework;
 using RiotNet.Models;
-using System.Data.Entity;
 using System.Linq;
+using System.Reflection;
+#if NET_CORE
+using Microsoft.EntityFrameworkCore;
+#else
+using System.Data.Entity;
+#endif
 
 namespace RiotNet.Tests
 {
@@ -129,11 +134,11 @@ namespace RiotNet.Tests
         {
             ResetSampleValues();
             var value = Create<T>();
-            var dbSetProperty = typeof(TestDbContext).GetProperties().First(p => p.PropertyType == typeof(IDbSet<T>));
+            var dbSetProperty = typeof(TestDbContext).GetProperties().First(p => p.PropertyType == typeof(DbSet<T>));
             // Try to save the value to the database and make sure there are no errors.
             using (var context = new TestDbContext())
             {
-                var dbSet = (IDbSet<T>)dbSetProperty.GetValue(context);
+                var dbSet = (DbSet<T>)dbSetProperty.GetValue(context);
                 dbSet.Add(value);
                 context.SaveChanges();
             }
@@ -146,7 +151,7 @@ namespace RiotNet.Tests
             using (var context = new TestDbContext())
             {
                 // Read the value from the database and make sure all properties are set.
-                var dbSet = (IDbSet<T>)dbSetProperty.GetValue(context);
+                var dbSet = (DbSet<T>)dbSetProperty.GetValue(context);
                 var dbValue = dbSet.First();
                 AssertObjectEqualityRecursive(dbValue, expectedValue, forDatabase: true);
             }

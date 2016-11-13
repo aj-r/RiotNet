@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0.0",
+  "version": "3.0.0.0",
 
   "dependencies": {
   },
@@ -10,7 +10,7 @@
         "define": [ "NET_45" ]
       },
       "dependencies": {
-        "Newtonsoft.Json": "7.0.1",
+        "Newtonsoft.Json": "6.0.1",
         "Microsoft.Net.Http": "2.2.22",
         "System.ComponentModel.Annotations": "4.0.0.0"
       },
