@@ -589,7 +589,7 @@ namespace RiotNet
         /// Gets the currently supported version of the Tournament API that the client communicates with.
         /// </summary>
         string TournamentApiVersion { get; }
-        
+
         /// <summary>
         /// Registers the current client as a tournament provider. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
         /// </summary>

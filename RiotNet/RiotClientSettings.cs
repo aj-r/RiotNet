@@ -27,6 +27,11 @@
         public string ApiKey { get; set; }
 
         /// <summary>
+        /// Gets or sets whether to use the /tournament/stub/ endpoints instead of the /tournament/public/ endpoints.
+        /// </summary>
+        public bool UseTournamentStub { get; set; }
+
+        /// <summary>
         /// Gets or sets how the <see cref="RiotClient"/> should handle the case where the request times out.
         /// </summary>
         public bool RetryOnTimeout { get; set; }

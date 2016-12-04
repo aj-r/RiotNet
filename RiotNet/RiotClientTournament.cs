@@ -13,27 +13,32 @@ namespace RiotNet
 
         /// <summary>
         /// Registers the current client as a tournament provider. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
+        /// IMPORTANT: if you are using an interim API key, you must set <see cref="RiotClientSettings.UseTournamentStub"/> to true before calling this method.
         /// </summary>
         /// <param name="url">The provider's callback URL to which tournament game results in this region should be posted.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<long> CreateTournamentProviderAsync(string url)
         {
-            return PostAsync<long>($"{globalBaseUrl}/tournament/public/{TournamentApiVersion}/provider", new { region, url });
+            var publicOrStub = settings.UseTournamentStub ? "stub" : "public";
+            return PostAsync<long>($"{globalBaseUrl}/tournament/{publicOrStub}/{TournamentApiVersion}/provider", new { region, url });
         }
 
         /// <summary>
         /// Creates a tournament. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
+        /// IMPORTANT: if you are using an interim API key, you must set <see cref="RiotClientSettings.UseTournamentStub"/> to true before calling this method.
         /// </summary>
         /// <param name="providerId">The providerId obtained from <see cref="CreateTournamentProvider"/>.</param>
         /// <param name="name">The optional name of the tournament.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<long> CreateTournamentAsync(long providerId, string name = null)
         {
-            return PostAsync<long>($"{globalBaseUrl}/tournament/public/{TournamentApiVersion}/tournament", new { name, providerId });
+            var publicOrStub = settings.UseTournamentStub ? "stub" : "public";
+            return PostAsync<long>($"{globalBaseUrl}/tournament/{publicOrStub}/{TournamentApiVersion}/tournament", new { name, providerId });
         }
 
         /// <summary>
         /// Creates one or more tournament codes. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
+        /// IMPORTANT: if you are using an interim API key, you must set <see cref="RiotClientSettings.UseTournamentStub"/> to true before calling this method.
         /// </summary>
         /// <param name="tournamentId">The tournament ID obtained from <see cref="CreateTournamentAsync"/>.</param>
         /// <param name="count">The number of codes to create (max 1000).</param>
@@ -47,10 +52,11 @@ namespace RiotNet
         public Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count = null, List<long> allowedSummonerIds = null, MapType mapType = MapType.SUMMONERS_RIFT,
             PickType pickType = PickType.TOURNAMENT_DRAFT, SpectatorType spectatorType = SpectatorType.ALL, int teamSize = 5, string metadata = null)
         {
+            var publicOrStub = settings.UseTournamentStub ? "stub" : "public";
             var queryParameters = new Dictionary<string, object> { { "tournamentId", tournamentId } };
             if (count != null)
                 queryParameters["count"] = count;
-            return PostAsync<List<string>>($"{globalBaseUrl}/tournament/public/{TournamentApiVersion}/code", new
+            return PostAsync<List<string>>($"{globalBaseUrl}/tournament/{publicOrStub}/{TournamentApiVersion}/code", new
             {
                 allowedSummonerIds = allowedSummonerIds != null ? new { participants = allowedSummonerIds } : null,
                 mapType,
@@ -63,16 +69,19 @@ namespace RiotNet
 
         /// <summary>
         /// Gets the details of a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
+        /// IMPORTANT: if you are using an interim API key, you must set <see cref="RiotClientSettings.UseTournamentStub"/> to true before calling this method.
         /// </summary>
         /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCodeAsync"/>.</param>
         /// <returns>The tournament code details.</returns>
         public Task<TournamentCode> GetTournamentCodeAsync(string tournamentCode)
         {
-            return GetAsync<TournamentCode>($"{globalBaseUrl}/tournament/public/{TournamentApiVersion}/code/{tournamentCode}");
+            var publicOrStub = settings.UseTournamentStub ? "stub" : "public";
+            return GetAsync<TournamentCode>($"{globalBaseUrl}/tournament/{publicOrStub}/{TournamentApiVersion}/code/{tournamentCode}");
         }
-        
+
         /// <summary>
         /// Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
+        /// IMPORTANT: if you are using an interim API key, you must set <see cref="RiotClientSettings.UseTournamentStub"/> to true before calling this method.
         /// </summary>
         /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCodeAsync"/>.</param>
         /// <param name="allowedSummonerIds">Optional list of participants in order to validate the players eligible to join the lobby.</param>
@@ -82,7 +91,8 @@ namespace RiotNet
         public Task UpdateTournamentCodeAsync(string tournamentCode, List<long> allowedSummonerIds = null, MapType mapType = MapType.SUMMONERS_RIFT,
             PickType pickType = PickType.TOURNAMENT_DRAFT, SpectatorType spectatorType = SpectatorType.ALL)
         {
-            return PutAsync<object>($"{globalBaseUrl}/tournament/public/{TournamentApiVersion}/code/{tournamentCode}", new
+            var publicOrStub = settings.UseTournamentStub ? "stub" : "public";
+            return PutAsync<object>($"{globalBaseUrl}/tournament/{publicOrStub}/{TournamentApiVersion}/code/{tournamentCode}", new
             {
                 allowedParticipants = allowedSummonerIds != null ? string.Join(",", allowedSummonerIds) : null,
                 mapType,
@@ -90,9 +100,10 @@ namespace RiotNet
                 spectatorType
             });
         }
-        
+
         /// <summary>
         /// Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
+        /// IMPORTANT: if you are using an interim API key, you must set <see cref="RiotClientSettings.UseTournamentStub"/> to true before calling this method.
         /// </summary>
         /// <param name="tournamentCode">The tournament code to update. Only the Code, Participants, MapType, PickType, and SpectatorType proerties are used.</param>
         public Task UpdateTournamentCodeAsync(TournamentCode tournamentCode)
@@ -102,12 +113,14 @@ namespace RiotNet
 
         /// <summary>
         /// Gets the events that happened in the lobby of atournament code game. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
+        /// IMPORTANT: if you are using an interim API key, you must set <see cref="RiotClientSettings.UseTournamentStub"/> to true before calling this method.
         /// </summary>
         /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCodeAsync"/>.</param>
         /// <returns>The tournament code details.</returns>
         public async Task<List<LobbyEvent>> GetTournamentCodeLobbyEventsAsync(string tournamentCode)
         {
-            var wrapper = await GetAsync<LobbyEventWrapper>($"{globalBaseUrl}/tournament/public/{TournamentApiVersion}/lobby/events/by-code/{tournamentCode}");
+            var publicOrStub = settings.UseTournamentStub ? "stub" : "public";
+            var wrapper = await GetAsync<LobbyEventWrapper>($"{globalBaseUrl}/tournament/{publicOrStub}/{TournamentApiVersion}/lobby/events/by-code/{tournamentCode}").ConfigureAwait(false);
             return wrapper.EventList;
         }
 
