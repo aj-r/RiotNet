@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace RiotNet
@@ -22,12 +23,13 @@ namespace RiotNet
         public JsonContent(object content)
         {
             this.content = content;
+            Headers.ContentType = new MediaTypeHeaderValue("application/json");
         }
 
         /// <inheritdoc />
         protected override Task SerializeToStreamAsync(Stream stream, TransportContext context)
         {
-            TaskCompletionSource<bool> serializeToStreamTask = new TaskCompletionSource<bool>();
+            var serializeToStreamTask = new TaskCompletionSource<bool>();
 
             var serializer = JsonSerializer.Create(RiotClient.JsonSettings);
             var writer = new StreamWriter(stream);

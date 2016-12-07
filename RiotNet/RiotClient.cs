@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -70,6 +71,8 @@ namespace RiotNet
             this.settings = settings;
 
             mainBaseUrl = "https://" + GetServerName(region);
+
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         private static RiotClientSettings GetSettingsForApiKey(string apiKey)
