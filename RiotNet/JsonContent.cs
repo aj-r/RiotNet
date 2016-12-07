@@ -33,9 +33,9 @@ namespace RiotNet
 
             var serializer = JsonSerializer.Create(RiotClient.JsonSettings);
             var writer = new StreamWriter(stream);
-            serializer.Serialize(writer, content);
-
-            return Task.FromResult(true);
+            var jsonWriter = new JsonTextWriter(writer);
+            serializer.Serialize(jsonWriter, content);
+            return writer.FlushAsync();
         }
 
         /// <inheritdoc />
