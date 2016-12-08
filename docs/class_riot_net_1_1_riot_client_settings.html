@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">3.0.0</span>
+   &#160;<span id="projectnumber">3.1.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -111,6 +111,9 @@ Properties</h2></td></tr>
 <tr class="memitem:aee6310a4573d89c77d09fc0a4d107430"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client_settings.html#aee6310a4573d89c77d09fc0a4d107430">ApiKey</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:aee6310a4573d89c77d09fc0a4d107430"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the Riot API key to use. NOTE: If you are using a public repository, do NOT check you API key in to the repository. It is recommended to load your API key from a separate file (e.g. key.txt) that is ignored by your repository.  <a href="#aee6310a4573d89c77d09fc0a4d107430">More...</a><br /></td></tr>
 <tr class="separator:aee6310a4573d89c77d09fc0a4d107430"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa890ef7e77553c952614c12cf7434884"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client_settings.html#aa890ef7e77553c952614c12cf7434884">UseTournamentStub</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:aa890ef7e77553c952614c12cf7434884"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets whether to use the /tournament/stub/ endpoints instead of the /tournament/public/ endpoints.  <a href="#aa890ef7e77553c952614c12cf7434884">More...</a><br /></td></tr>
+<tr class="separator:aa890ef7e77553c952614c12cf7434884"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3293a68eaf69eeba1364539a4e9fec4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client_settings.html#aa3293a68eaf69eeba1364539a4e9fec4">RetryOnTimeout</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:aa3293a68eaf69eeba1364539a4e9fec4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets how the <a class="el" href="class_riot_net_1_1_riot_client.html" title="A client that interacts with the Riot Games API. ">RiotClient</a> should handle the case where the request times out.  <a href="#aa3293a68eaf69eeba1364539a4e9fec4">More...</a><br /></td></tr>
 <tr class="separator:aa3293a68eaf69eeba1364539a4e9fec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -336,6 +339,28 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets whether the client should throw an exception if the server responded with a Not Found (404) error. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa890ef7e77553c952614c12cf7434884"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RiotNet.RiotClientSettings.UseTournamentStub</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets whether to use the /tournament/stub/ endpoints instead of the /tournament/public/ endpoints. </p>
 
 </div>
 </div>
