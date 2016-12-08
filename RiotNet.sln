@@ -7,6 +7,11 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "RiotNet", "RiotNet\RiotNet.
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "RiotNet.Tests", "RiotNet.Tests\RiotNet.Tests.xproj", "{CD7EBFFD-6CF9-4C3E-9F79-6CE9FE6372B0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F916703D-444A-4210-B26B-F749794FA28D}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
