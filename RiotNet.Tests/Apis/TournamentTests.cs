@@ -38,34 +38,35 @@ namespace RiotNet.Tests
             var codes = await client.CreateTournamentCodeAsync(3092);
 
             Assert.That(codes, Is.Not.Null.And.Not.Empty);
+            Assert.That(codes.Count, Is.EqualTo(1));
         }
 
         [Test]
         public async Task CreateTournamentCodeAsyncTest_WithArguments()
         {
             IRiotClient client = new RiotClient(Region.NA, TournamentApiKey);
-            var codes = await client.CreateTournamentCodeAsync(3092, 8,
+            var codes = await client.CreateTournamentCodeAsync(3092, 1,
                 new List<long> { 35870943L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L },
-                MapType.CRYSTAL_SCAR, PickType.ALL_RANDOM, SpectatorType.LOBBYONLY, 4, "test");
+                MapType.HOWLING_ABYSS, PickType.ALL_RANDOM, SpectatorType.LOBBYONLY, 4, "test");
 
             Assert.That(codes, Is.Not.Null.And.Not.Empty);
-            Assert.That(codes.Count, Is.EqualTo(8));
+            Assert.That(codes.Count, Is.EqualTo(1));
         }
 
         [Test]
         public async Task GetTournamentCodeAsyncTest()
         {
             IRiotClient client = new RiotClient(Region.NA, TournamentApiKey);
-            var tournamentCode = await client.GetTournamentCodeAsync("NA0418d-ecef63c4-ec4e-4925-9c4b-e9941f8d0547");
+            var tournamentCode = await client.GetTournamentCodeAsync("NA042f7-b6923650-58bd-4a39-a5f5-9bd398016913");
 
             Assert.That(tournamentCode, Is.Not.Null);
             Assert.That(tournamentCode.Id, Is.GreaterThan(0));
             Assert.That(tournamentCode.LobbyName, Is.Not.Null.And.Not.Empty);
-            Assert.That(tournamentCode.Map, Is.EqualTo(MapType.TWISTED_TREELINE));
+            Assert.That(tournamentCode.Map, Is.EqualTo(MapType.HOWLING_ABYSS));
             Assert.That(tournamentCode.MetaData, Is.Not.Null.And.Not.Empty);
             Assert.That(tournamentCode.Participants, Is.Not.Null.And.Not.Empty);
             Assert.That(tournamentCode.Password, Is.Not.Null.And.Not.Empty);
-            Assert.That(tournamentCode.PickType, Is.EqualTo(PickType.BLIND_PICK));
+            Assert.That(tournamentCode.PickType, Is.EqualTo(PickType.ALL_RANDOM));
             Assert.That(tournamentCode.ProviderId, Is.GreaterThan(0));
             Assert.That(tournamentCode.Region, Is.EqualTo(Region.NA));
             Assert.That(tournamentCode.Spectators, Is.EqualTo(SpectatorType.LOBBYONLY));
@@ -76,68 +77,72 @@ namespace RiotNet.Tests
         [Test]
         public async Task UpdateTournamentCodeAsyncTest()
         {
+            const string code = "NA042f7-b6923650-58bd-4a39-a5f5-9bd398016913";
             IRiotClient client = new RiotClient(Region.NA, TournamentApiKey);
-            await client.UpdateTournamentCodeAsync("NA0418c-d541d70b-2865-4489-89bd-1d26b72b2edf",
-                new List<long> { 35870943L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L, 21204597L, 20028460L }, 
-                MapType.HOWLING_ABYSS, PickType.ALL_RANDOM, SpectatorType.ALL);
 
-            var tournamentCode = await client.GetTournamentCodeAsync("NA0418c-d541d70b-2865-4489-89bd-1d26b72b2edf");
-            Assert.That(tournamentCode.Map, Is.EqualTo(MapType.HOWLING_ABYSS));
+            await client.UpdateTournamentCodeAsync(code,
+                new List<long> { 35870943L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L, 21204597L, 20028460L }, 
+                MapType.SUMMONERS_RIFT, PickType.BLIND_PICK, SpectatorType.ALL);
+
+            var tournamentCode = await client.GetTournamentCodeAsync(code);
+            Assert.That(tournamentCode.Map, Is.EqualTo(MapType.SUMMONERS_RIFT));
             Assert.That(tournamentCode.Participants, Contains.Item(35870943L));
-            Assert.That(tournamentCode.PickType, Is.EqualTo(PickType.ALL_RANDOM));
+            Assert.That(tournamentCode.PickType, Is.EqualTo(PickType.BLIND_PICK));
             Assert.That(tournamentCode.Spectators, Is.EqualTo(SpectatorType.ALL));
 
-            await client.UpdateTournamentCodeAsync("NA0418c-d541d70b-2865-4489-89bd-1d26b72b2edf",
+            await client.UpdateTournamentCodeAsync(code,
                 new List<long> { 22811529L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L, 21204597L, 20028460L },
-                MapType.CRYSTAL_SCAR, PickType.TOURNAMENT_DRAFT, SpectatorType.NONE);
+                MapType.HOWLING_ABYSS, PickType.ALL_RANDOM, SpectatorType.LOBBYONLY);
 
-            tournamentCode = await client.GetTournamentCodeAsync("NA0418c-d541d70b-2865-4489-89bd-1d26b72b2edf");
-            Assert.That(tournamentCode.Map, Is.EqualTo(MapType.CRYSTAL_SCAR));
+            tournamentCode = await client.GetTournamentCodeAsync(code);
+            Assert.That(tournamentCode.Map, Is.EqualTo(MapType.HOWLING_ABYSS));
             Assert.That(tournamentCode.Participants, Contains.Item(22811529L));
-            Assert.That(tournamentCode.PickType, Is.EqualTo(PickType.TOURNAMENT_DRAFT));
-            Assert.That(tournamentCode.Spectators, Is.EqualTo(SpectatorType.NONE));
+            Assert.That(tournamentCode.PickType, Is.EqualTo(PickType.ALL_RANDOM));
+            Assert.That(tournamentCode.Spectators, Is.EqualTo(SpectatorType.LOBBYONLY));
         }
 
         [Test]
         public async Task UpdateTournamentCodeAsyncTest_WithObject()
         {
+            const string code = "NA042f7-b6923650-58bd-4a39-a5f5-9bd398016913";
             IRiotClient client = new RiotClient(Region.NA, TournamentApiKey);
+
             await client.UpdateTournamentCodeAsync(new TournamentCode
             {
-                Code = "NA0418c-d541d70b-2865-4489-89bd-1d26b72b2edf",
+                Code = code,
                 Participants = new ListOfLong { 35870943L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L, 21204597L, 20028460L },
-                Map = MapType.HOWLING_ABYSS,
-                PickType = PickType.ALL_RANDOM,
-                Spectators = SpectatorType.ALL
-            });
-
-            var tournamentCode = await client.GetTournamentCodeAsync("NA0418c-d541d70b-2865-4489-89bd-1d26b72b2edf");
-            Assert.That(tournamentCode.Map, Is.EqualTo(MapType.HOWLING_ABYSS));
-            Assert.That(tournamentCode.Participants, Contains.Item(35870943L));
-            Assert.That(tournamentCode.PickType, Is.EqualTo(PickType.ALL_RANDOM));
-            Assert.That(tournamentCode.Spectators, Is.EqualTo(SpectatorType.ALL));
-            
-            await client.UpdateTournamentCodeAsync(new TournamentCode
-            {
-                Code = "NA0418c-d541d70b-2865-4489-89bd-1d26b72b2edf",
-                Participants = new ListOfLong { 22811529L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L, 21204597L, 20028460L },
-                Map = MapType.CRYSTAL_SCAR,
+                Map = MapType.TWISTED_TREELINE,
                 PickType = PickType.TOURNAMENT_DRAFT,
-                Spectators = SpectatorType.NONE
+                Spectators = SpectatorType.NONE,
             });
 
-            tournamentCode = await client.GetTournamentCodeAsync("NA0418c-d541d70b-2865-4489-89bd-1d26b72b2edf");
-            Assert.That(tournamentCode.Map, Is.EqualTo(MapType.CRYSTAL_SCAR));
-            Assert.That(tournamentCode.Participants, Contains.Item(22811529L));
+            var tournamentCode = await client.GetTournamentCodeAsync(code);
+            Assert.That(tournamentCode.Map, Is.EqualTo(MapType.TWISTED_TREELINE));
+            Assert.That(tournamentCode.Participants, Contains.Item(35870943L));
             Assert.That(tournamentCode.PickType, Is.EqualTo(PickType.TOURNAMENT_DRAFT));
             Assert.That(tournamentCode.Spectators, Is.EqualTo(SpectatorType.NONE));
+
+            await client.UpdateTournamentCodeAsync(new TournamentCode
+            {
+                Code = code,
+                Participants = new ListOfLong { 22811529L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L, 21204597L, 20028460L },
+                Map = MapType.HOWLING_ABYSS,
+                PickType = PickType.ALL_RANDOM,
+                Spectators = SpectatorType.LOBBYONLY,
+            });
+
+            tournamentCode = await client.GetTournamentCodeAsync(code);
+            Assert.That(tournamentCode.Map, Is.EqualTo(MapType.HOWLING_ABYSS));
+            Assert.That(tournamentCode.Participants, Contains.Item(22811529L));
+            Assert.That(tournamentCode.PickType, Is.EqualTo(PickType.ALL_RANDOM));
+            Assert.That(tournamentCode.Spectators, Is.EqualTo(SpectatorType.LOBBYONLY));
         }
 
         [Test]
         public async Task GetTournamentCodeLobbyEventsAsyncTest()
         {
             IRiotClient client = new RiotClient(Region.NA, TournamentApiKey);
-            var events = await client.GetTournamentCodeLobbyEventsAsync("NA0418d-8899c00a-45a9-4898-9b8a-75370a67b9a0");
+            var events = await client.GetTournamentCodeLobbyEventsAsync("NA042f7-b6923650-58bd-4a39-a5f5-9bd398016913");
 
             Assert.That(events, Is.Not.Null);
         }
