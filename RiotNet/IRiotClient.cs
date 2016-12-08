@@ -589,7 +589,7 @@ namespace RiotNet
         /// Gets the currently supported version of the Tournament API that the client communicates with.
         /// </summary>
         string TournamentApiVersion { get; }
-        
+
         /// <summary>
         /// Registers the current client as a tournament provider. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
         /// </summary>
@@ -611,7 +611,7 @@ namespace RiotNet
         /// <param name="tournamentId">The tournament ID obtained from <see cref="CreateTournamentAsync"/>.</param>
         /// <param name="count">The number of codes to create (max 1000).</param>
         /// <param name="allowedSummonerIds">Optional list of participants in order to validate the players eligible to join the lobby.</param>
-        /// <param name="mapType">The map type of the game.</param>
+        /// <param name="mapType">The map type of the game. Note that <see cref="MapType.CRYSTAL_SCAR"/> is not allowed.</param>
         /// <param name="pickType">The pick type of the game.</param>
         /// <param name="spectatorType">The spectator type of the game.</param>
         /// <param name="teamSize">The team size of the game. Valid values are 1-5.</param>

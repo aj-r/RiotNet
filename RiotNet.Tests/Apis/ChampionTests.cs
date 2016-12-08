@@ -26,7 +26,7 @@ namespace RiotNet.Tests
             var champions = await client.GetChampionsAsync(true);
 
             Assert.That(champions, Is.Not.Null);
-            Assert.That(champions.Count, Is.LessThan(20));
+            Assert.That(champions.Count, Is.LessThan(25));
         }
 
         [Test]
