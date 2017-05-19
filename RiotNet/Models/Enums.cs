@@ -711,22 +711,26 @@ namespace RiotNet.Models
     }
     
     /// <summary>
-    /// Represents a region (or server).
+    /// Represents a platform (or server).
     /// </summary>
-    public enum Region
+    public enum PlatformId
     {
         /// <summary>
         /// Brazil
         /// </summary>
-        BR,
+        BR1,
         /// <summary>
         /// Europe Nordic &amp; East
         /// </summary>
-        EUNE,
+        EUN1,
         /// <summary>
         /// Europe West
         /// </summary>
-        EUW,
+        EUW1,
+        /// <summary>
+        /// Japan
+        /// </summary>
+        JP1,
         /// <summary>
         /// Korea
         /// </summary>
@@ -734,31 +738,31 @@ namespace RiotNet.Models
         /// <summary>
         /// Latin America North
         /// </summary>
-        LAN,
+        LA1,
         /// <summary>
         /// Latin America South
         /// </summary>
-        LAS,
+        LA2,
         /// <summary>
         /// North America
         /// </summary>
-        NA,
+        NA1,
         /// <summary>
         /// Oceania
         /// </summary>
-        OCE,
+        OC1,
         /// <summary>
-        /// Public Beta Environment
+        /// Turkey
         /// </summary>
-        PBE,
+        TR1,
         /// <summary>
         /// Russia
         /// </summary>
         RU,
         /// <summary>
-        /// Turkey
+        /// Public Beta Environment
         /// </summary>
-        TR,
+        PBE1,
     }
 
     /// <summary>

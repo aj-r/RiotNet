@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RiotNet
@@ -16,61 +17,115 @@ namespace RiotNet
     /// <summary>
     /// A client that interacts with the Riot Games API.
     /// </summary>
+    public partial interface IRiotClient
+    {
+        /// <summary>
+        /// Gets the platform ID of the default server to connect to.
+        /// </summary>
+        PlatformId PlatformId { get; }
+
+        /// <summary>
+        /// Gets the settings for the current <see cref="IRiotClient"/>.
+        /// </summary>
+        RiotClientSettings Settings { get; }
+
+        /// <summary>
+        /// Occurs when the a request times out.
+        /// </summary>
+        event RetryEventHandler RequestTimedOut;
+
+        /// <summary>
+        /// Occurs when the client fails to connect to the server while executing a request.
+        /// </summary>
+        event RetryEventHandler ConnectionFailed;
+
+        /// <summary>
+        /// Occurs when the client executes a request when the API rate limit has been exceeded.
+        /// </summary>
+        event RetryEventHandler RateLimitExceeded;
+
+        /// <summary>
+        /// Occurs when the server returns an error code of 500 or higher.
+        /// </summary>
+        event RetryEventHandler ServerError;
+
+        /// <summary>
+        /// Occurs when a request fails because a resource was not found.
+        /// </summary>
+        event ResponseEventHandler ResourceNotFound;
+
+        /// <summary>
+        /// Occurs when a response returns an error code that does not fit into any other category, or an exception occurs during the response.
+        /// </summary>
+        event ResponseEventHandler ResponseError;
+    }
+
+    /// <summary>
+    /// A client that interacts with the Riot Games API.
+    /// </summary>
     public partial class RiotClient : IRiotClient
     {
-        private readonly Region region;
-        private readonly string lowerRegion;
-        private readonly string platformId;
+        private readonly PlatformId platformId;
         private readonly RiotClientSettings settings;
         private readonly HttpClient client = new HttpClient();
-        private readonly string mainBaseUrl;
-        protected const string globalBaseUrl = "https://global.api.pvp.net";
-        protected const string statusBaseUrl = "http://status.leagueoflegends.com";
-
+        protected const string globalBaseUrl = "https://global.api.riotgames.com";
 
         static RiotClient()
         {
-            DefaultRegion = Region.NA;
+            DefaultPlatformId = Models.PlatformId.NA1;
         }
 
         /// <summary>
         /// Creates a new <see cref="RiotClient"/> instance.
         /// </summary>
         public RiotClient()
-            : this(DefaultRegion)
+            : this(DefaultPlatformId)
         { }
 
         /// <summary>
         /// Creates a new <see cref="RiotClient"/> instance.
         /// </summary>
-        /// <param name="region">The region indicating which server to connect to.</param>
-        public RiotClient(Region region)
-            : this(region, DefaultSettings())
-        { }
-
-        /// <summary>
-        /// Creates a new <see cref="RiotClient"/> instance.
-        /// </summary>
-        /// <param name="region">The region indicating which server to connect to.</param>
         /// <param name="apiKey">The API key to use. NOTE: If you are using a public repository, do NOT check you API key in to the repository.
         /// It is recommended to load your API key from a separate file (e.g. key.txt) that is ignored by your repository.</param>
-        public RiotClient(Region region, string apiKey)
-            : this(region, GetSettingsForApiKey(apiKey))
+        public RiotClient(string apiKey)
+            : this(GetSettingsForApiKey(apiKey), DefaultPlatformId)
         { }
 
         /// <summary>
         /// Creates a new <see cref="RiotClient"/> instance.
         /// </summary>
-        /// <param name="region">The region indicating which server to connect to.</param>
         /// <param name="settings">The settings to use.</param>
-        public RiotClient(Region region, RiotClientSettings settings)
-        {
-            this.region = region;
-            lowerRegion = region.ToString().ToLowerInvariant();
-            platformId = GetPlatformId(region);
-            this.settings = settings;
+        public RiotClient(RiotClientSettings settings)
+            : this(settings, DefaultPlatformId)
+        { }
 
-            mainBaseUrl = "https://" + GetServerName(region);
+        /// <summary>
+        /// Creates a new <see cref="RiotClient"/> instance.
+        /// </summary>
+        /// <param name="platformId">The platform ID of the default server to connect to.</param>
+        public RiotClient(PlatformId platformId)
+            : this(DefaultSettings(), platformId)
+        { }
+
+        /// <summary>
+        /// Creates a new <see cref="RiotClient"/> instance.
+        /// </summary>
+        /// <param name="apiKey">The API key to use. NOTE: If you are using a public repository, do NOT check you API key in to the repository.
+        /// <param name="platformId">The platform ID of the default server to connect to.</param>
+        /// It is recommended to load your API key from a separate file (e.g. key.txt) that is ignored by your repository.</param>
+        public RiotClient(string apiKey, PlatformId platformId)
+            : this(GetSettingsForApiKey(apiKey), platformId)
+        { }
+
+        /// <summary>
+        /// Creates a new <see cref="RiotClient"/> instance.
+        /// </summary>
+        /// <param name="platformId">The platform ID of the default server to connect to.</param>
+        /// <param name="settings">The settings to use.</param>
+        public RiotClient(RiotClientSettings settings, PlatformId platformId)
+        {
+            this.settings = settings;
+            this.platformId = platformId;
 
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
@@ -109,9 +164,9 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets or sets the default region to use when creating a new <see cref="RiotClient"/>.
+        /// Gets or sets the default platform ID to use when creating a new <see cref="RiotClient"/>.
         /// </summary>
-        public static Region DefaultRegion { get; set; }
+        public static PlatformId DefaultPlatformId { get; set; }
 
         private static Func<RiotClientSettings> defaultSettings = () => new RiotClientSettings();
 
@@ -125,97 +180,19 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the platform ID for the specified region.
+        /// Gets the server domain name for the specified platform ID.
         /// </summary>
-        /// <param name="region">The region corresponding to the platform ID.</param>
-        /// <returns>The platform ID.</returns>
-        public static string GetPlatformId(Region region)
+        /// <param name="region">The platform ID corresponding to the server. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <returns>The server host name.</returns>
+        public string GetServerName(PlatformId? platformId = null)
         {
-            switch (region)
-            {
-                case Region.BR:
-                    return "BR1";
-                case Region.EUNE:
-                    return "EUN1";
-                case Region.EUW:
-                    return "EUW1";
-                case Region.KR:
-                    return "KR";
-                case Region.LAN:
-                    return "LA1";
-                case Region.LAS:
-                    return "LA2";
-                case Region.NA:
-                    return "NA1";
-                case Region.OCE:
-                    return "OC1";
-                case Region.TR:
-                    return "TR1";
-                case Region.RU:
-                    return "RU";
-                case Region.PBE:
-                    return "PBE1";
-                default:
-                    throw new NotSupportedException("The region '" + region + " is not supported.");
-            }
+            return (platformId ?? PlatformId) + ".api.riotgames.com";
         }
 
         /// <summary>
-        /// Gets the server domain name for the specified region.
+        /// Gets the platform ID of the default server to connect to.
         /// </summary>
-        /// <param name="region">The region corresponding to the server.</param>
-        /// <returns>The server name.</returns>
-        public static string GetServerName(Region region)
-        {
-            switch (region)
-            {
-                case Region.BR:
-                    return "br.api.pvp.net";
-                case Region.EUNE:
-                    return "eune.api.pvp.net";
-                case Region.EUW:
-                    return "euw.api.pvp.net";
-                case Region.KR:
-                    return "kr.api.pvp.net";
-                case Region.LAN:
-                    return "lan.api.pvp.net";
-                case Region.LAS:
-                    return "las.api.pvp.net";
-                case Region.NA:
-                    return "na.api.pvp.net";
-                case Region.OCE:
-                    return "oce.api.pvp.net";
-                case Region.TR:
-                    return "tr.api.pvp.net";
-                case Region.RU:
-                    return "ru.api.pvp.net";
-                case Region.PBE:
-                    return "pbe.api.pvp.net";
-                default:
-                    throw new NotSupportedException("The region '" + region + " is not supported.");
-            }
-        }
-
-        /// <summary>
-        /// Gets the region that the current <see cref="RiotClient"/> connects to.
-        /// </summary>
-        public Region Region
-        {
-            get { return region; }
-        }
-
-        /// <summary>
-        /// Gets the region in lowercase string format.
-        /// </summary>
-        public string LowerRegion
-        {
-            get { return lowerRegion; }
-        }
-
-        /// <summary>
-        /// Gets the platform ID of the current region.
-        /// </summary>
-        public string PlatformId
+        public PlatformId PlatformId
         {
             get { return platformId; }
         }
@@ -270,10 +247,12 @@ namespace RiotNet
         /// Sends a GET request for the specified resource.
         /// </summary>
         /// <param name="resource">The resource path, relative to the base URL. Note: this method will automatically add the api_key parameter to the resource.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
+        /// <param name="queryParameters">Query string parameters to append to the resource.</param>
         /// <returns>A rest request.</returns>
-        protected Task<T> GetAsync<T>(string resource, IDictionary<string, object> queryParameters = null, bool useApiKey = true)
+        protected Task<T> GetAsync<T>(string resource, CancellationToken token, IDictionary<string, object> queryParameters = null)
         {
-            return ExecuteAsync<T>(HttpMethod.Get, resource, null, queryParameters, useApiKey);
+            return ExecuteAsync<T>(HttpMethod.Get, resource, null, token, queryParameters);
         }
 
         /// <summary>
@@ -281,10 +260,12 @@ namespace RiotNet
         /// </summary>
         /// <param name="resource">The resource path, relative to the base URL. Note: this method will automatically add the api_key parameter to the resource.</param>
         /// <param name="body">The body of the request. This object will be serialized as a JSON string.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
+        /// <param name="queryParameters">Query string parameters to append to the resource.</param>
         /// <returns>A rest request.</returns>
-        protected Task<T> PostAsync<T>(string resource, object body, IDictionary<string, object> queryParameters = null, bool useApiKey = true)
+        protected Task<T> PostAsync<T>(string resource, object body, CancellationToken token, IDictionary<string, object> queryParameters = null)
         {
-            return ExecuteAsync<T>(HttpMethod.Post, resource, body, queryParameters, useApiKey);
+            return ExecuteAsync<T>(HttpMethod.Post, resource, body, token, queryParameters);
         }
 
         /// <summary>
@@ -292,20 +273,25 @@ namespace RiotNet
         /// </summary>
         /// <param name="resource">The resource path, relative to the base URL. Note: this method will automatically add the api_key parameter to the resource.</param>
         /// <param name="body">The body of the request. This object will be serialized as a JSON string.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
+        /// <param name="queryParameters">Query string parameters to append to the resource.</param>
         /// <returns>A rest request.</returns>
-        protected Task<T> PutAsync<T>(string resource, object body, IDictionary<string, object> queryParameters = null, bool useApiKey = true)
+        protected Task<T> PutAsync<T>(string resource, object body, CancellationToken token, IDictionary<string, object> queryParameters = null)
         {
-            return ExecuteAsync<T>(HttpMethod.Put, resource, body, queryParameters, useApiKey);
+            return ExecuteAsync<T>(HttpMethod.Put, resource, body, token, queryParameters);
         }
 
         /// <summary>
         /// Executes a REST request asynchronously.
         /// </summary>
         /// <typeparam name="T">The type of data to expect in the response.</typeparam>
-        /// <param name="request">The request to execute.</param>
-        /// <param name="client">The client to use when executing the request.</param>
+        /// <param name="method">The HTTP method to use.</param>
+        /// <param name="resource">The URL of the resource to use.</param>
+        /// <param name="body">The request body. This object will be serialized as a JSON string. Pass null if the request sohuld not have a body.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
+        /// <param name="queryParameters">Query string parameters to append to the resource.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        protected virtual async Task<T> ExecuteAsync<T>(HttpMethod method, string resource, object body = null, IDictionary<string, object> queryParameters = null, bool useApiKey = true)
+        protected virtual async Task<T> ExecuteAsync<T>(HttpMethod method, string resource, object body, CancellationToken token, IDictionary<string, object> queryParameters = null)
         {
             var resourceBuilder = new StringBuilder(resource);
             var querySeparator = resource.Contains("?") ? "&" : "?";
@@ -321,37 +307,31 @@ namespace RiotNet
                     querySeparator = "&";
                 }
             }
-            if (useApiKey)
-            {
-                resourceBuilder
-                    .Append(querySeparator)
-                    .Append("api_key=")
-                    .Append(Settings.ApiKey);
-            }
-            Func<HttpRequestMessage> requestFactory = () =>
+            Func<HttpRequestMessage> buildRequest = () =>
             {
                 var request = new HttpRequestMessage(method, resourceBuilder.ToString());
+                request.Headers.Add("X-Riot-Token", Settings.ApiKey);
                 if (body != null)
                     request.Content = new JsonContent(body);
                 return request;
             };
-            return await ExecuteAsync<T>(requestFactory).ConfigureAwait(false);
+            return await ExecuteAsync<T>(buildRequest, token).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Executes a REST request asynchronously.
         /// </summary>
         /// <typeparam name="T">The type of data to expect in the response.</typeparam>
-        /// <param name="requestFactory">A function that builds the request to execute.</param>
-        /// <param name="client">The client to use when executing the request.</param>
+        /// <param name="buildRequest">A function that builds the request to execute.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        protected virtual async Task<T> ExecuteAsync<T>(Func<HttpRequestMessage> requestFactory)
+        protected virtual async Task<T> ExecuteAsync<T>(Func<HttpRequestMessage> buildRequest, CancellationToken token)
         {
             var attemptCount = 0;
             do
             {
-                var request = requestFactory();
-                var response = await SendAsync(request).ConfigureAwait(false);
+                var request = buildRequest();
+                var response = await SendAsync(request, token).ConfigureAwait(false);
                 ++attemptCount;
                 var action = await DetermineResponseAction(response, attemptCount).ConfigureAwait(false);
                 if (action == ResponseAction.Return)
@@ -366,7 +346,7 @@ namespace RiotNet
                         var retryAfter = retryAfterValues.First();
                         int delaySeconds;
                         if (int.TryParse(retryAfter, out delaySeconds))
-                            await Task.Delay((delaySeconds + 1) * 1000);
+                            await Task.Delay((delaySeconds + 1) * 1000).ConfigureAwait(false);
                    }
                 }
             } while (attemptCount < Settings.MaxRequestAttempts);
@@ -374,11 +354,11 @@ namespace RiotNet
             return default(T);
         }
 
-        protected async Task<RiotResponse> SendAsync(HttpRequestMessage request)
+        protected async Task<RiotResponse> SendAsync(HttpRequestMessage request, CancellationToken token)
         {
             try
             {
-                var response = await client.SendAsync(request).ConfigureAwait(false);
+                var response = await client.SendAsync(request, token).ConfigureAwait(false);
                 return new RiotResponse(response);
             }
             catch (TaskCanceledException ex)

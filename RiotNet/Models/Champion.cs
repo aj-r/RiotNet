@@ -24,7 +24,7 @@ namespace RiotNet.Models
         public bool BotMmEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets whether the champion is free to play.
+        /// Gets or sets whether the champion is currently free to play.
         /// </summary>
         public bool FreeToPlay { get; set; }
 

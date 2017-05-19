@@ -5,83 +5,8 @@ using System.Threading.Tasks;
 
 namespace RiotNet
 {
-    /// <summary>
-    /// A client that interacts with the Riot Games API.
-    /// </summary>
-    public interface IRiotClient
+    public partial interface IRiotClient
     {
-        #region General Members (not related to a specific API)
-
-        /// <summary>
-        /// Gets the region that the current <see cref="IRiotClient"/> connects to.
-        /// </summary>
-        Region Region { get; }
-
-        /// <summary>
-        /// Gets the platform ID of the current region.
-        /// </summary>
-        string PlatformId { get; }
-
-        /// <summary>
-        /// Gets the settings for the current <see cref="IRiotClient"/>.
-        /// </summary>
-        RiotClientSettings Settings { get; }
-
-        /// <summary>
-        /// Occurs when the a request times out.
-        /// </summary>
-        event RetryEventHandler RequestTimedOut;
-
-        /// <summary>
-        /// Occurs when the client fails to connect to the server while executing a request.
-        /// </summary>
-        event RetryEventHandler ConnectionFailed;
-
-        /// <summary>
-        /// Occurs when the client executes a request when the API rate limit has been exceeded.
-        /// </summary>
-        event RetryEventHandler RateLimitExceeded;
-
-        /// <summary>
-        /// Occurs when the server returns an error code of 500 or higher.
-        /// </summary>
-        event RetryEventHandler ServerError;
-
-        /// <summary>
-        /// Occurs when a request fails because a resource was not found.
-        /// </summary>
-        event ResponseEventHandler ResourceNotFound;
-
-        /// <summary>
-        /// Occurs when a response returns an error code that does not fit into any other category, or an exception occurs during the response.
-        /// </summary>
-        event ResponseEventHandler ResponseError;
-
-        #endregion
-
-        #region Champion API
-
-        /// <summary>
-        /// Gets the currently supported version of the Champion API that the client communicates with.
-        /// </summary>
-        string ChampionApiVersion { get; }
-        
-        /// <summary>
-        /// Gets dynamic champion information for all champions. This method uses the Champion API.
-        /// </summary>
-        /// <param name="freeToPlay">True if only requesting free to play champion information. Default is false.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        Task<List<Champion>> GetChampionsAsync(bool freeToPlay = false);
-        
-        /// <summary>
-        /// Gets dynamic champion information for the specified champion. This method uses the Champion API.
-        /// </summary>
-        /// <param name="id">The champion id.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        Task<Champion> GetChampionByIdAsync(long id);
-
-        #endregion
-
         #region Champion Mastery API
         
         /// <summary>
