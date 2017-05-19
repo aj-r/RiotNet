@@ -20,6 +20,13 @@ It has the following features:
 
 RiotNet is NOT endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends.
 
+# Versions
+
+This library uses symantic versioning, so version numbers are **not** correlated with version numbers of the Riot API.
+
+- v1-v3 of RiotNet are compatible with the old versions of the Riot APIs (v1/v2, depending on which API you're looking at)
+- v4 of RiotNet (not yet released) will be compatible with v3 of the Riot APIs
+
 ## Basic Usage
 
 ```
