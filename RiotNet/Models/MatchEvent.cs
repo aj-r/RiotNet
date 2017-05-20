@@ -9,17 +9,12 @@ namespace RiotNet.Models
     /// <summary>
     /// This object contains game event information. Note that not all legal type values documented below are valid for all games. Event data evolves over time and certain values may be relevant only for older or newer games.
     /// </summary>
-    public class Event
+    public class MatchEvent
     {
         /// <summary>
-        /// Creates a new <see cref="Event"/> instance.
+        /// Gets or sets the ending item ID of the event. Used for undo events - if this is 0, the item was un-bought.
         /// </summary>
-        public Event()
-        {
-            AssistingParticipantIds = new ListOfInt();
-            // Because position is a complex type, it CANNOT be null when saving to the database (at least for Entity Framework 6 and earlier).
-            Position = new Position();
-        }
+        public int? AfterId { get; set; }
 
         /// <summary>
         /// Gets or sets the ascended type of the event. Only present if relevant.
@@ -29,7 +24,12 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the assisting participant IDs of the event. Only present if relevant.
         /// </summary>
-        public ListOfInt AssistingParticipantIds { get; set; }
+        public ListOfInt AssistingParticipantIds { get; set; } = new ListOfInt();
+
+        /// <summary>
+        /// Gets or sets the starting item ID of the event. Used for undo events - if this is 0, the item was un-sold.
+        /// </summary>
+        public int? BeforeId { get; set; }
 
         /// <summary>
         /// Gets or sets the building type of the event. Only present if relevant.
@@ -44,17 +44,8 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets event type.
         /// </summary>
+        [Obsolete("It appears that this property is no longer used by the Riot API. Use Type instead.")]
         public EventType EventType { get; set; }
-
-        /// <summary>
-        /// Gets or sets the ending item ID of the event. Only present if relevant.
-        /// </summary>
-        public int? ItemAfter { get; set; }
-
-        /// <summary>
-        /// Gets or sets the starting item ID of the event. Only present if relevant.
-        /// </summary>
-        public int? ItemBefore { get; set; }
 
         /// <summary>
         /// Gets or sets the item ID of the event. Only present if relevant.
@@ -82,6 +73,11 @@ namespace RiotNet.Models
         public MonsterType? MonsterType { get; set; }
 
         /// <summary>
+        /// Gets or sets the monster sub-type of the event. See <see cref="Models.MonsterSubType"/> constants.
+        /// </summary>
+        public string MonsterSubType { get; set; }
+
+        /// <summary>
         /// Gets or sets the participant ID (1-10) of the event. Only present if relevant.
         /// </summary>
         public int? ParticipantId { get; set; }
@@ -94,7 +90,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the position of the event. Only present if relevant.
         /// </summary>
-        public Position Position { get; set; }
+        public Position Position { get; set; } = new Position();
 
         /// <summary>
         /// Gets or sets the skill slot of the event. Only present if relevant.
@@ -118,6 +114,11 @@ namespace RiotNet.Models
         public TowerType? TowerType { get; set; }
 
         /// <summary>
+        /// Gets or sets event type.
+        /// </summary>
+        public EventType Type { get; set; }
+
+        /// <summary>
         /// Gets or sets the participant ID of the victiom of the event. Only present if relevant.
         /// </summary>
         public int? VictimId { get; set; }
@@ -129,7 +130,7 @@ namespace RiotNet.Models
 
 #if DB_READY
         /// <summary>
-        /// Gets or sets the ID of the <see cref="Event"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
+        /// Gets or sets the ID of the <see cref="MatchEvent"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

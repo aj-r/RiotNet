@@ -10,7 +10,10 @@ namespace RiotNet
 {
     public partial class RiotClient
     {
-        private const string staticDataBaseUrl = globalBaseUrl + "/api/lol/static-data";
+        /// <summary>
+        /// The base URL for all static data requests
+        /// </summary>
+        protected const string staticDataBaseUrl = "https://global.api.riotgames.com/lol/static-data/v3";
 
         /// <summary>
         /// Gets the currently supported version of the LoL Static Data API that the client communicates with.

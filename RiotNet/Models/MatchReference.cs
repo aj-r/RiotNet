@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RiotNet.Converters;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,7 +14,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the ID for the champion played.
         /// </summary>
-        public long Champion { get; set; }
+        public int Champion { get; set; }
 
         /// <summary>
         /// Gets or sets the participant's lane for the match.
@@ -24,17 +26,18 @@ namespace RiotNet.Models
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public long MatchId { get; set; }
+        public long GameId { get; set; }
 
         /// <summary>
         /// Gets or sets the platform ID that the match was played on.
         /// </summary>
-        public string PlatformId { get; set; }
+        public PlatformId PlatformId { get; set; }
 
         /// <summary>
         /// Gets or sets the queue type for the match.
         /// </summary>
-        public RankedQueue Queue { get; set; }
+        [JsonConverter(typeof(TolerantIntEnumConverter))]
+        public QueueType Queue { get; set; }
 
         /// <summary>
         /// Gets or sets the participant's role.
@@ -44,6 +47,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the season the match was played in.
         /// </summary>
+        [JsonConverter(typeof(TolerantIntEnumConverter))]
         public Season Season { get; set; }
 
         /// <summary>

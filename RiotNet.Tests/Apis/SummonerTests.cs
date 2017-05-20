@@ -50,18 +50,6 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetSummonerMasteriesBySummonerIdsAsyncTest()
-        {
-            IRiotClient client = new RiotClient();
-            var summonerIds = new[] { 34172230L, 35870943L };
-            var masteryPages = await client.GetSummonerMasteriesBySummonerIdsAsync(summonerIds);
-
-            AssertNonDefaultValuesRecursive(masteryPages);
-            foreach (var summonerId in summonerIds)
-                Assert.That(masteryPages.ContainsKey(summonerId.ToString(CultureInfo.InvariantCulture)), "Summoner was not included in results: " + summonerId);
-        }
-
-        [Test]
         public async Task GetSummonerNamesBySummonerIdsAsyncTest()
         {
             IRiotClient client = new RiotClient();
@@ -71,18 +59,6 @@ namespace RiotNet.Tests
             AssertNonDefaultValuesRecursive(names);
             foreach (var summonerId in summonerIds)
                 Assert.That(names.ContainsKey(summonerId.ToString(CultureInfo.InvariantCulture)), "Summoner was not included in results: " + summonerId);
-        }
-
-        [Test]
-        public async Task GetSummonerRunesBySummonerIdsAsyncTest()
-        {
-            IRiotClient client = new RiotClient();
-            var summonerIds = new[] { 34172230L, 35870943L };
-            var runes = await client.GetSummonerRunesBySummonerIdsAsync(summonerIds);
-
-            AssertNonDefaultValuesRecursive(runes);
-            foreach (var summonerId in summonerIds)
-                Assert.That(runes.ContainsKey(summonerId.ToString(CultureInfo.InvariantCulture)), "Summoner was not included in results: " + summonerId);
         }
     }
 }

@@ -215,61 +215,6 @@ namespace RiotNet
 
         #endregion
 
-        #region Match API
-
-        /// <summary>
-        /// Gets the currently supported version of the Match API that the client communicates with.
-        /// </summary>
-        string MatchApiVersion { get; }
-        
-        /// <summary>
-        /// Gets the list of match IDs for a tournament code. This method uses the Match API. This endpoint is only accessible if you have a tournament API key.
-        /// </summary>
-        /// <param name="tournamentCode">The tournament code.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        Task<List<long>> GetMatchIdsByTournamentCodeAsync(string tournamentCode);
-
-        /// <summary>
-        /// Gets the details of a match. This method uses the Match API. This endpoint is only accessible if you have a tournament API key.
-        /// </summary>
-        /// <param name="matchId">The ID of the match.</param>
-        /// <param name="tournamentCode">The tournament code.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        Task<MatchDetail> GetMatchForTournamentAsync(long matchId, string tournamentCode);
-
-        /// <summary>
-        /// Gets the details of a match. This method uses the Match API.
-        /// </summary>
-        /// <param name="matchId">The ID of the match (also referred to as Game ID).</param>
-        /// <param name="includeTimeline">Whether or not to include the match timeline data.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        Task<MatchDetail> GetMatchAsync(long matchId, bool includeTimeline = false);
-
-        #endregion
-
-        #region Match List API
-
-        /// <summary>
-        /// Gets the currently supported version of the Match List API that the client communicates with.
-        /// </summary>
-        string MatchListApiVersion { get; }
-        
-        /// <summary>
-        /// Gets the match list for a summoner. This method uses the Match List API.
-        /// </summary>
-        /// <param name="summonerId">The summoner's summoner IDs.</param>
-        /// <param name="championIds">Only get games where the summoner played one of these champions.</param>
-        /// <param name="rankedQueues">Only get games from these ranked queues.</param>
-        /// <param name="seasons">Only get games from these seasons.</param>
-        /// <param name="beginTime">Only get games played after this time.</param>
-        /// <param name="endTime">Only get games played before this time.</param>
-        /// <param name="beginIndex">The begin index to use for fetching games.</param>
-        /// <param name="endIndex">The end index to use for fetching games. The maximum allowed difference between beginIndex and endIndex is 20; if it is larger than 20, endIndex will be modified to satisfy this restriction.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        Task<MatchList> GetMatchListAsync(long summonerId, long[] championIds = null, RankedQueue[] rankedQueues = null, Season[] seasons = null, DateTime? beginTime = null, DateTime? endTime = null, int? beginIndex = null, int? endIndex = null);
-
-        #endregion
-
         #region Stats API
 
         /// <summary>
@@ -331,25 +276,11 @@ namespace RiotNet
         Task<Summoner> GetSummonerBySummonerIdAsync(long summonerId);
         
         /// <summary>
-        /// Gets the mastery pages for each summoner whose summoner ID is in summonerIds. This method uses the Summoner API.
-        /// </summary>
-        /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        Task<Dictionary<string, MasteryPages>> GetSummonerMasteriesBySummonerIdsAsync(params long[] summonerIds);
-        
-        /// <summary>
         /// Gets the summoner name for each summoner whose summoner ID is in summonerIds. This method uses the Summoner API.
         /// </summary>
         /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         Task<Dictionary<string, string>> GetSummonerNamesBySummonerIdsAsync(params long[] summonerIds);
-        
-        /// <summary>
-        /// Gets the rune pages for each summoner whose summoner ID is in summonerIds. This method uses the Summoner API.
-        /// </summary>
-        /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        Task<Dictionary<string, RunePages>> GetSummonerRunesBySummonerIdsAsync(params long[] summonerIds);
 
         #endregion
 

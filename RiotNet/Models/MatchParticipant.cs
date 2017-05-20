@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Newtonsoft.Json;
 
 namespace RiotNet.Models
 {
@@ -36,7 +35,7 @@ namespace RiotNet.Models
         public virtual List<Mastery> Masteries { get; set; }
 
         /// <summary>
-        /// Gets or sets the match participant ID (normally 1-10; this value appears to always be 0 when coming from the Match History API).
+        /// Gets or sets the match participant ID (normally 1-10).
         /// </summary>
         public int ParticipantId { get; set; }
 
@@ -66,12 +65,12 @@ namespace RiotNet.Models
         public TeamSide TeamId { get; set; }
 
         /// <summary>
-        /// Gets or sets timeline data. Delta fields refer to values for the specified period.
+        /// Gets or sets timeline data. Delta fields refer to values for the specified period. Diff fields refer to the deltas versus the calculated lane opponent(s).
         /// </summary>
         /// <remarks>
         /// Delta fields refer to values for the specified period
         /// (e.g. the gold per minute over the first 10 minutes of the game versus the second 20 minutes of the game).
-        /// Diffs fields refer to the deltas versus the calculated lane opponent(s).
+        /// Diff fields refer to the deltas versus the calculated lane opponent(s).
         /// </remarks>
         public MatchParticipantTimeline Timeline { get; set; }
 

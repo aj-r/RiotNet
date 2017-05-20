@@ -10,7 +10,7 @@ namespace RiotNet.Models
     /// <summary>
     /// This object contains game timeline information.
     /// </summary>
-    public class Timeline
+    public class MatchTimeline
     {
         /// <summary>
         /// Gets or sets time between each returned frame.
@@ -21,11 +21,11 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets list of timeline frames for the game.
         /// </summary>
-        public virtual List<Frame> Frames { get; set; }
+        public virtual List<MatchFrame> Frames { get; set; }
 
 #if DB_READY
         /// <summary>
-        /// Gets or sets the ID of the <see cref="Timeline"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
+        /// Gets or sets the ID of the <see cref="MatchTimeline"/>. This does NOT come from the Riot API; it is used as a key when storing this object in a database.
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

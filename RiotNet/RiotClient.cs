@@ -68,7 +68,6 @@ namespace RiotNet
         private readonly PlatformId platformId;
         private readonly RiotClientSettings settings;
         private readonly HttpClient client = new HttpClient();
-        private const string globalHostName = "global.api.riotgames.com";
 
         static RiotClient()
         {

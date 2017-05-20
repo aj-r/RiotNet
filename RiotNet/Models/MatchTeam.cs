@@ -11,42 +11,42 @@ namespace RiotNet.Models
     public class MatchTeam
     {
         /// <summary>
-        /// Gets or sets banned champion data if the game was draft mode, otherwise null.
+        /// Gets or sets the banned champion data if the game was draft mode. For non-draft games, this will be null.
         /// </summary>
         public virtual List<BannedChampion> Bans { get; set; }
 
         /// <summary>
-        /// Gets or sets number of times the team killed baron.
+        /// Gets or sets the number of times the team killed baron.
         /// </summary>
         public int BaronKills { get; set; }
 
         /// <summary>
         /// Gets or sets the points the team had at game end if the game was a dominion game, otherwise 0.
         /// </summary>
-        public long DominionVictoryScore { get; set; }
+        public int DominionVictoryScore { get; set; }
 
         /// <summary>
-        /// Gets or sets number of times the team killed dragon.
+        /// Gets or sets the number of times the team killed dragon.
         /// </summary>
         public int DragonKills { get; set; }
 
         /// <summary>
-        /// Gets or sets flag indicating whether or not the team got the first baron kill.
+        /// Gets or sets a flag indicating whether or not the team got the first baron kill.
         /// </summary>
         public bool FirstBaron { get; set; }
 
         /// <summary>
-        /// Gets or sets flag indicating whether or not the team got first blood.
+        /// Gets or sets a flag indicating whether or not the team got first blood.
         /// </summary>
         public bool FirstBlood { get; set; }
 
         /// <summary>
-        /// Gets or sets flag indicating whether or not the team got the first dragon kill.
+        /// Gets or sets a flag indicating whether or not the team got the first dragon kill.
         /// </summary>
         public bool FirstDragon { get; set; }
 
         /// <summary>
-        /// Gets or sets flag indicating whether or not the team destroyed the first inhibitor.
+        /// Gets or sets a flag indicating whether or not the team destroyed the first inhibitor.
         /// </summary>
         public bool FirstInhibitor { get; set; }
 
@@ -56,12 +56,12 @@ namespace RiotNet.Models
         public bool FirstRiftHerald { get; set; }
 
         /// <summary>
-        /// Gets or sets flag indicating whether or not the team destroyed the first tower.
+        /// Gets or sets a flag indicating whether or not the team destroyed the first tower.
         /// </summary>
         public bool FirstTower { get; set; }
 
         /// <summary>
-        /// Gets or sets number of inhibitors the team destroyed.
+        /// Gets or sets the number of inhibitors the team destroyed.
         /// </summary>
         public int InhibitorKills { get; set; }
 
@@ -71,24 +71,24 @@ namespace RiotNet.Models
         public int RiftHeraldKills { get; set; }
 
         /// <summary>
-        /// Gets or sets team ID.
+        /// Gets or sets the team ID.
         /// </summary>
         public TeamSide TeamId { get; set; }
 
         /// <summary>
-        /// Gets or sets number of towers the team destroyed.
+        /// Gets or sets the number of towers the team destroyed.
         /// </summary>
         public int TowerKills { get; set; }
 
         /// <summary>
-        /// Gets or sets number of times the team killed vilemaw.
+        /// Gets or sets the number of times the team killed vilemaw.
         /// </summary>
         public int VilemawKills { get; set; }
 
         /// <summary>
-        /// Gets or sets flag indicating whether or not the team won.
+        /// Gets or sets a flag indicating whether or not the team won.
         /// </summary>
-        public bool Winner { get; set; }
+        public bool Win { get; set; }
 
 #if DB_READY
         /// <summary>

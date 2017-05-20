@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RiotNet.Models
 {
@@ -33,6 +29,6 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the name of this mastery page.
         /// </summary>
-        public String Name { get; set; }
+        public string Name { get; set; }
     }
 }

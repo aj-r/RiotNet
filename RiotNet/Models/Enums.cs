@@ -5,7 +5,7 @@ using System;
 namespace RiotNet.Models
 {
     /// <summary>
-    /// Represents the ascension event type.  Used in <see cref="Event"/> for event type <see cref="EventType.ASCENDED_EVENT"/>.
+    /// Represents the ascension event type. Used in <see cref="MatchEvent"/> for event type <see cref="EventType.ASCENDED_EVENT"/>.
     /// </summary>
     public enum AscendedType
     {
@@ -24,7 +24,7 @@ namespace RiotNet.Models
     }
 
     /// <summary>
-    /// Represents the building type. Used in <see cref="Event"/> for event type <see cref="EventType.BUILDING_KILL"/>.
+    /// Represents the building type. Used in <see cref="MatchEvent"/> for event type <see cref="EventType.BUILDING_KILL"/>.
     /// </summary>
     public enum BuildingType
     {
@@ -39,7 +39,7 @@ namespace RiotNet.Models
     }
 
     /// <summary>
-    /// Represents the event type. Used in <see cref="Event"/>.
+    /// Represents the event type. Used in <see cref="MatchEvent"/>.
     /// </summary>
     public enum EventType
     {
@@ -138,6 +138,18 @@ namespace RiotNet.Models
         /// Nexus Siege
         /// </summary>
         SIEGE,
+        /// <summary>
+        /// Blood Hunt Assassin
+        /// </summary>
+        ASSASSINATE,
+        /// <summary>
+        /// All Random Summoner's Rift
+        /// </summary>
+        ARSR,
+        /// <summary>
+        /// Darkstar
+        /// </summary>
+        DARKSTAR,
     }
 
     /// <summary>
@@ -279,7 +291,7 @@ namespace RiotNet.Models
     }
 
     /// <summary>
-    /// Represents the lane an event occured.  Used in <see cref="Event"/>.
+    /// Represents the lane an event occured.  Used in <see cref="MatchEvent"/>.
     /// </summary>
     public enum LaneType
     {
@@ -298,7 +310,7 @@ namespace RiotNet.Models
     }
 
     /// <summary>
-    /// Represents the level up type. Used in <see cref="Event"/> for event type <see cref="EventType.SKILL_LEVEL_UP"/>.
+    /// Represents the level up type. Used in <see cref="MatchEvent"/> for event type <see cref="EventType.SKILL_LEVEL_UP"/>.
     /// </summary>
     public enum LevelUpType
     {
@@ -486,7 +498,7 @@ namespace RiotNet.Models
     }
 
     /// <summary>
-    /// Represents a capturable point in Dominion. Used in <see cref="Event"/> for event type <see cref="EventType.CAPTURE_POINT"/>.
+    /// Represents a capturable point in Dominion. Used in <see cref="MatchEvent"/> for event type <see cref="EventType.CAPTURE_POINT"/>.
     /// </summary>
     public enum Point
     {
@@ -526,25 +538,25 @@ namespace RiotNet.Models
         /// </summary>
         NORMAL_5x5_BLIND = 2,
         /// <summary>
+        /// Ranked Solo 5v5
+        /// </summary>
+        RANKED_SOLO_5x5 = 4,
+        /// <summary>
+        /// Ranked Premade 5v5. This queue is deprecated.
+        /// </summary>
+        RANKED_PREMADE_5x5 = 6,
+        /// <summary>
         /// Historical Summoner's Rift Coop vs AI. This queue is deprecated.
         /// </summary>
         BOT_5x5 = 7,
         /// <summary>
-        /// Summoner's Rift Coop vs AI Intro Bot
-        /// </summary>
-        BOT_5x5_INTRO = 31,
-        /// <summary>
-        /// Summoner's Rift Coop vs AI Beginner Bot
-        /// </summary>
-        BOT_5x5_BEGINNER = 32,
-        /// <summary>
-        /// Historical Summoner's Rift Coop vs AI Intermediate Bot
-        /// </summary>
-        BOT_5x5_INTERMEDIATE = 33,
-        /// <summary>
         /// Normal 3v3
         /// </summary>
         NORMAL_3x3 = 8,
+        /// <summary>
+        /// Ranked Premade 3v3. This queue is deprecated.
+        /// </summary>
+        RANKED_PREMADE_3x3 = 9,
         /// <summary>
         /// Normal 5v5 Draft Pick
         /// </summary>
@@ -562,17 +574,17 @@ namespace RiotNet.Models
         /// </summary>
         BOT_ODIN_5x5 = 25,
         /// <summary>
-        /// Ranked Solo 5v5
+        /// Summoner's Rift Coop vs AI Intro Bot
         /// </summary>
-        RANKED_SOLO_5x5 = 4,
+        BOT_5x5_INTRO = 31,
         /// <summary>
-        /// Ranked Premade 3v3. This queue is deprecated.
+        /// Summoner's Rift Coop vs AI Beginner Bot
         /// </summary>
-        RANKED_PREMADE_3x3 = 9,
+        BOT_5x5_BEGINNER = 32,
         /// <summary>
-        /// Ranked Premade 5v5. This queue is deprecated.
+        /// Historical Summoner's Rift Coop vs AI Intermediate Bot
         /// </summary>
-        RANKED_PREMADE_5x5 = 6,
+        BOT_5x5_INTERMEDIATE = 33,
         /// <summary>
         /// Ranked Team 3v3
         /// </summary>
@@ -638,6 +650,10 @@ namespace RiotNet.Models
         /// </summary>
         HEXAKILL = 98,
         /// <summary>
+        /// Bilgewater version of All Random All Mid
+        /// </summary>
+        BILGEWATER_ARAM_5x5 = 100,
+        /// <summary>
         /// King Poro
         /// </summary>
         KING_PORO_5x5 = 300,
@@ -645,10 +661,6 @@ namespace RiotNet.Models
         /// Nemesis draft
         /// </summary>
         COUNTER_PICK = 310,
-        /// <summary>
-        /// Bilgewater version of All Random All Mid
-        /// </summary>
-        BILGEWATER_ARAM_5x5 = 100,
         /// <summary>
         /// Black Market Brawlers
         /// </summary>
@@ -666,17 +678,37 @@ namespace RiotNet.Models
         /// </summary>
         ARURF_5x5 = 318,
         /// <summary>
+        /// All Random Summoner's Rift
+        /// </summary>
+        ARSR_5x5 = 325,
+        /// <summary>
         /// Normal 5v5 Draft Pick
         /// </summary>
         TEAM_BUILDER_DRAFT_UNRANKED_5x5 = 400,
         /// <summary>
-        /// Ranked Dynamic Queue
+        /// Ranked Dynamic Queue. This queue is deprecated.
         /// </summary>
         TEAM_BUILDER_DRAFT_RANKED_5x5 = 410,
+        /// <summary>
+        /// Ranked Solo/Duo Queue
+        /// </summary>
+        TEAM_BUILDER_RANKED_SOLO = 420,
+        /// <summary>
+        /// Normal 5v5 Blind Pick
+        /// </summary>
+        TB_BLIND_SUMMONERS_RIFT_5x5 = 430,
         /// <summary>
         /// Ranked Flex Summoner's Rift
         /// </summary>
         RANKED_FLEX_SR = 440,
+        /// <summary>
+        /// Blood Hunt Assassin
+        /// </summary>
+        ASSASSINATE_5x5 = 600,
+        /// <summary>
+        /// Darkstar
+        /// </summary>
+        DARKSTAR_3x3 = 610,
     }
 
     /// <summary>
@@ -778,43 +810,39 @@ namespace RiotNet.Models
         /// <summary>
         /// Pre-season 3, 2013
         /// </summary>
-        PRESEASON3,
+        PRESEASON3 = 0,
         /// <summary>
         /// Season 3, 2013
         /// </summary>
-        SEASON3,
+        SEASON3 = 1,
         /// <summary>
         /// Pre-season 4, 2014
         /// </summary>
-        PRESEASON2014,
+        PRESEASON2014 = 2,
         /// <summary>
         /// Season 4, 2014
         /// </summary>
-        SEASON2014,
+        SEASON2014 = 3,
         /// <summary>
         /// Pre-season 5, 2015
         /// </summary>
-        PRESEASON2015,
+        PRESEASON2015 = 4,
         /// <summary>
         /// Season 5, 2015
         /// </summary>
-        SEASON2015,
+        SEASON2015 = 5,
         /// <summary>
         /// Pre-season 6, 2016
         /// </summary>
-        PRESEASON2016,
+        PRESEASON2016 = 6,
         /// <summary>
         /// Season 6, 2016
         /// </summary>
-        SEASON2016,
+        SEASON2016 = 7,
         /// <summary>
-        /// Pre-season 7, 2017
+        /// Pre-season 7 and season 7, 2017
         /// </summary>
-        PRESEASON2017,
-        /// <summary>
-        /// Season 7, 2017
-        /// </summary>
-        SEASON2017,
+        PRESEASON2017 = 8,
     }
 
     /// <summary>
@@ -934,7 +962,7 @@ namespace RiotNet.Models
     }
 
     /// <summary>
-    /// Represents the tower type. Used in <see cref="Event"/> for event type <see cref="EventType.BUILDING_KILL"/>.
+    /// Represents the tower type. Used in <see cref="MatchEvent"/> for event type <see cref="EventType.BUILDING_KILL"/>.
     /// </summary>
     public enum TowerType
     {
@@ -965,7 +993,7 @@ namespace RiotNet.Models
     }
 
     /// <summary>
-    /// Represents the ward type. Used in <see cref="Event"/> for event types <see cref="EventType.WARD_KILL"/> and <see cref="EventType.WARD_PLACED"/>.
+    /// Represents the ward type. Used in <see cref="MatchEvent"/> for event types <see cref="EventType.WARD_KILL"/> and <see cref="EventType.WARD_PLACED"/>.
     /// </summary>
     public enum WardType
     {
