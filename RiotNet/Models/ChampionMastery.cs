@@ -46,12 +46,6 @@ namespace RiotNet.Models
         public bool ChestGranted { get; set; }
 
         /// <summary>
-        /// Gets or sets the highest grade (e.g. B+, S-, etc.) that the player has earned for this champion in the current season.
-        /// </summary>
-        [Obsolete("This property is no longer returned by the Riot Games API. Do not use it.")]
-        public string HighestGrade { get; set; }
-
-        /// <summary>
         /// Gets or sets the time when the player last played this champion.
         /// </summary>
         public DateTime LastPlayTime { get; set; }
@@ -61,6 +55,10 @@ namespace RiotNet.Models
         /// </summary>
         public long PlayerId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the number of mastery level 6 or 7 tokens earned.
+        /// </summary>
+        public int TokensEarned { get; set; }
 
 #if DB_READY
         /// <summary>

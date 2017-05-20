@@ -8,22 +8,20 @@ namespace RiotNet.Models
     /// <summary>
     /// Represents a ranked league.
     /// </summary>
-    public class League
+    public class LeagueList
     {
         /// <summary>
         /// Gets or sets the entries for all participants in the league.
         /// </summary>
-        public virtual List<LeagueEntry> Entries { get; set; }
+        public virtual List<LeagueItem> Entries { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the league. This is an internal place-holder name only.
+        /// Gets or sets the name of the league.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the ID of the relevant participant that is a member of this league (i.e., a requested summoner ID, a requested team ID,
-        /// or the ID of a team to which one of the requested summoners belongs). Only present when full league is requested so that participant's
-        /// entry can be identified. Not present when individual entry is requested.
+        /// Gets or sets the summoner ID of the relevant participant that is a member of this league.
         /// </summary>
         public string ParticipantId { get; set; }
 

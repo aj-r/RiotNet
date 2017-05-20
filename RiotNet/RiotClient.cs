@@ -68,11 +68,11 @@ namespace RiotNet
         private readonly PlatformId platformId;
         private readonly RiotClientSettings settings;
         private readonly HttpClient client = new HttpClient();
-        protected const string globalBaseUrl = "https://global.api.riotgames.com";
+        private const string globalHostName = "global.api.riotgames.com";
 
         static RiotClient()
         {
-            DefaultPlatformId = Models.PlatformId.NA1;
+            DefaultPlatformId = PlatformId.NA1;
         }
 
         /// <summary>
@@ -182,7 +182,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the server domain name for the specified platform ID.
         /// </summary>
-        /// <param name="region">The platform ID corresponding to the server. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="platformId">The platform ID corresponding to the server. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <returns>The server host name.</returns>
         public string GetServerName(PlatformId? platformId = null)
         {
@@ -354,6 +354,12 @@ namespace RiotNet
             return default(T);
         }
 
+        /// <summary>
+        /// Sends a request.
+        /// </summary>
+        /// <param name="request">The request to send.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         protected async Task<RiotResponse> SendAsync(HttpRequestMessage request, CancellationToken token)
         {
             try

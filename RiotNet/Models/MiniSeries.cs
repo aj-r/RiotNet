@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Newtonsoft.Json;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RiotNet.Models
 {
@@ -16,7 +14,7 @@ namespace RiotNet.Models
         public int Losses { get; set; }
 
         /// <summary>
-        /// Gets or sets a sring showing the current, sequential mini series progress where 'W' represents a win, 'L' represents a loss, and 'N' represents a game that hasn't been played yet.
+        /// Gets or sets a string showing the current, sequential mini series progress where 'W' represents a win, 'L' represents a loss, and 'N' represents a game that hasn't been played yet.
         /// </summary>
         public string Progress { get; set; }
 

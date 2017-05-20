@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace RiotNet.Models
+﻿namespace RiotNet.Models
 {
     /// <summary>
     /// Contains information about a participant in a game that is in progress (or was in progress at the time the data was retrieved).
@@ -19,19 +16,9 @@ namespace RiotNet.Models
         public long ChampionId { get; set; }
 
         /// <summary>
-        ///  Gets or sets the list of masteries used by this participant. This property is not specified for featured games.
-        /// </summary>
-        public virtual List<Mastery> Masteries { get; set; }
-
-        /// <summary>
         ///  Gets or sets the ID of the profile icon used by this participant.
         /// </summary>
         public long ProfileIconId { get; set; }
-
-        /// <summary>
-        ///  Gets or sets the list of runes used by this participant. This property is not specified for featured games.
-        /// </summary>
-        public virtual List<Rune> Runes { get; set; }
 
         /// <summary>
         ///  Gets or sets the ID of the first summoner spell used by this participant. This corresponds to a <see cref="StaticSummonerSpell"/> ID.
@@ -42,11 +29,6 @@ namespace RiotNet.Models
         ///  Gets or sets the ID of the second summoner spell used by this participant. This corresponds to a <see cref="StaticSummonerSpell"/> ID.
         /// </summary>
         public long Spell2Id { get; set; }
-
-        /// <summary>
-        ///  Gets or sets the summoner ID of this participant. This property is not specified for featured games.
-        /// </summary>
-        public long SummonerId { get; set; }
 
         /// <summary>
         ///  Gets or sets the summoner name of this participant.

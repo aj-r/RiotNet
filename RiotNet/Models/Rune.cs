@@ -12,7 +12,7 @@ namespace RiotNet.Models
         private long count;
 
         /// <summary>
-        /// Gets or sets number of instances of the rune used on the rune page. This is equal to Rank, but it is set by the Current Game API.
+        /// Gets or sets number of instances of the rune used on the rune page. This is equal to Rank, but it is set by the Spectator API.
         /// </summary>
         public long Count
         {

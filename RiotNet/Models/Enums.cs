@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RiotNet.Converters;
+using System;
 
 namespace RiotNet.Models
 {
@@ -688,31 +689,35 @@ namespace RiotNet.Models
         /// </summary>
         RANKED_SOLO_5x5,
         /// <summary>
-        /// Ranked Team 3v3
+        /// Ranked Team 3v3 (season 5 and earlier)
         /// </summary>
+        [Obsolete("You should probably not use this value anymore because it is only for games from season 5 and earlier.")]
         RANKED_TEAM_3x3,
         /// <summary>
-        /// Ranked Team 5v5
+        /// Ranked Team 5v5 (season 5 and earlier)
         /// </summary>
+        [Obsolete("You should probably not use this value anymore because it is only for games from season 5 and earlier.")]
         RANKED_TEAM_5x5,
         /// <summary>
         /// Ranked dynamic queue (season 6 only)
         /// </summary>
+        [Obsolete("You should probably not use this value anymore because it is only for games from season 6.")]
         TEAM_BUILDER_DRAFT_RANKED_5x5,
         /// <summary>
         /// Ranked Flex Summoner's Rift
         /// </summary>
         RANKED_FLEX_SR,
         /// <summary>
-        /// Ranked Flex Twisted Treeline. Note that this value is ONLY used in <see cref="League"/> objects.
+        /// Ranked Flex Twisted Treeline. Note that this value is ONLY used in <see cref="LeagueList"/> objects.
         /// <see cref="MatchReference"/> objects will use the <see cref="RANKED_TEAM_3x3"/> value instead.
         /// </summary>
         RANKED_FLEX_TT,
     }
-    
+
     /// <summary>
     /// Represents a platform (or server).
     /// </summary>
+    [JsonConverter(typeof(PlatformIdConverter))]
     public enum PlatformId
     {
         /// <summary>

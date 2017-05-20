@@ -1,78 +1,79 @@
 ﻿using RiotNet.Models;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RiotNet
 {
-    public partial class RiotClient
+    public partial interface IRiotClient
     {
-        /// <summary>
-        /// Gets the currently supported version of the League API that the client communicates with.
-        /// </summary>
-        public string LeagueApiVersion { get { return "v2.5"; } }
-        
         /// <summary>
         /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID. This method uses the League API.
         /// </summary>
-        /// <param name="summonerIds">The summoners' summoner IDs. The maximum allowed at once is 10.</param>
+        /// <param name="summonerId">The summoner ID.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<string, List<League>>> GetLeaguesBySummonerIdsAsync(params long[] summonerIds)
-        {
-            var summonerIdString = string.Join(",", summonerIds);
-            return GetAsync<Dictionary<string, List<League>>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{LeagueApiVersion}/league/by-summoner/{summonerIdString}");
-        }
+        Task<List<LeagueList>> GetLeaguesBySummonerIdAsync(long summonerId, PlatformId? platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
-        /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Only includes the league entry for the specified summoner(s). Data is mapped by summoner ID. This method uses the League API.
+        /// Get league positions in all queues for a given summoner ID. This method uses the League API.
         /// </summary>
-        /// <param name="summonerIds">The summoners' summoner IDs. The maximum allowed at once is 10.</param>
+        /// <param name="summonerId">The summoner ID.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<string, List<League>>> GetLeagueEntriesBySummonerIdsAsync(params long[] summonerIds)
-        {
-            var summonerIdString = string.Join(",", summonerIds);
-            return GetAsync<Dictionary<string, List<League>>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{LeagueApiVersion}/league/by-summoner/{summonerIdString}/entry");
-        }
-        
-        /// <summary>
-        /// Gets the full league information for all leagues that the teams are in. Data is mapped by team ID. This method uses the League API.
-        /// </summary>
-        /// <param name="teamIds">The teams' team IDs. The maximum allowed at once is 10.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<string, List<League>>> GetLeaguesByTeamIdsAsync(params string[] teamIds)
-        {
-            var teamIdString = string.Join(",", teamIds);
-            return GetAsync<Dictionary<string, List<League>>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{LeagueApiVersion}/league/by-team/{teamIdString}");
-        }
-        
-        /// <summary>
-        /// Gets the league information for all leagues that the teams are in. Only includes the league entry for the specified team(s). Data is mapped by team ID. This method uses the League API.
-        /// </summary>
-        /// <param name="teamIds">The teams' team IDs. The maximum allowed at once is 10.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<string, List<League>>> GetLeagueEntriesByTeamIdsAsync(params string[] teamIds)
-        {
-            var teamIdString = string.Join(",", teamIds);
-            return GetAsync<Dictionary<string, List<League>>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{LeagueApiVersion}/league/by-team/{teamIdString}/entry");
-        }
+        Task<List<LeaguePosition>> GetPositionsBySummonerIdAsync(long summonerId, PlatformId? platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
         /// Gets the challenger league. This method uses the League API.
         /// </summary>
         /// <param name="type">The queue type.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<League> GetChallengerLeagueAsync(RankedQueue type)
-        {
-            return GetAsync<League>($"{mainBaseUrl}/api/lol/{lowerRegion}/{LeagueApiVersion}/league/challenger?type={type}");
-        }
+        Task<LeagueList> GetChallengerLeagueAsync(RankedQueue type, PlatformId? platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
         /// Gets the master league. This method uses the League API.
         /// </summary>
         /// <param name="type">The queue type.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<League> GetMasterLeagueAsync(RankedQueue type)
+        Task<LeagueList> GetMasterLeagueAsync(RankedQueue type, PlatformId? platformId = null, CancellationToken token = default(CancellationToken));
+    }
+
+    public partial class RiotClient
+    {
+        /// <summary>
+        /// Gets the base URL for league requests.
+        /// </summary>
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <returns>The base URL.</returns>
+        protected string GetLeagueBaseUrl(PlatformId? platformId)
         {
-            return GetAsync<League>($"{mainBaseUrl}/api/lol/{lowerRegion}/{LeagueApiVersion}/league/master?type={type}");
+            return $"https://{GetServerName(platformId)}/lol/league/v3";
+        }
+
+        public Task<List<LeagueList>> GetLeaguesBySummonerIdAsync(long summonerId, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
+        {
+            return GetAsync<List<LeagueList>>($"{GetLeagueBaseUrl(platformId)}/leagues/by-summoner/{summonerId}", token);
+        }
+
+        public Task<List<LeaguePosition>> GetPositionsBySummonerIdAsync(long summonerId, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
+        {
+            return GetAsync<List<LeaguePosition>>($"{GetLeagueBaseUrl(platformId)}/positions/by-summoner/{summonerId}", token);
+        }
+
+        public Task<LeagueList> GetChallengerLeagueAsync(RankedQueue type, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
+        {
+            return GetAsync<LeagueList>($"{GetLeagueBaseUrl(platformId)}/challengerleagues/by-queue/{type}", token);
+        }
+
+        public Task<LeagueList> GetMasterLeagueAsync(RankedQueue type, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
+        {
+            return GetAsync<LeagueList>($"{GetLeagueBaseUrl(platformId)}/masterleagues/by-queue/{type}", token);
         }
     }
 }

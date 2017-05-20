@@ -8,11 +8,6 @@ namespace RiotNet
     public partial interface IRiotClient
     {
         /// <summary>
-        /// Gets the currently supported version of the Champion API that the client communicates with.
-        /// </summary>
-        string ChampionApiVersion { get; }
-
-        /// <summary>
         /// Gets dynamic champion information for all champions. This method uses the Champion API.
         /// </summary>
         /// <param name="freeToPlay">True to request only free-to-play champion information. Default is false.</param>
@@ -28,19 +23,19 @@ namespace RiotNet
         /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task<Champion> GetChampionByIdAsync(long id, CancellationToken token = default(CancellationToken));
+        Task<Champion> GetChampionByIdAsync(long id, PlatformId? platformId = null, CancellationToken token = default(CancellationToken));
     }
 
     public partial class RiotClient
     {
         /// <summary>
-        /// Gets the currently supported version of the Champion API that the client communicates with.
+        /// Gets the base URL for champion requests
         /// </summary>
-        public string ChampionApiVersion { get { return "v3"; } }
-
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <returns>The base URL.</returns>
         protected string GetChampionBaseUrl(PlatformId? platformId)
         {
-            return $"https://{GetServerName(platformId)}/lol/platform/{ChampionApiVersion}/champions";
+            return $"https://{GetServerName(platformId)}/lol/platform/v3";
         }
 
         /// <summary>
@@ -52,7 +47,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public async Task<List<Champion>> GetChampionsAsync(bool freeToPlay = false, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var resource = $"{GetChampionBaseUrl(platformId)}?freeToPlay={freeToPlay.ToString().ToLowerInvariant()}";
+            var resource = $"{GetChampionBaseUrl(platformId)}/champions?freeToPlay={freeToPlay.ToString().ToLowerInvariant()}";
             var championList = await GetAsync<ChampionList>(resource, token).ConfigureAwait(false);
             return championList?.Champions;
         }
@@ -66,7 +61,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Champion> GetChampionByIdAsync(long id, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<Champion>($"{GetChampionBaseUrl(platformId)}/{id}", token);
+            return GetAsync<Champion>($"{GetChampionBaseUrl(platformId)}/champions/{id}", token);
         }
     }
 }

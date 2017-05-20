@@ -1,11 +1,6 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RiotNet.Models
 {
@@ -26,7 +21,7 @@ namespace RiotNet.Models
         }
 
         /// <summary>
-        /// Gets or sets the ID of this mastery. This corresponds to a <see cref="StaticMastery"/> ID. This is equal to <see cref="Id"/>, but it is set by the Match API.
+        /// Gets or sets the ID of this mastery. This corresponds to a <see cref="StaticMastery"/> ID. This is equal to <see cref="Id"/>, but it is set by the Match and Spectator APIs.
         /// </summary>
         public int MasteryId
         {

@@ -1,9 +1,7 @@
 {
   "version": "3.1.0",
-
   "dependencies": {
   },
-
   "frameworks": {
     "net45": {
       "buildOptions": {
@@ -30,5 +28,8 @@
         "System.ComponentModel.Annotations": "4.1.0"
       }
     }
+  },
+  "buildOptions": {
+    "xmlDoc": true
   }
 }

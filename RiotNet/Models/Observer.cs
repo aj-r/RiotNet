@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace RiotNet.Models
+﻿namespace RiotNet.Models
 {
     /// <summary>
     /// Contains observer information (for spectator).
