@@ -244,6 +244,19 @@ namespace RiotNet
         }
 
         /// <summary>
+        /// Adds a query string parameters to a URL.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="queryParam">The query string parameter.</param>
+        /// <returns>The new URL.</returns>
+        protected string AddQueryParam(string url, string queryParam)
+        {
+            if (string.IsNullOrEmpty(queryParam))
+                return url;
+            return url + (url.Contains("?") ? "&" : "?") + queryParam;
+        }
+
+        /// <summary>
         /// Sends a GET request for the specified resource.
         /// </summary>
         /// <param name="resource">The resource path, relative to the base URL. Note: this method will automatically add the api_key parameter to the resource.</param>
@@ -450,10 +463,10 @@ namespace RiotNet
             }
             if (statusCode >= 400)
             {
-                OnResponseError(new ResponseEventArgs(response));
+                var message = await GetServerErrorMessage(response).ConfigureAwait(false);
+                OnResponseError(new ResponseEventArgs(response, message));
                 if (Settings.ThrowOnError)
                 {
-                    var message = await GetServerErrorMessage(response).ConfigureAwait(false);
                     if (message != null)
                         throw new RestException(response, message, response.Exception);
                     else
@@ -485,6 +498,8 @@ namespace RiotNet
                 {
                     token = JToken.ReadFrom(jsonReader);
                 }
+                if (token["status"] is JObject)
+                    token = token["status"];
                 var message = token.Value<string>("message");
                 return message;
             }
@@ -500,8 +515,7 @@ namespace RiotNet
         /// <param name="e">Arguments for the event.</param>
         protected virtual void OnRequestTimedOut(RetryEventArgs e)
         {
-            if (RequestTimedOut != null)
-                RequestTimedOut(this, e);
+            RequestTimedOut?.Invoke(this, e);
         }
 
         /// <summary>
@@ -510,8 +524,7 @@ namespace RiotNet
         /// <param name="e">Arguments for the event.</param>
         protected virtual void OnConnectionFailed(RetryEventArgs e)
         {
-            if (ConnectionFailed != null)
-                ConnectionFailed(this, e);
+            ConnectionFailed?.Invoke(this, e);
         }
 
         /// <summary>
@@ -520,8 +533,7 @@ namespace RiotNet
         /// <param name="e">Arguments for the event.</param>
         protected virtual void OnRateLimitExceeded(RetryEventArgs e)
         {
-            if (RateLimitExceeded != null)
-                RateLimitExceeded(this, e);
+            RateLimitExceeded?.Invoke(this, e);
         }
 
         /// <summary>
@@ -530,8 +542,7 @@ namespace RiotNet
         /// <param name="e">Arguments for the event.</param>
         protected virtual void OnServerError(RetryEventArgs e)
         {
-            if (ServerError != null)
-                ServerError(this, e);
+            ServerError?.Invoke(this, e);
         }
 
         /// <summary>
@@ -540,8 +551,7 @@ namespace RiotNet
         /// <param name="e">Arguments for the event.</param>
         protected virtual void OnResourceNotFound(ResponseEventArgs e)
         {
-            if (ResourceNotFound != null)
-                ResourceNotFound(this, e);
+            ResourceNotFound?.Invoke(this, e);
         }
 
         /// <summary>
@@ -550,8 +560,7 @@ namespace RiotNet
         /// <param name="e">Arguments for the event.</param>
         protected virtual void OnResponseError(ResponseEventArgs e)
         {
-            if (ResponseError != null)
-                ResponseError(this, e);
+            ResponseError?.Invoke(this, e);
         }
 
         /// <summary>

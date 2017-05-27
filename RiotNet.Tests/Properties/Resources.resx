@@ -137,7 +137,7 @@
    "championPointsSinceLastLevel": 39408,
    "lastPlayTime": 1457400619000,
    "chestGranted": true,
-   "highestGrade": "S+"
+   "tokensEarned": 2
 }</value>
   </data>
   <data name="SampleGame" xml:space="preserve">
@@ -292,11 +292,11 @@
    "entries": [
       {
          "leaguePoints": 2,
-         "isFreshBlood": true,
-         "isHotStreak": true,
-         "division": "I",
-         "isInactive": true,
-         "isVeteran": true,
+         "freshBlood": true,
+         "hotStreak": true,
+         "rank": "I",
+         "inactive": true,
+         "veteran": true,
          "losses": 11,
          "playerOrTeamName": "ApeX R Gaming",
          "playerOrTeamId": "TEAM-a77c7a20-7f0e-11e4-8c36-c81f66dd45c9",
@@ -350,9 +350,9 @@
   </data>
   <data name="SampleMatch" xml:space="preserve">
     <value>{
-   "region": "NA",
-   "matchType": "MATCHED_GAME",
-   "matchCreation": 1436660796872,
+   "platformId": "NA1",
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1436660796872,
    "participants": [
       {
          "masteries": [
@@ -418,11 +418,14 @@
             }
          ],
          "stats": {
+           "participantId": 1,
            "altarsCaptured": 2,
            "altarsNeutralized": 2,
            "damageDealtToObjectives": 5478,
            "damageDealtToTurrets": 5478,
            "damageSelfMitigated": 3456,
+           "longestTimeSpentLiving": 1,
+           "turretKills": 1,
            "unrealKills": 2,
            "item2": 3401,
            "item1": 3143,
@@ -544,7 +547,8 @@
               "10-20": 966.8,
               "20-30": 1171.9
            },
-           "lane": "BOTTOM"
+           "lane": "BOTTOM",
+           "participantId": 1
         },
          "spell2Id": 14,
          "participantId": 1,
@@ -736,7 +740,8 @@
               "10-20": 966.8,
               "20-30": 1171.9
            },
-           "lane": "BOTTOM"
+           "lane": "BOTTOM",
+           "participantId": 2
         },
          "spell2Id": 4,
          "participantId": 2,
@@ -928,7 +933,8 @@
               "10-20": 966.8,
               "20-30": 1171.9
            },
-           "lane": "BOTTOM"
+           "lane": "BOTTOM",
+           "participantId": 3
         },
          "spell2Id": 12,
          "participantId": 3,
@@ -1116,7 +1122,8 @@
               "10-20": 966.8,
               "20-30": 1171.9
            },
-           "lane": "JUNGLE"
+           "lane": "JUNGLE",
+           "participantId": 4
         },
          "spell2Id": 6,
          "participantId": 4,
@@ -1308,7 +1315,8 @@
               "10-20": 966.8,
               "20-30": 1171.9
            },
-           "lane": "TOP"
+           "lane": "TOP",
+           "participantId": 5
         },
          "spell2Id": 3,
          "participantId": 5,
@@ -1516,7 +1524,8 @@
             "10-20": 966.8,
             "20-30": 1171.9
          },
-         "lane": "MIDDLE"
+         "lane": "MIDDLE",
+         "participantId": 6
       },
          "spell2Id": 4,
          "participantId": 6,
@@ -1728,7 +1737,8 @@
             "10-20": 966.8,
             "20-30": 1171.9
          },
-         "lane": "BOTTOM"
+         "lane": "BOTTOM",
+         "participantId": 7
       },
          "spell2Id": 4,
          "participantId": 7,
@@ -1940,7 +1950,8 @@
             "10-20": 966.8,
             "20-30": 1171.9
          },
-         "lane": "BOTTOM"
+         "lane": "BOTTOM",
+         "participantId": 8
       },
          "spell2Id": 4,
          "participantId": 8,
@@ -2124,7 +2135,8 @@
             "10-20": 966.8,
             "20-30": 1171.9
          },
-         "lane": "BOTTOM"
+         "lane": "BOTTOM",
+         "participantId": 9
       },
          "spell2Id": 4,
          "participantId": 9,
@@ -2316,7 +2328,8 @@
             "10-20": 966.8,
             "20-30": 1171.9
          },
-         "lane": "BOTTOM"
+         "lane": "BOTTOM",
+         "participantId": 10
       },
          "spell2Id": 4,
          "participantId": 10,
@@ -2326,15 +2339,18 @@
          "spell1Id": 7
       }
    ],
-   "platformId": "NA1",
-   "matchMode": "ODIN",
+   "gameMode": "ODIN",
    "participantIdentities": [
       {
          "player": {
             "profileIcon": 870,
             "matchHistoryUri": "/v1/stats/player_history/NA1/50519962",
             "summonerName": "RndmInternetMan",
-            "summonerId": 35870943
+            "summonerId": 35870943,
+            "currentPlatformId": "NA1",
+            "platformId": "NA1",
+            "accountId": 1,
+            "currentAccountId": 1
          },
          "participantId": 1
       },
@@ -2343,7 +2359,11 @@
             "profileIcon": 749,
             "matchHistoryUri": "/v1/stats/player_history/NA1/48555045",
             "summonerName": "KirkBerkley",
-            "summonerId": 34172230
+            "summonerId": 34172230,
+            "currentPlatformId": "NA1",
+            "platformId": "NA1",
+            "accountId": 1,
+            "currentAccountId": 1
          },
          "participantId": 2
       },
@@ -2352,7 +2372,11 @@
             "profileIcon": 781,
             "matchHistoryUri": "/v1/stats/player_history/NA1/50540199",
             "summonerName": "Platicopter",
-            "summonerId": 36049629
+            "summonerId": 36049629,
+            "currentPlatformId": "NA1",
+            "platformId": "NA1",
+            "accountId": 1,
+            "currentAccountId": 1
          },
          "participantId": 3
       },
@@ -2361,7 +2385,11 @@
             "profileIcon": 660,
             "matchHistoryUri": "/v1/stats/player_history/NA1/48534303",
             "summonerName": "xBARx",
-            "summonerId": 34038950
+            "summonerId": 34038950,
+            "currentPlatformId": "NA1",
+            "platformId": "NA1",
+            "accountId": 1,
+            "currentAccountId": 1
          },
          "participantId": 4
       },
@@ -2370,7 +2398,11 @@
             "profileIcon": 780,
             "matchHistoryUri": "/v1/stats/player_history/NA1/216810007",
             "summonerName": "xZabitha",
-            "summonerId": 54382106
+            "summonerId": 54382106,
+            "currentPlatformId": "NA1",
+            "platformId": "NA1",
+            "accountId": 1,
+            "currentAccountId": 1
          },
          "participantId": 5
       },
@@ -2379,7 +2411,11 @@
             "profileIcon": 715,
             "matchHistoryUri": "/v1/stats/player_history/NA1/215910920",
             "summonerName": "TheRaeden",
-            "summonerId": 53369331
+            "summonerId": 53369331,
+            "currentPlatformId": "NA1",
+            "platformId": "NA1",
+            "accountId": 1,
+            "currentAccountId": 1
          },
          "participantId": 6
       },
@@ -2388,7 +2424,11 @@
             "profileIcon": 750,
             "matchHistoryUri": "/v1/stats/player_history/NA1/209696672",
             "summonerName": "dovahkiinwarrior",
-            "summonerId": 46929938
+            "summonerId": 46929938,
+            "currentPlatformId": "NA1",
+            "platformId": "NA1",
+            "accountId": 1,
+            "currentAccountId": 1
          },
          "participantId": 7
       },
@@ -2397,7 +2437,11 @@
             "profileIcon": 754,
             "matchHistoryUri": "/v1/stats/player_history/NA1/227407212",
             "summonerName": "Raide0n",
-            "summonerId": 65174600
+            "summonerId": 65174600,
+            "currentPlatformId": "NA1",
+            "platformId": "NA1",
+            "accountId": 1,
+            "currentAccountId": 1
          },
          "participantId": 8
       },
@@ -2406,7 +2450,11 @@
             "profileIcon": 745,
             "matchHistoryUri": "/v1/stats/player_history/NA1/215920970",
             "summonerName": "FizzWizz",
-            "summonerId": 53319454
+            "summonerId": 53319454,
+            "currentPlatformId": "NA1",
+            "platformId": "NA1",
+            "accountId": 1,
+            "currentAccountId": 1
          },
          "participantId": 9
       },
@@ -2415,12 +2463,16 @@
             "profileIcon": 692,
             "matchHistoryUri": "/v1/stats/player_history/NA1/227405603",
             "summonerName": "xCannX",
-            "summonerId": 65204604
+            "summonerId": 65204604,
+            "currentPlatformId": "NA1",
+            "platformId": "NA1",
+            "accountId": 1,
+            "currentAccountId": 1
          },
          "participantId": 10
       }
    ],
-   "matchVersion": "5.13.0.329",
+   "gameVersion": "5.13.0.329",
    "teams": [
       {
          "inhibitorKills": 2,
@@ -2446,7 +2498,7 @@
          "firstRiftHerald": true,
          "firstInhibitor": true,
          "firstDragon": true,
-         "win": true,
+         "win": "Win",
          "vilemawKills": 2,
          "baronKills": 2,
          "dragonKills": 1,
@@ -2476,7 +2528,7 @@
          "firstBaron": true,
          "firstInhibitor": true,
          "firstDragon": true,
-         "win": true,
+         "win": "Fail",
          "vilemawKills": 2,
          "baronKills": 2,
          "dragonKills": 2,
@@ -2484,19 +2536,19 @@
       }
    ],
    "mapId": 11,
-   "season": "SEASON2015",
-   "queueType": "RANKED_TEAM_5x5",
-   "matchId": 1883925941,
-   "matchDuration": 1284
+   "seasonId": 5,
+   "queueId": 33,
+   "gameId": 1883925941,
+   "gameDuration": 1284
 }</value>
   </data>
   <data name="SampleMatchReference" xml:space="preserve">
     <value>{
          "timestamp": 1437700807871,
          "champion": 254,
-         "queue": "RANKED_TEAM_5x5",
-         "season": "SEASON2015",
-         "matchId": 1896442090,
+         "queue": 33,
+         "season": 5,
+         "gameId": 1896442090,
          "role": "NONE",
          "platformId": "NA1",
          "lane": "JUNGLE"
@@ -3068,12 +3120,49 @@ UNIQUE Passive - Eyes of Pain: +15 Magic Penetration",
         "x": 336
     },
     "stats": {
+        "FlatArmorMod": 1,
+        "FlatAttackSpeedMod": 1,
+        "FlatBlockMod": 1,
+        "FlatCritChanceMod": 1,
+        "FlatCritDamageMod": 1,
+        "FlatEXPBonus": 1,
+        "FlatEnergyPoolMod": 1,
+        "FlatEnergyRegenMod": 1,
         "FlatHPPoolMod": 200,
-        "FlatMagicDamageMod": 25
+        "FlatHPRegenMod": 1,
+        "FlatMPPoolMod": 1,
+        "FlatMPRegenMod": 1,
+        "FlatMagicDamageMod": 25,
+        "FlatMovementSpeedMod": 1,
+        "FlatPhysicalDamageMod": 1,
+        "FlatSpellBlockMod": 1,
+        "PercentArmorMod": 1,
+        "PercentAttackSpeedMod": 1,
+        "PercentBlockMod": 1,
+        "PercentCritChanceMod": 1,
+        "PercentCritDamageMod": 1,
+        "PercentDodgeMod": 1,
+        "PercentEXPBonus": 1,
+        "PercentHPPoolMod": 1,
+        "PercentHPRegenMod": 1,
+        "PercentLifeStealMod": 1,
+        "PercentMPPoolMod": 1,
+        "PercentMPRegenMod": 1,
+        "PercentMagicDamageMod": 1,
+        "PercentMovementSpeedMod": 1,
+        "PercentPhysicalDamageMod": 1,
+        "PercentSpellBlockMod": 1,
+        "PercentSpellVampMod": 1
     },
     "id": 3136,
-    "name": "Haunting Guise"
-}</value>
+    "name": "Haunting Guise",
+    "consumeOnFull": true,
+    "consumed": true,
+    "hideFromAll": true,
+    "specialRecipe": 200,
+    "group": "test",
+    "requiredChampion": 22,
+    "inStore": false}</value>
   </data>
   <data name="SampleStaticMastery" xml:space="preserve">
     <value>{

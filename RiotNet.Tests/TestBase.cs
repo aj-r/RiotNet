@@ -4,6 +4,7 @@ using RiotNet.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
 using System.Linq;
@@ -315,40 +316,46 @@ namespace RiotNet.Tests
         /// For list and dictionary types, asserts that at least one item has non-default values.
         /// </summary>
         /// <param name="objects">A list of objects.</param>
-        /// <param name="propertyName">The property name to display in the error message if the assertion fails.</param>
-        public static void AssertNonDefaultValuesRecursive(IEnumerable<object> objects, string propertyName = null)
+        /// <param name="propertyPath">The property name to display in the error message if the assertion fails.</param>
+        public static void AssertNonDefaultValuesRecursive(IEnumerable<object> objects, string propertyPath = null, PropertyInfo property = null)
         {
             Assert.That(objects, Is.Not.Null);
 
             var first = objects.FirstOrDefault();
-            if (propertyName == null)
-                propertyName = first != null ? first.GetType().Name : "Object";
-            var defaultMessage = propertyName + " was not deserialized correctly. ";
+            if (propertyPath == null)
+                propertyPath = first != null ? first.GetType().Name : "Object";
+            var defaultMessage = propertyPath + " was not deserialized correctly. ";
 
             Assert.That(objects.Any(), defaultMessage + "Collection is empty.");
             Assert.That(objects.All(o => o != null), defaultMessage + "Value is null.");
 
+            var defaultValue = property?.GetCustomAttribute<DefaultValueAttribute>()?.Value;
             var type = first.GetType();
 
             if (first is int)
             {
-                Assert.That(objects.Cast<int>().Any(x => x != 0), defaultMessage + "Value is 0.");
+                int defaultInt = defaultValue as int? ?? 0;
+                Assert.That(objects.Cast<int>().Any(x => x != defaultInt), $"{defaultMessage}Value equals the default ({defaultInt}).");
             }
             else if (first is long)
             {
-                Assert.That(objects.Cast<long>().Any(x => x != 0L), defaultMessage + "Value is 0.");
+                long defaultLong = defaultValue as long? ?? 0L;
+                Assert.That(objects.Cast<long>().Any(x => x != defaultLong), $"{defaultMessage}Value equals the default ({defaultLong}).");
             }
             else if (first is double)
             {
-                Assert.That(objects.Cast<double>().Any(x => x != 0.0), defaultMessage + "Value is 0.");
+                double defaultDouble = defaultValue as double? ?? 0.0;
+                Assert.That(objects.Cast<double>().Any(x => x != defaultDouble), $"{defaultMessage}Value equals the default ({defaultDouble}).");
             }
             else if (first is string)
             {
-                Assert.That(objects.Cast<string>().Any(x => !string.IsNullOrEmpty(x)), defaultMessage + "Value is null or empty.");
+                string defaultString = defaultValue as string;
+                Assert.That(objects.Cast<string>().Any(x => x != defaultString), $"{defaultMessage}Value equals the default ({defaultString}).");
             }
             else if (first is bool)
             {
-                Assert.That(objects.Cast<bool>().Any(x => x), defaultMessage + "Value is false.");
+                bool defaultBool = defaultValue as bool? ?? false;
+                Assert.That(objects.Cast<bool>().Any(x => x != defaultBool), $"{defaultMessage}Value equals the default ({defaultBool}).");
             }
             else if (first is DateTime)
             {
@@ -363,16 +370,16 @@ namespace RiotNet.Tests
             }
             else if (type.GetTypeInfo().IsEnum)
             {
-                var defaultValue = Enum.GetValues(type).GetValue(0);
-                Assert.That(objects.Any(x => !x.Equals(defaultValue)), defaultMessage + type.Name + " is equal to the default value.");
+                var defaultEnum = defaultValue ?? Enum.GetValues(type).GetValue(0);
+                Assert.That(objects.Any(x => !x.Equals(defaultEnum)), $"{defaultMessage}{type.Name} equals the default ({defaultEnum}).");
             }
             else if (first is IEnumerable<object>)
             {
-                AssertNonDefaultValuesRecursive(objects.Cast<IEnumerable<object>>().SelectMany(x => x), propertyName + "[]");
+                AssertNonDefaultValuesRecursive(objects.Cast<IEnumerable<object>>().SelectMany(x => x), propertyPath + "[]");
             }
             else if (first is IEnumerable)
             {
-                AssertNonDefaultValuesRecursive(objects.Cast<IEnumerable>().Select(x => x.Cast<object>()).SelectMany(x => x), propertyName + "[]");
+                AssertNonDefaultValuesRecursive(objects.Cast<IEnumerable>().Select(x => x.Cast<object>()).SelectMany(x => x), propertyPath + "[]");
             }
             else
             {
@@ -380,11 +387,11 @@ namespace RiotNet.Tests
                 if (properties.Count == 0)
                     Assert.Fail("Type '" + type.FullName + "' is not supported.");
 
-                propertyName += ".";
-                foreach (var property in properties.Where(p => !p.GetIndexParameters().Any()))
+                propertyPath += ".";
+                foreach (var childProperty in properties.Where(p => !p.GetIndexParameters().Any()))
                 {
-                    var values = objects.Select(x => property.GetValue(x)).ToList();
-                    AssertNonDefaultValuesRecursive(values, propertyName + property.Name);
+                    var values = objects.Select(x => childProperty.GetValue(x)).ToList();
+                    AssertNonDefaultValuesRecursive(values, propertyPath + childProperty.Name, childProperty);
                 }
             }
         }

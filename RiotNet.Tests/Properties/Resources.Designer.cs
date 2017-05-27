@@ -85,7 +85,7 @@ namespace RiotNet.Tests.Properties {
         ///   &quot;championPointsSinceLastLevel&quot;: 39408,
         ///   &quot;lastPlayTime&quot;: 1457400619000,
         ///   &quot;chestGranted&quot;: true,
-        ///   &quot;highestGrade&quot;: &quot;S+&quot;
+        ///   &quot;tokensEarned&quot;: 2
         ///}.
         /// </summary>
         public static string SampleChampionMastery {
@@ -131,17 +131,18 @@ namespace RiotNet.Tests.Properties {
         ///   &quot;entries&quot;: [
         ///      {
         ///         &quot;leaguePoints&quot;: 2,
-        ///         &quot;isFreshBlood&quot;: true,
-        ///         &quot;isHotStreak&quot;: true,
-        ///         &quot;division&quot;: &quot;I&quot;,
-        ///         &quot;isInactive&quot;: true,
-        ///         &quot;isVeteran&quot;: true,
+        ///         &quot;freshBlood&quot;: true,
+        ///         &quot;hotStreak&quot;: true,
+        ///         &quot;rank&quot;: &quot;I&quot;,
+        ///         &quot;inactive&quot;: true,
+        ///         &quot;veteran&quot;: true,
         ///         &quot;losses&quot;: 11,
         ///         &quot;playerOrTeamName&quot;: &quot;ApeX R Gaming&quot;,
         ///         &quot;playerOrTeamId&quot;: &quot;TEAM-a77c7a20-7f0e-11e4-8c36-c81f66dd45c9&quot;,
         ///         &quot;wins&quot;: 36,
         ///         &quot;miniSeries&quot;: {
-        ///           &quot;losses&quot; [rest of string was truncated]&quot;;.
+        ///           &quot;losses&quot;: 2,
+        ///       [rest of string was truncated]&quot;;.
         /// </summary>
         public static string SampleLeague {
             get {
@@ -177,9 +178,9 @@ namespace RiotNet.Tests.Properties {
         
         /// <summary>
         ///    Looks up a localized string similar to  {
-        ///   &quot;region&quot;: &quot;NA&quot;,
-        ///   &quot;matchType&quot;: &quot;MATCHED_GAME&quot;,
-        ///   &quot;matchCreation&quot;: 1436660796872,
+        ///   &quot;platformId&quot;: &quot;NA1&quot;,
+        ///   &quot;gameType&quot;: &quot;MATCHED_GAME&quot;,
+        ///   &quot;gameCreation&quot;: 1436660796872,
         ///   &quot;participants&quot;: [
         ///      {
         ///         &quot;masteries&quot;: [
@@ -200,7 +201,7 @@ namespace RiotNet.Tests.Properties {
         ///               &quot;masteryId&quot;: 4122
         ///            },
         ///            {
-        ///      [rest of string was truncated]&quot;;.
+        ///   [rest of string was truncated]&quot;;.
         /// </summary>
         public static string SampleMatch {
             get {
@@ -212,9 +213,9 @@ namespace RiotNet.Tests.Properties {
         ///    Looks up a localized string similar to {
         ///         &quot;timestamp&quot;: 1437700807871,
         ///         &quot;champion&quot;: 254,
-        ///         &quot;queue&quot;: &quot;RANKED_TEAM_5x5&quot;,
-        ///         &quot;season&quot;: &quot;SEASON2015&quot;,
-        ///         &quot;matchId&quot;: 1896442090,
+        ///         &quot;queue&quot;: 33,
+        ///         &quot;season&quot;: 5,
+        ///         &quot;gameId&quot;: 1896442090,
         ///         &quot;role&quot;: &quot;NONE&quot;,
         ///         &quot;platformId&quot;: &quot;NA1&quot;,
         ///         &quot;lane&quot;: &quot;JUNGLE&quot;

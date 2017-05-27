@@ -125,16 +125,15 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<MatchList> GetMatchListByAccountIdAsync(long accountId, IEnumerable<long> championIds = null, IEnumerable<QueueType> rankedQueues = null, IEnumerable<Season> seasons = null, DateTime? beginTime = null, DateTime? endTime = null, int? beginIndex = null, int? endIndex = null, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
+            var url = $"{GetMatchBaseUrl(platformId)}/matchlists/by-account/{accountId}";
+            var championsParam = BuildQueryParameter("champion", championIds);
+            url = AddQueryParam(url, championsParam);
+            var queueParam = BuildQueryParameter("queue", rankedQueues?.Cast<int>());
+            url = AddQueryParam(url, queueParam);
+            var seasonsParam = BuildQueryParameter("season", seasons?.Cast<int>());
+            url = AddQueryParam(url, seasonsParam);
+
             var queryParameters = new Dictionary<string, object>();
-            var championsParam = BuildQueryParameter(championIds);
-            if (championsParam.Length > 0)
-                queryParameters["champion"] = championsParam;
-            var queueParam = BuildQueryParameter(rankedQueues.Cast<int>());
-            if (queueParam.Length > 0)
-                queryParameters["queue"] = queueParam;
-            var seasonsParam = BuildQueryParameter(seasons.Cast<int>());
-            if (queueParam.Length > 0)
-                queryParameters["seasons"] = seasonsParam;
             if (beginTime != null)
                 queryParameters["beginTime"] = Conversions.DateTimeToEpochMilliseconds(beginTime.Value).ToString(CultureInfo.InvariantCulture);
             if (endTime != null)
@@ -144,7 +143,7 @@ namespace RiotNet
             if (endIndex != null)
                 queryParameters["endIndex"] = endIndex.Value.ToString(CultureInfo.InvariantCulture);
 
-            return GetAsync<MatchList>($"{GetMatchBaseUrl(platformId)}/matchlists/by-account/{accountId}", token, queryParameters);
+            return GetAsync<MatchList>(url, token, queryParameters);
         }
 
         /// <summary>
@@ -184,9 +183,12 @@ namespace RiotNet
             return GetAsync<Match>($"{GetMatchBaseUrl(platformId)}/matches/{matchId}/by-tournament-code/{tournamentCode}", token);
         }
 
-        private string BuildQueryParameter<T>(IEnumerable<T> items)
+        private string BuildQueryParameter<T>(string name, IEnumerable<T> items)
         {
-            return items != null ? string.Join(",", items) : "";
+            if (items == null)
+                return "";
+            var fullParams = items.Select(item => $"{name}={item}");
+            return string.Join("&", fullParams);
         }
     }
 }

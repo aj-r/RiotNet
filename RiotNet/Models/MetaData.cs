@@ -1,6 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
-using Newtonsoft.Json;
 
 namespace RiotNet.Models
 {
@@ -11,29 +10,21 @@ namespace RiotNet.Models
     public class MetaData
     {
         /// <summary>
-        /// Creates a new <see cref="MetaData"/> instance.
-        /// </summary>
-        public MetaData()
-        {
-            // Note: default values are defined in the "basic" property of an ItemList or RuneList.
-            IsRune = true;
-            Tier = "1";
-            Type = "Red";
-        }
-
-        /// <summary>
         /// Gets or sets whether the object is a rune.
         /// </summary>
-        public bool IsRune { get; set; }
+        [DefaultValue(true)]
+        public bool IsRune { get; set; } = true;
 
         /// <summary>
         /// Gets or sets the tier of the rune.
         /// </summary>
-        public string Tier { get; set; }
+        [DefaultValue("1")]
+        public string Tier { get; set; } = "1";
 
         /// <summary>
         /// Gets or sets the type of the rune.
         /// </summary>
-        public string Type { get; set; }
+        [DefaultValue("red")]
+        public string Type { get; set; } = "red";
     }
 }

@@ -139,9 +139,9 @@ namespace RiotNet
             return PostAsync<List<string>>($"{GetTournamentBaseUrl(settings.UseTournamentStub)}/codes", new
             {
                 allowedParticipants,
-                mapType,
-                pickType,
-                spectatorType,
+                mapType = mapType.ToString(),
+                pickType = pickType.ToString(),
+                spectatorType = spectatorType.ToString(),
                 teamSize,
                 metadata
             }, token, queryParameters);

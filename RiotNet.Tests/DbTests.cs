@@ -15,7 +15,7 @@ namespace RiotNet.Tests
     /// </summary>
     [TestFixture]
 #if NET_CORE
-    [Ignore("EF Core does not support data annotations yet, so it does not work with our models.")]
+    [Ignore("EF Core does not support ComplexType yet, so it does not work with our models.")]
 #endif
     public class DbTests : TestBase
     {

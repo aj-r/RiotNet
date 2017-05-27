@@ -1,10 +1,13 @@
-﻿namespace RiotNet.Models
+﻿using System.ComponentModel;
+
+namespace RiotNet.Models
 {
     /// <summary>
     /// Represents an item that a player can use during a match.
     /// </summary>
     public class StaticItem : BasicData
     {
+
         /// <summary>
         /// Gets or sets whether the item should automatically be consumed upon purchase if the player's item slots are full.
         /// </summary>
@@ -21,6 +24,7 @@
         /// <remarks>
         /// An item's depth is equal to the maximum depth of the items that it builds out of, plus one.
         /// </remarks>
+        [DefaultValue(1)]
         public int Depth { get; set; } = 1;
 
         /// <summary>
@@ -46,6 +50,7 @@
         /// <summary>
         /// Gets or sets whether the item exists in the store.
         /// </summary>
+        [DefaultValue(true)]
         public bool InStore { get; set; } = true;
 
         /// <summary>

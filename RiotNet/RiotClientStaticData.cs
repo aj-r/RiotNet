@@ -243,37 +243,36 @@ namespace RiotNet
 
         public Task<StaticChampionList> GetStaticChampionsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var request = $"{GetStaticDataBaseUrl(platformId)}/champions";
+            var url = $"{GetStaticDataBaseUrl(platformId)}/champions";
             var queryParameters = GetStandardQueryParameters(locale, version);
             if (dataById)
                 queryParameters["dataById"] = "true";
-            var dataParam = CreateDataParam(champListData, typeof(StaticChampion), typeof(StaticChampionList));
+
+            var dataParam = CreateDataParam("champListData", champListData, typeof(StaticChampion), typeof(StaticChampionList));
             if (!string.IsNullOrEmpty(dataParam))
-                queryParameters["champData"] = dataParam;
-            return GetAsync<StaticChampionList>(request, token, queryParameters);
+                url = AddQueryParam(url, dataParam);
+            return GetAsync<StaticChampionList>(url, token, queryParameters);
         }
 
         public Task<StaticChampion> GetStaticChampionByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> champData = null, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var request = $"{GetStaticDataBaseUrl(platformId)}/champions/{id}";
+            var url = $"{GetStaticDataBaseUrl(platformId)}/champions/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            if (champData != null)
-            {
-                var dataParam = CreateDataParam(champData, typeof(StaticChampion));
-                if (!string.IsNullOrEmpty(dataParam))
-                    queryParameters["champData"] = dataParam;
-            }
-            return GetAsync<StaticChampion>(request, token, queryParameters);
+
+            var dataParam = CreateDataParam("champData", champData, typeof(StaticChampion));
+            if (!string.IsNullOrEmpty(dataParam))
+                url = AddQueryParam(url, dataParam);
+            return GetAsync<StaticChampion>(url, token, queryParameters);
         }
 
         public async Task<StaticItemList> GetStaticItemsAsync(string locale = null, string version = null, IEnumerable<string> itemListData = null, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var request = $"{GetStaticDataBaseUrl(platformId)}/items";
+            var url = $"{GetStaticDataBaseUrl(platformId)}/items";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var dataParam = CreateDataParam(itemListData, typeof(StaticItem), typeof(StaticItemList));
+            var dataParam = CreateDataParam("itemListData", itemListData, typeof(StaticItem), typeof(StaticItemList));
             if (!string.IsNullOrEmpty(dataParam))
-                queryParameters["itemListData"] = dataParam;
-            var itemList = await GetAsync<StaticItemList>(request, token, queryParameters).ConfigureAwait(false);
+                url = AddQueryParam(url, dataParam);
+            var itemList = await GetAsync<StaticItemList>(url, token, queryParameters).ConfigureAwait(false);
 
             if (itemList == null)
                 return null;
@@ -290,12 +289,12 @@ namespace RiotNet
 
         public Task<StaticItem> GetStaticItemAsync(int id, string locale = null, string version = null, IEnumerable<string> itemData = null, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var request = $"{GetStaticDataBaseUrl(platformId)}/items/{id}";
+            var url = $"{GetStaticDataBaseUrl(platformId)}/items/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var dataParam = CreateDataParam(itemData, typeof(StaticItem));
+            var dataParam = CreateDataParam("itemData", itemData, typeof(StaticItem));
             if (!string.IsNullOrEmpty(dataParam))
-                queryParameters["itemData"] = dataParam;
-            return GetAsync<StaticItem>(request, token, queryParameters);
+                url = AddQueryParam(url, dataParam);
+            return GetAsync<StaticItem>(url, token, queryParameters);
         }
 
         public Task<List<string>> GetStaticLanguagesAsync(PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
@@ -317,22 +316,22 @@ namespace RiotNet
 
         public Task<StaticMasteryList> GetStaticMasteriesAsync(string locale = null, string version = null, IEnumerable<string> masteryListData = null, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var request = $"{GetStaticDataBaseUrl(platformId)}/masteries";
+            var url = $"{GetStaticDataBaseUrl(platformId)}/masteries";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var dataParam = CreateDataParam(masteryListData, typeof(StaticMastery), typeof(StaticMasteryList));
+            var dataParam = CreateDataParam("masteryListData", masteryListData, typeof(StaticMastery), typeof(StaticMasteryList));
             if (!string.IsNullOrEmpty(dataParam))
-                queryParameters["masteryListData"] = dataParam;
-            return GetAsync<StaticMasteryList>(request, token, queryParameters);
+                url = AddQueryParam(url, dataParam);
+            return GetAsync<StaticMasteryList>(url, token, queryParameters);
         }
 
         public Task<StaticMastery> GetStaticMasteryByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var request = $"{GetStaticDataBaseUrl(platformId)}/masteries/{id}";
+            var url = $"{GetStaticDataBaseUrl(platformId)}/masteries/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var dataParam = CreateDataParam(masteryData, typeof(StaticMastery));
+            var dataParam = CreateDataParam("masteryData", masteryData, typeof(StaticMastery));
             if (!string.IsNullOrEmpty(dataParam))
-                queryParameters["masteryData"] = dataParam;
-            return GetAsync<StaticMastery>(request, token, queryParameters);
+                url = AddQueryParam(url, dataParam);
+            return GetAsync<StaticMastery>(url, token, queryParameters);
         }
 
         public Task<StaticProfileIconData> GetStaticProfileIconsAsync(PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
@@ -347,12 +346,12 @@ namespace RiotNet
 
         public async Task<StaticRuneList> GetStaticRunesAsync(string locale = null, string version = null, IEnumerable<string> runeListData = null, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var request = $"{GetStaticDataBaseUrl(platformId)}/runes";
+            var url = $"{GetStaticDataBaseUrl(platformId)}/runes";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var dataParam = CreateDataParam(runeListData, typeof(StaticRune), typeof(StaticRuneList));
+            var dataParam = CreateDataParam("runeListData", runeListData, typeof(StaticRune), typeof(StaticRuneList));
             if (!string.IsNullOrEmpty(dataParam))
-                queryParameters["runeListData"] = dataParam;
-            var runeList = await GetAsync<StaticRuneList>(request, token, queryParameters).ConfigureAwait(false);
+                url = AddQueryParam(url, dataParam);
+            var runeList = await GetAsync<StaticRuneList>(url, token, queryParameters).ConfigureAwait(false);
 
             if (runeList == null)
                 return null;
@@ -369,48 +368,48 @@ namespace RiotNet
 
         public Task<StaticRune> GetStaticRuneByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> runeData = null, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var request = $"{GetStaticDataBaseUrl(platformId)}/runes/{id}";
+            var url = $"{GetStaticDataBaseUrl(platformId)}/runes/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var dataParam = CreateDataParam(runeData, typeof(StaticRune));
+            var dataParam = CreateDataParam("runeData", runeData, typeof(StaticRune));
             if (!string.IsNullOrEmpty(dataParam))
-                queryParameters["runeData"] = dataParam;
-            return GetAsync<StaticRune>(request, token, queryParameters);
+                url = AddQueryParam(url, dataParam);
+            return GetAsync<StaticRune>(url, token, queryParameters);
         }
 
         public Task<StaticSummonerSpellList> GetStaticSummonerSpellsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> spellListData = null, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var request = $"{GetStaticDataBaseUrl(platformId)}/summoner-spells";
+            var url = $"{GetStaticDataBaseUrl(platformId)}/summoner-spells";
             var queryParameters = GetStandardQueryParameters(locale, version);
             if (dataById)
                 queryParameters["dataById"] = "true";
-            var dataParam = CreateDataParam(spellListData, typeof(StaticSummonerSpell), typeof(StaticSummonerSpellList));
+            var dataParam = CreateDataParam("spellListData", spellListData, typeof(StaticSummonerSpell), typeof(StaticSummonerSpellList));
             if (!string.IsNullOrEmpty(dataParam))
-                queryParameters["spellData"] = dataParam;
-            return GetAsync<StaticSummonerSpellList>(request, token, queryParameters);
+                url = AddQueryParam(url, dataParam);
+            return GetAsync<StaticSummonerSpellList>(url, token, queryParameters);
         }
 
         public Task<StaticSummonerSpell> GetStaticSummonerSpellByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> spellData = null, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var request = $"{GetStaticDataBaseUrl(platformId)}/summoner-spells/{id}";
+            var url = $"{GetStaticDataBaseUrl(platformId)}/summoner-spells/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var dataParam = CreateDataParam(spellData, typeof(StaticSummonerSpell));
+            var dataParam = CreateDataParam("spellData", spellData, typeof(StaticSummonerSpell));
             if (!string.IsNullOrEmpty(dataParam))
-                queryParameters["spellData"] = dataParam;
-            return GetAsync<StaticSummonerSpell>(request, token, queryParameters);
+                url = AddQueryParam(url, dataParam);
+            return GetAsync<StaticSummonerSpell>(url, token, queryParameters);
         }
 
         public Task<List<string>> GetVersionsAsync(PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
             return GetAsync<List<string>>($"{GetStaticDataBaseUrl(platformId)}/versions", token);
         }
-        
+
         #region Helper Methods
 
-        private static string CreateDataParam(IEnumerable<string> propertyNames, Type type, Type listType = null)
+        private static string CreateDataParam(string name, IEnumerable<string> propertyNames, Type type, Type listType = null)
         {
             if (propertyNames == null)
                 return "";
-            return string.Join(",", propertyNames.Select(p => CorrectPropertyNameCase(p, type, listType)).Where(p => p != null));
+            return string.Join("&", propertyNames.Select(p => name + "=" + CorrectPropertyNameCase(p, type, listType)).Where(p => p != null));
         }
 
         private static string CorrectPropertyNameCase(string propertyName, Type type, Type listType = null)

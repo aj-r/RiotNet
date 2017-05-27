@@ -15,12 +15,13 @@ namespace RiotNet
     public class ResponseEventArgs : EventArgs
     {
         private readonly RiotResponse response;
+        private readonly string errorMessage;
 
         /// <summary>
         /// Creates a new <see cref="ResponseEventArgs"/> instance.
         /// </summary>
         /// <param name="response">The response for the request that caused the event.</param>
-        public ResponseEventArgs(RiotResponse response)
+        public ResponseEventArgs(RiotResponse response, string errorMessage = null)
         {
             this.response = response;
         }
@@ -31,6 +32,14 @@ namespace RiotNet
         public RiotResponse Response
         {
             get { return response; }
+        }
+
+        /// <summary>
+        /// Gets the error message, if the response contains one.
+        /// </summary>
+        public string ErrorMessage
+        {
+            get { return errorMessage; }
         }
     }
 }

@@ -10,14 +10,6 @@ namespace RiotNet.Models
     public class MatchParticipantIdentity
     {
         /// <summary>
-        /// Creates a new <see cref="MatchParticipantIdentity"/> instance.
-        /// </summary>
-        public MatchParticipantIdentity()
-        {
-            Player = new MatchPlayer();
-        }
-
-        /// <summary>
         /// Gets or sets participant ID (normally 1-10; this value appears to always be 0 when coming from the Match History API).
         /// </summary>
         public int ParticipantId { get; set; }
@@ -25,7 +17,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets player information.
         /// </summary>
-        public MatchPlayer Player { get; set; }
+        public MatchPlayer Player { get; set; } = new MatchPlayer();
 
 #if DB_READY
         /// <summary>

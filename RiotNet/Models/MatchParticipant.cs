@@ -11,15 +11,6 @@ namespace RiotNet.Models
     public class MatchParticipant
     {
         /// <summary>
-        /// Creates a new <see cref="MatchParticipant"/> instance.
-        /// </summary>
-        public MatchParticipant()
-        {
-            Stats = new MatchParticipantStats();
-            Timeline = new MatchParticipantTimeline();
-        }
-
-        /// <summary>
         /// Gets or sets champion ID.
         /// </summary>
         public int ChampionId { get; set; }
@@ -57,7 +48,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the participant statistics.
         /// </summary>
-        public MatchParticipantStats Stats { get; set; }
+        public MatchParticipantStats Stats { get; set; } = new MatchParticipantStats();
 
         /// <summary>
         /// Gets or sets the team ID.
@@ -72,7 +63,7 @@ namespace RiotNet.Models
         /// (e.g. the gold per minute over the first 10 minutes of the game versus the second 20 minutes of the game).
         /// Diff fields refer to the deltas versus the calculated lane opponent(s).
         /// </remarks>
-        public MatchParticipantTimeline Timeline { get; set; }
+        public MatchParticipantTimeline Timeline { get; set; } = new MatchParticipantTimeline();
 
 #if DB_READY
         /// <summary>

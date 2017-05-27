@@ -28,7 +28,7 @@ namespace RiotNet.Tests
         public async Task GetMatchTimelineAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            const long matchId = 2032332497L;
+            const long matchId = 2488397591L;
             MatchTimeline timeline = await client.GetMatchTimelineAsync(matchId);
 
             Assert.That(timeline, Is.Not.Null);
@@ -56,22 +56,29 @@ namespace RiotNet.Tests
         public async Task GetMatchListByAccountIdAsyncTest_WithFilters()
         {
             IRiotClient client = new RiotClient();
-            IEnumerable<long> championIds = new[] { 113L, 154L }; // Sejuani, Zac
-            IEnumerable<QueueType> rankedQueues = new[] { QueueType.RANKED_FLEX_SR, QueueType.RANKED_SOLO_5x5 };
-            IEnumerable<Season> seasons = new[] { Season.PRESEASON2015, Season.SEASON2015 };
+            IEnumerable<long> championIds = new[] { 143L, 412L }; // Zyra, Thresh
+            IEnumerable<QueueType> rankedQueues = new[] { QueueType.RANKED_FLEX_SR, QueueType.TEAM_BUILDER_RANKED_SOLO };
+            IEnumerable<Season> seasons = new[] { Season.PRESEASON2017, Season.SEASON2016 };
             MatchList matchList = await client.GetMatchListByAccountIdAsync(48555045L, championIds, rankedQueues, seasons);
 
             Assert.That(matchList, Is.Not.Null);
             Assert.That(matchList.Matches, Is.Not.Null.And.Not.Empty);
-            Assert.That(matchList.Matches.All(m => championIds.Contains(m.Champion)));
-            Assert.That(matchList.Matches.All(m => rankedQueues.Contains(m.Queue)));
-            Assert.That(matchList.Matches.All(m => seasons.Contains(m.Season)));
+            Assert.That(matchList.Matches.All(m => championIds.Contains(m.Champion)), "Unexpected Champion ID: " + matchList.Matches.FirstOrDefault(m => !championIds.Contains(m.Champion))?.Champion);
+            Assert.That(matchList.Matches.All(m => rankedQueues.Contains(m.Queue)), "Unexpected Queue ID: " + matchList.Matches.FirstOrDefault(m => !rankedQueues.Contains(m.Queue))?.Queue);
+            Assert.That(matchList.Matches.All(m => seasons.Contains(m.Season)), "Unexpected Season ID: " + matchList.Matches.FirstOrDefault(m => !seasons.Contains(m.Season))?.Season);
+
+            foreach(var id in championIds)
+                Assert.That(matchList.Matches.Any(m => m.Champion == id), "Champion ID not found: " + id);
+            foreach (var id in rankedQueues)
+                Assert.That(matchList.Matches.Any(m => m.Queue == id), "Queue ID not found: " + id);
+            foreach (var id in seasons.Except(new[] { Season.SEASON2016 }))
+                Assert.That(matchList.Matches.Any(m => m.Season == id), "Season ID not found: " + id);
+
         }
 
         [Test]
         public async Task GetMatchListByAccountIdAsyncTest_WithDateFilters()
         {
-            // Note: this test currently fails, but it appears to be a bug in Riot's API.
             IRiotClient client = new RiotClient();
             var beginTime = new DateTime(2015, 6, 1, 0, 0, 0, DateTimeKind.Utc);
             var endTime = new DateTime(2015, 7, 1, 0, 0, 0, DateTimeKind.Utc);
@@ -115,6 +122,8 @@ namespace RiotNet.Tests
             var match = JsonConvert.DeserializeObject<Match>(Resources.SampleMatch, RiotClient.JsonSettings);
 
             AssertNonDefaultValuesRecursive(match);
+            Assert.That(match.Teams.Any(t => t.Win), "No team won!");
+            Assert.That(match.Teams.Any(t => !t.Win), "No team lost!");
         }
 
         [Test]

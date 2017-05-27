@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using RiotNet.Converters;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Newtonsoft.Json;
 
 namespace RiotNet.Models
 {
@@ -88,6 +89,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets a flag indicating whether or not the team won.
         /// </summary>
+        [JsonConverter(typeof(WinStringConverter))]
         public bool Win { get; set; }
 
 #if DB_READY
