@@ -8,7 +8,7 @@ namespace RiotNet.Models
     /// <summary>
     /// Base information for games (used in <see cref="FeaturedGameInfo"/> and <see cref="CurrentGameInfo"/>).
     /// </summary>
-    public class GameInfoBase<TParticipant> where TParticipant : Participant
+    public class GameInfoBase
     {
         /// <summary>
         /// Gets or sets the list of banned champion information.
@@ -55,11 +55,6 @@ namespace RiotNet.Models
         /// Gets or sets the observer information.
         /// </summary>
         public Observer Observers { get; set; }
-
-        /// <summary>
-        /// Gets or sets the participant information.
-        /// </summary>
-        public List<TParticipant> Participants { get; set; }
 
         /// <summary>
         /// Gets or sets the ID of the platform on which the game is being played.

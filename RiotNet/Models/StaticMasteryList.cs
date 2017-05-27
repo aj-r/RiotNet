@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace RiotNet.Models
+﻿namespace RiotNet.Models
 {
     /// <summary>
     /// Contains mastery list data.
     /// </summary>
-    public class StaticMasteryList : StaticDataList
+    public class StaticMasteryList : StaticDataList<StaticMastery>
     {
         /// <summary>
         /// Creates a new <see cref="StaticMasteryList"/> instance.
@@ -20,10 +17,5 @@ namespace RiotNet.Models
         /// Gets or sets the mastery tree structure.
         /// </summary>
         public StaticMasteryTree Tree { get; set; }
-
-        /// <summary>
-        /// Gets or sets the set of masteries indexed by ID.
-        /// </summary>
-        public Dictionary<string, StaticMastery> Data { get; set; }
     }
 }

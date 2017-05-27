@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RiotNet.Models
@@ -10,18 +9,9 @@ namespace RiotNet.Models
     public class StaticMapDetails
     {
         /// <summary>
-        /// Creates a new <see cref="StaticMapDetails"/> instance.
-        /// </summary>
-        public StaticMapDetails()
-        {
-            Image = new Image();
-            UnpurchasableItemList = new ListOfString();
-        }
-
-        /// <summary>
         /// Gets or sets data for the map's image.
         /// </summary>
-        public Image Image { get; set; }
+        public Image Image { get; set; } = new Image();
 
         /// <summary>
         /// Gets or sets the map ID.
@@ -37,8 +27,8 @@ namespace RiotNet.Models
         public string MapName { get; set; }
 
         /// <summary>
-        /// Gets or sets the list of item names for items that cannot be purchased on this map. NOTE: the Riot API never seems to set this property, so it is always empty.
+        /// Gets or sets the list of item IDs for items that cannot be purchased on this map. NOTE: the Riot API never seems to set this property, so it is always empty.
         /// </summary>
-        public ListOfString UnpurchasableItemList { get; set; }
+        public ListOfLong UnpurchasableItemList { get; set; } = new ListOfLong();
     }
 }

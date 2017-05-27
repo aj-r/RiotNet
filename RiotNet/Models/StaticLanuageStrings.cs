@@ -1,25 +1,16 @@
-﻿using System.Collections.Generic;
-
-namespace RiotNet.Models
+﻿namespace RiotNet.Models
 {
     /// <summary>
     /// Contains strings in a specified language.
     /// </summary>
-    public class StaticLanuageStrings
+    public class StaticLanuageStrings : StaticDataList<string>
     {
         /// <summary>
-        /// Contains the strings.
+        /// Creates a new <see cref="StaticLanuageStrings"/> instance.
         /// </summary>
-        public Dictionary<string, string> Data { get; set; }
-
-        /// <summary>
-        /// Gets or sets the LanguageStrings type.
-        /// </summary>
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or sets the game version to which the list applies.
-        /// </summary>
-        public string Version { get; set; }
+        public StaticLanuageStrings()
+        {
+            Type = "language";
+        }
     }
 }

@@ -333,6 +333,39 @@ namespace RiotNet.Tests.Properties {
         
         /// <summary>
         ///    Looks up a localized string similar to  {
+        ///    &quot;from&quot;: [
+        ///        &quot;1028&quot;,
+        ///        &quot;1052&quot;
+        ///    ],
+        ///    &quot;description&quot;: &quot;+25 Ability Power
+        ///+200 Health
+        ///
+        ///UNIQUE Passive - Eyes of Pain: +15 Magic Penetration&quot;,
+        ///    &quot;gold&quot;: {
+        ///        &quot;total&quot;: 1500,
+        ///        &quot;sell&quot;: 1050,
+        ///        &quot;base&quot;: 665,
+        ///        &quot;purchasable&quot;: true
+        ///    },
+        ///    &quot;tags&quot;: [
+        ///        &quot;Health&quot;,
+        ///        &quot;MagicPenetration&quot;,
+        ///        &quot;SpellDamage&quot;
+        ///    ],
+        ///    &quot;plaintext&quot;: &quot;Increases magic damage&quot;,
+        ///    &quot;into&quot;: [
+        ///        &quot;3151&quot;
+        ///    ],
+        ///    &quot;sanitizedDescription&quot;: &quot;+25 Ability Power +200 Health UNIQUE Pas [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string SampleStaticItem {
+            get {
+                return ResourceManager.GetString("SampleStaticItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///    Looks up a localized string similar to  {
         ///   &quot;ranks&quot;: 2,
         ///   &quot;id&quot;: 4211,
         ///   &quot;sanitizedDescription&quot;: [

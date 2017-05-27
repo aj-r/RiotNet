@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Newtonsoft.Json;
 
 namespace RiotNet.Models
 {
@@ -11,14 +10,6 @@ namespace RiotNet.Models
     public class StaticItemTree
     {
         /// <summary>
-        /// Creates a new <see cref="StaticItemTree"/> instance.
-        /// </summary>
-        public StaticItemTree()
-        {
-            Tags = new ListOfString();
-        }
-
-        /// <summary>
         /// Gets or sets the item tree header.
         /// </summary>
         public string Header { get; set; }
@@ -26,7 +17,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the item tree tags.
         /// </summary>
-        public ListOfString Tags { get; set; }
+        public ListOfString Tags { get; set; } = new ListOfString();
 
 #if DB_READY
         /// <summary>

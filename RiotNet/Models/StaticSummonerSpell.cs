@@ -9,14 +9,6 @@ namespace RiotNet.Models
     public class StaticSummonerSpell : StaticSpell
     {
         /// <summary>
-        /// Creates a new <see cref="StaticSummonerSpell"/> instance.
-        /// </summary>
-        public StaticSummonerSpell()
-        {
-            Modes = new ListOfString();
-        }
-
-        /// <summary>
         /// Gets or sets the summoner spell ID.
         /// </summary>
         [Key]
@@ -26,7 +18,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the list of game modes in which the current summoner spell is allowed.
         /// </summary>
-        public ListOfString Modes { get; set; }
+        public ListOfString Modes { get; set; } = new ListOfString();
 
         /// <summary>
         /// Gets or sets the summoner level required to use this spell.

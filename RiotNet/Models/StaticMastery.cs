@@ -9,16 +9,6 @@ namespace RiotNet.Models
     public class StaticMastery
     {
         /// <summary>
-        /// Creates a new <see cref="StaticMastery"/> instance.
-        /// </summary>
-        public StaticMastery()
-        {
-            Description = new ListOfString();
-            Image = new Image();
-            SanitizedDescription = new ListOfString();
-        }
-
-        /// <summary>
         /// Gets or sets the mastery ID.
         /// </summary>
         [Key]
@@ -28,12 +18,12 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the description of the mastery at each rank.
         /// </summary>
-        public ListOfString Description { get; set; }
+        public ListOfString Description { get; set; } = new ListOfString();
 
         /// <summary>
         /// Gets or sets the image data for the mastery's icon.
         /// </summary>
-        public Image Image { get; set; }
+        public Image Image { get; set; } = new Image();
 
         /// <summary>
         /// Gets or sets the type of mastery tree that the current <see cref="StaticMastery"/> belongs to.
@@ -48,7 +38,7 @@ namespace RiotNet.Models
 
         /// <summary>
         /// Gets or sets the ID of the mastery that must be filled before any points can be added to the current mastery. A value of zero indicates no prerequisites.
-        /// Season 6 does not have any masteries with prerequisites.
+        /// Season 6-7 do not have any masteries with prerequisites.
         /// </summary>
         public int Prereq { get; set; }
 
@@ -60,6 +50,6 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the sanitized description of the mastery at each rank.
         /// </summary>
-        public ListOfString SanitizedDescription { get; set; }
+        public ListOfString SanitizedDescription { get; set; } = new ListOfString();
     }
 }

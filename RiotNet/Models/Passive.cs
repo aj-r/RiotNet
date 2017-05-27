@@ -9,14 +9,6 @@ namespace RiotNet.Models
     public class Passive
     {
         /// <summary>
-        /// Creates a new <see cref="Passive"/> instance.
-        /// </summary>
-        public Passive()
-        {
-            Image = new Image();
-        }
-
-        /// <summary>
         /// Gets or sets the description of the passive.
         /// </summary>
         public string Description { get; set; }
@@ -24,7 +16,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the image data for the passive's icon.
         /// </summary>
-        public Image Image { get; set; }
+        public Image Image { get; set; } = new Image();
 
         /// <summary>
         /// Gets or sets the name of the passive.

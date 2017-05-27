@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RiotNet.Models
+﻿namespace RiotNet.Models
 {
     /// <summary>
-    /// 
+    /// Contains summoner spell data.
     /// </summary>
-    public class StaticSummonerSpellList : StaticDataList
+    public class StaticSummonerSpellList : StaticDataList<StaticSummonerSpell>
     {
         /// <summary>
-        /// Gets or sets the summoner spells, indexed by name.
+        /// Creates a new <see cref="StaticRuneList"/> instance.
         /// </summary>
-        public Dictionary<string, StaticSummonerSpell> Data { get; set; }
+        public StaticSummonerSpellList()
+        {
+            Type = "summoner";
+        }
     }
 }

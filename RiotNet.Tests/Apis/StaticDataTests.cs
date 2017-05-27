@@ -260,6 +260,14 @@ namespace RiotNet.Tests
             AssertObjectEqualityRecursive(defaultItem, itemList.Basic, true);
         }
 
+        [Test]
+        public void DeserializeItemTest()
+        {
+            var item = JsonConvert.DeserializeObject<StaticItem>(Resources.SampleStaticItem, RiotClient.JsonSettings);
+
+            AssertNonDefaultValuesRecursive(item);
+        }
+
         #endregion
 
         #region Languages

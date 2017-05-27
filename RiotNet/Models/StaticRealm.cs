@@ -10,14 +10,6 @@ namespace RiotNet.Models
     public class StaticRealm
     {
         /// <summary>
-        /// Creates a new <see cref="StaticRealm"/> instance.
-        /// </summary>
-        public StaticRealm()
-        {
-            N = new DictionaryOfString();
-        }
-
-        /// <summary>
         /// Gets or sets the base CDN URL.
         /// </summary>
         public string Cdn { get; set; }
@@ -45,7 +37,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the latest changed version for each data type listed.
         /// </summary>
-        public DictionaryOfString N { get; set; }
+        public DictionaryOfString N { get; set; } = new DictionaryOfString();
 
         /// <summary>
         /// Gets or sets the special behavior number identifying the largest profile icon id that can be used under 500. Any profileicon that is requested between this number and 500 should be mapped to 0.

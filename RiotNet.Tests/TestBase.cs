@@ -47,7 +47,7 @@ namespace RiotNet.Tests
         public void TestSetUp()
         {
             // Reset the settings after every test because some tests will mess up the settings.
-            RiotClient.DefaultRegion = Region.NA;
+            RiotClient.DefaultPlatformId = PlatformId.NA1;
             RiotClient.DefaultSettings = () => new RiotClientSettings
             {
                 ApiKey = apiKey,

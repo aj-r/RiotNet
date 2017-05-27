@@ -16,7 +16,7 @@ namespace RiotNet.Models
 
         /// <summary>
         /// Gets or sets the ID of the mastery that must be filled before any points can be added to the current mastery. A value of zero indicates no prerequisites.
-        /// Season 6 does not have any masteries with prerequisites.
+        /// Season 6-7 do not have any masteries with prerequisites.
         /// </summary>
         public int Prereq { get; set; }
 

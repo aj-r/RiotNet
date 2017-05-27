@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Newtonsoft.Json;
 
 namespace RiotNet.Models
 {
@@ -11,17 +10,9 @@ namespace RiotNet.Models
     public class SpellVars
     {
         /// <summary>
-        /// Creates a new <see cref="SpellVars"/> instance.
-        /// </summary>
-        public SpellVars()
-        {
-            Coeff = new ListOfDouble();
-        }
-
-        /// <summary>
         /// Gets or sets the scaling coefficients for the current spell.
         /// </summary>
-        public ListOfDouble Coeff { get; set; }
+        public ListOfDouble Coeff { get; set; } = new ListOfDouble();
 
         /// <summary>
         /// Gets or sets the special operator for this spell variable.

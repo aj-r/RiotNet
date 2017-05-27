@@ -11,25 +11,10 @@ namespace RiotNet.Models
     public class StaticChampion
     {
         /// <summary>
-        /// Creates a new <see cref="StaticChampion"/> instance.
-        /// </summary>
-        public StaticChampion()
-        {
-            // ComplexTypes CANNOT be null when saving to the database.
-            AllyTips = new ListOfString();
-            EnemyTips = new ListOfString();
-            Image = new Image();
-            Info = new StaticChampionInfo();
-            Passive = new Passive();
-            Stats = new Stats();
-            Tags = new ListOfString();
-        }
-
-        /// <summary>
         /// Gets or sets a list of tips for how to play as this champion.
         /// </summary>
         [JsonProperty("allytips")]
-        public ListOfString AllyTips { get; set; }
+        public ListOfString AllyTips { get; set; } = new ListOfString();
 
         /// <summary>
         /// Gets or sets the blurb describing the champion.
@@ -40,7 +25,7 @@ namespace RiotNet.Models
         /// Gets or sets a list of tips for how to play against this champion.
         /// </summary>
         [JsonProperty("enemytips")]
-        public ListOfString EnemyTips { get; set; }
+        public ListOfString EnemyTips { get; set; } = new ListOfString();
 
         /// <summary>
         /// Gets or sets the champion ID.
@@ -52,12 +37,12 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the champion image data.
         /// </summary>
-        public Image Image { get; set; }
+        public Image Image { get; set; } = new Image();
 
         /// <summary>
         /// Gets or sets the strength and difficulty information for the current champion.
         /// </summary>
-        public StaticChampionInfo Info { get; set; }
+        public StaticChampionInfo Info { get; set; } = new StaticChampionInfo();
 
         /// <summary>
         /// Gets or sets the champion key.
@@ -84,7 +69,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the champion's passive ability.
         /// </summary>
-        public Passive Passive { get; set; }
+        public Passive Passive { get; set; } = new Passive();
 
         /// <summary>
         /// Gets or sets the champion's recommended item sets.
@@ -104,12 +89,12 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the champion's stats.
         /// </summary>
-        public Stats Stats { get; set; }
+        public Stats Stats { get; set; } = new Stats();
 
         /// <summary>
         /// Gets or sets the champion's roles (e.g. Fighter, Tank).
         /// </summary>
-        public ListOfString Tags { get; set; }
+        public ListOfString Tags { get; set; } = new ListOfString();
 
         /// <summary>
         /// Gets or sets the champion's title.

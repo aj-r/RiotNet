@@ -3018,6 +3018,63 @@
    "slug": "na"
 }</value>
   </data>
+  <data name="SampleStaticItem" xml:space="preserve">
+    <value>{
+    "from": [
+        "1028",
+        "1052"
+    ],
+    "description": "+25 Ability Power
++200 Health
+
+UNIQUE Passive - Eyes of Pain: +15 Magic Penetration",
+    "gold": {
+        "total": 1500,
+        "sell": 1050,
+        "base": 665,
+        "purchasable": true
+    },
+    "tags": [
+        "Health",
+        "MagicPenetration",
+        "SpellDamage"
+    ],
+    "plaintext": "Increases magic damage",
+    "into": [
+        "3151"
+    ],
+    "sanitizedDescription": "+25 Ability Power +200 Health UNIQUE Passive - Eyes of Pain: +15 Magic Penetration",
+    "effect": {
+        "Effect1Amount": "15"
+    },
+    "stacks": 0,
+    "colloq": "mask",
+    "maps": {
+        "8": true,
+        "10": true,
+        "11": true,
+        "12": true,
+        "14": false,
+        "16": false
+    },
+    "depth": 2,
+    "image": {
+        "full": "3136.png",
+        "group": "item",
+        "sprite": "item1.png",
+        "h": 48,
+        "w": 48,
+        "y": 192,
+        "x": 336
+    },
+    "stats": {
+        "FlatHPPoolMod": 200,
+        "FlatMagicDamageMod": 25
+    },
+    "id": 3136,
+    "name": "Haunting Guise"
+}</value>
+  </data>
   <data name="SampleStaticMastery" xml:space="preserve">
     <value>{
    "ranks": 2,

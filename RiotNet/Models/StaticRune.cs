@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace RiotNet.Models
+﻿namespace RiotNet.Models
 {
     /// <summary>
     /// Represents a rune.
@@ -8,17 +6,13 @@ namespace RiotNet.Models
     public class StaticRune : BasicData
     {
         /// <summary>
-        /// Creates a new <see cref="StaticRune"/> instance.
-        /// </summary>
-        public StaticRune()
-        {
-            Rune = new MetaData();
-        }
-
-        /// <summary>
         /// Gets or sets the metadata for the rune.
         /// </summary>
-        public MetaData Rune { get; set; }
+        public MetaData Rune { get; set; } = new MetaData();
 
+        /// <summary>
+        /// Gets or sets the stats that the rune applies.
+        /// </summary>
+        public RuneDataStats Stats { get; set; } = new RuneDataStats();
     }
 }

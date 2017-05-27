@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RiotNet.Converters;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
-using RiotNet.Converters;
 
 namespace RiotNet.Models
 {
@@ -12,23 +11,9 @@ namespace RiotNet.Models
     public class StaticSpell
     {
         /// <summary>
-        /// Creates a new <see cref="StaticSpell"/> instance.
-        /// </summary>
-        public StaticSpell()
-        {
-            Cooldown = new ListOfDouble();
-            Cost = new ListOfInt();
-            Effect = new ListOfListOfDouble();
-            EffectBurn = new ListOfString();
-            Image = new Image();
-            LevelTip = new LevelTip();
-            Range = new ListOfInt();
-        }
-
-        /// <summary>
         /// Gets or sets the cooldowns of this spell at each rank.
         /// </summary>
-        public ListOfDouble Cooldown { get; set; }
+        public ListOfDouble Cooldown { get; set; } = new ListOfDouble();
 
         /// <summary>
         /// Gets or sets the cooldown at all ranks merged into a single string.
@@ -38,7 +23,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the mana (or other resource) cost of the spell.
         /// </summary>
-        public ListOfInt Cost { get; set; }
+        public ListOfInt Cost { get; set; } = new ListOfInt();
 
         /// <summary>
         /// Gets or sets the cost at all ranks merged into a single string.
@@ -58,17 +43,17 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the effect of the spell at each rank.
         /// </summary>
-        public ListOfListOfDouble Effect { get; set; }
+        public ListOfListOfDouble Effect { get; set; } = new ListOfListOfDouble();
 
         /// <summary>
         /// Gets or sets the effects at all ranks, merged into a single string for each effect.
         /// </summary>
-        public ListOfString EffectBurn { get; set; }
+        public ListOfString EffectBurn { get; set; } = new ListOfString();
 
         /// <summary>
         /// Gets or sets the image data for the current spell.
         /// </summary>
-        public Image Image { get; set; }
+        public Image Image { get; set; } = new Image();
 
         /// <summary>
         /// Gets or sets the key of the current spell.
@@ -79,7 +64,7 @@ namespace RiotNet.Models
         /// Gets or sets the level-up tooltip of the current spell.
         /// </summary>
         [JsonProperty("leveltip")]
-        public LevelTip LevelTip { get; set; }
+        public LevelTip LevelTip { get; set; } = new LevelTip();
 
         /// <summary>
         /// Gets or sets the maximum number of points that a player can put into this spell.
@@ -97,7 +82,7 @@ namespace RiotNet.Models
         /// Gets or sets the range of the spell at each rank. A list with a single entry of 0 indicates that the spell is self-cast.
         /// </summary>
         [JsonConverter(typeof(RangeConverter))]
-        public ListOfInt Range { get; set; }
+        public ListOfInt Range { get; set; } = new ListOfInt();
 
         /// <summary>
         /// Gets or sets the range at all ranks merged into a single string.
@@ -129,5 +114,13 @@ namespace RiotNet.Models
         /// </summary>
         public virtual List<SpellVars> Vars { get; set; }
 
+        /// <summary>
+        /// Gets whether the spell is self-cast.
+        /// </summary>
+        /// <returns></returns>
+        public bool IsSelfCast()
+        {
+            return Range != null && Range.Count == 1 && Range[0] == 0;
+        }
     }
 }
