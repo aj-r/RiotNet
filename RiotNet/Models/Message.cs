@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 
@@ -23,6 +24,7 @@ namespace RiotNet.Models
         /// Gets or sets the created time (in UTC) for the message.
         /// </summary>
         [JsonProperty("created_at")]
+        [JsonConverter(typeof(IsoDateTimeConverter))]
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace RiotNet.Models
         /// Gets or sets the message updated time in UTC.
         /// </summary>
         [JsonProperty("updated_at")]
+        [JsonConverter(typeof(IsoDateTimeConverter))]
         public DateTime UpdatedAt { get; set; }
     }
 }

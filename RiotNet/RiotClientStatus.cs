@@ -1,45 +1,35 @@
 ﻿using RiotNet.Models;
-using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RiotNet
 {
+    public partial interface IRiotClient
+    {
+        /// <summary>
+        /// Gets the status of the shard for the specified platform. This method uses the LoL Status API.
+        /// </summary>
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task<ShardStatus> GetShardDataAsync(PlatformId? platformId = null, CancellationToken token = default(CancellationToken));
+    }
+
     public partial class RiotClient
     {
         /// <summary>
-        /// Gets the currently supported version of the LoL Status API that the client communicates with.
+        /// Gets the base URL for status requests
         /// </summary>
-        public string LolStatusApiVersion { get { return "v1.0"; } }
-
-        /// <summary>
-        /// Gets the list of shards for all reagions. This method uses the LoL Status API.
-        /// </summary>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        /// <remarks>
-        /// Calls to this method will not count toward your API rate limit.
-        /// </remarks>
-        public Task<List<Shard>> GetShardsAsync()
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <returns>The base URL.</returns>
+        protected string GetStatusBaseUrl(PlatformId? platformId)
         {
-            return GetAsync<List<Shard>>($"{statusBaseUrl}/shards", useApiKey: false);
+            return $"https://{GetServerName(platformId)}/lol/status/v3";
         }
 
-        /// <summary>
-        /// Gets the status of the shard for the current region. This method uses the LoL Status API.
-        /// </summary>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<ShardStatus> GetShardStatusAsync()
+        public Task<ShardStatus> GetShardDataAsync(PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetShardStatusAsync(region);
-        }
-
-        /// <summary>
-        /// Gets the status of the shard for the specified region. This method uses the LoL Status API.
-        /// </summary>
-        /// <param name="region">The region for the shard.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<ShardStatus> GetShardStatusAsync(Region region)
-        {
-            return GetAsync<ShardStatus>($"{statusBaseUrl}/shards/{region.ToString().ToLowerInvariant()}");
+            return GetAsync<ShardStatus>($"{GetStatusBaseUrl(platformId)}/shard-data", token);
         }
     }
 }

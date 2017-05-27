@@ -3,6 +3,7 @@ using NUnit.Framework;
 using RiotNet.Models;
 using RiotNet.Tests.Properties;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,7 +17,7 @@ namespace RiotNet.Tests
         {
             IRiotClient client = new RiotClient();
             const long matchId = 2032332497L;
-            var match = await client.GetMatchAsync(matchId);
+            Match match = await client.GetMatchAsync(matchId);
 
             Assert.That(match, Is.Not.Null);
             Assert.That(match.GameId, Is.EqualTo(matchId));
@@ -28,7 +29,7 @@ namespace RiotNet.Tests
         {
             IRiotClient client = new RiotClient();
             const long matchId = 2032332497L;
-            var timeline = await client.GetMatchTimelineAsync(matchId);
+            MatchTimeline timeline = await client.GetMatchTimelineAsync(matchId);
 
             Assert.That(timeline, Is.Not.Null);
             Assert.That(timeline.Frames, Is.Not.Null.And.Not.Empty);
@@ -38,7 +39,7 @@ namespace RiotNet.Tests
         public async Task GetMatchListByAccountIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var matchList = await client.GetMatchListByAccountIdAsync(48555045L, beginIndex: 1, endIndex: 3);
+            MatchList matchList = await client.GetMatchListByAccountIdAsync(48555045L, beginIndex: 1, endIndex: 3);
 
             Assert.That(matchList, Is.Not.Null);
             Assert.That(matchList.Matches, Is.Not.Null.And.Not.Empty);
@@ -55,10 +56,10 @@ namespace RiotNet.Tests
         public async Task GetMatchListByAccountIdAsyncTest_WithFilters()
         {
             IRiotClient client = new RiotClient();
-            var championIds = new[] { 113L, 154L }; // Sejuani, Zac
-            var rankedQueues = new[] { QueueType.RANKED_FLEX_SR, QueueType.RANKED_SOLO_5x5 };
-            var seasons = new[] { Season.PRESEASON2015, Season.SEASON2015 };
-            var matchList = await client.GetMatchListByAccountIdAsync(48555045L, championIds, rankedQueues, seasons);
+            IEnumerable<long> championIds = new[] { 113L, 154L }; // Sejuani, Zac
+            IEnumerable<QueueType> rankedQueues = new[] { QueueType.RANKED_FLEX_SR, QueueType.RANKED_SOLO_5x5 };
+            IEnumerable<Season> seasons = new[] { Season.PRESEASON2015, Season.SEASON2015 };
+            MatchList matchList = await client.GetMatchListByAccountIdAsync(48555045L, championIds, rankedQueues, seasons);
 
             Assert.That(matchList, Is.Not.Null);
             Assert.That(matchList.Matches, Is.Not.Null.And.Not.Empty);

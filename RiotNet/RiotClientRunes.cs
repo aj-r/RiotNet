@@ -23,14 +23,14 @@ namespace RiotNet
         /// </summary>
         /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <returns>The base URL.</returns>
-        protected string GetMasteryBaseUrl(PlatformId? platformId)
+        protected string GetRunesBaseUrl(PlatformId? platformId)
         {
             return $"https://{GetServerName(platformId)}/lol/platform/v3";
         }
 
         public Task<RunePages> GetRunesBySummonerIdAsync(long summonerId, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<RunePages>($"{GetMasteryBaseUrl(platformId)}/runes/by-summoner/{summonerId}", token);
+            return GetAsync<RunePages>($"{GetRunesBaseUrl(platformId)}/runes/by-summoner/{summonerId}", token);
         }
     }
 }

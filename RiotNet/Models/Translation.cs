@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 
 namespace RiotNet.Models
@@ -22,6 +23,7 @@ namespace RiotNet.Models
         /// Gets or sets the last translation update time in UTC.
         /// </summary>
         [JsonProperty("updated_at")]
+        [JsonConverter(typeof(IsoDateTimeConverter))]
         public DateTime UpdatedAt { get; set; }
     }
 }

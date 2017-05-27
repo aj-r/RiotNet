@@ -1,93 +1,85 @@
 ﻿using RiotNet.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RiotNet
 {
+    public partial interface IRiotClient
+    {
+        /// <summary>
+        /// Gets the summoner information by account ID. This method uses the Summoner API.
+        /// </summary>
+        /// <param name="accountId">The account ID.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task<Summoner> GetSummonerByAccountIdAsync(long accountId, PlatformId? platformId = null, CancellationToken token = default(CancellationToken));
+
+        /// <summary>
+        /// Gets the summoner information for the specified summoner name. This method uses the Summoner API.
+        /// </summary>
+        /// <param name="summonerName">The summoner name.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task<Summoner> GetSummonerBySummonerNameAsync(string summonerName, PlatformId? platformId = null, CancellationToken token = default(CancellationToken));
+
+        /// <summary>
+        /// Gets the summoner information for the specified summoner ID. This method uses the Summoner API.
+        /// </summary>
+        /// <param name="summonerId">The summoner ID.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task<Summoner> GetSummonerBySummonerIdAsync(long summonerId, PlatformId? platformId = null, CancellationToken token = default(CancellationToken));
+    }
+
     public partial class RiotClient
     {
         /// <summary>
-        /// Gets the currently supported version of the Summoner API that the client communicates with.
+        /// Gets the base URL for summoner requests
         /// </summary>
-        public string SummonerApiVersion { get { return "v1.4"; } }
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <returns>The base URL.</returns>
+        protected string GetSummonerBaseUrl(PlatformId? platformId)
+        {
+            return $"https://{GetServerName(platformId)}/lol/summoner/v3";
+        }
 
         /// <summary>
-        /// Gets the summoner information for each summoner whose summoner name is in summonerNames. This method uses the Summoner API.
+        /// Gets the summoner information by account ID. This method uses the Summoner API.
         /// </summary>
-        /// <param name="summonerNames">The summoner names. The maximum allowed at once is 40.</param>
+        /// <param name="accountId">The account ID.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<string, Summoner>> GetSummonersBySummonerNamesAsync(params string[] summonerNames)
+        public Task<Summoner> GetSummonerByAccountIdAsync(long accountId, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var summonerNameString = string.Join(",", summonerNames);
-            return GetAsync<Dictionary<string, Summoner>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{SummonerApiVersion}/summoner/by-name/{summonerNameString}");
+            return GetAsync<Summoner>($"{GetSummonerBaseUrl(platformId)}/summoners/by-account/{accountId}", token);
         }
-        
+
         /// <summary>
-        /// Gets the summoner information for the specified summoner. This method uses the Summoner API.
+        /// Gets the summoner information for the specified summoner name. This method uses the Summoner API.
         /// </summary>
         /// <param name="summonerName">The summoner name.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public async Task<Summoner> GetSummonerBySummonerNameAsync(string summonerName)
+        public Task<Summoner> GetSummonerBySummonerNameAsync(string summonerName, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var summoners = await GetSummonersBySummonerNamesAsync(summonerName).ConfigureAwait(false);
-            return summoners?.Values.FirstOrDefault();
+            return GetAsync<Summoner>($"{GetSummonerBaseUrl(platformId)}/summoners/by-name/{summonerName}", token);
         }
 
         /// <summary>
-        /// Gets the summoner information for each summoner whose summoner ID is in summonerIds. This method uses the Summoner API.
-        /// </summary>
-        /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<string, Summoner>> GetSummonersBySummonerIdsAsync(params long[] summonerIds)
-        {
-            var summonerIdString = string.Join(",", summonerIds);
-            return GetAsync<Dictionary<string, Summoner>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{SummonerApiVersion}/summoner/{summonerIdString}");
-        }
-
-        /// <summary>
-        /// Gets the summoner information for the specified summoner. This method uses the Summoner API.
+        /// Gets the summoner information for the specified summoner ID. This method uses the Summoner API.
         /// </summary>
         /// <param name="summonerId">The summoner ID.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public async Task<Summoner> GetSummonerBySummonerIdAsync(long summonerId)
+        public Task<Summoner> GetSummonerBySummonerIdAsync(long summonerId, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var summoners = await GetSummonersBySummonerIdsAsync(summonerId).ConfigureAwait(false);
-            return summoners != null ? summoners.Values.FirstOrDefault() : null;
-        }
-
-        /// <summary>
-        /// Gets the mastery pages for each summoner whose summoner ID is in summonerIds. This method uses the Summoner API.
-        /// </summary>
-        /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<string, MasteryPages>> GetSummonerMasteriesBySummonerIdsAsync(params long[] summonerIds)
-        {
-            var summonerIdString = string.Join(",", summonerIds);
-            return GetAsync<Dictionary<string, MasteryPages>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{SummonerApiVersion}/summoner/{summonerIdString}/masteries");
-        }
-
-        /// <summary>
-        /// Gets the summoner name for each summoner whose summoner ID is in summonerIds. This method uses the Summoner API.
-        /// </summary>
-        /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, String>> GetSummonerNamesBySummonerIdsAsync(params long[] summonerIds)
-        {
-            var summonerIdString = string.Join(",", summonerIds);
-            return GetAsync<Dictionary<string, string>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{SummonerApiVersion}/summoner/{summonerIdString}/name");
-        }
-        
-        /// <summary>
-        /// Gets the rune pages for each summoner whose summoner ID is in summonerIds. This method uses the Summoner API.
-        /// </summary>
-        /// <param name="summonerIds">The summoner IDs. The maximum allowed at once is 40.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<Dictionary<String, RunePages>> GetSummonerRunesBySummonerIdsAsync(params long[] summonerIds)
-        {
-            var summonerIdString = string.Join(",", summonerIds);
-            return GetAsync<Dictionary<string, RunePages>>($"{mainBaseUrl}/api/lol/{lowerRegion}/{SummonerApiVersion}/summoner/{summonerIdString}/runes");
+            return GetAsync<Summoner>($"{GetSummonerBaseUrl(platformId)}/summoners/{summonerId}", token);
         }
     }
 }

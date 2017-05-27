@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using NUnit.Framework;
 using RiotNet.Models;
 using RiotNet.Tests.Properties;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace RiotNet.Tests
 {
@@ -13,21 +12,10 @@ namespace RiotNet.Tests
     public class StatusTests : TestBase
     {
         [Test]
-        public async Task GetShardsAsyncTest()
+        public async Task GetShardDatasAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var shards = await client.GetShardsAsync();
-
-            Assert.That(shards, Is.Not.Null.And.Not.Empty);
-            var shard = shards.First();
-            Assert.That(shard.Name, Is.Not.Null.And.Not.Empty);
-        }
-
-        [Test]
-        public async Task GetShardStatusAsyncTest()
-        {
-            IRiotClient client = new RiotClient();
-            var shard = await client.GetShardStatusAsync();
+            ShardStatus shard = await client.GetShardDataAsync();
 
             Assert.That(shard, Is.Not.Null);
             Assert.That(shard.Name, Is.Not.Null.And.Not.Empty);
@@ -37,10 +25,10 @@ namespace RiotNet.Tests
         [Test]
         public void DeserializeShardStatusTest()
         {
-            var shard = JsonConvert.DeserializeObject<ShardStatus>(Resources.SampleShardStatus, RiotClient.JsonSettings);
+            ShardStatus shard = JsonConvert.DeserializeObject<ShardStatus>(Resources.SampleShardStatus, RiotClient.JsonSettings);
 
             AssertNonDefaultValuesRecursive(shard);
-            var incident = shard.Services.First().Incidents.First();
+            Incident incident = shard.Services.First().Incidents.First();
             Assert.That(incident.CreatedAt, Is.EqualTo(new DateTime(2015, 7, 19, 2, 23, 10, DateTimeKind.Utc)));
         }
     }

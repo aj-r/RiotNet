@@ -21,5 +21,16 @@ namespace RiotNet
         {
             return riotClient.GetActiveGameBySummonerIdAsync(summonerId, platformId, token);
         }
+        /// <summary>
+        /// Gets the status of the shard for the specified platform. This method uses the LoL Status API.
+        /// </summary>
+        /// <param name="riotClient">The IRiotClient instance.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        public static Task<ShardStatus> GetShardStatusAsync(this IRiotClient riotClient, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
+        {
+            return riotClient.GetShardDataAsync(platformId, token);
+        }
     }
 }

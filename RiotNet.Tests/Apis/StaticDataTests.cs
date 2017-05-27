@@ -399,7 +399,7 @@ namespace RiotNet.Tests
             Assert.That(realm.Cdn, Is.Not.Null.And.Not.Empty);
             Assert.That(realm.Css, Is.Not.Null.And.Not.Empty);
             Assert.That(realm.Dd, Is.Not.Null.And.Not.Empty);
-            Assert.That(realm.L, Is.Not.Null.And.Not.Empty);
+            Assert.That(realm.L, Is.EqualTo("en_US"));
             Assert.That(realm.Lg, Is.Not.Null.And.Not.Empty);
             Assert.That(realm.N, Is.Not.Null.And.Not.Empty);
             Assert.That(realm.ProfileIconMax, Is.GreaterThan(0));
@@ -409,14 +409,14 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetStaticRealmAsyncTest_EUW()
         {
-            IRiotClient client = new RiotClient(Region.EUW);
+            IRiotClient client = new RiotClient(PlatformId.EUW1);
             var realm = await client.GetStaticRealmAsync();
 
             Assert.That(realm, Is.Not.Null);
             Assert.That(realm.Cdn, Is.Not.Null.And.Not.Empty);
             Assert.That(realm.Css, Is.Not.Null.And.Not.Empty);
             Assert.That(realm.Dd, Is.Not.Null.And.Not.Empty);
-            Assert.That(realm.L, Is.Not.Null.And.Not.Empty);
+            Assert.That(realm.L, Is.EqualTo("en_GB"));
             Assert.That(realm.Lg, Is.Not.Null.And.Not.Empty);
             Assert.That(realm.N, Is.Not.Null.And.Not.Empty);
             Assert.That(realm.ProfileIconMax, Is.GreaterThan(0));

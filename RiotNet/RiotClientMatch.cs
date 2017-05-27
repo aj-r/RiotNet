@@ -42,7 +42,7 @@ namespace RiotNet
         /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task<MatchList> GetMatchListByAccountIdAsync(long summonerId, long[] championIds = null, QueueType[] rankedQueues = null, Season[] seasons = null, DateTime? beginTime = null, DateTime? endTime = null, int? beginIndex = null, int? endIndex = null, PlatformId? platformId = null, CancellationToken token = default(CancellationToken));
+        Task<MatchList> GetMatchListByAccountIdAsync(long summonerId, IEnumerable<long> championIds = null, IEnumerable<QueueType> rankedQueues = null, IEnumerable<Season> seasons = null, DateTime? beginTime = null, DateTime? endTime = null, int? beginIndex = null, int? endIndex = null, PlatformId? platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
         /// Gets the recent match list for an account. This method uses the Match API.
@@ -123,15 +123,18 @@ namespace RiotNet
         /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<MatchList> GetMatchListByAccountIdAsync(long accountId, long[] championIds = null, QueueType[] rankedQueues = null, Season[] seasons = null, DateTime? beginTime = null, DateTime? endTime = null, int? beginIndex = null, int? endIndex = null, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
+        public Task<MatchList> GetMatchListByAccountIdAsync(long accountId, IEnumerable<long> championIds = null, IEnumerable<QueueType> rankedQueues = null, IEnumerable<Season> seasons = null, DateTime? beginTime = null, DateTime? endTime = null, int? beginIndex = null, int? endIndex = null, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
             var queryParameters = new Dictionary<string, object>();
-            if (championIds != null && championIds.Length > 0)
-                queryParameters["champion"] = string.Join(",", championIds);
-            if (rankedQueues != null && rankedQueues.Length > 0)
-                queryParameters["queue"] = string.Join(",", rankedQueues.Cast<int>());
-            if (seasons != null && seasons.Length > 0)
-                queryParameters["seasons"] = string.Join(",", seasons);
+            var championsParam = BuildQueryParameter(championIds);
+            if (championsParam.Length > 0)
+                queryParameters["champion"] = championsParam;
+            var queueParam = BuildQueryParameter(rankedQueues.Cast<int>());
+            if (queueParam.Length > 0)
+                queryParameters["queue"] = queueParam;
+            var seasonsParam = BuildQueryParameter(seasons.Cast<int>());
+            if (queueParam.Length > 0)
+                queryParameters["seasons"] = seasonsParam;
             if (beginTime != null)
                 queryParameters["beginTime"] = Conversions.DateTimeToEpochMilliseconds(beginTime.Value).ToString(CultureInfo.InvariantCulture);
             if (endTime != null)
@@ -179,6 +182,11 @@ namespace RiotNet
         public Task<Match> GetMatchForTournamentAsync(long matchId, string tournamentCode, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
             return GetAsync<Match>($"{GetMatchBaseUrl(platformId)}/matches/{matchId}/by-tournament-code/{tournamentCode}", token);
+        }
+
+        private string BuildQueryParameter<T>(IEnumerable<T> items)
+        {
+            return items != null ? string.Join(",", items) : "";
         }
     }
 }
