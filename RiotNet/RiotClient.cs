@@ -140,6 +140,7 @@ namespace RiotNet
         {
             ContractResolver = new RiotNetContractResolver(),
             DateTimeZoneHandling = DateTimeZoneHandling.Utc,
+            DefaultValueHandling = DefaultValueHandling.Ignore,
             MissingMemberHandling = MissingMemberHandling.Ignore,
             Converters = new List<JsonConverter>
             {

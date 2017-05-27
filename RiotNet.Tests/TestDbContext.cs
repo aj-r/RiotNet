@@ -32,24 +32,22 @@ namespace RiotNet.Tests
         public DbSet<Block> Blocks { get; set; }
         public DbSet<BlockItem> BlockItems { get; set; }
         public DbSet<Champion> Champions { get; set; }
-        public DbSet<ChampionStats> ChampionStats { get; set; }
-        public DbSet<Event> Events { get; set; }
         public DbSet<Game> Games { get; set; }
         public DbSet<Group> Groups { get; set; }
-        public DbSet<League> Leagues { get; set; }
-        public DbSet<LeagueEntry> LeagueEntries { get; set; }
+        public DbSet<LeagueList> LeagueLists { get; set; }
+        public DbSet<LeagueItem> LeagueItems { get; set; }
+        public DbSet<LeaguePosition> LeaguePositions { get; set; }
         public DbSet<MasteryPages> MasteryPages { get; set; }
-        public DbSet<MatchHistorySummary> MatchHistorySummaries { get; set; }
-        public DbSet<MatchDetail> MatchDetails { get; set; }
+        public DbSet<Match> Matches { get; set; }
+        public DbSet<MatchEvent> MatchEvents { get; set; }
         public DbSet<MatchParticipant> MatchParticipants { get; set; }
         public DbSet<MatchParticipantFrame> MatchParticipantFrames { get; set; }
         public DbSet<MatchParticipantIdentity> MatchParticipantIdentities { get; set; }
         public DbSet<MatchReference> MatchReferences { get; set; }
         public DbSet<MatchTeam> MatchTeams { get; set; }
+        public DbSet<MatchTimeline> MatchTimelines { get; set; }
         public DbSet<Player> Players { get; set; }
-        public DbSet<RankedStats> RankedStats { get; set; }
         public DbSet<Recommended> RecommendedItemSets { get; set; }
-        public DbSet<Roster> Rosters { get; set; }
         public DbSet<Rune> Runes { get; set; }
         public DbSet<RunePages> RunePages { get; set; }
         public DbSet<Skin> Skins { get; set; }
@@ -67,9 +65,5 @@ namespace RiotNet.Tests
         public DbSet<StaticRune> StaticRunes { get; set; }
         public DbSet<StaticSummonerSpell> StaticSummonerSpells { get; set; }
         public DbSet<Summoner> Summoners { get; set; }
-        public DbSet<Team> Teams { get; set; }
-        public DbSet<TeamMemberInfo> TeamMemberInfos { get; set; }
-        public DbSet<TeamStatDetail> TeamStatDetails { get; set; }
-        public DbSet<Timeline> Timelines { get; set; }
     }
 }

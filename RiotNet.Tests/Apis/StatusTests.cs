@@ -12,7 +12,7 @@ namespace RiotNet.Tests
     public class StatusTests : TestBase
     {
         [Test]
-        public async Task GetShardDatasAsyncTest()
+        public async Task GetShardDataAsyncTest()
         {
             IRiotClient client = new RiotClient();
             ShardStatus shard = await client.GetShardDataAsync();

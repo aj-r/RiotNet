@@ -39,7 +39,7 @@ namespace RiotNet
     public partial class RiotClient
     {
         /// <summary>
-        /// Gets the base URL for champion mastery requests
+        /// Gets the base URL for champion mastery requests.
         /// </summary>
         /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <returns>The base URL.</returns>

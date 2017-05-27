@@ -19,7 +19,7 @@
         public string ApiKey { get; set; }
 
         /// <summary>
-        /// Gets or sets whether to use the /tournament/stub/ endpoints instead of the /tournament/public/ endpoints.
+        /// Gets or sets whether to use the tournament-stub API instead of the tournament API.
         /// </summary>
         public bool UseTournamentStub { get; set; } = false;
 

@@ -38,9 +38,15 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public void LeagueDbTest()
+        public void LeagueListDbTest()
         {
-            VerifyDbStorage<League>();
+            VerifyDbStorage<LeagueList>();
+        }
+
+        [Test]
+        public void LeaguePositionDbTest()
+        {
+            VerifyDbStorage<LeaguePosition>();
         }
 
         [Test]
@@ -50,21 +56,15 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public void MatchDetailDbTest()
+        public void MatchDbTest()
         {
-            VerifyDbStorage<MatchDetail>();
+            VerifyDbStorage<Match>();
         }
 
         [Test]
         public void MatchReferenceDbTest()
         {
             VerifyDbStorage<MatchReference>();
-        }
-
-        [Test]
-        public void RankedStatsDbTest()
-        {
-            VerifyDbStorage<RankedStats>();
         }
 
         [Test]
@@ -125,12 +125,6 @@ namespace RiotNet.Tests
         public void SummonerDbTest()
         {
             VerifyDbStorage<Summoner>();
-        }
-
-        [Test]
-        public void TeamDbTest()
-        {
-            VerifyDbStorage<Team>();
         }
 
         private static void VerifyDbStorage<T>() where T : class

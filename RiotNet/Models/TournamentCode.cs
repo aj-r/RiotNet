@@ -59,7 +59,7 @@ namespace RiotNet.Models
         /// <summary>
         ///  Gets or sets the region in which the game is played.
         /// </summary>
-        public Region Region { get; set; }
+        public string Region { get; set; }
 
         /// <summary>
         ///  Gets or sets the spectator type for the game.
