@@ -53,6 +53,7 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        [Ignore("This method is not supported by the tournament-stub API")]
         public async Task GetTournamentCodeAsyncTest()
         {
             IRiotClient client = new RiotClient(GetTournamentSettings());
@@ -74,6 +75,7 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        [Ignore("This method is not supported by the tournament-stub API")]
         public async Task UpdateTournamentCodeAsyncTest()
         {
             const string code = "NA2198-TOURNAMENTCODE0002";
@@ -103,6 +105,7 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        [Ignore("This method is not supported by the tournament-stub API")]
         public async Task UpdateTournamentCodeAsyncTest_WithObject()
         {
             const string code = "NA2198-TOURNAMENTCODE0002";

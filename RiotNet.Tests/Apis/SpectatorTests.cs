@@ -36,7 +36,7 @@ namespace RiotNet.Tests
             Assert.That(game.GameQueueConfigId, Is.EqualTo(QueueType.RANKED_FLEX_SR)
                 .Or.EqualTo(QueueType.TEAM_BUILDER_DRAFT_UNRANKED_5x5)
                 .Or.EqualTo(QueueType.TEAM_BUILDER_RANKED_SOLO)
-                .Or.EqualTo(QueueType.NORMAL_5x5_DRAFT)
+                .Or.EqualTo(QueueType.NORMAL_5x5_BLIND)
                 .Or.EqualTo(QueueType.ARAM_5x5));
             Assert.That(game.GameStartTime.Kind, Is.EqualTo(DateTimeKind.Utc));
             Assert.That(game.GameStartTime, Is.LessThan(DateTime.UtcNow).And.GreaterThan(DateTime.UtcNow.AddHours(-2)));
@@ -90,7 +90,7 @@ namespace RiotNet.Tests
             Assert.That(game.GameQueueConfigId, Is.EqualTo(QueueType.RANKED_FLEX_SR)
                 .Or.EqualTo(QueueType.TEAM_BUILDER_DRAFT_UNRANKED_5x5)
                 .Or.EqualTo(QueueType.TEAM_BUILDER_RANKED_SOLO)
-                .Or.EqualTo(QueueType.NORMAL_5x5_DRAFT)
+                .Or.EqualTo(QueueType.NORMAL_5x5_BLIND)
                 .Or.EqualTo(QueueType.ARAM_5x5));
             Assert.That(game.GameStartTime.Kind, Is.EqualTo(DateTimeKind.Utc));
             Assert.That(game.GameStartTime, Is.LessThan(DateTime.UtcNow).And.GreaterThan(DateTime.UtcNow.AddHours(-2)));

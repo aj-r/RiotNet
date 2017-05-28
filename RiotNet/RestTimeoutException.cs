@@ -7,7 +7,7 @@ using System.Security.Permissions;
 namespace RiotNet
 {
     /// <summary>
-    /// Represents an error that occurs when a REST request fails because it timed out.
+    /// Represents an error that occurs when a REST request fails because it timed out or was cancelled.
     /// </summary>
     public class RestTimeoutException : RestException
     {

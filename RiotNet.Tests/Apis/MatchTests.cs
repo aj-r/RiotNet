@@ -73,7 +73,6 @@ namespace RiotNet.Tests
                 Assert.That(matchList.Matches.Any(m => m.Queue == id), "Queue ID not found: " + id);
             foreach (var id in seasons.Except(new[] { Season.SEASON2016 }))
                 Assert.That(matchList.Matches.Any(m => m.Season == id), "Season ID not found: " + id);
-
         }
 
         [Test]

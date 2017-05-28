@@ -1,12 +1,11 @@
 ﻿using Newtonsoft.Json;
 using NUnit.Framework;
 using RiotNet.Converters;
-using RiotNet.Models;
 
-namespace RiotNet.Tests
+namespace RiotNet.Tests.Converters
 {
     [TestFixture]
-    public class TolerantEnumConverterTests : TestBase
+    public class TolerantEnumConverterTests
     {
         private static JsonSerializerSettings jsonSettings = RiotClient.JsonSettings;
         

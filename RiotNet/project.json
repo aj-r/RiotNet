@@ -8,7 +8,7 @@
         "define": [ "NET_45", "DB_READY" ]
       },
       "dependencies": {
-        "Newtonsoft.Json": "6.0.1"
+        "Newtonsoft.Json": "9.0.1"
       },
       "frameworkAssemblies": {
         "System.ComponentModel.Annotations": "4.0.0.0",

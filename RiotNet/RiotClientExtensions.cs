@@ -22,7 +22,7 @@ namespace RiotNet
             return riotClient.GetActiveGameBySummonerIdAsync(summonerId, platformId, token);
         }
         /// <summary>
-        /// Gets the status of the shard for the specified platform. This method uses the LoL Status API.
+        /// Gets the status of the shard for the specified platform. This is an alias for <see cref="IRiotClient.GetShardDataAsync"/>.
         /// </summary>
         /// <param name="riotClient">The IRiotClient instance.</param>
         /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>

@@ -304,7 +304,7 @@ namespace RiotNet
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <param name="queryParameters">Query string parameters to append to the resource.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        protected virtual async Task<T> ExecuteAsync<T>(HttpMethod method, string resource, object body, CancellationToken token, IDictionary<string, object> queryParameters = null)
+        protected virtual Task<T> ExecuteAsync<T>(HttpMethod method, string resource, object body, CancellationToken token, IDictionary<string, object> queryParameters = null)
         {
             var resourceBuilder = new StringBuilder(resource);
             var querySeparator = resource.Contains("?") ? "&" : "?";
@@ -328,7 +328,7 @@ namespace RiotNet
                     request.Content = new JsonContent(body);
                 return request;
             };
-            return await ExecuteAsync<T>(buildRequest, token).ConfigureAwait(false);
+            return ExecuteAsync<T>(buildRequest, token);
         }
 
         /// <summary>
@@ -346,7 +346,7 @@ namespace RiotNet
                 var request = buildRequest();
                 var response = await SendAsync(request, token).ConfigureAwait(false);
                 ++attemptCount;
-                var action = await DetermineResponseAction(response, attemptCount).ConfigureAwait(false);
+                var action = await DetermineResponseAction(response, attemptCount, token).ConfigureAwait(false);
                 if (action == ResponseAction.Return)
                     return await response.Response.Content.ReadAsAsync<T>().ConfigureAwait(false);
                 if (action == ResponseAction.ReturnDefault)
@@ -395,15 +395,17 @@ namespace RiotNet
         /// </summary>
         /// <param name="response">An <see cref="HttpResponseMessage"/>.</param>
         /// <param name="attemptCount">The number of times the request has been attempted so far.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A <see cref="ResponseAction"/>.</returns>
-        protected virtual async Task<ResponseAction> DetermineResponseAction(RiotResponse response, int attemptCount)
+        protected virtual async Task<ResponseAction> DetermineResponseAction(RiotResponse response, int attemptCount, CancellationToken token)
         {
             if (response.TimedOut)
             {
                 var args = new RetryEventArgs(response, attemptCount);
                 args.Retry = Settings.RetryOnTimeout;
                 OnRequestTimedOut(args);
-                if (args.Retry)
+                // Note: never retry if the token is cancelled. It will certainly fail the next time, too.
+                if (args.Retry && !token.IsCancellationRequested)
                     return ResponseAction.Retry;
                 if (Settings.ThrowOnError)
                     throw new RestTimeoutException(response, response.Exception);
