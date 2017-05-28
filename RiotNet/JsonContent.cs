@@ -7,19 +7,17 @@ using System.Threading.Tasks;
 
 namespace RiotNet
 {
+    /// <summary>
+    /// Represents HTTP content in JSON format.
+    /// </summary>
     public class JsonContent : HttpContent
     {
         private object content;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PushStreamContent"/> class. The
-        /// <paramref name="onStreamAvailable"/> action is called when an output stream
-        /// has become available allowing the action to write to it directly. When the 
-        /// stream is closed, it will signal to the content that is has completed and the 
-        /// HTTP request or response will be completed.
+        /// Creates a new <see cref="JsonContent"/> instance.
         /// </summary>
-        /// <param name="onStreamAvailable">The action to call when an output stream
-        /// is available. Close the stream to complete the HTTP request or response.</param>
+        /// <param name="content">The object to serialize in JSON format.</param>
         public JsonContent(object content)
         {
             this.content = content;

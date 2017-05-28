@@ -56,21 +56,49 @@ namespace RiotNet
             return $"https://{GetServerName(platformId)}/lol/league/v3";
         }
 
+        /// <summary>
+        /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID. This method uses the League API.
+        /// </summary>
+        /// <param name="summonerId">The summoner ID.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public Task<List<LeagueList>> GetLeaguesBySummonerIdAsync(long summonerId, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
             return GetAsync<List<LeagueList>>($"{GetLeagueBaseUrl(platformId)}/leagues/by-summoner/{summonerId}", token);
         }
 
+        /// <summary>
+        /// Get league positions in all queues for a given summoner ID. This method uses the League API.
+        /// </summary>
+        /// <param name="summonerId">The summoner ID.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public Task<List<LeaguePosition>> GetLeaguePositionsBySummonerIdAsync(long summonerId, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
             return GetAsync<List<LeaguePosition>>($"{GetLeagueBaseUrl(platformId)}/positions/by-summoner/{summonerId}", token);
         }
 
+        /// <summary>
+        /// Gets the challenger league. This method uses the League API.
+        /// </summary>
+        /// <param name="type">The queue type.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public Task<LeagueList> GetChallengerLeagueAsync(RankedQueue type, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
             return GetAsync<LeagueList>($"{GetLeagueBaseUrl(platformId)}/challengerleagues/by-queue/{type}", token);
         }
 
+        /// <summary>
+        /// Gets the master league. This method uses the League API.
+        /// </summary>
+        /// <param name="type">The queue type.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public Task<LeagueList> GetMasterLeagueAsync(RankedQueue type, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
         {
             return GetAsync<LeagueList>($"{GetLeagueBaseUrl(platformId)}/masterleagues/by-queue/{type}", token);

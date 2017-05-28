@@ -10,7 +10,7 @@ namespace RiotNet.Models
     /// </summary>
     /// <remarks>
     /// This object comes from the Games API, which gets the 10 most recent games played by a player.
-    /// For more detailed game information, use the <see cref="MatchDetail"/> object from the Match API instead.
+    /// For more detailed game information, use the <see cref="Match"/> object from the Match API instead.
     /// </remarks>
     public class Game
     {

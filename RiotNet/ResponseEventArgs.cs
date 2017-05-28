@@ -21,9 +21,11 @@ namespace RiotNet
         /// Creates a new <see cref="ResponseEventArgs"/> instance.
         /// </summary>
         /// <param name="response">The response for the request that caused the event.</param>
+        /// <param name="errorMessage">The error message contained in te response, if any.</param>
         public ResponseEventArgs(RiotResponse response, string errorMessage = null)
         {
             this.response = response;
+            this.errorMessage = errorMessage;
         }
 
         /// <summary>
@@ -35,7 +37,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the error message, if the response contains one.
+        /// Gets the error message contained in te response, if any.
         /// </summary>
         public string ErrorMessage
         {
