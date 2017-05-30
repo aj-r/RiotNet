@@ -102,8 +102,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a59b676582404a4926226709e3551adaa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a59b676582404a4926226709e3551adaa"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>RiotResponse</b> (HttpResponseMessage response, <a class="el" href="class_riot_net_1_1_riot_response.html#aa4a78aeae11c7ae3fb126f2b914002f2">Exception</a> exception=null, bool timedOut=false)</td></tr>
+<tr class="memitem:a59b676582404a4926226709e3551adaa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_response.html#a59b676582404a4926226709e3551adaa">RiotResponse</a> (HttpResponseMessage response, <a class="el" href="class_riot_net_1_1_riot_response.html#aa4a78aeae11c7ae3fb126f2b914002f2">Exception</a> exception=null, bool timedOut=false)</td></tr>
+<tr class="memdesc:a59b676582404a4926226709e3551adaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="class_riot_net_1_1_riot_response.html" title="A wrapper for the ">RiotResponse</a> isntance.  <a href="#a59b676582404a4926226709e3551adaa">More...</a><br /></td></tr>
 <tr class="separator:a59b676582404a4926226709e3551adaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
@@ -115,12 +115,63 @@ Properties</h2></td></tr>
 <tr class="memdesc:aa4a78aeae11c7ae3fb126f2b914002f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the exception thrown during the request, if any.  <a href="#aa4a78aeae11c7ae3fb126f2b914002f2">More...</a><br /></td></tr>
 <tr class="separator:aa4a78aeae11c7ae3fb126f2b914002f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43fcbdcc8072b229b162a9c740232596"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_response.html#a43fcbdcc8072b229b162a9c740232596">TimedOut</a><code> [get]</code></td></tr>
-<tr class="memdesc:a43fcbdcc8072b229b162a9c740232596"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the request timed out.  <a href="#a43fcbdcc8072b229b162a9c740232596">More...</a><br /></td></tr>
+<tr class="memdesc:a43fcbdcc8072b229b162a9c740232596"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the request timed out or was cancelled.  <a href="#a43fcbdcc8072b229b162a9c740232596">More...</a><br /></td></tr>
 <tr class="separator:a43fcbdcc8072b229b162a9c740232596"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A wrapper for the </p>
-</div><h2 class="groupheader">Property Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a59b676582404a4926226709e3551adaa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RiotNet.RiotResponse.RiotResponse </td>
+          <td>(</td>
+          <td class="paramtype">HttpResponseMessage&#160;</td>
+          <td class="paramname"><em>response</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_riot_net_1_1_riot_response.html#aa4a78aeae11c7ae3fb126f2b914002f2">Exception</a>&#160;</td>
+          <td class="paramname"><em>exception</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>timedOut</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a new <a class="el" href="class_riot_net_1_1_riot_response.html" title="A wrapper for the ">RiotResponse</a> isntance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">response</td><td>The underlying response from the server.</td></tr>
+    <tr><td class="paramname">exception</td><td>The exception thrown during the request, if any.</td></tr>
+    <tr><td class="paramname">timedOut</td><td>Whether the request timed out or was cancelled.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Property Documentation</h2>
 <a class="anchor" id="aa4a78aeae11c7ae3fb126f2b914002f2"></a>
 <div class="memitem">
 <div class="memproto">
@@ -183,7 +234,7 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets whether the request timed out. </p>
+<p>Gets whether the request timed out or was cancelled. </p>
 
 </div>
 </div>

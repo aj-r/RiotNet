@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['buildingtype',['BuildingType',['../namespace_riot_net_1_1_models.html#a0913e340e4b388d087bb956cff266d2a',1,'RiotNet::Models']]]
+  ['responseaction',['ResponseAction',['../class_riot_net_1_1_riot_client.html#a9d424fb929a242a890b71914d51d43cc',1,'RiotNet::RiotClient']]]
 ];

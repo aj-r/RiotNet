@@ -111,20 +111,23 @@ Inheritance diagram for RiotNet.ResponseEventArgs:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a38b5e15c6adb53008d22d2108c4c25fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_response_event_args.html#a38b5e15c6adb53008d22d2108c4c25fb">ResponseEventArgs</a> (<a class="el" href="class_riot_net_1_1_riot_response.html">RiotResponse</a> response)</td></tr>
-<tr class="memdesc:a38b5e15c6adb53008d22d2108c4c25fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="class_riot_net_1_1_response_event_args.html" title="Contains event data for an event that contains an HTTP response. ">ResponseEventArgs</a> instance.  <a href="#a38b5e15c6adb53008d22d2108c4c25fb">More...</a><br /></td></tr>
-<tr class="separator:a38b5e15c6adb53008d22d2108c4c25fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a0fa39aca0a84225319d2ea415a7cc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_response_event_args.html#ad7a0fa39aca0a84225319d2ea415a7cc">ResponseEventArgs</a> (<a class="el" href="class_riot_net_1_1_riot_response.html">RiotResponse</a> response, string errorMessage=null)</td></tr>
+<tr class="memdesc:ad7a0fa39aca0a84225319d2ea415a7cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="class_riot_net_1_1_response_event_args.html" title="Contains event data for an event that contains an HTTP response. ">ResponseEventArgs</a> instance.  <a href="#ad7a0fa39aca0a84225319d2ea415a7cc">More...</a><br /></td></tr>
+<tr class="separator:ad7a0fa39aca0a84225319d2ea415a7cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a2188b7e46fb2b5120918e32d2ff50d10"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_riot_net_1_1_riot_response.html">RiotResponse</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_response_event_args.html#a2188b7e46fb2b5120918e32d2ff50d10">Response</a><code> [get]</code></td></tr>
 <tr class="memdesc:a2188b7e46fb2b5120918e32d2ff50d10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the response for the request that caused the event.  <a href="#a2188b7e46fb2b5120918e32d2ff50d10">More...</a><br /></td></tr>
 <tr class="separator:a2188b7e46fb2b5120918e32d2ff50d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e451099b2f6b4a9910aac6c660d9e8a"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_response_event_args.html#a8e451099b2f6b4a9910aac6c660d9e8a">ErrorMessage</a><code> [get]</code></td></tr>
+<tr class="memdesc:a8e451099b2f6b4a9910aac6c660d9e8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the error message contained in te response, if any.  <a href="#a8e451099b2f6b4a9910aac6c660d9e8a">More...</a><br /></td></tr>
+<tr class="separator:a8e451099b2f6b4a9910aac6c660d9e8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains event data for an event that contains an HTTP response. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a38b5e15c6adb53008d22d2108c4c25fb"></a>
+<a class="anchor" id="ad7a0fa39aca0a84225319d2ea415a7cc"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -135,8 +138,18 @@ Properties</h2></td></tr>
           <td class="memname">RiotNet.ResponseEventArgs.ResponseEventArgs </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_riot_net_1_1_riot_response.html">RiotResponse</a>&#160;</td>
-          <td class="paramname"><em>response</em></td><td>)</td>
+          <td class="paramname"><em>response</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>errorMessage</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -150,6 +163,7 @@ Properties</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">response</td><td>The response for the request that caused the event.</td></tr>
+    <tr><td class="paramname">errorMessage</td><td>The error message contained in te response, if any.</td></tr>
   </table>
   </dd>
 </dl>
@@ -157,6 +171,28 @@ Properties</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
+<a class="anchor" id="a8e451099b2f6b4a9910aac6c660d9e8a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string RiotNet.ResponseEventArgs.ErrorMessage</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the error message contained in te response, if any. </p>
+
+</div>
+</div>
 <a class="anchor" id="a2188b7e46fb2b5120918e32d2ff50d10"></a>
 <div class="memitem">
 <div class="memproto">

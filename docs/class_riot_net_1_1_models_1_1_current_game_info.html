@@ -89,6 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#properties">Properties</a> &#124;
 <a href="class_riot_net_1_1_models_1_1_current_game_info-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">RiotNet.Models.CurrentGameInfo Class Reference</div>  </div>
@@ -107,8 +108,11 @@ Inheritance diagram for RiotNet.Models.CurrentGameInfo:</div>
 </map>
  </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:a3feee338a1d20965a37a88032acab828"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_riot_net_1_1_models_1_1_current_game_participant.html">CurrentGameParticipant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_current_game_info.html#a3feee338a1d20965a37a88032acab828">Participants</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a3feee338a1d20965a37a88032acab828"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the participant information.  <a href="#a3feee338a1d20965a37a88032acab828">More...</a><br /></td></tr>
+<tr class="separator:a3feee338a1d20965a37a88032acab828"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_class_riot_net_1_1_models_1_1_game_info_base"><td colspan="2" onclick="javascript:toggleInherit('properties_class_riot_net_1_1_models_1_1_game_info_base')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="class_riot_net_1_1_models_1_1_game_info_base.html">RiotNet.Models.GameInfoBase</a></td></tr>
 <tr class="memitem:a284ec383a1075abbee55403221057bb9 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_riot_net_1_1_models_1_1_banned_champion.html">BannedChampion</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_game_info_base.html#a284ec383a1075abbee55403221057bb9">BannedChampions</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a284ec383a1075abbee55403221057bb9 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the list of banned champion information.  <a href="#a284ec383a1075abbee55403221057bb9">More...</a><br /></td></tr>
@@ -119,34 +123,54 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a4333978453521693e63d1c74ac363520 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memItemLeft" align="right" valign="top">TimeSpan&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_game_info_base.html#a4333978453521693e63d1c74ac363520">GameLength</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a4333978453521693e63d1c74ac363520 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the amount of time in seconds that has passed since the game started.  <a href="#a4333978453521693e63d1c74ac363520">More...</a><br /></td></tr>
 <tr class="separator:a4333978453521693e63d1c74ac363520 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5ad8b1133c495de5bf57546c83bb27b inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_riot_net_1_1_models.html#ac7c27793721e27458de29dceed2ad29a">GameMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_game_info_base.html#aa5ad8b1133c495de5bf57546c83bb27b">GameMode</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:aa5ad8b1133c495de5bf57546c83bb27b inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the game mode.  <a href="#aa5ad8b1133c495de5bf57546c83bb27b">More...</a><br /></td></tr>
-<tr class="separator:aa5ad8b1133c495de5bf57546c83bb27b inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3708004ec9bec0dc01ed7302669d4cd inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_game_info_base.html#aa3708004ec9bec0dc01ed7302669d4cd">GameMode</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:aa3708004ec9bec0dc01ed7302669d4cd inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the game mode. This should equal one of the Models.GameMode values.  <a href="#aa3708004ec9bec0dc01ed7302669d4cd">More...</a><br /></td></tr>
+<tr class="separator:aa3708004ec9bec0dc01ed7302669d4cd inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbf1f7802e132a99d098d085bea75cbf inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35">QueueType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_game_info_base.html#abbf1f7802e132a99d098d085bea75cbf">GameQueueConfigId</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:abbf1f7802e132a99d098d085bea75cbf inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the queue type.  <a href="#abbf1f7802e132a99d098d085bea75cbf">More...</a><br /></td></tr>
 <tr class="separator:abbf1f7802e132a99d098d085bea75cbf inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a7959f3119e84284aff048706847370 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memItemLeft" align="right" valign="top">DateTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_game_info_base.html#a2a7959f3119e84284aff048706847370">GameStartTime</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a2a7959f3119e84284aff048706847370 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the game start time in UTC.  <a href="#a2a7959f3119e84284aff048706847370">More...</a><br /></td></tr>
 <tr class="separator:a2a7959f3119e84284aff048706847370 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7eae644ba72e9f4471a82e25c6454c5 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_riot_net_1_1_models.html#ad28e452cee495ce5007b5a44ee926009">GameType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_game_info_base.html#aa7eae644ba72e9f4471a82e25c6454c5">GameType</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:aa7eae644ba72e9f4471a82e25c6454c5 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets of sets the game type.  <a href="#aa7eae644ba72e9f4471a82e25c6454c5">More...</a><br /></td></tr>
-<tr class="separator:aa7eae644ba72e9f4471a82e25c6454c5 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fc96fdcb669e107947dec1835fbf9a5 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_game_info_base.html#a7fc96fdcb669e107947dec1835fbf9a5">GameType</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a7fc96fdcb669e107947dec1835fbf9a5 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets of sets the game type. This should equal one of the Models.GameType values.  <a href="#a7fc96fdcb669e107947dec1835fbf9a5">More...</a><br /></td></tr>
+<tr class="separator:a7fc96fdcb669e107947dec1835fbf9a5 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7c65723bdcf81890d771936367d4f9f inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_game_info_base.html#ad7c65723bdcf81890d771936367d4f9f">MapId</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:ad7c65723bdcf81890d771936367d4f9f inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the map id.  <a href="#ad7c65723bdcf81890d771936367d4f9f">More...</a><br /></td></tr>
 <tr class="separator:ad7c65723bdcf81890d771936367d4f9f inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99cccc3e75480b50ba5dd5d79b04d4d9 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_riot_net_1_1_models_1_1_observer.html">Observer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_game_info_base.html#a99cccc3e75480b50ba5dd5d79b04d4d9">Observers</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a99cccc3e75480b50ba5dd5d79b04d4d9 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the observer information.  <a href="#a99cccc3e75480b50ba5dd5d79b04d4d9">More...</a><br /></td></tr>
 <tr class="separator:a99cccc3e75480b50ba5dd5d79b04d4d9 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d52721a6e0b5c7e76cb22c53d5fd8c9 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_riot_net_1_1_models_1_1_participant.html">Participant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_game_info_base.html#a4d52721a6e0b5c7e76cb22c53d5fd8c9">Participants</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a4d52721a6e0b5c7e76cb22c53d5fd8c9 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the participant information.  <a href="#a4d52721a6e0b5c7e76cb22c53d5fd8c9">More...</a><br /></td></tr>
-<tr class="separator:a4d52721a6e0b5c7e76cb22c53d5fd8c9 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a257a9de1c590e35acfa7d70c808b8c36 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_game_info_base.html#a257a9de1c590e35acfa7d70c808b8c36">PlatformId</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a257a9de1c590e35acfa7d70c808b8c36 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the ID of the platform on which the game is being played.  <a href="#a257a9de1c590e35acfa7d70c808b8c36">More...</a><br /></td></tr>
+<tr class="memdesc:a257a9de1c590e35acfa7d70c808b8c36 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the ID of the platform on which the game is being played. This should equal one of the Models.PlatformId values.  <a href="#a257a9de1c590e35acfa7d70c808b8c36">More...</a><br /></td></tr>
 <tr class="separator:a257a9de1c590e35acfa7d70c808b8c36 inherit properties_class_riot_net_1_1_models_1_1_game_info_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains info about a game. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Property Documentation</h2>
+<a class="anchor" id="a3feee338a1d20965a37a88032acab828"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_riot_net_1_1_models_1_1_current_game_participant.html">CurrentGameParticipant</a>&gt; RiotNet.Models.CurrentGameInfo.Participants</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets the participant information. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>Models/CurrentGameInfo.cs</li>
 </ul>
 </div><!-- contents -->

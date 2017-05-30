@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['info',['Info',['../namespace_riot_net_1_1_models.html#a4a8c73813dd528b3feb8ac516ce53adfa4059b0251f66a18cb56f544728796875',1,'RiotNet::Models']]],
-  ['inhibitor_5fbuilding',['INHIBITOR_BUILDING',['../namespace_riot_net_1_1_models.html#a0913e340e4b388d087bb956cff266d2aa5bea782bc1a3ca698cafc3d247535109',1,'RiotNet::Models']]],
-  ['inner_5fturret',['INNER_TURRET',['../namespace_riot_net_1_1_models.html#a3e6fdd10fbb274ad898e3abadb410a74aae2ab256643ef8629ce6257a3f2525f9',1,'RiotNet::Models']]],
-  ['item_5fdestroyed',['ITEM_DESTROYED',['../namespace_riot_net_1_1_models.html#a53a6557b8095df654f197de15fe05716a77fa6ad6d9d046be8cd19cc7fde591f7',1,'RiotNet::Models']]],
-  ['item_5fpurchased',['ITEM_PURCHASED',['../namespace_riot_net_1_1_models.html#a53a6557b8095df654f197de15fe05716a639548b083c11e4993007b24cd975929',1,'RiotNet::Models']]],
-  ['item_5fsold',['ITEM_SOLD',['../namespace_riot_net_1_1_models.html#a53a6557b8095df654f197de15fe05716a96cdcdf0693d359cff01fb2f55798a91',1,'RiotNet::Models']]],
-  ['item_5fundo',['ITEM_UNDO',['../namespace_riot_net_1_1_models.html#a53a6557b8095df654f197de15fe05716afb7be3451b0047d4c5240b8fab1e13ad',1,'RiotNet::Models']]]
+  ['nightmare_5fbot_5f5x5_5frank1',['NIGHTMARE_BOT_5x5_RANK1',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35afae5535fbdbfae143c86af97ca2473bd',1,'RiotNet::Models']]],
+  ['nightmare_5fbot_5f5x5_5frank2',['NIGHTMARE_BOT_5x5_RANK2',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35ad94f5193d3cd648ff2749b9f50ac6f38',1,'RiotNet::Models']]],
+  ['nightmare_5fbot_5f5x5_5frank5',['NIGHTMARE_BOT_5x5_RANK5',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a45d55a830f88eb4045363e47526b92b2',1,'RiotNet::Models']]],
+  ['normal_5f3x3',['NORMAL_3x3',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35aba141a6fecf6166202954ffaa979f4d9',1,'RiotNet::Models']]],
+  ['normal_5f5x5_5fblind',['NORMAL_5x5_BLIND',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a649edb51dd3098ecb932bcf055c12bbe',1,'RiotNet::Models']]],
+  ['normal_5f5x5_5fdraft',['NORMAL_5x5_DRAFT',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a3e69bd1701270725bade101b44d0b5d8',1,'RiotNet::Models']]]
 ];

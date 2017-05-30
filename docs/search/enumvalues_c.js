@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['master',['MASTER',['../namespace_riot_net_1_1_models.html#ab061e2f25dfdae535a9af8afcf968c4fa89a1533c37ec9254f22b5e0f29c9c0ff',1,'RiotNet::Models']]],
-  ['matched_5fgame',['MATCHED_GAME',['../namespace_riot_net_1_1_models.html#ad28e452cee495ce5007b5a44ee926009a1e962d61255c2887eb1fd009fcb56fb8',1,'RiotNet::Models']]],
-  ['mid_5flane',['MID_LANE',['../namespace_riot_net_1_1_models.html#acea74aaaba3006a9b3c89c90ef9bd5c5a569e6246ca79f04e50c9759bc6a1d7c0',1,'RiotNet::Models']]],
-  ['middle',['MIDDLE',['../namespace_riot_net_1_1_models.html#ab3e6d5574d469e50491adabceb1daaefa43eedd8685eb86592022f8da962e3474',1,'RiotNet::Models']]],
-  ['minion_5fascended',['MINION_ASCENDED',['../namespace_riot_net_1_1_models.html#a557e202a6d63923ba7889515b269b81baf5c6eebf1509fddb82a2ea0104fdf380',1,'RiotNet::Models']]]
+  ['season2014',['SEASON2014',['../namespace_riot_net_1_1_models.html#a7081083073e41f3014b51d3c3c5d6903adfcd39435403f76bd93963be079be34c',1,'RiotNet::Models']]],
+  ['season2015',['SEASON2015',['../namespace_riot_net_1_1_models.html#a7081083073e41f3014b51d3c3c5d6903ad64d8598e6d64797346a4b11c1f3d555',1,'RiotNet::Models']]],
+  ['season2016',['SEASON2016',['../namespace_riot_net_1_1_models.html#a7081083073e41f3014b51d3c3c5d6903ae71947f85b54c973cc85d0ed25cf2f20',1,'RiotNet::Models']]],
+  ['season3',['SEASON3',['../namespace_riot_net_1_1_models.html#a7081083073e41f3014b51d3c3c5d6903aadb4ad9fc3b584725aa6455ebc625db7',1,'RiotNet::Models']]],
+  ['siege',['SIEGE',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a97dd2f82802edc58507051a1fed47c2d',1,'RiotNet::Models']]],
+  ['sr_5f6x6',['SR_6x6',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35af1cf9392e783409a84fc186254af973f',1,'RiotNet::Models']]]
 ];

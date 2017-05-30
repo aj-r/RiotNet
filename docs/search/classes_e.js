@@ -11,8 +11,5 @@ var searchData=
   ['persistablelist_3c_20long_20_3e',['PersistableList&lt; long &gt;',['../class_riot_net_1_1_models_1_1_persistable_list.html',1,'RiotNet::Models']]],
   ['persistablelist_3c_20string_20_3e',['PersistableList&lt; string &gt;',['../class_riot_net_1_1_models_1_1_persistable_list.html',1,'RiotNet::Models']]],
   ['player',['Player',['../class_riot_net_1_1_models_1_1_player.html',1,'RiotNet::Models']]],
-  ['playerpositionconverter',['PlayerPositionConverter',['../class_riot_net_1_1_converters_1_1_player_position_converter.html',1,'RiotNet::Converters']]],
-  ['playerstatssummary',['PlayerStatsSummary',['../class_riot_net_1_1_models_1_1_player_stats_summary.html',1,'RiotNet::Models']]],
-  ['playerstatssummarylist',['PlayerStatsSummaryList',['../class_riot_net_1_1_models_1_1_player_stats_summary_list.html',1,'RiotNet::Models']]],
   ['position',['Position',['../class_riot_net_1_1_models_1_1_position.html',1,'RiotNet::Models']]]
 ];

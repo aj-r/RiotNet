@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['passive',['Passive',['../class_riot_net_1_1_models_1_1_passive.html#a102e2f383c5f473effe16be7229dde31',1,'RiotNet::Models::Passive']]],
-  ['postasync_3c_20t_20_3e',['PostAsync&lt; T &gt;',['../class_riot_net_1_1_riot_client.html#af063a7ead1245c152812b9a092bb3377',1,'RiotNet::RiotClient']]],
-  ['putasync_3c_20t_20_3e',['PutAsync&lt; T &gt;',['../class_riot_net_1_1_riot_client.html#aac940897d4ebbbda3e396aa2f7c625fa',1,'RiotNet::RiotClient']]]
+  ['onconnectionfailed',['OnConnectionFailed',['../class_riot_net_1_1_riot_client.html#aafe8db43061f25c45d7aa84a3f712e66',1,'RiotNet::RiotClient']]],
+  ['onratelimitexceeded',['OnRateLimitExceeded',['../class_riot_net_1_1_riot_client.html#aeb8a77fbf127806d0beef528b3faec4d',1,'RiotNet::RiotClient']]],
+  ['onrequesttimedout',['OnRequestTimedOut',['../class_riot_net_1_1_riot_client.html#ac67c20250d5a2e7911b635e59dd76fcc',1,'RiotNet::RiotClient']]],
+  ['onresourcenotfound',['OnResourceNotFound',['../class_riot_net_1_1_riot_client.html#a27d67bb6427647237b9c4c89f3d50351',1,'RiotNet::RiotClient']]],
+  ['onresponseerror',['OnResponseError',['../class_riot_net_1_1_riot_client.html#abdadf51b5e2fccbe3bfc1951b1bd017a',1,'RiotNet::RiotClient']]],
+  ['onservererror',['OnServerError',['../class_riot_net_1_1_riot_client.html#a46b4e86a8f23716b20f4d50933a783f1',1,'RiotNet::RiotClient']]]
 ];

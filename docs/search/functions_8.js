@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['notfoundexception',['NotFoundException',['../class_riot_net_1_1_not_found_exception.html#aad9aeb754fb386bedbd212a0697eed09',1,'RiotNet.NotFoundException.NotFoundException()'],['../class_riot_net_1_1_not_found_exception.html#ab651cbf38f2bd53e13612c9c3118eb87',1,'RiotNet.NotFoundException.NotFoundException(RiotResponse response)'],['../class_riot_net_1_1_not_found_exception.html#a0d151bc62daddee4b6957e28e4ee6564',1,'RiotNet.NotFoundException.NotFoundException(RiotResponse response, Exception innerException)'],['../class_riot_net_1_1_not_found_exception.html#a6e90fc93595e15522f6b9402f7a85976',1,'RiotNet.NotFoundException.NotFoundException(RiotResponse response, string message)'],['../class_riot_net_1_1_not_found_exception.html#a1f1eccf956e07c16f8dd0850af9dacaf',1,'RiotNet.NotFoundException.NotFoundException(RiotResponse response, string message, Exception innerException)']]]
+  ['leagueitem',['LeagueItem',['../class_riot_net_1_1_models_1_1_league_item.html#ad66c276e8fdae7b7a94e18084ba308af',1,'RiotNet::Models::LeagueItem']]]
 ];

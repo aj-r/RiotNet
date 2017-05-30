@@ -2,23 +2,15 @@ var searchData=
 [
   ['effect',['Effect',['../class_riot_net_1_1_models_1_1_level_tip.html#a9f283ad380cfa9ac692fe817e9cdbd66',1,'RiotNet.Models.LevelTip.Effect()'],['../class_riot_net_1_1_models_1_1_static_item.html#ac0b823c50e3b993d191e1e16452715cf',1,'RiotNet.Models.StaticItem.Effect()'],['../class_riot_net_1_1_models_1_1_static_spell.html#aba4e632193795ebf68abfa69c6c6f4b6',1,'RiotNet.Models.StaticSpell.Effect()']]],
   ['effectburn',['EffectBurn',['../class_riot_net_1_1_models_1_1_static_spell.html#aa9cb1eeedee30e3b6a40158882b337be',1,'RiotNet::Models::StaticSpell']]],
-  ['elderlizardassistspermincounts',['ElderLizardAssistsPerMinCounts',['../class_riot_net_1_1_models_1_1_match_participant_timeline.html#abdfb375aa027fa80fad8fd778521c961',1,'RiotNet::Models::MatchParticipantTimeline']]],
-  ['elderlizardkillspermincounts',['ElderLizardKillsPerMinCounts',['../class_riot_net_1_1_models_1_1_match_participant_timeline.html#a10e64fb71653a8e080bf5a4b4aee6af4',1,'RiotNet::Models::MatchParticipantTimeline']]],
-  ['elite_5fmonster_5fkill',['ELITE_MONSTER_KILL',['../namespace_riot_net_1_1_models.html#a53a6557b8095df654f197de15fe05716a87ce185f188562415d0d9e0f08007eb4',1,'RiotNet::Models']]],
   ['encryptionkey',['EncryptionKey',['../class_riot_net_1_1_models_1_1_observer.html#a86a5025d93013b69a2ccea19f2ff85dc',1,'RiotNet::Models::Observer']]],
   ['endindex',['EndIndex',['../class_riot_net_1_1_models_1_1_match_list.html#a096267e41d2a182f721715fdefa4dd8b',1,'RiotNet::Models::MatchList']]],
   ['enemytips',['EnemyTips',['../class_riot_net_1_1_models_1_1_static_champion.html#ad51900bbcdf078e7e31b82b6512416df',1,'RiotNet::Models::StaticChampion']]],
-  ['entries',['Entries',['../class_riot_net_1_1_models_1_1_league.html#af1fc69ba3c9beb2428621306ddf4887c',1,'RiotNet::Models::League']]],
+  ['entries',['Entries',['../class_riot_net_1_1_models_1_1_league_list.html#a5265fa99782ba551e2fbc31ab64e08e6',1,'RiotNet::Models::LeagueList']]],
   ['epochdatetimeconverter',['EpochDateTimeConverter',['../class_riot_net_1_1_converters_1_1_epoch_date_time_converter.html',1,'RiotNet::Converters']]],
-  ['error',['Error',['../namespace_riot_net_1_1_models.html#a4a8c73813dd528b3feb8ac516ce53adfa902b0d55fddef6f8d651fe1035b7d4bd',1,'RiotNet::Models']]],
-  ['eune',['EUNE',['../namespace_riot_net_1_1_models.html#a4d7348194651d9696ff39e0134f4d135acc15dcdfee1886b70972a56eb9a40050',1,'RiotNet::Models']]],
-  ['euw',['EUW',['../namespace_riot_net_1_1_models.html#a4d7348194651d9696ff39e0134f4d135a202a30d535d794107608930ca335d101',1,'RiotNet::Models']]],
-  ['event',['Event',['../class_riot_net_1_1_models_1_1_event.html',1,'RiotNet::Models']]],
-  ['event',['Event',['../class_riot_net_1_1_models_1_1_event.html#a63c3bbf6fdf7fb902decc2f4955f8b80',1,'RiotNet::Models::Event']]],
+  ['errormessage',['ErrorMessage',['../class_riot_net_1_1_response_event_args.html#a8e451099b2f6b4a9910aac6c660d9e8a',1,'RiotNet::ResponseEventArgs']]],
   ['eventlist',['EventList',['../class_riot_net_1_1_models_1_1_lobby_event_wrapper.html#a03b7b05c5dd66aaf6ba98a0d34729a90',1,'RiotNet::Models::LobbyEventWrapper']]],
-  ['events',['Events',['../class_riot_net_1_1_models_1_1_frame.html#ad805ebc9a07181f59ecc05f67d1ce246',1,'RiotNet::Models::Frame']]],
-  ['eventtype',['EventType',['../class_riot_net_1_1_models_1_1_event.html#a4ddfdc4c9454f66fe0502073998ab917',1,'RiotNet.Models.Event.EventType()'],['../class_riot_net_1_1_models_1_1_lobby_event.html#aea0d26b6b2a2cab1cb4bbc4ffdee3441',1,'RiotNet.Models.LobbyEvent.EventType()'],['../namespace_riot_net_1_1_models.html#a53a6557b8095df654f197de15fe05716',1,'RiotNet.Models.EventType()']]],
-  ['evolve',['EVOLVE',['../namespace_riot_net_1_1_models.html#a7a93d7fc2179d6364bb72a3aa6f994c2aeb1a384923bf9a900174479aa56298e5',1,'RiotNet::Models']]],
+  ['events',['Events',['../class_riot_net_1_1_models_1_1_match_frame.html#a9914cc7bbbb9a8d7f28de7b8194209d6',1,'RiotNet::Models::MatchFrame']]],
+  ['eventtype',['EventType',['../class_riot_net_1_1_models_1_1_lobby_event.html#aea0d26b6b2a2cab1cb4bbc4ffdee3441',1,'RiotNet.Models.LobbyEvent.EventType()'],['../class_riot_net_1_1_models_1_1_match_event.html#a78a0fb3b8f96f846f3aaa6420963032a',1,'RiotNet.Models.MatchEvent.EventType()']]],
   ['exception',['Exception',['../class_riot_net_1_1_riot_response.html#aa4a78aeae11c7ae3fb126f2b914002f2',1,'RiotNet::RiotResponse']]],
-  ['executeasync_3c_20t_20_3e',['ExecuteAsync&lt; T &gt;',['../class_riot_net_1_1_riot_client.html#aab6143ad89e718ca3419ca96296b8415',1,'RiotNet.RiotClient.ExecuteAsync&lt; T &gt;(HttpMethod method, string resource, object body=null, IDictionary&lt; string, object &gt; queryParameters=null, bool useApiKey=true)'],['../class_riot_net_1_1_riot_client.html#a1a3ad6b1e00bf3f5dd602073975667b4',1,'RiotNet.RiotClient.ExecuteAsync&lt; T &gt;(Func&lt; HttpRequestMessage &gt; requestFactory)']]]
+  ['executeasync_3c_20t_20_3e',['ExecuteAsync&lt; T &gt;',['../class_riot_net_1_1_riot_client.html#a35ac1bd18783fbaa5396e559c0c7385d',1,'RiotNet.RiotClient.ExecuteAsync&lt; T &gt;(HttpMethod method, string resource, object body, CancellationToken token, IDictionary&lt; string, object &gt; queryParameters=null)'],['../class_riot_net_1_1_riot_client.html#a25b3a52ed4271fd991a10cb4c4d7000f',1,'RiotNet.RiotClient.ExecuteAsync&lt; T &gt;(Func&lt; HttpRequestMessage &gt; buildRequest, CancellationToken token)']]]
 ];

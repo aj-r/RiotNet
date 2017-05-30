@@ -96,6 +96,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">RiotNet.JsonContent Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents HTTP content in JSON format.  
+ <a href="class_riot_net_1_1_json_content.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for RiotNet.JsonContent:</div>
 <div class="dyncontent">
@@ -108,7 +111,7 @@ Inheritance diagram for RiotNet.JsonContent:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa106bf900c93a553676446df18240c76"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_json_content.html#aa106bf900c93a553676446df18240c76">JsonContent</a> (object content)</td></tr>
-<tr class="memdesc:aa106bf900c93a553676446df18240c76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the PushStreamContent class. The <em>onStreamAvailable</em>  action is called when an output stream has become available allowing the action to write to it directly. When the stream is closed, it will signal to the content that is has completed and the HTTP request or response will be completed.  <a href="#aa106bf900c93a553676446df18240c76">More...</a><br /></td></tr>
+<tr class="memdesc:aa106bf900c93a553676446df18240c76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="class_riot_net_1_1_json_content.html" title="Represents HTTP content in JSON format. ">JsonContent</a> instance.  <a href="#aa106bf900c93a553676446df18240c76">More...</a><br /></td></tr>
 <tr class="separator:aa106bf900c93a553676446df18240c76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -120,7 +123,9 @@ override Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_json_content.html#abc2a750e1fb635827428422e382a6083">TryComputeLength</a> (out long length)</td></tr>
 <tr class="separator:abc2a750e1fb635827428422e382a6083"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents HTTP content in JSON format. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aa106bf900c93a553676446df18240c76"></a>
 <div class="memitem">
 <div class="memproto">
@@ -143,10 +148,10 @@ override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 </table>
 </div><div class="memdoc">
 
-<p>Initializes a new instance of the PushStreamContent class. The <em>onStreamAvailable</em>  action is called when an output stream has become available allowing the action to write to it directly. When the stream is closed, it will signal to the content that is has completed and the HTTP request or response will be completed. </p>
+<p>Creates a new <a class="el" href="class_riot_net_1_1_json_content.html" title="Represents HTTP content in JSON format. ">JsonContent</a> instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">onStreamAvailable</td><td>The action to call when an output stream is available. Close the stream to complete the HTTP request or response.</td></tr>
+    <tr><td class="paramname">content</td><td>The object to serialize in JSON format.</td></tr>
   </table>
   </dd>
 </dl>
