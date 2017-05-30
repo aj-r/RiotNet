@@ -5,7 +5,6 @@
 A .NET/C# client for the Riot Games API.
 
 It has the following features:
-- **Asynchronous methods** - methods are awaitable using the async/await keywords.
 - **Flexible and configurable** - uses interfaces and allows inheritance.
 - **Database Ready** - data structures have built-in database metadata, so you can easily persist results using Entity Framework 6 without having to re-define all of the models.
 - [**Full Documentation**](http://aj-r.github.io/RiotNet/docs/interface_riot_net_1_1_i_riot_client.html) - documentation of every method and every property of every object. (Or at least as much as we can figure out from examining the JSON responses. Riot's API documentation is a bit lacking right now.)
@@ -13,12 +12,10 @@ It has the following features:
 - **Full Test Coverage** - so you can trust that it works.
   - However, if you think we missed something, or need to update something, please create an issue. Or better yet, create a pull request!
 - **Compatible** with .NET Core and .NET 4.5.
-- **Complies** with Riot's [rate limiting best practices](https://developer.riotgames.com/docs/rate-limiting)
-- [**NuGet package**](https://www.nuget.org/packages/RiotNet/):
-
-```
-> Install-Package RiotNet
-```
+- **Complies** with Riot's [rate limiting best practices](https://developer.riotgames.com/rate-limiting.html)
+  - You may also want to follow the [Tips to Avoid Being Rate Limited](https://developer.riotgames.com/rate-limiting.html)
+- **Asynchronous methods** - methods are awaitable using the async/await keywords.
+- [**NuGet package**](https://www.nuget.org/packages/RiotNet/): `Install-Package RiotNet`
 
 RiotNet is NOT endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends.
 
@@ -26,17 +23,17 @@ RiotNet is NOT endorsed by Riot Games and doesn't reflect the views or opinions 
 
 This library uses symantic versioning, so version numbers are **not** correlated with version numbers of the Riot API.
 
+- v4 of RiotNet is compatible with v3 of the Riot APIs
 - v1-v3 of RiotNet are compatible with the old versions of the Riot APIs (v1/v2, depending on which API you're looking at)
-- v4 of RiotNet (not yet released) will be compatible with v3 of the Riot APIs
 
 ## Basic Usage
 
 ```
-var client = new RiotClient(Region.NA, new RiotClientSettings
+IRiotClient client = new RiotClient(new RiotClientSettings
 {
     ApiKey = "00000000-0000-0000-0000-000000000000" // Replace this with your API key, of course.
 });
-var championList = await client.GetChampionsAsync().ConfigureAwait(false);
+Summoner summoner = await client.GetSummonerBySummonerNameAsync(PlatformId.NA1).ConfigureAwait(false);
 ```
 
 ## Changing the default settings
@@ -49,7 +46,22 @@ RiotClient.DefaultSettings = () => new RiotClientSettings
     ApiKey = "00000000-0000-0000-0000-000000000000" // Replace this with your API key, of course.
 };
 
-IRiotClient client = new RiotClient(Region.NA); // Now you don't need to pass the settings parameter.
+IRiotClient client = new RiotClient(); // Now you don't need to pass the settings parameter.
+```
+
+## Default Platform ID
+
+If you always use the same Platform ID for the same `RiotClient` instance, use `RiotClient.DefaultPlatformId` or `RiotClient.ForPlatform()`.
+
+```
+RiotClient.DefaultPlatformId = PlatformId.EUW1
+IRiotClient client = new RiotClient();
+```
+
+or
+
+```
+IRiotClient client = RiotClient.ForPlatform(PlatformId.KR);
 ```
 
 ## Interim Keys for the Tournament API
@@ -60,7 +72,7 @@ If you are using the Tournament API, you will probably get an interim key during
 RiotClient.DefaultSettings = () => new RiotClientSettings
 {
     ApiKey = "00000000-0000-0000-0000-000000000000", // Replace this with your API key, of course.
-	UseTournamentStub = true
+	UseTournamentStub = true,
 };
 ```
 
