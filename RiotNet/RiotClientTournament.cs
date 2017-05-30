@@ -13,10 +13,10 @@ namespace RiotNet
         /// IMPORTANT: if you are using an interim API key, you must set <see cref="RiotClientSettings.UseTournamentStub"/> to true before calling this method.
         /// </summary>
         /// <param name="url">The provider's callback URL to which tournament game results in this region should be posted. The URL must be well-formed, use the http or https protocol, and use the default port for the protocol (http URLs must use port 80, https URLs must use port 443).</param>
-        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task<long> CreateTournamentProviderAsync(string url, PlatformId? platformId = null, CancellationToken token = default(CancellationToken));
+        Task<long> CreateTournamentProviderAsync(string url, string platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
         /// Creates a tournament. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
@@ -35,15 +35,15 @@ namespace RiotNet
         /// <param name="tournamentId">The tournament ID obtained from <see cref="CreateTournamentAsync"/>.</param>
         /// <param name="count">The number of codes to create (max 1000).</param>
         /// <param name="allowedParticipants">Optional list of participants in order to validate the players eligible to join the lobby.</param>
-        /// <param name="mapType">The map type of the game. Note that <see cref="MapType.CRYSTAL_SCAR"/> is not allowed.</param>
-        /// <param name="pickType">The pick type of the game.</param>
-        /// <param name="spectatorType">The spectator type of the game.</param>
+        /// <param name="mapType">The map type of the game. This should equal one of the <see cref="MapType"/> values. Note that <see cref="MapType.CRYSTAL_SCAR"/> is not allowed.</param>
+        /// <param name="pickType">The pick type of the game. This should equal one of the <see cref="PickType"/> values.</param>
+        /// <param name="spectatorType">The spectator type of the game. This should equal one of the <see cref="SpectatorType"/> values.</param>
         /// <param name="teamSize">The team size of the game. Valid values are 1-5.</param>
         /// <param name="metadata">Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count = null, List<long> allowedParticipants = null, MapType mapType = MapType.SUMMONERS_RIFT,
-            PickType pickType = PickType.TOURNAMENT_DRAFT, SpectatorType spectatorType = SpectatorType.ALL, int teamSize = 5, string metadata = null, CancellationToken token = default(CancellationToken));
+        Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count = null, List<long> allowedParticipants = null, string mapType = MapType.SUMMONERS_RIFT,
+            string pickType = PickType.TOURNAMENT_DRAFT, string spectatorType = SpectatorType.ALL, int teamSize = 5, string metadata = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
         /// Gets the details of a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
@@ -60,13 +60,13 @@ namespace RiotNet
         /// </summary>
         /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCodeAsync"/>.</param>
         /// <param name="allowedParticipants">Optional list of participants in order to validate the players eligible to join the lobby.</param>
-        /// <param name="mapType">The map type of the game.</param>
-        /// <param name="pickType">The pick type of the game.</param>
-        /// <param name="spectatorType">The spectator type of the game.</param>
+        /// <param name="mapType">The map type of the game. This should equal one of the <see cref="MapType"/> values. Note that <see cref="MapType.CRYSTAL_SCAR"/> is not allowed.</param>
+        /// <param name="pickType">The pick type of the game. This should equal one of the <see cref="PickType"/> values.</param>
+        /// <param name="spectatorType">The spectator type of the game. This should equal one of the <see cref="SpectatorType"/> values.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task UpdateTournamentCodeAsync(string tournamentCode, List<long> allowedParticipants = null, MapType mapType = MapType.SUMMONERS_RIFT,
-            PickType pickType = PickType.TOURNAMENT_DRAFT, SpectatorType spectatorType = SpectatorType.ALL, CancellationToken token = default(CancellationToken));
+        Task UpdateTournamentCodeAsync(string tournamentCode, List<long> allowedParticipants = null, string mapType = MapType.SUMMONERS_RIFT,
+            string pickType = PickType.TOURNAMENT_DRAFT, string spectatorType = SpectatorType.ALL, CancellationToken token = default(CancellationToken));
 
         /// <summary>
         /// Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key.
@@ -94,10 +94,10 @@ namespace RiotNet
         /// IMPORTANT: if you are using an interim API key, you must set <see cref="RiotClientSettings.UseTournamentStub"/> to true before calling this method.
         /// </summary>
         /// <param name="url">The provider's callback URL to which tournament game results in this region should be posted. The URL must be well-formed, use the http or https protocol, and use the default port for the protocol (http URLs must use port 80, https URLs must use port 443).</param>
-        /// <param name="platformId">The platform ID of the server to connect to. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<long> CreateTournamentProviderAsync(string url, PlatformId? platformId = null, CancellationToken token = default(CancellationToken))
+        public Task<long> CreateTournamentProviderAsync(string url, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             var region = GetRegion(platformId ?? PlatformId);
             return PostAsync<long>($"{GetTournamentBaseUrl(settings.UseTournamentStub)}/providers", new { region, url }, token);
@@ -123,15 +123,15 @@ namespace RiotNet
         /// <param name="tournamentId">The tournament ID obtained from <see cref="CreateTournamentAsync"/>.</param>
         /// <param name="count">The number of codes to create (max 1000).</param>
         /// <param name="allowedParticipants">Optional list of participants in order to validate the players eligible to join the lobby.</param>
-        /// <param name="mapType">The map type of the game. Note that <see cref="MapType.CRYSTAL_SCAR"/> is not allowed.</param>
-        /// <param name="pickType">The pick type of the game.</param>
-        /// <param name="spectatorType">The spectator type of the game.</param>
+        /// <param name="mapType">The map type of the game. This should equal one of the <see cref="MapType"/> values. Note that <see cref="MapType.CRYSTAL_SCAR"/> is not allowed.</param>
+        /// <param name="pickType">The pick type of the game. This should equal one of the <see cref="PickType"/> values.</param>
+        /// <param name="spectatorType">The spectator type of the game. This should equal one of the <see cref="SpectatorType"/> values.</param>
         /// <param name="teamSize">The team size of the game. Valid values are 1-5.</param>
         /// <param name="metadata">Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count = null, List<long> allowedParticipants = null, MapType mapType = MapType.SUMMONERS_RIFT,
-            PickType pickType = PickType.TOURNAMENT_DRAFT, SpectatorType spectatorType = SpectatorType.ALL, int teamSize = 5, string metadata = null, CancellationToken token = default(CancellationToken))
+        public Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count = null, List<long> allowedParticipants = null, string mapType = MapType.SUMMONERS_RIFT,
+            string pickType = PickType.TOURNAMENT_DRAFT, string spectatorType = SpectatorType.ALL, int teamSize = 5, string metadata = null, CancellationToken token = default(CancellationToken))
         {
             var queryParameters = new Dictionary<string, object> { { "tournamentId", tournamentId } };
             if (count != null)
@@ -165,13 +165,13 @@ namespace RiotNet
         /// </summary>
         /// <param name="tournamentCode">The tournament code obtained from <see cref="CreateTournamentCodeAsync"/>.</param>
         /// <param name="allowedParticipants">Optional list of participants in order to validate the players eligible to join the lobby.</param>
-        /// <param name="mapType">The map type of the game.</param>
-        /// <param name="pickType">The pick type of the game.</param>
-        /// <param name="spectatorType">The spectator type of the game.</param>
+        /// <param name="mapType">The map type of the game. This should equal one of the <see cref="MapType"/> values. Note that <see cref="MapType.CRYSTAL_SCAR"/> is not allowed.</param>
+        /// <param name="pickType">The pick type of the game. This should equal one of the <see cref="PickType"/> values.</param>
+        /// <param name="spectatorType">The spectator type of the game. This should equal one of the <see cref="SpectatorType"/> values.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task UpdateTournamentCodeAsync(string tournamentCode, List<long> allowedParticipants = null, MapType mapType = MapType.SUMMONERS_RIFT,
-            PickType pickType = PickType.TOURNAMENT_DRAFT, SpectatorType spectatorType = SpectatorType.ALL, CancellationToken token = default(CancellationToken))
+        public Task UpdateTournamentCodeAsync(string tournamentCode, List<long> allowedParticipants = null, string mapType = MapType.SUMMONERS_RIFT,
+            string pickType = PickType.TOURNAMENT_DRAFT, string spectatorType = SpectatorType.ALL, CancellationToken token = default(CancellationToken))
         {
             return PutAsync<object>($"{GetTournamentBaseUrl(false)}/codes/{tournamentCode}", new
             {
@@ -223,33 +223,33 @@ namespace RiotNet
         /// </summary>
         /// <param name="platformId">The platform ID.</param>
         /// <returns>A region.</returns>
-        protected string GetRegion(PlatformId platformId)
+        protected string GetRegion(string platformId)
         {
             switch (platformId)
             {
-                case PlatformId.BR1:
+                case Models.PlatformId.BR1:
                     return "BR";
-                case PlatformId.EUN1:
+                case Models.PlatformId.EUN1:
                     return "EUNE";
-                case PlatformId.EUW1:
+                case Models.PlatformId.EUW1:
                     return "EUW";
-                case PlatformId.JP1:
+                case Models.PlatformId.JP1:
                     return "JP";
-                case PlatformId.KR:
+                case Models.PlatformId.KR:
                     return "KR";
-                case PlatformId.LA1:
+                case Models.PlatformId.LA1:
                     return "LAN";
-                case PlatformId.LA2:
+                case Models.PlatformId.LA2:
                     return "LAS";
-                case PlatformId.NA1:
+                case Models.PlatformId.NA1:
                     return "NA";
-                case PlatformId.OC1:
+                case Models.PlatformId.OC1:
                     return "OCE";
-                case PlatformId.PBE1:
+                case Models.PlatformId.PBE1:
                     return "PBE";
-                case PlatformId.RU:
+                case Models.PlatformId.RU:
                     return "RU";
-                case PlatformId.TR1:
+                case Models.PlatformId.TR1:
                     return "TR";
                 default:
                     throw new NotSupportedException($"Platform ID '{platformId}' is not supported.");

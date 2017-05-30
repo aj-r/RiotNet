@@ -23,8 +23,8 @@ namespace RiotNet.Models
         public string Slug { get; set; }
 
         /// <summary>
-        /// Gets or sets service status.
+        /// Gets or sets service status. This should equal one of the <see cref="ServerStatus"/> values.
         /// </summary>
-        public ServerStatus Status { get; set; }
+        public string Status { get; set; }
     }
 }

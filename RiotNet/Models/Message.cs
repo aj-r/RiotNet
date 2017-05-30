@@ -33,9 +33,9 @@ namespace RiotNet.Models
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or sets server incident message severity.
+        /// Gets or sets server incident message severity. This should equal one of the <see cref="Models.Severity"/> values.
         /// </summary>
-        public Severity Severity { get; set; }
+        public string Severity { get; set; }
 
         /// <summary>
         /// Gets or sets the list of translations of the message.

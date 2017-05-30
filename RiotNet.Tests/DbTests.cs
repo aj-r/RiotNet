@@ -26,12 +26,6 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public void GameDbTest()
-        {
-            VerifyDbStorage<Game>();
-        }
-
-        [Test]
         public void GroupDbTest()
         {
             VerifyDbStorage<Group>();

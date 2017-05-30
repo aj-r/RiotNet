@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using RiotNet.Converters;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace RiotNet.Models
@@ -26,14 +24,13 @@ namespace RiotNet.Models
         public TimeSpan GameLength { get; set; }
 
         /// <summary>
-        /// Gets or sets the game mode.
+        /// Gets or sets the game mode. This should equal one of the <see cref="Models.GameMode"/> values.
         /// </summary>
-        public GameMode GameMode { get; set; }
+        public string GameMode { get; set; }
 
         /// <summary>
         /// Gets or sets the queue type.
         /// </summary>
-        [JsonConverter(typeof(TolerantIntEnumConverter))]
         public QueueType GameQueueConfigId { get; set; }
 
         /// <summary>
@@ -42,9 +39,9 @@ namespace RiotNet.Models
         public DateTime GameStartTime { get; set; }
 
         /// <summary>
-        /// Gets of sets the game type.
+        /// Gets of sets the game type. This should equal one of the <see cref="Models.GameType"/> values.
         /// </summary>
-        public GameType GameType { get; set; }
+        public string GameType { get; set; }
 
         /// <summary>
         /// Gets or sets the map id.
@@ -57,8 +54,8 @@ namespace RiotNet.Models
         public Observer Observers { get; set; }
 
         /// <summary>
-        /// Gets or sets the ID of the platform on which the game is being played.
+        /// Gets or sets the ID of the platform on which the game is being played. This should equal one of the <see cref="Models.PlatformId"/> values.
         /// </summary>
-        public PlatformId PlatformId { get; set; }
+        public string PlatformId { get; set; }
     }
 }

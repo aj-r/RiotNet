@@ -20,9 +20,9 @@ namespace RiotNet
     public partial interface IRiotClient
     {
         /// <summary>
-        /// Gets the platform ID of the default server to connect to.
+        /// Gets the platform ID of the default server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values.
         /// </summary>
-        PlatformId PlatformId { get; }
+        string PlatformId { get; }
 
         /// <summary>
         /// Gets the settings for the current <see cref="IRiotClient"/>.
@@ -65,20 +65,20 @@ namespace RiotNet
     /// </summary>
     public partial class RiotClient : IRiotClient
     {
-        private readonly PlatformId platformId;
+        private readonly string platformId;
         private readonly RiotClientSettings settings;
         private readonly HttpClient client = new HttpClient();
 
         static RiotClient()
         {
-            DefaultPlatformId = PlatformId.NA1;
+            DefaultPlatformId = Models.PlatformId.NA1;
         }
 
         /// <summary>
         /// Creates a new <see cref="RiotClient"/> instance.
         /// </summary>
         public RiotClient()
-            : this(DefaultPlatformId)
+            : this(DefaultSettings())
         { }
 
         /// <summary>
@@ -101,32 +101,34 @@ namespace RiotNet
         /// <summary>
         /// Creates a new <see cref="RiotClient"/> instance.
         /// </summary>
-        /// <param name="platformId">The platform ID of the default server to connect to.</param>
-        public RiotClient(PlatformId platformId)
-            : this(DefaultSettings(), platformId)
-        { }
-
-        /// <summary>
-        /// Creates a new <see cref="RiotClient"/> instance.
-        /// </summary>
         /// <param name="apiKey">The API key to use. NOTE: If you are using a public repository, do NOT check you API key in to the repository.
-        /// <param name="platformId">The platform ID of the default server to connect to.</param>
+        /// <param name="platformId">The platform ID of the default server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values.</param>
         /// It is recommended to load your API key from a separate file (e.g. key.txt) that is ignored by your repository.</param>
-        public RiotClient(string apiKey, PlatformId platformId)
+        public RiotClient(string apiKey, string platformId)
             : this(GetSettingsForApiKey(apiKey), platformId)
         { }
 
         /// <summary>
         /// Creates a new <see cref="RiotClient"/> instance.
         /// </summary>
-        /// <param name="platformId">The platform ID of the default server to connect to.</param>
+        /// <param name="platformId">The platform ID of the default server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values.</param>
         /// <param name="settings">The settings to use.</param>
-        public RiotClient(RiotClientSettings settings, PlatformId platformId)
+        public RiotClient(RiotClientSettings settings, string platformId)
         {
             this.settings = settings;
             this.platformId = platformId;
 
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        }
+
+        /// <summary>
+        /// Creates a new <see cref="RiotClient"/> instance for the specified platform ID.
+        /// </summary>
+        /// <param name="platformId">The platform ID of the default server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values.</param>
+        /// <returns>A RiotClient.</returns>
+        public static RiotClient ForPlatform(string platformId)
+        {
+            return new RiotClient(DefaultSettings(), platformId);
         }
 
         private static RiotClientSettings GetSettingsForApiKey(string apiKey)
@@ -145,13 +147,9 @@ namespace RiotNet
             Converters = new List<JsonConverter>
             {
                 new EpochDateTimeConverter(),
-                new GameSubTypeConverter(),
                 new KeyedCollectionConverter(),
-                new PlayerPositionConverter(),
-                new TolerantStringEnumConverter(),
+                new TolerantIntEnumConverter(),
                 new SecondsToTimeSpanConverter(),
-                // The summoner/by-name API returns data mapped by all-lowercase summoner names. Make the keys case-insensitive so we can access data using the properly-cased summoner names.
-                new CaseInsensitiveDictionaryCreationConverter<Summoner>(),
             }
         };
 
@@ -164,9 +162,9 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets or sets the default platform ID to use when creating a new <see cref="RiotClient"/>.
+        /// Gets or sets the default platform ID to use when creating a new <see cref="RiotClient"/>. This should equal one of the <see cref="Models.PlatformId"/> values.
         /// </summary>
-        public static PlatformId DefaultPlatformId { get; set; }
+        public static string DefaultPlatformId { get; set; }
 
         private static Func<RiotClientSettings> defaultSettings = () => new RiotClientSettings();
 
@@ -182,17 +180,17 @@ namespace RiotNet
         /// <summary>
         /// Gets the server domain name for the specified platform ID.
         /// </summary>
-        /// <param name="platformId">The platform ID corresponding to the server. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <returns>The server host name.</returns>
-        public string GetServerName(PlatformId? platformId = null)
+        public string GetServerName(string platformId = null)
         {
             return (platformId ?? PlatformId) + ".api.riotgames.com";
         }
 
         /// <summary>
-        /// Gets the platform ID of the default server to connect to.
+        /// Gets the platform ID of the default server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values.
         /// </summary>
-        public PlatformId PlatformId
+        public string PlatformId
         {
             get { return platformId; }
         }

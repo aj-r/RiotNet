@@ -413,7 +413,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetStaticRealmAsyncTest_EUW()
         {
-            IRiotClient client = new RiotClient(PlatformId.EUW1);
+            IRiotClient client = RiotClient.ForPlatform(PlatformId.EUW1);
             var realm = await client.GetStaticRealmAsync();
 
             Assert.That(realm, Is.Not.Null);

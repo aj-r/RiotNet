@@ -26,9 +26,9 @@ namespace RiotNet.Models
         public Image Image { get; set; } = new Image();
 
         /// <summary>
-        /// Gets or sets the type of mastery tree that the current <see cref="StaticMastery"/> belongs to.
+        /// Gets or sets the type of mastery tree that the current <see cref="StaticMastery"/> belongs to. This should equal one of the <see cref="MastertyTreeType"/> values.
         /// </summary>
-        public MastertyTreeType MasteryTree { get; set; }
+        public string MasteryTree { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the mastery.

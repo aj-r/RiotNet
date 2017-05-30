@@ -32,7 +32,6 @@ namespace RiotNet.Tests
         public DbSet<Block> Blocks { get; set; }
         public DbSet<BlockItem> BlockItems { get; set; }
         public DbSet<Champion> Champions { get; set; }
-        public DbSet<Game> Games { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<LeagueList> LeagueLists { get; set; }
         public DbSet<LeagueItem> LeagueItems { get; set; }

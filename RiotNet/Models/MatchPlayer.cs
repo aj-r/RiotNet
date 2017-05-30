@@ -9,14 +9,17 @@ namespace RiotNet.Models
     public class MatchPlayer
     {
         /// <summary>
-        /// Gets or sets the platform ID of the player's account.
+        /// Gets or sets the platform ID of the player's account. This should equal one of the <see cref="Models.PlatformId"/> values.
         /// </summary>
-        public PlatformId CurrentPlatformId { get; set; }
+        public string CurrentPlatformId { get; set; }
 
         /// <summary>
-        /// Gets or sets the platform ID of the player's account.
+        /// Gets or sets the platform ID of the player's account. This should equal one of the <see cref="Models.PlatformId"/> values.
         /// </summary>
-        public PlatformId PlatformId { get; set; }
+        /// <remarks>
+        /// For old North America accounts, this may equal "NA" instead of "NA1".
+        /// </remarks>
+        public string PlatformId { get; set; }
 
         /// <summary>
         /// Gets or sets the player's account ID.

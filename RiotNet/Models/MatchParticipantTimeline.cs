@@ -36,9 +36,9 @@ namespace RiotNet.Models
         public MatchParticipantTimelineData GoldPerMinDeltas { get; set; } = new MatchParticipantTimelineData();
 
         /// <summary>
-        /// Gets or sets the participant's lane.
+        /// Gets or sets the participant's lane. This should equal one of the <see cref="PlayerPosition"/> values.
         /// </summary>
-        public PlayerPosition Lane { get; set; }
+        public string Lane { get; set; }
 
         /// <summary>
         /// Gets or sets the participant ID.
@@ -46,9 +46,9 @@ namespace RiotNet.Models
         public int ParticipantId { get; set; }
 
         /// <summary>
-        /// Gets or sets the participant's role.
+        /// Gets or sets the participant's role. This should equal one of the <see cref="MatchRole"/> values.
         /// </summary>
-        public MatchRole Role { get; set; }
+        public string Role { get; set; }
 
         /// <summary>
         /// Gets or sets experience difference per minute timeline data.

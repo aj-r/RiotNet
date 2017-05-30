@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using RiotNet.Converters;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,9 +15,9 @@ namespace RiotNet.Models
         public int Champion { get; set; }
 
         /// <summary>
-        /// Gets or sets the participant's lane for the match.
+        /// Gets or sets the participant's lane for the match. This should equal one of the <see cref="PlayerPosition"/> values.
         /// </summary>
-        public PlayerPosition Lane { get; set; }
+        public string Lane { get; set; }
 
         /// <summary>
         /// Gets or sets the match ID (also referred to as Game ID).
@@ -29,25 +27,23 @@ namespace RiotNet.Models
         public long GameId { get; set; }
 
         /// <summary>
-        /// Gets or sets the platform ID that the match was played on.
+        /// Gets or sets the platform ID that the match was played on. This should equal one of the <see cref="Models.PlatformId"/> values.
         /// </summary>
-        public PlatformId PlatformId { get; set; }
+        public string PlatformId { get; set; }
 
         /// <summary>
         /// Gets or sets the queue type for the match.
         /// </summary>
-        [JsonConverter(typeof(TolerantIntEnumConverter))]
         public QueueType Queue { get; set; }
 
         /// <summary>
-        /// Gets or sets the participant's role.
+        /// Gets or sets the participant's role. This should equal one of the <see cref="MatchRole"/> values.
         /// </summary>
-        public MatchRole Role { get; set; }
+        public string Role { get; set; }
 
         /// <summary>
         /// Gets or sets the season the match was played in.
         /// </summary>
-        [JsonConverter(typeof(TolerantIntEnumConverter))]
         public Season Season { get; set; }
 
         /// <summary>

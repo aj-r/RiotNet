@@ -26,9 +26,9 @@ namespace RiotNet.Models
         public string LobbyName { get; set; }
 
         /// <summary>
-        ///  Gets or sets the map on which the tournament code game will be played.
+        ///  Gets or sets the map on which the tournament code game will be played. This should equal one of the <see cref="MapType"/> values.
         /// </summary>
-        public MapType Map { get; set; }
+        public string Map { get; set; }
 
         /// <summary>
         ///  Gets or sets the metadata for the tournament code game.
@@ -47,9 +47,9 @@ namespace RiotNet.Models
         public string Password { get; set; }
 
         /// <summary>
-        /// Gets or sets the method used for picking champions.
+        /// Gets or sets the method used for picking champions. This should equal one of the <see cref="PickType"/> values.
         /// </summary>
-        public PickType PickType { get; set; }
+        public string PickType { get; set; }
 
         /// <summary>
         ///  Gets or sets the provider ID.
@@ -62,9 +62,9 @@ namespace RiotNet.Models
         public string Region { get; set; }
 
         /// <summary>
-        ///  Gets or sets the spectator type for the game.
+        ///  Gets or sets the spectator type for the game. This should equal one of the <see cref="SpectatorType"/> values.
         /// </summary>
-        public SpectatorType Spectators { get; set; }
+        public string Spectators { get; set; }
 
         /// <summary>
         ///  Gets or sets the number of players per team.

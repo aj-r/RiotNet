@@ -19,7 +19,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the ascended type of the event. Only present if relevant.
         /// </summary>
-        public AscendedType? AscendedType { get; set; }
+        public string AscendedType { get; set; }
 
         /// <summary>
         /// Gets or sets the assisting participant IDs of the event. Only present if relevant.
@@ -32,9 +32,9 @@ namespace RiotNet.Models
         public int? BeforeId { get; set; }
 
         /// <summary>
-        /// Gets or sets the building type of the event. Only present if relevant.
+        /// Gets or sets the building type of the event. Only present if relevant. This should equal one of the <see cref="Models.BuildingType"/> values.
         /// </summary>
-        public BuildingType? BuildingType { get; set; }
+        public string BuildingType { get; set; }
 
         /// <summary>
         /// Gets or sets the participant ID of the participant who created the object. Only present if relevant.
@@ -45,7 +45,7 @@ namespace RiotNet.Models
         /// Gets or sets event type.
         /// </summary>
         [Obsolete("It appears that this property is no longer used by the Riot API. Use Type instead.")]
-        public EventType EventType { get; set; }
+        public string EventType { get; set; }
 
         /// <summary>
         /// Gets or sets the item ID of the event. Only present if relevant.
@@ -58,22 +58,22 @@ namespace RiotNet.Models
         public int? KillerId { get; set; }
 
         /// <summary>
-        /// Gets or sets the lane type of the event. Only present if relevant.
+        /// Gets or sets the lane type of the event. Only present if relevant. This should equal one of the <see cref="Models.LaneType"/> values.
         /// </summary>
-        public LaneType? LaneType { get; set; }
+        public string LaneType { get; set; }
 
         /// <summary>
-        /// Gets or sets the level up type of the event. Only present if relevant.
+        /// Gets or sets the level up type of the event. Only present if relevant. This should equal one of the <see cref="Models.LevelUpType"/> values.
         /// </summary>
-        public LevelUpType? LevelUpType { get; set; }
+        public string LevelUpType { get; set; }
 
         /// <summary>
-        /// Gets or sets the monster type of the event. Only present if relevant.
+        /// Gets or sets the monster type of the event. Only present if relevant. This should equal one of the <see cref="Models.MonsterType"/> values.
         /// </summary>
-        public MonsterType? MonsterType { get; set; }
+        public string MonsterType { get; set; }
 
         /// <summary>
-        /// Gets or sets the monster sub-type of the event. See <see cref="Models.MonsterSubType"/> constants.
+        /// Gets or sets the monster sub-type of the event. Only present if relevant (i.e. for dragon kills). This should equal one of the <see cref="Models.MonsterSubType"/> values.
         /// </summary>
         public string MonsterSubType { get; set; }
 
@@ -83,9 +83,9 @@ namespace RiotNet.Models
         public int? ParticipantId { get; set; }
 
         /// <summary>
-        /// Gets or sets the point captured in the event. Only present if relevant.
+        /// Gets or sets the point captured in the event. Only present if relevant. This should equal one of the <see cref="Models.Point"/> values.
         /// </summary>
-        public Point? PointCaptured { get; set; }
+        public string PointCaptured { get; set; }
 
         /// <summary>
         /// Gets or sets the position of the event. Only present if relevant.
@@ -109,14 +109,14 @@ namespace RiotNet.Models
         public TimeSpan Timestamp { get; set; }
 
         /// <summary>
-        /// Gets or sets the tower type of the event. Only present if relevant.
+        /// Gets or sets the tower type of the event. Only present if relevant. This should equal one of the <see cref="Models.TowerType"/> values.
         /// </summary>
-        public TowerType? TowerType { get; set; }
+        public string TowerType { get; set; }
 
         /// <summary>
-        /// Gets or sets event type.
+        /// Gets or sets event type. This should equal one of the <see cref="Models.EventType"/> values.
         /// </summary>
-        public EventType Type { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
         /// Gets or sets the participant ID of the victiom of the event. Only present if relevant.
@@ -124,9 +124,9 @@ namespace RiotNet.Models
         public int? VictimId { get; set; }
 
         /// <summary>
-        /// Gets or sets the ward type of the event. Only present if relevant.
+        /// Gets or sets the ward type of the event. Only present if relevant. This should equal one of the <see cref="Models.WardType"/> values.
         /// </summary>
-        public WardType? WardType { get; set; }
+        public string WardType { get; set; }
 
 #if DB_READY
         /// <summary>

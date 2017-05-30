@@ -16,9 +16,9 @@ namespace RiotNet.Models
         public int ChampionId { get; set; }
 
         /// <summary>
-        /// Gets or sets highest ranked tier achieved for the previous season, if any; otherwise null. Used to display border in game loading screen.
+        /// Gets or sets highest ranked tier achieved for the previous season, if any; otherwise null. Used to display border in game loading screen. This should equal one of the <see cref="Tier"/> values.
         /// </summary>
-        public Tier? HighestAchievedSeasonTier { get; set; }
+        public string HighestAchievedSeasonTier { get; set; }
 
         /// <summary>
         /// Gets or sets list of mastery information.

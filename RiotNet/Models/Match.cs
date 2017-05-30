@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using RiotNet.Converters;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -38,14 +36,14 @@ namespace RiotNet.Models
         public TimeSpan GameDuration { get; set; }
 
         /// <summary>
-        /// Gets or sets the game mode.
+        /// Gets or sets the game mode. This should equal one of the <see cref="Models.GameMode"/> values.
         /// </summary>
-        public GameMode GameMode { get; set; }
+        public string GameMode { get; set; }
 
         /// <summary>
-        /// Gets or sets the game type.
+        /// Gets or sets the game type. This should equal one of the <see cref="Models.GameType"/> values.
         /// </summary>
-        public GameType GameType { get; set; }
+        public string GameType { get; set; }
 
         /// <summary>
         /// Gets or sets the game version (patch number).
@@ -63,20 +61,18 @@ namespace RiotNet.Models
         public virtual List<MatchParticipant> Participants { get; set; }
 
         /// <summary>
-        /// Gets or sets the platform ID of the match.
+        /// Gets or sets the platform ID of the match. This should equal one of the <see cref="Models.PlatformId"/> values.
         /// </summary>
-        public PlatformId PlatformId { get; set; }
+        public string PlatformId { get; set; }
 
         /// <summary>
         /// Gets or sets the game queue type.
         /// </summary>
-        [JsonConverter(typeof(TolerantIntEnumConverter))]
         public QueueType QueueId { get; set; }
 
         /// <summary>
         /// Gets or sets season when the game was played.
         /// </summary>
-        [JsonConverter(typeof(TolerantIntEnumConverter))]
         public Season SeasonId { get; set; }
 
         /// <summary>

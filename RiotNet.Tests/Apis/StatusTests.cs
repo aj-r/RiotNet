@@ -30,7 +30,7 @@ namespace RiotNet.Tests
         [Test]
         public async Task GetShardDataAsyncTest_WithClientPlatformId()
         {
-            IRiotClient client = new RiotClient(PlatformId.LA2);
+            IRiotClient client = RiotClient.ForPlatform(PlatformId.LA2);
             ShardStatus shard = await client.GetShardDataAsync();
 
             Assert.That(shard, Is.Not.Null);

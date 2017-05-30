@@ -26,14 +26,14 @@ namespace RiotNet.Models
         public string ParticipantId { get; set; }
 
         /// <summary>
-        /// Gets or sets the league's queue type.
+        /// Gets or sets the league's ranked queue type. This should equal one of the <see cref="RankedQueue"/> values.
         /// </summary>
-        public RankedQueue Queue { get; set; }
+        public string Queue { get; set; }
 
         /// <summary>
-        /// Gets or sets the league's tier.
+        /// Gets or sets the league's tier. This should equal one of the <see cref="Models.Tier"/> values.
         /// </summary>
-        public Tier Tier { get; set; }
+        public string Tier { get; set; }
 
 #if DB_READY
         /// <summary>

@@ -97,7 +97,7 @@ namespace RiotNet.Tests.Converters
         [Test]
         public void ShouldSerializeInt()
         {
-            var value = JsonConvert.SerializeObject(TestEnum.FourthValue, new JsonSerializerSettings { Converters = { new TolerantIntEnumConverter() } });
+            var value = JsonConvert.SerializeObject(TestEnum.FourthValue, jsonSettings);
 
             Assert.That(value, Is.EqualTo("3"));
         }
@@ -105,31 +105,15 @@ namespace RiotNet.Tests.Converters
         [Test]
         public void ShouldSerializeInt_ForNullableType()
         {
-            var value = JsonConvert.SerializeObject((TestEnum?)TestEnum.FourthValue, new JsonSerializerSettings { Converters = { new TolerantIntEnumConverter() } });
+            var value = JsonConvert.SerializeObject((TestEnum?)TestEnum.FourthValue, jsonSettings);
 
             Assert.That(value, Is.EqualTo("3"));
         }
 
         [Test]
-        public void ShouldSerializeString()
-        {
-            var value = JsonConvert.SerializeObject(TestEnum.FourthValue, jsonSettings);
-
-            Assert.That(value, Is.EqualTo("\"FourthValue\""));
-        }
-
-        [Test]
-        public void ShouldSerializeString_ForNullableType()
-        {
-            var value = JsonConvert.SerializeObject((TestEnum?)TestEnum.FourthValue, jsonSettings);
-
-            Assert.That(value, Is.EqualTo("\"FourthValue\""));
-        }
-
-        [Test]
         public void ShouldSerializeNull()
         {
-            var value = JsonConvert.SerializeObject((TestEnum?)null);
+            var value = JsonConvert.SerializeObject((TestEnum?)null, jsonSettings);
 
             Assert.That(value, Is.EqualTo("null"));
         }
