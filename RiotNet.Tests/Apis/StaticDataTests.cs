@@ -26,8 +26,7 @@ namespace RiotNet.Tests
 
             // The key should NOT be an integer
             var key = championList.Data.Keys.First();
-            int id;
-            var isInteger = int.TryParse(key, out id);
+            var isInteger = int.TryParse(key, out int id);
             Assert.That(isInteger, Is.False, "Champs are listed by ID, but should be listed by key.");
         }
 
@@ -43,8 +42,7 @@ namespace RiotNet.Tests
 
             // The key should be an integer
             var key = championList.Data.Keys.First();
-            int id;
-            var isInteger = int.TryParse(key, out id);
+            var isInteger = int.TryParse(key, out int id);
             Assert.That(isInteger, Is.True, "Champs are listed by key, but should be listed by ID.");
         }
         [Test]
@@ -625,8 +623,7 @@ namespace RiotNet.Tests
 
             // The key should NOT be an integer
             var key = spellList.Data.Keys.First();
-            int id;
-            var isInteger = int.TryParse(key, out id);
+            var isInteger = int.TryParse(key, out int id);
             Assert.That(isInteger, Is.False, "Champs are listed by ID, but should be listed by key.");
         }
 
@@ -658,8 +655,7 @@ namespace RiotNet.Tests
 
             // The key should be an integer
             var key = spellList.Data.Keys.First();
-            int id;
-            var isInteger = int.TryParse(key, out id);
+            var isInteger = int.TryParse(key, out int id);
             Assert.That(isInteger, "Spells are not listed by ID.");
         }
 

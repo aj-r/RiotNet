@@ -72,7 +72,7 @@ If you are using the Tournament API, you will probably get an interim key during
 RiotClient.DefaultSettings = () => new RiotClientSettings
 {
     ApiKey = "00000000-0000-0000-0000-000000000000", // Replace this with your API key, of course.
-	UseTournamentStub = true,
+    UseTournamentStub = true,
 };
 ```
 
