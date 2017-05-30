@@ -1,5 +1,7 @@
 # RiotNet
 
+[![NuGet](https://img.shields.io/nuget/v/RiotNet.svg)](https://www.nuget.org/packages/RiotNet/) [![build](https://travis-ci.org/aj-r/RiotNet.svg?branch=master)](https://travis-ci.org/aj-r/RiotNet)
+
 A .NET/C# client for the Riot Games API.
 
 It has the following features:
