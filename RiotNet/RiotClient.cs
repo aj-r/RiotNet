@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RiotNet.Converters;
-using RiotNet.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
