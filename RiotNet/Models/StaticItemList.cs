@@ -16,11 +16,6 @@ namespace RiotNet.Models
         }
 
         /// <summary>
-        /// Gets or sets the basic item data, which contains the default value for each Item property.
-        /// </summary>
-        public StaticItem Basic { get; set; }
-
-        /// <summary>
         /// Gets or sets the list of groups, which define the maximum number of items of certain types that a player can own.
         /// </summary>
         public List<Group> Groups { get; set; }

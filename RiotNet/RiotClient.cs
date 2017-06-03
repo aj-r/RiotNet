@@ -68,11 +68,6 @@ namespace RiotNet
         private readonly RiotClientSettings settings;
         private readonly HttpClient client = new HttpClient();
 
-        static RiotClient()
-        {
-            DefaultPlatformId = Models.PlatformId.NA1;
-        }
-
         /// <summary>
         /// Creates a new <see cref="RiotClient"/> instance.
         /// </summary>
@@ -183,7 +178,9 @@ namespace RiotNet
         /// <returns>The server host name.</returns>
         public string GetServerName(string platformId = null)
         {
-            return (platformId ?? PlatformId) + ".api.riotgames.com";
+            if (platformId == null && PlatformId == null)
+                throw new RestException(null, "Platform ID was not specified. You must set RiotClient.PlatformId or pass in a platformId parameter.");
+            return (platformId ?? PlatformId).ToLower() + ".api.riotgames.com";
         }
 
         /// <summary>
@@ -354,10 +351,9 @@ namespace RiotNet
                     if (response.Response?.Headers.TryGetValues("Retry-After", out retryAfterValues) == true)
                     {
                         var retryAfter = retryAfterValues.First();
-                        int delaySeconds;
-                        if (int.TryParse(retryAfter, out delaySeconds))
+                        if (int.TryParse(retryAfter, out int delaySeconds))
                             await Task.Delay((delaySeconds + 1) * 1000).ConfigureAwait(false);
-                   }
+                    }
                 }
             } while (attemptCount < Settings.MaxRequestAttempts);
 

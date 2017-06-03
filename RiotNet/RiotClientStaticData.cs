@@ -12,63 +12,63 @@ namespace RiotNet
     public partial interface IRiotClient
     {
         /// <summary>
-        /// Gets the details for all champions. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the champListData parameter to specify which properties you want.
+        /// Gets the details for all champions. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <param name="dataById">If true, the returned data map will use the champions' IDs as the keys. If false, the returned data map will use the champions' keys instead.</param>
-        /// <param name="champListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> or <see cref="StaticChampionList"/> objects. Only type, version, data, id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> or <see cref="StaticChampionList"/> objects. Only type, version, data, id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        Task<StaticChampionList> GetStaticChampionsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null, string platformId = null, CancellationToken token = default(CancellationToken));
+        Task<StaticChampionList> GetStaticChampionsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
-        /// Gets champion details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the champData parameter to specify which properties you want.
+        /// Gets champion details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="id">The champion ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="champData">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> object. Only id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> object. Only id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        Task<StaticChampion> GetStaticChampionByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> champData = null, string platformId = null, CancellationToken token = default(CancellationToken));
+        Task<StaticChampion> GetStaticChampionByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
-        /// Gets a list of all available items. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the itemListData parameter to specify which properties you want.
+        /// Gets a list of all available items. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="itemListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticItem"/> or <see cref="StaticItemList"/> objects. Only id, name, type, version, basic, data, plaintext, group, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticItem"/> or <see cref="StaticItemList"/> objects. Only id, name, type, version, basic, data, plaintext, group, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        Task<StaticItemList> GetStaticItemsAsync(string locale = null, string version = null, IEnumerable<string> itemListData = null, string platformId = null, CancellationToken token = default(CancellationToken));
+        Task<StaticItemList> GetStaticItemsAsync(string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
-        /// Gets an item by its ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the itemData parameter to specify which properties you want.
+        /// Gets an item by its ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="id">The item ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="itemData">Tags to return additional data. Valid tags are any property of the <see cref="StaticItem"/> or <see cref="StaticItemList"/> objects. Only id, name, type, version, basic, data, plaintext, group, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticItem"/> or <see cref="StaticItemList"/> objects. Only id, name, type, version, basic, data, plaintext, group, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        Task<StaticItem> GetStaticItemAsync(int id, string locale = null, string version = null, IEnumerable<string> itemData = null, string platformId = null, CancellationToken token = default(CancellationToken));
+        Task<StaticItem> GetStaticItemAsync(int id, string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
         /// Gets a list of available languages. This method uses the LoL Static Data API.
@@ -108,33 +108,33 @@ namespace RiotNet
         Task<StaticMapList> GetStaticMapsAsync(string locale = null, string version = null, string platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
-        /// Gets the details for all masteries. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the masteryListData parameter to specify which properties you want.
+        /// Gets the details for all masteries. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="masteryListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> or <see cref="StaticMasteryList"/> objects. Only type, version, data, id, name, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> or <see cref="StaticMasteryList"/> objects. Only type, version, data, id, name, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        Task<StaticMasteryList> GetStaticMasteriesAsync(string locale = null, string version = null, IEnumerable<string> masteryListData = null, string platformId = null, CancellationToken token = default(CancellationToken));
+        Task<StaticMasteryList> GetStaticMasteriesAsync(string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
-        /// Gets mastery details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the masteryData parameter to specify which properties you want.
+        /// Gets mastery details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="id">The mastery ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="masteryData">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> object. Only id, name, description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> object. Only id, name, description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        Task<StaticMastery> GetStaticMasteryByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null, string platformId = null, CancellationToken token = default(CancellationToken));
+        Task<StaticMastery> GetStaticMasteryByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
         /// Gets the profile icon data. This method uses the LoL Static Data API.
@@ -159,63 +159,63 @@ namespace RiotNet
         Task<StaticRealm> GetStaticRealmAsync(string platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
-        /// Gets a list of all available runes. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the runeListData parameter to specify which properties you want.
+        /// Gets a list of all available runes. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="runeListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticRune"/> or <see cref="StaticRuneList"/> objects. Only type, version, data, id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticRune"/> or <see cref="StaticRuneList"/> objects. Only type, version, data, id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        Task<StaticRuneList> GetStaticRunesAsync(string locale = null, string version = null, IEnumerable<string> runeListData = null, string platformId = null, CancellationToken token = default(CancellationToken));
+        Task<StaticRuneList> GetStaticRunesAsync(string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
-        /// Gets a rune by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the runeData parameter to specify which properties you want.
+        /// Gets a rune by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="id">The rune ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="runeData">Tags to return additional data. Valid tags are any property of the <see cref="StaticRune"/> object. Only id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticRune"/> object. Only id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        Task<StaticRune> GetStaticRuneByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> runeData = null, string platformId = null, CancellationToken token = default(CancellationToken));
+        Task<StaticRune> GetStaticRuneByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
-        /// Gets the details for all summoner spells. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the spellListData parameter to specify which properties you want.
+        /// Gets the details for all summoner spells. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <param name="dataById">If true, the returned data map will use the spells' IDs as the keys. If false, the returned data map will use the spells' keys instead.</param>
-        /// <param name="spellListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticSummonerSpell"/> or <see cref="StaticSummonerSpellList"/> objects. Only type, version, data, id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticSummonerSpell"/> or <see cref="StaticSummonerSpellList"/> objects. Only type, version, data, id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        Task<StaticSummonerSpellList> GetStaticSummonerSpellsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> spellListData = null, string platformId = null, CancellationToken token = default(CancellationToken));
+        Task<StaticSummonerSpellList> GetStaticSummonerSpellsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
-        /// Gets summoner spell details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the spellData parameter to specify which properties you want.
+        /// Gets summoner spell details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="id">The summoner spell ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="spellData">Tags to return additional data. Valid tags are any property of the <see cref="StaticSummonerSpell"/> object. Only id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticSummonerSpell"/> object. Only id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        Task<StaticSummonerSpell> GetStaticSummonerSpellByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> spellData = null, string platformId = null, CancellationToken token = default(CancellationToken));
+        Task<StaticSummonerSpell> GetStaticSummonerSpellByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
         /// Gets the list of available game versions. This method uses the LoL Static Data API.
@@ -242,109 +242,95 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the details for all champions. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the champListData parameter to specify which properties you want.
+        /// Gets the details for all champions. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <param name="dataById">If true, the returned data map will use the champions' IDs as the keys. If false, the returned data map will use the champions' keys instead.</param>
-        /// <param name="champListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> or <see cref="StaticChampionList"/> objects. Only type, version, data, id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> or <see cref="StaticChampionList"/> objects. Only type, version, data, id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticChampionList> GetStaticChampionsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> champListData = null, string platformId = null, CancellationToken token = default(CancellationToken))
+        public Task<StaticChampionList> GetStaticChampionsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var url = $"{GetStaticDataBaseUrl(platformId)}/champions";
+            var url = $"{GetStaticDataBaseUrl(platformId)}/champions?dataById={(dataById ? "true" : "false")}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            if (dataById)
-                queryParameters["dataById"] = "true";
 
-            var dataParam = CreateDataParam("champListData", champListData, typeof(StaticChampion), typeof(StaticChampionList));
-            if (!string.IsNullOrEmpty(dataParam))
-                url = AddQueryParam(url, dataParam);
+            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticChampion), typeof(StaticChampionList));
+            if (!string.IsNullOrEmpty(tagsParam))
+                url = AddQueryParam(url, tagsParam);
             return GetAsync<StaticChampionList>(url, token, queryParameters);
         }
 
         /// <summary>
-        /// Gets champion details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the champData parameter to specify which properties you want.
+        /// Gets champion details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="id">The champion ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="champData">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> object. Only id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticChampion"/> object. Only id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticChampion> GetStaticChampionByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> champData = null, string platformId = null, CancellationToken token = default(CancellationToken))
+        public Task<StaticChampion> GetStaticChampionByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             var url = $"{GetStaticDataBaseUrl(platformId)}/champions/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
 
-            var dataParam = CreateDataParam("champData", champData, typeof(StaticChampion));
-            if (!string.IsNullOrEmpty(dataParam))
-                url = AddQueryParam(url, dataParam);
+            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticChampion));
+            if (!string.IsNullOrEmpty(tagsParam))
+                url = AddQueryParam(url, tagsParam);
             return GetAsync<StaticChampion>(url, token, queryParameters);
         }
 
         /// <summary>
-        /// Gets a list of all available items. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the itemListData parameter to specify which properties you want.
+        /// Gets a list of all available items. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="itemListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticItem"/> or <see cref="StaticItemList"/> objects. Only id, name, type, version, basic, data, plaintext, group, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticItem"/> or <see cref="StaticItemList"/> objects. Only id, name, type, version, basic, data, plaintext, group, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public async Task<StaticItemList> GetStaticItemsAsync(string locale = null, string version = null, IEnumerable<string> itemListData = null, string platformId = null, CancellationToken token = default(CancellationToken))
+        public Task<StaticItemList> GetStaticItemsAsync(string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             var url = $"{GetStaticDataBaseUrl(platformId)}/items";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var dataParam = CreateDataParam("itemListData", itemListData, typeof(StaticItem), typeof(StaticItemList));
-            if (!string.IsNullOrEmpty(dataParam))
-                url = AddQueryParam(url, dataParam);
-            var itemList = await GetAsync<StaticItemList>(url, token, queryParameters).ConfigureAwait(false);
-
-            if (itemList == null)
-                return null;
-
-            // Add missing default values to the Maps dictionary.
-            var defaultMaps = itemList.Basic.Maps;
-            foreach (var item in itemList.Data.Values)
-                foreach (var kvp in defaultMaps)
-                    if (!item.Maps.ContainsKey(kvp.Key))
-                        item.Maps.Add(kvp.Key, kvp.Value);
-
-            return itemList;
+            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticItem), typeof(StaticItemList));
+            if (!string.IsNullOrEmpty(tagsParam))
+                url = AddQueryParam(url, tagsParam);
+            return GetAsync<StaticItemList>(url, token, queryParameters);
         }
 
         /// <summary>
-        /// Gets an item by its ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the itemData parameter to specify which properties you want.
+        /// Gets an item by its ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="id">The item ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="itemData">Tags to return additional data. Valid tags are any property of the <see cref="StaticItem"/> or <see cref="StaticItemList"/> objects. Only id, name, type, version, basic, data, plaintext, group, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticItem"/> or <see cref="StaticItemList"/> objects. Only id, name, type, version, basic, data, plaintext, group, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticItem> GetStaticItemAsync(int id, string locale = null, string version = null, IEnumerable<string> itemData = null, string platformId = null, CancellationToken token = default(CancellationToken))
+        public Task<StaticItem> GetStaticItemAsync(int id, string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             var url = $"{GetStaticDataBaseUrl(platformId)}/items/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var dataParam = CreateDataParam("itemData", itemData, typeof(StaticItem));
-            if (!string.IsNullOrEmpty(dataParam))
-                url = AddQueryParam(url, dataParam);
+            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticItem));
+            if (!string.IsNullOrEmpty(tagsParam))
+                url = AddQueryParam(url, tagsParam);
             return GetAsync<StaticItem>(url, token, queryParameters);
         }
 
@@ -397,47 +383,47 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the details for all masteries. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the masteryListData parameter to specify which properties you want.
+        /// Gets the details for all masteries. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="masteryListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> or <see cref="StaticMasteryList"/> objects. Only type, version, data, id, name, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> or <see cref="StaticMasteryList"/> objects. Only type, version, data, id, name, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticMasteryList> GetStaticMasteriesAsync(string locale = null, string version = null, IEnumerable<string> masteryListData = null, string platformId = null, CancellationToken token = default(CancellationToken))
+        public Task<StaticMasteryList> GetStaticMasteriesAsync(string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             var url = $"{GetStaticDataBaseUrl(platformId)}/masteries";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var dataParam = CreateDataParam("masteryListData", masteryListData, typeof(StaticMastery), typeof(StaticMasteryList));
-            if (!string.IsNullOrEmpty(dataParam))
-                url = AddQueryParam(url, dataParam);
+            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticMastery), typeof(StaticMasteryList));
+            if (!string.IsNullOrEmpty(tagsParam))
+                url = AddQueryParam(url, tagsParam);
             return GetAsync<StaticMasteryList>(url, token, queryParameters);
         }
 
         /// <summary>
-        /// Gets mastery details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the masteryData parameter to specify which properties you want.
+        /// Gets mastery details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="id">The mastery ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="masteryData">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> object. Only id, name, description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticMastery"/> object. Only id, name, description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticMastery> GetStaticMasteryByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> masteryData = null, string platformId = null, CancellationToken token = default(CancellationToken))
+        public Task<StaticMastery> GetStaticMasteryByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             var url = $"{GetStaticDataBaseUrl(platformId)}/masteries/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var dataParam = CreateDataParam("masteryData", masteryData, typeof(StaticMastery));
-            if (!string.IsNullOrEmpty(dataParam))
-                url = AddQueryParam(url, dataParam);
+            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticMastery));
+            if (!string.IsNullOrEmpty(tagsParam))
+                url = AddQueryParam(url, tagsParam);
             return GetAsync<StaticMastery>(url, token, queryParameters);
         }
 
@@ -470,107 +456,93 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets a list of all available runes. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the runeListData parameter to specify which properties you want.
+        /// Gets a list of all available runes. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="runeListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticRune"/> or <see cref="StaticRuneList"/> objects. Only type, version, data, id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticRune"/> or <see cref="StaticRuneList"/> objects. Only type, version, data, id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public async Task<StaticRuneList> GetStaticRunesAsync(string locale = null, string version = null, IEnumerable<string> runeListData = null, string platformId = null, CancellationToken token = default(CancellationToken))
+        public Task<StaticRuneList> GetStaticRunesAsync(string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             var url = $"{GetStaticDataBaseUrl(platformId)}/runes";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var dataParam = CreateDataParam("runeListData", runeListData, typeof(StaticRune), typeof(StaticRuneList));
-            if (!string.IsNullOrEmpty(dataParam))
-                url = AddQueryParam(url, dataParam);
-            var runeList = await GetAsync<StaticRuneList>(url, token, queryParameters).ConfigureAwait(false);
-
-            if (runeList == null)
-                return null;
-
-            // Add missing default values to the Maps dictionary.
-            var defaultMaps = runeList.Basic.Maps;
-            foreach (var item in runeList.Data.Values)
-                foreach (var kvp in defaultMaps)
-                    if (!item.Maps.ContainsKey(kvp.Key))
-                        item.Maps.Add(kvp.Key, kvp.Value);
-
-            return runeList;
+            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticRune), typeof(StaticRuneList));
+            if (!string.IsNullOrEmpty(tagsParam))
+                url = AddQueryParam(url, tagsParam);
+            return GetAsync<StaticRuneList>(url, token, queryParameters);
         }
 
         /// <summary>
-        /// Gets a rune by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the runeData parameter to specify which properties you want.
+        /// Gets a rune by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="id">The rune ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="runeData">Tags to return additional data. Valid tags are any property of the <see cref="StaticRune"/> object. Only id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticRune"/> object. Only id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticRune> GetStaticRuneByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> runeData = null, string platformId = null, CancellationToken token = default(CancellationToken))
+        public Task<StaticRune> GetStaticRuneByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             var url = $"{GetStaticDataBaseUrl(platformId)}/runes/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var dataParam = CreateDataParam("runeData", runeData, typeof(StaticRune));
-            if (!string.IsNullOrEmpty(dataParam))
-                url = AddQueryParam(url, dataParam);
+            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticRune));
+            if (!string.IsNullOrEmpty(tagsParam))
+                url = AddQueryParam(url, tagsParam);
             return GetAsync<StaticRune>(url, token, queryParameters);
         }
 
         /// <summary>
-        /// Gets the details for all summoner spells. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the spellListData parameter to specify which properties you want.
+        /// Gets the details for all summoner spells. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
         /// <param name="dataById">If true, the returned data map will use the spells' IDs as the keys. If false, the returned data map will use the spells' keys instead.</param>
-        /// <param name="spellListData">Tags to return additional data. Valid tags are any property of the <see cref="StaticSummonerSpell"/> or <see cref="StaticSummonerSpellList"/> objects. Only type, version, data, id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticSummonerSpell"/> or <see cref="StaticSummonerSpellList"/> objects. Only type, version, data, id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticSummonerSpellList> GetStaticSummonerSpellsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> spellListData = null, string platformId = null, CancellationToken token = default(CancellationToken))
+        public Task<StaticSummonerSpellList> GetStaticSummonerSpellsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var url = $"{GetStaticDataBaseUrl(platformId)}/summoner-spells";
+            var url = $"{GetStaticDataBaseUrl(platformId)}/summoner-spells?dataById={(dataById ? "true" : "false")}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            if (dataById)
-                queryParameters["dataById"] = "true";
-            var dataParam = CreateDataParam("spellListData", spellListData, typeof(StaticSummonerSpell), typeof(StaticSummonerSpellList));
-            if (!string.IsNullOrEmpty(dataParam))
-                url = AddQueryParam(url, dataParam);
+            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticSummonerSpell), typeof(StaticSummonerSpellList));
+            if (!string.IsNullOrEmpty(tagsParam))
+                url = AddQueryParam(url, tagsParam);
             return GetAsync<StaticSummonerSpellList>(url, token, queryParameters);
         }
 
         /// <summary>
-        /// Gets summoner spell details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the spellData parameter to specify which properties you want.
+        /// Gets summoner spell details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
         /// </summary>
         /// <param name="id">The summoner spell ID.</param>
         /// <param name="locale">Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used.</param>
         /// <param name="version">The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <see cref="GetVersionsAsync"/>.</param>
-        /// <param name="spellData">Tags to return additional data. Valid tags are any property of the <see cref="StaticSummonerSpell"/> object. Only id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
+        /// <param name="tags">Tags to return additional data. Valid tags are any property of the <see cref="StaticSummonerSpell"/> object. Only id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</param>
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
-        public Task<StaticSummonerSpell> GetStaticSummonerSpellByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> spellData = null, string platformId = null, CancellationToken token = default(CancellationToken))
+        public Task<StaticSummonerSpell> GetStaticSummonerSpellByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             var url = $"{GetStaticDataBaseUrl(platformId)}/summoner-spells/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var dataParam = CreateDataParam("spellData", spellData, typeof(StaticSummonerSpell));
-            if (!string.IsNullOrEmpty(dataParam))
-                url = AddQueryParam(url, dataParam);
+            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticSummonerSpell));
+            if (!string.IsNullOrEmpty(tagsParam))
+                url = AddQueryParam(url, tagsParam);
             return GetAsync<StaticSummonerSpell>(url, token, queryParameters);
         }
 
@@ -590,7 +562,7 @@ namespace RiotNet
 
         #region Helper Methods
 
-        private static string CreateDataParam(string name, IEnumerable<string> propertyNames, Type type, Type listType = null)
+        private static string CreateTagsParam(string name, IEnumerable<string> propertyNames, Type type, Type listType = null)
         {
             if (propertyNames == null)
                 return "";

@@ -12,10 +12,5 @@
         {
             Type = "rune";
         }
-
-        /// <summary>
-        /// Gets or sets the basic rune data, which contains the default values of the rune object.
-        /// </summary>
-        public StaticRune Basic { get; set; }
     }
 }
