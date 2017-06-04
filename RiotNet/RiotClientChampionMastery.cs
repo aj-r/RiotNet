@@ -38,15 +38,7 @@ namespace RiotNet
 
     public partial class RiotClient
     {
-        /// <summary>
-        /// Gets the base URL for champion mastery requests.
-        /// </summary>
-        /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
-        /// <returns>The base URL.</returns>
-        protected string GetChampionMasteryBaseUrl(string platformId)
-        {
-            return $"https://{GetServerName(platformId)}/lol/champion-mastery/v3";
-        }
+        private const string championMasteryBasePath = "champion-mastery/v3";
 
         /// <summary>
         /// Gets information about a summoner's mastery of a champion. This method uses the Champion Mastery API.
@@ -58,7 +50,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<ChampionMastery> GetChampionMasteryAsync(long summonerId, long championId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<ChampionMastery>($"{GetChampionMasteryBaseUrl(platformId)}/champion-masteries/by-summoner/{summonerId}/by-champion/{championId}", token);
+            return GetAsync<ChampionMastery>($"{championMasteryBasePath}/champion-masteries/by-summoner/{summonerId}/by-champion/{championId}", platformId, token);
         }
 
         /// <summary>
@@ -70,7 +62,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<List<ChampionMastery>> GetChampionMasteriesAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<List<ChampionMastery>>($"{GetChampionMasteryBaseUrl(platformId)}/champion-masteries/by-summoner/{summonerId}", token);
+            return GetAsync<List<ChampionMastery>>($"{championMasteryBasePath}/champion-masteries/by-summoner/{summonerId}", platformId, token);
         }
 
         /// <summary>
@@ -82,7 +74,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<int> GetChampionMasteryScoreAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<int>($"{GetChampionMasteryBaseUrl(platformId)}/scores/by-summoner/{summonerId}", token);
+            return GetAsync<int>($"{championMasteryBasePath}/scores/by-summoner/{summonerId}", platformId, token);
         }
     }
 }

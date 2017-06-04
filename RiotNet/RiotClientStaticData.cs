@@ -231,15 +231,7 @@ namespace RiotNet
 
     public partial class RiotClient
     {
-        /// <summary>
-        /// Gets the base URL for static data requests.
-        /// </summary>
-        /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
-        /// <returns>The base URL.</returns>
-        protected string GetStaticDataBaseUrl(string platformId)
-        {
-            return $"https://{GetServerName(platformId)}/lol/static-data/v3";
-        }
+        private const string staticDataBasePath = "static-data/v3";
 
         /// <summary>
         /// Gets the details for all champions. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.
@@ -256,13 +248,13 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticChampionList> GetStaticChampionsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var url = $"{GetStaticDataBaseUrl(platformId)}/champions?dataById={(dataById ? "true" : "false")}";
+            var url = $"{staticDataBasePath}/champions?dataById={(dataById ? "true" : "false")}";
             var queryParameters = GetStandardQueryParameters(locale, version);
 
             var tagsParam = CreateTagsParam("tags", tags, typeof(StaticChampion), typeof(StaticChampionList));
             if (!string.IsNullOrEmpty(tagsParam))
                 url = AddQueryParam(url, tagsParam);
-            return GetAsync<StaticChampionList>(url, token, queryParameters);
+            return GetAsync<StaticChampionList>(url, platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -280,13 +272,13 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticChampion> GetStaticChampionByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var url = $"{GetStaticDataBaseUrl(platformId)}/champions/{id}";
+            var url = $"{staticDataBasePath}/champions/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
 
             var tagsParam = CreateTagsParam("tags", tags, typeof(StaticChampion));
             if (!string.IsNullOrEmpty(tagsParam))
                 url = AddQueryParam(url, tagsParam);
-            return GetAsync<StaticChampion>(url, token, queryParameters);
+            return GetAsync<StaticChampion>(url, platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -303,12 +295,12 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticItemList> GetStaticItemsAsync(string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var url = $"{GetStaticDataBaseUrl(platformId)}/items";
+            var url = $"{staticDataBasePath}/items";
             var queryParameters = GetStandardQueryParameters(locale, version);
             var tagsParam = CreateTagsParam("tags", tags, typeof(StaticItem), typeof(StaticItemList));
             if (!string.IsNullOrEmpty(tagsParam))
                 url = AddQueryParam(url, tagsParam);
-            return GetAsync<StaticItemList>(url, token, queryParameters);
+            return GetAsync<StaticItemList>(url, platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -326,12 +318,12 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticItem> GetStaticItemAsync(int id, string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var url = $"{GetStaticDataBaseUrl(platformId)}/items/{id}";
+            var url = $"{staticDataBasePath}/items/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
             var tagsParam = CreateTagsParam("tags", tags, typeof(StaticItem));
             if (!string.IsNullOrEmpty(tagsParam))
                 url = AddQueryParam(url, tagsParam);
-            return GetAsync<StaticItem>(url, token, queryParameters);
+            return GetAsync<StaticItem>(url, platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -345,7 +337,7 @@ namespace RiotNet
         /// </remarks>
         public Task<List<string>> GetStaticLanguagesAsync(string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<List<string>>($"{GetStaticDataBaseUrl(platformId)}/languages", token);
+            return GetAsync<List<string>>($"{staticDataBasePath}/languages", platformId, token);
         }
 
         /// <summary>
@@ -362,7 +354,7 @@ namespace RiotNet
         public Task<StaticLanuageStrings> GetStaticLanguageStringsAsync(string locale = null, string version = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             var queryParameters = GetStandardQueryParameters(locale, version);
-            return GetAsync<StaticLanuageStrings>($"{GetStaticDataBaseUrl(platformId)}/language-strings", token, queryParameters);
+            return GetAsync<StaticLanuageStrings>($"{staticDataBasePath}/language-strings", platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -379,7 +371,7 @@ namespace RiotNet
         public Task<StaticMapList> GetStaticMapsAsync(string locale = null, string version = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             var queryParameters = GetStandardQueryParameters(locale, version);
-            return GetAsync<StaticMapList>($"{GetStaticDataBaseUrl(platformId)}/maps", token, queryParameters);
+            return GetAsync<StaticMapList>($"{staticDataBasePath}/maps", platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -396,12 +388,12 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticMasteryList> GetStaticMasteriesAsync(string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var url = $"{GetStaticDataBaseUrl(platformId)}/masteries";
+            var url = $"{staticDataBasePath}/masteries";
             var queryParameters = GetStandardQueryParameters(locale, version);
             var tagsParam = CreateTagsParam("tags", tags, typeof(StaticMastery), typeof(StaticMasteryList));
             if (!string.IsNullOrEmpty(tagsParam))
                 url = AddQueryParam(url, tagsParam);
-            return GetAsync<StaticMasteryList>(url, token, queryParameters);
+            return GetAsync<StaticMasteryList>(url, platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -419,12 +411,12 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticMastery> GetStaticMasteryByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var url = $"{GetStaticDataBaseUrl(platformId)}/masteries/{id}";
+            var url = $"{staticDataBasePath}/masteries/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
             var tagsParam = CreateTagsParam("tags", tags, typeof(StaticMastery));
             if (!string.IsNullOrEmpty(tagsParam))
                 url = AddQueryParam(url, tagsParam);
-            return GetAsync<StaticMastery>(url, token, queryParameters);
+            return GetAsync<StaticMastery>(url, platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -438,7 +430,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticProfileIconData> GetStaticProfileIconsAsync(string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<StaticProfileIconData>($"{GetStaticDataBaseUrl(platformId)}/profile-icons", token);
+            return GetAsync<StaticProfileIconData>($"{staticDataBasePath}/profile-icons", platformId, token);
         }
 
         /// <summary>
@@ -452,7 +444,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticRealm> GetStaticRealmAsync(string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<StaticRealm>($"{GetStaticDataBaseUrl(platformId)}/realms", token);
+            return GetAsync<StaticRealm>($"{staticDataBasePath}/realms", platformId, token);
         }
 
         /// <summary>
@@ -469,12 +461,12 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticRuneList> GetStaticRunesAsync(string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var url = $"{GetStaticDataBaseUrl(platformId)}/runes";
+            var url = $"{staticDataBasePath}/runes";
             var queryParameters = GetStandardQueryParameters(locale, version);
             var tagsParam = CreateTagsParam("tags", tags, typeof(StaticRune), typeof(StaticRuneList));
             if (!string.IsNullOrEmpty(tagsParam))
                 url = AddQueryParam(url, tagsParam);
-            return GetAsync<StaticRuneList>(url, token, queryParameters);
+            return GetAsync<StaticRuneList>(url, platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -492,12 +484,12 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticRune> GetStaticRuneByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var url = $"{GetStaticDataBaseUrl(platformId)}/runes/{id}";
+            var url = $"{staticDataBasePath}/runes/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
             var tagsParam = CreateTagsParam("tags", tags, typeof(StaticRune));
             if (!string.IsNullOrEmpty(tagsParam))
                 url = AddQueryParam(url, tagsParam);
-            return GetAsync<StaticRune>(url, token, queryParameters);
+            return GetAsync<StaticRune>(url, platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -515,12 +507,12 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticSummonerSpellList> GetStaticSummonerSpellsAsync(string locale = null, string version = null, bool dataById = false, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var url = $"{GetStaticDataBaseUrl(platformId)}/summoner-spells?dataById={(dataById ? "true" : "false")}";
+            var url = $"{staticDataBasePath}/summoner-spells?dataById={(dataById ? "true" : "false")}";
             var queryParameters = GetStandardQueryParameters(locale, version);
             var tagsParam = CreateTagsParam("tags", tags, typeof(StaticSummonerSpell), typeof(StaticSummonerSpellList));
             if (!string.IsNullOrEmpty(tagsParam))
                 url = AddQueryParam(url, tagsParam);
-            return GetAsync<StaticSummonerSpellList>(url, token, queryParameters);
+            return GetAsync<StaticSummonerSpellList>(url, platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -538,12 +530,12 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticSummonerSpell> GetStaticSummonerSpellByIdAsync(int id, string locale = null, string version = null, IEnumerable<string> tags = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var url = $"{GetStaticDataBaseUrl(platformId)}/summoner-spells/{id}";
+            var url = $"{staticDataBasePath}/summoner-spells/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
             var tagsParam = CreateTagsParam("tags", tags, typeof(StaticSummonerSpell));
             if (!string.IsNullOrEmpty(tagsParam))
                 url = AddQueryParam(url, tagsParam);
-            return GetAsync<StaticSummonerSpell>(url, token, queryParameters);
+            return GetAsync<StaticSummonerSpell>(url, platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -557,7 +549,7 @@ namespace RiotNet
         /// </remarks>
         public Task<List<string>> GetVersionsAsync(string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<List<string>>($"{GetStaticDataBaseUrl(platformId)}/versions", token);
+            return GetAsync<List<string>>($"{staticDataBasePath}/versions", platformId, token);
         }
 
         #region Helper Methods

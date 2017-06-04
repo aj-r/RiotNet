@@ -2,6 +2,8 @@
 using Newtonsoft.Json.Linq;
 using RiotNet.Converters;
 using System;
+using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -64,15 +66,31 @@ namespace RiotNet
     /// </summary>
     public partial class RiotClient : IRiotClient
     {
+        private static readonly ConcurrentDictionary<string, DateTime> retryAfterTimes = new ConcurrentDictionary<string, DateTime>();
+        private static readonly ConcurrentDictionary<DateTime, ConcurrentQueue<Task<Task<RiotResponse>>>> throttledRequestQueues = new ConcurrentDictionary<DateTime, ConcurrentQueue<Task<Task<RiotResponse>>>>();
+
         private readonly string platformId;
         private readonly RiotClientSettings settings;
         private readonly HttpClient client = new HttpClient();
+        private readonly IRateLimiter rateLimiter;
 
         /// <summary>
         /// Creates a new <see cref="RiotClient"/> instance.
         /// </summary>
         public RiotClient()
             : this(DefaultSettings())
+        { }
+
+        /// <summary>
+        /// Creates a new <see cref="RiotClient"/> instance.
+        /// <param name="rateLimiter">The rate limiter to use for proactive rate limiting.</param>
+        /// </summary>
+        /// <remarks>
+        /// You should pass the same <see cref="IRateLimiter"/> instance to all <see cref="RiotClient"/> instances. Do not create multiple <see cref="IRateLimiter"/> instances.
+        /// Reactive rate limiting will always be used, even if a proactive rate limiter is not specified.
+        /// </remarks>
+        public RiotClient(IRateLimiter rateLimiter)
+            : this(DefaultSettings(), DefaultPlatformId, rateLimiter)
         { }
 
         /// <summary>
@@ -96,8 +114,8 @@ namespace RiotNet
         /// Creates a new <see cref="RiotClient"/> instance.
         /// </summary>
         /// <param name="apiKey">The API key to use. NOTE: If you are using a public repository, do NOT check you API key in to the repository.
-        /// <param name="platformId">The platform ID of the default server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values.</param>
         /// It is recommended to load your API key from a separate file (e.g. key.txt) that is ignored by your repository.</param>
+        /// <param name="platformId">The platform ID of the default server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values.</param>
         public RiotClient(string apiKey, string platformId)
             : this(GetSettingsForApiKey(apiKey), platformId)
         { }
@@ -105,12 +123,27 @@ namespace RiotNet
         /// <summary>
         /// Creates a new <see cref="RiotClient"/> instance.
         /// </summary>
-        /// <param name="platformId">The platform ID of the default server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values.</param>
         /// <param name="settings">The settings to use.</param>
+        /// <param name="platformId">The platform ID of the default server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values.</param>
         public RiotClient(RiotClientSettings settings, string platformId)
+            : this(settings, platformId, RateLimiter)
+        { }
+
+        /// <summary>
+        /// Creates a new <see cref="RiotClient"/> instance.
+        /// </summary>
+        /// <param name="settings">The settings to use.</param>
+        /// <param name="platformId">The platform ID of the default server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values.</param>
+        /// <param name="rateLimiter">The rate limiter to use for proactive rate limiting.</param>
+        /// <remarks>
+        /// You should pass the same <see cref="IRateLimiter"/> instance to all <see cref="RiotClient"/> instances. Do not create multiple <see cref="IRateLimiter"/> instances.
+        /// Reactive rate limiting will always be used, even if a proactive rate limiter is not specified.
+        /// </remarks>
+        public RiotClient(RiotClientSettings settings, string platformId, IRateLimiter rateLimiter)
         {
             this.settings = settings;
             this.platformId = platformId;
+            this.rateLimiter = rateLimiter;
 
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
@@ -159,6 +192,11 @@ namespace RiotNet
         /// Gets or sets the default platform ID to use when creating a new <see cref="RiotClient"/>. This should equal one of the <see cref="Models.PlatformId"/> values.
         /// </summary>
         public static string DefaultPlatformId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the rate limiter to use for proactive rate limiting.
+        /// </summary>
+        public static IRateLimiter RateLimiter { get; set; }
 
         private static Func<RiotClientSettings> defaultSettings = () => new RiotClientSettings();
 
@@ -254,12 +292,13 @@ namespace RiotNet
         /// Sends a GET request for the specified resource.
         /// </summary>
         /// <param name="resource">The resource path, relative to the base URL. Note: this method will automatically add the api_key parameter to the resource.</param>
+        /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <param name="queryParameters">Query string parameters to append to the resource.</param>
         /// <returns>A rest request.</returns>
-        protected Task<T> GetAsync<T>(string resource, CancellationToken token, IDictionary<string, object> queryParameters = null)
+        protected Task<T> GetAsync<T>(string resource, string platformId, CancellationToken token, IDictionary<string, object> queryParameters = null)
         {
-            return ExecuteAsync<T>(HttpMethod.Get, resource, null, token, queryParameters);
+            return ExecuteAsync<T>(HttpMethod.Get, resource, null, platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -267,12 +306,13 @@ namespace RiotNet
         /// </summary>
         /// <param name="resource">The resource path, relative to the base URL. Note: this method will automatically add the api_key parameter to the resource.</param>
         /// <param name="body">The body of the request. This object will be serialized as a JSON string.</param>
+        /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <param name="queryParameters">Query string parameters to append to the resource.</param>
         /// <returns>A rest request.</returns>
-        protected Task<T> PostAsync<T>(string resource, object body, CancellationToken token, IDictionary<string, object> queryParameters = null)
+        protected Task<T> PostAsync<T>(string resource, object body, string platformId, CancellationToken token, IDictionary<string, object> queryParameters = null)
         {
-            return ExecuteAsync<T>(HttpMethod.Post, resource, body, token, queryParameters);
+            return ExecuteAsync<T>(HttpMethod.Post, resource, body, platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -280,12 +320,13 @@ namespace RiotNet
         /// </summary>
         /// <param name="resource">The resource path, relative to the base URL. Note: this method will automatically add the api_key parameter to the resource.</param>
         /// <param name="body">The body of the request. This object will be serialized as a JSON string.</param>
+        /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <param name="queryParameters">Query string parameters to append to the resource.</param>
         /// <returns>A rest request.</returns>
-        protected Task<T> PutAsync<T>(string resource, object body, CancellationToken token, IDictionary<string, object> queryParameters = null)
+        protected Task<T> PutAsync<T>(string resource, object body, string platformId, CancellationToken token, IDictionary<string, object> queryParameters = null)
         {
-            return ExecuteAsync<T>(HttpMethod.Put, resource, body, token, queryParameters);
+            return ExecuteAsync<T>(HttpMethod.Put, resource, body, platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -295,23 +336,44 @@ namespace RiotNet
         /// <param name="method">The HTTP method to use.</param>
         /// <param name="resource">The URL of the resource to use.</param>
         /// <param name="body">The request body. This object will be serialized as a JSON string. Pass null if the request sohuld not have a body.</param>
+        /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <param name="queryParameters">Query string parameters to append to the resource.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        protected virtual Task<T> ExecuteAsync<T>(HttpMethod method, string resource, object body, CancellationToken token, IDictionary<string, object> queryParameters = null)
+        protected virtual Task<T> ExecuteAsync<T>(HttpMethod method, string resource, object body, string platformId, CancellationToken token, IDictionary<string, object> queryParameters = null)
         {
             var resourceBuilder = new StringBuilder(resource);
+            resourceBuilder
+                .Append("https://")
+                .Append((platformId ?? PlatformId).ToLower())
+                .Append("/lol/")
+                .Append(resource);
             var querySeparator = resource.Contains("?") ? "&" : "?";
             if (queryParameters != null)
             {
                 foreach (var kvp in queryParameters)
                 {
-                    resourceBuilder
-                        .Append(querySeparator)
-                        .Append(kvp.Key)
-                        .Append("=")
-                        .Append(kvp.Value);
-                    querySeparator = "&";
+                    if (kvp.Value is IEnumerable enumerable)
+                    {
+                        foreach (var value in enumerable)
+                        {
+                            resourceBuilder
+                                .Append(querySeparator)
+                                .Append(kvp.Key)
+                                .Append("=")
+                                .Append(Uri.EscapeDataString(Convert.ToString(value)));
+                            querySeparator = "&";
+                        }
+                    }
+                    else
+                    {
+                        resourceBuilder
+                            .Append(querySeparator)
+                            .Append(kvp.Key)
+                            .Append("=")
+                            .Append(Uri.EscapeDataString(Convert.ToString(kvp.Value)));
+                        querySeparator = "&";
+                    }
                 }
             }
             Func<HttpRequestMessage> buildRequest = () =>
@@ -322,7 +384,7 @@ namespace RiotNet
                     request.Content = new JsonContent(body);
                 return request;
             };
-            return ExecuteAsync<T>(buildRequest, token);
+            return ExecuteAsync<T>(buildRequest, platformId, token);
         }
 
         /// <summary>
@@ -330,15 +392,42 @@ namespace RiotNet
         /// </summary>
         /// <typeparam name="T">The type of data to expect in the response.</typeparam>
         /// <param name="buildRequest">A function that builds the request to execute.</param>
+        /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        protected virtual async Task<T> ExecuteAsync<T>(Func<HttpRequestMessage> buildRequest, CancellationToken token)
+        protected virtual async Task<T> ExecuteAsync<T>(Func<HttpRequestMessage> buildRequest, string platformId, CancellationToken token)
         {
             var attemptCount = 0;
             do
             {
                 var request = buildRequest();
-                var response = await SendAsync(request, token).ConfigureAwait(false);
+                var response = await SendAsync(request, platformId, token).ConfigureAwait(false);
+
+                TimeSpan retryAfterDelay = TimeSpan.FromSeconds(3);
+                if ((int)response.Response?.StatusCode == 429)
+                {
+                    if (response.Response.Headers.TryGetValues("Retry-After", out IEnumerable<string> headerValues))
+                    {
+                        var retryAfter = headerValues.First();
+                        if (int.TryParse(retryAfter, out int delaySeconds))
+                        {
+                            retryAfterDelay = TimeSpan.FromSeconds(delaySeconds + 1);
+
+                            // Block future requests if the rate limit type is "application".
+                            // For other rate limit types (method, service) we should not block future requests because they might be okay.
+                            if (response.Response.Headers.TryGetValues("X-Rate-Limit-Type", out headerValues))
+                            {
+                                var rateLimitType = headerValues.First();
+                                if (string.Equals(rateLimitType, "application", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    var targetTime = DateTime.UtcNow + retryAfterDelay;
+                                    retryAfterTimes.AddOrUpdate(platformId, targetTime, (a, b) => targetTime);
+                                }
+                            }
+                        }
+                    }
+                }
+
                 ++attemptCount;
                 var action = await DetermineResponseAction(response, attemptCount, token).ConfigureAwait(false);
                 if (action == ResponseAction.Return)
@@ -347,13 +436,8 @@ namespace RiotNet
                     break;
                 if (action == ResponseAction.Retry)
                 {
-                    IEnumerable<string> retryAfterValues = null;
-                    if (response.Response?.Headers.TryGetValues("Retry-After", out retryAfterValues) == true)
-                    {
-                        var retryAfter = retryAfterValues.First();
-                        if (int.TryParse(retryAfter, out int delaySeconds))
-                            await Task.Delay((delaySeconds + 1) * 1000).ConfigureAwait(false);
-                    }
+                    await Task.Delay(retryAfterDelay).ConfigureAwait(false);
+                    token.ThrowIfCancellationRequested();
                 }
             } while (attemptCount < Settings.MaxRequestAttempts);
 
@@ -364,14 +448,42 @@ namespace RiotNet
         /// Sends a request.
         /// </summary>
         /// <param name="request">The request to send.</param>
+        /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        protected async Task<RiotResponse> SendAsync(HttpRequestMessage request, CancellationToken token)
+        protected async Task<RiotResponse> SendAsync(HttpRequestMessage request, string platformId, CancellationToken token)
         {
             try
             {
-                var response = await client.SendAsync(request, token).ConfigureAwait(false);
-                return new RiotResponse(response);
+                DateTime targetTime = DateTime.UtcNow;
+                if (retryAfterTimes.TryGetValue(platformId, out DateTime retryAfter))
+                {
+                    if (retryAfter > targetTime)
+                        targetTime = retryAfter;
+                }
+                if (rateLimiter != null)
+                {
+                    var limiterDelayTime = rateLimiter.AddRequestOrGetDelay(platformId);
+                    if (limiterDelayTime > targetTime)
+                        targetTime = limiterDelayTime;
+                }
+                if (targetTime <= DateTime.UtcNow)
+                {
+                    var response = await client.SendAsync(request, token).ConfigureAwait(false);
+                    return new RiotResponse(response);
+                }
+                else
+                {
+                    var queue = throttledRequestQueues.GetOrAdd(targetTime, (dt) =>
+                    {
+                        var q = new ConcurrentQueue<Task<Task<RiotResponse>>>();
+                        ProcessRequestQueue(q, targetTime);
+                        return q;
+                    });
+                    var task = new Task<Task<RiotResponse>>(() => SendAsync(request, platformId, token));
+                    queue.Enqueue(task);
+                    return await await task;
+                }
             }
             catch (TaskCanceledException ex)
             {
@@ -501,6 +613,17 @@ namespace RiotNet
             catch
             {
                 return null;
+            }
+        }
+
+        private async void ProcessRequestQueue(ConcurrentQueue<Task<Task<RiotResponse>>> queue, DateTime targetTime)
+        {
+            await Task.Delay(targetTime - DateTime.UtcNow).ConfigureAwait(false);
+            while (queue.TryDequeue(out Task<Task<RiotResponse>> task))
+            {
+                // Use RunSynchronously to ensure that requests are sent in order.
+                // This forces the thread to wait for the request to be sent, but not to wait for the inner task to complete.
+                task.RunSynchronously();
             }
         }
 

@@ -75,15 +75,7 @@ namespace RiotNet
 
     public partial class RiotClient
     {
-        /// <summary>
-        /// Gets the base URL for champion mastery requests.
-        /// </summary>
-        /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
-        /// <returns>The base URL.</returns>
-        protected string GetMatchBaseUrl(string platformId)
-        {
-            return $"https://{GetServerName(platformId)}/lol/match/v3";
-        }
+        private const string matchBasePath = "match/v3";
 
         /// <summary>
         /// Gets the details of a match. This method uses the Match API.
@@ -94,7 +86,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Match> GetMatchAsync(long matchId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<Match>($"{GetMatchBaseUrl(platformId)}/matches/{matchId}", token);
+            return GetAsync<Match>($"{matchBasePath}/matches/{matchId}", platformId, token);
         }
 
         /// <summary>
@@ -106,7 +98,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<MatchTimeline> GetMatchTimelineAsync(long matchId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<MatchTimeline>($"{GetMatchBaseUrl(platformId)}/timelines/by-match/{matchId}", token);
+            return GetAsync<MatchTimeline>($"{matchBasePath}/timelines/by-match/{matchId}", platformId, token);
         }
 
         /// <summary>
@@ -125,7 +117,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<MatchList> GetMatchListByAccountIdAsync(long accountId, IEnumerable<long> championIds = null, IEnumerable<QueueType> rankedQueues = null, IEnumerable<Season> seasons = null, DateTime? beginTime = null, DateTime? endTime = null, int? beginIndex = null, int? endIndex = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var url = $"{GetMatchBaseUrl(platformId)}/matchlists/by-account/{accountId}";
+            var url = $"{matchBasePath}/matchlists/by-account/{accountId}";
             var championsParam = BuildQueryParameter("champion", championIds);
             url = AddQueryParam(url, championsParam);
             var queueParam = BuildQueryParameter("queue", rankedQueues?.Cast<int>());
@@ -143,7 +135,7 @@ namespace RiotNet
             if (endIndex != null)
                 queryParameters["endIndex"] = endIndex.Value.ToString(CultureInfo.InvariantCulture);
 
-            return GetAsync<MatchList>(url, token, queryParameters);
+            return GetAsync<MatchList>(url, platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -155,7 +147,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<MatchList> GetRecentMatchListByAccountIdAsync(long accountId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<MatchList>($"{GetMatchBaseUrl(platformId)}/matchlists/by-account/{accountId}/recent", token);
+            return GetAsync<MatchList>($"{matchBasePath}/matchlists/by-account/{accountId}/recent", platformId, token);
         }
 
         /// <summary>
@@ -167,7 +159,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<List<long>> GetMatchIdsByTournamentCodeAsync(string tournamentCode, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<List<long>>($"{GetMatchBaseUrl(platformId)}/matches/by-tournament-code/{tournamentCode}/ids", token);
+            return GetAsync<List<long>>($"{matchBasePath}/matches/by-tournament-code/{tournamentCode}/ids", platformId, token);
         }
 
         /// <summary>
@@ -180,7 +172,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Match> GetMatchForTournamentAsync(long matchId, string tournamentCode, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<Match>($"{GetMatchBaseUrl(platformId)}/matches/{matchId}/by-tournament-code/{tournamentCode}", token);
+            return GetAsync<Match>($"{matchBasePath}/matches/{matchId}/by-tournament-code/{tournamentCode}", platformId, token);
         }
 
         private string BuildQueryParameter<T>(string name, IEnumerable<T> items)

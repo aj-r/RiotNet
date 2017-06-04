@@ -26,15 +26,7 @@ namespace RiotNet
 
     public partial class RiotClient
     {
-        /// <summary>
-        /// Gets the base URL for spectator requests.
-        /// </summary>
-        /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
-        /// <returns>The base URL.</returns>
-        protected string GetSpectatorBaseUrl(string platformId)
-        {
-            return $"https://{GetServerName(platformId)}/lol/spectator/v3";
-        }
+        private const string spectatorBasePath = "spectator/v3";
 
         /// <summary>
         /// Gets information about the current game a summoner is playing. This method uses the Spectator API.
@@ -45,7 +37,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<CurrentGameInfo> GetActiveGameBySummonerIdAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<CurrentGameInfo>($"{GetSpectatorBaseUrl(platformId)}/active-games/by-summoner/{summonerId}", token);
+            return GetAsync<CurrentGameInfo>($"{spectatorBasePath}/active-games/by-summoner/{summonerId}", platformId, token);
         }
 
         /// <summary>
@@ -56,7 +48,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<FeaturedGames> GetFeaturedGamesAsync(string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<FeaturedGames>($"{GetSpectatorBaseUrl(platformId)}/featured-games", token);
+            return GetAsync<FeaturedGames>($"{spectatorBasePath}/featured-games", platformId, token);
         }
     }
 }

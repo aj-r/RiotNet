@@ -100,7 +100,7 @@ namespace RiotNet
         public Task<long> CreateTournamentProviderAsync(string url, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             var region = GetRegion(platformId ?? PlatformId);
-            return PostAsync<long>($"{GetTournamentBaseUrl(settings.UseTournamentStub)}/providers", new { region, url }, token);
+            return PostAsync<long>($"{GetTournamentBaseUrl(settings.UseTournamentStub)}/providers", new { region, url }, "global", token);
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<long> CreateTournamentAsync(long providerId, string name = null, CancellationToken token = default(CancellationToken))
         {
-            return PostAsync<long>($"{GetTournamentBaseUrl(settings.UseTournamentStub)}/tournaments", new { name, providerId }, token);
+            return PostAsync<long>($"{GetTournamentBaseUrl(settings.UseTournamentStub)}/tournaments", new { name, providerId }, "global", token);
         }
 
         /// <summary>
@@ -144,7 +144,7 @@ namespace RiotNet
                 spectatorType = spectatorType.ToString(),
                 teamSize,
                 metadata
-            }, token, queryParameters);
+            }, "global", token, queryParameters);
         }
 
         /// <summary>
@@ -156,7 +156,7 @@ namespace RiotNet
         /// <returns>The tournament code details.</returns>
         public Task<TournamentCode> GetTournamentCodeAsync(string tournamentCode, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<TournamentCode>($"{GetTournamentBaseUrl(false)}/codes/{tournamentCode}", token);
+            return GetAsync<TournamentCode>($"{GetTournamentBaseUrl(false)}/codes/{tournamentCode}", "global", token);
         }
 
         /// <summary>
@@ -179,7 +179,7 @@ namespace RiotNet
                 mapType,
                 pickType,
                 spectatorType
-            }, token);
+            }, "global", token);
         }
 
         /// <summary>
@@ -203,7 +203,7 @@ namespace RiotNet
         /// <returns>The tournament code details.</returns>
         public async Task<List<LobbyEvent>> GetTournamentCodeLobbyEventsAsync(string tournamentCode, CancellationToken token = default(CancellationToken))
         {
-            var wrapper = await GetAsync<LobbyEventWrapper>($"{GetTournamentBaseUrl(settings.UseTournamentStub)}/lobby-events/by-code/{tournamentCode}", token).ConfigureAwait(false);
+            var wrapper = await GetAsync<LobbyEventWrapper>($"{GetTournamentBaseUrl(settings.UseTournamentStub)}/lobby-events/by-code/{tournamentCode}", "global", token).ConfigureAwait(false);
             return wrapper.EventList;
         }
 
@@ -214,8 +214,7 @@ namespace RiotNet
         /// <returns>The base URL.</returns>
         protected string GetTournamentBaseUrl(bool stub)
         {
-            var apiName = stub ? "tournament-stub" : "tournament";
-            return $"https://global.api.riotgames.com/lol/{apiName}/v3";
+            return (stub ? "tournament-stub" : "tournament") + "/v3";
         }
 
         /// <summary>

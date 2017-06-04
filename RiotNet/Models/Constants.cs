@@ -485,6 +485,11 @@
         public const string PBE1 = "PBE1";
 
         /// <summary>
+        /// The list of all known platform IDs.
+        /// </summary>
+        public static readonly string[] All = new[] { BR1, EUN1, EUW1, JP1, KR, LA1, LA2, NA1, OC1, TR1, RU, PBE1 };
+
+        /// <summary>
         /// Gets whether the platform ID represents North America. (For old North America accounts, platform ID may equal "NA" instead of "NA1".)
         /// </summary>
         /// <param name="platformId">The platform ID.</param>

@@ -18,15 +18,7 @@ namespace RiotNet
 
     public partial class RiotClient
     {
-        /// <summary>
-        /// Gets the base URL for runes requests.
-        /// </summary>
-        /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
-        /// <returns>The base URL.</returns>
-        protected string GetRunesBaseUrl(string platformId)
-        {
-            return $"https://{GetServerName(platformId)}/lol/platform/v3";
-        }
+        private const string runesBasePath = "platform/v3";
 
         /// <summary>
         /// Gets the list of rune pages that a summoner has created. This method uses the Runes API.
@@ -37,7 +29,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<RunePages> GetRunesBySummonerIdAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<RunePages>($"{GetRunesBaseUrl(platformId)}/runes/by-summoner/{summonerId}", token);
+            return GetAsync<RunePages>($"{runesBasePath}/runes/by-summoner/{summonerId}", platformId, token);
         }
     }
 }

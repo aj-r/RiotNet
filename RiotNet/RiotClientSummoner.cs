@@ -36,15 +36,7 @@ namespace RiotNet
 
     public partial class RiotClient
     {
-        /// <summary>
-        /// Gets the base URL for summoner requests.
-        /// </summary>
-        /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
-        /// <returns>The base URL.</returns>
-        protected string GetSummonerBaseUrl(string platformId)
-        {
-            return $"https://{GetServerName(platformId)}/lol/summoner/v3";
-        }
+        private const string summonerBasePath = "https://{GetServerName(platformId)}/lol/summoner/v3";
 
         /// <summary>
         /// Gets the summoner information by account ID. This method uses the Summoner API.
@@ -55,7 +47,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Summoner> GetSummonerByAccountIdAsync(long accountId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<Summoner>($"{GetSummonerBaseUrl(platformId)}/summoners/by-account/{accountId}", token);
+            return GetAsync<Summoner>($"{summonerBasePath}/summoners/by-account/{accountId}", platformId, token);
         }
 
         /// <summary>
@@ -67,7 +59,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Summoner> GetSummonerBySummonerNameAsync(string summonerName, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<Summoner>($"{GetSummonerBaseUrl(platformId)}/summoners/by-name/{summonerName}", token);
+            return GetAsync<Summoner>($"{summonerBasePath}/summoners/by-name/{summonerName}", platformId, token);
         }
 
         /// <summary>
@@ -79,7 +71,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Summoner> GetSummonerBySummonerIdAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<Summoner>($"{GetSummonerBaseUrl(platformId)}/summoners/{summonerId}", token);
+            return GetAsync<Summoner>($"{summonerBasePath}/summoners/{summonerId}", platformId, token);
         }
     }
 }

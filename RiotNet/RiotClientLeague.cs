@@ -46,15 +46,7 @@ namespace RiotNet
 
     public partial class RiotClient
     {
-        /// <summary>
-        /// Gets the base URL for league requests.
-        /// </summary>
-        /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
-        /// <returns>The base URL.</returns>
-        protected string GetLeagueBaseUrl(string platformId)
-        {
-            return $"https://{GetServerName(platformId)}/lol/league/v3";
-        }
+        private const string leagueBasePath = "league/v3";
 
         /// <summary>
         /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID. This method uses the League API.
@@ -65,7 +57,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<List<LeagueList>> GetLeaguesBySummonerIdAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<List<LeagueList>>($"{GetLeagueBaseUrl(platformId)}/leagues/by-summoner/{summonerId}", token);
+            return GetAsync<List<LeagueList>>($"{leagueBasePath}/leagues/by-summoner/{summonerId}", platformId, token);
         }
 
         /// <summary>
@@ -77,7 +69,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<List<LeaguePosition>> GetLeaguePositionsBySummonerIdAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<List<LeaguePosition>>($"{GetLeagueBaseUrl(platformId)}/positions/by-summoner/{summonerId}", token);
+            return GetAsync<List<LeaguePosition>>($"{leagueBasePath}/positions/by-summoner/{summonerId}", platformId, token);
         }
 
         /// <summary>
@@ -89,7 +81,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<LeagueList> GetChallengerLeagueAsync(string rankedQueueType, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<LeagueList>($"{GetLeagueBaseUrl(platformId)}/challengerleagues/by-queue/{rankedQueueType}", token);
+            return GetAsync<LeagueList>($"{leagueBasePath}/challengerleagues/by-queue/{rankedQueueType}", platformId, token);
         }
 
         /// <summary>
@@ -101,7 +93,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<LeagueList> GetMasterLeagueAsync(string rankedQueueType, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<LeagueList>($"{GetLeagueBaseUrl(platformId)}/masterleagues/by-queue/{rankedQueueType}", token);
+            return GetAsync<LeagueList>($"{leagueBasePath}/masterleagues/by-queue/{rankedQueueType}", platformId, token);
         }
     }
 }

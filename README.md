@@ -15,6 +15,7 @@ It has the following features:
 - **Database Ready** - data structures have built-in database metadata, so you can easily persist results using Entity Framework 6 without having to re-define all of the models.
 - **Complies** with Riot's [rate limiting best practices](https://developer.riotgames.com/rate-limiting.html)
   - You may also want to follow the [Tips to Avoid Being Rate Limited](https://developer.riotgames.com/rate-limiting.html)
+- **Thread-Safe**: Built for server applications that handle concurrent requests.
 - **Asynchronous methods** - methods are awaitable using the async/await keywords.
 
 RiotNet is NOT endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends.
@@ -41,28 +42,49 @@ Summoner summoner = await client.GetSummonerBySummonerNameAsync(PlatformId.NA1).
 You can change the default settings that are applied to new `RiotClient` instances, so you don't need to pass the settings every time.
 
 ```
+RiotClient.DefaultPlatformId = PlatformId.EUW1;
 RiotClient.DefaultSettings = () => new RiotClientSettings
 {
     ApiKey = "00000000-0000-0000-0000-000000000000" // Replace this with your API key, of course.
 };
-
-IRiotClient client = new RiotClient(); // Now you don't need to pass the settings parameter.
+IRiotClient client = new RiotClient(); // Now you don't need to pass the settings or platform ID parameters.
 ```
 
-## Default Platform ID
+## Rate limiting
 
-If you always use the same Platform ID for the same `RiotClient` instance, use `RiotClient.DefaultPlatformId` or `RiotClient.ForPlatform()`.
+RiotNet will automatically handle rate limiting for you, so you don't need to worry about building your own rate limiting system.
+RiotNet handles rate limiting in two ways: reactively and proactively. Neither system is perfect on its own, but together they should cover almost all scenarios.
+
+### Reactive Rate Limiting
+
+If the client receives a rate limit error from the server, it will read the `Retry-After` header, and wait for that amount of time before retrying the request.
+It will also suspend future requests until that time passes.
+
+Reactive rate limiting isn't perfect:
+
+- Requests aren't throttled until a response is received from the server. So if you send 10,000 requests at once before you receive a response, you could
+  end up going way over your rate limit. If you're worried about that happening, enable proactive rate limiting.
+
+### Proactive Rate Limiting
+
+Proactive rate limiting works by tracking the number of requests that the RiotClient has sent, and throttling requests if it thinks you're going to hit your limit.
+Throttled requests will be placed in a queue, so they should still be sent in the order you created them.
+
+Proactive rate limiting is optional and disabled by default. You can enable it by creating a `RateLimiter` object that tells the `RiotClient` what your rate limit is.
 
 ```
-RiotClient.DefaultPlatformId = PlatformId.EUW1
+// 10 requests per 10 seconds, 600 requests per 10 minutes (developer key)
+// NOTE: you should replace these numbers with your production key rates
+RiotClient.RateLimiter = new RateLimiter(10, 600);
 IRiotClient client = new RiotClient();
 ```
 
-or
+Proactive rate limiting isn't perfect:
 
-```
-IRiotClient client = RiotClient.ForPlatform(PlatformId.KR);
-```
+- It doesn't account for per-method rate limits (only per-platform rate limits)
+- Requests are counted separately from the server, so it's possible that the client's request count could get out of sync with the server. That said, the `RiotClient` will 
+  use the `X-App-Rate-Limit-Count` header to try to keep the counts in sync.
+- It has a (very small) performance impact on each request. But if you're staying under your rate limit, this performance impact is so small that it should be unnoticeable.
 
 ## Interim Keys for the Tournament API
 
@@ -77,11 +99,6 @@ RiotClient.DefaultSettings = () => new RiotClientSettings
 ```
 
 Just don't forget to set it to `false` once you go into production!
-
-## Rate limiting
-
-The `RiotClient` will automatically handle rate limiting for you, so you don't need to worry about it.
-If the client receives a rate limit error from the server, it will wait for the required amount of time before retrying the request.
 
 ## Error Handling
 

@@ -18,15 +18,7 @@ namespace RiotNet
 
     public partial class RiotClient
     {
-        /// <summary>
-        /// Gets the base URL for masteries requests.
-        /// </summary>
-        /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
-        /// <returns>The base URL.</returns>
-        protected string GetMasteriesBaseUrl(string platformId)
-        {
-            return $"https://{GetServerName(platformId)}/lol/platform/v3";
-        }
+        private string masteriesBasePath = "platform/v3";
 
         /// <summary>
         /// Gets the list of mastery pages that a summoner has created. This method uses the Masteries API.
@@ -37,7 +29,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<MasteryPages> GetMasteriesBySummonerIdAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<MasteryPages>($"{GetMasteriesBaseUrl(platformId)}/masteries/by-summoner/{summonerId}", token);
+            return GetAsync<MasteryPages>($"{masteriesBasePath}/masteries/by-summoner/{summonerId}", platformId, token);
         }
     }
 }
