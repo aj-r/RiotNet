@@ -52,13 +52,21 @@ namespace RiotNet
             var now = DateTime.UtcNow;
 
             RequestCount lastTenSeconds = requestsInLastTenSeconds.GetOrAdd(platformId, requestCountFactory);
-            DateTime time1 = GetRateLimitRuleDelay(lastTenSeconds, rateLimitPerTenSeconds, 10.1, now);
+            DateTime time1 = GetRateLimitRuleDelay(lastTenSeconds, rateLimitPerTenSeconds, 11, now);
 
             RequestCount lastTenMinutes = requestsInLastTenMinutes.GetOrAdd(platformId, requestCountFactory);
-            DateTime time2 = GetRateLimitRuleDelay(lastTenMinutes, rateLimitPerTenMinutes, 600.1, now);
+            DateTime time2 = GetRateLimitRuleDelay(lastTenMinutes, rateLimitPerTenMinutes, 601, now);
             return (time1 >= time2) ? time1 : time2;
         }
 
+        /// <summary>
+        /// Gets the time to delay until for a single rate limit rule.
+        /// </summary>
+        /// <param name="requestCount">The RequestCount object for the current rule.</param>
+        /// <param name="limit">The maximum number of requests allowed by the rule.</param>
+        /// <param name="periodInSeconds">The total amount of time defined by the rule before the request count resets.</param>
+        /// <param name="now">The current time in UTC.</param>
+        /// <returns>The time to delay until.</returns>
         protected DateTime GetRateLimitRuleDelay(RequestCount requestCount, int limit, double periodInSeconds, DateTime now)
         {
             lock (requestCount)
@@ -77,12 +85,22 @@ namespace RiotNet
                     return requestCount.ResetTime;
                 }
             }
-            return DateTime.MinValue;
+            return now;
         }
 
+        /// <summary>
+        /// Represents a request count for a rate limiting rule.
+        /// </summary>
         protected class RequestCount
         {
+            /// <summary>
+            /// The number of requests sent since the last reset.
+            /// </summary>
             public int Count;
+
+            /// <summary>
+            /// The time in UTC when the request count should reset.
+            /// </summary>
             public DateTime ResetTime;
         }
     }

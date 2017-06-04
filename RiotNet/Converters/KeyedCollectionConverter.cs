@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
@@ -65,7 +66,7 @@ namespace RiotNet.Converters
                 var key = getKeyMethod.Invoke(value, new object[] { item });
                 if (key == null)
                     continue;
-                writer.WritePropertyName(key.ToString());
+                writer.WritePropertyName(Convert.ToString(key, CultureInfo.InvariantCulture));
                 serializer.Serialize(writer, item);
             }
             writer.WriteEndObject();

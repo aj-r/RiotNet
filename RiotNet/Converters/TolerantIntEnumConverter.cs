@@ -34,7 +34,12 @@ namespace RiotNet.Converters
             var isNullable = IsNullableType(objectType);
             var enumType = isNullable ? Nullable.GetUnderlyingType(objectType) : objectType;
 
-            if (reader.TokenType == JsonToken.String)
+            if (reader.TokenType == JsonToken.Integer)
+            {
+                // Note that Enum.ToObject will succeed even if the value is not in range of the enum.
+                return Enum.ToObject(enumType, reader.Value);
+            }
+            else if (reader.TokenType == JsonToken.String)
             {
                 string enumText = reader.Value.ToString();
 
@@ -46,11 +51,6 @@ namespace RiotNet.Converters
                     if (match != null)
                         return Enum.Parse(enumType, match);
                 }
-            }
-            else if (reader.TokenType == JsonToken.Integer)
-            {
-                // Note that Enum.ToObject will succeed even if the value is not in range of the enum.
-                return Enum.ToObject(enumType, reader.Value);
             }
 
             // Value not found.

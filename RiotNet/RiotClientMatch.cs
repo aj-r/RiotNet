@@ -117,15 +117,13 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<MatchList> GetMatchListByAccountIdAsync(long accountId, IEnumerable<long> championIds = null, IEnumerable<QueueType> rankedQueues = null, IEnumerable<Season> seasons = null, DateTime? beginTime = null, DateTime? endTime = null, int? beginIndex = null, int? endIndex = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            var url = $"{matchBasePath}/matchlists/by-account/{accountId}";
-            var championsParam = BuildQueryParameter("champion", championIds);
-            url = AddQueryParam(url, championsParam);
-            var queueParam = BuildQueryParameter("queue", rankedQueues?.Cast<int>());
-            url = AddQueryParam(url, queueParam);
-            var seasonsParam = BuildQueryParameter("season", seasons?.Cast<int>());
-            url = AddQueryParam(url, seasonsParam);
-
             var queryParameters = new Dictionary<string, object>();
+            if (championIds != null)
+                queryParameters["champion"] = championIds;
+            if (rankedQueues != null)
+                queryParameters["queue"] = rankedQueues;
+            if (seasons != null)
+                queryParameters["season"] = seasons;
             if (beginTime != null)
                 queryParameters["beginTime"] = Conversions.DateTimeToEpochMilliseconds(beginTime.Value).ToString(CultureInfo.InvariantCulture);
             if (endTime != null)
@@ -135,7 +133,7 @@ namespace RiotNet
             if (endIndex != null)
                 queryParameters["endIndex"] = endIndex.Value.ToString(CultureInfo.InvariantCulture);
 
-            return GetAsync<MatchList>(url, platformId, token, queryParameters);
+            return GetAsync<MatchList>($"{matchBasePath}/matchlists/by-account/{accountId}", platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -173,14 +171,6 @@ namespace RiotNet
         public Task<Match> GetMatchForTournamentAsync(long matchId, string tournamentCode, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             return GetAsync<Match>($"{matchBasePath}/matches/{matchId}/by-tournament-code/{tournamentCode}", platformId, token);
-        }
-
-        private string BuildQueryParameter<T>(string name, IEnumerable<T> items)
-        {
-            if (items == null)
-                return "";
-            var fullParams = items.Select(item => $"{name}={item}");
-            return string.Join("&", fullParams);
         }
     }
 }

@@ -36,7 +36,7 @@ namespace RiotNet
 
     public partial class RiotClient
     {
-        private const string summonerBasePath = "https://{GetServerName(platformId)}/lol/summoner/v3";
+        private const string summonerBasePath = "summoner/v3";
 
         /// <summary>
         /// Gets the summoner information by account ID. This method uses the Summoner API.

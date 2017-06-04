@@ -3,7 +3,6 @@ using RiotNet.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace RiotNet.Tests
@@ -88,12 +87,11 @@ namespace RiotNet.Tests
             var tasks = new List<Task<DateTime>>();
             for (var i = 0; i < 20; ++i)
                 tasks.Add(Task.Run(() => rateLimiter.AddRequestOrGetDelay(PlatformId.NA1)));
-            for (var i = 0; i < 20; ++i)
-                tasks[i].Start();
 
             DateTime[] dates = await Task.WhenAll(tasks);
-            var unthrottled = dates.Where(d => d <= DateTime.UtcNow).ToList();
-            Assert.That(unthrottled, Is.EqualTo(5), "Wrong number of dates were unthrottled");
+            var now = DateTime.UtcNow;
+            var unthrottled = dates.Where(d => d <= now).ToList();
+            Assert.That(unthrottled.Count, Is.EqualTo(5), "Wrong number of requests were sent");
         }
     }
 }

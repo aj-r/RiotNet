@@ -31,7 +31,7 @@ namespace RiotNet.Converters
             if (reader.Value == null)
                 return false;
             string text = reader.Value.ToString();
-            return text == "Win";
+            return string.Equals(text, "Win", StringComparison.OrdinalIgnoreCase);
         }
 
         /// <summary>

@@ -250,10 +250,8 @@ namespace RiotNet
         {
             var url = $"{staticDataBasePath}/champions?dataById={(dataById ? "true" : "false")}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-
-            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticChampion), typeof(StaticChampionList));
-            if (!string.IsNullOrEmpty(tagsParam))
-                url = AddQueryParam(url, tagsParam);
+            if (tags != null)
+                queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticChampion), typeof(StaticChampionList));
             return GetAsync<StaticChampionList>(url, platformId, token, queryParameters);
         }
 
@@ -274,10 +272,8 @@ namespace RiotNet
         {
             var url = $"{staticDataBasePath}/champions/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-
-            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticChampion));
-            if (!string.IsNullOrEmpty(tagsParam))
-                url = AddQueryParam(url, tagsParam);
+            if (tags != null)
+                queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticChampion));
             return GetAsync<StaticChampion>(url, platformId, token, queryParameters);
         }
 
@@ -297,9 +293,8 @@ namespace RiotNet
         {
             var url = $"{staticDataBasePath}/items";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticItem), typeof(StaticItemList));
-            if (!string.IsNullOrEmpty(tagsParam))
-                url = AddQueryParam(url, tagsParam);
+            if (tags != null)
+                queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticItem), typeof(StaticItemList));
             return GetAsync<StaticItemList>(url, platformId, token, queryParameters);
         }
 
@@ -320,9 +315,8 @@ namespace RiotNet
         {
             var url = $"{staticDataBasePath}/items/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticItem));
-            if (!string.IsNullOrEmpty(tagsParam))
-                url = AddQueryParam(url, tagsParam);
+            if (tags != null)
+                queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticItem));
             return GetAsync<StaticItem>(url, platformId, token, queryParameters);
         }
 
@@ -390,9 +384,8 @@ namespace RiotNet
         {
             var url = $"{staticDataBasePath}/masteries";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticMastery), typeof(StaticMasteryList));
-            if (!string.IsNullOrEmpty(tagsParam))
-                url = AddQueryParam(url, tagsParam);
+            if (tags != null)
+                queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticMastery), typeof(StaticMasteryList));
             return GetAsync<StaticMasteryList>(url, platformId, token, queryParameters);
         }
 
@@ -413,9 +406,8 @@ namespace RiotNet
         {
             var url = $"{staticDataBasePath}/masteries/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticMastery));
-            if (!string.IsNullOrEmpty(tagsParam))
-                url = AddQueryParam(url, tagsParam);
+            if (tags != null)
+                queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticMastery));
             return GetAsync<StaticMastery>(url, platformId, token, queryParameters);
         }
 
@@ -463,9 +455,8 @@ namespace RiotNet
         {
             var url = $"{staticDataBasePath}/runes";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticRune), typeof(StaticRuneList));
-            if (!string.IsNullOrEmpty(tagsParam))
-                url = AddQueryParam(url, tagsParam);
+            if (tags != null)
+                queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticRune), typeof(StaticRuneList));
             return GetAsync<StaticRuneList>(url, platformId, token, queryParameters);
         }
 
@@ -486,9 +477,8 @@ namespace RiotNet
         {
             var url = $"{staticDataBasePath}/runes/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticRune));
-            if (!string.IsNullOrEmpty(tagsParam))
-                url = AddQueryParam(url, tagsParam);
+            if (tags != null)
+                queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticRune));
             return GetAsync<StaticRune>(url, platformId, token, queryParameters);
         }
 
@@ -509,9 +499,8 @@ namespace RiotNet
         {
             var url = $"{staticDataBasePath}/summoner-spells?dataById={(dataById ? "true" : "false")}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticSummonerSpell), typeof(StaticSummonerSpellList));
-            if (!string.IsNullOrEmpty(tagsParam))
-                url = AddQueryParam(url, tagsParam);
+            if (tags != null)
+                queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticSummonerSpell), typeof(StaticSummonerSpellList));
             return GetAsync<StaticSummonerSpellList>(url, platformId, token, queryParameters);
         }
 
@@ -532,9 +521,8 @@ namespace RiotNet
         {
             var url = $"{staticDataBasePath}/summoner-spells/{id}";
             var queryParameters = GetStandardQueryParameters(locale, version);
-            var tagsParam = CreateTagsParam("tags", tags, typeof(StaticSummonerSpell));
-            if (!string.IsNullOrEmpty(tagsParam))
-                url = AddQueryParam(url, tagsParam);
+            if (tags != null)
+                queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticSummonerSpell));
             return GetAsync<StaticSummonerSpell>(url, platformId, token, queryParameters);
         }
 
@@ -554,11 +542,9 @@ namespace RiotNet
 
         #region Helper Methods
 
-        private static string CreateTagsParam(string name, IEnumerable<string> propertyNames, Type type, Type listType = null)
+        private static IEnumerable<string> CreateTagsParam(IEnumerable<string> propertyNames, Type type, Type listType = null)
         {
-            if (propertyNames == null)
-                return "";
-            return string.Join("&", propertyNames.Select(p => name + "=" + CorrectPropertyNameCase(p, type, listType)).Where(p => p != null));
+            return propertyNames.Select(p => CorrectPropertyNameCase(p, type, listType)).Where(p => p != null);
         }
 
         private static string CorrectPropertyNameCase(string propertyName, Type type, Type listType = null)

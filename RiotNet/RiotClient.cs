@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -210,18 +211,6 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Gets the server domain name for the specified platform ID.
-        /// </summary>
-        /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
-        /// <returns>The server host name.</returns>
-        public string GetServerName(string platformId = null)
-        {
-            if (platformId == null && PlatformId == null)
-                throw new RestException(null, "Platform ID was not specified. You must set RiotClient.PlatformId or pass in a platformId parameter.");
-            return (platformId ?? PlatformId).ToLower() + ".api.riotgames.com";
-        }
-
-        /// <summary>
         /// Gets the platform ID of the default server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values.
         /// </summary>
         public string PlatformId
@@ -273,19 +262,6 @@ namespace RiotNet
         protected HttpClient Client
         {
             get { return client; }
-        }
-
-        /// <summary>
-        /// Adds a query string parameters to a URL.
-        /// </summary>
-        /// <param name="url">The URL.</param>
-        /// <param name="queryParam">The query string parameter.</param>
-        /// <returns>The new URL.</returns>
-        protected string AddQueryParam(string url, string queryParam)
-        {
-            if (string.IsNullOrEmpty(queryParam))
-                return url;
-            return url + (url.Contains("?") ? "&" : "?") + queryParam;
         }
 
         /// <summary>
@@ -342,37 +318,30 @@ namespace RiotNet
         /// <returns>A task that represents the asynchronous operation.</returns>
         protected virtual Task<T> ExecuteAsync<T>(HttpMethod method, string resource, object body, string platformId, CancellationToken token, IDictionary<string, object> queryParameters = null)
         {
-            var resourceBuilder = new StringBuilder(resource);
+            if (platformId == null)
+                platformId = PlatformId;
+            if (platformId == null)
+                throw new RestException(null, "Platform ID was not specified. You must set RiotClient.PlatformId or pass in a platformId parameter.");
+
+            var resourceBuilder = new StringBuilder();
             resourceBuilder
                 .Append("https://")
-                .Append((platformId ?? PlatformId).ToLower())
-                .Append("/lol/")
+                .Append(platformId.ToLowerInvariant())
+                .Append(".api.riotgames.com/lol/")
                 .Append(resource);
-            var querySeparator = resource.Contains("?") ? "&" : "?";
             if (queryParameters != null)
             {
+                var querySeparator = resource.Contains("?") ? "&" : "?";
                 foreach (var kvp in queryParameters)
                 {
-                    if (kvp.Value is IEnumerable enumerable)
+                    if (!(kvp.Value is string) && kvp.Value is IEnumerable enumerable)
                     {
                         foreach (var value in enumerable)
-                        {
-                            resourceBuilder
-                                .Append(querySeparator)
-                                .Append(kvp.Key)
-                                .Append("=")
-                                .Append(Uri.EscapeDataString(Convert.ToString(value)));
-                            querySeparator = "&";
-                        }
+                            AppendQueryValue(resourceBuilder, kvp.Key, value, ref querySeparator);
                     }
                     else
                     {
-                        resourceBuilder
-                            .Append(querySeparator)
-                            .Append(kvp.Key)
-                            .Append("=")
-                            .Append(Uri.EscapeDataString(Convert.ToString(kvp.Value)));
-                        querySeparator = "&";
+                        AppendQueryValue(resourceBuilder, kvp.Key, kvp.Value, ref querySeparator);
                     }
                 }
             }
@@ -385,6 +354,19 @@ namespace RiotNet
                 return request;
             };
             return ExecuteAsync<T>(buildRequest, platformId, token);
+        }
+
+        private static void AppendQueryValue(StringBuilder builder, string key, object value, ref string querySeparator)
+        {
+            if (value is Enum)
+                value = (int)value;
+
+            builder
+                .Append(querySeparator)
+                .Append(key)
+                .Append("=")
+                .Append(Uri.EscapeDataString(Convert.ToString(value, CultureInfo.InvariantCulture)));
+            querySeparator = "&";
         }
 
         /// <summary>
@@ -402,27 +384,25 @@ namespace RiotNet
             {
                 var request = buildRequest();
                 var response = await SendAsync(request, platformId, token).ConfigureAwait(false);
+                if (response == null)
+                    return default(T);
 
                 TimeSpan retryAfterDelay = TimeSpan.FromSeconds(3);
-                if ((int)response.Response?.StatusCode == 429)
+                if ((int?)response.Response?.StatusCode == 429)
                 {
-                    if (response.Response.Headers.TryGetValues("Retry-After", out IEnumerable<string> headerValues))
+                    if (response.Response.Headers.RetryAfter?.Delta != null)
                     {
-                        var retryAfter = headerValues.First();
-                        if (int.TryParse(retryAfter, out int delaySeconds))
-                        {
-                            retryAfterDelay = TimeSpan.FromSeconds(delaySeconds + 1);
+                        retryAfterDelay = response.Response.Headers.RetryAfter.Delta.Value + TimeSpan.FromSeconds(1);
 
-                            // Block future requests if the rate limit type is "application".
-                            // For other rate limit types (method, service) we should not block future requests because they might be okay.
-                            if (response.Response.Headers.TryGetValues("X-Rate-Limit-Type", out headerValues))
+                        // Block future requests if the rate limit type is "application".
+                        // For other rate limit types (method, service) we should not block future requests because they might be okay.
+                        if (response.Response.Headers.TryGetValues("X-Rate-Limit-Type", out IEnumerable<string> headerValues))
+                        {
+                            var rateLimitType = headerValues.First();
+                            if (string.Equals(rateLimitType, "application", StringComparison.OrdinalIgnoreCase))
                             {
-                                var rateLimitType = headerValues.First();
-                                if (string.Equals(rateLimitType, "application", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    var targetTime = DateTime.UtcNow + retryAfterDelay;
-                                    retryAfterTimes.AddOrUpdate(platformId, targetTime, (a, b) => targetTime);
-                                }
+                                var targetTime = DateTime.UtcNow + retryAfterDelay;
+                                retryAfterTimes.AddOrUpdate(platformId, targetTime, (a, b) => targetTime);
                             }
                         }
                     }
@@ -453,45 +433,55 @@ namespace RiotNet
         /// <returns>A task that represents the asynchronous operation.</returns>
         protected async Task<RiotResponse> SendAsync(HttpRequestMessage request, string platformId, CancellationToken token)
         {
-            try
+            DateTime targetTime = DateTime.UtcNow;
+            if (retryAfterTimes.TryGetValue(platformId, out DateTime retryAfter))
             {
-                DateTime targetTime = DateTime.UtcNow;
-                if (retryAfterTimes.TryGetValue(platformId, out DateTime retryAfter))
-                {
-                    if (retryAfter > targetTime)
-                        targetTime = retryAfter;
-                }
-                if (rateLimiter != null)
-                {
-                    var limiterDelayTime = rateLimiter.AddRequestOrGetDelay(platformId);
-                    if (limiterDelayTime > targetTime)
-                        targetTime = limiterDelayTime;
-                }
-                if (targetTime <= DateTime.UtcNow)
+                if (retryAfter > targetTime)
+                    targetTime = retryAfter;
+            }
+            if (rateLimiter != null)
+            {
+                var limiterDelayTime = rateLimiter.AddRequestOrGetDelay(platformId);
+                if (limiterDelayTime > targetTime)
+                    targetTime = limiterDelayTime;
+            }
+            if (targetTime <= DateTime.UtcNow)
+            {
+                try
                 {
                     var response = await client.SendAsync(request, token).ConfigureAwait(false);
                     return new RiotResponse(response);
                 }
-                else
+                catch (TaskCanceledException ex)
                 {
-                    var queue = throttledRequestQueues.GetOrAdd(targetTime, (dt) =>
-                    {
-                        var q = new ConcurrentQueue<Task<Task<RiotResponse>>>();
-                        ProcessRequestQueue(q, targetTime);
-                        return q;
-                    });
-                    var task = new Task<Task<RiotResponse>>(() => SendAsync(request, platformId, token));
-                    queue.Enqueue(task);
-                    return await await task;
+                    return new RiotResponse(null, ex, true);
+                }
+                catch (Exception ex)
+                {
+                    return new RiotResponse(null, ex);
                 }
             }
-            catch (TaskCanceledException ex)
+            else
             {
-                return new RiotResponse(null, ex, true);
-            }
-            catch (Exception ex)
-            {
-                return new RiotResponse(null, ex);
+                var args = new RetryEventArgs(null, 1) { Retry = Settings.RetryOnRateLimitExceeded };
+                OnRateLimitExceeded(args);
+                if (!args.Retry)
+                {
+                    if (Settings.ThrowOnError)
+                        throw new RateLimitExceededException();
+
+                    return null;
+                }
+
+                var task = new Task<Task<RiotResponse>>(() => SendAsync(request, platformId, token));
+                var queue = throttledRequestQueues.GetOrAdd(targetTime, (dt) =>
+                {
+                    var q = new ConcurrentQueue<Task<Task<RiotResponse>>>();
+                    ProcessRequestQueue(dt);
+                    return q;
+                });
+                queue.Enqueue(task);
+                return await await task;
             }
         }
 
@@ -506,8 +496,7 @@ namespace RiotNet
         {
             if (response.TimedOut)
             {
-                var args = new RetryEventArgs(response, attemptCount);
-                args.Retry = Settings.RetryOnTimeout;
+                var args = new RetryEventArgs(response, attemptCount) { Retry = Settings.RetryOnTimeout };
                 OnRequestTimedOut(args);
                 // Note: never retry if the token is cancelled. It will certainly fail the next time, too.
                 if (args.Retry && !token.IsCancellationRequested)
@@ -519,8 +508,7 @@ namespace RiotNet
             }
             if (response.Response == null)
             {
-                var args = new RetryEventArgs(response, attemptCount);
-                args.Retry = Settings.RetryOnConnectionFailure;
+                var args = new RetryEventArgs(response, attemptCount) { Retry = Settings.RetryOnConnectionFailure };
                 OnConnectionFailed(args);
                 if (args.Retry)
                     return ResponseAction.Retry;
@@ -532,8 +520,7 @@ namespace RiotNet
             var statusCode = (int)response.Response.StatusCode;
             if (statusCode == 429)
             {
-                var args = new RetryEventArgs(response, attemptCount);
-                args.Retry = Settings.RetryOnRateLimitExceeded;
+                var args = new RetryEventArgs(response, attemptCount) { Retry = Settings.RetryOnRateLimitExceeded };
                 OnRateLimitExceeded(args);
                 if (args.Retry)
                     return ResponseAction.Retry;
@@ -552,8 +539,7 @@ namespace RiotNet
             }
             if (statusCode >= 500)
             {
-                var args = new RetryEventArgs(response, attemptCount);
-                args.Retry = Settings.RetryOnServerError;
+                var args = new RetryEventArgs(response, attemptCount) { Retry = Settings.RetryOnServerError };
                 OnServerError(args);
                 if (args.Retry)
                     return ResponseAction.Retry;
@@ -616,9 +602,15 @@ namespace RiotNet
             }
         }
 
-        private async void ProcessRequestQueue(ConcurrentQueue<Task<Task<RiotResponse>>> queue, DateTime targetTime)
+        private async void ProcessRequestQueue(DateTime targetTime)
         {
-            await Task.Delay(targetTime - DateTime.UtcNow).ConfigureAwait(false);
+            var delay = targetTime - DateTime.UtcNow;
+            if (delay <= TimeSpan.Zero)
+                delay = TimeSpan.FromMilliseconds(10);
+            await Task.Delay(delay).ConfigureAwait(false);
+
+            if (!throttledRequestQueues.TryRemove(targetTime, out ConcurrentQueue<Task<Task<RiotResponse>>> queue))
+                return;
             while (queue.TryDequeue(out Task<Task<RiotResponse>> task))
             {
                 // Use RunSynchronously to ensure that requests are sent in order.
