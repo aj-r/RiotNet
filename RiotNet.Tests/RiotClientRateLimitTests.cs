@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using RiotNet.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace RiotNet.Tests
@@ -48,38 +49,40 @@ namespace RiotNet.Tests
         [Test]
         public async Task RateLimitTest_ShouldDelayFutureRequests()
         {
+            await Task.Delay(10000); // in case a previous test maxed out the limit
+
             IRiotClient client = new RiotClient();
             client.Settings.MaxRequestAttempts = 2;
-            client.Settings.RetryOnRateLimitExceeded = true;
+            client.Settings.RetryOnRateLimitExceeded = false;
+            client.Settings.ThrowOnError = false;
 
             var tasks = new List<Task<LeagueList>>();
             for (var i = 0; i < 11; ++i)
             {
                 tasks.Add(client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5));
             }
-            IRiotClient client2 = new RiotClient(client.Settings);
-            bool rateLimitExceeded = false;
-            client2.RateLimitExceeded += (o, e) => rateLimitExceeded = true;
-            tasks.Add(client2.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5));
             var leagues = await Task.WhenAll(tasks);
 
-            Assert.That(rateLimitExceeded, Is.False, "Rate limit was exceeded! Proactive rate limiting failed.");
-            for (var i = 0; i < 11; ++i)
-                Assert.That(leagues[i], Is.Not.Null, "Failed to get league: " + i);
+            IRiotClient client2 = new RiotClient(client.Settings);
+            client2.RateLimitExceeded += (o, e) => Assert.Fail("Rate limit was exceeded! Reactive rate limit guard failed.");
+            var league = client2.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
+
+            Assert.That(league, Is.Not.Null, "Failed to get league");
         }
 
         [Test]
         public async Task RateLimitTest_ShouldApplyRateLimiter_FromStaticProperty()
         {
+            await Task.Delay(10000); // in case a previous test maxed out the limit
+
             RiotClient.RateLimiter = new RateLimiter(10, 600);
             IRiotClient client = new RiotClient();
             client.Settings.RetryOnRateLimitExceeded = true;
 
-            bool rateLimitExceeded = false;
             client.RateLimitExceeded += (o, e) =>
             {
                 if (e.Response != null)
-                    rateLimitExceeded = true;
+                    Assert.Fail("Rate limit was exceeded! Proactive rate limiting failed.");
             };
 
             for (var i = 0; i < 12; ++i)
@@ -87,22 +90,22 @@ namespace RiotNet.Tests
                 var league = await client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
                 Assert.That(league, Is.Not.Null, "Failed to get league: " + i);
             }
-            Assert.That(rateLimitExceeded, Is.False, "Rate limit was exceeded! Proactive rate limiting failed.");
         }
 
         [Test]
         public async Task RateLimitTest_ShouldApplyRateLimiter_WithConcurrentRequests()
         {
+            await Task.Delay(10000); // in case a previous test maxed out the limit
+
             RiotClient.RateLimiter = new RateLimiter(10, 600);
-            bool rateLimitExceeded = false;
             RetryEventHandler onRateLimitExceeded = (o, e) =>
             {
                 if (e.Response != null)
-                    rateLimitExceeded = true;
+                    Assert.Fail("Rate limit was exceeded! Proactive rate limiting failed.");
             };
 
             var tasks = new List<Task<LeagueList>>();
-            for (var i = 0; i < 20; ++i)
+            for (var i = 0; i < 30; ++i)
             {
                 tasks.Add(Task.Run(() =>
                 {
@@ -114,24 +117,34 @@ namespace RiotNet.Tests
                 }));
             }
 
-            var leagues = await Task.WhenAll(tasks);
+            var allTask = Task.WhenAll(tasks);
+            var finishedTask = await Task.WhenAny(allTask, Task.Delay(25000));
 
-            Assert.That(rateLimitExceeded, Is.False, "Rate limit was exceeded! Proactive rate limiting failed.");
-            for (var i = 0; i < 20; ++i)
-                Assert.That(leagues[i], Is.Not.Null, "Failed to get league: " + i);
+            if (finishedTask == allTask)
+            {
+                var leagues = allTask.Result;
+                for (var i = 0; i < 20; ++i)
+                    Assert.That(leagues[i], Is.Not.Null, "Failed to get league: " + i);
+            }
+            else
+            {
+                var completedCount = tasks.Count(t => t.IsCompleted);
+                Assert.Fail($"Timed out waiting for tasks ({completedCount}/{tasks.Count} tasks completed)");
+            }
         }
 
-        [Test]
+        [Test, MaxTime(30000)]
         public async Task RateLimitTest_ShouldApplyRateLimiter_FromConstructor()
         {
+            await Task.Delay(10000); // in case a previous test maxed out the limit
+
             IRiotClient client = new RiotClient(new RateLimiter(10, 600));
             client.Settings.RetryOnRateLimitExceeded = true;
 
-            bool rateLimitExceeded = false;
             client.RateLimitExceeded += (o, e) =>
             {
                 if (e.Response != null)
-                    rateLimitExceeded = true;
+                    Assert.Fail("Rate limit was exceeded! Proactive rate limiting failed.");
             };
 
             for (var i = 0; i < 12; ++i)
@@ -139,7 +152,6 @@ namespace RiotNet.Tests
                 var league = await client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
                 Assert.That(league, Is.Not.Null, "Failed to get league: " + i);
             }
-            Assert.That(rateLimitExceeded, Is.False, "Rate limit was exceeded! Proactive rate limiting failed.");
         }
 
         private async Task MaxOutRateLimit(IRiotClient client)

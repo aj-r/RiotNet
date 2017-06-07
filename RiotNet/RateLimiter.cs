@@ -9,7 +9,7 @@ namespace RiotNet
     public interface IRateLimiter
     {
         /// <summary>
-        /// Incremented the request count, or if the rate limit is reached, gets the time (in UTC) until which the client should wait before sending a request.
+        /// Increments the request count, or if the rate limit is reached, gets the time (in UTC) until which the client should wait before sending a request.
         /// </summary>
         /// <param name="platformId">The platform ID of the default server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values.</param>
         /// <returns>The wait time, or DateTime.MinValue if no delay is required.</returns>
@@ -43,7 +43,7 @@ namespace RiotNet
         }
 
         /// <summary>
-        /// Incremented the request count, or if the rate limit is reached, gets the time (in UTC) until which the client should wait before sending a request.
+        /// Increments the request count, or if the rate limit is reached, gets the time (in UTC) until which the client should wait before sending a request.
         /// </summary>
         /// <param name="platformId">The platform ID of the default server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values.</param>
         /// <returns>The wait time, or DateTime.MinValue if no delay is required.</returns>

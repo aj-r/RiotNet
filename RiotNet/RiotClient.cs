@@ -401,8 +401,7 @@ namespace RiotNet
                             var rateLimitType = headerValues.First();
                             if (string.Equals(rateLimitType, "application", StringComparison.OrdinalIgnoreCase))
                             {
-                                var targetTime = DateTime.UtcNow + retryAfterDelay;
-                                retryAfterTimes.AddOrUpdate(platformId, targetTime, (a, b) => targetTime);
+                                retryAfterTimes[platformId] = DateTime.UtcNow + retryAfterDelay;
                             }
                         }
                     }
@@ -463,6 +462,7 @@ namespace RiotNet
             }
             else
             {
+                // We need to throttle. Add requests to a queue to ensure that they are processed in order, so one request doesn't get starved.
                 var args = new RetryEventArgs(null, 1) { Retry = Settings.RetryOnRateLimitExceeded };
                 OnRateLimitExceeded(args);
                 if (!args.Retry)
@@ -473,14 +473,20 @@ namespace RiotNet
                     return null;
                 }
 
+                // Create a task to re-send but DON'T start it until targetTime.
                 var task = new Task<Task<RiotResponse>>(() => SendAsync(request, platformId, token));
+                ConcurrentQueue<Task<Task<RiotResponse>>> addedQueue = null;
                 var queue = throttledRequestQueues.GetOrAdd(targetTime, (dt) =>
                 {
-                    var q = new ConcurrentQueue<Task<Task<RiotResponse>>>();
-                    ProcessRequestQueue(dt);
-                    return q;
+                    return addedQueue = new ConcurrentQueue<Task<Task<RiotResponse>>>();
                 });
                 queue.Enqueue(task);
+                // Checking that addedQueue == queue is the only way to guarantee that the new queue was really added.
+                // According to Microsoft docs: "If you call GetOrAdd simultaneously on different threads, addValueFactory may be called multiple times,
+                // but its key/value pair might not be added to the dictionary for every call."
+                if (addedQueue == queue)
+                    ProcessRequestQueue(targetTime);
+
                 return await await task;
             }
         }
@@ -602,12 +608,11 @@ namespace RiotNet
             }
         }
 
-        private async void ProcessRequestQueue(DateTime targetTime)
+        private static async void ProcessRequestQueue(DateTime targetTime)
         {
             var delay = targetTime - DateTime.UtcNow;
-            if (delay <= TimeSpan.Zero)
-                delay = TimeSpan.FromMilliseconds(10);
-            await Task.Delay(delay).ConfigureAwait(false);
+            if (delay > TimeSpan.Zero)
+                await Task.Delay(delay).ConfigureAwait(false);
 
             if (!throttledRequestQueues.TryRemove(targetTime, out ConcurrentQueue<Task<Task<RiotResponse>>> queue))
                 return;

@@ -119,3 +119,7 @@ You can change that behaviour by using the following settings:
 ## More examples
 
 See the tests for more extensive examples.
+
+## Dependencies
+
+- Newtonsoft.Json 9.0.1
