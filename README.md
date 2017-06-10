@@ -15,7 +15,7 @@ It has the following features:
 - **Database Ready** - data structures have built-in database metadata, so you can easily persist results using Entity Framework 6 without having to re-define all of the models.
 - **Complies** with Riot's [rate limiting best practices](https://developer.riotgames.com/rate-limiting.html)
   - You may also want to follow the [Tips to Avoid Being Rate Limited](https://developer.riotgames.com/rate-limiting.html)
-- **Thread-Safe**: Built for server applications that handle concurrent requests.
+- **Thread-Safe**: Built for server applications that need to handle concurrent requests with high performance.
 - **Asynchronous methods** - methods are awaitable using the async/await keywords.
 
 RiotNet is NOT endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends.
