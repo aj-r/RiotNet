@@ -72,7 +72,7 @@ namespace RiotNet
 
         private readonly string platformId;
         private readonly RiotClientSettings settings;
-        private readonly HttpClient client = new HttpClient();
+        private readonly HttpClient client;
         private readonly IRateLimiter rateLimiter;
 
         /// <summary>
@@ -142,6 +142,7 @@ namespace RiotNet
         /// </remarks>
         public RiotClient(RiotClientSettings settings, string platformId, IRateLimiter rateLimiter)
         {
+            this.client = CreateHttpClient();
             this.settings = settings;
             this.platformId = platformId;
             this.rateLimiter = rateLimiter;
@@ -262,6 +263,15 @@ namespace RiotNet
         protected HttpClient Client
         {
             get { return client; }
+        }
+
+        /// <summary>
+        /// Creates the underlying HttpClient. Override this method if you want to use a custom HttpMessageHandler for testing purposes.
+        /// </summary>
+        /// <returns>An HttpClient.</returns>
+        protected virtual HttpClient CreateHttpClient()
+        {
+            return new HttpClient();
         }
 
         /// <summary>

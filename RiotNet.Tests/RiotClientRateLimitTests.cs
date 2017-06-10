@@ -133,7 +133,7 @@ namespace RiotNet.Tests
             }
         }
 
-        [Test, MaxTime(30000)]
+        [Test]
         public async Task RateLimitTest_ShouldApplyRateLimiter_FromConstructor()
         {
             await Task.Delay(10000); // in case a previous test maxed out the limit
@@ -152,6 +152,35 @@ namespace RiotNet.Tests
                 var league = await client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
                 Assert.That(league, Is.Not.Null, "Failed to get league: " + i);
             }
+        }
+
+        [Test]
+        public async Task RateLimitTest_ShouldProcessRequestsInOrder()
+        {
+            await Task.Delay(10000); // in case a previous test maxed out the limit
+
+            IRiotClient client = new RiotClient(new RateLimiter(10, 600));
+            client.Settings.RetryOnRateLimitExceeded = true;
+            client.RateLimitExceeded += (o, e) =>
+            {
+                if (e.Response != null)
+                    Assert.Fail("Rate limit was exceeded! Proactive rate limiting failed.");
+            };
+            var tasks = new List<Task<LeagueList>>();
+            for (var i = 0; i < 30; ++i)
+                tasks.Add(client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5));
+
+            await Task.Delay(2000);
+            var expectedCompletedCount = tasks.Take(10).Count(t => t.IsCompleted);
+            var unexpectedCompletedCount = tasks.Skip(10).Count(t => t.IsCompleted);
+            Assert.That(expectedCompletedCount, Is.EqualTo(10), $"Tasks were completed out of order - {expectedCompletedCount} of the first 10 were completed. ({unexpectedCompletedCount} of the last 20)");
+            Assert.That(unexpectedCompletedCount, Is.EqualTo(0), $"Extra tasks were completed - {unexpectedCompletedCount}/20.");
+
+            await Task.Delay(11000);
+            expectedCompletedCount = tasks.Take(20).Count(t => t.IsCompleted);
+            unexpectedCompletedCount = tasks.Skip(20).Count(t => t.IsCompleted);
+            Assert.That(expectedCompletedCount, Is.EqualTo(20), $"Tasks were completed out of order - {expectedCompletedCount} of the first 20 were completed. ({unexpectedCompletedCount} of the last 10)");
+            Assert.That(unexpectedCompletedCount, Is.EqualTo(0), $"Extra tasks were completed - {unexpectedCompletedCount}/10.");
         }
 
         private async Task MaxOutRateLimit(IRiotClient client)

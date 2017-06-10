@@ -1,7 +1,5 @@
 ﻿using NUnit.Framework;
 using RiotNet.Models;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace RiotNet.Tests
 {
@@ -58,44 +56,6 @@ namespace RiotNet.Tests
             Assert.That(client.Settings.RetryOnTimeout);
             Assert.That(client.Settings.RetryOnConnectionFailure);
             Assert.That(client.Settings.RetryOnRateLimitExceeded);
-        }
-
-        [Test]
-        public async Task ShouldCancelRequest()
-        {
-            RiotClientSettings settings = RiotClient.DefaultSettings();
-            settings.RetryOnTimeout = false;
-            settings.ThrowOnError = false;
-            IRiotClient client = new RiotClient(settings);
-
-            bool cancelled = false;
-            client.RequestTimedOut += (sender, e) =>
-            {
-                e.Retry = false;
-                cancelled = true;
-            };
-
-            var cts = new CancellationTokenSource();
-            Task<ShardStatus> task = client.GetShardStatusAsync(token: cts.Token);
-            cts.Cancel();
-
-            await task;
-            Assert.That(cancelled, Is.True);
-        }
-
-        [Test]
-        public void ShouldCancelRequest_AndThrowException()
-        {
-            RiotClientSettings settings = RiotClient.DefaultSettings();
-            settings.RetryOnTimeout = false;
-            settings.ThrowOnError = true;
-            IRiotClient client = new RiotClient(settings);
-
-            var cts = new CancellationTokenSource();
-            Task<ShardStatus> task = client.GetShardStatusAsync(token: cts.Token);
-            cts.Cancel();
-
-            Assert.That((AsyncTestDelegate)(() => task), Throws.InstanceOf<RestTimeoutException>());
         }
     }
 }
