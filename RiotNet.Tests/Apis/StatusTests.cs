@@ -52,6 +52,22 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        public async Task GetShardStatusAsyncTest()
+        {
+            RiotClient.DefaultPlatformId = PlatformId.EUN1;
+            IRiotClient client = new RiotClient();
+            ShardStatus shard = await client.GetShardStatusAsync();
+
+            Assert.That(shard, Is.Not.Null);
+            Assert.That(shard.Name, Is.EqualTo("EU Nordic & East"));
+            Assert.That(shard.Slug, Is.EqualTo("eune"));
+            Assert.That(shard.RegionTag, Is.EqualTo("eun1"));
+            Assert.That(shard.Hostname, Is.Not.Null.And.Not.Empty);
+            Assert.That(shard.Services, Is.Not.Null.And.Not.Empty);
+            Assert.That(shard.Locales, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
         public void DeserializeShardStatusTest()
         {
             ShardStatus shard = JsonConvert.DeserializeObject<ShardStatus>(Resources.SampleShardStatus, RiotClient.JsonSettings);

@@ -31,7 +31,7 @@ namespace RiotNet.Converters
                 if (!long.TryParse((string)reader.Value, out epochTime))
                     return base.ReadJson(reader, objectType, existingValue, serializer);
             }
-            else if (reader.TokenType == JsonToken.String || reader.TokenType == JsonToken.Date)
+            else if (reader.TokenType == JsonToken.Date)
             {
                 return base.ReadJson(reader, objectType, existingValue, serializer);
             }
@@ -44,7 +44,10 @@ namespace RiotNet.Converters
                 epochTime = (long)reader.Value;
             }
             // Riot's "epoch time" is actually in milliseconds, not seconds.
-            return Conversions.EpochMillisecondsToDateTime(epochTime);
+            var dateTime = Conversions.EpochMillisecondsToDateTime(epochTime);
+            if (objectType == typeof(DateTimeOffset) || objectType == typeof(DateTimeOffset?))
+                return new DateTimeOffset(dateTime);
+            return dateTime;
         }
 
         /// <summary>

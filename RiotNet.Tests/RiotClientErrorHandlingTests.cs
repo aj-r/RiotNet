@@ -63,7 +63,8 @@ namespace RiotNet.Tests
             {
                 ShardStatus result = await task;
             }
-            catch { }
+            catch (Exception ex) when (!(ex is AssertionException))
+            { }
             Assert.That(eventCount, Is.EqualTo(1), "Event was raised wrong number of times.");
         }
 
@@ -117,7 +118,8 @@ namespace RiotNet.Tests
             {
                 ShardStatus result = await task;
             }
-            catch { }
+            catch (Exception ex) when (!(ex is AssertionException))
+            { }
             Assert.That(eventCount, Is.EqualTo(1), "Event was raised wrong number of times.");
         }
 
@@ -148,7 +150,8 @@ namespace RiotNet.Tests
             {
                 ShardStatus result = await client.GetShardDataAsync();
             }
-            catch { }
+            catch (Exception ex) when (!(ex is AssertionException))
+            { }
             Assert.That(eventCount, Is.EqualTo(3), "Event was raised wrong number of times.");
         }
 
@@ -180,7 +183,8 @@ namespace RiotNet.Tests
             {
                 ShardStatus result = await client.GetShardDataAsync();
             }
-            catch { }
+            catch (Exception ex) when (!(ex is AssertionException))
+            { }
             Assert.That(eventCount, Is.EqualTo(1), "Event was raised wrong number of times.");
         }
 
@@ -220,7 +224,6 @@ namespace RiotNet.Tests
 
             client.MessageHandler.RespondWithStatus(HttpStatusCode.BadRequest);
             client.ConnectionFailed += (s, e) => { Assert.Fail("Connection failed"); };
-            client.RateLimitExceeded += (s, e) => { Assert.Fail("Rate limit exceeded"); };
             client.RequestTimedOut += (s, e) => { Assert.Fail("Request timed out"); };
             client.ResourceNotFound += (s, e) => { Assert.Fail("Not found"); };
             client.ResponseError += (s, e) => { ++eventCount; };
@@ -232,7 +235,8 @@ namespace RiotNet.Tests
             {
                 ShardStatus result = await task;
             }
-            catch { }
+            catch (Exception ex) when (!(ex is AssertionException))
+            { }
             Assert.That(eventCount, Is.EqualTo(1), "Event was raised wrong number of times.");
         }
 
@@ -249,7 +253,6 @@ namespace RiotNet.Tests
 
             client.MessageHandler.RespondWithStatus(HttpStatusCode.ServiceUnavailable);
             client.ConnectionFailed += (s, e) => { Assert.Fail("Connection failed"); };
-            client.RateLimitExceeded += (s, e) => { Assert.Fail("Rate limit exceeded"); };
             client.RequestTimedOut += (s, e) => { Assert.Fail("Request timed out"); };
             client.ResourceNotFound += (s, e) => { Assert.Fail("Not found"); };
             client.ResponseError += (s, e) => { Assert.Fail("Response contained an error"); };
@@ -274,7 +277,6 @@ namespace RiotNet.Tests
 
             client.MessageHandler.RespondWithStatus(HttpStatusCode.ServiceUnavailable);
             client.ConnectionFailed += (s, e) => { Assert.Fail("Connection failed"); };
-            client.RateLimitExceeded += (s, e) => { Assert.Fail("Rate limit exceeded"); };
             client.RequestTimedOut += (s, e) => { Assert.Fail("Request timed out"); };
             client.ResourceNotFound += (s, e) => { Assert.Fail("Not found"); };
             client.ResponseError += (s, e) => { Assert.Fail("Response contained an error"); };
@@ -286,7 +288,8 @@ namespace RiotNet.Tests
             {
                 ShardStatus result = await task;
             }
-            catch { }
+            catch (Exception ex) when (!(ex is AssertionException))
+            { }
             Assert.That(eventCount, Is.EqualTo(1), "Event was raised wrong number of times.");
         }
 
@@ -304,7 +307,6 @@ namespace RiotNet.Tests
 
             client.MessageHandler.RespondWithStatus(HttpStatusCode.ServiceUnavailable);
             client.ConnectionFailed += (s, e) => { Assert.Fail("Connection failed"); };
-            client.RateLimitExceeded += (s, e) => { Assert.Fail("Rate limit exceeded"); };
             client.RequestTimedOut += (s, e) => { Assert.Fail("Request timed out"); };
             client.ResourceNotFound += (s, e) => { Assert.Fail("Not found"); };
             client.ResponseError += (s, e) => { Assert.Fail("Response contained an error"); };
@@ -314,7 +316,8 @@ namespace RiotNet.Tests
             {
                 ShardStatus result = await client.GetShardDataAsync();
             }
-            catch { }
+            catch (Exception ex) when(!(ex is AssertionException))
+            { }
             Assert.That(eventCount, Is.EqualTo(2), "Event was raised wrong number of times.");
         }
 
@@ -332,7 +335,6 @@ namespace RiotNet.Tests
 
             client.MessageHandler.RespondWithStatus(HttpStatusCode.ServiceUnavailable);
             client.ConnectionFailed += (s, e) => { Assert.Fail("Connection failed"); };
-            client.RateLimitExceeded += (s, e) => { Assert.Fail("Rate limit exceeded"); };
             client.RequestTimedOut += (s, e) => { Assert.Fail("Request timed out"); };
             client.ResourceNotFound += (s, e) => { Assert.Fail("Not found"); };
             client.ResponseError += (s, e) => { Assert.Fail("Response contained an error"); };
@@ -346,7 +348,8 @@ namespace RiotNet.Tests
             {
                 ShardStatus result = await client.GetShardDataAsync();
             }
-            catch { }
+            catch (Exception ex) when (!(ex is AssertionException))
+            { }
             Assert.That(eventCount, Is.EqualTo(1), "Event was raised wrong number of times.");
         }
 
@@ -398,7 +401,8 @@ namespace RiotNet.Tests
             {
                 ShardStatus result = await task;
             }
-            catch { }
+            catch (Exception ex) when (!(ex is AssertionException))
+            { }
             Assert.That(eventCount, Is.EqualTo(1), "Event was raised wrong number of times.");
         }
 
@@ -425,7 +429,8 @@ namespace RiotNet.Tests
             {
                 ShardStatus result = await client.GetShardDataAsync();
             }
-            catch { }
+            catch (Exception ex) when (!(ex is AssertionException))
+            { }
             Assert.That(eventCount, Is.EqualTo(2), "Event was raised wrong number of times.");
         }
 
@@ -456,7 +461,8 @@ namespace RiotNet.Tests
             {
                 ShardStatus result = await client.GetShardDataAsync();
             }
-            catch { }
+            catch (Exception ex) when (!(ex is AssertionException))
+            { }
             Assert.That(eventCount, Is.EqualTo(1), "Event was raised wrong number of times.");
         }
 
@@ -509,7 +515,8 @@ namespace RiotNet.Tests
             {
                 ShardStatus result = await task;
             }
-            catch { }
+            catch (Exception ex) when (!(ex is AssertionException))
+            { }
             Assert.That(eventCount, Is.EqualTo(1), "Event was raised wrong number of times.");
         }
 
@@ -536,7 +543,8 @@ namespace RiotNet.Tests
             {
                 ShardStatus result = await client.GetShardDataAsync();
             }
-            catch { }
+            catch (Exception ex) when (!(ex is AssertionException))
+            { }
             Assert.That(eventCount, Is.EqualTo(2), "Event was raised wrong number of times.");
         }
 
@@ -564,7 +572,8 @@ namespace RiotNet.Tests
             {
                 ShardStatus result = await task;
             }
-            catch { }
+            catch (Exception ex) when (!(ex is AssertionException))
+            { }
             Assert.That(eventCount, Is.EqualTo(1), "Event was raised wrong number of times.");
         }
 
@@ -595,7 +604,8 @@ namespace RiotNet.Tests
             {
                 ShardStatus result = await client.GetShardDataAsync();
             }
-            catch { }
+            catch (Exception ex) when (!(ex is AssertionException))
+            { }
             Assert.That(eventCount, Is.EqualTo(1), "Event was raised wrong number of times.");
         }
     }

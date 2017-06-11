@@ -13,13 +13,13 @@ namespace RiotNet
         /// </summary>
         /// <param name="objectType">The type of the object.</param>
         /// <returns>A <see cref="JsonDynamicContract"/>.</returns>
-        protected override JsonDynamicContract CreateDynamicContract(Type objectType)
+        protected override JsonDictionaryContract CreateDictionaryContract(Type objectType)
         {
-            var contract = base.CreateDynamicContract(objectType);
+            var contract = base.CreateDictionaryContract(objectType);
             // The default behaviour of the CamelCasePropertyNamesContractResolver is to also convert dictionary keys to uppercase.
             // However, this is bad because the reverse operation is not applied during serialization.
             // It's also just not what we want.
-            contract.PropertyNameResolver = s => s;
+            contract.DictionaryKeyResolver = s => s;
             return contract;
         }
     }

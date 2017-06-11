@@ -43,7 +43,7 @@ namespace RiotNet
         /// <param name="response">The response.</param>
         /// <param name="innerException">The exception that is the cause of the current exception.</param>
         public RestException(RiotResponse response, Exception innerException)
-            : this(response, "A REST request failed." + (response != null ? " Status code: " + (int)response.Response.StatusCode : string.Empty), innerException)
+            : this(response, "A REST request failed." + (response?.Response?.StatusCode != null ? " Status code: " + (int)response.Response.StatusCode : string.Empty), innerException)
         { }
 
         /// <summary>

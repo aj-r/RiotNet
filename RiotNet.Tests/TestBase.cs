@@ -171,7 +171,7 @@ namespace RiotNet.Tests
 
             var obj = Activator.CreateInstance(type);
 
-            var dictionaryType = ReflectionUtils.GetDictionaryInterface(type);
+            var dictionaryType = GetDictionaryInterface(type);
             if (dictionaryType != null)
             {
                 var typeArgs = dictionaryType.GetGenericArguments();
@@ -394,6 +394,16 @@ namespace RiotNet.Tests
                     AssertNonDefaultValuesRecursive(values, propertyPath + childProperty.Name, childProperty);
                 }
             }
+        }
+
+        /// <summary>
+        /// Gets the IDictionary&lt;,&gt; interface that the type implements, if any.
+        /// </summary>
+        /// <param name="type">The type of object that implements the interface.</param>
+        /// <returns>The first IDictionary&lt;,&gt; interface found, or null if no interface was found.</returns>
+        public static Type GetDictionaryInterface(Type type)
+        {
+            return ReflectionUtils.GetGenericInterface(type, typeof(IDictionary<,>));
         }
 
     }

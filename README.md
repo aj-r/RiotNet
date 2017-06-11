@@ -10,7 +10,7 @@ It has the following features:
 - [**NuGet package**](https://www.nuget.org/packages/RiotNet/): `Install-Package RiotNet`
 - [**Full Documentation**](http://aj-r.github.io/RiotNet/docs/interface_riot_net_1_1_i_riot_client.html) - documentation of every method and every property of every object. (Or at least as much as we can figure out from examining the JSON responses. Riot's API documentation is a bit lacking right now.)
 - [**Full API coverage**](https://github.com/aj-r/RiotNet/wiki/API-Route-Mapping) - methods for accessing to every endpoint in the Riot Games API.
-- **Full Test Coverage** - so you can trust that it works.
+- **Unit Test Coverage** - over 90%
   - However, if you think we missed something, or need to update something, please create an issue. Or better yet, create a pull request!
 - **Database Ready** - data structures have built-in database metadata, so you can easily persist results using Entity Framework 6 without having to re-define all of the models.
 - **Complies** with Riot's [rate limiting best practices](https://developer.riotgames.com/rate-limiting.html)

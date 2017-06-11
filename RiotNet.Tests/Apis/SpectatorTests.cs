@@ -67,6 +67,23 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        public async Task GetCurrentGameBySummonerIdAsyncTest()
+        {
+            // This is just an alias for GetActiveGameBySummonerIdAsync(), so just test that the alias works
+            IRiotClient client = new RiotClient();
+            // In order to get a summoner ID that is guaranteed to be in a game, we need to get a featured game.
+            var featuredGameList = await client.GetFeaturedGamesAsync();
+            var featuredGame = featuredGameList.GameList.First();
+            var summonerName = featuredGame.Participants.First().SummonerName;
+            var summoner = await client.GetSummonerBySummonerNameAsync(summonerName);
+
+            var game = await client.GetCurrentGameBySummonerIdAsync(summoner.Id);
+
+            Assert.That(game, Is.Not.Null);
+            Assert.That(game.GameId, Is.GreaterThan(0));
+        }
+
+        [Test]
         public async Task GetFeaturedGamesAsyncTest()
         {
             IRiotClient client = new RiotClient();

@@ -36,6 +36,8 @@ namespace RiotNet.Converters
                 case JsonToken.Float:
                     var dobuleSeconds = (double)reader.Value;
                     return TimeSpan.FromMilliseconds(dobuleSeconds);
+                case JsonToken.Null:
+                    return null;
                 default:
                     throw new JsonException("Can only deseialize TimeSpan from integer or float. Path: " + reader.Path);
             }

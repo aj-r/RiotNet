@@ -378,6 +378,25 @@ namespace RiotNet.Tests
 
         #endregion
 
+        #region Profile Icons
+
+        [Test]
+        public async Task GetStaticProfileIconsAsyncTest()
+        {
+            IRiotClient client = new RiotClient();
+            StaticProfileIconData iconList = await client.GetStaticProfileIconsAsync();
+
+            Assert.That(iconList.Data.Count, Is.GreaterThan(0));
+            Assert.That(iconList.Type, Is.EqualTo("profileicon"));
+            Assert.That(iconList.Version, Is.Not.Null.And.Not.Empty);
+
+            StaticProfileIcon icon = iconList.Data.Values.First();
+            Assert.That(icon.Id, Is.GreaterThan(0));
+            Assert.That(icon.Image, Is.Not.Null);
+        }
+
+        #endregion
+
         #region Realm
 
         [Test]
