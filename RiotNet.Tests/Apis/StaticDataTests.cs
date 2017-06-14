@@ -244,6 +244,28 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        public async Task GetStaticItemAsyncTest()
+        {
+            IRiotClient client = new RiotClient();
+            var item = await client.GetStaticItemAsync(1004);
+ 
+            Assert.That(item.Id, Is.EqualTo(1004));
+            Assert.That(item.Name, Is.EqualTo("Faerie Charm"));
+        }
+
+        [Test]
+        public async Task GetStaticItemAsyncTest_WithSelectedFields()
+        {
+            IRiotClient client = new RiotClient();
+            var item = await client.GetStaticItemAsync(1004, tags: new[] { nameof(StaticItem.Maps), nameof(StaticItem.SanitizedDescription) });
+
+            Assert.That(item.Id, Is.EqualTo(1004));
+            Assert.That(item.Maps, Is.Not.Null.And.Not.Empty);
+            Assert.That(item.SanitizedDescription, Is.Not.Null.And.Not.Empty);
+            Assert.That(item.Image.Full, Is.Null.Or.Empty);
+        }
+
+        [Test]
         public void DeserializeItemTest()
         {
             var item = JsonConvert.DeserializeObject<StaticItem>(Resources.SampleStaticItem, RiotClient.JsonSettings);

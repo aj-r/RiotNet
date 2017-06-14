@@ -11,7 +11,6 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>Added .NET Core support, removed RestSharp dependency.</releaseNotes>
-    <copyright>Copyright 2016 AJ Richardson</copyright>
     <tags>riot games lol api client wrapper</tags>
   </metadata>
 </package>

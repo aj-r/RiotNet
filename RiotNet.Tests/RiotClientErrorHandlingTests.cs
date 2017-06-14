@@ -26,7 +26,6 @@ namespace RiotNet.Tests
 
             client.MessageHandler.RespondWithStatus(HttpStatusCode.NotFound);
             client.ConnectionFailed += (s, e) => { Assert.Fail("Connection failed"); };
-            client.RateLimitExceeded += (s, e) => { Assert.Fail("Rate Limit exceeded"); };
             client.RequestTimedOut += (s, e) => { Assert.Fail("Request timed out"); };
             client.ResourceNotFound += (s, e) => { ++eventCount; };
             client.ResponseError += (s, e) => { Assert.Fail("Response contained an error"); };
@@ -51,7 +50,6 @@ namespace RiotNet.Tests
 
             client.MessageHandler.RespondWithStatus(HttpStatusCode.NotFound);
             client.ConnectionFailed += (s, e) => { Assert.Fail("Connection failed"); };
-            client.RateLimitExceeded += (s, e) => { Assert.Fail("Rate Limit exceeded"); };
             client.RequestTimedOut += (s, e) => { Assert.Fail("Request timed out"); };
             client.ResourceNotFound += (s, e) => { ++eventCount; };
             client.ResponseError += (s, e) => { Assert.Fail("Response contained an error"); };
@@ -200,7 +198,6 @@ namespace RiotNet.Tests
 
             client.MessageHandler.RespondWithStatus(HttpStatusCode.BadRequest);
             client.ConnectionFailed += (s, e) => { Assert.Fail("Connection failed"); };
-            client.RateLimitExceeded += (s, e) => { Assert.Fail("Rate limit exceeded"); };
             client.RequestTimedOut += (s, e) => { Assert.Fail("Request timed out"); };
             client.ResourceNotFound += (s, e) => { Assert.Fail("Not found"); };
             client.ResponseError += (s, e) => { ++eventCount; };

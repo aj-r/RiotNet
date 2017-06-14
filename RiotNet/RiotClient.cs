@@ -398,22 +398,31 @@ namespace RiotNet
                     return default(T);
 
                 TimeSpan retryAfterDelay = TimeSpan.FromSeconds(3);
-                if ((int?)response.Response?.StatusCode == 429)
+                if (response.Response != null)
                 {
-                    if (response.Response.Headers.RetryAfter?.Delta != null)
+                    if ((int)response.Response.StatusCode == 429)
                     {
-                        retryAfterDelay = response.Response.Headers.RetryAfter.Delta.Value + TimeSpan.FromSeconds(1);
-
-                        // Block future requests if the rate limit type is "application".
-                        // For other rate limit types (method, service) we should not block future requests because they might be okay.
-                        if (response.Response.Headers.TryGetValues("X-Rate-Limit-Type", out IEnumerable<string> headerValues))
+                        if (response.Response.Headers.RetryAfter?.Delta != null)
                         {
-                            var rateLimitType = headerValues.First();
-                            if (string.Equals(rateLimitType, "application", StringComparison.OrdinalIgnoreCase))
+                            retryAfterDelay = response.Response.Headers.RetryAfter.Delta.Value + TimeSpan.FromSeconds(1);
+
+                            // Block future requests if the rate limit type is "application".
+                            // For other rate limit types (method, service) we should not block future requests because they might be okay.
+                            if (response.Response.Headers.TryGetValues("X-Rate-Limit-Type", out IEnumerable<string> headerValues))
                             {
-                                retryAfterTimes[platformId] = DateTime.UtcNow + retryAfterDelay;
+                                var rateLimitType = headerValues.First();
+                                if (string.Equals(rateLimitType, "application", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    retryAfterTimes[platformId] = DateTime.UtcNow + retryAfterDelay;
+                                }
                             }
                         }
+                    }
+                    if (rateLimiter != null && response.Response.Headers.TryGetValues("X-App-Rate-Limit-Count", out IEnumerable<string> headers))
+                    {
+                        var rateLimitCountHeader = headers.FirstOrDefault();
+                        if (rateLimitCountHeader != null)
+                            ProcessAppRateLimitCount(platformId, rateLimitCountHeader);
                     }
                 }
 
@@ -631,6 +640,28 @@ namespace RiotNet
                 // Use RunSynchronously to ensure that requests are sent in order.
                 // This forces the thread to wait for the request to be sent, but not to wait for the inner task to complete.
                 task.RunSynchronously();
+            }
+        }
+
+        private void ProcessAppRateLimitCount(string platformId, string rateLimitCountHeader)
+        {
+            int countPerTenSeconds = 0, countPerTenMinutes = 0;
+            var rules = rateLimitCountHeader.Split(',');
+            foreach (var rule in rules)
+            {
+                var parts = rule.Split(':');
+                if (parts.Length != 2)
+                    continue;
+                if (!int.TryParse(parts[0], out int count) || !int.TryParse(parts[1], out int period))
+                    continue;
+                if (period == 10)
+                    countPerTenSeconds = count;
+                else if (period == 600)
+                    countPerTenMinutes = count;
+            }
+            if (countPerTenSeconds != 0 && countPerTenMinutes != 0)
+            {
+                rateLimiter.UpdateRequestCount(platformId, countPerTenSeconds, countPerTenMinutes);
             }
         }
 

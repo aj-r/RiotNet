@@ -418,6 +418,7 @@ namespace RiotNet
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>
+        /// Note that you can use avatar.leagueoflegends.com to get anyone's profile icon using the format http://avatar.leagueoflegends.com/region/name.png (e.g., http://avatar.leagueoflegends.com/NA/RiotSchmick.png).
         /// Calls to this method will not count toward your API rate limit.
         /// </remarks>
         public Task<StaticProfileIconData> GetStaticProfileIconsAsync(string platformId = null, CancellationToken token = default(CancellationToken))

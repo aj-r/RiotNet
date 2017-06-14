@@ -122,6 +122,9 @@ namespace RiotNet.Tests
 
             if (finishedTask == allTask)
             {
+                var failedTask = tasks.FirstOrDefault(t => t.IsFaulted);
+                if (failedTask != null)
+                    Assert.Fail(failedTask.Exception?.ToString());
                 var leagues = allTask.Result;
                 for (var i = 0; i < 20; ++i)
                     Assert.That(leagues[i], Is.Not.Null, "Failed to get league: " + i);
@@ -171,12 +174,18 @@ namespace RiotNet.Tests
                 tasks.Add(client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5));
 
             await Task.Delay(2000);
+            var failedTask = tasks.FirstOrDefault(t => t.IsFaulted);
+            if (failedTask != null)
+                Assert.Fail(failedTask.Exception?.ToString());
             var expectedCompletedCount = tasks.Take(10).Count(t => t.IsCompleted);
             var unexpectedCompletedCount = tasks.Skip(10).Count(t => t.IsCompleted);
             Assert.That(expectedCompletedCount, Is.EqualTo(10), $"Tasks were completed out of order - {expectedCompletedCount} of the first 10 were completed. ({unexpectedCompletedCount} of the last 20)");
             Assert.That(unexpectedCompletedCount, Is.EqualTo(0), $"Extra tasks were completed - {unexpectedCompletedCount}/20.");
 
             await Task.Delay(11000);
+            failedTask = tasks.FirstOrDefault(t => t.IsFaulted);
+            if (failedTask != null)
+                Assert.Fail(failedTask.Exception?.ToString());
             expectedCompletedCount = tasks.Take(20).Count(t => t.IsCompleted);
             unexpectedCompletedCount = tasks.Skip(20).Count(t => t.IsCompleted);
             Assert.That(expectedCompletedCount, Is.EqualTo(20), $"Tasks were completed out of order - {expectedCompletedCount} of the first 20 were completed. ({unexpectedCompletedCount} of the last 10)");
