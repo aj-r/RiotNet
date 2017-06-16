@@ -85,7 +85,7 @@ namespace RiotNet.Tests
                     Assert.Fail("Rate limit was exceeded! Proactive rate limiting failed.");
             };
 
-            for (var i = 0; i < 12; ++i)
+            for (var i = 0; i < 11; ++i)
             {
                 var league = await client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
                 Assert.That(league, Is.Not.Null, "Failed to get league: " + i);
@@ -126,7 +126,7 @@ namespace RiotNet.Tests
                 if (failedTask != null)
                     Assert.Fail(failedTask.Exception?.ToString());
                 var leagues = allTask.Result;
-                for (var i = 0; i < 20; ++i)
+                for (var i = 0; i < tasks.Count; ++i)
                     Assert.That(leagues[i], Is.Not.Null, "Failed to get league: " + i);
             }
             else
