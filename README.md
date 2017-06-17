@@ -10,12 +10,12 @@ It has the following features:
 - [**Full Documentation**](http://aj-r.github.io/RiotNet/docs/interface_riot_net_1_1_i_riot_client.html) - documentation of every method and every property of every object. (Or at least as much as we can figure out from examining the JSON responses. Riot's API documentation is a bit lacking right now.)
 - [**Full API coverage**](https://github.com/aj-r/RiotNet/wiki/API-Route-Mapping) - methods for accessing to every endpoint in the Riot Games API.
 - **Flexible and configurable** - uses interfaces and allows inheritance.
-- **Unit Test Coverage** - over 90%
 - **Database Ready** - data structures have built-in database metadata, so you can easily persist results using Entity Framework 6 without having to re-define all of the models.
 - **Complies** with Riot's [rate limiting best practices](https://developer.riotgames.com/rate-limiting.html), so you don't need to worry about getting soft banned.
   - You may also want to follow the [Tips to Avoid Being Rate Limited](https://developer.riotgames.com/rate-limiting.html) to improve your application's performance.
 - **Thread-Safe**: Built for server applications that need to handle concurrent requests with high performance.
 - **Asynchronous methods** - methods are awaitable using the async/await keywords.
+- **Unit Test Coverage** - over 90%
 
 RiotNet is NOT endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends.
 

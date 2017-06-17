@@ -5,6 +5,7 @@ using RiotNet.Tests.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RiotNet.Tests
@@ -16,7 +17,7 @@ namespace RiotNet.Tests
         public async Task CreateTournamentProviderAsyncTest()
         {
             IRiotClient client = new RiotClient(GetTournamentSettings());
-            long tournamentProviderId = await client.CreateTournamentProviderAsync("http://example.com", PlatformId.NA1);
+            long tournamentProviderId = await client.CreateTournamentProviderAsync("http://example.com", PlatformId.NA1, CancellationToken.None);
 
             Assert.That(tournamentProviderId, Is.GreaterThan(0));
         }
@@ -25,7 +26,7 @@ namespace RiotNet.Tests
         public async Task CreateTournamentAsyncTest()
         {
             IRiotClient client = new RiotClient(GetTournamentSettings());
-            long tournamentId = await client.CreateTournamentAsync(158, "test");
+            long tournamentId = await client.CreateTournamentAsync(158, "test", CancellationToken.None);
 
             Assert.That(tournamentId, Is.GreaterThan(0));
         }
@@ -46,7 +47,27 @@ namespace RiotNet.Tests
             IRiotClient client = new RiotClient(GetTournamentSettings());
             List<string> codes = await client.CreateTournamentCodeAsync(2198, 2,
                 new List<long> { 35870943L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L },
-                MapType.HOWLING_ABYSS, PickType.ALL_RANDOM, SpectatorType.LOBBYONLY, 4, "test");
+                MapType.HOWLING_ABYSS, PickType.ALL_RANDOM, SpectatorType.LOBBYONLY, 4, "test", CancellationToken.None);
+
+            Assert.That(codes, Is.Not.Null.And.Not.Empty);
+            Assert.That(codes.Count, Is.EqualTo(2));
+        }
+
+        [Test]
+        public async Task CreateTournamentCodeAsyncTest_WithObject()
+        {
+            IRiotClient client = new RiotClient(GetTournamentSettings());
+
+            List<string> codes = await client.CreateTournamentCodeAsync(new TournamentCode
+            {
+                TournamentId = 2198,
+                Participants = new ListOfLong { 35870943L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L, 21204597L, 20028460L },
+                Map = MapType.TWISTED_TREELINE,
+                PickType = PickType.TOURNAMENT_DRAFT,
+                Spectators = SpectatorType.NONE,
+                TeamSize = 4,
+                MetaData = "test"
+            }, 2, CancellationToken.None);
 
             Assert.That(codes, Is.Not.Null.And.Not.Empty);
             Assert.That(codes.Count, Is.EqualTo(2));
@@ -57,7 +78,7 @@ namespace RiotNet.Tests
         public async Task GetTournamentCodeAsyncTest()
         {
             IRiotClient client = new RiotClient(GetTournamentSettings());
-            TournamentCode tournamentCode = await client.GetTournamentCodeAsync("NA2198-TOURNAMENTCODE0002");
+            TournamentCode tournamentCode = await client.GetTournamentCodeAsync("NA2198-TOURNAMENTCODE0002", CancellationToken.None);
 
             Assert.That(tournamentCode, Is.Not.Null);
             Assert.That(tournamentCode.Id, Is.GreaterThan(0));
@@ -83,7 +104,7 @@ namespace RiotNet.Tests
 
             await client.UpdateTournamentCodeAsync(code,
                 new List<long> { 35870943L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L, 21204597L, 20028460L }, 
-                MapType.SUMMONERS_RIFT, PickType.BLIND_PICK, SpectatorType.ALL);
+                MapType.SUMMONERS_RIFT, PickType.BLIND_PICK, SpectatorType.ALL, CancellationToken.None);
 
             TournamentCode tournamentCode = await client.GetTournamentCodeAsync(code);
             Assert.That(tournamentCode, Is.Not.Null);
@@ -118,7 +139,7 @@ namespace RiotNet.Tests
                 Map = MapType.TWISTED_TREELINE,
                 PickType = PickType.TOURNAMENT_DRAFT,
                 Spectators = SpectatorType.NONE,
-            });
+            }, CancellationToken.None);
 
             TournamentCode tournamentCode = await client.GetTournamentCodeAsync(code);
             Assert.That(tournamentCode, Is.Not.Null);
@@ -148,7 +169,7 @@ namespace RiotNet.Tests
         public async Task GetTournamentCodeLobbyEventsAsyncTest()
         {
             IRiotClient client = new RiotClient(GetTournamentSettings());
-            List<LobbyEvent> events = await client.GetTournamentCodeLobbyEventsAsync("NA2198-TOURNAMENTCODE0002");
+            List<LobbyEvent> events = await client.GetTournamentCodeLobbyEventsAsync("NA2198-TOURNAMENTCODE0002", CancellationToken.None);
 
             Assert.That(events, Is.Not.Null);
         }

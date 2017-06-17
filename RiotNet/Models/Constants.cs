@@ -501,6 +501,28 @@
     }
 
     /// <summary>
+    /// Represents a Regional Proxy service name.
+    /// </summary>
+    /// <remarks>
+    /// Some services are regional, rather than globally deployed, and thus use a regional endpoint for all requests, even if a platform is specified in the request.
+    /// </remarks>
+    public static class RegionalProxy
+    {
+        /// <summary>
+        /// Americas
+        /// </summary>
+        public const string Americas = "americas";
+        /// <summary>
+        /// Europe
+        /// </summary>
+        public const string Europe = "europe";
+        /// <summary>
+        /// Asia
+        /// </summary>
+        public const string Asia = "asia";
+    }
+
+    /// <summary>
     /// Represents the status of one of the services on the Riot servers.
     /// </summary>
     public static class ServerStatus
