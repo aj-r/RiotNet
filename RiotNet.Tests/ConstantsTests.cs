@@ -23,5 +23,21 @@ namespace RiotNet.Tests
         {
             return PlatformId.IsNorthAmerica(platformId);
         }
+
+        [TestCase(Locale.cs_CZ, "cs-CZ", "Czech (Czech Republic)")]
+        [TestCase(Locale.en_US, "en-US", "English (United States)")]
+        [TestCase(Locale.vn_VN, "vi-VN", "Vietnamese (Vietnam)")]
+        public void Locale_GetCultureInfoTest(string locale, string expectedName, string expectedEnglishName)
+        {
+            var culture = Locale.GetCultureInfo(locale);
+            Assert.That(culture.Name, Is.EqualTo(expectedName));
+            Assert.That(culture.EnglishName, Is.EqualTo(expectedEnglishName));
+        }
+
+        [Test]
+        public void Locale_GetCultureInfoTest_Exceptions()
+        {
+            Assert.That(() => Locale.GetCultureInfo(null), Throws.ArgumentNullException);
+        }
     }
 }

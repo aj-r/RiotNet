@@ -1,4 +1,7 @@
-﻿namespace RiotNet.Models
+﻿using System;
+using System.Globalization;
+
+namespace RiotNet.Models
 {
     /// <summary>
     /// Represents the ascension event type. Used in <see cref="MatchEvent"/> for type <see cref="EventType.ASCENDED_EVENT"/>.
@@ -168,7 +171,7 @@
     }
 
     /// <summary>
-    /// Represents the lane an event occured.  Used in <see cref="MatchEvent"/>.
+    /// Represents the lane an event occured. Used in <see cref="MatchEvent"/>.
     /// </summary>
     public static class LaneType
     {
@@ -199,6 +202,144 @@
         /// Normal
         /// </summary>
         public const string NORMAL = "NORMAL";
+    }
+
+    /// <summary>
+    /// Locale codes (language codes) for requesting data from the Static Data API.
+    /// </summary>
+    /// <remarks>
+    /// This list contains all supported locales at the time of the RiotNet release.
+    /// If you want to iteralte over all currently supported locales, use <see cref="IRiotClient.GetStaticLanguagesAsync(string, System.Threading.CancellationToken)"/>
+    /// </remarks>
+    public static class Locale
+    {
+        /// <summary>
+        /// Czech (Czech Republic)
+        /// </summary>
+        public const string cs_CZ = "cs_CZ";
+        /// <summary>
+        /// German (Germany)
+        /// </summary>
+        public const string de_DE = "de_DE";
+        /// <summary>
+        /// Greek (Greece)
+        /// </summary>
+        public const string el_GR = "el_GR";
+        /// <summary>
+        /// English (Australia)
+        /// </summary>
+        public const string en_AU = "en_AU";
+        /// <summary>
+        /// English (United Kingdom)
+        /// </summary>
+        public const string en_GB = "en_GB";
+        /// <summary>
+        /// English (Philippines)
+        /// </summary>
+        public const string en_PH = "en_PH";
+        /// <summary>
+        /// English (Singapore)
+        /// </summary>
+        public const string en_SG = "en_SG";
+        /// <summary>
+        /// English (United States)
+        /// </summary>
+        public const string en_US = "en_US";
+        /// <summary>
+        /// Spanish (Argentina)
+        /// </summary>
+        public const string es_AR = "es_AR";
+        /// <summary>
+        /// Spanish (Spain, International Sort)
+        /// </summary>
+        public const string es_ES = "es_ES";
+        /// <summary>
+        /// Spanish (Mexico)
+        /// </summary>
+        public const string es_MX = "es_MX";
+        /// <summary>
+        /// French (France)
+        /// </summary>
+        public const string fr_FR = "fr_FR";
+        /// <summary>
+        /// Hungarian (Hungary)
+        /// </summary>
+        public const string hu_HU = "hu_HU";
+        /// <summary>
+        /// Indonesian (Indonesia)
+        /// </summary>
+        public const string id_ID = "id_ID";
+        /// <summary>
+        /// Italian (Italy)
+        /// </summary>
+        public const string it_IT = "it_IT";
+        /// <summary>
+        /// Japanese (Japan)
+        /// </summary>
+        public const string ja_JP = "ja_JP";
+        /// <summary>
+        /// Korean (Korea)
+        /// </summary>
+        public const string ko_KR = "ko_KR";
+        /// <summary>
+        /// Malay (Malaysia)
+        /// </summary>
+        public const string ms_MY = "ms_MY";
+        /// <summary>
+        /// Polish (Poland)
+        /// </summary>
+        public const string pl_PL = "pl_PL";
+        /// <summary>
+        /// Portuguese (Brazil)
+        /// </summary>
+        public const string pt_BR = "pt_BR";
+        /// <summary>
+        /// Romanian (Romania)
+        /// </summary>
+        public const string ro_RO = "ro_RO";
+        /// <summary>
+        /// Russian (Russia)
+        /// </summary>
+        public const string ru_RU = "ru_RU";
+        /// <summary>
+        /// Thai (Thailand)
+        /// </summary>
+        public const string th_TH = "th_TH";
+        /// <summary>
+        /// Turkish (Turkey)
+        /// </summary>
+        public const string tr_TR = "tr_TR";
+        /// <summary>
+        /// Vietnamese (Vietnam)
+        /// </summary>
+        public const string vn_VN = "vn_VN";
+        /// <summary>
+        /// Chinese (Simplified, China)
+        /// </summary>
+        public const string zh_CN = "zh_CN";
+        /// <summary>
+        /// Chinese (Malaysia)
+        /// </summary>
+        public const string zh_MY = "zh_MY";
+        /// <summary>
+        /// Chinese (Traditional, Taiwan)
+        /// </summary>
+        public const string zh_TW = "zh_TW";
+
+        /// <summary>
+        /// Gets the culture info for a locale.
+        /// </summary>
+        /// <param name="locale">The locale (or language tag). This should equal one of the <see cref="Locale"/> values, or one of the values returned by <see cref="IRiotClient.GetStaticLanguagesAsync(string, System.Threading.CancellationToken)"/>.</param>
+        /// <returns>The culture info.</returns>
+        public static CultureInfo GetCultureInfo(string locale)
+        {
+            if (locale == null)
+                throw new ArgumentNullException(nameof(locale));
+
+            // Riot calls vietnamese "vn_VN" but it should be "vi_VN"
+            var tag = locale.Replace('_', '-').Replace("vn", "vi");
+            return new CultureInfo(tag);
+        }
     }
 
     /// <summary>

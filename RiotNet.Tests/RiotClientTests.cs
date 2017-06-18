@@ -57,5 +57,14 @@ namespace RiotNet.Tests
             Assert.That(client.Settings.RetryOnConnectionFailure);
             Assert.That(client.Settings.RetryOnRateLimitExceeded);
         }
+
+        [Test]
+        public void ShouldThrowErrorIfNoPlatformId()
+        {
+            RiotClient.DefaultPlatformId = null;
+            IRiotClient client = new RiotClient();
+
+            Assert.That(() => client.GetSummonerBySummonerIdAsync(34172230L), Throws.InstanceOf<RestException>());
+        }
     }
 }

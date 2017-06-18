@@ -45,6 +45,7 @@ namespace RiotNet.Tests
             var isInteger = int.TryParse(key, out int id);
             Assert.That(isInteger, Is.True, "Champs are listed by key, but should be listed by ID.");
         }
+
         [Test]
         public async Task GetStaticChampionsAsyncTest_WithSelectedFields()
         {
@@ -59,6 +60,17 @@ namespace RiotNet.Tests
             Assert.That(champion.EnemyTips, Is.Null.Or.Empty);
         }
 
+        [Test]
+        public async Task GetStaticChampionsAsyncTest_WithLocale()
+        {
+            IRiotClient client = new RiotClient();
+            var championList = await client.GetStaticChampionsAsync(Locale.de_DE);
+
+            Assert.That(championList.Data.Count, Is.GreaterThan(0));
+
+            var champion = championList.Data["Jax"];
+            Assert.That(champion.Title, Is.EqualTo("Der Großmeister der Waffen"));
+        }
 
         [Test]
         public async Task GetStaticChampionByIdAsyncTest()
@@ -183,6 +195,17 @@ namespace RiotNet.Tests
             Assert.That(champion.Lore, Is.Not.Null.And.Not.Empty);
         }
 
+        [Test]
+        public async Task GetStaticChampionByIdAsyncTest_WithLocale()
+        {
+            IRiotClient client = new RiotClient();
+            // 43 = Karma
+            var champion = await client.GetStaticChampionByIdAsync(43, Locale.cs_CZ);
+
+            Assert.That(champion, Is.Not.Null);
+            Assert.That(champion.Title, Is.EqualTo("Osvícená"));
+        }
+
         #endregion
 
         #region Items
@@ -244,6 +267,18 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        public async Task GetStaticItemsAsyncTest_WithLocale()
+        {
+            IRiotClient client = new RiotClient();
+            var itemList = await client.GetStaticItemsAsync(Locale.el_GR);
+
+            Assert.That(itemList.Data, Is.Not.Null);
+            Assert.That(itemList.Data.Count, Is.GreaterThan(0));
+            var item = itemList.Data["3082"];
+            Assert.That(item.Name, Is.EqualTo("Πανοπλία του Φύλακα"));
+        }
+
+        [Test]
         public async Task GetStaticItemAsyncTest()
         {
             IRiotClient client = new RiotClient();
@@ -263,6 +298,16 @@ namespace RiotNet.Tests
             Assert.That(item.Maps, Is.Not.Null.And.Not.Empty);
             Assert.That(item.SanitizedDescription, Is.Not.Null.And.Not.Empty);
             Assert.That(item.Image.Full, Is.Null.Or.Empty);
+        }
+
+        [Test]
+        public async Task GetStaticItemAsyncTest_WithLocale()
+        {
+            IRiotClient client = new RiotClient();
+            var item = await client.GetStaticItemAsync(1004, Locale.en_AU);
+
+            Assert.That(item.Id, Is.EqualTo(1004));
+            Assert.That(item.Name, Is.EqualTo("Faerie Charm"));
         }
 
         [Test]
@@ -286,6 +331,39 @@ namespace RiotNet.Tests
             Assert.That(languages, Is.Not.Null.And.Not.Empty);
             var language = languages.First();
             Assert.That(language, Is.Not.Null.And.Not.Empty);
+
+            // Verify that our language list matches the server's
+            Assert.That(languages, Is.EquivalentTo(new[]
+            {
+                Locale.en_US,
+                Locale.cs_CZ,
+                Locale.de_DE,
+                Locale.el_GR,
+                Locale.en_AU,
+                Locale.en_GB,
+                Locale.en_PH,
+                Locale.en_SG,
+                Locale.es_AR,
+                Locale.es_ES,
+                Locale.es_MX,
+                Locale.fr_FR,
+                Locale.hu_HU,
+                Locale.id_ID,
+                Locale.it_IT,
+                Locale.ja_JP,
+                Locale.ko_KR,
+                Locale.ms_MY,
+                Locale.pl_PL,
+                Locale.pt_BR,
+                Locale.ro_RO,
+                Locale.ru_RU,
+                Locale.th_TH,
+                Locale.tr_TR,
+                Locale.vn_VN,
+                Locale.zh_CN,
+                Locale.zh_MY,
+                Locale.zh_TW,
+            }));
         }
 
         [Test]
@@ -293,6 +371,18 @@ namespace RiotNet.Tests
         {
             IRiotClient client = new RiotClient();
             var languageStrings = await client.GetStaticLanguageStringsAsync();
+
+            Assert.That(languageStrings, Is.Not.Null);
+            Assert.That(languageStrings.Data, Is.Not.Null.And.Not.Empty);
+            Assert.That(languageStrings.Type, Is.Not.Null.And.Not.Empty);
+            Assert.That(languageStrings.Version, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public async Task GetStaticLanguageStringsAsyncTest_WithParameters()
+        {
+            IRiotClient client = new RiotClient();
+            var languageStrings = await client.GetStaticLanguageStringsAsync(Locale.id_ID);
 
             Assert.That(languageStrings, Is.Not.Null);
             Assert.That(languageStrings.Data, Is.Not.Null.And.Not.Empty);
@@ -321,8 +411,21 @@ namespace RiotNet.Tests
             //Assert.That(map.UnpurchasableItemList, Is.Not.Null.And.Not.Empty);
         }
 
+        [Test]
+        public async Task GetStaticMapsAsyncTest_WithLocale()
+        {
+            IRiotClient client = new RiotClient();
+            var mapList = await client.GetStaticMapsAsync(Locale.en_PH);
+
+            Assert.That(mapList.Data, Is.Not.Null.And.Not.Empty);
+            Assert.That(mapList.Type, Is.Not.Null.And.Not.Empty);
+            Assert.That(mapList.Version, Is.Not.Null.And.Not.Empty);
+            var map = mapList.Data.Values.First();
+            Assert.That(map.MapName, Is.Not.Null.And.Not.Empty);
+        }
+
         #endregion
-        
+
         #region Masteries
 
         [Test]
@@ -366,6 +469,20 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        public async Task GetStaticMasteriesAsyncTest_WithLocale()
+        {
+            IRiotClient client = new RiotClient();
+            var masteryList = await client.GetStaticMasteriesAsync(Locale.en_SG);
+
+            Assert.That(masteryList.Data.Count, Is.GreaterThan(0));
+            Assert.That(masteryList.Type, Is.Not.Null.And.Not.Empty);
+            Assert.That(masteryList.Version, Is.Not.Null.And.Not.Empty);
+
+            var mastery = masteryList.Data["6131"];
+            Assert.That(mastery.Name, Is.EqualTo("Vampirism"));
+        }
+
+        [Test]
         public async Task GetStaticMasteryByIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
@@ -388,6 +505,16 @@ namespace RiotNet.Tests
             Assert.That(mastery.MasteryTree != MastertyTreeType.Resolve);
             Assert.That(mastery.Ranks, Is.GreaterThan(0));
             Assert.That(mastery.SanitizedDescription, Is.Null.Or.Empty);
+        }
+
+        [Test]
+        public async Task GetStaticMasteryByIdAsyncTest_WithLocale()
+        {
+            IRiotClient client = new RiotClient();
+            var mastery = await client.GetStaticMasteryByIdAsync(6121, Locale.es_AR);
+
+            Assert.That(mastery, Is.Not.Null);
+            Assert.That(mastery.Name, Is.EqualTo("Sangre Fresca"));
         }
 
         [Test]
@@ -425,13 +552,13 @@ namespace RiotNet.Tests
         public async Task GetStaticRealmAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            var realm = await client.GetStaticRealmAsync();
+            var realm = await client.GetStaticRealmAsync(PlatformId.NA1);
 
             Assert.That(realm, Is.Not.Null);
             Assert.That(realm.Cdn, Is.Not.Null.And.Not.Empty);
             Assert.That(realm.Css, Is.Not.Null.And.Not.Empty);
             Assert.That(realm.Dd, Is.Not.Null.And.Not.Empty);
-            Assert.That(realm.L, Is.EqualTo("en_US"));
+            Assert.That(realm.L, Is.EqualTo(Locale.en_US));
             Assert.That(realm.Lg, Is.Not.Null.And.Not.Empty);
             Assert.That(realm.N, Is.Not.Null.And.Not.Empty);
             Assert.That(realm.ProfileIconMax, Is.GreaterThan(0));
@@ -448,7 +575,7 @@ namespace RiotNet.Tests
             Assert.That(realm.Cdn, Is.Not.Null.And.Not.Empty);
             Assert.That(realm.Css, Is.Not.Null.And.Not.Empty);
             Assert.That(realm.Dd, Is.Not.Null.And.Not.Empty);
-            Assert.That(realm.L, Is.EqualTo("en_GB"));
+            Assert.That(realm.L, Is.EqualTo(Locale.en_GB));
             Assert.That(realm.Lg, Is.Not.Null.And.Not.Empty);
             Assert.That(realm.N, Is.Not.Null.And.Not.Empty);
             Assert.That(realm.ProfileIconMax, Is.GreaterThan(0));
@@ -559,6 +686,17 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        public async Task GetStaticRunesAsyncTest_WithLocale()
+        {
+            IRiotClient client = new RiotClient();
+            var runeList = await client.GetStaticRunesAsync(Locale.es_ES);
+
+            Assert.That(runeList.Data.Count, Is.GreaterThan(0));
+            var rune = runeList.Data["5021"];
+            Assert.That(rune.Name, Is.EqualTo("Marca menor de reducción de enfriamiento"));
+        }
+
+        [Test]
         public async Task GetStaticRuneByIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
@@ -590,6 +728,14 @@ namespace RiotNet.Tests
             Assert.That(rune.Image.Full, Is.Not.Null.And.Not.Empty);
             Assert.That(rune.SanitizedDescription, Is.Not.Null.And.Not.Empty);
             Assert.That(rune.Tags, Is.Null.Or.Empty);
+        }
+
+        [Test]
+        public async Task GetStaticRuneByIdAsyncTest_WithLocale()
+        {
+            IRiotClient client = new RiotClient();
+            var rune = await client.GetStaticRuneByIdAsync(8020, Locale.es_MX);
+            Assert.That(rune.Name, Is.EqualTo("Gran Quintaesencia de la Corona Mortal"));
         }
 
         #endregion
@@ -675,6 +821,18 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        public async Task GetStaticSummonerSpellsAsyncTest_WithLocale()
+        {
+            IRiotClient client = new RiotClient();
+            var spellList = await client.GetStaticSummonerSpellsAsync(Locale.fr_FR);
+
+            Assert.That(spellList.Data.Count, Is.GreaterThan(0));
+
+            var spell = spellList.Data["SummonerFlash"];
+            Assert.That(spell.Name, Is.EqualTo("Saut éclair"));
+        }
+
+        [Test]
         public async Task GetStaticSummonerSpellByIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
@@ -699,6 +857,14 @@ namespace RiotNet.Tests
             Assert.That(spell.Cooldown, Is.Not.Null.And.Not.Empty);
             Assert.That(spell.CooldownBurn, Is.Not.Null.And.Not.Empty);
             Assert.That(spell.Cost, Is.Null.Or.Empty);
+        }
+
+        [Test]
+        public async Task GetStaticSummonerSpellByIdAsyncTest_WithLocale()
+        {
+            IRiotClient client = new RiotClient();
+            var spell = await client.GetStaticSummonerSpellByIdAsync(1, Locale.hu_HU);
+            Assert.That(spell.Name, Is.EqualTo("Megtisztulás"));
         }
 
         #endregion
