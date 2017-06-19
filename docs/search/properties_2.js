@@ -14,7 +14,7 @@ var searchData=
   ['clientrefreshinterval',['ClientRefreshInterval',['../class_riot_net_1_1_models_1_1_featured_games.html#af56fd1899ecadc6eb7b2969384a948d1',1,'RiotNet::Models::FeaturedGames']]],
   ['code',['Code',['../class_riot_net_1_1_models_1_1_tournament_code.html#a1bc60877bf16b3b4772b05449d9db563',1,'RiotNet::Models::TournamentCode']]],
   ['coeff',['Coeff',['../class_riot_net_1_1_models_1_1_spell_vars.html#af217ee26147bd67930733098404eba4c',1,'RiotNet::Models::SpellVars']]],
-  ['colloq',['Colloq',['../class_riot_net_1_1_models_1_1_basic_data.html#a7ff0d045d1b03e0b05edfff8277af901',1,'RiotNet::Models::BasicData']]],
+  ['colloq',['Colloq',['../class_riot_net_1_1_models_1_1_static_item.html#a0846d0323464524039c5a0e844e4b0bd',1,'RiotNet::Models::StaticItem']]],
   ['combatplayerscore',['CombatPlayerScore',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#a47eb87d15b79492d5ad975ec20d2e5a8',1,'RiotNet::Models::MatchParticipantStats']]],
   ['consumed',['Consumed',['../class_riot_net_1_1_models_1_1_static_item.html#a3a1f8ba87689dd1f6cee2077438a6813',1,'RiotNet::Models::StaticItem']]],
   ['consumeonfull',['ConsumeOnFull',['../class_riot_net_1_1_models_1_1_static_item.html#af91bfe61721918af9eddb96319941b9f',1,'RiotNet::Models::StaticItem']]],

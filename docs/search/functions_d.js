@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['sendasync',['SendAsync',['../class_riot_net_1_1_riot_client.html#aa365f133f2f6ae678925e42627264349',1,'RiotNet::RiotClient']]],
+  ['sendasync',['SendAsync',['../class_riot_net_1_1_riot_client.html#a2818084c3bce2b069ee5d358540099ed',1,'RiotNet::RiotClient']]],
   ['serializetostreamasync',['SerializeToStreamAsync',['../class_riot_net_1_1_json_content.html#aed2a40a4931a49f3cb434768a3305297',1,'RiotNet::JsonContent']]],
   ['staticchampionlist',['StaticChampionList',['../class_riot_net_1_1_models_1_1_static_champion_list.html#a4dfa67bb7b0914125a04f6ac6e3cbe49',1,'RiotNet::Models::StaticChampionList']]],
   ['staticitemlist',['StaticItemList',['../class_riot_net_1_1_models_1_1_static_item_list.html#ae8b001574efd5cb526cc94f775b59c36',1,'RiotNet::Models::StaticItemList']]],

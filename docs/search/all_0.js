@@ -2,7 +2,7 @@ var searchData=
 [
   ['accountid',['AccountId',['../class_riot_net_1_1_models_1_1_match_player.html#a9ea495071ffc8a1935f772c502af2d91',1,'RiotNet.Models.MatchPlayer.AccountId()'],['../class_riot_net_1_1_models_1_1_summoner.html#a2aa8eb4703d345b545844d219d79d52d',1,'RiotNet.Models.Summoner.AccountId()']]],
   ['active',['Active',['../class_riot_net_1_1_models_1_1_champion.html#aa81543a7adcdce76014c8cd72df7062a',1,'RiotNet.Models.Champion.Active()'],['../class_riot_net_1_1_models_1_1_incident.html#a634dd21a630e3f22c1b7d2b78c7229c5',1,'RiotNet.Models.Incident.Active()']]],
-  ['addqueryparam',['AddQueryParam',['../class_riot_net_1_1_riot_client.html#a3c0dc088951793bed416427f596be9d2',1,'RiotNet::RiotClient']]],
+  ['addrequestorgetdelay',['AddRequestOrGetDelay',['../interface_riot_net_1_1_i_rate_limiter.html#aceb6f02f6d9512d4a1f63b649e3c5b58',1,'RiotNet.IRateLimiter.AddRequestOrGetDelay()'],['../class_riot_net_1_1_rate_limiter.html#ad2d29a11daa773485383819bce6b5919',1,'RiotNet.RateLimiter.AddRequestOrGetDelay()']]],
   ['afterid',['AfterId',['../class_riot_net_1_1_models_1_1_match_event.html#ae01ba890eba708856d79000e35fccedd',1,'RiotNet::Models::MatchEvent']]],
   ['allytips',['AllyTips',['../class_riot_net_1_1_models_1_1_static_champion.html#a5ddbdd2fb1cae801f74f765ae21023e3',1,'RiotNet::Models::StaticChampion']]],
   ['altarscaptured',['AltarsCaptured',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#a2a616f1842d33674b1b9ef5fca83ac23',1,'RiotNet::Models::MatchParticipantStats']]],

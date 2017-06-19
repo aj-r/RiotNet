@@ -14,6 +14,6 @@ var searchData=
   ['goldearned',['GoldEarned',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#a56f432baf707174cc2c3261f375e08e4',1,'RiotNet::Models::MatchParticipantStats']]],
   ['goldpermindeltas',['GoldPerMinDeltas',['../class_riot_net_1_1_models_1_1_match_participant_timeline.html#ab69e10c8cb0da36f187519ff2c16b5fc',1,'RiotNet::Models::MatchParticipantTimeline']]],
   ['goldspent',['GoldSpent',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#ae8a8dddb04b11a3f53e2e2b12afcca11',1,'RiotNet::Models::MatchParticipantStats']]],
-  ['group',['Group',['../class_riot_net_1_1_models_1_1_alt_image.html#a9157dbf6e1c5c6a11db000c6e1a787b2',1,'RiotNet.Models.AltImage.Group()'],['../class_riot_net_1_1_models_1_1_basic_data.html#a8b77b95a6a1d1d6136e9570e1515d5a6',1,'RiotNet.Models.BasicData.Group()'],['../class_riot_net_1_1_models_1_1_image.html#aa2f9cb6cd27392c58025c69c03481469',1,'RiotNet.Models.Image.Group()']]],
+  ['group',['Group',['../class_riot_net_1_1_models_1_1_alt_image.html#a9157dbf6e1c5c6a11db000c6e1a787b2',1,'RiotNet.Models.AltImage.Group()'],['../class_riot_net_1_1_models_1_1_image.html#aa2f9cb6cd27392c58025c69c03481469',1,'RiotNet.Models.Image.Group()'],['../class_riot_net_1_1_models_1_1_static_item.html#a0d6fe0370a6642f81161ee1026cc9737',1,'RiotNet.Models.StaticItem.Group()']]],
   ['groups',['Groups',['../class_riot_net_1_1_models_1_1_static_item_list.html#acf72f453df46cb816865f5768455cfa1',1,'RiotNet::Models::StaticItemList']]]
 ];

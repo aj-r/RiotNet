@@ -10,6 +10,7 @@ var searchData=
   ['inhibitorkills',['InhibitorKills',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#a42beca7f8777c6ddfdfcb39f0874143d',1,'RiotNet.Models.MatchParticipantStats.InhibitorKills()'],['../class_riot_net_1_1_models_1_1_match_team.html#a9cc4d35f43e3f3c8cd2ba59a77e14929',1,'RiotNet.Models.MatchTeam.InhibitorKills()']]],
   ['instore',['InStore',['../class_riot_net_1_1_models_1_1_static_item.html#a386493e1615cdbe28dccee8ab0558e56',1,'RiotNet::Models::StaticItem']]],
   ['into',['Into',['../class_riot_net_1_1_models_1_1_static_item.html#ad00d9788f958319bf07e923cf2b87193',1,'RiotNet::Models::StaticItem']]],
+  ['iratelimiter',['IRateLimiter',['../interface_riot_net_1_1_i_rate_limiter.html',1,'RiotNet']]],
   ['iriotclient',['IRiotClient',['../interface_riot_net_1_1_i_riot_client.html',1,'RiotNet']]],
   ['isrune',['IsRune',['../class_riot_net_1_1_models_1_1_meta_data.html#ab6508d7a938c2424a2d38266ebc503da',1,'RiotNet::Models::MetaData']]],
   ['isselfcast',['IsSelfCast',['../class_riot_net_1_1_models_1_1_static_spell.html#acd34c28d4610ba72b453a92a9f98d83e',1,'RiotNet::Models::StaticSpell']]],

@@ -5,7 +5,6 @@ var searchData=
   ['bans',['Bans',['../class_riot_net_1_1_models_1_1_match_team.html#a45be7ca962c9c4dc1bd47b990f0fadac',1,'RiotNet::Models::MatchTeam']]],
   ['baronkills',['BaronKills',['../class_riot_net_1_1_models_1_1_match_team.html#a9f1dd9adb18f078bb2773d316391ab5f',1,'RiotNet::Models::MatchTeam']]],
   ['base',['Base',['../class_riot_net_1_1_models_1_1_gold.html#ab3612c238cb83e37608a57444ac1e690',1,'RiotNet::Models::Gold']]],
-  ['basic',['Basic',['../class_riot_net_1_1_models_1_1_static_item_list.html#aabd613f015916a505814bc5e019d3074',1,'RiotNet.Models.StaticItemList.Basic()'],['../class_riot_net_1_1_models_1_1_static_rune_list.html#a3a83535d86c69182c0a682cd77ad7452',1,'RiotNet.Models.StaticRuneList.Basic()']]],
   ['basicdata',['BasicData',['../class_riot_net_1_1_models_1_1_basic_data.html',1,'RiotNet::Models']]],
   ['basicdatastats',['BasicDataStats',['../class_riot_net_1_1_models_1_1_basic_data_stats.html',1,'RiotNet::Models']]],
   ['beforeid',['BeforeId',['../class_riot_net_1_1_models_1_1_match_event.html#a6bd2eeb7c5d1f87e18f2cb80afbf9794',1,'RiotNet::Models::MatchEvent']]],

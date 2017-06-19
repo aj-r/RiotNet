@@ -21,7 +21,7 @@ var searchData=
   ['spellblockperlevel',['SpellBlockPerLevel',['../class_riot_net_1_1_models_1_1_stats.html#a503dbf07f24a30696fcb9003fe2b46b0',1,'RiotNet::Models::Stats']]],
   ['spells',['Spells',['../class_riot_net_1_1_models_1_1_static_champion.html#af8d3dec580eb67bf71087b264807c120',1,'RiotNet::Models::StaticChampion']]],
   ['sprite',['Sprite',['../class_riot_net_1_1_models_1_1_alt_image.html#a1c9f6a6371b70bd5df8a2cc6e6a9323b',1,'RiotNet.Models.AltImage.Sprite()'],['../class_riot_net_1_1_models_1_1_image.html#ad97b82d1d7d95fd2fcf09fdc7bb5fe7b',1,'RiotNet.Models.Image.Sprite()']]],
-  ['stacks',['Stacks',['../class_riot_net_1_1_models_1_1_basic_data.html#a9418e2f2df3db4bd39602c6dcc65f02f',1,'RiotNet::Models::BasicData']]],
+  ['stacks',['Stacks',['../class_riot_net_1_1_models_1_1_static_item.html#a898ac23c7702a3acc0468b3c3e275863',1,'RiotNet::Models::StaticItem']]],
   ['startindex',['StartIndex',['../class_riot_net_1_1_models_1_1_match_list.html#a13730e1cf4967594dd363ede78ac5285',1,'RiotNet::Models::MatchList']]],
   ['stats',['Stats',['../class_riot_net_1_1_models_1_1_match_participant.html#aad68e10ed295f556311abebc9ad4fc7b',1,'RiotNet.Models.MatchParticipant.Stats()'],['../class_riot_net_1_1_models_1_1_static_champion.html#a1738ba1c99573c4933533ec8f46b3977',1,'RiotNet.Models.StaticChampion.Stats()'],['../class_riot_net_1_1_models_1_1_static_item.html#a6a61a50f63419c06109204417793c191',1,'RiotNet.Models.StaticItem.Stats()'],['../class_riot_net_1_1_models_1_1_static_rune.html#abac541c16ef2bbc489129e4be88b9746',1,'RiotNet.Models.StaticRune.Stats()']]],
   ['status',['Status',['../class_riot_net_1_1_models_1_1_service.html#a9537963493453007fde13d8926e7eaed',1,'RiotNet::Models::Service']]],
