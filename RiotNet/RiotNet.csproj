@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <VersionPrefix>4.1.0</VersionPrefix>
+    <VersionPrefix>4.2.0</VersionPrefix>
     <TargetFrameworks Condition=" '$(Configuration)' != 'ReleaseCoreOnly' ">net45;netstandard1.6</TargetFrameworks>
     <TargetFrameworks Condition=" '$(Configuration)' == 'ReleaseCoreOnly' ">netstandard1.6</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
