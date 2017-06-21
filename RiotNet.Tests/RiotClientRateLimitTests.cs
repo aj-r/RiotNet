@@ -75,7 +75,7 @@ namespace RiotNet.Tests
         {
             await Task.Delay(10000); // in case a previous test maxed out the limit
 
-            RiotClient.RateLimiter = new RateLimiter(10, 600);
+            RiotClient.RateLimiter = new RateLimiter(10, 500);
             IRiotClient client = new RiotClient();
             client.Settings.RetryOnRateLimitExceeded = true;
 
@@ -97,7 +97,7 @@ namespace RiotNet.Tests
         {
             await Task.Delay(10000); // in case a previous test maxed out the limit
 
-            RiotClient.RateLimiter = new RateLimiter(10, 600);
+            RiotClient.RateLimiter = new RateLimiter(10, 500);
             RetryEventHandler onRateLimitExceeded = (o, e) =>
             {
                 if (e.Response != null)
@@ -141,7 +141,7 @@ namespace RiotNet.Tests
         {
             await Task.Delay(10000); // in case a previous test maxed out the limit
 
-            IRiotClient client = new RiotClient(new RateLimiter(10, 600));
+            IRiotClient client = new RiotClient(new RateLimiter(10, 500));
             client.Settings.RetryOnRateLimitExceeded = true;
 
             client.RateLimitExceeded += (o, e) =>
@@ -162,7 +162,7 @@ namespace RiotNet.Tests
         {
             await Task.Delay(10000); // in case a previous test maxed out the limit
 
-            IRiotClient client = new RiotClient(new RateLimiter(10, 600));
+            IRiotClient client = new RiotClient(new RateLimiter(10, 500));
             client.Settings.RetryOnRateLimitExceeded = true;
             client.RateLimitExceeded += (o, e) =>
             {

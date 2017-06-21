@@ -56,33 +56,41 @@ RiotNet handles rate limiting in two ways: reactively and proactively. Neither s
 
 ### Reactive Rate Limiting
 
-If the client receives a rate limit error from the server, it will read the `Retry-After` header, and wait for that amount of time before retrying the request.
-It will also suspend future requests until that time passes.
+If you go over your rate limit, and the client receives a rate limit error from the server, it will read the `Retry-After` header, and wait for that amount of time before retrying the request.
 
-Reactive rate limiting isn't perfect:
+Pros:
 
-- Requests aren't throttled until a response is received from the server. So if you send 10,000 requests at once before you receive a response, you could
+- Automatically re-sends your request after the required amount of time passes.
+- Suspends future requests until that time passes, so you don't need to worry about getting soft banned by accident.
+- Throttled requests are placed in a queue, so they will be sent in the order you created them.
+- It accounts for all types of rate limits.
+
+Cons:
+
+- Requests aren't throttled until a 429 error response is received from the server. So if you send 10,000 requests at once before you receive a response, you could
   end up going way over your rate limit. If you're worried about that happening, enable proactive rate limiting.
 
 ### Proactive Rate Limiting
 
 Proactive rate limiting works by tracking the number of requests that the RiotClient has sent, and throttling requests if it thinks you're going to hit your limit.
-Throttled requests will be placed in a queue, so they should still be sent in the order you created them.
-
 Proactive rate limiting is optional and disabled by default. You can enable it by creating a `RateLimiter` object that tells the `RiotClient` what your rate limit is.
 
 ```
-// 10 requests per 10 seconds, 600 requests per 10 minutes (developer key)
+// 10 requests per 10 seconds, 500 requests per 10 minutes (developer key)
 // NOTE: you should replace these numbers with your production key rates
-RiotClient.RateLimiter = new RateLimiter(10, 600);
+RiotClient.RateLimiter = new RateLimiter(10, 500);
 IRiotClient client = new RiotClient();
 ```
 
-Proactive rate limiting isn't perfect:
+Pros:
+
+- Prevents you from going over your rate limit at all, 
+- Throttled requests are placed in a queue, so they will be sent in the order you created them.
+
+Cons:
 
 - It doesn't account for per-method rate limits (only per-platform rate limits)
-- Requests are counted separately from the server, so it's possible that the client's request count could get out of sync with the server. That said, the `RiotClient` will 
-  use the `X-App-Rate-Limit-Count` header to try to keep the counts in sync.
+- Requests are counted separately from the server, so it's possible that the client's request count could get out of sync with the server (especially right after you restart your application).
 - It has a (very small) performance impact on each request. But if you're staying under your rate limit, this performance impact is so small that it should be unnoticeable.
 
 ## Interim Keys for the Tournament API
