@@ -61,7 +61,7 @@ If you go over your rate limit, and the client receives a rate limit error from 
 Pros:
 
 - Automatically re-sends your request after the required amount of time passes.
-- Suspends future requests until that time passes, so you don't need to worry about getting soft banned by accident.
+- Suspends future requests until that time passes, so you should never get soft banned by Riot (unless you try really hard).
 - Throttled requests are placed in a queue, so they will be sent in the order you created them.
 - It accounts for all types of rate limits.
 
@@ -84,7 +84,7 @@ IRiotClient client = new RiotClient();
 
 Pros:
 
-- Prevents you from going over your rate limit at all, 
+- Prevents you from going over your rate limit at all, so you don't need to worry about getting soft banned by accident.
 - Throttled requests are placed in a queue, so they will be sent in the order you created them.
 
 Cons:
