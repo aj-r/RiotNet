@@ -232,9 +232,13 @@ namespace RiotNet.Models
         /// </summary>
         SEASON2016 = 7,
         /// <summary>
-        /// Pre-season 7 and season 7, 2017
+        /// Pre-season 7, 2017
         /// </summary>
         PRESEASON2017 = 8,
+        /// <summary>
+        /// Season 7, 2017
+        /// </summary>
+        SEASON2017 = 9,
     }
 
     /// <summary>
