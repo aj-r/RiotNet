@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using RiotNet.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -77,7 +78,7 @@ namespace RiotNet.Tests
         {
             await Task.Delay(1100); // in case a previous test maxed out the limit
 
-            RiotClient.RateLimiter = new RateLimiter(10, 500);
+            RiotClient.RateLimiter = new RateLimiter(20, 0, 100, 0);
             IRiotClient client = new RiotClient();
             client.Settings.RetryOnRateLimitExceeded = true;
 
@@ -97,9 +98,9 @@ namespace RiotNet.Tests
         [Test]
         public async Task RateLimitTest_ShouldApplyRateLimiter_WithConcurrentRequests()
         {
-            await Task.Delay(1100); // in case a previous test maxed out the limit
+            await Task.Delay(TimeSpan.FromMinutes(2)); // in case a previous test maxed out the limit
 
-            RiotClient.RateLimiter = new RateLimiter(10, 500);
+            RiotClient.RateLimiter = new RateLimiter(20, 0, 100, 0);
             RetryEventHandler onRateLimitExceeded = (o, e) =>
             {
                 if (e.Response != null)
@@ -120,7 +121,7 @@ namespace RiotNet.Tests
             }
 
             var allTask = Task.WhenAll(tasks);
-            var finishedTask = await Task.WhenAny(allTask, Task.Delay(25000));
+            var finishedTask = await Task.WhenAny(allTask, Task.Delay(60000));
 
             if (finishedTask == allTask)
             {
@@ -143,7 +144,7 @@ namespace RiotNet.Tests
         {
             await Task.Delay(1100); // in case a previous test maxed out the limit
 
-            IRiotClient client = new RiotClient(new RateLimiter(10, 500));
+            IRiotClient client = new RiotClient(new RateLimiter(20, 0, 100, 0));
             client.Settings.RetryOnRateLimitExceeded = true;
 
             client.RateLimitExceeded += (o, e) =>
@@ -162,10 +163,15 @@ namespace RiotNet.Tests
         [Test]
         public async Task RateLimitTest_ShouldProcessRequestsInOrder()
         {
-            await Task.Delay(110000); // in case a previous test maxed out the limit
+            await Task.Delay(TimeSpan.FromMinutes(2)); // in case a previous test maxed out the limit
 
-            IRiotClient client = new RiotClient();
+            IRiotClient client = new RiotClient(new RateLimiter(20, 0, 100, 0));
             client.Settings.RetryOnRateLimitExceeded = true;
+            client.RateLimitExceeded += (o, e) =>
+            {
+                if (e.Response != null)
+                    Assert.Fail("Rate limit was exceeded! Proactive rate limiting failed.");
+            };
             await MaxOutRateLimit(client);
             var tasks = new List<Task<LeagueList>>();
             for (var i = 0; i < 30; ++i)
