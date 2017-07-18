@@ -58,7 +58,7 @@ namespace RiotNet.Tests
             IRiotClient client = new RiotClient();
             IEnumerable<long> championIds = new[] { 143L, 412L }; // Zyra, Thresh
             IEnumerable<QueueType> rankedQueues = new[] { QueueType.RANKED_FLEX_SR, QueueType.TEAM_BUILDER_RANKED_SOLO };
-            IEnumerable<Season> seasons = new[] { Season.PRESEASON2017, Season.SEASON2016 };
+            IEnumerable<Season> seasons = new[] { Season.PRESEASON2017, Season.SEASON2017 };
             MatchList matchList = await client.GetMatchListByAccountIdAsync(48555045L, championIds, rankedQueues, seasons);
 
             Assert.That(matchList, Is.Not.Null);
