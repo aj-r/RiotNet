@@ -73,12 +73,10 @@ Cons:
 ### Proactive Rate Limiting
 
 Proactive rate limiting works by tracking the number of requests that the RiotClient has sent, and throttling requests if it thinks you're going to hit your limit.
-Proactive rate limiting is optional and disabled by default. You can enable it by creating a `RateLimiter` object that tells the `RiotClient` what your rate limit is.
+Proactive rate limiting is optional and disabled by default. You can enable it by creating a `RateLimiter` object that will automatically detect your rate limit.
 
 ```
-// 10 requests per 10 seconds, 500 requests per 10 minutes (developer key)
-// NOTE: you should replace these numbers with your production key rates
-RiotClient.RateLimiter = new RateLimiter(10, 500);
+RiotClient.RateLimiter = new RateLimiter();
 IRiotClient client = new RiotClient();
 ```
 
