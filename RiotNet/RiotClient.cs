@@ -450,7 +450,7 @@ namespace RiotNet
         /// Sends a request.
         /// </summary>
         /// <param name="request">The request to send.</param>
-        /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values.
+        /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
         protected async Task<RiotResponse> SendAsync(HttpRequestMessage request, string platformId, CancellationToken token)
