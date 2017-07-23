@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['resettime',['ResetTime',['../class_riot_net_1_1_rate_limiter_1_1_request_count.html#a4b78c9894630b2b8a253407102d94fad',1,'RiotNet::RateLimiter::RequestCount']]]
+  ['duration',['Duration',['../class_riot_net_1_1_rate_limit_rule.html#ac2a6ee9d91da9707cce67102ac42421e',1,'RiotNet::RateLimitRule']]]
 ];

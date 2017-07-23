@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">4.2.0</span>
+   &#160;<span id="projectnumber">4.3.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -91,7 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_riot_net_1_1_rate_limiter-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">RiotNet.RateLimiter Class Reference</div>  </div>
@@ -112,28 +112,69 @@ Inheritance diagram for RiotNet.RateLimiter:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_rate_limiter_1_1_rate_limit_tracker.html">RateLimitTracker</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a request count for a rate limiting rule.  <a href="class_riot_net_1_1_rate_limiter_1_1_rate_limit_tracker.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_rate_limiter_1_1_request_count.html">RequestCount</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a request count for a rate limiting rule.  <a href="class_riot_net_1_1_rate_limiter_1_1_request_count.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:af5102f7e25ddc9efccf0eb473b9de8b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_rate_limiter.html#af5102f7e25ddc9efccf0eb473b9de8b8">RateLimiter</a> ()</td></tr>
+<tr class="memdesc:af5102f7e25ddc9efccf0eb473b9de8b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="class_riot_net_1_1_rate_limiter.html" title="Handles proactive rate limiting. You should only ever create one instance of this class...">RateLimiter</a> instance.  <a href="#af5102f7e25ddc9efccf0eb473b9de8b8">More...</a><br /></td></tr>
+<tr class="separator:af5102f7e25ddc9efccf0eb473b9de8b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae05fe5237d27589d4b0db5622ddbecaa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_rate_limiter.html#ae05fe5237d27589d4b0db5622ddbecaa">RateLimiter</a> (int rateLimitPerTenSeconds, int rateLimitPerTenMinutes)</td></tr>
-<tr class="memdesc:ae05fe5237d27589d4b0db5622ddbecaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informs the <a class="el" href="class_riot_net_1_1_riot_client.html" title="A client that interacts with the Riot Games API. ">RiotClient</a> of your API key's rate limit, and enables proactive rate limiting.  <a href="#ae05fe5237d27589d4b0db5622ddbecaa">More...</a><br /></td></tr>
+<tr class="memdesc:ae05fe5237d27589d4b0db5622ddbecaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="class_riot_net_1_1_rate_limiter.html" title="Handles proactive rate limiting. You should only ever create one instance of this class...">RateLimiter</a> instance.  <a href="#ae05fe5237d27589d4b0db5622ddbecaa">More...</a><br /></td></tr>
 <tr class="separator:ae05fe5237d27589d4b0db5622ddbecaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16e6c264f053fe0675bfc1fa18719733"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_rate_limiter.html#a16e6c264f053fe0675bfc1fa18719733">TrySetRules</a> (IEnumerable&lt; <a class="el" href="class_riot_net_1_1_rate_limit_rule.html">RateLimitRule</a> &gt; rules, string platformId=null)</td></tr>
+<tr class="memdesc:a16e6c264f053fe0675bfc1fa18719733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds rate limiting rules if they have not been added already.  <a href="#a16e6c264f053fe0675bfc1fa18719733">More...</a><br /></td></tr>
+<tr class="separator:a16e6c264f053fe0675bfc1fa18719733"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2d29a11daa773485383819bce6b5919"><td class="memItemLeft" align="right" valign="top">virtual DateTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_rate_limiter.html#ad2d29a11daa773485383819bce6b5919">AddRequestOrGetDelay</a> (string platformId)</td></tr>
 <tr class="memdesc:ad2d29a11daa773485383819bce6b5919"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments the request count, or if the rate limit is reached, gets the time (in UTC) until which the client should wait before sending a request.  <a href="#ad2d29a11daa773485383819bce6b5919">More...</a><br /></td></tr>
 <tr class="separator:ad2d29a11daa773485383819bce6b5919"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a94e806a23df64fa0420fc63987c312b3"><td class="memItemLeft" align="right" valign="top">DateTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_rate_limiter.html#a94e806a23df64fa0420fc63987c312b3">GetRateLimitRuleDelay</a> (<a class="el" href="class_riot_net_1_1_rate_limiter_1_1_request_count.html">RequestCount</a> requestCount, int limit, double periodInSeconds, DateTime now)</td></tr>
-<tr class="memdesc:a94e806a23df64fa0420fc63987c312b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the time to delay until for a single rate limit rule.  <a href="#a94e806a23df64fa0420fc63987c312b3">More...</a><br /></td></tr>
-<tr class="separator:a94e806a23df64fa0420fc63987c312b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:abd38acf447b010af220dbaacce1c6da6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_rate_limiter.html#abd38acf447b010af220dbaacce1c6da6">HasRules</a> =&gt; trackers.Count &gt; 0</td></tr>
+<tr class="memdesc:abd38acf447b010af220dbaacce1c6da6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the rate limiter has any rules set.  <a href="#abd38acf447b010af220dbaacce1c6da6">More...</a><br /></td></tr>
+<tr class="separator:abd38acf447b010af220dbaacce1c6da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header properties_interface_riot_net_1_1_i_rate_limiter"><td colspan="2" onclick="javascript:toggleInherit('properties_interface_riot_net_1_1_i_rate_limiter')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="interface_riot_net_1_1_i_rate_limiter.html">RiotNet.IRateLimiter</a></td></tr>
+<tr class="memitem:a159214d70b3969d652f4fff0aa5f41c4 inherit properties_interface_riot_net_1_1_i_rate_limiter"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_rate_limiter.html#a159214d70b3969d652f4fff0aa5f41c4">HasRules</a><code> [get]</code></td></tr>
+<tr class="memdesc:a159214d70b3969d652f4fff0aa5f41c4 inherit properties_interface_riot_net_1_1_i_rate_limiter"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the rate limiter has any rules set.  <a href="#a159214d70b3969d652f4fff0aa5f41c4">More...</a><br /></td></tr>
+<tr class="separator:a159214d70b3969d652f4fff0aa5f41c4 inherit properties_interface_riot_net_1_1_i_rate_limiter"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Handles proactive rate limiting. You should only ever create one instance of this class. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="af5102f7e25ddc9efccf0eb473b9de8b8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RiotNet.RateLimiter.RateLimiter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a new <a class="el" href="class_riot_net_1_1_rate_limiter.html" title="Handles proactive rate limiting. You should only ever create one instance of this class...">RateLimiter</a> instance. </p>
+
+</div>
+</div>
 <a class="anchor" id="ae05fe5237d27589d4b0db5622ddbecaa"></a>
 <div class="memitem">
 <div class="memproto">
@@ -166,7 +207,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Informs the <a class="el" href="class_riot_net_1_1_riot_client.html" title="A client that interacts with the Riot Games API. ">RiotClient</a> of your API key's rate limit, and enables proactive rate limiting. </p>
+<p>Creates a new <a class="el" href="class_riot_net_1_1_rate_limiter.html" title="Handles proactive rate limiting. You should only ever create one instance of this class...">RateLimiter</a> instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rateLimitPerTenSeconds</td><td>Your API key's rate limit per 10 seconds.</td></tr>
@@ -213,7 +254,7 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a94e806a23df64fa0420fc63987c312b3"></a>
+<a class="anchor" id="a16e6c264f053fe0675bfc1fa18719733"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -221,28 +262,16 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">DateTime RiotNet.RateLimiter.GetRateLimitRuleDelay </td>
+          <td class="memname">virtual void RiotNet.RateLimiter.TrySetRules </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_riot_net_1_1_rate_limiter_1_1_request_count.html">RequestCount</a>&#160;</td>
-          <td class="paramname"><em>requestCount</em>, </td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="class_riot_net_1_1_rate_limit_rule.html">RateLimitRule</a> &gt;&#160;</td>
+          <td class="paramname"><em>rules</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>limit</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>periodInSeconds</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">DateTime&#160;</td>
-          <td class="paramname"><em>now</em>&#160;</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>platformId</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -252,22 +281,37 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the time to delay until for a single rate limit rule. </p>
+<p>Adds rate limiting rules if they have not been added already. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">requestCount</td><td>The <a class="el" href="class_riot_net_1_1_rate_limiter_1_1_request_count.html" title="Represents a request count for a rate limiting rule. ">RequestCount</a> object for the current rule.</td></tr>
-    <tr><td class="paramname">limit</td><td>The maximum number of requests allowed by the rule.</td></tr>
-    <tr><td class="paramname">periodInSeconds</td><td>The total amount of time defined by the rule before the request count resets.</td></tr>
-    <tr><td class="paramname">now</td><td>The current time in UTC.</td></tr>
+    <tr><td class="paramname">rules</td><td>The list of rules.</td></tr>
+    <tr><td class="paramname">platformId</td><td>The platform ID of the response that contained the rate limit definitions. The request count will automatically be incremented for this platform.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The time to delay until.</dd></dl>
+
+<p>Implements <a class="el" href="interface_riot_net_1_1_i_rate_limiter.html#ab700fcbc5a53ab295a85e69b4b62b7b1">RiotNet.IRateLimiter</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="abd38acf447b010af220dbaacce1c6da6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool RiotNet.RateLimiter.HasRules =&gt; trackers.Count &gt; 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets whether the rate limiter has any rules set. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if any rules have been added, otherwise false.</dd></dl>
 
 </div>
 </div>

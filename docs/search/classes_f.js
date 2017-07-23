@@ -3,6 +3,8 @@ var searchData=
   ['rangeconverter',['RangeConverter',['../class_riot_net_1_1_converters_1_1_range_converter.html',1,'RiotNet::Converters']]],
   ['ratelimiter',['RateLimiter',['../class_riot_net_1_1_rate_limiter.html',1,'RiotNet']]],
   ['ratelimitexceededexception',['RateLimitExceededException',['../class_riot_net_1_1_rate_limit_exceeded_exception.html',1,'RiotNet']]],
+  ['ratelimitrule',['RateLimitRule',['../class_riot_net_1_1_rate_limit_rule.html',1,'RiotNet']]],
+  ['ratelimittracker',['RateLimitTracker',['../class_riot_net_1_1_rate_limiter_1_1_rate_limit_tracker.html',1,'RiotNet::RateLimiter']]],
   ['recommended',['Recommended',['../class_riot_net_1_1_models_1_1_recommended.html',1,'RiotNet::Models']]],
   ['requestcount',['RequestCount',['../class_riot_net_1_1_rate_limiter_1_1_request_count.html',1,'RiotNet::RateLimiter']]],
   ['responseeventargs',['ResponseEventArgs',['../class_riot_net_1_1_response_event_args.html',1,'RiotNet']]],

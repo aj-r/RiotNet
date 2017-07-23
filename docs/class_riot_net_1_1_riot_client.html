@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">4.2.0</span>
+   &#160;<span id="projectnumber">4.3.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -380,6 +380,9 @@ Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:ab1ba8d644b66f89fbf33f126e3b6dd50"><td class="memItemLeft" align="right" valign="top">static async Task&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#ab1ba8d644b66f89fbf33f126e3b6dd50">GetServerErrorMessage</a> (<a class="el" href="class_riot_net_1_1_riot_response.html">RiotResponse</a> response)</td></tr>
 <tr class="memdesc:ab1ba8d644b66f89fbf33f126e3b6dd50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the error message from the response body if it exists.  <a href="#ab1ba8d644b66f89fbf33f126e3b6dd50">More...</a><br /></td></tr>
 <tr class="separator:ab1ba8d644b66f89fbf33f126e3b6dd50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f6f69940f63342992b67e425582b254"><td class="memItemLeft" align="right" valign="top">static IEnumerable&lt; <a class="el" href="class_riot_net_1_1_rate_limit_rule.html">RateLimitRule</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a0f6f69940f63342992b67e425582b254">ParseRateLimits</a> (string rateLimitString)</td></tr>
+<tr class="memdesc:a0f6f69940f63342992b67e425582b254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the rate limits in an X-Rate-Limit header.  <a href="#a0f6f69940f63342992b67e425582b254">More...</a><br /></td></tr>
+<tr class="separator:a0f6f69940f63342992b67e425582b254"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
@@ -4384,6 +4387,39 @@ Events</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a0f6f69940f63342992b67e425582b254"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static IEnumerable&lt;<a class="el" href="class_riot_net_1_1_rate_limit_rule.html">RateLimitRule</a>&gt; RiotNet.RiotClient.ParseRateLimits </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>rateLimitString</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parses the rate limits in an X-Rate-Limit header. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rateLimitString</td><td>The contents of the rate limit header.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A list of rate limit rules.</dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="ac031bd8464a8eb220270676f3b34f262"></a>
 <div class="memitem">
 <div class="memproto">
@@ -4556,7 +4592,7 @@ Events</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">request</td><td>The request to send.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID corresponding to the server. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="class_riot_net_1_1_riot_client.html#a68116f933a2600c2263c06d6f0c2acbf" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
+    <tr><td class="paramname">platformId</td><td>The platform ID corresponding to the server. This should equal one of the Models.PlatformId values.</td></tr>
     <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
   </table>
   </dd>

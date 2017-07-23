@@ -1,6 +1,7 @@
 var searchData=
 [
   ['h',['H',['../class_riot_net_1_1_models_1_1_alt_image.html#ae48e2c565a4750d83dbe19a47ac3f2c4',1,'RiotNet.Models.AltImage.H()'],['../class_riot_net_1_1_models_1_1_image.html#a512174eb3f666764610dcf9c5a108438',1,'RiotNet.Models.Image.H()']]],
+  ['hasrules',['HasRules',['../interface_riot_net_1_1_i_rate_limiter.html#a159214d70b3969d652f4fff0aa5f41c4',1,'RiotNet.IRateLimiter.HasRules()'],['../class_riot_net_1_1_rate_limiter.html#abd38acf447b010af220dbaacce1c6da6',1,'RiotNet.RateLimiter.HasRules()']]],
   ['header',['Header',['../class_riot_net_1_1_models_1_1_static_item_tree.html#a1b73e73be40598ab418d02c67874829b',1,'RiotNet::Models::StaticItemTree']]],
   ['hexakill',['HEXAKILL',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a7e002e74baefad234a6cbd4e646fc3bb',1,'RiotNet::Models']]],
   ['hidefromall',['HideFromAll',['../class_riot_net_1_1_models_1_1_static_item.html#aa10d7fb9e61fbf7659fe1586fa5d93cb',1,'RiotNet::Models::StaticItem']]],

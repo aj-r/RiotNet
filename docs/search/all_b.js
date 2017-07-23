@@ -19,6 +19,7 @@ var searchData=
   ['leveltip',['LevelTip',['../class_riot_net_1_1_models_1_1_static_spell.html#a6ead8f4575bd91a2a45c20092c807e8e',1,'RiotNet::Models::StaticSpell']]],
   ['leveluptype',['LevelUpType',['../class_riot_net_1_1_models_1_1_match_event.html#a61613a48234611283debe5b1b06679b5',1,'RiotNet::Models::MatchEvent']]],
   ['lg',['Lg',['../class_riot_net_1_1_models_1_1_static_realm.html#ab7f0d2600b1a59cea81148dd0cca13f4',1,'RiotNet::Models::StaticRealm']]],
+  ['limit',['Limit',['../class_riot_net_1_1_rate_limit_rule.html#adeed05c872fecb846dc1ddc66a5fbb51',1,'RiotNet::RateLimitRule']]],
   ['link',['Link',['../class_riot_net_1_1_models_1_1_spell_vars.html#a341b8536cf1bf622966310b3810ccb75',1,'RiotNet::Models::SpellVars']]],
   ['listofdouble',['ListOfDouble',['../class_riot_net_1_1_models_1_1_list_of_double.html',1,'RiotNet::Models']]],
   ['listofint',['ListOfInt',['../class_riot_net_1_1_models_1_1_list_of_int.html',1,'RiotNet::Models']]],
