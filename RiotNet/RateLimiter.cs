@@ -10,6 +10,18 @@ namespace RiotNet
     public interface IRateLimiter
     {
         /// <summary>
+        /// Adds rate limiting rules if they have not been added already.
+        /// </summary>
+        /// <param name="rules">The list of rules.</param>
+        /// <param name="platformId">The platform ID of the response that contained the rate limit definitions. The request count will automatically be incremented for this platform.</param>
+        void TrySetRules(IEnumerable<RateLimitRule> rules, string platformId);
+
+        /// <summary>
+        /// Gets whether the rate limiter has any rules set.
+        /// </summary>
+        bool HasRules { get; }
+
+        /// <summary>
         /// Increments the request count, or if the rate limit is reached, gets the time (in UTC) until which the client should wait before sending a request.
         /// </summary>
         /// <param name="platformId">The platform ID of the default server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values.</param>
@@ -21,39 +33,71 @@ namespace RiotNet
     }
 
     /// <summary>
+    /// Represents a single rule of a rate limit.
+    /// </summary>
+    public class RateLimitRule
+    {
+        /// <summary>
+        /// The duration of the rate limit, in seconds.
+        /// </summary>
+        public double Duration;
+
+        /// <summary>
+        /// The maximum number of requests that can be sent within the period.
+        /// </summary>
+        public int Limit;
+    }
+
+    /// <summary>
     /// Handles proactive rate limiting. You should only ever create one instance of this class.
     /// </summary>
     public class RateLimiter : IRateLimiter
     {
-        private readonly List<RateLimitTracker> rateLimits = new List<RateLimitTracker>();
+        private readonly ConcurrentDictionary<double, RateLimitTracker> trackers = new ConcurrentDictionary<double, RateLimitTracker>();
 
         /// <summary>
-        /// Informs the RiotClient of your API key's rate limit, and enables proactive rate limiting.
+        /// Creates a new <see cref="RateLimiter"/> instance.
         /// </summary>
-        /// <param name="rateLimitPerTenSeconds">Your API key's rate limit per 10 seconds.</param>
-        /// <param name="rateLimitPerTenMinutes">Your API key's rate limit per 10 minutes.</param>
-        public RateLimiter(int rateLimitPerTenSeconds, int rateLimitPerTenMinutes)
-            : this(0, rateLimitPerTenSeconds, 0, rateLimitPerTenMinutes)
+        public RateLimiter()
         { }
 
         /// <summary>
-        /// Informs the RiotClient of your API key's rate limit, and enables proactive rate limiting.
+        /// Creates a new <see cref="RateLimiter"/> instance.
         /// </summary>
-        /// <param name="rateLimitPerSecond">Your API key's rate limit per 1 second.</param>
         /// <param name="rateLimitPerTenSeconds">Your API key's rate limit per 10 seconds.</param>
-        /// <param name="rateLimitPerTwoMinutes">Your API key's rate limit per 2 minutes.</param>
         /// <param name="rateLimitPerTenMinutes">Your API key's rate limit per 10 minutes.</param>
-        public RateLimiter(int rateLimitPerSecond, int rateLimitPerTenSeconds, int rateLimitPerTwoMinutes, int rateLimitPerTenMinutes)
+        [Obsolete("Use the default constructor, and let the RiotClient automatically determine the rate limit")]
+        public RateLimiter(int rateLimitPerTenSeconds, int rateLimitPerTenMinutes)
         {
-            if (rateLimitPerSecond > 0)
-                rateLimits.Add(new RateLimitTracker { PeriodInSeconds = 1.5, Limit = rateLimitPerSecond });
+            var rules = new List<RateLimitRule>();
             if (rateLimitPerTenSeconds > 0)
-                rateLimits.Add(new RateLimitTracker { PeriodInSeconds = 11, Limit = rateLimitPerTenSeconds });
-            if (rateLimitPerTwoMinutes > 0)
-                rateLimits.Add(new RateLimitTracker { PeriodInSeconds = 121, Limit = rateLimitPerTwoMinutes });
+                rules.Add(new RateLimitRule { Duration = 10, Limit = rateLimitPerTenSeconds });
             if (rateLimitPerTenMinutes > 0)
-                rateLimits.Add(new RateLimitTracker { PeriodInSeconds = 601, Limit = rateLimitPerTenMinutes });
+                rules.Add(new RateLimitRule { Duration = 600, Limit = rateLimitPerTenMinutes });
+            TrySetRules(rules);
         }
+
+        /// <summary>
+        /// Adds rate limiting rules if they have not been added already.
+        /// </summary>
+        /// <param name="rules">The list of rules.</param>
+        /// <param name="platformId">The platform ID of the response that contained the rate limit definitions. The request count will automatically be incremented for this platform.</param>
+        public virtual void TrySetRules(IEnumerable<RateLimitRule> rules, string platformId = null)
+        {
+            foreach (var rule in rules)
+            {
+                var newTracker = new RateLimitTracker { Rule = rule };
+                if (platformId != null)
+                    newTracker.GetDelayTime(platformId, DateTime.Now);
+                trackers.TryAdd(rule.Duration, newTracker);
+            }
+        }
+
+        /// <summary>
+        /// Gets whether the rate limiter has any rules set.
+        /// </summary>
+        /// <returns>True if any rules have been added, otherwise false.</returns>
+        public virtual bool HasRules => trackers.Count > 0;
 
         /// <summary>
         /// Increments the request count, or if the rate limit is reached, gets the time (in UTC) until which the client should wait before sending a request.
@@ -65,7 +109,7 @@ namespace RiotNet
             var now = DateTime.UtcNow;
             DateTime maxTime = now;
 
-            foreach (var rateLimitTracker in rateLimits)
+            foreach (var rateLimitTracker in trackers.Values)
             {
                 DateTime t = rateLimitTracker.GetDelayTime(platformId, now);
                 if (t > maxTime)
@@ -98,20 +142,14 @@ namespace RiotNet
             private static readonly Func<string, RequestCount> requestCountFactory = (platformId) => new RequestCount();
 
             /// <summary>
-            /// The period of the rate limit, in seconds.
+            /// The rule being tracked.
             /// </summary>
-            public double PeriodInSeconds;
-
-            /// <summary>
-            /// The maximum number of requests that can be sent in the period.
-            /// </summary>
-            public int Limit;
+            public RateLimitRule Rule;
 
             /// <summary>
             /// The list of recent request counts for each PlatformId.
             /// </summary>
             public ConcurrentDictionary<string, RequestCount> RequestCounts = new ConcurrentDictionary<string, RequestCount>();
-
 
             /// <summary>
             /// Gets the time to delay until for a single rate limit rule.
@@ -126,10 +164,11 @@ namespace RiotNet
                 {
                     if (requestCount.ResetTime < now || requestCount.Count == 0)
                     {
-                        requestCount.ResetTime = now + TimeSpan.FromSeconds(PeriodInSeconds);
+                        // Wait a little longer than the reset time in case there's a bit of lag when talking to the server
+                        requestCount.ResetTime = now + TimeSpan.FromSeconds(Rule.Duration + 0.75);
                         requestCount.Count = 1;
                     }
-                    else if (requestCount.Count < Limit)
+                    else if (requestCount.Count < Rule.Limit)
                     {
                         ++requestCount.Count;
                     }

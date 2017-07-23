@@ -78,7 +78,7 @@ namespace RiotNet.Tests
         {
             await Task.Delay(1100); // in case a previous test maxed out the limit
 
-            RiotClient.RateLimiter = new RateLimiter(20, 0, 100, 0);
+            RiotClient.RateLimiter = new RateLimiter();
             IRiotClient client = new RiotClient();
             client.Settings.RetryOnRateLimitExceeded = true;
 
@@ -100,25 +100,21 @@ namespace RiotNet.Tests
         {
             await Task.Delay(TimeSpan.FromMinutes(2)); // in case a previous test maxed out the limit
 
-            RiotClient.RateLimiter = new RateLimiter(20, 0, 100, 0);
+            RiotClient.RateLimiter = new RateLimiter();
             RetryEventHandler onRateLimitExceeded = (o, e) =>
             {
                 if (e.Response != null)
                     Assert.Fail("Rate limit was exceeded! Proactive rate limiting failed.");
             };
+            IRiotClient client = new RiotClient();
+            client.Settings.RetryOnRateLimitExceeded = true;
+            client.RateLimitExceeded += onRateLimitExceeded;
+            // Send one request in advance so the client can get the rate limits.
+            await client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
 
             var tasks = new List<Task<LeagueList>>();
-            for (var i = 0; i < 60; ++i)
-            {
-                tasks.Add(Task.Run(() =>
-                {
-                    IRiotClient client = new RiotClient();
-                    client.Settings.RetryOnRateLimitExceeded = true;
-                    client.RateLimitExceeded += onRateLimitExceeded;
-
-                    return client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
-                }));
-            }
+            for (var i = 0; i < 59; ++i)
+                tasks.Add(Task.Run(() => client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5)));
 
             var allTask = Task.WhenAll(tasks);
             var finishedTask = await Task.WhenAny(allTask, Task.Delay(60000));
@@ -144,7 +140,7 @@ namespace RiotNet.Tests
         {
             await Task.Delay(1100); // in case a previous test maxed out the limit
 
-            IRiotClient client = new RiotClient(new RateLimiter(20, 0, 100, 0));
+            IRiotClient client = new RiotClient(new RateLimiter());
             client.Settings.RetryOnRateLimitExceeded = true;
 
             client.RateLimitExceeded += (o, e) =>
@@ -165,14 +161,21 @@ namespace RiotNet.Tests
         {
             await Task.Delay(TimeSpan.FromMinutes(2)); // in case a previous test maxed out the limit
 
-            IRiotClient client = new RiotClient(new RateLimiter(20, 0, 100, 0));
+            IRiotClient client = new RiotClient(new RateLimiter());
             client.Settings.RetryOnRateLimitExceeded = true;
+            client.Settings.RetryOnConnectionFailure = false;
+            client.Settings.RetryOnServerError = false;
+            client.Settings.RetryOnTimeout = false;
             client.RateLimitExceeded += (o, e) =>
             {
                 if (e.Response != null)
                     Assert.Fail("Rate limit was exceeded! Proactive rate limiting failed.");
             };
+            // Send one request in advance so the client can get the rate limits.
+            await client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
+            await Task.Delay(1000);
             await MaxOutRateLimit(client);
+
             var tasks = new List<Task<LeagueList>>();
             for (var i = 0; i < 30; ++i)
                 tasks.Add(client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5));
@@ -187,10 +190,29 @@ namespace RiotNet.Tests
             Assert.That(unexpectedCompletedCount, Is.EqualTo(0), $"Extra tasks were completed - {unexpectedCompletedCount}/10.");
         }
 
-        private Task MaxOutRateLimit(IRiotClient client)
+        [Test]
+        public void RateLimitTest_ShouldNotThrottleStaticData()
+        {
+            var rateLimiter = new RateLimiter();
+            rateLimiter.TrySetRules(new[]
+            {
+                new RateLimitRule { Limit = 1, Duration = 10 },
+            }, null);
+
+            IRiotClient client = new RiotClient(rateLimiter);
+            client.Settings.RetryOnRateLimitExceeded = false;
+
+            Assert.DoesNotThrowAsync(async () =>
+            {
+                await client.GetStaticChampionsAsync();
+                await client.GetStaticChampionsAsync();
+            });
+        }
+
+        private Task MaxOutRateLimit(IRiotClient client, int requestCount = 20)
         {
             var tasks = new List<Task>();
-            for (var i = 0; i < 20; ++i)
+            for (var i = 0; i < requestCount; ++i)
                 tasks.Add(client.GetMasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5));
             return Task.WhenAny(tasks);
         }

@@ -142,11 +142,11 @@ namespace RiotNet
         /// </remarks>
         public RiotClient(RiotClientSettings settings, string platformId, IRateLimiter rateLimiter)
         {
-            this.client = CreateHttpClient();
             this.settings = settings;
             this.platformId = platformId;
             this.rateLimiter = rateLimiter;
 
+            client = CreateHttpClient();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
@@ -417,6 +417,19 @@ namespace RiotNet
                     }
                 }
 
+                // Block future requests if the rate limit type is "application".
+                // For other rate limit types (method, service) we should not block future requests because they might be okay.
+                if (response.Response != null && rateLimiter?.HasRules == false)
+                {
+                    if (response.Response.Headers.TryGetValues("X-App-Rate-Limit", out IEnumerable<string> rateLimitHeaderValues))
+                    {
+                        var rateLimitString = rateLimitHeaderValues.First();
+                        var rateLimitRules = ParseRateLimits(rateLimitString);
+                        if (rateLimitRules.Any())
+                            rateLimiter.TrySetRules(rateLimitRules, platformId);
+                    }
+                }
+
                 ++attemptCount;
                 var action = await DetermineResponseAction(response, attemptCount, token).ConfigureAwait(false);
                 if (action == ResponseAction.Return)
@@ -437,22 +450,25 @@ namespace RiotNet
         /// Sends a request.
         /// </summary>
         /// <param name="request">The request to send.</param>
-        /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values.
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
         protected async Task<RiotResponse> SendAsync(HttpRequestMessage request, string platformId, CancellationToken token)
         {
             DateTime targetTime = DateTime.UtcNow;
-            if (retryAfterTimes.TryGetValue(platformId, out DateTime retryAfter))
+            if (!request.RequestUri.PathAndQuery.Contains("/static-data/"))
             {
-                if (retryAfter > targetTime)
-                    targetTime = retryAfter;
-            }
-            if (rateLimiter != null)
-            {
-                var limiterDelayTime = rateLimiter.AddRequestOrGetDelay(platformId);
-                if (limiterDelayTime > targetTime)
-                    targetTime = limiterDelayTime;
+                if (retryAfterTimes.TryGetValue(platformId, out DateTime retryAfter))
+                {
+                    if (retryAfter > targetTime)
+                        targetTime = retryAfter;
+                }
+                if (rateLimiter != null)
+                {
+                    var limiterDelayTime = rateLimiter.AddRequestOrGetDelay(platformId);
+                    if (limiterDelayTime > targetTime)
+                        targetTime = limiterDelayTime;
+                }
             }
             if (targetTime <= DateTime.UtcNow)
             {
@@ -632,6 +648,28 @@ namespace RiotNet
                 // This forces the thread to wait for the request to be sent, but not to wait for the inner task to complete.
                 task.RunSynchronously();
             }
+        }
+
+        /// <summary>
+        /// Parses the rate limits in an X-Rate-Limit header.
+        /// </summary>
+        /// <param name="rateLimitString">The contents of the rate limit header.</param>
+        /// <returns>A list of rate limit rules.</returns>
+        protected static IEnumerable<RateLimitRule> ParseRateLimits(string rateLimitString)
+        {
+            var rateLimits = new List<RateLimitRule>();
+            if (rateLimitString == null)
+                return rateLimits;
+            var rules = rateLimitString.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var rule in rules)
+            {
+                var parts = rule.Split(new[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+                if (parts.Length != 2)
+                    continue;
+                if (int.TryParse(parts[0], out int limit) && int.TryParse(parts[1], out int duration))
+                    rateLimits.Add(new RateLimitRule { Limit = limit, Duration = duration });
+            }
+            return rateLimits;
         }
 
         /// <summary>
