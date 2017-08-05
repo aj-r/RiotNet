@@ -1,23 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <VersionPrefix>4.3.0</VersionPrefix>
-    <TargetFrameworks Condition=" '$(Configuration)' != 'ReleaseCoreOnly' ">net45;netstandard1.6</TargetFrameworks>
-    <TargetFrameworks Condition=" '$(Configuration)' == 'ReleaseCoreOnly' ">netstandard1.6</TargetFrameworks>
+    <VersionPrefix>4.4.0</VersionPrefix>
+    <TargetFrameworks Condition=" '$(Configuration)' != 'ReleaseCoreOnly' ">net45;netstandard1.5</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(Configuration)' == 'ReleaseCoreOnly' ">netstandard1.5</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>RiotNet</AssemblyName>
     <PackageId>RiotNet</PackageId>
-    <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netstandard1.6' ">$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
-    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.6' ">1.6.0</NetStandardImplicitPackageVersion>
-    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
-    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netstandard1.5' ">$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+    <Authors>AJ Richardson</Authors>
+    <Description>A client for the Riot Games API. This client is very flexible and configurable, and is designed for real-life use on a multithreaded server.</Description>
     <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
-    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
-    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+    <IncludeSource>True</IncludeSource>
+    <IncludeSymbols>True</IncludeSymbols>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
@@ -33,7 +29,7 @@
     <DefineConstants>$(DefineConstants);NET_45;DB_READY</DefineConstants>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.5' ">
     <DefineConstants>$(DefineConstants);NET_STANDARD</DefineConstants>
   </PropertyGroup>
 
@@ -41,7 +37,7 @@
     <Optimize>True</Optimize>
   </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.5' ">
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="System.Threading.Thread" Version="4.0.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.1.0" />
