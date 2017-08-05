@@ -20,6 +20,17 @@ namespace RiotNet
         Task<Match> GetMatchAsync(long matchId, string platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
+        /// Gets the details of a match. This method uses the Match API.
+        /// </summary>
+        /// <param name="matchId">The ID of the match.</param>
+        /// <param name="forAccountId">Used to identify the participant to be unobfuscated.</param>
+        /// <param name="forPlatformId">Used to identify the participant to be unobfuscated. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        Task<Match> GetMatchAsync(long matchId, long forAccountId, string forPlatformId = null, string platformId = null, CancellationToken token = default(CancellationToken));
+
+        /// <summary>
         /// Gets the timeline of a match. This method uses the Match API.
         /// </summary>
         /// <param name="matchId">The ID of the match.</param>
@@ -87,6 +98,23 @@ namespace RiotNet
         public Task<Match> GetMatchAsync(long matchId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             return GetAsync<Match>($"{matchBasePath}/matches/{matchId}", platformId, token);
+        }
+
+        /// <summary>
+        /// Gets the details of a match. This method uses the Match API.
+        /// </summary>
+        /// <param name="matchId">The ID of the match.</param>
+        /// <param name="forAccountId">Used to identify the participant to be unobfuscated.</param>
+        /// <param name="forPlatformId">Used to identify the participant to be unobfuscated. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
+        /// <param name="token">The cancellation token to cancel the operation.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        public Task<Match> GetMatchAsync(long matchId, long forAccountId, string forPlatformId = null, string platformId = null, CancellationToken token = default(CancellationToken))
+        {
+            var url = $"{matchBasePath}/matches/{matchId}?forAccountId={forAccountId}";
+            if (forPlatformId != null)
+                url += "&forPlatformId=" + forPlatformId;
+            return GetAsync<Match>(url, platformId, token);
         }
 
         /// <summary>
