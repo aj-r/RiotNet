@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <VersionPrefix>4.4.0</VersionPrefix>
+    <VersionPrefix>4.4.1</VersionPrefix>
     <TargetFrameworks Condition=" '$(Configuration)' != 'ReleaseCoreOnly' ">net45;netstandard1.5</TargetFrameworks>
     <TargetFrameworks Condition=" '$(Configuration)' == 'ReleaseCoreOnly' ">netstandard1.5</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -10,6 +10,9 @@
     <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netstandard1.5' ">$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <Authors>AJ Richardson</Authors>
     <Description>A client for the Riot Games API. This client is very flexible and configurable, and is designed for real-life use on a multithreaded server.</Description>
+    <PackageProjectUrl>https://github.com/aj-r/RiotNet</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/aj-r/RiotNet/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageTags>riot, lol, wrapper, api, client, games</PackageTags>
     <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
     <IncludeSource>True</IncludeSource>
