@@ -80,7 +80,7 @@ namespace RiotNet.Tests
         {
             IRiotClient client = new RiotClient();
             var beginTime = new DateTime(2015, 6, 1, 0, 0, 0, DateTimeKind.Utc);
-            var endTime = new DateTime(2015, 7, 1, 0, 0, 0, DateTimeKind.Utc);
+            var endTime = new DateTime(2015, 6, 7, 0, 0, 0, DateTimeKind.Utc);
             var matchList = await client.GetMatchListByAccountIdAsync(48555045L, beginTime: beginTime, endTime: endTime);
 
             Assert.That(matchList, Is.Not.Null);
