@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">4.4.0</span>
+   &#160;<span id="projectnumber">5.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -127,6 +127,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:add1c3611531a1f1dd96bd7236bcf8116"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#add1c3611531a1f1dd96bd7236bcf8116">GetChampionMasteryScoreAsync</a> (long summonerId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:add1c3611531a1f1dd96bd7236bcf8116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a summoner's champion mastery score (the sum of the champion levels of all champions for that summoner). This method uses the Champion Mastery API.  <a href="#add1c3611531a1f1dd96bd7236bcf8116">More...</a><br /></td></tr>
 <tr class="separator:add1c3611531a1f1dd96bd7236bcf8116"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2b02d3096e80fb86e8f64f08e4345aa"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_league_list.html">LeagueList</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#af2b02d3096e80fb86e8f64f08e4345aa">GetLeagueByIdAsync</a> (string leagueId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
+<tr class="memdesc:af2b02d3096e80fb86e8f64f08e4345aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID. This method uses the League API.  <a href="#af2b02d3096e80fb86e8f64f08e4345aa">More...</a><br /></td></tr>
+<tr class="separator:af2b02d3096e80fb86e8f64f08e4345aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94177bc2af84c4883de4612b4acc6571"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="class_riot_net_1_1_models_1_1_league_list.html">LeagueList</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a94177bc2af84c4883de4612b4acc6571">GetLeaguesBySummonerIdAsync</a> (long summonerId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a94177bc2af84c4883de4612b4acc6571"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID. This method uses the League API.  <a href="#a94177bc2af84c4883de4612b4acc6571">More...</a><br /></td></tr>
 <tr class="separator:a94177bc2af84c4883de4612b4acc6571"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,9 +148,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0e4735e13b475e02d3531e0c11e20e96"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_match.html">Match</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a0e4735e13b475e02d3531e0c11e20e96">GetMatchAsync</a> (long matchId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a0e4735e13b475e02d3531e0c11e20e96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details of a match. This method uses the Match API.  <a href="#a0e4735e13b475e02d3531e0c11e20e96">More...</a><br /></td></tr>
 <tr class="separator:a0e4735e13b475e02d3531e0c11e20e96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6a7b5578d82281a42b793cf6f8d6265"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_match.html">Match</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#af6a7b5578d82281a42b793cf6f8d6265">GetMatchAsync</a> (long matchId, long forAccountId, string forPlatformId=null, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:af6a7b5578d82281a42b793cf6f8d6265"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details of a match. This method uses the Match API.  <a href="#af6a7b5578d82281a42b793cf6f8d6265">More...</a><br /></td></tr>
-<tr class="separator:af6a7b5578d82281a42b793cf6f8d6265"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a140ce409f6952d357428aff785b920"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_match_timeline.html">MatchTimeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a7a140ce409f6952d357428aff785b920">GetMatchTimelineAsync</a> (long matchId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a7a140ce409f6952d357428aff785b920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the timeline of a match. This method uses the Match API.  <a href="#a7a140ce409f6952d357428aff785b920">More...</a><br /></td></tr>
 <tr class="separator:a7a140ce409f6952d357428aff785b920"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1146,6 +1146,51 @@ Events</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="af2b02d3096e80fb86e8f64f08e4345aa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_league_list.html">LeagueList</a>&gt; RiotNet.IRiotClient.GetLeagueByIdAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>leagueId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken&#160;</td>
+          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID. This method uses the League API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">leagueId</td><td>The UIID of the league.</td></tr>
+    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
+    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a43a2d4c7ceeb357a52ae76de8c91c7ea">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ac2401ca4e957ae0ae817b21c535bd815"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1368,65 +1413,6 @@ Events</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a0fd96e26f0c8ddabc415ad7e4ecce49d">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af6a7b5578d82281a42b793cf6f8d6265"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_match.html">Match</a>&gt; RiotNet.IRiotClient.GetMatchAsync </td>
-          <td>(</td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>matchId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>forAccountId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>forPlatformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets the details of a match. This method uses the Match API. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">matchId</td><td>The ID of the match.</td></tr>
-    <tr><td class="paramname">forAccountId</td><td>Used to identify the participant to be unobfuscated.</td></tr>
-    <tr><td class="paramname">forPlatformId</td><td>Used to identify the participant to be unobfuscated. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#ac9082c7e17cd98f135ab6f10cae8b8c0">RiotNet.RiotClient</a>.</p>
 
 </div>
 </div>

@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">4.4.0</span>
+   &#160;<span id="projectnumber">5.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -158,6 +158,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a041506fda97ef41b5c4817602a615a78"><td class="memItemLeft" align="right" valign="top">Task&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a041506fda97ef41b5c4817602a615a78">GetChampionMasteryScoreAsync</a> (long summonerId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a041506fda97ef41b5c4817602a615a78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a summoner's champion mastery score (the sum of the champion levels of all champions for that summoner). This method uses the Champion Mastery API.  <a href="#a041506fda97ef41b5c4817602a615a78">More...</a><br /></td></tr>
 <tr class="separator:a041506fda97ef41b5c4817602a615a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43a2d4c7ceeb357a52ae76de8c91c7ea"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_league_list.html">LeagueList</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a43a2d4c7ceeb357a52ae76de8c91c7ea">GetLeagueByIdAsync</a> (string leagueId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
+<tr class="memdesc:a43a2d4c7ceeb357a52ae76de8c91c7ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID. This method uses the League API.  <a href="#a43a2d4c7ceeb357a52ae76de8c91c7ea">More...</a><br /></td></tr>
+<tr class="separator:a43a2d4c7ceeb357a52ae76de8c91c7ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84c42083f3b3649c27733bfc016e0f98"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="class_riot_net_1_1_models_1_1_league_list.html">LeagueList</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a84c42083f3b3649c27733bfc016e0f98">GetLeaguesBySummonerIdAsync</a> (long summonerId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a84c42083f3b3649c27733bfc016e0f98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID. This method uses the League API.  <a href="#a84c42083f3b3649c27733bfc016e0f98">More...</a><br /></td></tr>
 <tr class="separator:a84c42083f3b3649c27733bfc016e0f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,9 +179,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0fd96e26f0c8ddabc415ad7e4ecce49d"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_match.html">Match</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a0fd96e26f0c8ddabc415ad7e4ecce49d">GetMatchAsync</a> (long matchId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a0fd96e26f0c8ddabc415ad7e4ecce49d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details of a match. This method uses the Match API.  <a href="#a0fd96e26f0c8ddabc415ad7e4ecce49d">More...</a><br /></td></tr>
 <tr class="separator:a0fd96e26f0c8ddabc415ad7e4ecce49d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9082c7e17cd98f135ab6f10cae8b8c0"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_match.html">Match</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#ac9082c7e17cd98f135ab6f10cae8b8c0">GetMatchAsync</a> (long matchId, long forAccountId, string forPlatformId=null, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:ac9082c7e17cd98f135ab6f10cae8b8c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details of a match. This method uses the Match API.  <a href="#ac9082c7e17cd98f135ab6f10cae8b8c0">More...</a><br /></td></tr>
-<tr class="separator:ac9082c7e17cd98f135ab6f10cae8b8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a452e2ce6eef3a6e710f45ea488fabde3"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_match_timeline.html">MatchTimeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a452e2ce6eef3a6e710f45ea488fabde3">GetMatchTimelineAsync</a> (long matchId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a452e2ce6eef3a6e710f45ea488fabde3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the timeline of a match. This method uses the Match API.  <a href="#a452e2ce6eef3a6e710f45ea488fabde3">More...</a><br /></td></tr>
 <tr class="separator:a452e2ce6eef3a6e710f45ea488fabde3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2018,6 +2018,59 @@ Events</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a43a2d4c7ceeb357a52ae76de8c91c7ea"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_league_list.html">LeagueList</a>&gt; RiotNet.RiotClient.GetLeagueByIdAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>leagueId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken&#160;</td>
+          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID. This method uses the League API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">leagueId</td><td>The UIID of the league.</td></tr>
+    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="class_riot_net_1_1_riot_client.html#a68116f933a2600c2263c06d6f0c2acbf" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
+    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
+<p>Implements <a class="el" href="interface_riot_net_1_1_i_riot_client.html#af2b02d3096e80fb86e8f64f08e4345aa">RiotNet.IRiotClient</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="aed6c876bf669156897bb593a8578c07a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2283,73 +2336,6 @@ Events</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac9082c7e17cd98f135ab6f10cae8b8c0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_match.html">Match</a>&gt; RiotNet.RiotClient.GetMatchAsync </td>
-          <td>(</td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>matchId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>forAccountId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>forPlatformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the details of a match. This method uses the Match API. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">matchId</td><td>The ID of the match.</td></tr>
-    <tr><td class="paramname">forAccountId</td><td>Used to identify the participant to be unobfuscated.</td></tr>
-    <tr><td class="paramname">forPlatformId</td><td>Used to identify the participant to be unobfuscated. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="class_riot_net_1_1_riot_client.html#a68116f933a2600c2263c06d6f0c2acbf" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="class_riot_net_1_1_riot_client.html#a68116f933a2600c2263c06d6f0c2acbf" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-
-<p>Implements <a class="el" href="interface_riot_net_1_1_i_riot_client.html#af6a7b5578d82281a42b793cf6f8d6265">RiotNet.IRiotClient</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a5af0acfefd4104236f6303a33a0b6496"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2550,10 +2536,10 @@ Events</h2></td></tr>
     <tr><td class="paramname">championIds</td><td>Only get games where the summoner played one of these champions.</td></tr>
     <tr><td class="paramname">rankedQueues</td><td>Only get games from these queues. You should only use ranked queues for this (QueueType.TEAM_BUILDER_RANKED_SOLO, QueueType.RANKED_FLEX_SR, QueueType.RANKED_FLEX_TT).</td></tr>
     <tr><td class="paramname">seasons</td><td>Only get games from these seasons.</td></tr>
-    <tr><td class="paramname">beginTime</td><td>Only get games played after this time.</td></tr>
-    <tr><td class="paramname">endTime</td><td>Only get games played before this time.</td></tr>
-    <tr><td class="paramname">beginIndex</td><td>The begin index to use for fetching games.</td></tr>
-    <tr><td class="paramname">endIndex</td><td>The end index to use for fetching games. The maximum allowed difference between beginIndex and endIndex is 20; if it is larger than 20, endIndex will be modified to satisfy this restriction.</td></tr>
+    <tr><td class="paramname">beginTime</td><td>Only get games played after this time. If beginTime is specified, but not endTime, then these parameters are ignored. If endTime is specified, but not beginTime, then beginTime defaults to the start of the account's match history. If both are specified, then endTime should be greater than beginTime. The maximum time range allowed is one week, otherwise a 400 error code is returned.</td></tr>
+    <tr><td class="paramname">endTime</td><td>Only get games played before this time. If beginTime is specified, but not endTime, then these parameters are ignored. If endTime is specified, but not beginTime, then beginTime defaults to the start of the account's match history. If both are specified, then endTime should be greater than beginTime. The maximum time range allowed is one week, otherwise a 400 error code is returned.</td></tr>
+    <tr><td class="paramname">beginIndex</td><td>The begin index to use for fetching games. If beginIndex is specified, but not endIndex, then endIndex defaults to beginIndex+100. If endIndex is specified, but not beginIndex, then beginIndex defaults to 0. If both are specified, then endIndex must be greater than beginIndex. The maximum range allowed is 100, otherwise a 400 error code is returned.</td></tr>
+    <tr><td class="paramname">endIndex</td><td>The end index to use for fetching games. If beginIndex is specified, but not endIndex, then endIndex defaults to beginIndex+100. If endIndex is specified, but not beginIndex, then beginIndex defaults to 0. If both are specified, then endIndex must be greater than beginIndex. The maximum range allowed is 100, otherwise a 400 error code is returned.</td></tr>
     <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="class_riot_net_1_1_riot_client.html#a68116f933a2600c2263c06d6f0c2acbf" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
     <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
   </table>
