@@ -8,7 +8,7 @@ namespace RiotNet.Tests.Apis
     public class RunesTests : TestBase
     {
         [Test]
-        public async Task GetSummonerMasteriesBySummonerIdsAsyncTest()
+        public async Task GetRunesBySummonerIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
             RunePages runePages = await client.GetRunesBySummonerIdAsync(34172230L);

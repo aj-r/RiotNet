@@ -12,13 +12,12 @@ namespace RiotNet.Tests
     public class LeagueTests : TestBase
     {
         [Test]
-        public async Task GetLeaguesBySummonerIdAsyncTest()
+        public async Task GetLeagueByIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            List<LeagueList> leagues = await client.GetLeaguesBySummonerIdAsync(35870943L);
+            LeagueList league = await client.GetLeagueByIdAsync("ea0e8e10-f639-11e6-b789-c81f66cf2333");
 
-            Assert.That(leagues, Is.Not.Null);
-            var league = leagues.First();
+            Assert.That(league, Is.Not.Null);
             Assert.That(league.Entries.Count, Is.GreaterThan(1));
             Assert.That(league.Name, Is.Not.Null.And.Not.Empty);
         }

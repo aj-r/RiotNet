@@ -1,7 +1,4 @@
-﻿using Newtonsoft.Json;
-using RiotNet.Converters;
-
-namespace RiotNet.Models
+﻿namespace RiotNet.Models
 {
     /// <summary>
     /// Respresents the queue type.
@@ -15,7 +12,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Normal 5v5 Blind Pick
         /// </summary>
-        NORMAL_5x5_BLIND = 2,
+        NORMAL_5x5_BLIND = 430,
         /// <summary>
         /// Ranked Solo 5v5
         /// </summary>
@@ -31,15 +28,15 @@ namespace RiotNet.Models
         /// <summary>
         /// Normal 3v3
         /// </summary>
-        NORMAL_3x3 = 8,
+        NORMAL_3x3 = 460,
         /// <summary>
         /// Ranked Flex 3v3. This was formerly called <see cref="RANKED_PREMADE_3x3"/>.
         /// </summary>
-        RANKED_FLEX_TT = 9,
+        RANKED_FLEX_TT = 470,
         /// <summary>
         /// Ranked Flex 3v3. This is the old name for <see cref="RANKED_FLEX_TT"/>.
         /// </summary>
-        RANKED_PREMADE_3x3 = 9,
+        RANKED_PREMADE_3x3 = 470,
         /// <summary>
         /// Normal 5v5 Draft Pick
         /// </summary>
@@ -59,15 +56,15 @@ namespace RiotNet.Models
         /// <summary>
         /// Summoner's Rift Coop vs AI Intro Bot
         /// </summary>
-        BOT_5x5_INTRO = 31,
+        BOT_5x5_INTRO = 830,
         /// <summary>
         /// Summoner's Rift Coop vs AI Beginner Bot
         /// </summary>
-        BOT_5x5_BEGINNER = 32,
+        BOT_5x5_BEGINNER = 840,
         /// <summary>
-        /// Historical Summoner's Rift Coop vs AI Intermediate Bot
+        /// Summoner's Rift Coop vs AI Intermediate Bot
         /// </summary>
-        BOT_5x5_INTERMEDIATE = 33,
+        BOT_5x5_INTERMEDIATE = 850,
         /// <summary>
         /// Ranked Team 3v3
         /// </summary>
@@ -77,9 +74,21 @@ namespace RiotNet.Models
         /// </summary>
         RANKED_TEAM_5x5 = 42,
         /// <summary>
-        /// Twisted Treeline Coop vs AI
+        /// Twisted Treeline Coop vs AI (Intermediate bots)
         /// </summary>
-        BOT_TT_3x3 = 52,
+        BOT_TT_3x3 = 800,
+        /// <summary>
+        /// Twisted Treeline Coop vs AI (Intermediate bots)
+        /// </summary>
+        BOT_TT_3x3_INTERMEDIATE = 800,
+        /// <summary>
+        /// Twisted Treeline Coop vs AI (Intro bots)
+        /// </summary>
+        BOT_TT_3x3_INTRO = 810,
+        /// <summary>
+        /// Twisted Treeline Coop vs AI (Beginner bots)
+        /// </summary>
+        BOT_TT_3x3_BEGINNER = 820,
         /// <summary>
         /// Team Builder
         /// </summary>
@@ -87,7 +96,7 @@ namespace RiotNet.Models
         /// <summary>
         /// All Random All Mid
         /// </summary>
-        ARAM_5x5 = 65,
+        ARAM_5x5 = 450,
         /// <summary>
         /// One for All
         /// </summary>
@@ -151,7 +160,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Nexus Siege
         /// </summary>
-        SIEGE = 315,
+        SIEGE = 940,
         /// <summary>
         /// Definitely Not Dominion
         /// </summary>
