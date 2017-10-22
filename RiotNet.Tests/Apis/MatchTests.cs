@@ -93,23 +93,6 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetRecentMatchListByAccountIdAsyncTest()
-        {
-            IRiotClient client = new RiotClient();
-            var matchList = await client.GetRecentMatchListByAccountIdAsync(48555045L);
-
-            Assert.That(matchList, Is.Not.Null);
-            Assert.That(matchList.Matches, Is.Not.Null.And.Not.Empty);
-            var match = matchList.Matches.First();
-            Assert.That(match.GameId, Is.GreaterThan(0));
-            Assert.That(match.PlatformId, Is.EqualTo(client.PlatformId));
-
-            Assert.That(matchList.StartIndex, Is.EqualTo(0));
-            Assert.That(matchList.EndIndex, Is.GreaterThan(0));
-            Assert.That(matchList.TotalGames, Is.GreaterThan(0));
-        }
-
-        [Test]
         [Ignore("This test uses the Tournament API. You need a special tournament key to run this test.")]
         public async Task GetMatchIdsByTournamentCodeAsyncTest()
         {
