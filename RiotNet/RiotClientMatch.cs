@@ -86,7 +86,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Match> GetMatchAsync(long matchId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<Match>($"{matchBasePath}/matches/{matchId}", platformId, token);
+            return GetAsync<Match>($"{matchBasePath}/matches/{matchId}", $"{matchBasePath}/matches/{{matchId}}", platformId, token);
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<MatchTimeline> GetMatchTimelineAsync(long matchId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<MatchTimeline>($"{matchBasePath}/timelines/by-match/{matchId}", platformId, token);
+            return GetAsync<MatchTimeline>($"{matchBasePath}/timelines/by-match/{matchId}", $"{matchBasePath}/timelines/by-match/{{matchId}}", platformId, token);
         }
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace RiotNet
             if (endIndex != null)
                 queryParameters["endIndex"] = endIndex.Value.ToString(CultureInfo.InvariantCulture);
 
-            return GetAsync<MatchList>($"{matchBasePath}/matchlists/by-account/{accountId}", platformId, token, queryParameters);
+            return GetAsync<MatchList>($"{matchBasePath}/matchlists/by-account/{accountId}", $"{matchBasePath}/matchlists/by-account/{{accountId}}", platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -146,7 +146,7 @@ namespace RiotNet
         [Obsolete("Use GetMatchListByAccountIdAsync instead")]
         public Task<MatchList> GetRecentMatchListByAccountIdAsync(long accountId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<MatchList>($"{matchBasePath}/matchlists/by-account/{accountId}/recent", platformId, token);
+            return GetAsync<MatchList>($"{matchBasePath}/matchlists/by-account/{accountId}/recent", $"{matchBasePath}/matchlists/by-account/{{accountId}}/recent", platformId, token);
         }
 
         /// <summary>
@@ -158,7 +158,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<List<long>> GetMatchIdsByTournamentCodeAsync(string tournamentCode, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<List<long>>($"{matchBasePath}/matches/by-tournament-code/{tournamentCode}/ids", platformId, token);
+            return GetAsync<List<long>>($"{matchBasePath}/matches/by-tournament-code/{tournamentCode}/ids", $"{matchBasePath}/matches/by-tournament-code/{{tournamentCode}}/ids", platformId, token);
         }
 
         /// <summary>
@@ -171,7 +171,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Match> GetMatchForTournamentAsync(long matchId, string tournamentCode, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<Match>($"{matchBasePath}/matches/{matchId}/by-tournament-code/{tournamentCode}", platformId, token);
+            return GetAsync<Match>($"{matchBasePath}/matches/{matchId}/by-tournament-code/{tournamentCode}", $"{matchBasePath}/matches/{{matchId}}/by-tournament-code/{{tournamentCode}}", platformId, token);
         }
     }
 }

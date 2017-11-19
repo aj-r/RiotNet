@@ -252,7 +252,7 @@ namespace RiotNet
             var queryParameters = GetStandardQueryParameters(locale, version);
             if (tags != null)
                 queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticChampion), typeof(StaticChampionList));
-            return GetAsync<StaticChampionList>(url, platformId, token, queryParameters);
+            return GetAsync<StaticChampionList>(url, $"{staticDataBasePath}/champions", platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -274,7 +274,7 @@ namespace RiotNet
             var queryParameters = GetStandardQueryParameters(locale, version);
             if (tags != null)
                 queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticChampion));
-            return GetAsync<StaticChampion>(url, platformId, token, queryParameters);
+            return GetAsync<StaticChampion>(url, $"{staticDataBasePath}/champions/{{id}}", platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -295,7 +295,7 @@ namespace RiotNet
             var queryParameters = GetStandardQueryParameters(locale, version);
             if (tags != null)
                 queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticItem), typeof(StaticItemList));
-            return GetAsync<StaticItemList>(url, platformId, token, queryParameters);
+            return GetAsync<StaticItemList>(url, $"{staticDataBasePath}/items", platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -317,7 +317,7 @@ namespace RiotNet
             var queryParameters = GetStandardQueryParameters(locale, version);
             if (tags != null)
                 queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticItem));
-            return GetAsync<StaticItem>(url, platformId, token, queryParameters);
+            return GetAsync<StaticItem>(url, $"{staticDataBasePath}/items/{{id}}", platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -331,7 +331,7 @@ namespace RiotNet
         /// </remarks>
         public Task<List<string>> GetStaticLanguagesAsync(string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<List<string>>($"{staticDataBasePath}/languages", platformId, token);
+            return GetAsync<List<string>>($"{staticDataBasePath}/languages", $"{staticDataBasePath}/languages", platformId, token);
         }
 
         /// <summary>
@@ -348,7 +348,7 @@ namespace RiotNet
         public Task<StaticLanuageStrings> GetStaticLanguageStringsAsync(string locale = null, string version = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             var queryParameters = GetStandardQueryParameters(locale, version);
-            return GetAsync<StaticLanuageStrings>($"{staticDataBasePath}/language-strings", platformId, token, queryParameters);
+            return GetAsync<StaticLanuageStrings>($"{staticDataBasePath}/language-strings", $"{staticDataBasePath}/language-strings", platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -365,7 +365,7 @@ namespace RiotNet
         public Task<StaticMapList> GetStaticMapsAsync(string locale = null, string version = null, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             var queryParameters = GetStandardQueryParameters(locale, version);
-            return GetAsync<StaticMapList>($"{staticDataBasePath}/maps", platformId, token, queryParameters);
+            return GetAsync<StaticMapList>($"{staticDataBasePath}/maps", $"{staticDataBasePath}/maps", platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -386,7 +386,7 @@ namespace RiotNet
             var queryParameters = GetStandardQueryParameters(locale, version);
             if (tags != null)
                 queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticMastery), typeof(StaticMasteryList));
-            return GetAsync<StaticMasteryList>(url, platformId, token, queryParameters);
+            return GetAsync<StaticMasteryList>(url, $"{staticDataBasePath}/masteries", platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -408,7 +408,7 @@ namespace RiotNet
             var queryParameters = GetStandardQueryParameters(locale, version);
             if (tags != null)
                 queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticMastery));
-            return GetAsync<StaticMastery>(url, platformId, token, queryParameters);
+            return GetAsync<StaticMastery>(url, $"{staticDataBasePath}/masteries/{{id}}", platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -423,7 +423,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticProfileIconData> GetStaticProfileIconsAsync(string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<StaticProfileIconData>($"{staticDataBasePath}/profile-icons", platformId, token);
+            return GetAsync<StaticProfileIconData>($"{staticDataBasePath}/profile-icons", $"{staticDataBasePath}/profile-icons", platformId, token);
         }
 
         /// <summary>
@@ -437,7 +437,7 @@ namespace RiotNet
         /// </remarks>
         public Task<StaticRealm> GetStaticRealmAsync(string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<StaticRealm>($"{staticDataBasePath}/realms", platformId, token);
+            return GetAsync<StaticRealm>($"{staticDataBasePath}/realms", $"{staticDataBasePath}/realms", platformId, token);
         }
 
         /// <summary>
@@ -458,7 +458,7 @@ namespace RiotNet
             var queryParameters = GetStandardQueryParameters(locale, version);
             if (tags != null)
                 queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticRune), typeof(StaticRuneList));
-            return GetAsync<StaticRuneList>(url, platformId, token, queryParameters);
+            return GetAsync<StaticRuneList>(url, $"{staticDataBasePath}/runes", platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -480,7 +480,7 @@ namespace RiotNet
             var queryParameters = GetStandardQueryParameters(locale, version);
             if (tags != null)
                 queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticRune));
-            return GetAsync<StaticRune>(url, platformId, token, queryParameters);
+            return GetAsync<StaticRune>(url, $"{staticDataBasePath}/runes/{{id}}", platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -502,7 +502,7 @@ namespace RiotNet
             var queryParameters = GetStandardQueryParameters(locale, version);
             if (tags != null)
                 queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticSummonerSpell), typeof(StaticSummonerSpellList));
-            return GetAsync<StaticSummonerSpellList>(url, platformId, token, queryParameters);
+            return GetAsync<StaticSummonerSpellList>(url, $"{staticDataBasePath}/summoner-spells", platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -524,7 +524,7 @@ namespace RiotNet
             var queryParameters = GetStandardQueryParameters(locale, version);
             if (tags != null)
                 queryParameters["tags"] = CreateTagsParam(tags, typeof(StaticSummonerSpell));
-            return GetAsync<StaticSummonerSpell>(url, platformId, token, queryParameters);
+            return GetAsync<StaticSummonerSpell>(url, $"{staticDataBasePath}/summoner-spells/{{id}}", platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -538,7 +538,7 @@ namespace RiotNet
         /// </remarks>
         public Task<List<string>> GetVersionsAsync(string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<List<string>>($"{staticDataBasePath}/versions", platformId, token);
+            return GetAsync<List<string>>($"{staticDataBasePath}/versions", $"{staticDataBasePath}/versions", platformId, token);
         }
 
         #region Helper Methods

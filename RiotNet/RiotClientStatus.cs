@@ -27,7 +27,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<ShardStatus> GetShardDataAsync(string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<ShardStatus>($"{statusBasePath}/shard-data", platformId, token);
+            return GetAsync<ShardStatus>($"{statusBasePath}/shard-data", $"{statusBasePath}/shard-data", platformId, token);
         }
     }
 }

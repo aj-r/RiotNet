@@ -40,7 +40,7 @@ namespace RiotNet
         public async Task<List<Champion>> GetChampionsAsync(bool freeToPlay = false, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             var resource = $"{championBasePath}/champions?freeToPlay={(freeToPlay ? "true" : "false")}";
-            var championList = await GetAsync<ChampionList>(resource, platformId, token).ConfigureAwait(false);
+            var championList = await GetAsync<ChampionList>(resource, $"{championBasePath}/champions", platformId, token).ConfigureAwait(false);
             return championList?.Champions;
         }
 
@@ -53,7 +53,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Champion> GetChampionByIdAsync(long id, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<Champion>($"{championBasePath}/champions/{id}", platformId, token);
+            return GetAsync<Champion>($"{championBasePath}/champions/{id}", $"{championBasePath}/champions/{{id}}", platformId, token);
         }
     }
 }

@@ -3,6 +3,7 @@ using RiotNet.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RiotNet.Tests
@@ -191,22 +192,31 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public void RateLimitTest_ShouldNotThrottleStaticData()
+        [Ignore("This maxes out the static data method for an hour, and will cause other tests to fail")]
+        public async Task RateLimitTest_ShouldThrottleSpecificMethod()
         {
-            var rateLimiter = new RateLimiter();
-            rateLimiter.TrySetRules(new[]
+            IRiotClient client = new RiotClient(new RateLimiter());
+            client.Settings.RetryOnRateLimitExceeded = true;
+            client.RateLimitExceeded += (o, e) =>
             {
-                new RateLimitRule { Limit = 1, Duration = 10 },
-            }, null);
+                if (e.Response != null)
+                    Assert.Fail("Rate limit was exceeded! Proactive rate limiting failed.");
+            };
 
-            IRiotClient client = new RiotClient(rateLimiter);
-            client.Settings.RetryOnRateLimitExceeded = false;
-
-            Assert.DoesNotThrowAsync(async () =>
+            for (var i = 0; i < 10; ++i)
             {
-                await client.GetStaticChampionsAsync();
-                await client.GetStaticChampionsAsync();
-            });
+                var cts = new CancellationTokenSource(TimeSpan.FromSeconds(2));
+                var champs = await client.GetStaticChampionsAsync(token: cts.Token);
+                Assert.That(champs, Is.Not.Null, "Failed to get champion: " + i);
+            }
+            try
+            {
+                var cts = new CancellationTokenSource(TimeSpan.FromSeconds(2));
+                await client.GetStaticChampionsAsync(token: cts.Token);
+                Assert.Fail("Successfully hit the static data endpoint 11 times! This test probably needs to be updated.");
+            }
+            catch (OperationCanceledException)
+            { }
         }
 
         private Task MaxOutRateLimit(IRiotClient client, int requestCount = 20)

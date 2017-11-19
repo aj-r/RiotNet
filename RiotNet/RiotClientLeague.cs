@@ -68,7 +68,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<LeagueList> GetLeagueByIdAsync(string leagueId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<LeagueList>($"{leagueBasePath}/leagues/{leagueId}", platformId, token);
+            return GetAsync<LeagueList>($"{leagueBasePath}/leagues/{leagueId}", $"{leagueBasePath}/leagues/{{leagueId}}", platformId, token);
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace RiotNet
         [Obsolete("Use GetLeagueByIdAsync and/or GetLeaguePositionsBySummonerIdAsync instead")]
         public Task<List<LeagueList>> GetLeaguesBySummonerIdAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<List<LeagueList>>($"{leagueBasePath}/leagues/by-summoner/{summonerId}", platformId, token);
+            return GetAsync<List<LeagueList>>($"{leagueBasePath}/leagues/by-summoner/{summonerId}", $"{leagueBasePath}/leagues/by-summoner/{{summonerId}}", platformId, token);
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<List<LeaguePosition>> GetLeaguePositionsBySummonerIdAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<List<LeaguePosition>>($"{leagueBasePath}/positions/by-summoner/{summonerId}", platformId, token);
+            return GetAsync<List<LeaguePosition>>($"{leagueBasePath}/positions/by-summoner/{summonerId}", $"{leagueBasePath}/positions/by-summoner/{{summonerId}}", platformId, token);
         }
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<LeagueList> GetChallengerLeagueAsync(string rankedQueueType, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<LeagueList>($"{leagueBasePath}/challengerleagues/by-queue/{rankedQueueType}", platformId, token);
+            return GetAsync<LeagueList>($"{leagueBasePath}/challengerleagues/by-queue/{rankedQueueType}", $"{leagueBasePath}/challengerleagues/by-queue/{{rankedQueueType}}", platformId, token);
         }
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<LeagueList> GetMasterLeagueAsync(string rankedQueueType, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<LeagueList>($"{leagueBasePath}/masterleagues/by-queue/{rankedQueueType}", platformId, token);
+            return GetAsync<LeagueList>($"{leagueBasePath}/masterleagues/by-queue/{rankedQueueType}", $"{leagueBasePath}/masterleagues/by-queue/{{rankedQueueType}}", platformId, token);
         }
     }
 }

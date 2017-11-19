@@ -47,7 +47,8 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Summoner> GetSummonerByAccountIdAsync(long accountId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<Summoner>($"{summonerBasePath}/summoners/by-account/{accountId}", platformId, token);
+            return GetAsync<Summoner>($"{summonerBasePath}/summoners/by-account/{accountId}", $"{summonerBasePath}/summoners/by-account/{{accountId}}",
+                platformId, token);
         }
 
         /// <summary>
@@ -59,7 +60,8 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Summoner> GetSummonerBySummonerNameAsync(string summonerName, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<Summoner>($"{summonerBasePath}/summoners/by-name/{summonerName}", platformId, token);
+            return GetAsync<Summoner>($"{summonerBasePath}/summoners/by-name/{summonerName}", $"{summonerBasePath}/summoners/by-name/{{summonerName}}",
+                platformId, token);
         }
 
         /// <summary>
@@ -71,7 +73,8 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<Summoner> GetSummonerBySummonerIdAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<Summoner>($"{summonerBasePath}/summoners/{summonerId}", platformId, token);
+            return GetAsync<Summoner>($"{summonerBasePath}/summoners/{summonerId}", $"{summonerBasePath}/summoners/{{summonerId}}",
+                platformId, token);
         }
     }
 }

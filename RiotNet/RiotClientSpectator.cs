@@ -37,7 +37,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<CurrentGameInfo> GetActiveGameBySummonerIdAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<CurrentGameInfo>($"{spectatorBasePath}/active-games/by-summoner/{summonerId}", platformId, token);
+            return GetAsync<CurrentGameInfo>($"{spectatorBasePath}/active-games/by-summoner/{summonerId}", $"{spectatorBasePath}/active-games/by-summoner/{{summonerId}}", platformId, token);
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<FeaturedGames> GetFeaturedGamesAsync(string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<FeaturedGames>($"{spectatorBasePath}/featured-games", platformId, token);
+            return GetAsync<FeaturedGames>($"{spectatorBasePath}/featured-games", $"{spectatorBasePath}/featured-games", platformId, token);
         }
     }
 }

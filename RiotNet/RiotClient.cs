@@ -135,16 +135,16 @@ namespace RiotNet
         /// </summary>
         /// <param name="settings">The settings to use.</param>
         /// <param name="platformId">The platform ID of the default server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values.</param>
-        /// <param name="rateLimiter">The rate limiter to use for proactive rate limiting.</param>
+        /// <param name="appRateLimiter">The rate limiter to use for proactive rate limiting.</param>
         /// <remarks>
         /// You should pass the same <see cref="IRateLimiter"/> instance to all <see cref="RiotClient"/> instances. Do not create multiple <see cref="IRateLimiter"/> instances.
         /// Reactive rate limiting will always be used, even if a proactive rate limiter is not specified.
         /// </remarks>
-        public RiotClient(RiotClientSettings settings, string platformId, IRateLimiter rateLimiter)
+        public RiotClient(RiotClientSettings settings, string platformId, IRateLimiter appRateLimiter)
         {
             this.settings = settings;
             this.platformId = platformId;
-            this.rateLimiter = rateLimiter;
+            this.rateLimiter = appRateLimiter;
 
             client = CreateHttpClient();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -278,41 +278,44 @@ namespace RiotNet
         /// Sends a GET request for the specified resource.
         /// </summary>
         /// <param name="resource">The resource path, relative to the base URL. Note: this method will automatically add the api_key parameter to the resource.</param>
+        /// <param name="resourceName">The resource path without any parameter values. Used for rate limiting purposes.</param>
         /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <param name="queryParameters">Query string parameters to append to the resource.</param>
         /// <returns>A rest request.</returns>
-        protected Task<T> GetAsync<T>(string resource, string platformId, CancellationToken token, IDictionary<string, object> queryParameters = null)
+        protected Task<T> GetAsync<T>(string resource, string resourceName, string platformId, CancellationToken token, IDictionary<string, object> queryParameters = null)
         {
-            return ExecuteAsync<T>(HttpMethod.Get, resource, null, platformId, token, queryParameters);
+            return ExecuteAsync<T>(HttpMethod.Get, resource, resourceName, null, platformId, token, queryParameters);
         }
 
         /// <summary>
         /// Creates a POST request for the specified resource. The region, platformId, and api_key parameters are automatically added to the request.
         /// </summary>
         /// <param name="resource">The resource path, relative to the base URL. Note: this method will automatically add the api_key parameter to the resource.</param>
+        /// <param name="resourceName">The resource path without any parameter values. Used for rate limiting purposes.</param>
         /// <param name="body">The body of the request. This object will be serialized as a JSON string.</param>
         /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <param name="queryParameters">Query string parameters to append to the resource.</param>
         /// <returns>A rest request.</returns>
-        protected Task<T> PostAsync<T>(string resource, object body, string platformId, CancellationToken token, IDictionary<string, object> queryParameters = null)
+        protected Task<T> PostAsync<T>(string resource, string resourceName, object body, string platformId, CancellationToken token, IDictionary<string, object> queryParameters = null)
         {
-            return ExecuteAsync<T>(HttpMethod.Post, resource, body, platformId, token, queryParameters);
+            return ExecuteAsync<T>(HttpMethod.Post, resource, resourceName, body, platformId, token, queryParameters);
         }
 
         /// <summary>
         /// Creates a PUT request for the specified resource. The region, platformId, and api_key parameters are automatically added to the request.
         /// </summary>
         /// <param name="resource">The resource path, relative to the base URL. Note: this method will automatically add the api_key parameter to the resource.</param>
+        /// <param name="resourceName">The resource path without any parameter values. Used for rate limiting purposes.</param>
         /// <param name="body">The body of the request. This object will be serialized as a JSON string.</param>
         /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <param name="queryParameters">Query string parameters to append to the resource.</param>
         /// <returns>A rest request.</returns>
-        protected Task<T> PutAsync<T>(string resource, object body, string platformId, CancellationToken token, IDictionary<string, object> queryParameters = null)
+        protected Task<T> PutAsync<T>(string resource, string resourceName, object body, string platformId, CancellationToken token, IDictionary<string, object> queryParameters = null)
         {
-            return ExecuteAsync<T>(HttpMethod.Put, resource, body, platformId, token, queryParameters);
+            return ExecuteAsync<T>(HttpMethod.Put, resource, resourceName, body, platformId, token, queryParameters);
         }
 
         /// <summary>
@@ -321,12 +324,13 @@ namespace RiotNet
         /// <typeparam name="T">The type of data to expect in the response.</typeparam>
         /// <param name="method">The HTTP method to use.</param>
         /// <param name="resource">The URL of the resource to use.</param>
+        /// <param name="resourceName">The resource path without any parameter values. Used for rate limiting purposes.</param>
         /// <param name="body">The request body. This object will be serialized as a JSON string. Pass null if the request sohuld not have a body.</param>
         /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <param name="queryParameters">Query string parameters to append to the resource.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        protected virtual Task<T> ExecuteAsync<T>(HttpMethod method, string resource, object body, string platformId, CancellationToken token, IDictionary<string, object> queryParameters = null)
+        protected virtual Task<T> ExecuteAsync<T>(HttpMethod method, string resource, string resourceName, object body, string platformId, CancellationToken token, IDictionary<string, object> queryParameters = null)
         {
             if (platformId == null)
                 platformId = PlatformId;
@@ -363,7 +367,11 @@ namespace RiotNet
                     request.Content = new JsonContent(body);
                 return request;
             };
-            return ExecuteAsync<T>(buildRequest, platformId, token);
+            var methodName = method + " " + resourceName;
+            var queryIndex = methodName.IndexOf('?');
+            if (queryIndex > 0)
+                methodName = methodName.Remove(queryIndex);
+            return ExecuteAsync<T>(buildRequest, methodName, platformId, token);
         }
 
         private static void AppendQueryValue(StringBuilder builder, string key, object value, ref string querySeparator)
@@ -384,16 +392,17 @@ namespace RiotNet
         /// </summary>
         /// <typeparam name="T">The type of data to expect in the response.</typeparam>
         /// <param name="buildRequest">A function that builds the request to execute.</param>
+        /// <param name="methodName">The name of the method being executed (for rate limiting purposes).</param>
         /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        protected virtual async Task<T> ExecuteAsync<T>(Func<HttpRequestMessage> buildRequest, string platformId, CancellationToken token)
+        protected virtual async Task<T> ExecuteAsync<T>(Func<HttpRequestMessage> buildRequest, string methodName, string platformId, CancellationToken token)
         {
             var attemptCount = 0;
             do
             {
                 var request = buildRequest();
-                var response = await SendAsync(request, platformId, token).ConfigureAwait(false);
+                var response = await SendAsync(request, methodName, platformId, token).ConfigureAwait(false);
                 if (response == null)
                     return default(T);
 
@@ -419,14 +428,40 @@ namespace RiotNet
 
                 // Block future requests if the rate limit type is "application".
                 // For other rate limit types (method, service) we should not block future requests because they might be okay.
-                if (response.Response != null && rateLimiter?.HasRules == false)
+                if (response.Response != null && rateLimiter != null)
                 {
-                    if (response.Response.Headers.TryGetValues("X-App-Rate-Limit", out IEnumerable<string> rateLimitHeaderValues))
+                    if (!rateLimiter.HasRules)
                     {
-                        var rateLimitString = rateLimitHeaderValues.First();
+                        if (response.Response.Headers.TryGetValues("X-App-Rate-Limit", out IEnumerable<string> appRateLimitHeaderValues))
+                        {
+                            var rateLimitString = appRateLimitHeaderValues.First();
+                            var rateLimitRules = ParseRateLimits(rateLimitString);
+                            if (rateLimitRules.Any())
+                            {
+                                IEnumerable<RateLimitRule> rateLimitCounts = null;
+                                if (response.Response.Headers.TryGetValues("X-App-Rate-Limit-Count", out IEnumerable<string> appRateLimitCountHeaderValues))
+                                {
+                                    var rateLimitCountString = appRateLimitCountHeaderValues.First();
+                                    rateLimitCounts = ParseRateLimits(rateLimitCountString);
+                                }
+                                rateLimiter.TrySetRules(rateLimitRules, platformId, rateLimitCounts);
+                            }
+                        }
+                    }
+                    if (response.Response.Headers.TryGetValues("X-Method-Rate-Limit", out IEnumerable<string> methodRateLimitHeaderValues))
+                    {
+                        var rateLimitString = methodRateLimitHeaderValues.First();
                         var rateLimitRules = ParseRateLimits(rateLimitString);
                         if (rateLimitRules.Any())
-                            rateLimiter.TrySetRules(rateLimitRules, platformId);
+                        {
+                            IEnumerable<RateLimitRule> rateLimitCounts = null;
+                            if (response.Response.Headers.TryGetValues("X-Method-Rate-Limit-Count", out IEnumerable<string> appRateLimitCountHeaderValues))
+                            {
+                                var rateLimitCountString = appRateLimitCountHeaderValues.First();
+                                rateLimitCounts = ParseRateLimits(rateLimitCountString);
+                            }
+                            rateLimiter.TrySetRules(rateLimitRules, methodName, platformId, rateLimitCounts);
+                        }
                     }
                 }
 
@@ -450,25 +485,26 @@ namespace RiotNet
         /// Sends a request.
         /// </summary>
         /// <param name="request">The request to send.</param>
+        /// <param name="methodName">The name of the method being executed (for rate limiting purposes).</param>
         /// <param name="platformId">The platform ID corresponding to the server. This should equal one of the <see cref="Models.PlatformId"/> values.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        protected async Task<RiotResponse> SendAsync(HttpRequestMessage request, string platformId, CancellationToken token)
+        protected async Task<RiotResponse> SendAsync(HttpRequestMessage request, string methodName, string platformId, CancellationToken token)
         {
             DateTime targetTime = DateTime.UtcNow;
-            if (!request.RequestUri.PathAndQuery.Contains("/static-data/"))
+            if (!methodName.Contains("static-data/"))
             {
                 if (retryAfterTimes.TryGetValue(platformId, out DateTime retryAfter))
                 {
                     if (retryAfter > targetTime)
                         targetTime = retryAfter;
                 }
-                if (rateLimiter != null)
-                {
-                    var limiterDelayTime = rateLimiter.AddRequestOrGetDelay(platformId);
-                    if (limiterDelayTime > targetTime)
-                        targetTime = limiterDelayTime;
-                }
+            }
+            if (rateLimiter != null)
+            {
+                var limiterDelayTime = rateLimiter.AddRequestOrGetDelay(methodName, platformId);
+                if (limiterDelayTime > targetTime)
+                    targetTime = limiterDelayTime;
             }
             if (targetTime <= DateTime.UtcNow)
             {
@@ -500,7 +536,7 @@ namespace RiotNet
                 }
 
                 // Create a task to re-send but DON'T start it until targetTime.
-                var task = new Task<Task<RiotResponse>>(() => SendAsync(request, platformId, token));
+                var task = new Task<Task<RiotResponse>>(() => SendAsync(request, methodName, platformId, token), token);
                 ConcurrentQueue<Task<Task<RiotResponse>>> addedQueue = null;
                 var queue = throttledRequestQueues.GetOrAdd(targetTime, (dt) =>
                 {

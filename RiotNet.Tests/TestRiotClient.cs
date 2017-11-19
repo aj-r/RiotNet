@@ -37,7 +37,7 @@ namespace RiotNet.Tests
             MessageHandler.RespondWithStatus(HttpStatusCode.OK);
             try
             {
-                await SendAsync(new HttpRequestMessage(), Models.PlatformId.NA1, default(CancellationToken));
+                await SendAsync(new HttpRequestMessage(), "", Models.PlatformId.NA1, default(CancellationToken));
             }
             catch { }
         }

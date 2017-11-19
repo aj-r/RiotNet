@@ -29,7 +29,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<MasteryPages> GetMasteriesBySummonerIdAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<MasteryPages>($"{masteriesBasePath}/masteries/by-summoner/{summonerId}", platformId, token);
+            return GetAsync<MasteryPages>($"{masteriesBasePath}/masteries/by-summoner/{summonerId}", $"{masteriesBasePath}/masteries/by-summoner/{{summonerId}}", platformId, token);
         }
     }
 }

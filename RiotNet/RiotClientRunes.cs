@@ -29,7 +29,7 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<RunePages> GetRunesBySummonerIdAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<RunePages>($"{runesBasePath}/runes/by-summoner/{summonerId}", platformId, token);
+            return GetAsync<RunePages>($"{runesBasePath}/runes/by-summoner/{summonerId}", $"{runesBasePath}/runes/by-summoner/{{summonerId}}", platformId, token);
         }
     }
 }

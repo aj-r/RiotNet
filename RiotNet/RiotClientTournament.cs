@@ -209,7 +209,8 @@ namespace RiotNet
         public Task<long> CreateTournamentProviderAsync(string url, string platformId = null, string regionalProxy = RegionalProxy.Americas, CancellationToken token = default(CancellationToken))
         {
             var region = GetRegion(platformId ?? PlatformId);
-            return PostAsync<long>($"{GetTournamentBaseUrl(settings.UseTournamentStub)}/providers", new { region, url }, regionalProxy, token);
+            return PostAsync<long>($"{GetTournamentBaseUrl(settings.UseTournamentStub)}/providers", "tournament/providers", new { region, url },
+                regionalProxy, token);
         }
 
         /// <summary>
@@ -236,7 +237,8 @@ namespace RiotNet
         /// <returns>A task representing the asynchronous operation.</returns>
         public Task<long> CreateTournamentAsync(long providerId, string name = null, string regionalProxy = RegionalProxy.Americas, CancellationToken token = default(CancellationToken))
         {
-            return PostAsync<long>($"{GetTournamentBaseUrl(settings.UseTournamentStub)}/tournaments", new { name, providerId }, regionalProxy, token);
+            return PostAsync<long>($"{GetTournamentBaseUrl(settings.UseTournamentStub)}/tournaments", "tournament/tournaments", new { name, providerId },
+                regionalProxy, token);
         }
 
         /// <summary>
@@ -274,7 +276,7 @@ namespace RiotNet
             var queryParameters = new Dictionary<string, object> { { "tournamentId", tournamentId } };
             if (count != null)
                 queryParameters["count"] = count;
-            return PostAsync<List<string>>($"{GetTournamentBaseUrl(settings.UseTournamentStub)}/codes", new
+            return PostAsync<List<string>>($"{GetTournamentBaseUrl(settings.UseTournamentStub)}/codes", "tournament/codes", new
             {
                 allowedParticipants,
                 mapType,
@@ -343,7 +345,8 @@ namespace RiotNet
         /// <returns>The tournament code details.</returns>
         public Task<TournamentCode> GetTournamentCodeAsync(string tournamentCode, string regionalProxy = RegionalProxy.Americas, CancellationToken token = default(CancellationToken))
         {
-            return GetAsync<TournamentCode>($"{GetTournamentBaseUrl(false)}/codes/{tournamentCode}", regionalProxy, token);
+            return GetAsync<TournamentCode>($"{GetTournamentBaseUrl(false)}/codes/{tournamentCode}", "tournament/codes/{tournamentCode}",
+                regionalProxy, token);
         }
 
         /// <summary>
@@ -374,7 +377,7 @@ namespace RiotNet
             string pickType = PickType.TOURNAMENT_DRAFT, string spectatorType = SpectatorType.ALL, string regionalProxy = RegionalProxy.Americas,
             CancellationToken token = default(CancellationToken))
         {
-            return PutAsync<object>($"{GetTournamentBaseUrl(false)}/codes/{tournamentCode}", new
+            return PutAsync<object>($"{GetTournamentBaseUrl(false)}/codes/{tournamentCode}", "tournament/codes/{tournamentCode}", new
             {
                 allowedParticipants,
                 mapType,
@@ -435,7 +438,11 @@ namespace RiotNet
         /// <returns>The tournament code details.</returns>
         public async Task<List<LobbyEvent>> GetTournamentCodeLobbyEventsAsync(string tournamentCode, string regionalProxy = RegionalProxy.Americas, CancellationToken token = default(CancellationToken))
         {
-            var wrapper = await GetAsync<LobbyEventWrapper>($"{GetTournamentBaseUrl(settings.UseTournamentStub)}/lobby-events/by-code/{tournamentCode}", regionalProxy, token).ConfigureAwait(false);
+            var wrapper = await GetAsync<LobbyEventWrapper>($"{GetTournamentBaseUrl(settings.UseTournamentStub)}/lobby-events/by-code/{tournamentCode}",
+                "tournament/lobby-events/by-code/{tournamentCode}",
+                regionalProxy,
+                token)
+                .ConfigureAwait(false);
             return wrapper.EventList;
         }
 
