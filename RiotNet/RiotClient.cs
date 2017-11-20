@@ -198,7 +198,7 @@ namespace RiotNet
         /// <summary>
         /// Gets or sets the rate limiter to use for proactive rate limiting.
         /// </summary>
-        public static IRateLimiter RateLimiter { get; set; }
+        public static IRateLimiter RateLimiter { get; set; } = new RateLimiter();
 
         private static Func<RiotClientSettings> defaultSettings = () => new RiotClientSettings();
 
