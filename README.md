@@ -5,16 +5,18 @@
 A .NET/C# client for the Riot Games API.
 
 It has the following features:
-- **Compatible** with .NET Core and .NET 4.5.
+- Targets v3 of the Riot API
+- Built-in rate limiting (per-method and per-endpoint)
+- **Compatible** with .NET Core and .NET 4.5
 - [**NuGet package**](https://www.nuget.org/packages/RiotNet/): `Install-Package RiotNet`
 - [**Full Documentation**](http://aj-r.github.io/RiotNet/docs/interface_riot_net_1_1_i_riot_client.html) - documentation of every method and every property of every object. (Or at least as much as we can figure out from examining the JSON responses. Riot's API documentation is a bit lacking right now.)
 - [**Full API coverage**](https://github.com/aj-r/RiotNet/wiki/API-Route-Mapping) - methods for accessing to every endpoint in the Riot Games API.
-- **Flexible and configurable** - uses interfaces and allows inheritance.
-- **Database Ready** - data structures have built-in database metadata, so you can easily persist results using Entity Framework 6 without having to re-define all of the models.
-- **Complies** with Riot's [rate limiting best practices](https://developer.riotgames.com/rate-limiting.html), so you don't need to worry about getting soft banned.
-  - You may also want to follow the [Tips to Avoid Being Rate Limited](https://developer.riotgames.com/rate-limiting.html) to improve your application's performance.
-- **Thread-Safe**: Built for server applications that need to handle concurrent requests with high performance.
-- **Asynchronous methods** - methods are awaitable using the async/await keywords.
+- **Flexible and configurable** - uses interfaces and allows inheritance
+- **Database Ready** - data structures have built-in database metadata, so you can easily persist results using Entity Framework 6 without having to re-define all of the models
+- **Complies** with Riot's [rate limiting best practices](https://developer.riotgames.com/rate-limiting.html), so you don't need to worry about getting soft banned
+  - You may also want to follow the [Tips to Avoid Being Rate Limited](https://developer.riotgames.com/rate-limiting.html) to improve your application's performance
+- **Thread-Safe**: Built for server applications that need to handle concurrent requests with high performance
+- **Asynchronous methods** - methods are awaitable using the async/await keywords
 - **Unit Test Coverage** - over 90%
 
 RiotNet is NOT endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends.
@@ -52,44 +54,27 @@ IRiotClient client = new RiotClient(); // Now you don't need to pass the setting
 ## Rate limiting
 
 RiotNet will automatically handle rate limiting for you, so you don't need to worry about building your own rate limiting system.
-RiotNet handles rate limiting in two ways: reactively and proactively. Neither system is perfect on its own, but together they should cover almost all scenarios.
+RiotNet handles rate limiting in two ways:
 
-### Reactive Rate Limiting
+### Proactive Rate Limiting
+
+- Works by tracking the number of requests that the RiotClient has sent, and throttling requests if it thinks you're going to hit your limit.
+- Prevents you from going over your rate limit at all, so you don't need to worry about getting soft banned by accident.
+- Automatically re-sends your request after the required amount of time passes.
+- Automatically detects your API key's rate limits using the HTTP headers returned from the Riot servers.
+- Tracks requests separately for each method and for each endpoint.
+- Throttled requests are placed in a queue, so they will be re-sent in the order you created them (to prevent starvation).
+- Enabled by default. You can disable it, but it's strongly discouraged.
+- Requests are counted separately from the server, so it's possible that the client's request count could get out of sync with the server. To deal with this, we use Reactive Rate Limiting as a backup.
+
+### Reactive Rate Limiting (header-based)
 
 If you go over your rate limit, and the client receives a rate limit error from the server, it will read the `Retry-After` header, and wait for that amount of time before retrying the request.
-
-Pros:
 
 - Automatically re-sends your request after the required amount of time passes.
 - Suspends future requests until that time passes, so you should never get soft banned by Riot (unless you try really hard).
 - Throttled requests are placed in a queue, so they will be sent in the order you created them.
 - It accounts for all types of rate limits.
-
-Cons:
-
-- Requests aren't throttled until a 429 error response is received from the server. So if you send 10,000 requests at once before you receive a response, you could
-  end up going way over your rate limit. If you're worried about that happening, enable proactive rate limiting.
-
-### Proactive Rate Limiting
-
-Proactive rate limiting works by tracking the number of requests that the RiotClient has sent, and throttling requests if it thinks you're going to hit your limit.
-Proactive rate limiting is optional and disabled by default. You can enable it by creating a `RateLimiter` object that will automatically detect your rate limit.
-
-```
-RiotClient.RateLimiter = new RateLimiter();
-IRiotClient client = new RiotClient();
-```
-
-Pros:
-
-- Prevents you from going over your rate limit at all, so you don't need to worry about getting soft banned by accident.
-- Throttled requests are placed in a queue, so they will be sent in the order you created them.
-
-Cons:
-
-- It doesn't account for per-method rate limits (only per-platform rate limits)
-- Requests are counted separately from the server, so it's possible that the client's request count could get out of sync with the server (especially right after you restart your application).
-- It has a (very small) performance impact on each request. But if you're staying under your rate limit, this performance impact is so small that it should be unnoticeable.
 
 ## Interim Keys for the Tournament API
 
