@@ -1,7 +1,7 @@
 var searchData=
 [
   ['getactivegamebysummoneridasync',['GetActiveGameBySummonerIdAsync',['../interface_riot_net_1_1_i_riot_client.html#a277626371f7350301c953576894068ad',1,'RiotNet.IRiotClient.GetActiveGameBySummonerIdAsync()'],['../class_riot_net_1_1_riot_client.html#a8f67153aa9fd704e0893b99875678f3d',1,'RiotNet.RiotClient.GetActiveGameBySummonerIdAsync()']]],
-  ['getasync_3c_20t_20_3e',['GetAsync&lt; T &gt;',['../class_riot_net_1_1_riot_client.html#abf862217a10f8cd5d712af003c4e139d',1,'RiotNet::RiotClient']]],
+  ['getasync_3c_20t_20_3e',['GetAsync&lt; T &gt;',['../class_riot_net_1_1_riot_client.html#a8807c60bfbf1b12e682f2ebb5aadfab2',1,'RiotNet::RiotClient']]],
   ['getchallengerleagueasync',['GetChallengerLeagueAsync',['../interface_riot_net_1_1_i_riot_client.html#a80e5ebf019a013713f453a7a426f5688',1,'RiotNet.IRiotClient.GetChallengerLeagueAsync()'],['../class_riot_net_1_1_riot_client.html#acdc5a55998ec7e57c8773c31d9b070f1',1,'RiotNet.RiotClient.GetChallengerLeagueAsync()']]],
   ['getchampionbyidasync',['GetChampionByIdAsync',['../interface_riot_net_1_1_i_riot_client.html#a5e6b93fd3a581f7555fec03d2f52e962',1,'RiotNet.IRiotClient.GetChampionByIdAsync()'],['../class_riot_net_1_1_riot_client.html#a4536373e966e57729f2c585383d77499',1,'RiotNet.RiotClient.GetChampionByIdAsync()']]],
   ['getchampionmasteriesasync',['GetChampionMasteriesAsync',['../interface_riot_net_1_1_i_riot_client.html#abfa84044f3354450f82872bd4c228040',1,'RiotNet.IRiotClient.GetChampionMasteriesAsync()'],['../class_riot_net_1_1_riot_client.html#a114aed8424a4cd75c4fab05977886e70',1,'RiotNet.RiotClient.GetChampionMasteriesAsync()']]],

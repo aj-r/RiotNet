@@ -11,7 +11,7 @@ var searchData=
   ['seasonid',['SeasonId',['../class_riot_net_1_1_models_1_1_match.html#a4fdf5b00dfede05bbfb48faecc3ecdeb',1,'RiotNet::Models::Match']]],
   ['secondstotimespanconverter',['SecondsToTimeSpanConverter',['../class_riot_net_1_1_converters_1_1_seconds_to_time_span_converter.html',1,'RiotNet::Converters']]],
   ['sell',['Sell',['../class_riot_net_1_1_models_1_1_gold.html#a3506cb10cc9aec1e6394e97be7d0c2dc',1,'RiotNet::Models::Gold']]],
-  ['sendasync',['SendAsync',['../class_riot_net_1_1_riot_client.html#a2818084c3bce2b069ee5d358540099ed',1,'RiotNet::RiotClient']]],
+  ['sendasync',['SendAsync',['../class_riot_net_1_1_riot_client.html#a51149bcd0e20c2f9a83b114513d0bb1f',1,'RiotNet::RiotClient']]],
   ['serializetostreamasync',['SerializeToStreamAsync',['../class_riot_net_1_1_json_content.html#aed2a40a4931a49f3cb434768a3305297',1,'RiotNet::JsonContent']]],
   ['servererror',['ServerError',['../interface_riot_net_1_1_i_riot_client.html#afe5ec0d9c5d0f2172b5d7319e7363fa2',1,'RiotNet.IRiotClient.ServerError()'],['../class_riot_net_1_1_riot_client.html#ab3e1fe5e7f4f5bf1092fa695392563cd',1,'RiotNet.RiotClient.ServerError()']]],
   ['service',['Service',['../class_riot_net_1_1_models_1_1_service.html',1,'RiotNet::Models']]],

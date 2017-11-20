@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">5.0.0</span>
+   &#160;<span id="projectnumber">5.1.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -95,9 +95,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="interface_riot_net_1_1_i_rate_limiter.html">RiotNet.IRateLimiter</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="interface_riot_net_1_1_i_rate_limiter.html#aceb6f02f6d9512d4a1f63b649e3c5b58">AddRequestOrGetDelay</a>(string platformId)</td><td class="entry"><a class="el" href="interface_riot_net_1_1_i_rate_limiter.html">RiotNet.IRateLimiter</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="interface_riot_net_1_1_i_rate_limiter.html#aeec68cb5262107710e4f659d360f0b9f">AddRequestOrGetDelay</a>(string methodName, string platformId)</td><td class="entry"><a class="el" href="interface_riot_net_1_1_i_rate_limiter.html">RiotNet.IRateLimiter</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="interface_riot_net_1_1_i_rate_limiter.html#a159214d70b3969d652f4fff0aa5f41c4">HasRules</a></td><td class="entry"><a class="el" href="interface_riot_net_1_1_i_rate_limiter.html">RiotNet.IRateLimiter</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="interface_riot_net_1_1_i_rate_limiter.html#ab700fcbc5a53ab295a85e69b4b62b7b1">TrySetRules</a>(IEnumerable&lt; RateLimitRule &gt; rules, string platformId)</td><td class="entry"><a class="el" href="interface_riot_net_1_1_i_rate_limiter.html">RiotNet.IRateLimiter</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="interface_riot_net_1_1_i_rate_limiter.html#aa1aad9705304a38ba72a80d7f0bc0a68">TrySetRules</a>(IEnumerable&lt; RateLimitRule &gt; rules, string platformId, IEnumerable&lt; RateLimitRule &gt; currentCounts=null)</td><td class="entry"><a class="el" href="interface_riot_net_1_1_i_rate_limiter.html">RiotNet.IRateLimiter</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="interface_riot_net_1_1_i_rate_limiter.html#a3dfe240e2b187a778c6a2997e4acf16b">TrySetRules</a>(IEnumerable&lt; RateLimitRule &gt; rules, string methodName, string platformId, IEnumerable&lt; RateLimitRule &gt; currentCounts=null)</td><td class="entry"><a class="el" href="interface_riot_net_1_1_i_rate_limiter.html">RiotNet.IRateLimiter</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

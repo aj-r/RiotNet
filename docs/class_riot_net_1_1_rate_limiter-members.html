@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">5.0.0</span>
+   &#160;<span id="projectnumber">5.1.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -95,11 +95,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_riot_net_1_1_rate_limiter.html">RiotNet.RateLimiter</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limiter.html#ad2d29a11daa773485383819bce6b5919">AddRequestOrGetDelay</a>(string platformId)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limiter.html">RiotNet.RateLimiter</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limiter.html#aea4448885da65c67ddab06939fee9edf">AddRequestOrGetDelay</a>(string methodName, string platformId)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limiter.html">RiotNet.RateLimiter</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limiter.html#abd38acf447b010af220dbaacce1c6da6">HasRules</a></td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limiter.html">RiotNet.RateLimiter</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limiter.html#af5102f7e25ddc9efccf0eb473b9de8b8">RateLimiter</a>()</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limiter.html">RiotNet.RateLimiter</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limiter.html#ae05fe5237d27589d4b0db5622ddbecaa">RateLimiter</a>(int rateLimitPerTenSeconds, int rateLimitPerTenMinutes)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limiter.html">RiotNet.RateLimiter</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limiter.html#a16e6c264f053fe0675bfc1fa18719733">TrySetRules</a>(IEnumerable&lt; RateLimitRule &gt; rules, string platformId=null)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limiter.html">RiotNet.RateLimiter</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limiter.html#ab17c2d59349287a26148a73d0596c568">TrySetRules</a>(IEnumerable&lt; RateLimitRule &gt; rules, string platformId=null, IEnumerable&lt; RateLimitRule &gt; currentCounts=null)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limiter.html">RiotNet.RateLimiter</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limiter.html#a5b5174eec892afdea227f5d665c1cb52">TrySetRules</a>(IEnumerable&lt; RateLimitRule &gt; rules, string methodName, string platformId, IEnumerable&lt; RateLimitRule &gt; currentCounts=null)</td><td class="entry"><a class="el" href="class_riot_net_1_1_rate_limiter.html">RiotNet.RateLimiter</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
