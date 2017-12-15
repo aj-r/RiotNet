@@ -10,12 +10,12 @@ namespace RiotNet.Models
         /// <summary>
         ///  Gets or sets the list of masteries used by this participant.
         /// </summary>
-        public virtual List<Mastery> Masteries { get; set; }
+        public Perks Perks { get; set; } = new Perks();
 
         /// <summary>
-        ///  Gets or sets the list of runes used by this participant.
+        /// Gets or sets the list of customizations chosen by this participant.
         /// </summary>
-        public virtual List<Rune> Runes { get; set; }
+        public List<GameCustomizationObject> GameCustomizationObjects { get; set; } = new List<GameCustomizationObject>();
 
         /// <summary>
         ///  Gets or sets the summoner ID of this participant.

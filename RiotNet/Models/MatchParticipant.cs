@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -23,6 +24,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets list of mastery information.
         /// </summary>
+        [Obsolete("This propery no longer exists. Use perk data (in the Stats object) instead.")]
         public virtual List<Mastery> Masteries { get; set; }
 
         /// <summary>
@@ -33,6 +35,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the list of rune information.
         /// </summary>
+        [Obsolete("This propery no longer exists. Use perk data (in the Stats object) instead.")]
         public virtual List<Rune> Runes { get; set; }
 
         /// <summary>

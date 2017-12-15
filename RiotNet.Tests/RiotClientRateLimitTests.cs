@@ -10,6 +10,7 @@ namespace RiotNet.Tests
 {
     // Note: these tests assume you have a development API key with a limit of 10 requests per second.
     [TestFixture]
+    [Ignore("These tests are designed to max out your rate limit, and take a long time to run")]
     public class RateLimitTests : TestBase
     {
         [Test]

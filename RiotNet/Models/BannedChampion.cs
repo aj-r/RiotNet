@@ -19,16 +19,10 @@ namespace RiotNet.Models
         /// </summary>
         public int PickTurn { get; set; }
 
-        private TeamSide? teamId;
-
         /// <summary>
-        /// Gets or sets the team that banned the champion.
+        /// Gets or sets the team that banned the champion. This property is only set correctly by the Spectator API (active games and featured games).
         /// </summary>
-        public TeamSide TeamId
-        {
-            get { return teamId ?? (PickTurn % 2 == 1 ? TeamSide.Team1 : TeamSide.Team2); }
-            set { teamId = value; }
-        }
+        public TeamSide TeamId { get; set; }
 
 #if DB_READY
         /// <summary>

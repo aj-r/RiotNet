@@ -239,6 +239,126 @@ namespace RiotNet.Models
         public int PentaKills { get; set; }
 
         /// <summary>
+        /// Gets or sets the perk 0 ID.
+        /// </summary>
+        public long Perk0 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 0 var 1 value.
+        /// </summary>
+        public long Perk0Var1 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 0 var 2 value.
+        /// </summary>
+        public long Perk0Var2 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 0 var 3 value.
+        /// </summary>
+        public long Perk0Var3 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 1 ID.
+        /// </summary>
+        public long Perk1 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 1 var 1 value.
+        /// </summary>
+        public long Perk1Var1 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 1 var 2 value.
+        /// </summary>
+        public long Perk1Var2 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 1 var 3 value.
+        /// </summary>
+        public long Perk1Var3 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 2 ID.
+        /// </summary>
+        public long Perk2 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 2 var 1 value.
+        /// </summary>
+        public long Perk2Var1 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 2 var 2 value.
+        /// </summary>
+        public long Perk2Var2 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 2 var 3 value.
+        /// </summary>
+        public long Perk2Var3 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 3 ID.
+        /// </summary>
+        public long Perk3 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 3 var 1 value.
+        /// </summary>
+        public long Perk3Var1 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 3 var 2 value.
+        /// </summary>
+        public long Perk3Var2 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 3 var 3 value.
+        /// </summary>
+        public long Perk3Var3 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 4 ID.
+        /// </summary>
+        public long Perk4 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 4 var 1 value.
+        /// </summary>
+        public long Perk4Var1 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 4 var 2 value.
+        /// </summary>
+        public long Perk4Var2 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 4 var 3 value.
+        /// </summary>
+        public long Perk4Var3 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 5 ID.
+        /// </summary>
+        public long Perk5 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 5 var 1 value.
+        /// </summary>
+        public long Perk5Var1 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 5 var 2 value.
+        /// </summary>
+        public long Perk5Var2 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the perk 5 var 3 value.
+        /// </summary>
+        public long Perk5Var3 { get; set; }
+
+        /// <summary>
         /// Gets or sets the amount of physical damage dealt.
         /// </summary>
         public long PhysicalDamageDealt { get; set; }
