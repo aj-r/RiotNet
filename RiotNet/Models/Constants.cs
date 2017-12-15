@@ -118,6 +118,14 @@ namespace RiotNet.Models
         /// </summary>
         public const string TUTORIAL = "TUTORIAL";
         /// <summary>
+        /// Ultra-Rapid-Fire
+        /// </summary>
+        public const string URF = "URF";
+        /// <summary>
+        /// Boom Bots
+        /// </summary>
+        public const string DOOMBOTSTEEMO = "DOOMBOTSTEEMO";
+        /// <summary>
         /// One for All, played on both Summoner's Rift and Howling Abyss.
         /// </summary>
         public const string ONEFORALL = "ONEFORALL";
@@ -149,6 +157,14 @@ namespace RiotNet.Models
         /// Darkstar
         /// </summary>
         public const string DARKSTAR = "DARKSTAR";
+        /// <summary>
+        /// Star Guardian Invasion
+        /// </summary>
+        public const string STARGUARDIAN = "STARGUARDIAN";
+        /// <summary>
+        /// PROJECT: Hunters
+        /// </summary>
+        public const string PROJECT = "PROJECT";
     }
 
     /// <summary>
@@ -363,6 +379,61 @@ namespace RiotNet.Models
         /// Howling Abyss (ARAM)
         /// </summary>
         public const string HOWLING_ABYSS = "HOWLING_ABYSS";
+    }
+
+    /// <summary>
+    /// Represents a map ID for a match.
+    /// </summary>
+    public static class MapId
+    {
+        /// <summary>
+        /// Summoner's Rift (original version - summer)
+        /// </summary>
+        public const int SUMMONERS_RIFT_V1_SUMMER = 1;
+        /// <summary>
+        /// Summoner's Rift (original version - autumn)
+        /// </summary>
+        public const int SUMMONERS_RIFT_V1_AUTUMN = 2;
+        /// <summary>
+        /// Proving Grounds (tutorial)
+        /// </summary>
+        public const int PROVING_GROUNDS = 3;
+        /// <summary>
+        /// Twisted Treeline (original version)
+        /// </summary>
+        public const int TWISTED_TREELINE_V1 = 4;
+        /// <summary>
+        /// Crystal Scar (dominion)
+        /// </summary>
+        public const int CRYSTAL_SCAR = 8;
+        /// <summary>
+        /// Twisted Treeline (current version)
+        /// </summary>
+        public const int TWISTED_TREELINE_V2 = 10;
+        /// <summary>
+        /// Summoner's Rift (current version)
+        /// </summary>
+        public const int SUMMONERS_RIFT_V2 = 11;
+        /// <summary>
+        /// Howling Abyss (ARAM)
+        /// </summary>
+        public const int HOWLING_ABYSS = 12;
+        /// <summary>
+        /// Butcher's Bridge (ARAM)
+        /// </summary>
+        public const int BUTCHERS_BRIDGE = 14;
+        /// <summary>
+        /// Cosmic Ruins (Dark Star: Singularity)
+        /// </summary>
+        public const int COSMIC_RUINS = 16;
+        /// <summary>
+        /// Valoran City (Star Guardian Invasion)
+        /// </summary>
+        public const int VALORAN_CITY = 18;
+        /// <summary>
+        /// Substructure 43 (PROJECT: Hunters)
+        /// </summary>
+        public const int SUBSTRUCTURE_43 = 19;
     }
 
     /// <summary>

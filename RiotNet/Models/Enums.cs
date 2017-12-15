@@ -1,4 +1,6 @@
-﻿namespace RiotNet.Models
+﻿using System;
+
+namespace RiotNet.Models
 {
     /// <summary>
     /// Respresents the queue type.
@@ -16,14 +18,17 @@
         /// <summary>
         /// Ranked Solo 5v5
         /// </summary>
+        [Obsolete("Use TEAM_BUILDER_RANKED_SOLO (ID 430) instead")]
         RANKED_SOLO_5x5 = 4,
         /// <summary>
         /// Ranked Premade 5v5. This queue is deprecated.
         /// </summary>
+        [Obsolete("This queue is deprecated")]
         RANKED_PREMADE_5x5 = 6,
         /// <summary>
         /// Historical Summoner's Rift Coop vs AI. This queue is deprecated.
         /// </summary>
+        [Obsolete("Use BOT_5x5_BEGINNER (ID 830) or BOT_5x5_INTERMEDIATE (ID 840) instead")]
         BOT_5x5 = 7,
         /// <summary>
         /// Normal 3v3
@@ -40,18 +45,22 @@
         /// <summary>
         /// Normal 5v5 Draft Pick
         /// </summary>
+        [Obsolete("Use TEAM_BUILDER_DRAFT_UNRANKED_5x5 (ID 400) instead")]
         NORMAL_5x5_DRAFT = 14,
         /// <summary>
         /// Dominion 5v5 Blind Pick
         /// </summary>
+        [Obsolete("This queue is deprecated")]
         ODIN_5x5_BLIND = 16,
         /// <summary>
         /// Dominion 5v5 Draft Pick
         /// </summary>
+        [Obsolete("This queue is deprecated")]
         ODIN_5x5_DRAFT = 17,
         /// <summary>
         /// Dominion Coop vs AI
         /// </summary>
+        [Obsolete("This queue is deprecated")]
         BOT_ODIN_5x5 = 25,
         /// <summary>
         /// Summoner's Rift Coop vs AI Intro Bot
@@ -68,10 +77,12 @@
         /// <summary>
         /// Ranked Team 3v3
         /// </summary>
+        [Obsolete("Use RANKED_FLEX_TT (ID 470) instead")]
         RANKED_TEAM_3x3 = 41,
         /// <summary>
         /// Ranked Team 5v5
         /// </summary>
+        [Obsolete("Use RANKED_FLEX_SR (ID 440) instead")]
         RANKED_TEAM_5x5 = 42,
         /// <summary>
         /// Twisted Treeline Coop vs AI (Intermediate bots)
@@ -92,6 +103,7 @@
         /// <summary>
         /// Team Builder
         /// </summary>
+        [Obsolete("This queue is deprecated")]
         GROUP_FINDER_5x5 = 61,
         /// <summary>
         /// All Random All Mid
@@ -124,18 +136,22 @@
         /// <summary>
         /// Doom Bots Rank 1
         /// </summary>
+        [Obsolete("Use DOOM_BOTS_VOTING (ID 950) instead")]
         NIGHTMARE_BOT_5x5_RANK1 = 91,
         /// <summary>
         /// Doom Bots Rank 2
         /// </summary>
+        [Obsolete("Use DOOM_BOTS_VOTING (ID 950) instead")]
         NIGHTMARE_BOT_5x5_RANK2 = 92,
         /// <summary>
         /// Doom Bots Rank 5
         /// </summary>
+        [Obsolete("Use DOOM_BOTS_VOTING (ID 950) instead")]
         NIGHTMARE_BOT_5x5_RANK5 = 93,
         /// <summary>
         /// Ascension
         /// </summary>
+        [Obsolete("Use ASCENSION (ID 910) instead")]
         ASCENSION_5x5 = 96,
         /// <summary>
         /// Twisted Treeline Hexakill
@@ -148,6 +164,7 @@
         /// <summary>
         /// King Poro
         /// </summary>
+        [Obsolete("Use PORO_KING (ID 920) instead")]
         KING_PORO_5x5 = 300,
         /// <summary>
         /// Nemesis draft
@@ -168,6 +185,7 @@
         /// <summary>
         /// All Random URF
         /// </summary>
+        [Obsolete("Use ARURF (ID 900) instead")]
         ARURF_5x5 = 318,
         /// <summary>
         /// All Random Summoner's Rift
@@ -180,6 +198,7 @@
         /// <summary>
         /// Ranked Dynamic Queue. This queue is deprecated.
         /// </summary>
+        [Obsolete("Use RANKED_FLEX_SR (ID 440) instead")]
         TEAM_BUILDER_DRAFT_RANKED_5x5 = 410,
         /// <summary>
         /// Ranked Solo/Duo Queue
@@ -198,9 +217,49 @@
         /// </summary>
         ASSASSINATE_5x5 = 600,
         /// <summary>
-        /// Darkstar
+        /// Dark Star: Singularity
         /// </summary>
         DARKSTAR_3x3 = 610,
+        /// <summary>
+        /// All random URF
+        /// </summary>
+        ARURF = 900,
+        /// <summary>
+        /// Ascension
+        /// </summary>
+        ASCENSION = 910,
+        /// <summary>
+        /// Legend of the Poro King
+        /// </summary>
+        PORO_KING = 920,
+        /// <summary>
+        /// Nexus Siege
+        /// </summary>
+        NEXUS_SIEGE = 940,
+        /// <summary>
+        /// Doom Bots (voting)
+        /// </summary>
+        DOOM_BOTS_VOTING = 950,
+        /// <summary>
+        /// Doom Bots (standard)
+        /// </summary>
+        DOOM_BOTS_STANDARD = 960,
+        /// <summary>
+        /// Star Guardian Invasion: Normal
+        /// </summary>
+        STAR_GUARDIAN_NORMAL = 980,
+        /// <summary>
+        /// Star Guardian Invasion: Onslaught
+        /// </summary>
+        STAR_GUARDIAN_ONSLAUGHT = 990,
+        /// <summary>
+        /// PROJECT: Hunters
+        /// </summary>
+        OVERCHARGE = 1000,
+        /// <summary>
+        /// All random URF (snow)
+        /// </summary>
+        ARURF_SNOW = 1010,
     }
 
     /// <summary>
