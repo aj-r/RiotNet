@@ -36,7 +36,6 @@ namespace RiotNet.Tests
         public DbSet<LeagueList> LeagueLists { get; set; }
         public DbSet<LeagueItem> LeagueItems { get; set; }
         public DbSet<LeaguePosition> LeaguePositions { get; set; }
-        public DbSet<MasteryPages> MasteryPages { get; set; }
         public DbSet<Match> Matches { get; set; }
         public DbSet<MatchEvent> MatchEvents { get; set; }
         public DbSet<MatchParticipant> MatchParticipants { get; set; }
@@ -48,7 +47,6 @@ namespace RiotNet.Tests
         public DbSet<Player> Players { get; set; }
         public DbSet<Recommended> RecommendedItemSets { get; set; }
         public DbSet<Rune> Runes { get; set; }
-        public DbSet<RunePages> RunePages { get; set; }
         public DbSet<Skin> Skins { get; set; }
         public DbSet<SpellVars> SpellVars { get; set; }
         public DbSet<StaticChampion> StaticChampions { get; set; }

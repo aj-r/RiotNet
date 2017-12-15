@@ -44,12 +44,6 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public void MasteryPagesDbTest()
-        {
-            VerifyDbStorage<MasteryPages>();
-        }
-
-        [Test]
         public void MatchDbTest()
         {
             VerifyDbStorage<Match>();
@@ -59,12 +53,6 @@ namespace RiotNet.Tests
         public void MatchReferenceDbTest()
         {
             VerifyDbStorage<MatchReference>();
-        }
-
-        [Test]
-        public void RunePagesDbTest()
-        {
-            VerifyDbStorage<RunePages>();
         }
 
         [Test]
