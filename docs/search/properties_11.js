@@ -24,7 +24,6 @@ var searchData=
   ['riftheraldkills',['RiftHeraldKills',['../class_riot_net_1_1_models_1_1_match_team.html#a66a9b09f6f0e7f04344ed6bdd3cf6c9f',1,'RiotNet::Models::MatchTeam']]],
   ['role',['Role',['../class_riot_net_1_1_models_1_1_match_participant_timeline.html#a0c7df3d4f2c7ae12f5a97d34164352ff',1,'RiotNet.Models.MatchParticipantTimeline.Role()'],['../class_riot_net_1_1_models_1_1_match_reference.html#a7bc819cbdb622923dbdb72211fafbc95',1,'RiotNet.Models.MatchReference.Role()']]],
   ['rune',['Rune',['../class_riot_net_1_1_models_1_1_static_rune.html#aa00a8af82a0163ddb701984822afc159',1,'RiotNet::Models::StaticRune']]],
-  ['runeid',['RuneId',['../class_riot_net_1_1_models_1_1_rune.html#a079518c110817d1bcf84b0af24d77d03',1,'RiotNet.Models.Rune.RuneId()'],['../class_riot_net_1_1_models_1_1_rune_slot.html#ad51f258d21bac8aa5a44d1712b4bf62d',1,'RiotNet.Models.RuneSlot.RuneId()']]],
-  ['runes',['Runes',['../class_riot_net_1_1_models_1_1_current_game_participant.html#af36c1a3e451819649ae9428dbfeec4b3',1,'RiotNet.Models.CurrentGameParticipant.Runes()'],['../class_riot_net_1_1_models_1_1_match_participant.html#a96f85d306a19c33f84b62a1dee1c0995',1,'RiotNet.Models.MatchParticipant.Runes()']]],
-  ['runeslotid',['RuneSlotId',['../class_riot_net_1_1_models_1_1_rune_slot.html#a6e1c4c201b18b0b12dac68855fffc90c',1,'RiotNet::Models::RuneSlot']]]
+  ['runeid',['RuneId',['../class_riot_net_1_1_models_1_1_rune.html#a079518c110817d1bcf84b0af24d77d03',1,'RiotNet::Models::Rune']]],
+  ['runes',['Runes',['../class_riot_net_1_1_models_1_1_match_participant.html#a96f85d306a19c33f84b62a1dee1c0995',1,'RiotNet::Models::MatchParticipant']]]
 ];

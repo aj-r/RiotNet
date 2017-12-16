@@ -11,5 +11,6 @@ var searchData=
   ['onrequesttimedout',['OnRequestTimedOut',['../class_riot_net_1_1_riot_client.html#ac67c20250d5a2e7911b635e59dd76fcc',1,'RiotNet::RiotClient']]],
   ['onresourcenotfound',['OnResourceNotFound',['../class_riot_net_1_1_riot_client.html#a27d67bb6427647237b9c4c89f3d50351',1,'RiotNet::RiotClient']]],
   ['onresponseerror',['OnResponseError',['../class_riot_net_1_1_riot_client.html#abdadf51b5e2fccbe3bfc1951b1bd017a',1,'RiotNet::RiotClient']]],
-  ['onservererror',['OnServerError',['../class_riot_net_1_1_riot_client.html#a46b4e86a8f23716b20f4d50933a783f1',1,'RiotNet::RiotClient']]]
+  ['onservererror',['OnServerError',['../class_riot_net_1_1_riot_client.html#a46b4e86a8f23716b20f4d50933a783f1',1,'RiotNet::RiotClient']]],
+  ['overcharge',['OVERCHARGE',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a575fea54d116603bb4c778db18fbde98',1,'RiotNet::Models']]]
 ];

@@ -1,6 +1,7 @@
 var searchData=
 [
   ['gamecreation',['GameCreation',['../class_riot_net_1_1_models_1_1_match.html#aa44575ed8d70c34e7e66a290df5df76d',1,'RiotNet::Models::Match']]],
+  ['gamecustomizationobjects',['GameCustomizationObjects',['../class_riot_net_1_1_models_1_1_current_game_participant.html#a1d6a6e90f74de64125d8ab66ed0d76cc',1,'RiotNet::Models::CurrentGameParticipant']]],
   ['gameduration',['GameDuration',['../class_riot_net_1_1_models_1_1_match.html#a39f6e2cb42731349bb585cb3160aeaab',1,'RiotNet::Models::Match']]],
   ['gameid',['GameId',['../class_riot_net_1_1_models_1_1_game_info_base.html#aefe53ae2bdcaf67c2a76847195048ed4',1,'RiotNet.Models.GameInfoBase.GameId()'],['../class_riot_net_1_1_models_1_1_match.html#ab16b9ea7c65d540ee4d51f8232791bda',1,'RiotNet.Models.Match.GameId()'],['../class_riot_net_1_1_models_1_1_match_reference.html#a62d29da843ff64b26a48b1e898f067bc',1,'RiotNet.Models.MatchReference.GameId()']]],
   ['gamelength',['GameLength',['../class_riot_net_1_1_models_1_1_game_info_base.html#a4333978453521693e63d1c74ac363520',1,'RiotNet::Models::GameInfoBase']]],

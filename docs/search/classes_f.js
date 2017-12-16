@@ -16,8 +16,5 @@ var searchData=
   ['riotnetcontractresolver',['RiotNetContractResolver',['../class_riot_net_1_1_riot_net_contract_resolver.html',1,'RiotNet']]],
   ['riotresponse',['RiotResponse',['../class_riot_net_1_1_riot_response.html',1,'RiotNet']]],
   ['rune',['Rune',['../class_riot_net_1_1_models_1_1_rune.html',1,'RiotNet::Models']]],
-  ['runedatastats',['RuneDataStats',['../class_riot_net_1_1_models_1_1_rune_data_stats.html',1,'RiotNet::Models']]],
-  ['runepage',['RunePage',['../class_riot_net_1_1_models_1_1_rune_page.html',1,'RiotNet::Models']]],
-  ['runepages',['RunePages',['../class_riot_net_1_1_models_1_1_rune_pages.html',1,'RiotNet::Models']]],
-  ['runeslot',['RuneSlot',['../class_riot_net_1_1_models_1_1_rune_slot.html',1,'RiotNet::Models']]]
+  ['runedatastats',['RuneDataStats',['../class_riot_net_1_1_models_1_1_rune_data_stats.html',1,'RiotNet::Models']]]
 ];

@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">5.1.0</span>
+   &#160;<span id="projectnumber">6.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -173,9 +173,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6679622feca5d6201e06d8b71e111b9f"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_league_list.html">LeagueList</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a6679622feca5d6201e06d8b71e111b9f">GetMasterLeagueAsync</a> (string rankedQueueType, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a6679622feca5d6201e06d8b71e111b9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the master league. This method uses the League API.  <a href="#a6679622feca5d6201e06d8b71e111b9f">More...</a><br /></td></tr>
 <tr class="separator:a6679622feca5d6201e06d8b71e111b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32d93c88ce3ba5cdba87d1689fcd6ed5"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_mastery_pages.html">MasteryPages</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a32d93c88ce3ba5cdba87d1689fcd6ed5">GetMasteriesBySummonerIdAsync</a> (long summonerId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:a32d93c88ce3ba5cdba87d1689fcd6ed5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the list of mastery pages that a summoner has created. This method uses the Masteries API.  <a href="#a32d93c88ce3ba5cdba87d1689fcd6ed5">More...</a><br /></td></tr>
-<tr class="separator:a32d93c88ce3ba5cdba87d1689fcd6ed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fd96e26f0c8ddabc415ad7e4ecce49d"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_match.html">Match</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a0fd96e26f0c8ddabc415ad7e4ecce49d">GetMatchAsync</a> (long matchId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a0fd96e26f0c8ddabc415ad7e4ecce49d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details of a match. This method uses the Match API.  <a href="#a0fd96e26f0c8ddabc415ad7e4ecce49d">More...</a><br /></td></tr>
 <tr class="separator:a0fd96e26f0c8ddabc415ad7e4ecce49d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,9 +191,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5af0acfefd4104236f6303a33a0b6496"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_match.html">Match</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a5af0acfefd4104236f6303a33a0b6496">GetMatchForTournamentAsync</a> (long matchId, string tournamentCode, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a5af0acfefd4104236f6303a33a0b6496"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details of a match. This method uses the Match API. This endpoint is only accessible if you have a tournament API key.  <a href="#a5af0acfefd4104236f6303a33a0b6496">More...</a><br /></td></tr>
 <tr class="separator:a5af0acfefd4104236f6303a33a0b6496"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ead127d4b531bb9b9a52c0ecf2ff64d"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_rune_pages.html">RunePages</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a5ead127d4b531bb9b9a52c0ecf2ff64d">GetRunesBySummonerIdAsync</a> (long summonerId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:a5ead127d4b531bb9b9a52c0ecf2ff64d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the list of rune pages that a summoner has created. This method uses the Runes API.  <a href="#a5ead127d4b531bb9b9a52c0ecf2ff64d">More...</a><br /></td></tr>
-<tr class="separator:a5ead127d4b531bb9b9a52c0ecf2ff64d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f67153aa9fd704e0893b99875678f3d"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_current_game_info.html">CurrentGameInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a8f67153aa9fd704e0893b99875678f3d">GetActiveGameBySummonerIdAsync</a> (long summonerId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a8f67153aa9fd704e0893b99875678f3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets information about the current game a summoner is playing. This method uses the Spectator API.  <a href="#a8f67153aa9fd704e0893b99875678f3d">More...</a><br /></td></tr>
 <tr class="separator:a8f67153aa9fd704e0893b99875678f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -263,6 +257,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2d8bb670d5901808e1ecc63afa615c09"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_summoner.html">Summoner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a2d8bb670d5901808e1ecc63afa615c09">GetSummonerBySummonerIdAsync</a> (long summonerId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a2d8bb670d5901808e1ecc63afa615c09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the summoner information for the specified summoner ID. This method uses the Summoner API.  <a href="#a2d8bb670d5901808e1ecc63afa615c09">More...</a><br /></td></tr>
 <tr class="separator:a2d8bb670d5901808e1ecc63afa615c09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf49223ad2e723ac12aea13cfec8679f"><td class="memItemLeft" align="right" valign="top">Task&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#abf49223ad2e723ac12aea13cfec8679f">GetThirdPartyCodeAsync</a> (long summonerId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
+<tr class="memdesc:abf49223ad2e723ac12aea13cfec8679f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a code that a third-party application can use to verify a summoner.  <a href="#abf49223ad2e723ac12aea13cfec8679f">More...</a><br /></td></tr>
+<tr class="separator:abf49223ad2e723ac12aea13cfec8679f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fdf3a149a8e7647d0455aab7bf018d3"><td class="memItemLeft" align="right" valign="top">Task&lt; long &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a1fdf3a149a8e7647d0455aab7bf018d3">CreateTournamentProviderAsync</a> (string url, string platformId=null, string regionalProxy=RegionalProxy.Americas, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a1fdf3a149a8e7647d0455aab7bf018d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers the current client as a tournament provider. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. IMPORTANT: if you are using an interim API key, you must set <a class="el" href="class_riot_net_1_1_riot_client_settings.html#aa890ef7e77553c952614c12cf7434884" title="Gets or sets whether to use the tournament-stub API instead of the tournament API. ">RiotClientSettings.UseTournamentStub</a> to true before calling this method.  <a href="#a1fdf3a149a8e7647d0455aab7bf018d3">More...</a><br /></td></tr>
 <tr class="separator:a1fdf3a149a8e7647d0455aab7bf018d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2198,59 +2195,6 @@ Events</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a32d93c88ce3ba5cdba87d1689fcd6ed5"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_mastery_pages.html">MasteryPages</a>&gt; RiotNet.RiotClient.GetMasteriesBySummonerIdAsync </td>
-          <td>(</td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>summonerId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the list of mastery pages that a summoner has created. This method uses the Masteries API. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">summonerId</td><td>The summoner ID.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="class_riot_net_1_1_riot_client.html#a68116f933a2600c2263c06d6f0c2acbf" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-
-<p>Implements <a class="el" href="interface_riot_net_1_1_i_riot_client.html#aa6ba47d2c5074754cb4c70145863786c">RiotNet.IRiotClient</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a6679622feca5d6201e06d8b71e111b9f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2708,59 +2652,6 @@ Events</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A region.</dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a5ead127d4b531bb9b9a52c0ecf2ff64d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_rune_pages.html">RunePages</a>&gt; RiotNet.RiotClient.GetRunesBySummonerIdAsync </td>
-          <td>(</td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>summonerId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the list of rune pages that a summoner has created. This method uses the Runes API. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">summonerId</td><td>The summoner ID.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="class_riot_net_1_1_riot_client.html#a68116f933a2600c2263c06d6f0c2acbf" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-
-<p>Implements <a class="el" href="interface_riot_net_1_1_i_riot_client.html#afdc6c31d1718853f57e2bd63382493ce">RiotNet.IRiotClient</a>.</p>
 
 </div>
 </div>
@@ -3994,6 +3885,60 @@ Events</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="abf49223ad2e723ac12aea13cfec8679f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;string&gt; RiotNet.RiotClient.GetThirdPartyCodeAsync </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>summonerId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken&#160;</td>
+          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets a code that a third-party application can use to verify a summoner. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">summonerId</td><td>The summoner ID.</td></tr>
+    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="class_riot_net_1_1_riot_client.html#a68116f933a2600c2263c06d6f0c2acbf" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
+    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+<p>For KR summoners, a 404 will always be returned.</p>
+
+<p>Implements <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a9575aca86b4f2a6c5271106acd6ba59c">RiotNet.IRiotClient</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a50c0817341510c24125647722e5e136f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -5198,13 +5143,12 @@ Events</h2></td></tr>
 <li>RiotClientChampion.cs</li>
 <li>RiotClientChampionMastery.cs</li>
 <li>RiotClientLeague.cs</li>
-<li>RiotClientMasteries.cs</li>
 <li>RiotClientMatch.cs</li>
-<li>RiotClientRunes.cs</li>
 <li>RiotClientSpectator.cs</li>
 <li>RiotClientStaticData.cs</li>
 <li>RiotClientStatus.cs</li>
 <li>RiotClientSummoner.cs</li>
+<li>RiotClientThirdPartyCode.cs</li>
 <li>RiotClientTournament.cs</li>
 </ul>
 </div><!-- contents -->

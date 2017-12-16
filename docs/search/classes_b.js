@@ -1,8 +1,6 @@
 var searchData=
 [
   ['mastery',['Mastery',['../class_riot_net_1_1_models_1_1_mastery.html',1,'RiotNet::Models']]],
-  ['masterypage',['MasteryPage',['../class_riot_net_1_1_models_1_1_mastery_page.html',1,'RiotNet::Models']]],
-  ['masterypages',['MasteryPages',['../class_riot_net_1_1_models_1_1_mastery_pages.html',1,'RiotNet::Models']]],
   ['match',['Match',['../class_riot_net_1_1_models_1_1_match.html',1,'RiotNet::Models']]],
   ['matchevent',['MatchEvent',['../class_riot_net_1_1_models_1_1_match_event.html',1,'RiotNet::Models']]],
   ['matchframe',['MatchFrame',['../class_riot_net_1_1_models_1_1_match_frame.html',1,'RiotNet::Models']]],

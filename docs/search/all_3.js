@@ -21,6 +21,8 @@ var searchData=
   ['difficulty',['Difficulty',['../class_riot_net_1_1_models_1_1_static_champion_info.html#aabd4a2b11b9b89230fddee7838aa1aec',1,'RiotNet::Models::StaticChampionInfo']]],
   ['dominionscore',['DominionScore',['../class_riot_net_1_1_models_1_1_match_participant_frame.html#a375e941d0d8478ebb8afd8bdb70c49b5',1,'RiotNet::Models::MatchParticipantFrame']]],
   ['dominionvictoryscore',['DominionVictoryScore',['../class_riot_net_1_1_models_1_1_match_team.html#a2ac6974bc0ffd644812d57f230463520',1,'RiotNet::Models::MatchTeam']]],
+  ['doom_5fbots_5fstandard',['DOOM_BOTS_STANDARD',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a1acc857547d4dd6dd924053aabae7d65',1,'RiotNet::Models']]],
+  ['doom_5fbots_5fvoting',['DOOM_BOTS_VOTING',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35acd54da0332c066a22227d71cddf3247a',1,'RiotNet::Models']]],
   ['doublekills',['DoubleKills',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#ace2dca1b879673473d5f62343e3eda3b',1,'RiotNet::Models::MatchParticipantStats']]],
   ['dragonkills',['DragonKills',['../class_riot_net_1_1_models_1_1_match_team.html#ae4a03ce7f2f8966a05b9e9ba3f745160',1,'RiotNet::Models::MatchTeam']]],
   ['duration',['Duration',['../class_riot_net_1_1_rate_limit_rule.html#ac2a6ee9d91da9707cce67102ac42421e',1,'RiotNet::RateLimitRule']]],

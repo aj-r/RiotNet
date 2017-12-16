@@ -2,6 +2,7 @@ var searchData=
 [
   ['participant',['Participant',['../class_riot_net_1_1_models_1_1_participant.html',1,'RiotNet::Models']]],
   ['passive',['Passive',['../class_riot_net_1_1_models_1_1_passive.html',1,'RiotNet::Models']]],
+  ['perks',['Perks',['../class_riot_net_1_1_models_1_1_perks.html',1,'RiotNet::Models']]],
   ['persistabledictionary',['PersistableDictionary',['../class_riot_net_1_1_models_1_1_persistable_dictionary.html',1,'RiotNet::Models']]],
   ['persistabledictionary_3c_20string_2c_20bool_20_3e',['PersistableDictionary&lt; string, bool &gt;',['../class_riot_net_1_1_models_1_1_persistable_dictionary.html',1,'RiotNet::Models']]],
   ['persistabledictionary_3c_20string_2c_20string_20_3e',['PersistableDictionary&lt; string, string &gt;',['../class_riot_net_1_1_models_1_1_persistable_dictionary.html',1,'RiotNet::Models']]],
