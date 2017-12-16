@@ -24,7 +24,7 @@ namespace RiotNet.Tests
             return PlatformId.IsNorthAmerica(platformId);
         }
 
-        [TestCase(Locale.cs_CZ, "cs-CZ", "Czech (Czech Republic)")]
+        [TestCase(Locale.cs_CZ, "cs-CZ", "Czech (Czechia)")]
         [TestCase(Locale.en_US, "en-US", "English (United States)")]
         [TestCase(Locale.vn_VN, "vi-VN", "Vietnamese (Vietnam)")]
         public void Locale_GetCultureInfoTest(string locale, string expectedName, string expectedEnglishName)
