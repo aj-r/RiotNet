@@ -239,6 +239,16 @@ namespace RiotNet.Models
         public int PentaKills { get; set; }
 
         /// <summary>
+        /// Gets or sets the primary rune style used.
+        /// </summary>
+        public long PerkPrimaryStyle { get; set; }
+
+        /// <summary>
+        /// Gets or sets the secondary rune style used.
+        /// </summary>
+        public long PerkSubStyle { get; set; }
+
+        /// <summary>
         /// Gets or sets the perk 0 ID.
         /// </summary>
         public long Perk0 { get; set; }
