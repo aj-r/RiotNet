@@ -8,7 +8,7 @@ var searchData=
   ['largestkillingspree',['LargestKillingSpree',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#af32990b0c4d2e469cb854eebedf0142b',1,'RiotNet::Models::MatchParticipantStats']]],
   ['largestmultikill',['LargestMultiKill',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#ab7d36f837ea7359567922fb6068bcd60',1,'RiotNet::Models::MatchParticipantStats']]],
   ['lastplaytime',['LastPlayTime',['../class_riot_net_1_1_models_1_1_champion_mastery.html#ae972975b6c0d2a1a6774824182d2fa93',1,'RiotNet::Models::ChampionMastery']]],
-  ['leagueid',['LeagueId',['../class_riot_net_1_1_models_1_1_league_list.html#a8b56ef65a8e0f314cfb9d05db79837d8',1,'RiotNet::Models::LeagueList']]],
+  ['leagueid',['LeagueId',['../class_riot_net_1_1_models_1_1_league_list.html#a8b56ef65a8e0f314cfb9d05db79837d8',1,'RiotNet.Models.LeagueList.LeagueId()'],['../class_riot_net_1_1_models_1_1_league_position.html#a35d3d5b473a999b13d2f6fc7876909ce',1,'RiotNet.Models.LeaguePosition.LeagueId()']]],
   ['leagueitem',['LeagueItem',['../class_riot_net_1_1_models_1_1_league_item.html#ad66c276e8fdae7b7a94e18084ba308af',1,'RiotNet::Models::LeagueItem']]],
   ['leagueitem',['LeagueItem',['../class_riot_net_1_1_models_1_1_league_item.html',1,'RiotNet::Models']]],
   ['leaguelist',['LeagueList',['../class_riot_net_1_1_models_1_1_league_list.html',1,'RiotNet::Models']]],

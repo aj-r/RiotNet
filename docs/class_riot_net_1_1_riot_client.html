@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">6.1.0</span>
+   &#160;<span id="projectnumber">6.2.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -272,12 +272,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac148fd2d34e70524481a2ea9b5327e00"><td class="memItemLeft" align="right" valign="top">Task&lt; long &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#ac148fd2d34e70524481a2ea9b5327e00">CreateTournamentAsync</a> (long providerId, string name, CancellationToken token)</td></tr>
 <tr class="memdesc:ac148fd2d34e70524481a2ea9b5327e00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a tournament. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. IMPORTANT: if you are using an interim API key, you must set <a class="el" href="class_riot_net_1_1_riot_client_settings.html#aa890ef7e77553c952614c12cf7434884" title="Gets or sets whether to use the tournament-stub API instead of the tournament API. ">RiotClientSettings.UseTournamentStub</a> to true before calling this method.  <a href="#ac148fd2d34e70524481a2ea9b5327e00">More...</a><br /></td></tr>
 <tr class="separator:ac148fd2d34e70524481a2ea9b5327e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72199bdc32745dae1a2e23c48cb9e4cd"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a72199bdc32745dae1a2e23c48cb9e4cd">CreateTournamentCodeAsync</a> (long tournamentId, int?count=null, List&lt; long &gt; allowedParticipants=null, string mapType=MapType.SUMMONERS_RIFT, string pickType=PickType.TOURNAMENT_DRAFT, string spectatorType=SpectatorType.ALL, int teamSize=5, string metadata=null, string regionalProxy=RegionalProxy.Americas, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:a72199bdc32745dae1a2e23c48cb9e4cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates one or more tournament codes. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. IMPORTANT: if you are using an interim API key, you must set <a class="el" href="class_riot_net_1_1_riot_client_settings.html#aa890ef7e77553c952614c12cf7434884" title="Gets or sets whether to use the tournament-stub API instead of the tournament API. ">RiotClientSettings.UseTournamentStub</a> to true before calling this method.  <a href="#a72199bdc32745dae1a2e23c48cb9e4cd">More...</a><br /></td></tr>
-<tr class="separator:a72199bdc32745dae1a2e23c48cb9e4cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8f0aea2b1730f1e9baabc0b402be893"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#ac8f0aea2b1730f1e9baabc0b402be893">CreateTournamentCodeAsync</a> (long tournamentId, int?count, List&lt; long &gt; allowedParticipants, string mapType, string pickType, string spectatorType, int teamSize, string metadata, CancellationToken token)</td></tr>
-<tr class="memdesc:ac8f0aea2b1730f1e9baabc0b402be893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates one or more tournament codes. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. IMPORTANT: if you are using an interim API key, you must set <a class="el" href="class_riot_net_1_1_riot_client_settings.html#aa890ef7e77553c952614c12cf7434884" title="Gets or sets whether to use the tournament-stub API instead of the tournament API. ">RiotClientSettings.UseTournamentStub</a> to true before calling this method.  <a href="#ac8f0aea2b1730f1e9baabc0b402be893">More...</a><br /></td></tr>
-<tr class="separator:ac8f0aea2b1730f1e9baabc0b402be893"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae29cb5886104428768a36dee5daec41b"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#ae29cb5886104428768a36dee5daec41b">CreateTournamentCodeAsync</a> (long tournamentId, int?count=null, List&lt; long &gt; allowedSummonerIds=null, string mapType=MapType.SUMMONERS_RIFT, string pickType=PickType.TOURNAMENT_DRAFT, string spectatorType=SpectatorType.ALL, int teamSize=5, string metadata=null, string regionalProxy=RegionalProxy.Americas, CancellationToken token=default(CancellationToken))</td></tr>
+<tr class="memdesc:ae29cb5886104428768a36dee5daec41b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates one or more tournament codes. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. IMPORTANT: if you are using an interim API key, you must set <a class="el" href="class_riot_net_1_1_riot_client_settings.html#aa890ef7e77553c952614c12cf7434884" title="Gets or sets whether to use the tournament-stub API instead of the tournament API. ">RiotClientSettings.UseTournamentStub</a> to true before calling this method.  <a href="#ae29cb5886104428768a36dee5daec41b">More...</a><br /></td></tr>
+<tr class="separator:ae29cb5886104428768a36dee5daec41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a294c9bc838ffac73720d1aa96834642e"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a294c9bc838ffac73720d1aa96834642e">CreateTournamentCodeAsync</a> (long tournamentId, int?count, List&lt; long &gt; allowedSummonerIds, string mapType, string pickType, string spectatorType, int teamSize, string metadata, CancellationToken token)</td></tr>
+<tr class="memdesc:a294c9bc838ffac73720d1aa96834642e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates one or more tournament codes. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. IMPORTANT: if you are using an interim API key, you must set <a class="el" href="class_riot_net_1_1_riot_client_settings.html#aa890ef7e77553c952614c12cf7434884" title="Gets or sets whether to use the tournament-stub API instead of the tournament API. ">RiotClientSettings.UseTournamentStub</a> to true before calling this method.  <a href="#a294c9bc838ffac73720d1aa96834642e">More...</a><br /></td></tr>
+<tr class="separator:a294c9bc838ffac73720d1aa96834642e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0953c2f6f47b88d0c650f3db0d6313dd"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a0953c2f6f47b88d0c650f3db0d6313dd">CreateTournamentCodeAsync</a> (<a class="el" href="class_riot_net_1_1_models_1_1_tournament_code.html">TournamentCode</a> tournamentCode, int?count=null, string regionalProxy=RegionalProxy.Americas, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a0953c2f6f47b88d0c650f3db0d6313dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. This method does NOT support the tournament stub API.  <a href="#a0953c2f6f47b88d0c650f3db0d6313dd">More...</a><br /></td></tr>
 <tr class="separator:a0953c2f6f47b88d0c650f3db0d6313dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -290,12 +290,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a18296dbb3b20ece7668aefa4f5b22f8b"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_tournament_code.html">TournamentCode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a18296dbb3b20ece7668aefa4f5b22f8b">GetTournamentCodeAsync</a> (string tournamentCode, CancellationToken token)</td></tr>
 <tr class="memdesc:a18296dbb3b20ece7668aefa4f5b22f8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details of a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. This method does NOT support the tournament stub API.  <a href="#a18296dbb3b20ece7668aefa4f5b22f8b">More...</a><br /></td></tr>
 <tr class="separator:a18296dbb3b20ece7668aefa4f5b22f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6c2fb7e4186d8f8a15b2f7f29e54a24"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#af6c2fb7e4186d8f8a15b2f7f29e54a24">UpdateTournamentCodeAsync</a> (string tournamentCode, List&lt; long &gt; allowedParticipants=null, string mapType=MapType.SUMMONERS_RIFT, string pickType=PickType.TOURNAMENT_DRAFT, string spectatorType=SpectatorType.ALL, string regionalProxy=RegionalProxy.Americas, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:af6c2fb7e4186d8f8a15b2f7f29e54a24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. This method does NOT support the tournament stub API.  <a href="#af6c2fb7e4186d8f8a15b2f7f29e54a24">More...</a><br /></td></tr>
-<tr class="separator:af6c2fb7e4186d8f8a15b2f7f29e54a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76317164c07bc70ed90bc9fa63768c12"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a76317164c07bc70ed90bc9fa63768c12">UpdateTournamentCodeAsync</a> (string tournamentCode, List&lt; long &gt; allowedParticipants, string mapType, string pickType, string spectatorType, CancellationToken token)</td></tr>
-<tr class="memdesc:a76317164c07bc70ed90bc9fa63768c12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. This method does NOT support the tournament stub API.  <a href="#a76317164c07bc70ed90bc9fa63768c12">More...</a><br /></td></tr>
-<tr class="separator:a76317164c07bc70ed90bc9fa63768c12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c14a21e49ea70f5892015ec0c96c4e8"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a3c14a21e49ea70f5892015ec0c96c4e8">UpdateTournamentCodeAsync</a> (string tournamentCode, List&lt; long &gt; allowedSummonerIds=null, string mapType=MapType.SUMMONERS_RIFT, string pickType=PickType.TOURNAMENT_DRAFT, string spectatorType=SpectatorType.ALL, string regionalProxy=RegionalProxy.Americas, CancellationToken token=default(CancellationToken))</td></tr>
+<tr class="memdesc:a3c14a21e49ea70f5892015ec0c96c4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. This method does NOT support the tournament stub API.  <a href="#a3c14a21e49ea70f5892015ec0c96c4e8">More...</a><br /></td></tr>
+<tr class="separator:a3c14a21e49ea70f5892015ec0c96c4e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fe1e4681ce11c92e6d01929c52d1ea7"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a5fe1e4681ce11c92e6d01929c52d1ea7">UpdateTournamentCodeAsync</a> (string tournamentCode, List&lt; long &gt; allowedSummonerIds, string mapType, string pickType, string spectatorType, CancellationToken token)</td></tr>
+<tr class="memdesc:a5fe1e4681ce11c92e6d01929c52d1ea7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. This method does NOT support the tournament stub API.  <a href="#a5fe1e4681ce11c92e6d01929c52d1ea7">More...</a><br /></td></tr>
+<tr class="separator:a5fe1e4681ce11c92e6d01929c52d1ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07919aca6ff765271f0dfb303c1de5c7"><td class="memItemLeft" align="right" valign="top">Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_riot_client.html#a07919aca6ff765271f0dfb303c1de5c7">UpdateTournamentCodeAsync</a> (<a class="el" href="class_riot_net_1_1_models_1_1_tournament_code.html">TournamentCode</a> tournamentCode, string regionalProxy=RegionalProxy.Americas, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a07919aca6ff765271f0dfb303c1de5c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves changes to a tournament code. This method uses the Tournament API. This endpoint is only accessible if you have a tournament API key. This method does NOT support the tournament stub API.  <a href="#a07919aca6ff765271f0dfb303c1de5c7">More...</a><br /></td></tr>
 <tr class="separator:a07919aca6ff765271f0dfb303c1de5c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -891,7 +891,7 @@ Events</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a72199bdc32745dae1a2e23c48cb9e4cd"></a>
+<a class="anchor" id="ae29cb5886104428768a36dee5daec41b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -914,7 +914,7 @@ Events</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">List&lt; long &gt;&#160;</td>
-          <td class="paramname"><em>allowedParticipants</em> = <code>null</code>, </td>
+          <td class="paramname"><em>allowedSummonerIds</em> = <code>null</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -976,7 +976,7 @@ Events</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">tournamentId</td><td>The tournament ID obtained from CreateTournamentAsync.</td></tr>
     <tr><td class="paramname">count</td><td>The number of codes to create (max 1000).</td></tr>
-    <tr><td class="paramname">allowedParticipants</td><td>Optional list of participants in order to validate the players eligible to join the lobby.</td></tr>
+    <tr><td class="paramname">allowedSummonerIds</td><td>Optional list of participants in order to validate the players eligible to join the lobby.</td></tr>
     <tr><td class="paramname">mapType</td><td>The map type of the game. This should equal one of the MapType values. Note that MapType.CRYSTAL_SCAR is not allowed.</td></tr>
     <tr><td class="paramname">pickType</td><td>The pick type of the game. This should equal one of the PickType values.</td></tr>
     <tr><td class="paramname">spectatorType</td><td>The spectator type of the game. This should equal one of the SpectatorType values.</td></tr>
@@ -989,11 +989,11 @@ Events</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
 
-<p>Implements <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a23c12f5acbc8f2d87bf6872a9b9b43b6">RiotNet.IRiotClient</a>.</p>
+<p>Implements <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a7564487976a9121ab7c8d9f17d12d656">RiotNet.IRiotClient</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ac8f0aea2b1730f1e9baabc0b402be893"></a>
+<a class="anchor" id="a294c9bc838ffac73720d1aa96834642e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1016,7 +1016,7 @@ Events</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">List&lt; long &gt;&#160;</td>
-          <td class="paramname"><em>allowedParticipants</em>, </td>
+          <td class="paramname"><em>allowedSummonerIds</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1072,7 +1072,7 @@ Events</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">tournamentId</td><td>The tournament ID obtained from CreateTournamentAsync.</td></tr>
     <tr><td class="paramname">count</td><td>The number of codes to create (max 1000).</td></tr>
-    <tr><td class="paramname">allowedParticipants</td><td>Optional list of participants in order to validate the players eligible to join the lobby.</td></tr>
+    <tr><td class="paramname">allowedSummonerIds</td><td>Optional list of participants in order to validate the players eligible to join the lobby.</td></tr>
     <tr><td class="paramname">mapType</td><td>The map type of the game. This should equal one of the MapType values. Note that MapType.CRYSTAL_SCAR is not allowed.</td></tr>
     <tr><td class="paramname">pickType</td><td>The pick type of the game. This should equal one of the PickType values.</td></tr>
     <tr><td class="paramname">spectatorType</td><td>The spectator type of the game. This should equal one of the SpectatorType values.</td></tr>
@@ -1084,7 +1084,7 @@ Events</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
 
-<p>Implements <a class="el" href="interface_riot_net_1_1_i_riot_client.html#adefa839322bb398faab40c3c6711c9d5">RiotNet.IRiotClient</a>.</p>
+<p>Implements <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a8d5ea41dc0367925c541a11eab43e452">RiotNet.IRiotClient</a>.</p>
 
 </div>
 </div>
@@ -4644,7 +4644,7 @@ Events</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af6c2fb7e4186d8f8a15b2f7f29e54a24"></a>
+<a class="anchor" id="a3c14a21e49ea70f5892015ec0c96c4e8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -4661,7 +4661,7 @@ Events</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">List&lt; long &gt;&#160;</td>
-          <td class="paramname"><em>allowedParticipants</em> = <code>null</code>, </td>
+          <td class="paramname"><em>allowedSummonerIds</em> = <code>null</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -4710,7 +4710,7 @@ Events</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tournamentCode</td><td>The tournament code obtained from CreateTournamentCodeAsync.</td></tr>
-    <tr><td class="paramname">allowedParticipants</td><td>Optional list of participants in order to validate the players eligible to join the lobby.</td></tr>
+    <tr><td class="paramname">allowedSummonerIds</td><td>Optional list of participants in order to validate the players eligible to join the lobby.</td></tr>
     <tr><td class="paramname">mapType</td><td>The map type of the game. This should equal one of the MapType values. Note that MapType.CRYSTAL_SCAR is not allowed.</td></tr>
     <tr><td class="paramname">pickType</td><td>The pick type of the game. This should equal one of the PickType values.</td></tr>
     <tr><td class="paramname">spectatorType</td><td>The spectator type of the game. This should equal one of the SpectatorType values.</td></tr>
@@ -4725,7 +4725,7 @@ Events</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a76317164c07bc70ed90bc9fa63768c12"></a>
+<a class="anchor" id="a5fe1e4681ce11c92e6d01929c52d1ea7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -4742,7 +4742,7 @@ Events</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">List&lt; long &gt;&#160;</td>
-          <td class="paramname"><em>allowedParticipants</em>, </td>
+          <td class="paramname"><em>allowedSummonerIds</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -4785,7 +4785,7 @@ Events</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tournamentCode</td><td>The tournament code obtained from CreateTournamentCodeAsync.</td></tr>
-    <tr><td class="paramname">allowedParticipants</td><td>Optional list of participants in order to validate the players eligible to join the lobby.</td></tr>
+    <tr><td class="paramname">allowedSummonerIds</td><td>Optional list of participants in order to validate the players eligible to join the lobby.</td></tr>
     <tr><td class="paramname">mapType</td><td>The map type of the game. This should equal one of the MapType values. Note that MapType.CRYSTAL_SCAR is not allowed.</td></tr>
     <tr><td class="paramname">pickType</td><td>The pick type of the game. This should equal one of the PickType values.</td></tr>
     <tr><td class="paramname">spectatorType</td><td>The spectator type of the game. This should equal one of the SpectatorType values.</td></tr>
