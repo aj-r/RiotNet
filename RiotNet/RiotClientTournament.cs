@@ -56,7 +56,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="tournamentId">The tournament ID obtained from CreateTournamentAsync.</param>
         /// <param name="count">The number of codes to create (max 1000).</param>
-        /// <param name="allowedParticipants">Optional list of participants in order to validate the players eligible to join the lobby.</param>
+        /// <param name="allowedSummonerIds">Optional list of participants in order to validate the players eligible to join the lobby.</param>
         /// <param name="mapType">The map type of the game. This should equal one of the <see cref="MapType"/> values. Note that <see cref="MapType.CRYSTAL_SCAR"/> is not allowed.</param>
         /// <param name="pickType">The pick type of the game. This should equal one of the <see cref="PickType"/> values.</param>
         /// <param name="spectatorType">The spectator type of the game. This should equal one of the <see cref="SpectatorType"/> values.</param>
@@ -65,7 +65,7 @@ namespace RiotNet
         /// <param name="regionalProxy">The name of the regional proxy service. This should equal one of the <see cref="RegionalProxy"/> values.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count = null, List<long> allowedParticipants = null, string mapType = MapType.SUMMONERS_RIFT,
+        Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count = null, List<long> allowedSummonerIds = null, string mapType = MapType.SUMMONERS_RIFT,
             string pickType = PickType.TOURNAMENT_DRAFT, string spectatorType = SpectatorType.ALL, int teamSize = 5, string metadata = null, string regionalProxy = RegionalProxy.Americas,
             CancellationToken token = default(CancellationToken));
 
@@ -75,7 +75,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="tournamentId">The tournament ID obtained from CreateTournamentAsync.</param>
         /// <param name="count">The number of codes to create (max 1000).</param>
-        /// <param name="allowedParticipants">Optional list of participants in order to validate the players eligible to join the lobby.</param>
+        /// <param name="allowedSummonerIds">Optional list of participants in order to validate the players eligible to join the lobby.</param>
         /// <param name="mapType">The map type of the game. This should equal one of the <see cref="MapType"/> values. Note that <see cref="MapType.CRYSTAL_SCAR"/> is not allowed.</param>
         /// <param name="pickType">The pick type of the game. This should equal one of the <see cref="PickType"/> values.</param>
         /// <param name="spectatorType">The spectator type of the game. This should equal one of the <see cref="SpectatorType"/> values.</param>
@@ -83,7 +83,7 @@ namespace RiotNet
         /// <param name="metadata">Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count, List<long> allowedParticipants, string mapType,
+        Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count, List<long> allowedSummonerIds, string mapType,
             string pickType, string spectatorType, int teamSize, string metadata, CancellationToken token);
 
         /// <summary>
@@ -260,7 +260,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="tournamentId">The tournament ID obtained from CreateTournamentAsync.</param>
         /// <param name="count">The number of codes to create (max 1000).</param>
-        /// <param name="allowedParticipants">Optional list of participants in order to validate the players eligible to join the lobby.</param>
+        /// <param name="allowedSummonerIds">Optional list of participants in order to validate the players eligible to join the lobby.</param>
         /// <param name="mapType">The map type of the game. This should equal one of the <see cref="MapType"/> values. Note that <see cref="MapType.CRYSTAL_SCAR"/> is not allowed.</param>
         /// <param name="pickType">The pick type of the game. This should equal one of the <see cref="PickType"/> values.</param>
         /// <param name="spectatorType">The spectator type of the game. This should equal one of the <see cref="SpectatorType"/> values.</param>
@@ -269,7 +269,7 @@ namespace RiotNet
         /// <param name="regionalProxy">The name of the regional proxy service. This should equal one of the <see cref="RegionalProxy"/> values.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count = null, List<long> allowedParticipants = null, string mapType = MapType.SUMMONERS_RIFT,
+        public Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count = null, List<long> allowedSummonerIds = null, string mapType = MapType.SUMMONERS_RIFT,
             string pickType = PickType.TOURNAMENT_DRAFT, string spectatorType = SpectatorType.ALL, int teamSize = 5, string metadata = null, string regionalProxy = RegionalProxy.Americas,
             CancellationToken token = default(CancellationToken))
         {
@@ -278,7 +278,7 @@ namespace RiotNet
                 queryParameters["count"] = count;
             return PostAsync<List<string>>($"{GetTournamentBaseUrl(settings.UseTournamentStub)}/codes", "tournament/codes", new
             {
-                allowedParticipants,
+                allowedSummonerIds,
                 mapType,
                 pickType,
                 spectatorType,
@@ -293,7 +293,7 @@ namespace RiotNet
         /// </summary>
         /// <param name="tournamentId">The tournament ID obtained from CreateTournamentAsync.</param>
         /// <param name="count">The number of codes to create (max 1000).</param>
-        /// <param name="allowedParticipants">Optional list of participants in order to validate the players eligible to join the lobby.</param>
+        /// <param name="allowedSummonerIds">Optional list of participants in order to validate the players eligible to join the lobby.</param>
         /// <param name="mapType">The map type of the game. This should equal one of the <see cref="MapType"/> values. Note that <see cref="MapType.CRYSTAL_SCAR"/> is not allowed.</param>
         /// <param name="pickType">The pick type of the game. This should equal one of the <see cref="PickType"/> values.</param>
         /// <param name="spectatorType">The spectator type of the game. This should equal one of the <see cref="SpectatorType"/> values.</param>
@@ -301,10 +301,10 @@ namespace RiotNet
         /// <param name="metadata">Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count, List<long> allowedParticipants, string mapType,
+        public Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count, List<long> allowedSummonerIds, string mapType,
             string pickType, string spectatorType, int teamSize, string metadata, CancellationToken token)
         {
-            return CreateTournamentCodeAsync(tournamentId, count, allowedParticipants, mapType, pickType, spectatorType, teamSize, metadata, RegionalProxy.Americas, token);
+            return CreateTournamentCodeAsync(tournamentId, count, allowedSummonerIds, mapType, pickType, spectatorType, teamSize, metadata, RegionalProxy.Americas, token);
         }
 
         /// <summary>
@@ -366,20 +366,20 @@ namespace RiotNet
         /// This method does NOT support the tournament stub API.
         /// </summary>
         /// <param name="tournamentCode">The tournament code obtained from CreateTournamentCodeAsync.</param>
-        /// <param name="allowedParticipants">Optional list of participants in order to validate the players eligible to join the lobby.</param>
+        /// <param name="allowedSummonerIds">Optional list of participants in order to validate the players eligible to join the lobby.</param>
         /// <param name="mapType">The map type of the game. This should equal one of the <see cref="MapType"/> values. Note that <see cref="MapType.CRYSTAL_SCAR"/> is not allowed.</param>
         /// <param name="pickType">The pick type of the game. This should equal one of the <see cref="PickType"/> values.</param>
         /// <param name="spectatorType">The spectator type of the game. This should equal one of the <see cref="SpectatorType"/> values.</param>
         /// <param name="regionalProxy">The name of the regional proxy service. This should equal one of the <see cref="RegionalProxy"/> values.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task UpdateTournamentCodeAsync(string tournamentCode, List<long> allowedParticipants = null, string mapType = MapType.SUMMONERS_RIFT,
+        public Task UpdateTournamentCodeAsync(string tournamentCode, List<long> allowedSummonerIds = null, string mapType = MapType.SUMMONERS_RIFT,
             string pickType = PickType.TOURNAMENT_DRAFT, string spectatorType = SpectatorType.ALL, string regionalProxy = RegionalProxy.Americas,
             CancellationToken token = default(CancellationToken))
         {
             return PutAsync<object>($"{GetTournamentBaseUrl(false)}/codes/{tournamentCode}", "tournament/codes/{tournamentCode}", new
             {
-                allowedParticipants,
+                allowedSummonerIds,
                 mapType,
                 pickType,
                 spectatorType
@@ -391,16 +391,16 @@ namespace RiotNet
         /// This method does NOT support the tournament stub API.
         /// </summary>
         /// <param name="tournamentCode">The tournament code obtained from CreateTournamentCodeAsync.</param>
-        /// <param name="allowedParticipants">Optional list of participants in order to validate the players eligible to join the lobby.</param>
+        /// <param name="allowedSummonerIds">Optional list of participants in order to validate the players eligible to join the lobby.</param>
         /// <param name="mapType">The map type of the game. This should equal one of the <see cref="MapType"/> values. Note that <see cref="MapType.CRYSTAL_SCAR"/> is not allowed.</param>
         /// <param name="pickType">The pick type of the game. This should equal one of the <see cref="PickType"/> values.</param>
         /// <param name="spectatorType">The spectator type of the game. This should equal one of the <see cref="SpectatorType"/> values.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task UpdateTournamentCodeAsync(string tournamentCode, List<long> allowedParticipants, string mapType,
+        public Task UpdateTournamentCodeAsync(string tournamentCode, List<long> allowedSummonerIds, string mapType,
             string pickType, string spectatorType, CancellationToken token)
         {
-            return UpdateTournamentCodeAsync(tournamentCode, allowedParticipants, mapType, pickType, spectatorType, RegionalProxy.Americas, token);
+            return UpdateTournamentCodeAsync(tournamentCode, allowedSummonerIds, mapType, pickType, spectatorType, RegionalProxy.Americas, token);
         }
 
         /// <summary>
