@@ -6,6 +6,11 @@
     public class LeaguePosition : LeagueItem
     {
         /// <summary>
+        /// Gets or sets the ID of the league.
+        /// </summary>
+        public string LeagueId { get; set; }
+
+        /// <summary>
         /// Gets or sets the name of the league.
         /// </summary>
         public string LeagueName { get; set; }
