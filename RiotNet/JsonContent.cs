@@ -27,8 +27,6 @@ namespace RiotNet
         /// <inheritdoc />
         protected override Task SerializeToStreamAsync(Stream stream, TransportContext context)
         {
-            var serializeToStreamTask = new TaskCompletionSource<bool>();
-
             var serializer = JsonSerializer.Create(RiotClient.JsonSettings);
             var writer = new StreamWriter(stream);
             var jsonWriter = new JsonTextWriter(writer);
