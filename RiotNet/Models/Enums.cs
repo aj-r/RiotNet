@@ -221,6 +221,10 @@ namespace RiotNet.Models
         /// </summary>
         DARKSTAR_3x3 = 610,
         /// <summary>
+        /// Summoner's Rift Clash Games
+        /// </summary>
+        CLASH = 700,
+        /// <summary>
         /// All random URF
         /// </summary>
         ARURF = 900,
