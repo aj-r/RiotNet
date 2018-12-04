@@ -25,8 +25,8 @@ RiotNet is NOT endorsed by Riot Games and doesn't reflect the views or opinions 
 
 This library uses symantic versioning, so version numbers are **not** correlated with version numbers of the Riot API.
 
-- v4-v5 of RiotNet is compatible with v3 of the Riot APIs. If you're upgrading to v4/v5 from a previous version, see the [Upgrade Path](https://github.com/aj-r/RiotNet/wiki/RiotNet-Upgrade-Path).
-- v1-v3 of RiotNet are compatible with the old versions of the Riot APIs (v1/v2, depending on which API you're looking at)
+- v3 of the Riot API is implemented in versions 4.X-6.X of RiotNet. If you're upgrading to 4.X-6.X from a previous version, see the [Upgrade Path](https://github.com/aj-r/RiotNet/wiki/RiotNet-Upgrade-Path).
+- v1/v2 of the Riot APIs are implemented in versions 1.X-3.X of RiotNet. Do not use those versions as v1/v2 are deprecated.
 
 ## Basic Usage
 
