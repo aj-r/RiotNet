@@ -34,7 +34,7 @@ namespace RiotNet
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task<List<LeaguePosition>> GetLeaguePositionsBySummonerIdAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken));
+        Task<List<LeaguePosition>> GetLeaguePositionsBySummonerIdAsync(string summonerId, string platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
         /// Gets the challenger league. This method uses the League API.
@@ -91,7 +91,7 @@ namespace RiotNet
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<List<LeaguePosition>> GetLeaguePositionsBySummonerIdAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
+        public Task<List<LeaguePosition>> GetLeaguePositionsBySummonerIdAsync(string summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             return GetAsync<List<LeaguePosition>>($"{leagueBasePath}/positions/by-summoner/{summonerId}", $"{leagueBasePath}/positions/by-summoner/{{summonerId}}", platformId, token);
         }
