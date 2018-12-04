@@ -14,12 +14,17 @@ namespace RiotNet.Models
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public long Id { get; set; }
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the player universally unique identifier (PUUID)
+        /// </summary>
+        public string Puuid { get; set; }
 
         /// <summary>
         /// Gets or sets the summoner's account ID.
         /// </summary>
-        public long AccountId { get; set; }
+        public string AccountId { get; set; }
 
         /// <summary>
         /// Gets or sets the summoner's name.
