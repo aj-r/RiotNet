@@ -12,6 +12,17 @@ namespace RiotNet.Tests
     [TestFixture]
     public class MatchTests : TestBase
     {
+        string encryptedAccountId;
+
+        [OneTimeSetUp]
+        public async Task TestOneTimeSetUp()
+        {
+            SetRiotClientSettings();
+            IRiotClient client = new RiotClient();
+            var summoner = await client.GetSummonerBySummonerNameAsync("LuckySkillz");
+            encryptedAccountId = summoner.AccountId;
+        }
+
         [Test]
         public async Task GetMatchAsyncTest()
         {
@@ -39,7 +50,7 @@ namespace RiotNet.Tests
         public async Task GetMatchListByAccountIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            MatchList matchList = await client.GetMatchListByAccountIdAsync(48555045L, beginIndex: 1, endIndex: 3);
+            MatchList matchList = await client.GetMatchListByAccountIdAsync(encryptedAccountId, beginIndex: 1, endIndex: 3);
 
             Assert.That(matchList, Is.Not.Null);
             Assert.That(matchList.Matches, Is.Not.Null.And.Not.Empty);
@@ -56,10 +67,10 @@ namespace RiotNet.Tests
         public async Task GetMatchListByAccountIdAsyncTest_WithFilters()
         {
             IRiotClient client = new RiotClient();
-            IEnumerable<long> championIds = new[] { 143L, 412L }; // Zyra, Thresh
-            IEnumerable<QueueType> rankedQueues = new[] { QueueType.RANKED_FLEX_SR, QueueType.TEAM_BUILDER_RANKED_SOLO };
-            IEnumerable<Season> seasons = new[] { Season.PRESEASON2017, Season.SEASON2017 };
-            MatchList matchList = await client.GetMatchListByAccountIdAsync(48555045L, championIds, rankedQueues, seasons);
+            IEnumerable<long> championIds = new[] { 19L, 107L }; // Warwick, Rengar
+            IEnumerable<QueueType> rankedQueues = new[] { QueueType.TEAM_BUILDER_DRAFT_UNRANKED_5x5, QueueType.TEAM_BUILDER_RANKED_SOLO };
+            IEnumerable<Season> seasons = new[] { Season.PRESEASON2018, Season.SEASON2018 };
+            MatchList matchList = await client.GetMatchListByAccountIdAsync(encryptedAccountId, championIds, rankedQueues, seasons);
 
             Assert.That(matchList, Is.Not.Null);
             Assert.That(matchList.Matches, Is.Not.Null.And.Not.Empty);
@@ -71,7 +82,7 @@ namespace RiotNet.Tests
                 Assert.That(matchList.Matches.Any(m => m.Champion == id), "Champion ID not found: " + id);
             foreach (var id in rankedQueues)
                 Assert.That(matchList.Matches.Any(m => m.Queue == id), "Queue ID not found: " + id);
-            foreach (var id in seasons.Except(new[] { Season.SEASON2016 }))
+            foreach (var id in seasons.Except(new[] { Season.PRESEASON2018 }))
                 Assert.That(matchList.Matches.Any(m => m.Season == id), "Season ID not found: " + id);
         }
 
@@ -79,9 +90,9 @@ namespace RiotNet.Tests
         public async Task GetMatchListByAccountIdAsyncTest_WithDateFilters()
         {
             IRiotClient client = new RiotClient();
-            var beginTime = new DateTime(2015, 6, 1, 0, 0, 0, DateTimeKind.Utc);
-            var endTime = new DateTime(2015, 6, 7, 0, 0, 0, DateTimeKind.Utc);
-            var matchList = await client.GetMatchListByAccountIdAsync(48555045L, beginTime: beginTime, endTime: endTime);
+            var beginTime = new DateTime(2018, 12, 1, 0, 0, 0, DateTimeKind.Utc);
+            var endTime = new DateTime(2018, 12, 3, 0, 0, 0, DateTimeKind.Utc);
+            var matchList = await client.GetMatchListByAccountIdAsync(encryptedAccountId, beginTime: beginTime, endTime: endTime);
 
             Assert.That(matchList, Is.Not.Null);
             Assert.That(matchList.Matches, Is.Not.Null.And.Not.Empty);

@@ -20,6 +20,6 @@ namespace RiotNet.Models
         /// <summary>
         ///  Gets or sets the summoner ID of this participant.
         /// </summary>
-        public long SummonerId { get; set; }
+        public string SummonerId { get; set; }
     }
 }
