@@ -26,7 +26,7 @@ namespace RiotNet
 
     public partial class RiotClient
     {
-        private const string spectatorBasePath = "spectator/v3";
+        private const string spectatorBasePath = "spectator/v4";
 
         /// <summary>
         /// Gets information about the current game a summoner is playing. This method uses the Spectator API.

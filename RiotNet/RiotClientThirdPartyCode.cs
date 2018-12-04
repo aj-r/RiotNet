@@ -18,7 +18,7 @@ namespace RiotNet
 
     public partial class RiotClient
     {
-        private const string thirdPartyCodeBasePath = "platform/v3/third-party-code";
+        private const string thirdPartyCodeBasePath = "platform/v4/third-party-code";
 
         /// <summary>
         /// Gets a code that a third-party application can use to verify a summoner.

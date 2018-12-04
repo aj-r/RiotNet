@@ -57,7 +57,7 @@ namespace RiotNet
 
     public partial class RiotClient
     {
-        private const string leagueBasePath = "league/v3";
+        private const string leagueBasePath = "league/v4";
 
         /// <summary>
         /// Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID. This method uses the League API.

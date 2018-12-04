@@ -38,7 +38,7 @@ namespace RiotNet
 
     public partial class RiotClient
     {
-        private const string championMasteryBasePath = "champion-mastery/v3";
+        private const string championMasteryBasePath = "champion-mastery/v4";
 
         /// <summary>
         /// Gets information about a summoner's mastery of a champion. This method uses the Champion Mastery API.

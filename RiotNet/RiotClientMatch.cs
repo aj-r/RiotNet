@@ -75,7 +75,7 @@ namespace RiotNet
 
     public partial class RiotClient
     {
-        private const string matchBasePath = "match/v3";
+        private const string matchBasePath = "match/v4";
 
         /// <summary>
         /// Gets the details of a match. This method uses the Match API.

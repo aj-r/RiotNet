@@ -465,7 +465,7 @@ namespace RiotNet
         /// <returns>The base URL.</returns>
         protected string GetTournamentBaseUrl(bool stub)
         {
-            return (stub ? "tournament-stub" : "tournament") + "/v3";
+            return (stub ? "tournament-stub" : "tournament") + "/v4";
         }
 
         /// <summary>
