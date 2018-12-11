@@ -54,7 +54,7 @@ namespace RiotNet.Tests
             Assert.That(participant.Perks.PerkIds, Is.Not.Null.And.Not.Empty);
             Assert.That(participant.Spell1Id, Is.GreaterThan(0));
             Assert.That(participant.Spell2Id, Is.GreaterThan(0));
-            Assert.That(participant.SummonerId, Is.GreaterThan(0));
+            Assert.That(participant.SummonerId, Is.EqualTo(summoner.Id));
             Assert.That(participant.SummonerName, Is.Not.Null.And.Not.Empty);
             Assert.That(game.Participants.Any(p => p.TeamId == TeamSide.Team2));
             Assert.That(game.PlatformId, Is.EqualTo(client.PlatformId));

@@ -24,12 +24,12 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the player's account ID.
         /// </summary>
-        public long CurrentAccountId { get; set; }
+        public string CurrentAccountId { get; set; }
 
         /// <summary>
         /// Gets or sets the player's account ID.
         /// </summary>
-        public long AccountId { get; set; }
+        public string AccountId { get; set; }
 
         /// <summary>
         /// Gets or sets the match history URI.
@@ -44,7 +44,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the summoner ID.
         /// </summary>
-        public long SummonerId { get; set; }
+        public string SummonerId { get; set; }
 
         /// <summary>
         /// Gets or sets the summoner name.

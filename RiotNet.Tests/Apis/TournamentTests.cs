@@ -13,6 +13,47 @@ namespace RiotNet.Tests
     [TestFixture]
     public class TournamentTests : TestBase
     {
+        string rndmInternetManId;
+        string disqueJockeyId;
+        string denverId;
+        string choGodId;
+        string zarkraId;
+        string razardId;
+        string angry5RenegadoId;
+        string boostedTopLanerId;
+        string xaeiId;
+        string zeractleId;
+        string goodMorningCronoId;
+
+        [OneTimeSetUp]
+        public async Task TestOneTimeSetUp()
+        {
+            SetRiotClientSettings();
+            IRiotClient client = new RiotClient();
+            var summoner = await client.GetSummonerBySummonerNameAsync("RndmInternetMan");
+            rndmInternetManId = summoner.Id;
+            summoner = await client.GetSummonerBySummonerNameAsync("Disque Jockey");
+            disqueJockeyId = summoner.Id;
+            summoner = await client.GetSummonerBySummonerNameAsync("Denver");
+            denverId = summoner.Id;
+            summoner = await client.GetSummonerBySummonerNameAsync("ChoGod");
+            choGodId = summoner.Id;
+            summoner = await client.GetSummonerBySummonerNameAsync("Zarkra");
+            zarkraId = summoner.Id;
+            summoner = await client.GetSummonerBySummonerNameAsync("Razard");
+            razardId = summoner.Id;
+            summoner = await client.GetSummonerBySummonerNameAsync("Angry5 Renegado");
+            angry5RenegadoId = summoner.Id;
+            summoner = await client.GetSummonerBySummonerNameAsync("Boosted TopLaner");
+            boostedTopLanerId = summoner.Id;
+            summoner = await client.GetSummonerBySummonerNameAsync("Xaei");
+            xaeiId = summoner.Id;
+            summoner = await client.GetSummonerBySummonerNameAsync("Zeractle");
+            zeractleId = summoner.Id;
+            summoner = await client.GetSummonerBySummonerNameAsync("GoodMorningCrono");
+            goodMorningCronoId = summoner.Id;
+        }
+
         [Test]
         public async Task CreateTournamentProviderAsyncTest()
         {
@@ -46,7 +87,7 @@ namespace RiotNet.Tests
         {
             IRiotClient client = new RiotClient(GetTournamentSettings());
             List<string> codes = await client.CreateTournamentCodeAsync(2198, 2,
-                new List<long> { 35870943L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L },
+                new List<string> { rndmInternetManId, disqueJockeyId, denverId, choGodId, zarkraId, razardId, angry5RenegadoId, boostedTopLanerId, xaeiId, zeractleId },
                 MapType.HOWLING_ABYSS, PickType.ALL_RANDOM, SpectatorType.LOBBYONLY, 4, "test", CancellationToken.None);
 
             Assert.That(codes, Is.Not.Null.And.Not.Empty);
@@ -61,7 +102,7 @@ namespace RiotNet.Tests
             List<string> codes = await client.CreateTournamentCodeAsync(new TournamentCode
             {
                 TournamentId = 2198,
-                Participants = new ListOfLong { 35870943L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L, 21204597L, 20028460L },
+                Participants = new ListOfString { rndmInternetManId, disqueJockeyId, denverId, choGodId, zarkraId, razardId, angry5RenegadoId, boostedTopLanerId, xaeiId, zeractleId },
                 Map = MapType.TWISTED_TREELINE,
                 PickType = PickType.TOURNAMENT_DRAFT,
                 Spectators = SpectatorType.NONE,
@@ -103,7 +144,7 @@ namespace RiotNet.Tests
             IRiotClient client = new RiotClient(GetTournamentSettings());
 
             await client.UpdateTournamentCodeAsync(code,
-                new List<long> { 35870943L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L, 21204597L, 20028460L }, 
+                new List<string> { rndmInternetManId, disqueJockeyId, denverId, choGodId, zarkraId, razardId, angry5RenegadoId, boostedTopLanerId, xaeiId, zeractleId },
                 MapType.SUMMONERS_RIFT, PickType.BLIND_PICK, SpectatorType.ALL, CancellationToken.None);
 
             TournamentCode tournamentCode = await client.GetTournamentCodeAsync(code);
@@ -114,7 +155,7 @@ namespace RiotNet.Tests
             Assert.That(tournamentCode.Spectators, Is.EqualTo(SpectatorType.ALL));
 
             await client.UpdateTournamentCodeAsync(code,
-                new List<long> { 22811529L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L, 21204597L, 20028460L },
+                new List<string> { goodMorningCronoId, disqueJockeyId, denverId, choGodId, zarkraId, razardId, angry5RenegadoId, boostedTopLanerId, xaeiId, zeractleId },
                 MapType.HOWLING_ABYSS, PickType.ALL_RANDOM, SpectatorType.LOBBYONLY);
 
             tournamentCode = await client.GetTournamentCodeAsync(code);
@@ -135,7 +176,7 @@ namespace RiotNet.Tests
             await client.UpdateTournamentCodeAsync(new TournamentCode
             {
                 Code = code,
-                Participants = new ListOfLong { 35870943L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L, 21204597L, 20028460L },
+                Participants = new ListOfString { rndmInternetManId, disqueJockeyId, denverId, choGodId, zarkraId, razardId, angry5RenegadoId, boostedTopLanerId, xaeiId, zeractleId },
                 Map = MapType.TWISTED_TREELINE,
                 PickType = PickType.TOURNAMENT_DRAFT,
                 Spectators = SpectatorType.NONE,
@@ -151,7 +192,7 @@ namespace RiotNet.Tests
             await client.UpdateTournamentCodeAsync(new TournamentCode
             {
                 Code = code,
-                Participants = new ListOfLong { 22811529L, 32153637L, 31220286L, 37431081L, 20934656L, 30545906L, 32550537L, 38722060L, 21204597L, 20028460L },
+                Participants = new ListOfString { goodMorningCronoId, disqueJockeyId, denverId, choGodId, zarkraId, razardId, angry5RenegadoId, boostedTopLanerId, xaeiId, zeractleId },
                 Map = MapType.HOWLING_ABYSS,
                 PickType = PickType.ALL_RANDOM,
                 Spectators = SpectatorType.LOBBYONLY,

@@ -11,11 +11,22 @@ namespace RiotNet.Tests
     [TestFixture]
     public class LeagueTests : TestBase
     {
+        string encryptedSummonerId;
+
+        [OneTimeSetUp]
+        public async Task TestOneTimeSetUp()
+        {
+            SetRiotClientSettings();
+            IRiotClient client = new RiotClient();
+            var summoner = await client.GetSummonerBySummonerNameAsync("RndmInternetMan");
+            encryptedSummonerId = summoner.Id;
+        }
+
         [Test]
         public async Task GetLeagueByIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            LeagueList league = await client.GetLeagueByIdAsync("ea0e8e10-f639-11e6-b789-c81f66cf2333");
+            LeagueList league = await client.GetLeagueByIdAsync("a681d5d0-430e-11e8-a82d-c81f66cf2333");
 
             Assert.That(league, Is.Not.Null);
             Assert.That(league.Entries.Count, Is.GreaterThan(1));
@@ -26,7 +37,7 @@ namespace RiotNet.Tests
         public async Task GetLeaguePositionsBySummonerIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
-            List<LeaguePosition> leaguePositions = await client.GetLeaguePositionsBySummonerIdAsync(35870943L);
+            List<LeaguePosition> leaguePositions = await client.GetLeaguePositionsBySummonerIdAsync(encryptedSummonerId);
 
             Assert.That(leaguePositions, Is.Not.Null);
             var leaguePosition = leaguePositions.First();

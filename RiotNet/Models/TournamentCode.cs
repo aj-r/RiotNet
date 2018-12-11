@@ -39,7 +39,7 @@ namespace RiotNet.Models
         ///  Gets or sets the IDs of the summoners who are allowed to participate in the game.
         /// </summary>
         [NotMapped]
-        public ListOfLong Participants { get; set; }
+        public ListOfString Participants { get; set; }
 
         /// <summary>
         ///  Gets or sets the lobby password.

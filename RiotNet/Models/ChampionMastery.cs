@@ -53,7 +53,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the summoner ID of the player to which this data applies.
         /// </summary>
-        public long PlayerId { get; set; }
+        public string SummonerId { get; set; }
 
         /// <summary>
         /// Gets or sets the number of mastery level 6 or 7 tokens earned.
