@@ -9,6 +9,7 @@ namespace RiotNet.Tests
     {
         string encryptedSummonerId;
         string encryptedAccountId;
+        string encryptedPuuid;
 
         [OneTimeSetUp]
         public async Task TestOneTimeSetUp()
@@ -18,6 +19,7 @@ namespace RiotNet.Tests
             var summoner = await client.GetSummonerBySummonerNameAsync("KirkBerkley");
             encryptedSummonerId = summoner.Id;
             encryptedAccountId = summoner.AccountId;
+            encryptedPuuid = summoner.Puuid;
         }
 
         [Test]
@@ -43,6 +45,15 @@ namespace RiotNet.Tests
         {
             IRiotClient client = new RiotClient();
             Summoner summoner = await client.GetSummonerBySummonerNameAsync("KirkBerkley");
+
+            AssertNonDefaultValuesRecursive(summoner);
+        }
+
+        [Test]
+        public async Task GetSummonerByPuuidAsyncTest()
+        {
+            IRiotClient client = new RiotClient();
+            Summoner summoner = await client.GetSummonerByPuuidAsync(encryptedPuuid);
 
             AssertNonDefaultValuesRecursive(summoner);
         }
