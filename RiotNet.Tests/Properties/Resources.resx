@@ -130,7 +130,7 @@
   <data name="SampleChampionMastery" xml:space="preserve">
     <value>{
    "championPoints": 61008,
-   "playerId": 34172230,
+   "summonerId": "o9j6bHsBjfj8VDEdiSvJjcGMRpeJ12uOrYZsrRtzcevnF6c",
    "championPointsUntilNextLevel": 1,
    "championLevel": 5,
    "championId": 412,

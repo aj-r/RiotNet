@@ -65,7 +65,7 @@ namespace RiotNet
         /// <param name="regionalProxy">The name of the regional proxy service. This should equal one of the <see cref="RegionalProxy"/> values.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count = null, List<long> allowedSummonerIds = null, string mapType = MapType.SUMMONERS_RIFT,
+        Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count = null, List<string> allowedSummonerIds = null, string mapType = MapType.SUMMONERS_RIFT,
             string pickType = PickType.TOURNAMENT_DRAFT, string spectatorType = SpectatorType.ALL, int teamSize = 5, string metadata = null, string regionalProxy = RegionalProxy.Americas,
             CancellationToken token = default(CancellationToken));
 
@@ -83,7 +83,7 @@ namespace RiotNet
         /// <param name="metadata">Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count, List<long> allowedSummonerIds, string mapType,
+        Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count, List<string> allowedSummonerIds, string mapType,
             string pickType, string spectatorType, int teamSize, string metadata, CancellationToken token);
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace RiotNet
         /// <param name="regionalProxy">The name of the regional proxy service. This should equal one of the <see cref="RegionalProxy"/> values.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task UpdateTournamentCodeAsync(string tournamentCode, List<long> allowedParticipants = null, string mapType = MapType.SUMMONERS_RIFT,
+        Task UpdateTournamentCodeAsync(string tournamentCode, List<string> allowedParticipants = null, string mapType = MapType.SUMMONERS_RIFT,
             string pickType = PickType.TOURNAMENT_DRAFT, string spectatorType = SpectatorType.ALL, string regionalProxy = RegionalProxy.Americas,
             CancellationToken token = default(CancellationToken));
 
@@ -153,7 +153,7 @@ namespace RiotNet
         /// <param name="spectatorType">The spectator type of the game. This should equal one of the <see cref="SpectatorType"/> values.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task UpdateTournamentCodeAsync(string tournamentCode, List<long> allowedParticipants, string mapType,
+        Task UpdateTournamentCodeAsync(string tournamentCode, List<string> allowedParticipants, string mapType,
             string pickType, string spectatorType, CancellationToken token);
 
         /// <summary>
@@ -269,7 +269,7 @@ namespace RiotNet
         /// <param name="regionalProxy">The name of the regional proxy service. This should equal one of the <see cref="RegionalProxy"/> values.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count = null, List<long> allowedSummonerIds = null, string mapType = MapType.SUMMONERS_RIFT,
+        public Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count = null, List<string> allowedSummonerIds = null, string mapType = MapType.SUMMONERS_RIFT,
             string pickType = PickType.TOURNAMENT_DRAFT, string spectatorType = SpectatorType.ALL, int teamSize = 5, string metadata = null, string regionalProxy = RegionalProxy.Americas,
             CancellationToken token = default(CancellationToken))
         {
@@ -301,7 +301,7 @@ namespace RiotNet
         /// <param name="metadata">Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count, List<long> allowedSummonerIds, string mapType,
+        public Task<List<string>> CreateTournamentCodeAsync(long tournamentId, int? count, List<string> allowedSummonerIds, string mapType,
             string pickType, string spectatorType, int teamSize, string metadata, CancellationToken token)
         {
             return CreateTournamentCodeAsync(tournamentId, count, allowedSummonerIds, mapType, pickType, spectatorType, teamSize, metadata, RegionalProxy.Americas, token);
@@ -373,7 +373,7 @@ namespace RiotNet
         /// <param name="regionalProxy">The name of the regional proxy service. This should equal one of the <see cref="RegionalProxy"/> values.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task UpdateTournamentCodeAsync(string tournamentCode, List<long> allowedSummonerIds = null, string mapType = MapType.SUMMONERS_RIFT,
+        public Task UpdateTournamentCodeAsync(string tournamentCode, List<string> allowedSummonerIds = null, string mapType = MapType.SUMMONERS_RIFT,
             string pickType = PickType.TOURNAMENT_DRAFT, string spectatorType = SpectatorType.ALL, string regionalProxy = RegionalProxy.Americas,
             CancellationToken token = default(CancellationToken))
         {
@@ -397,7 +397,7 @@ namespace RiotNet
         /// <param name="spectatorType">The spectator type of the game. This should equal one of the <see cref="SpectatorType"/> values.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public Task UpdateTournamentCodeAsync(string tournamentCode, List<long> allowedSummonerIds, string mapType,
+        public Task UpdateTournamentCodeAsync(string tournamentCode, List<string> allowedSummonerIds, string mapType,
             string pickType, string spectatorType, CancellationToken token)
         {
             return UpdateTournamentCodeAsync(tournamentCode, allowedSummonerIds, mapType, pickType, spectatorType, RegionalProxy.Americas, token);
@@ -465,7 +465,7 @@ namespace RiotNet
         /// <returns>The base URL.</returns>
         protected string GetTournamentBaseUrl(bool stub)
         {
-            return (stub ? "tournament-stub" : "tournament") + "/v3";
+            return (stub ? "tournament-stub" : "tournament") + "/v4";
         }
 
         /// <summary>

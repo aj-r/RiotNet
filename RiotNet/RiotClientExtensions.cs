@@ -17,7 +17,7 @@ namespace RiotNet
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="IRiotClient.PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        public static Task<CurrentGameInfo> GetCurrentGameBySummonerIdAsync(this IRiotClient riotClient, long summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
+        public static Task<CurrentGameInfo> GetCurrentGameBySummonerIdAsync(this IRiotClient riotClient, string summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             return riotClient.GetActiveGameBySummonerIdAsync(summonerId, platformId, token);
         }

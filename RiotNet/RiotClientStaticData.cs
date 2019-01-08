@@ -231,7 +231,7 @@ namespace RiotNet
 
     public partial class RiotClient
     {
-        private const string staticDataBasePath = "static-data/v3";
+        private const string staticDataBasePath = "static-data/v4";
 
         /// <summary>
         /// Gets the details for all champions. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.

@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using RiotNet.Models;
+using System.Threading.Tasks;
 
 namespace RiotNet.Tests
 {
@@ -9,6 +10,17 @@ namespace RiotNet.Tests
     [TestFixture]
     public class RiotClientTests : TestBase
     {
+        string encryptedSummonerId;
+
+        [OneTimeSetUp]
+        public async Task TestOneTimeSetUp()
+        {
+            SetRiotClientSettings();
+            IRiotClient client = new RiotClient();
+            var summoner = await client.GetSummonerBySummonerNameAsync("KirkBerkley");
+            encryptedSummonerId = summoner.Id;
+        }
+
         [Test]
         public void ShouldCreateClientWithDefaultPlatformId()
         {
@@ -64,7 +76,7 @@ namespace RiotNet.Tests
             RiotClient.DefaultPlatformId = null;
             IRiotClient client = new RiotClient();
 
-            Assert.That(() => client.GetSummonerBySummonerIdAsync(34172230L), Throws.InstanceOf<RestException>());
+            Assert.That(() => client.GetSummonerBySummonerIdAsync(encryptedSummonerId), Throws.InstanceOf<RestException>());
         }
     }
 }

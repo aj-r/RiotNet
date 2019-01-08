@@ -48,15 +48,7 @@ namespace RiotNet.Tests
         public void TestSetUp()
         {
             // Reset the settings after every test because some tests will mess up the settings.
-            RiotClient.DefaultPlatformId = PlatformId.NA1;
-            RiotClient.DefaultSettings = () => new RiotClientSettings
-            {
-                ApiKey = apiKey,
-                MaxRequestAttempts = 4,
-                RetryOnConnectionFailure = true,
-                RetryOnRateLimitExceeded = true,
-                RetryOnTimeout = true
-            };
+            SetRiotClientSettings();
         }
 
         public string ApiKey
@@ -406,5 +398,17 @@ namespace RiotNet.Tests
             return ReflectionUtils.GetGenericInterface(type, typeof(IDictionary<,>));
         }
 
+        public static void SetRiotClientSettings()
+        {
+            RiotClient.DefaultPlatformId = PlatformId.NA1;
+            RiotClient.DefaultSettings = () => new RiotClientSettings
+            {
+                ApiKey = apiKey,
+                MaxRequestAttempts = 4,
+                RetryOnConnectionFailure = true,
+                RetryOnRateLimitExceeded = true,
+                RetryOnTimeout = true
+            };
+        }
     }
 }

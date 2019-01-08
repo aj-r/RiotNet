@@ -13,12 +13,12 @@ namespace RiotNet
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>For KR summoners, a 404 will always be returned.</remarks>
-        Task<string> GetThirdPartyCodeAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken));
+        Task<string> GetThirdPartyCodeAsync(string summonerId, string platformId = null, CancellationToken token = default(CancellationToken));
     }
 
     public partial class RiotClient
     {
-        private const string thirdPartyCodeBasePath = "platform/v3/third-party-code";
+        private const string thirdPartyCodeBasePath = "platform/v4/third-party-code";
 
         /// <summary>
         /// Gets a code that a third-party application can use to verify a summoner.
@@ -28,7 +28,7 @@ namespace RiotNet
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         /// <remarks>For KR summoners, a 404 will always be returned.</remarks>
-        public Task<string> GetThirdPartyCodeAsync(long summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
+        public Task<string> GetThirdPartyCodeAsync(string summonerId, string platformId = null, CancellationToken token = default(CancellationToken))
         {
             return GetAsync<string>($"{thirdPartyCodeBasePath}/by-summoner/{summonerId}", $"{thirdPartyCodeBasePath}/by-summoner/{{summonerId}}",
                 platformId, token);

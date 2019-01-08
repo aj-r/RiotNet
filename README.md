@@ -5,7 +5,7 @@
 A .NET/C# client for the Riot Games API.
 
 It has the following features:
-- Targets v3 of the Riot API
+- Targets v4 of the Riot API
 - Built-in rate limiting (per-method and per-endpoint)
 - **Compatible** with .NET Core and .NET 4.5
 - [**NuGet package**](https://www.nuget.org/packages/RiotNet/): `Install-Package RiotNet`
@@ -25,8 +25,11 @@ RiotNet is NOT endorsed by Riot Games and doesn't reflect the views or opinions 
 
 This library uses symantic versioning, so version numbers are **not** correlated with version numbers of the Riot API.
 
-- v3 of the Riot API is implemented in versions 4.X-6.X of RiotNet. If you're upgrading to 4.X-6.X from a previous version, see the [Upgrade Path](https://github.com/aj-r/RiotNet/wiki/RiotNet-Upgrade-Path).
-- v1/v2 of the Riot APIs are implemented in versions 1.X-3.X of RiotNet. Do not use those versions as v1/v2 are deprecated.
+- **v4** of the Riot APIs are implemented in v7.X of RiotNet
+  - Note: Riot Games hasn't released v4 of every API yet, so for those APIs we support v3.
+- **v3** of the Riot APIs is implemented in v4.X-v6.X of RiotNet.
+  - If you're upgrading to v4.X/v6.X from a previous version, see the [Upgrade Path](https://github.com/aj-r/RiotNet/wiki/RiotNet-Upgrade-Path).
+- **v1/v2** of the Riot APIs are implemented in v1.X-v3.X of RiotNet.
 
 ## Basic Usage
 
@@ -35,7 +38,7 @@ IRiotClient client = new RiotClient(new RiotClientSettings
 {
     ApiKey = "00000000-0000-0000-0000-000000000000" // Replace this with your API key, of course.
 });
-Summoner summoner = await client.GetSummonerBySummonerNameAsync(PlatformId.NA1).ConfigureAwait(false);
+Summoner summoner = await client.GetSummonerBySummonerNameAsync("<name>", PlatformId.NA1).ConfigureAwait(false);
 ```
 
 ## Changing the default settings
