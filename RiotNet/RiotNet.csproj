@@ -9,7 +9,7 @@
     <PackageId>RiotNet</PackageId>
     <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netstandard1.5' ">$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <Authors>AJ Richardson</Authors>
-    <Description>A client for the Riot Games v3 API. This client is very flexible and configurable, and is designed for real-life use on a multithreaded server.</Description>
+    <Description>A client for the Riot Games v4 API. This client is very flexible and configurable, and is designed for real-life use on a multithreaded server.</Description>
     <PackageProjectUrl>https://github.com/aj-r/RiotNet</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/aj-r/RiotNet/blob/master/LICENSE</PackageLicenseUrl>
     <PackageTags>riot, lol, wrapper, api, client, games</PackageTags>
