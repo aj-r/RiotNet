@@ -805,6 +805,10 @@ namespace RiotNet.Models
         /// </summary>
         public const string CHALLENGER = "CHALLENGER";
         /// <summary>
+        /// Grandmaster tier
+        /// </summary>
+        public const string GRANDMASTER = "GRANDMASTER";
+        /// <summary>
         /// Master tier
         /// </summary>
         public const string MASTER = "MASTER";
@@ -828,6 +832,10 @@ namespace RiotNet.Models
         /// Bronze tier
         /// </summary>
         public const string BRONZE = "BRONZE";
+        /// <summary>
+        /// Iron tier
+        /// </summary>
+        public const string IRON = "IRON";
     }
 
     /// <summary>
