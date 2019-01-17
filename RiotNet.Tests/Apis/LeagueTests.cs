@@ -59,6 +59,19 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        public async Task GetGrandmasterLeagueAsyncTest()
+        {
+            IRiotClient client = new RiotClient();
+            LeagueList league = await client.GetGrandmasterLeagueAsync(RankedQueue.RANKED_SOLO_5x5);
+
+            Assert.That(league, Is.Not.Null);
+            Assert.That(league.Entries.Count, Is.GreaterThan(1));
+            Assert.That(league.Name, Is.Not.Null.And.Not.Empty);
+            Assert.That(league.Queue, Is.EqualTo(RankedQueue.RANKED_SOLO_5x5));
+            Assert.That(league.Tier, Is.EqualTo(Tier.GRANDMASTER));
+        }
+
+        [Test]
         public async Task GetMasterLeagueAsyncTest()
         {
             IRiotClient client = new RiotClient();
