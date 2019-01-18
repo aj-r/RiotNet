@@ -23,7 +23,7 @@ RiotNet is NOT endorsed by Riot Games and doesn't reflect the views or opinions 
 
 ## Versions
 
-This library uses symantic versioning, so version numbers are **not** correlated with version numbers of the Riot API.
+This library uses semantic versioning, so version numbers are **not** correlated with version numbers of the Riot API.
 
 - **v4** of the Riot APIs are implemented in v7.X of RiotNet
   - Note: Riot Games hasn't released v4 of every API yet, so for those APIs we support v3.
