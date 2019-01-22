@@ -68,6 +68,16 @@ namespace RiotNet.Models
         public string PlayerOrTeamName { get; set; }
 
         /// <summary>
+        /// Gets or sets the summoner's ID in string format.
+        /// </summary>
+        public string SummonerId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the summoner's name.
+        /// </summary>
+        public string SummonerName { get; set; }
+
+        /// <summary>
         /// Gets or sets the number of wins that the participant has.
         /// </summary>
         public int Wins { get; set; }
