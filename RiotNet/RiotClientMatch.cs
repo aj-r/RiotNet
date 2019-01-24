@@ -30,7 +30,7 @@ namespace RiotNet
         /// <summary>
         /// Gets the match list for a summoner. This method uses the Match API.
         /// </summary>
-        /// <param name="summonerId">The summoner's summoner IDs.</param>
+        /// <param name="accountId">The summoner's account ID.</param>
         /// <param name="championIds">Only get games where the summoner played one of these champions.</param>
         /// <param name="rankedQueues">Only get games from these queues. You should only use ranked queues for this (<see cref="QueueType.TEAM_BUILDER_RANKED_SOLO"/>, <see cref="QueueType.RANKED_FLEX_SR"/>, <see cref="QueueType.RANKED_FLEX_TT"/>).</param>
         /// <param name="seasons">Only get games from these seasons.</param>
@@ -41,7 +41,7 @@ namespace RiotNet
         /// <param name="platformId">The platform ID of the server to connect to. This should equal one of the <see cref="Models.PlatformId"/> values. If unspecified, the <see cref="PlatformId"/> property will be used.</param>
         /// <param name="token">The cancellation token to cancel the operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        Task<MatchList> GetMatchListByAccountIdAsync(string summonerId, IEnumerable<long> championIds = null, IEnumerable<QueueType> rankedQueues = null, IEnumerable<Season> seasons = null, DateTime? beginTime = null, DateTime? endTime = null, int? beginIndex = null, int? endIndex = null, string platformId = null, CancellationToken token = default(CancellationToken));
+        Task<MatchList> GetMatchListByAccountIdAsync(string accountId, IEnumerable<long> championIds = null, IEnumerable<QueueType> rankedQueues = null, IEnumerable<Season> seasons = null, DateTime? beginTime = null, DateTime? endTime = null, int? beginIndex = null, int? endIndex = null, string platformId = null, CancellationToken token = default(CancellationToken));
 
         /// <summary>
         /// Gets the recent match list for an account. This method uses the Match API.
