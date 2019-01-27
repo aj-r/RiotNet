@@ -10,6 +10,7 @@ namespace RiotNet.Tests
     public class ChampionTests : TestBase
     {
         [Test]
+        [Ignore("This API is depreciated")]
         public async Task GetChampionsAsyncTest()
         {
             IRiotClient client = new RiotClient();
@@ -20,6 +21,7 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        [Ignore("This API is depreciated")]
         public async Task GetChampionsAsyncTest_FreeToPlay()
         {
             IRiotClient client = new RiotClient();
@@ -30,6 +32,7 @@ namespace RiotNet.Tests
         }
 
         [Test]
+        [Ignore("This API is depreciated")]
         public async Task GetChampionByIdAsyncTest()
         {
             IRiotClient client = new RiotClient();
