@@ -839,6 +839,41 @@ namespace RiotNet.Models
     }
 
     /// <summary>
+    /// Represents a lane position.
+    /// </summary>
+    public static class LanePosition
+    {
+        /// <summary>
+        /// Not defined.
+        /// </summary>
+        public const string NONE = "NONE";
+        /// <summary>
+        /// Top lane.
+        /// </summary>
+        public const string TOP = "TOP";
+        /// <summary>
+        /// Jungle.
+        /// </summary>
+        public const string JUNGLE = "JUNGLE";
+        /// <summary>
+        /// Middle lane.
+        /// </summary>
+        public const string MIDDLE = "MIDDLE";
+        /// <summary>
+        /// Bottom lane.
+        /// </summary>
+        public const string BOTTOM = "BOTTOM";
+        /// <summary>
+        /// Support lane.
+        /// </summary>
+        public const string UTILITY = "UTILITY";
+        /// <summary>
+        /// Apex.
+        /// </summary>
+        public const string APEX = "APEX";
+    }
+
+    /// <summary>
     /// Represents the tower type. Used in <see cref="MatchEvent"/> for event type <see cref="EventType.BUILDING_KILL"/>.
     /// </summary>
     public static class TowerType

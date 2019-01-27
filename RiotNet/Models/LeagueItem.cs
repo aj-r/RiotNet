@@ -58,16 +58,6 @@ namespace RiotNet.Models
         public MiniSeries MiniSeries { get; set; }
 
         /// <summary>
-        /// Gets or sets the participant's summoner ID in string format.
-        /// </summary>
-        public string PlayerOrTeamId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the participant's name.
-        /// </summary>
-        public string PlayerOrTeamName { get; set; }
-
-        /// <summary>
         /// Gets or sets the summoner's ID in string format.
         /// </summary>
         public string SummonerId { get; set; }

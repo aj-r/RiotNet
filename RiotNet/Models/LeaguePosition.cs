@@ -24,5 +24,10 @@
         /// Gets or sets the league's tier. This should equal one of the <see cref="Models.Tier"/> values.
         /// </summary>
         public string Tier { get; set; }
+
+        /// <summary>
+        /// Gets or sets the league's position. This should equal one of the <see cref="Models.LanePosition"/> values.
+        /// </summary>
+        public string Position { get; set; }
     }
 }
