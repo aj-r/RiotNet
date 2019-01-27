@@ -18,7 +18,7 @@ namespace RiotNet.Tests
         {
             SetRiotClientSettings();
             IRiotClient client = new RiotClient();
-            var summoner = await client.GetSummonerBySummonerNameAsync("RndmInternetMan");
+            var summoner = await client.GetSummonerBySummonerNameAsync("Abou222");
             encryptedSummonerId = summoner.Id;
         }
 
@@ -41,6 +41,7 @@ namespace RiotNet.Tests
 
             Assert.That(leaguePositions, Is.Not.Null);
             var leaguePosition = leaguePositions.First();
+            Assert.That(leaguePosition.Position, Is.Not.Null.And.Not.Empty);
             Assert.That(leaguePosition.LeagueName, Is.Not.Null.And.Not.Empty);
             Assert.That(leaguePosition.Tier, Is.Not.EqualTo(Tier.CHALLENGER));
         }

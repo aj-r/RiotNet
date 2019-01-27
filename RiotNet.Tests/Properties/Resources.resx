@@ -299,8 +299,8 @@
          "inactive": true,
          "veteran": true,
          "losses": 11,
-         "playerOrTeamName": "ApeX R Gaming",
-         "playerOrTeamId": "TEAM-a77c7a20-7f0e-11e4-8c36-c81f66dd45c9",
+         "summonerName": "ApeX R Gaming",
+         "summonerId": "TEAM-a77c7a20-7f0e-11e4-8c36-c81f66dd45c9",
          "wins": 36,
          "miniSeries": {
            "losses": 2,
