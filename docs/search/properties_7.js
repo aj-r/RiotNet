@@ -2,8 +2,6 @@ var searchData=
 [
   ['h',['H',['../class_riot_net_1_1_models_1_1_alt_image.html#ae48e2c565a4750d83dbe19a47ac3f2c4',1,'RiotNet.Models.AltImage.H()'],['../class_riot_net_1_1_models_1_1_image.html#a512174eb3f666764610dcf9c5a108438',1,'RiotNet.Models.Image.H()']]],
   ['hasrules',['HasRules',['../interface_riot_net_1_1_i_rate_limiter.html#a159214d70b3969d652f4fff0aa5f41c4',1,'RiotNet::IRateLimiter']]],
-  ['header',['Header',['../class_riot_net_1_1_models_1_1_static_item_tree.html#a1b73e73be40598ab418d02c67874829b',1,'RiotNet::Models::StaticItemTree']]],
-  ['hidefromall',['HideFromAll',['../class_riot_net_1_1_models_1_1_static_item.html#aa10d7fb9e61fbf7659fe1586fa5d93cb',1,'RiotNet::Models::StaticItem']]],
   ['highestachievedseasontier',['HighestAchievedSeasonTier',['../class_riot_net_1_1_models_1_1_match_participant.html#a86d93cc255a33be6ec29c2cd406e9d57',1,'RiotNet::Models::MatchParticipant']]],
   ['hostname',['Hostname',['../class_riot_net_1_1_models_1_1_shard_status.html#a704a78a8552fcd664c62a340d203609f',1,'RiotNet::Models::ShardStatus']]],
   ['hotstreak',['HotStreak',['../class_riot_net_1_1_models_1_1_league_item.html#a50248079d33aad9b831c41116cf70b3f',1,'RiotNet::Models::LeagueItem']]],

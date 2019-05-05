@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['ferocity',['Ferocity',['../class_riot_net_1_1_models_1_1_static_mastery_tree.html#ab54bd99205f1c267e8268a4d2995225e',1,'RiotNet::Models::StaticMasteryTree']]],
   ['firstbaron',['FirstBaron',['../class_riot_net_1_1_models_1_1_match_team.html#a18a3fbf909d601e7b994590dd726acc2',1,'RiotNet::Models::MatchTeam']]],
   ['firstblood',['FirstBlood',['../class_riot_net_1_1_models_1_1_match_team.html#a55be7493c5e3422b87297d23db5778b6',1,'RiotNet::Models::MatchTeam']]],
   ['firstbloodassist',['FirstBloodAssist',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#a21d16f18cfd931043dc90cf63bff70c1',1,'RiotNet::Models::MatchParticipantStats']]],
@@ -51,11 +50,9 @@ var searchData=
   ['flatspellblockmodperlevel',['FlatSpellBlockModPerLevel',['../class_riot_net_1_1_models_1_1_rune_data_stats.html#ae2f3fcef2791bfc15bbcbc84a8b98516',1,'RiotNet::Models::RuneDataStats']]],
   ['flattimedeadmod',['FlatTimeDeadMod',['../class_riot_net_1_1_models_1_1_rune_data_stats.html#a63290ac69f8cc17df3f000fd79c81ab4',1,'RiotNet::Models::RuneDataStats']]],
   ['flattimedeadmodperlevel',['FlatTimeDeadModPerLevel',['../class_riot_net_1_1_models_1_1_rune_data_stats.html#a13f6fede6f5c78a75d9d6a21cf7b943c',1,'RiotNet::Models::RuneDataStats']]],
-  ['format',['Format',['../class_riot_net_1_1_models_1_1_static_champion_list.html#a809f763a141ffe2998115900839b8ac6',1,'RiotNet::Models::StaticChampionList']]],
   ['frameinterval',['FrameInterval',['../class_riot_net_1_1_models_1_1_match_timeline.html#a87d5d6df308da220c8e735e0236b9800',1,'RiotNet::Models::MatchTimeline']]],
   ['frames',['Frames',['../class_riot_net_1_1_models_1_1_match_timeline.html#abe775d7dbacafb50aa86149000480579',1,'RiotNet::Models::MatchTimeline']]],
   ['freetoplay',['FreeToPlay',['../class_riot_net_1_1_models_1_1_champion.html#ac5d57ce49501a3eb9041e26517672c70',1,'RiotNet::Models::Champion']]],
   ['freshblood',['FreshBlood',['../class_riot_net_1_1_models_1_1_league_item.html#ad0eb62b33607bc2f28609d75ce08a11c',1,'RiotNet::Models::LeagueItem']]],
-  ['from',['From',['../class_riot_net_1_1_models_1_1_static_item.html#a9bda6ae3eee9811ea765db3f2ad7b048',1,'RiotNet::Models::StaticItem']]],
   ['full',['Full',['../class_riot_net_1_1_models_1_1_alt_image.html#a28b91562754fe71b277f30b70a318e95',1,'RiotNet.Models.AltImage.Full()'],['../class_riot_net_1_1_models_1_1_image.html#a7f06389bdba2d9e82cbf4a81e027d0de',1,'RiotNet.Models.Image.Full()']]]
 ];

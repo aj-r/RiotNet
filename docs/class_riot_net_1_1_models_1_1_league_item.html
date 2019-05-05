@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">7.1.0</span>
+   &#160;<span id="projectnumber">8.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -105,7 +105,8 @@ Inheritance diagram for RiotNet.Models.LeagueItem:</div>
  <div class="center">
   <img src="class_riot_net_1_1_models_1_1_league_item.png" usemap="#RiotNet.Models.LeagueItem_map" alt=""/>
   <map id="RiotNet.Models.LeagueItem_map" name="RiotNet.Models.LeagueItem_map">
-<area href="class_riot_net_1_1_models_1_1_league_position.html" title="Contains league participant information representing a summoner. Also contains information about the ..." alt="RiotNet.Models.LeaguePosition" shape="rect" coords="0,56,187,80"/>
+<area href="class_riot_net_1_1_models_1_1_league_entry.html" title="Contains a summoner&#39;s rank information. " alt="RiotNet.Models.LeagueEntry" shape="rect" coords="0,56,187,80"/>
+<area href="class_riot_net_1_1_models_1_1_league_position.html" title="Contains league participant information representing a summoner. Also contains information about the ..." alt="RiotNet.Models.LeaguePosition" shape="rect" coords="197,56,384,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -118,7 +119,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a3873baa439c56509a0eab5273e422428"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_league_item.html#a3873baa439c56509a0eab5273e422428">Rank</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a3873baa439c56509a0eab5273e422428"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets a Roman numeral representing the division that the participant is in.  <a href="#a3873baa439c56509a0eab5273e422428">More...</a><br /></td></tr>
+<tr class="memdesc:a3873baa439c56509a0eab5273e422428"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets a Roman numeral representing the division that the participant is in. This should equal one of the Division values.  <a href="#a3873baa439c56509a0eab5273e422428">More...</a><br /></td></tr>
 <tr class="separator:a3873baa439c56509a0eab5273e422428"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0eb62b33607bc2f28609d75ce08a11c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_league_item.html#ad0eb62b33607bc2f28609d75ce08a11c">FreshBlood</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:ad0eb62b33607bc2f28609d75ce08a11c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets whether the participant is fresh blood.  <a href="#ad0eb62b33607bc2f28609d75ce08a11c">More...</a><br /></td></tr>
@@ -141,12 +142,12 @@ Properties</h2></td></tr>
 <tr class="memitem:aa5f154e2406a619e434c9f61e0e820fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_riot_net_1_1_models_1_1_mini_series.html">MiniSeries</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_league_item.html#aa5f154e2406a619e434c9f61e0e820fb">MiniSeries</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:aa5f154e2406a619e434c9f61e0e820fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the promotion series for the participant, or null if the participant is not is a series.  <a href="#aa5f154e2406a619e434c9f61e0e820fb">More...</a><br /></td></tr>
 <tr class="separator:aa5f154e2406a619e434c9f61e0e820fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae09f96a53c478b9b71503ebc6a1ee37c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_league_item.html#ae09f96a53c478b9b71503ebc6a1ee37c">PlayerOrTeamId</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:ae09f96a53c478b9b71503ebc6a1ee37c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the participant's summoner ID in string format.  <a href="#ae09f96a53c478b9b71503ebc6a1ee37c">More...</a><br /></td></tr>
-<tr class="separator:ae09f96a53c478b9b71503ebc6a1ee37c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef6e8ef16e2c4d68ec2d9f014eb60675"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_league_item.html#aef6e8ef16e2c4d68ec2d9f014eb60675">PlayerOrTeamName</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:aef6e8ef16e2c4d68ec2d9f014eb60675"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the participant's name.  <a href="#aef6e8ef16e2c4d68ec2d9f014eb60675">More...</a><br /></td></tr>
-<tr class="separator:aef6e8ef16e2c4d68ec2d9f014eb60675"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a434439a296fed31403e949586b1db255"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_league_item.html#a434439a296fed31403e949586b1db255">SummonerId</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a434439a296fed31403e949586b1db255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the summoner's ID in string format.  <a href="#a434439a296fed31403e949586b1db255">More...</a><br /></td></tr>
+<tr class="separator:a434439a296fed31403e949586b1db255"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a561155339a9fe7fbcd166e3f30d9e633"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_league_item.html#a561155339a9fe7fbcd166e3f30d9e633">SummonerName</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a561155339a9fe7fbcd166e3f30d9e633"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the summoner's name. NOTE: this value will not be set by GetLeagueEntriesAsync() or GetLeagueEntriesBySummonerIdAsync().  <a href="#a561155339a9fe7fbcd166e3f30d9e633">More...</a><br /></td></tr>
+<tr class="separator:a561155339a9fe7fbcd166e3f30d9e633"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c5dc62ed0de5877cace1ee82ce107f8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_riot_net_1_1_models_1_1_league_item.html#a0c5dc62ed0de5877cace1ee82ce107f8">Wins</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a0c5dc62ed0de5877cace1ee82ce107f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the number of wins that the participant has.  <a href="#a0c5dc62ed0de5877cace1ee82ce107f8">More...</a><br /></td></tr>
 <tr class="separator:a0c5dc62ed0de5877cace1ee82ce107f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -312,50 +313,6 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae09f96a53c478b9b71503ebc6a1ee37c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string RiotNet.Models.LeagueItem.PlayerOrTeamId</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets or sets the participant's summoner ID in string format. </p>
-
-</div>
-</div>
-<a class="anchor" id="aef6e8ef16e2c4d68ec2d9f014eb60675"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string RiotNet.Models.LeagueItem.PlayerOrTeamName</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets or sets the participant's name. </p>
-
-</div>
-</div>
 <a class="anchor" id="a3873baa439c56509a0eab5273e422428"></a>
 <div class="memitem">
 <div class="memproto">
@@ -374,7 +331,51 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets or sets a Roman numeral representing the division that the participant is in. </p>
+<p>Gets or sets a Roman numeral representing the division that the participant is in. This should equal one of the Division values. </p>
+
+</div>
+</div>
+<a class="anchor" id="a434439a296fed31403e949586b1db255"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string RiotNet.Models.LeagueItem.SummonerId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets the summoner's ID in string format. </p>
+
+</div>
+</div>
+<a class="anchor" id="a561155339a9fe7fbcd166e3f30d9e633"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string RiotNet.Models.LeagueItem.SummonerName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets the summoner's name. NOTE: this value will not be set by GetLeagueEntriesAsync() or GetLeagueEntriesBySummonerIdAsync(). </p>
 
 </div>
 </div>

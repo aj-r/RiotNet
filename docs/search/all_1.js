@@ -13,7 +13,6 @@ var searchData=
   ['block',['Block',['../class_riot_net_1_1_models_1_1_block.html',1,'RiotNet::Models']]],
   ['blockitem',['BlockItem',['../class_riot_net_1_1_models_1_1_block_item.html',1,'RiotNet::Models']]],
   ['blocks',['Blocks',['../class_riot_net_1_1_models_1_1_recommended.html#afdbbc4ab38fe6cd644e3550e27cab404',1,'RiotNet::Models::Recommended']]],
-  ['blurb',['Blurb',['../class_riot_net_1_1_models_1_1_static_champion.html#ac2162481e7d0b4f368a5e024b3a3f851',1,'RiotNet::Models::StaticChampion']]],
   ['bot',['Bot',['../class_riot_net_1_1_models_1_1_participant.html#ad175e21b3ea228806e8ca9b708c8d427',1,'RiotNet::Models::Participant']]],
   ['bot_5f5x5',['BOT_5x5',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35a0c4b79fe447b18767927968cc6999eb0',1,'RiotNet::Models']]],
   ['bot_5f5x5_5fbeginner',['BOT_5x5_BEGINNER',['../namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35ad085eba1a0d4ac38a353d0070adb823c',1,'RiotNet::Models']]],

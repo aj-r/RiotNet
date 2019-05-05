@@ -1,19 +1,12 @@
 var searchData=
 [
-  ['range',['Range',['../class_riot_net_1_1_models_1_1_static_spell.html#af8802cd31c94c16468352825ed654c52',1,'RiotNet::Models::StaticSpell']]],
-  ['rangeburn',['RangeBurn',['../class_riot_net_1_1_models_1_1_static_spell.html#acd413cc8f731092b819ecfc8df1b97f9',1,'RiotNet::Models::StaticSpell']]],
   ['rank',['Rank',['../class_riot_net_1_1_models_1_1_league_item.html#a3873baa439c56509a0eab5273e422428',1,'RiotNet.Models.LeagueItem.Rank()'],['../class_riot_net_1_1_models_1_1_mastery.html#a95cc447d99f518f254a6d9493dc7a138',1,'RiotNet.Models.Mastery.Rank()'],['../class_riot_net_1_1_models_1_1_rune.html#a9125911183bd6ea76606dbff6e75ce9c',1,'RiotNet.Models.Rune.Rank()']]],
   ['rankedplayenabled',['RankedPlayEnabled',['../class_riot_net_1_1_models_1_1_champion.html#a67d653e8c1d41b5d65bd5f797721691b',1,'RiotNet::Models::Champion']]],
-  ['ranks',['Ranks',['../class_riot_net_1_1_models_1_1_static_mastery.html#a183c0d51967f4b5dbf1be971c0c95245',1,'RiotNet::Models::StaticMastery']]],
   ['rankswith',['RanksWith',['../class_riot_net_1_1_models_1_1_spell_vars.html#a4faf2d7c95dafb81891e10c2201e7c49',1,'RiotNet::Models::SpellVars']]],
   ['ratelimiter',['RateLimiter',['../class_riot_net_1_1_riot_client.html#a14d976bf97d54d26495fef425189f029',1,'RiotNet::RiotClient']]],
   ['recmath',['RecMath',['../class_riot_net_1_1_models_1_1_block.html#a38962f234a9cf1c471ec9af096361b61',1,'RiotNet::Models::Block']]],
-  ['recommended',['Recommended',['../class_riot_net_1_1_models_1_1_static_champion.html#a5396341dfd1f6311ca529e7c830f240c',1,'RiotNet::Models::StaticChampion']]],
   ['region',['Region',['../class_riot_net_1_1_models_1_1_tournament_code.html#af186218a32a4bb72b183a90853902a07',1,'RiotNet::Models::TournamentCode']]],
   ['regiontag',['RegionTag',['../class_riot_net_1_1_models_1_1_shard_status.html#a7c33a75cea16a48cc70e831e619a8a24',1,'RiotNet::Models::ShardStatus']]],
-  ['requiredchampion',['RequiredChampion',['../class_riot_net_1_1_models_1_1_static_item.html#a83176e5770b5a637ac2d729b814895fa',1,'RiotNet::Models::StaticItem']]],
-  ['resolve',['Resolve',['../class_riot_net_1_1_models_1_1_static_mastery_tree.html#a0ec8cb364692c98ef27fa573a9651cad',1,'RiotNet::Models::StaticMasteryTree']]],
-  ['resource',['Resource',['../class_riot_net_1_1_models_1_1_static_spell.html#a43ae0ea789e8842e6ee2602382146203',1,'RiotNet::Models::StaticSpell']]],
   ['response',['Response',['../class_riot_net_1_1_response_event_args.html#a2188b7e46fb2b5120918e32d2ff50d10',1,'RiotNet.ResponseEventArgs.Response()'],['../class_riot_net_1_1_rest_exception.html#ae6449de9cdbf316a18cb872b5c74c336',1,'RiotNet.RestException.Response()'],['../class_riot_net_1_1_riot_response.html#a04d56d617d5994734ed00022741d545b',1,'RiotNet.RiotResponse.Response()']]],
   ['retry',['Retry',['../class_riot_net_1_1_retry_event_args.html#a9dc739c7705e1b033ad467140b62eec5',1,'RiotNet::RetryEventArgs']]],
   ['retryonconnectionfailure',['RetryOnConnectionFailure',['../class_riot_net_1_1_riot_client_settings.html#a1cca77336a702c0ff0d4c18d802e18e5',1,'RiotNet::RiotClientSettings']]],
@@ -23,7 +16,5 @@ var searchData=
   ['revisiondate',['RevisionDate',['../class_riot_net_1_1_models_1_1_summoner.html#a01f1951cd172ed83d5ec1bdc8edcc13d',1,'RiotNet::Models::Summoner']]],
   ['riftheraldkills',['RiftHeraldKills',['../class_riot_net_1_1_models_1_1_match_team.html#a66a9b09f6f0e7f04344ed6bdd3cf6c9f',1,'RiotNet::Models::MatchTeam']]],
   ['role',['Role',['../class_riot_net_1_1_models_1_1_match_participant_timeline.html#a0c7df3d4f2c7ae12f5a97d34164352ff',1,'RiotNet.Models.MatchParticipantTimeline.Role()'],['../class_riot_net_1_1_models_1_1_match_reference.html#a7bc819cbdb622923dbdb72211fafbc95',1,'RiotNet.Models.MatchReference.Role()']]],
-  ['rune',['Rune',['../class_riot_net_1_1_models_1_1_static_rune.html#aa00a8af82a0163ddb701984822afc159',1,'RiotNet::Models::StaticRune']]],
-  ['runeid',['RuneId',['../class_riot_net_1_1_models_1_1_rune.html#a079518c110817d1bcf84b0af24d77d03',1,'RiotNet::Models::Rune']]],
-  ['runes',['Runes',['../class_riot_net_1_1_models_1_1_match_participant.html#a96f85d306a19c33f84b62a1dee1c0995',1,'RiotNet::Models::MatchParticipant']]]
+  ['runeid',['RuneId',['../class_riot_net_1_1_models_1_1_rune.html#a079518c110817d1bcf84b0af24d77d03',1,'RiotNet::Models::Rune']]]
 ];

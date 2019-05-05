@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RiotNet
-   &#160;<span id="projectnumber">7.1.0</span>
+   &#160;<span id="projectnumber">8.0.0</span>
    </div>
    <div id="projectbrief">A C#/.NET client for the Riot Games API.</div>
   </td>
@@ -130,12 +130,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af2b02d3096e80fb86e8f64f08e4345aa"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_league_list.html">LeagueList</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#af2b02d3096e80fb86e8f64f08e4345aa">GetLeagueByIdAsync</a> (string leagueId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:af2b02d3096e80fb86e8f64f08e4345aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID. This method uses the League API.  <a href="#af2b02d3096e80fb86e8f64f08e4345aa">More...</a><br /></td></tr>
 <tr class="separator:af2b02d3096e80fb86e8f64f08e4345aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94177bc2af84c4883de4612b4acc6571"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="class_riot_net_1_1_models_1_1_league_list.html">LeagueList</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a94177bc2af84c4883de4612b4acc6571">GetLeaguesBySummonerIdAsync</a> (long summonerId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:a94177bc2af84c4883de4612b4acc6571"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID. This method uses the League API.  <a href="#a94177bc2af84c4883de4612b4acc6571">More...</a><br /></td></tr>
-<tr class="separator:a94177bc2af84c4883de4612b4acc6571"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dbc9661db08ceb3094fb059edc8e4f4"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="class_riot_net_1_1_models_1_1_league_position.html">LeaguePosition</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a6dbc9661db08ceb3094fb059edc8e4f4">GetLeaguePositionsBySummonerIdAsync</a> (string summonerId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a6dbc9661db08ceb3094fb059edc8e4f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get league positions in all queues for a given summoner ID. This method uses the League API.  <a href="#a6dbc9661db08ceb3094fb059edc8e4f4">More...</a><br /></td></tr>
 <tr class="separator:a6dbc9661db08ceb3094fb059edc8e4f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51f09d6290f37f0a87bf02dd9a8d6bfb"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="class_riot_net_1_1_models_1_1_league_entry.html">LeagueEntry</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a51f09d6290f37f0a87bf02dd9a8d6bfb">GetLeagueEntriesBySummonerIdAsync</a> (string summonerId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
+<tr class="memdesc:a51f09d6290f37f0a87bf02dd9a8d6bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets league entries in all queues for a given summoner ID. This method uses the League API.  <a href="#a51f09d6290f37f0a87bf02dd9a8d6bfb">More...</a><br /></td></tr>
+<tr class="separator:a51f09d6290f37f0a87bf02dd9a8d6bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0339dfb380ba7aa3d397ec69de8995b6"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; <a class="el" href="class_riot_net_1_1_models_1_1_league_entry.html">LeagueEntry</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a0339dfb380ba7aa3d397ec69de8995b6">GetLeagueEntriesAsync</a> (string rankedQueueType, string tier, string division, long page=1, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
+<tr class="memdesc:a0339dfb380ba7aa3d397ec69de8995b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets league entries for all summoners in a particular divison. This method uses the League API.  <a href="#a0339dfb380ba7aa3d397ec69de8995b6">More...</a><br /></td></tr>
+<tr class="separator:a0339dfb380ba7aa3d397ec69de8995b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80e5ebf019a013713f453a7a426f5688"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_league_list.html">LeagueList</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a80e5ebf019a013713f453a7a426f5688">GetChallengerLeagueAsync</a> (string rankedQueueType, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a80e5ebf019a013713f453a7a426f5688"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the challenger league. This method uses the League API.  <a href="#a80e5ebf019a013713f453a7a426f5688">More...</a><br /></td></tr>
 <tr class="separator:a80e5ebf019a013713f453a7a426f5688"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,12 +154,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7a140ce409f6952d357428aff785b920"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_match_timeline.html">MatchTimeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a7a140ce409f6952d357428aff785b920">GetMatchTimelineAsync</a> (long matchId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a7a140ce409f6952d357428aff785b920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the timeline of a match. This method uses the Match API.  <a href="#a7a140ce409f6952d357428aff785b920">More...</a><br /></td></tr>
 <tr class="separator:a7a140ce409f6952d357428aff785b920"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d154658980f29ffbdab16159b4e931e"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_match_list.html">MatchList</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a9d154658980f29ffbdab16159b4e931e">GetMatchListByAccountIdAsync</a> (string summonerId, IEnumerable&lt; long &gt; championIds=null, IEnumerable&lt; <a class="el" href="namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35">QueueType</a> &gt; rankedQueues=null, IEnumerable&lt; <a class="el" href="namespace_riot_net_1_1_models.html#a7081083073e41f3014b51d3c3c5d6903">Season</a> &gt; seasons=null, DateTime?beginTime=null, DateTime?endTime=null, int?beginIndex=null, int?endIndex=null, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:a9d154658980f29ffbdab16159b4e931e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the match list for a summoner. This method uses the Match API.  <a href="#a9d154658980f29ffbdab16159b4e931e">More...</a><br /></td></tr>
-<tr class="separator:a9d154658980f29ffbdab16159b4e931e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1fb0f909dacde7b04580cb388aad493"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_match_list.html">MatchList</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#ac1fb0f909dacde7b04580cb388aad493">GetRecentMatchListByAccountIdAsync</a> (long accountId, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:ac1fb0f909dacde7b04580cb388aad493"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the recent match list for an account. This method uses the Match API.  <a href="#ac1fb0f909dacde7b04580cb388aad493">More...</a><br /></td></tr>
-<tr class="separator:ac1fb0f909dacde7b04580cb388aad493"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4fd10051b1d1708ae2d4d61fe9637b0"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_match_list.html">MatchList</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#aa4fd10051b1d1708ae2d4d61fe9637b0">GetMatchListByAccountIdAsync</a> (string accountId, IEnumerable&lt; long &gt; championIds=null, IEnumerable&lt; <a class="el" href="namespace_riot_net_1_1_models.html#a86e6f8791d62c896a7fd0a1647dd2c35">QueueType</a> &gt; rankedQueues=null, IEnumerable&lt; <a class="el" href="namespace_riot_net_1_1_models.html#a7081083073e41f3014b51d3c3c5d6903">Season</a> &gt; seasons=null, DateTime?beginTime=null, DateTime?endTime=null, int?beginIndex=null, int?endIndex=null, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
+<tr class="memdesc:aa4fd10051b1d1708ae2d4d61fe9637b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the match list for a summoner. This method uses the Match API.  <a href="#aa4fd10051b1d1708ae2d4d61fe9637b0">More...</a><br /></td></tr>
+<tr class="separator:aa4fd10051b1d1708ae2d4d61fe9637b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81fc6f09f3c55fdfa9a80a6e524206c1"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; long &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a81fc6f09f3c55fdfa9a80a6e524206c1">GetMatchIdsByTournamentCodeAsync</a> (string tournamentCode, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a81fc6f09f3c55fdfa9a80a6e524206c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the list of match IDs for a tournament code. This method uses the Match API. This endpoint is only accessible if you have a tournament API key.  <a href="#a81fc6f09f3c55fdfa9a80a6e524206c1">More...</a><br /></td></tr>
 <tr class="separator:a81fc6f09f3c55fdfa9a80a6e524206c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -169,54 +169,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a41baf03133f90163b583ab41d8a0d061"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_featured_games.html">FeaturedGames</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a41baf03133f90163b583ab41d8a0d061">GetFeaturedGamesAsync</a> (string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a41baf03133f90163b583ab41d8a0d061"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the games currently featured in the League of Legends client. This method uses the Spectator API.  <a href="#a41baf03133f90163b583ab41d8a0d061">More...</a><br /></td></tr>
 <tr class="separator:a41baf03133f90163b583ab41d8a0d061"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07ca33abafee7d9319b6d8c0f70d99aa"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_static_champion_list.html">StaticChampionList</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a07ca33abafee7d9319b6d8c0f70d99aa">GetStaticChampionsAsync</a> (string locale=null, string version=null, bool dataById=false, IEnumerable&lt; string &gt; tags=null, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:a07ca33abafee7d9319b6d8c0f70d99aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details for all champions. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.  <a href="#a07ca33abafee7d9319b6d8c0f70d99aa">More...</a><br /></td></tr>
-<tr class="separator:a07ca33abafee7d9319b6d8c0f70d99aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f976778b7090e8f797134ef7f10a30b"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_static_champion.html">StaticChampion</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a1f976778b7090e8f797134ef7f10a30b">GetStaticChampionByIdAsync</a> (int id, string locale=null, string version=null, IEnumerable&lt; string &gt; tags=null, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:a1f976778b7090e8f797134ef7f10a30b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets champion details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.  <a href="#a1f976778b7090e8f797134ef7f10a30b">More...</a><br /></td></tr>
-<tr class="separator:a1f976778b7090e8f797134ef7f10a30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0e0fa86db156b756d51f7297f653ac3"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_static_item_list.html">StaticItemList</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#aa0e0fa86db156b756d51f7297f653ac3">GetStaticItemsAsync</a> (string locale=null, string version=null, IEnumerable&lt; string &gt; tags=null, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:aa0e0fa86db156b756d51f7297f653ac3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a list of all available items. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.  <a href="#aa0e0fa86db156b756d51f7297f653ac3">More...</a><br /></td></tr>
-<tr class="separator:aa0e0fa86db156b756d51f7297f653ac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbb48805800cb68ed676e7cf0d958c35"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_static_item.html">StaticItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#afbb48805800cb68ed676e7cf0d958c35">GetStaticItemAsync</a> (int id, string locale=null, string version=null, IEnumerable&lt; string &gt; tags=null, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:afbb48805800cb68ed676e7cf0d958c35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an item by its ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.  <a href="#afbb48805800cb68ed676e7cf0d958c35">More...</a><br /></td></tr>
-<tr class="separator:afbb48805800cb68ed676e7cf0d958c35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa135a8adc157447141b42ed94195e44b"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#aa135a8adc157447141b42ed94195e44b">GetStaticLanguagesAsync</a> (string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:aa135a8adc157447141b42ed94195e44b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a list of available languages. This method uses the LoL Static Data API.  <a href="#aa135a8adc157447141b42ed94195e44b">More...</a><br /></td></tr>
-<tr class="separator:aa135a8adc157447141b42ed94195e44b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5d9ebda0ac60dae27b7a4350124fc21"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_static_lanuage_strings.html">StaticLanuageStrings</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#ac5d9ebda0ac60dae27b7a4350124fc21">GetStaticLanguageStringsAsync</a> (string locale=null, string version=null, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:ac5d9ebda0ac60dae27b7a4350124fc21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a list of available language strings. This method uses the LoL Static Data API.  <a href="#ac5d9ebda0ac60dae27b7a4350124fc21">More...</a><br /></td></tr>
-<tr class="separator:ac5d9ebda0ac60dae27b7a4350124fc21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c6e9e47ba27df121089e75d03cd20ba"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_static_map_list.html">StaticMapList</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a4c6e9e47ba27df121089e75d03cd20ba">GetStaticMapsAsync</a> (string locale=null, string version=null, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:a4c6e9e47ba27df121089e75d03cd20ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a list of all maps. This method uses the LoL Static Data API.  <a href="#a4c6e9e47ba27df121089e75d03cd20ba">More...</a><br /></td></tr>
-<tr class="separator:a4c6e9e47ba27df121089e75d03cd20ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa602dd0dcc130aedfa4368fff14b776d"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_static_mastery_list.html">StaticMasteryList</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#aa602dd0dcc130aedfa4368fff14b776d">GetStaticMasteriesAsync</a> (string locale=null, string version=null, IEnumerable&lt; string &gt; tags=null, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:aa602dd0dcc130aedfa4368fff14b776d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details for all masteries. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.  <a href="#aa602dd0dcc130aedfa4368fff14b776d">More...</a><br /></td></tr>
-<tr class="separator:aa602dd0dcc130aedfa4368fff14b776d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2930d29e7876b505fdfc597b02c331b"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_static_mastery.html">StaticMastery</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#ab2930d29e7876b505fdfc597b02c331b">GetStaticMasteryByIdAsync</a> (int id, string locale=null, string version=null, IEnumerable&lt; string &gt; tags=null, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:ab2930d29e7876b505fdfc597b02c331b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets mastery details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.  <a href="#ab2930d29e7876b505fdfc597b02c331b">More...</a><br /></td></tr>
-<tr class="separator:ab2930d29e7876b505fdfc597b02c331b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4ed8d2f6bce4e197d5266f055598e8d"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_static_profile_icon_data.html">StaticProfileIconData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#aa4ed8d2f6bce4e197d5266f055598e8d">GetStaticProfileIconsAsync</a> (string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:aa4ed8d2f6bce4e197d5266f055598e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the profile icon data. This method uses the LoL Static Data API.  <a href="#aa4ed8d2f6bce4e197d5266f055598e8d">More...</a><br /></td></tr>
-<tr class="separator:aa4ed8d2f6bce4e197d5266f055598e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf31deef22691ce2ab48c4a1daea6522"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_static_realm.html">StaticRealm</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#aaf31deef22691ce2ab48c4a1daea6522">GetStaticRealmAsync</a> (string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:aaf31deef22691ce2ab48c4a1daea6522"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the realm data. This method uses the LoL Static Data API.  <a href="#aaf31deef22691ce2ab48c4a1daea6522">More...</a><br /></td></tr>
-<tr class="separator:aaf31deef22691ce2ab48c4a1daea6522"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c23a344536fca760541ea809a9f329b"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_static_rune_list.html">StaticRuneList</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a7c23a344536fca760541ea809a9f329b">GetStaticRunesAsync</a> (string locale=null, string version=null, IEnumerable&lt; string &gt; tags=null, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:a7c23a344536fca760541ea809a9f329b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a list of all available runes. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.  <a href="#a7c23a344536fca760541ea809a9f329b">More...</a><br /></td></tr>
-<tr class="separator:a7c23a344536fca760541ea809a9f329b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c5aa4142e03093fe92d6a1e19c7e627"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_static_rune.html">StaticRune</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a8c5aa4142e03093fe92d6a1e19c7e627">GetStaticRuneByIdAsync</a> (int id, string locale=null, string version=null, IEnumerable&lt; string &gt; tags=null, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:a8c5aa4142e03093fe92d6a1e19c7e627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a rune by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.  <a href="#a8c5aa4142e03093fe92d6a1e19c7e627">More...</a><br /></td></tr>
-<tr class="separator:a8c5aa4142e03093fe92d6a1e19c7e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2396777e2347d77e4e7c26f80dd7b484"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_static_summoner_spell_list.html">StaticSummonerSpellList</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a2396777e2347d77e4e7c26f80dd7b484">GetStaticSummonerSpellsAsync</a> (string locale=null, string version=null, bool dataById=false, IEnumerable&lt; string &gt; tags=null, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:a2396777e2347d77e4e7c26f80dd7b484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the details for all summoner spells. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.  <a href="#a2396777e2347d77e4e7c26f80dd7b484">More...</a><br /></td></tr>
-<tr class="separator:a2396777e2347d77e4e7c26f80dd7b484"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29138ff4752a8f2dca162e5ccc9c2a12"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_static_summoner_spell.html">StaticSummonerSpell</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a29138ff4752a8f2dca162e5ccc9c2a12">GetStaticSummonerSpellByIdAsync</a> (int id, string locale=null, string version=null, IEnumerable&lt; string &gt; tags=null, string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:a29138ff4752a8f2dca162e5ccc9c2a12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets summoner spell details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want.  <a href="#a29138ff4752a8f2dca162e5ccc9c2a12">More...</a><br /></td></tr>
-<tr class="separator:a29138ff4752a8f2dca162e5ccc9c2a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a029f5c4a54427648aa70be389a82bd62"><td class="memItemLeft" align="right" valign="top">Task&lt; List&lt; string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a029f5c4a54427648aa70be389a82bd62">GetVersionsAsync</a> (string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
-<tr class="memdesc:a029f5c4a54427648aa70be389a82bd62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the list of available game versions. This method uses the LoL Static Data API.  <a href="#a029f5c4a54427648aa70be389a82bd62">More...</a><br /></td></tr>
-<tr class="separator:a029f5c4a54427648aa70be389a82bd62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c8858d5226a492e30aadac465c3c425"><td class="memItemLeft" align="right" valign="top">Task&lt; <a class="el" href="class_riot_net_1_1_models_1_1_shard_status.html">ShardStatus</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_riot_net_1_1_i_riot_client.html#a3c8858d5226a492e30aadac465c3c425">GetShardDataAsync</a> (string platformId=null, CancellationToken token=default(CancellationToken))</td></tr>
 <tr class="memdesc:a3c8858d5226a492e30aadac465c3c425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the data for the shard for the specified platform. This method uses the LoL Status API.  <a href="#a3c8858d5226a492e30aadac465c3c425">More...</a><br /></td></tr>
 <tr class="separator:a3c8858d5226a492e30aadac465c3c425"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1239,6 +1191,117 @@ Events</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a0339dfb380ba7aa3d397ec69de8995b6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;List&lt;<a class="el" href="class_riot_net_1_1_models_1_1_league_entry.html">LeagueEntry</a>&gt; &gt; RiotNet.IRiotClient.GetLeagueEntriesAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>rankedQueueType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>division</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>page</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken&#160;</td>
+          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets league entries for all summoners in a particular divison. This method uses the League API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rankedQueueType</td><td>The queue to search. This should equal one of the RankedQueue values.</td></tr>
+    <tr><td class="paramname">tier</td><td>The ranked tier. This should equal one of the Tier values. NOTE: must be diamond league or lower. Master+ is not supported.</td></tr>
+    <tr><td class="paramname">division</td><td>The ranked division. This should equal one of the Division values.</td></tr>
+    <tr><td class="paramname">page</td><td>The page number to retrieve. The default value is 1 (the first page).</td></tr>
+    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
+    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a0d0ac50c40dde274812d92fa3186f975">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a51f09d6290f37f0a87bf02dd9a8d6bfb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt;List&lt;<a class="el" href="class_riot_net_1_1_models_1_1_league_entry.html">LeagueEntry</a>&gt; &gt; RiotNet.IRiotClient.GetLeagueEntriesBySummonerIdAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>summonerId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken&#160;</td>
+          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets league entries in all queues for a given summoner ID. This method uses the League API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">summonerId</td><td>The summoner ID.</td></tr>
+    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
+    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#ad50a273dcc28ce7e86f15ed5e20913f3">RiotNet.RiotClient</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a6dbc9661db08ceb3094fb059edc8e4f4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1281,51 +1344,6 @@ Events</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#acd247d5437a289f295ecd3ee23dc3027">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a94177bc2af84c4883de4612b4acc6571"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;List&lt;<a class="el" href="class_riot_net_1_1_models_1_1_league_list.html">LeagueList</a>&gt; &gt; RiotNet.IRiotClient.GetLeaguesBySummonerIdAsync </td>
-          <td>(</td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>summonerId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets the full league information for all leagues that the summoners are in, including the leages for the teams they are on. Data is mapped by summoner ID. This method uses the League API. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">summonerId</td><td>The summoner ID.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a84c42083f3b3649c27733bfc016e0f98">RiotNet.RiotClient</a>.</p>
 
 </div>
 </div>
@@ -1516,7 +1534,7 @@ Events</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a9d154658980f29ffbdab16159b4e931e"></a>
+<a class="anchor" id="aa4fd10051b1d1708ae2d4d61fe9637b0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1524,7 +1542,7 @@ Events</h2></td></tr>
           <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_match_list.html">MatchList</a>&gt; RiotNet.IRiotClient.GetMatchListByAccountIdAsync </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>summonerId</em>, </td>
+          <td class="paramname"><em>accountId</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1591,7 +1609,7 @@ Events</h2></td></tr>
 <p>Gets the match list for a summoner. This method uses the Match API. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">summonerId</td><td>The summoner's summoner IDs.</td></tr>
+    <tr><td class="paramname">accountId</td><td>The summoner's account ID.</td></tr>
     <tr><td class="paramname">championIds</td><td>Only get games where the summoner played one of these champions.</td></tr>
     <tr><td class="paramname">rankedQueues</td><td>Only get games from these queues. You should only use ranked queues for this (QueueType.TEAM_BUILDER_RANKED_SOLO, QueueType.RANKED_FLEX_SR, QueueType.RANKED_FLEX_TT).</td></tr>
     <tr><td class="paramname">seasons</td><td>Only get games from these seasons.</td></tr>
@@ -1655,51 +1673,6 @@ Events</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac1fb0f909dacde7b04580cb388aad493"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_match_list.html">MatchList</a>&gt; RiotNet.IRiotClient.GetRecentMatchListByAccountIdAsync </td>
-          <td>(</td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>accountId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets the recent match list for an account. This method uses the Match API. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">accountId</td><td>The account ID.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#af6faf91cafbca207cb6645b8777264a1">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a3c8858d5226a492e30aadac465c3c425"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1735,878 +1708,6 @@ Events</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#adce6cfdb4e1b184f78d4e47946744fdc">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1f976778b7090e8f797134ef7f10a30b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_static_champion.html">StaticChampion</a>&gt; RiotNet.IRiotClient.GetStaticChampionByIdAsync </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>locale</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>version</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IEnumerable&lt; string &gt;&#160;</td>
-          <td class="paramname"><em>tags</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets champion details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The champion ID.</td></tr>
-    <tr><td class="paramname">locale</td><td>Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used. This should equal one of the Locale values, or one of the values returned by IRiotClient.GetStaticLanguagesAsync(string, System.Threading.CancellationToken).</td></tr>
-    <tr><td class="paramname">version</td><td>The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a029f5c4a54427648aa70be389a82bd62" title="Gets the list of available game versions. This method uses the LoL Static Data API. ">GetVersionsAsync</a>.</td></tr>
-    <tr><td class="paramname">tags</td><td>Tags to return additional data. Valid tags are any property of the StaticChampion object. Only id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a54dfb207816a9ee1c6b16a7319e502d1">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a07ca33abafee7d9319b6d8c0f70d99aa"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_static_champion_list.html">StaticChampionList</a>&gt; RiotNet.IRiotClient.GetStaticChampionsAsync </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>locale</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>version</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>dataById</em> = <code>false</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IEnumerable&lt; string &gt;&#160;</td>
-          <td class="paramname"><em>tags</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets the details for all champions. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">locale</td><td>Locale code for returned data. If not specified, the default locale for the region is used. This should equal one of the Locale values, or one of the values returned by IRiotClient.GetStaticLanguagesAsync(string, System.Threading.CancellationToken).</td></tr>
-    <tr><td class="paramname">version</td><td>The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a029f5c4a54427648aa70be389a82bd62" title="Gets the list of available game versions. This method uses the LoL Static Data API. ">GetVersionsAsync</a>.</td></tr>
-    <tr><td class="paramname">dataById</td><td>If true, the returned data map will use the champions' IDs as the keys. If false, the returned data map will use the champions' keys instead.</td></tr>
-    <tr><td class="paramname">tags</td><td>Tags to return additional data. Valid tags are any property of the StaticChampion or StaticChampionList objects. Only type, version, data, id, name, key, and title are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a5aec5a9f1df52686994b10f990be26fe">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="afbb48805800cb68ed676e7cf0d958c35"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_static_item.html">StaticItem</a>&gt; RiotNet.IRiotClient.GetStaticItemAsync </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>locale</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>version</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IEnumerable&lt; string &gt;&#160;</td>
-          <td class="paramname"><em>tags</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets an item by its ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The item ID.</td></tr>
-    <tr><td class="paramname">locale</td><td>Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used. This should equal one of the Locale values, or one of the values returned by IRiotClient.GetStaticLanguagesAsync(string, System.Threading.CancellationToken).</td></tr>
-    <tr><td class="paramname">version</td><td>The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a029f5c4a54427648aa70be389a82bd62" title="Gets the list of available game versions. This method uses the LoL Static Data API. ">GetVersionsAsync</a>.</td></tr>
-    <tr><td class="paramname">tags</td><td>Tags to return additional data. Valid tags are any property of the StaticItem or StaticItemList objects. Only id, name, type, version, basic, data, plaintext, group, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a7760e96ccdecc91aa3e34e9f3cce0a01">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa0e0fa86db156b756d51f7297f653ac3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_static_item_list.html">StaticItemList</a>&gt; RiotNet.IRiotClient.GetStaticItemsAsync </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>locale</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>version</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IEnumerable&lt; string &gt;&#160;</td>
-          <td class="paramname"><em>tags</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets a list of all available items. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">locale</td><td>Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used. This should equal one of the Locale values, or one of the values returned by IRiotClient.GetStaticLanguagesAsync(string, System.Threading.CancellationToken).</td></tr>
-    <tr><td class="paramname">version</td><td>The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a029f5c4a54427648aa70be389a82bd62" title="Gets the list of available game versions. This method uses the LoL Static Data API. ">GetVersionsAsync</a>.</td></tr>
-    <tr><td class="paramname">tags</td><td>Tags to return additional data. Valid tags are any property of the StaticItem or StaticItemList objects. Only id, name, type, version, basic, data, plaintext, group, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a542bad15e67076c60529a472d07150c8">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa135a8adc157447141b42ed94195e44b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;List&lt;string&gt; &gt; RiotNet.IRiotClient.GetStaticLanguagesAsync </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets a list of available languages. This method uses the LoL Static Data API. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a08f6e5bc72368813e3fef6dae956021c">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac5d9ebda0ac60dae27b7a4350124fc21"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_static_lanuage_strings.html">StaticLanuageStrings</a>&gt; RiotNet.IRiotClient.GetStaticLanguageStringsAsync </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>locale</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>version</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets a list of available language strings. This method uses the LoL Static Data API. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">locale</td><td>Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used. This should equal one of the Locale values, or one of the values returned by IRiotClient.GetStaticLanguagesAsync(string, System.Threading.CancellationToken).</td></tr>
-    <tr><td class="paramname">version</td><td>The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a029f5c4a54427648aa70be389a82bd62" title="Gets the list of available game versions. This method uses the LoL Static Data API. ">GetVersionsAsync</a>.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#aec3dfea2d88db6c5d108774d30047a78">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4c6e9e47ba27df121089e75d03cd20ba"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_static_map_list.html">StaticMapList</a>&gt; RiotNet.IRiotClient.GetStaticMapsAsync </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>locale</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>version</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets a list of all maps. This method uses the LoL Static Data API. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">locale</td><td>Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used. This should equal one of the Locale values, or one of the values returned by IRiotClient.GetStaticLanguagesAsync(string, System.Threading.CancellationToken).</td></tr>
-    <tr><td class="paramname">version</td><td>The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a029f5c4a54427648aa70be389a82bd62" title="Gets the list of available game versions. This method uses the LoL Static Data API. ">GetVersionsAsync</a>.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a6ddb1820b66ed4bc5c4078c4fb408a12">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa602dd0dcc130aedfa4368fff14b776d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_static_mastery_list.html">StaticMasteryList</a>&gt; RiotNet.IRiotClient.GetStaticMasteriesAsync </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>locale</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>version</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IEnumerable&lt; string &gt;&#160;</td>
-          <td class="paramname"><em>tags</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets the details for all masteries. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">locale</td><td>Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used. This should equal one of the Locale values, or one of the values returned by IRiotClient.GetStaticLanguagesAsync(string, System.Threading.CancellationToken).</td></tr>
-    <tr><td class="paramname">version</td><td>The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a029f5c4a54427648aa70be389a82bd62" title="Gets the list of available game versions. This method uses the LoL Static Data API. ">GetVersionsAsync</a>.</td></tr>
-    <tr><td class="paramname">tags</td><td>Tags to return additional data. Valid tags are any property of the StaticMastery or StaticMasteryList objects. Only type, version, data, id, name, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a1370c70940a736f56bf56183696f4cf6">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab2930d29e7876b505fdfc597b02c331b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_static_mastery.html">StaticMastery</a>&gt; RiotNet.IRiotClient.GetStaticMasteryByIdAsync </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>locale</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>version</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IEnumerable&lt; string &gt;&#160;</td>
-          <td class="paramname"><em>tags</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets mastery details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The mastery ID.</td></tr>
-    <tr><td class="paramname">locale</td><td>Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used. This should equal one of the Locale values, or one of the values returned by IRiotClient.GetStaticLanguagesAsync(string, System.Threading.CancellationToken).</td></tr>
-    <tr><td class="paramname">version</td><td>The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a029f5c4a54427648aa70be389a82bd62" title="Gets the list of available game versions. This method uses the LoL Static Data API. ">GetVersionsAsync</a>.</td></tr>
-    <tr><td class="paramname">tags</td><td>Tags to return additional data. Valid tags are any property of the StaticMastery object. Only id, name, description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a98854856402728275d62d36813df1fc6">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa4ed8d2f6bce4e197d5266f055598e8d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_static_profile_icon_data.html">StaticProfileIconData</a>&gt; RiotNet.IRiotClient.GetStaticProfileIconsAsync </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets the profile icon data. This method uses the LoL Static Data API. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a04939856bd1a9976f0e3a4aece99f26f">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aaf31deef22691ce2ab48c4a1daea6522"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_static_realm.html">StaticRealm</a>&gt; RiotNet.IRiotClient.GetStaticRealmAsync </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets the realm data. This method uses the LoL Static Data API. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#ad4dd82f5501785ac70c96ea975473e73">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8c5aa4142e03093fe92d6a1e19c7e627"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_static_rune.html">StaticRune</a>&gt; RiotNet.IRiotClient.GetStaticRuneByIdAsync </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>locale</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>version</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IEnumerable&lt; string &gt;&#160;</td>
-          <td class="paramname"><em>tags</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets a rune by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The rune ID.</td></tr>
-    <tr><td class="paramname">locale</td><td>Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used. This should equal one of the Locale values, or one of the values returned by IRiotClient.GetStaticLanguagesAsync(string, System.Threading.CancellationToken).</td></tr>
-    <tr><td class="paramname">version</td><td>The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a029f5c4a54427648aa70be389a82bd62" title="Gets the list of available game versions. This method uses the LoL Static Data API. ">GetVersionsAsync</a>.</td></tr>
-    <tr><td class="paramname">tags</td><td>Tags to return additional data. Valid tags are any property of the StaticRune object. Only id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#af3d9085671aa5daa95311271de5ef5f1">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7c23a344536fca760541ea809a9f329b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_static_rune_list.html">StaticRuneList</a>&gt; RiotNet.IRiotClient.GetStaticRunesAsync </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>locale</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>version</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IEnumerable&lt; string &gt;&#160;</td>
-          <td class="paramname"><em>tags</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets a list of all available runes. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">locale</td><td>Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used. This should equal one of the Locale values, or one of the values returned by IRiotClient.GetStaticLanguagesAsync(string, System.Threading.CancellationToken).</td></tr>
-    <tr><td class="paramname">version</td><td>The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a029f5c4a54427648aa70be389a82bd62" title="Gets the list of available game versions. This method uses the LoL Static Data API. ">GetVersionsAsync</a>.</td></tr>
-    <tr><td class="paramname">tags</td><td>Tags to return additional data. Valid tags are any property of the StaticRune or StaticRuneList objects. Only type, version, data, id, name, rune, and description are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#a31ada458c80bfd6a55d41625e30a4b61">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a29138ff4752a8f2dca162e5ccc9c2a12"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_static_summoner_spell.html">StaticSummonerSpell</a>&gt; RiotNet.IRiotClient.GetStaticSummonerSpellByIdAsync </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>locale</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>version</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IEnumerable&lt; string &gt;&#160;</td>
-          <td class="paramname"><em>tags</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets summoner spell details by ID. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The summoner spell ID.</td></tr>
-    <tr><td class="paramname">locale</td><td>Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used. This should equal one of the Locale values, or one of the values returned by IRiotClient.GetStaticLanguagesAsync(string, System.Threading.CancellationToken).</td></tr>
-    <tr><td class="paramname">version</td><td>The game version for returned data. If not specified, the latest version for the region is used. A list of valid versions can be obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a029f5c4a54427648aa70be389a82bd62" title="Gets the list of available game versions. This method uses the LoL Static Data API. ">GetVersionsAsync</a>.</td></tr>
-    <tr><td class="paramname">tags</td><td>Tags to return additional data. Valid tags are any property of the StaticSummonerSpell object. Only id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#afe91aad29f6e3c274aab1eb5db2dd1f4">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2396777e2347d77e4e7c26f80dd7b484"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;<a class="el" href="class_riot_net_1_1_models_1_1_static_summoner_spell_list.html">StaticSummonerSpellList</a>&gt; RiotNet.IRiotClient.GetStaticSummonerSpellsAsync </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>locale</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>version</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>dataById</em> = <code>false</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IEnumerable&lt; string &gt;&#160;</td>
-          <td class="paramname"><em>tags</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets the details for all summoner spells. This method uses the LoL Static Data API. NOTE: Most properties are not returned by default! Use the tags parameter to specify which properties you want. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">locale</td><td>Locale code for returned data (e.g., en_US, es_ES). If not specified, the default locale for the region is used. This should equal one of the Locale values, or one of the values returned by IRiotClient.GetStaticLanguagesAsync(string, System.Threading.CancellationToken).</td></tr>
-    <tr><td class="paramname">version</td><td>The game version for returned data. If not specified, the latest version for the region is used. List of valid versions can be obtained from <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a029f5c4a54427648aa70be389a82bd62" title="Gets the list of available game versions. This method uses the LoL Static Data API. ">GetVersionsAsync</a>.</td></tr>
-    <tr><td class="paramname">dataById</td><td>If true, the returned data map will use the spells' IDs as the keys. If false, the returned data map will use the spells' keys instead.</td></tr>
-    <tr><td class="paramname">tags</td><td>Tags to return additional data. Valid tags are any property of the StaticSummonerSpell or StaticSummonerSpellList objects. Only type, version, data, id, key, name, description, and summonerLevel are returned by default if this parameter isn't specified. To return all additional data, use the tag 'all'.</td></tr>
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#ac70aa50f9f0e5cfb1b2ce947bedef0d5">RiotNet.RiotClient</a>.</p>
 
 </div>
 </div>
@@ -3002,45 +2103,6 @@ Events</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a029f5c4a54427648aa70be389a82bd62"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Task&lt;List&lt;string&gt; &gt; RiotNet.IRiotClient.GetVersionsAsync </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>platformId</em> = <code>null</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">CancellationToken&#160;</td>
-          <td class="paramname"><em>token</em> = <code>default(CancellationToken)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets the list of available game versions. This method uses the LoL Static Data API. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">platformId</td><td>The platform ID of the server to connect to. This should equal one of the Models.PlatformId values. If unspecified, the <a class="el" href="interface_riot_net_1_1_i_riot_client.html#a5cd816c231aa917317ef53a1f664bfbe" title="Gets the platform ID of the default server to connect to. This should equal one of the Models...">PlatformId</a> property will be used.</td></tr>
-    <tr><td class="paramname">token</td><td>The cancellation token to cancel the operation.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
-<p>Calls to this method will not count toward your API rate limit. </p>
-
-<p>Implemented in <a class="el" href="class_riot_net_1_1_riot_client.html#addc64bbd8ce8d87572174ba516116133">RiotNet.RiotClient</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="ae4772faf087a3fc8c7aecead3deb4e2b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -3400,7 +2462,6 @@ Events</h2></td></tr>
 <li>RiotClientLeague.cs</li>
 <li>RiotClientMatch.cs</li>
 <li>RiotClientSpectator.cs</li>
-<li>RiotClientStaticData.cs</li>
 <li>RiotClientStatus.cs</li>
 <li>RiotClientSummoner.cs</li>
 <li>RiotClientThirdPartyCode.cs</li>

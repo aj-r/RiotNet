@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['leagueentry',['LeagueEntry',['../class_riot_net_1_1_models_1_1_league_entry.html',1,'RiotNet::Models']]],
   ['leagueitem',['LeagueItem',['../class_riot_net_1_1_models_1_1_league_item.html',1,'RiotNet::Models']]],
   ['leaguelist',['LeagueList',['../class_riot_net_1_1_models_1_1_league_list.html',1,'RiotNet::Models']]],
   ['leagueposition',['LeaguePosition',['../class_riot_net_1_1_models_1_1_league_position.html',1,'RiotNet::Models']]],

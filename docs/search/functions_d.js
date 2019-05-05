@@ -1,13 +1,5 @@
 var searchData=
 [
-  ['sendasync',['SendAsync',['../class_riot_net_1_1_riot_client.html#a51149bcd0e20c2f9a83b114513d0bb1f',1,'RiotNet::RiotClient']]],
-  ['serializetostreamasync',['SerializeToStreamAsync',['../class_riot_net_1_1_json_content.html#aed2a40a4931a49f3cb434768a3305297',1,'RiotNet::JsonContent']]],
-  ['staticchampionlist',['StaticChampionList',['../class_riot_net_1_1_models_1_1_static_champion_list.html#a4dfa67bb7b0914125a04f6ac6e3cbe49',1,'RiotNet::Models::StaticChampionList']]],
-  ['staticitemlist',['StaticItemList',['../class_riot_net_1_1_models_1_1_static_item_list.html#ae8b001574efd5cb526cc94f775b59c36',1,'RiotNet::Models::StaticItemList']]],
-  ['staticlanuagestrings',['StaticLanuageStrings',['../class_riot_net_1_1_models_1_1_static_lanuage_strings.html#a8c32b25e2124c901cd2315ca5b3bc9f0',1,'RiotNet::Models::StaticLanuageStrings']]],
-  ['staticmaplist',['StaticMapList',['../class_riot_net_1_1_models_1_1_static_map_list.html#afce0a9b97df73ba7166ee09f7359aa3b',1,'RiotNet::Models::StaticMapList']]],
-  ['staticmasterylist',['StaticMasteryList',['../class_riot_net_1_1_models_1_1_static_mastery_list.html#a7083fdebcf4307fb8ac4459697dd34f0',1,'RiotNet::Models::StaticMasteryList']]],
-  ['staticprofileicondata',['StaticProfileIconData',['../class_riot_net_1_1_models_1_1_static_profile_icon_data.html#a2ce4dbb595d15b009c31bf512a6631a7',1,'RiotNet::Models::StaticProfileIconData']]],
-  ['staticrunelist',['StaticRuneList',['../class_riot_net_1_1_models_1_1_static_rune_list.html#ac66d5058bb6aa3dc8fff6a73fd87c7eb',1,'RiotNet::Models::StaticRuneList']]],
-  ['staticsummonerspelllist',['StaticSummonerSpellList',['../class_riot_net_1_1_models_1_1_static_summoner_spell_list.html#a8d344a13c5d3ddb57c65046edb91e7e0',1,'RiotNet::Models::StaticSummonerSpellList']]]
+  ['trycomputelength',['TryComputeLength',['../class_riot_net_1_1_json_content.html#abc2a750e1fb635827428422e382a6083',1,'RiotNet::JsonContent']]],
+  ['trysetrules',['TrySetRules',['../interface_riot_net_1_1_i_rate_limiter.html#aa1aad9705304a38ba72a80d7f0bc0a68',1,'RiotNet.IRateLimiter.TrySetRules(IEnumerable&lt; RateLimitRule &gt; rules, string platformId, IEnumerable&lt; RateLimitRule &gt; currentCounts=null)'],['../interface_riot_net_1_1_i_rate_limiter.html#a3dfe240e2b187a778c6a2997e4acf16b',1,'RiotNet.IRateLimiter.TrySetRules(IEnumerable&lt; RateLimitRule &gt; rules, string methodName, string platformId, IEnumerable&lt; RateLimitRule &gt; currentCounts=null)'],['../class_riot_net_1_1_rate_limiter.html#ab17c2d59349287a26148a73d0596c568',1,'RiotNet.RateLimiter.TrySetRules(IEnumerable&lt; RateLimitRule &gt; rules, string platformId=null, IEnumerable&lt; RateLimitRule &gt; currentCounts=null)'],['../class_riot_net_1_1_rate_limiter.html#a5b5174eec892afdea227f5d665c1cb52',1,'RiotNet.RateLimiter.TrySetRules(IEnumerable&lt; RateLimitRule &gt; rules, string methodName, string platformId, IEnumerable&lt; RateLimitRule &gt; currentCounts=null)']]]
 ];

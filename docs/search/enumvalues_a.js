@@ -6,5 +6,6 @@ var searchData=
   ['preseason2016',['PRESEASON2016',['../namespace_riot_net_1_1_models.html#a7081083073e41f3014b51d3c3c5d6903a74ab2e186b348ee91adab3b0c5de3acf',1,'RiotNet::Models']]],
   ['preseason2017',['PRESEASON2017',['../namespace_riot_net_1_1_models.html#a7081083073e41f3014b51d3c3c5d6903ab9701db755c84c16bd46581b26ef1128',1,'RiotNet::Models']]],
   ['preseason2018',['PRESEASON2018',['../namespace_riot_net_1_1_models.html#a7081083073e41f3014b51d3c3c5d6903ae7ee62981506b3bd2cf08a459f95ca14',1,'RiotNet::Models']]],
+  ['preseason2019',['PRESEASON2019',['../namespace_riot_net_1_1_models.html#a7081083073e41f3014b51d3c3c5d6903a64080589a9e6a105f5879c7b19912c7f',1,'RiotNet::Models']]],
   ['preseason3',['PRESEASON3',['../namespace_riot_net_1_1_models.html#a7081083073e41f3014b51d3c3c5d6903a2d1cdc47bf66cc2055cf995f0c4518d2',1,'RiotNet::Models']]]
 ];

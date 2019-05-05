@@ -11,10 +11,8 @@ var searchData=
   ['gamestarttime',['GameStartTime',['../class_riot_net_1_1_models_1_1_game_info_base.html#a2a7959f3119e84284aff048706847370',1,'RiotNet::Models::GameInfoBase']]],
   ['gametype',['GameType',['../class_riot_net_1_1_models_1_1_game_info_base.html#a7fc96fdcb669e107947dec1835fbf9a5',1,'RiotNet.Models.GameInfoBase.GameType()'],['../class_riot_net_1_1_models_1_1_match.html#a2e332a9227d9b31fb3886e585b47cfb7',1,'RiotNet.Models.Match.GameType()']]],
   ['gameversion',['GameVersion',['../class_riot_net_1_1_models_1_1_match.html#a0f612cc952bfa847ffbc9364ad97a3b1',1,'RiotNet::Models::Match']]],
-  ['gold',['Gold',['../class_riot_net_1_1_models_1_1_static_item.html#a80da11cff3b419a1daf26f130ad221c9',1,'RiotNet::Models::StaticItem']]],
   ['goldearned',['GoldEarned',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#a56f432baf707174cc2c3261f375e08e4',1,'RiotNet::Models::MatchParticipantStats']]],
   ['goldpermindeltas',['GoldPerMinDeltas',['../class_riot_net_1_1_models_1_1_match_participant_timeline.html#ab69e10c8cb0da36f187519ff2c16b5fc',1,'RiotNet::Models::MatchParticipantTimeline']]],
   ['goldspent',['GoldSpent',['../class_riot_net_1_1_models_1_1_match_participant_stats.html#ae8a8dddb04b11a3f53e2e2b12afcca11',1,'RiotNet::Models::MatchParticipantStats']]],
-  ['group',['Group',['../class_riot_net_1_1_models_1_1_alt_image.html#a9157dbf6e1c5c6a11db000c6e1a787b2',1,'RiotNet.Models.AltImage.Group()'],['../class_riot_net_1_1_models_1_1_image.html#aa2f9cb6cd27392c58025c69c03481469',1,'RiotNet.Models.Image.Group()'],['../class_riot_net_1_1_models_1_1_static_item.html#a0d6fe0370a6642f81161ee1026cc9737',1,'RiotNet.Models.StaticItem.Group()']]],
-  ['groups',['Groups',['../class_riot_net_1_1_models_1_1_static_item_list.html#acf72f453df46cb816865f5768455cfa1',1,'RiotNet::Models::StaticItemList']]]
+  ['group',['Group',['../class_riot_net_1_1_models_1_1_alt_image.html#a9157dbf6e1c5c6a11db000c6e1a787b2',1,'RiotNet.Models.AltImage.Group()'],['../class_riot_net_1_1_models_1_1_image.html#aa2f9cb6cd27392c58025c69c03481469',1,'RiotNet.Models.Image.Group()']]]
 ];
