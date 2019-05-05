@@ -725,6 +725,15 @@ namespace RiotNet.Models
         {
             return platformId == NA1 || platformId == "NA";
         }
+
+        /// <summary>
+        /// Standardizes a platform ID (Converts "NA" to "NA1").
+        /// </summary>
+        /// <param name="platformId">The platform ID.</param>
+        public static string Standardize(string platformId)
+        {
+            return platformId == "NA" ? NA1 : platformId;
+        }
     }
 
     /// <summary>
