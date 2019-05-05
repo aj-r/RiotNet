@@ -103,11 +103,11 @@ namespace RiotNet.Tests
             await Task.Delay(TimeSpan.FromMinutes(2)); // in case a previous test maxed out the limit
 
             RiotClient.RateLimiter = new RateLimiter();
-            RetryEventHandler onRateLimitExceeded = (o, e) =>
+            void onRateLimitExceeded(object o, RetryEventArgs e)
             {
                 if (e.Response != null)
                     Assert.Fail("Rate limit was exceeded! Proactive rate limiting failed.");
-            };
+            }
             IRiotClient client = new RiotClient();
             client.Settings.RetryOnRateLimitExceeded = true;
             client.RateLimitExceeded += onRateLimitExceeded;

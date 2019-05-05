@@ -359,14 +359,14 @@ namespace RiotNet
                     }
                 }
             }
-            Func<HttpRequestMessage> buildRequest = () =>
+            HttpRequestMessage buildRequest()
             {
                 var request = new HttpRequestMessage(method, resourceBuilder.ToString());
                 request.Headers.Add("X-Riot-Token", Settings.ApiKey);
                 if (body != null)
                     request.Content = new JsonContent(body);
                 return request;
-            };
+            }
             var methodName = method + " " + resourceName;
             var queryIndex = methodName.IndexOf('?');
             if (queryIndex > 0)
