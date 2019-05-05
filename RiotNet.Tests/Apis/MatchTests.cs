@@ -69,7 +69,7 @@ namespace RiotNet.Tests
             IRiotClient client = new RiotClient();
             IEnumerable<long> championIds = new[] { 19L, 107L }; // Warwick, Rengar
             IEnumerable<QueueType> rankedQueues = new[] { QueueType.TEAM_BUILDER_DRAFT_UNRANKED_5x5, QueueType.TEAM_BUILDER_RANKED_SOLO };
-            IEnumerable<Season> seasons = new[] { Season.PRESEASON2018, Season.SEASON2018 };
+            IEnumerable<Season> seasons = new[] { Season.PRESEASON2019, Season.SEASON2019 };
             MatchList matchList = await client.GetMatchListByAccountIdAsync(encryptedAccountId, championIds, rankedQueues, seasons);
 
             Assert.That(matchList, Is.Not.Null);
@@ -82,8 +82,6 @@ namespace RiotNet.Tests
                 Assert.That(matchList.Matches.Any(m => m.Champion == id), "Champion ID not found: " + id);
             foreach (var id in rankedQueues)
                 Assert.That(matchList.Matches.Any(m => m.Queue == id), "Queue ID not found: " + id);
-            foreach (var id in seasons.Except(new[] { Season.PRESEASON2018 }))
-                Assert.That(matchList.Matches.Any(m => m.Season == id), "Season ID not found: " + id);
         }
 
         [Test]

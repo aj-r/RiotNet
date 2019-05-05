@@ -31,18 +31,6 @@ namespace RiotNet.Models
         [Obsolete("Use BOT_5x5_BEGINNER (ID 830) or BOT_5x5_INTERMEDIATE (ID 840) instead")]
         BOT_5x5 = 7,
         /// <summary>
-        /// Normal 3v3
-        /// </summary>
-        NORMAL_3x3 = 460,
-        /// <summary>
-        /// Ranked Flex 3v3. This was formerly called <see cref="RANKED_PREMADE_3x3"/>.
-        /// </summary>
-        RANKED_FLEX_TT = 470,
-        /// <summary>
-        /// Ranked Flex 3v3. This is the old name for <see cref="RANKED_FLEX_TT"/>.
-        /// </summary>
-        RANKED_PREMADE_3x3 = 470,
-        /// <summary>
         /// Normal 5v5 Draft Pick
         /// </summary>
         [Obsolete("Use TEAM_BUILDER_DRAFT_UNRANKED_5x5 (ID 400) instead")]
@@ -63,18 +51,6 @@ namespace RiotNet.Models
         [Obsolete("This queue is deprecated")]
         BOT_ODIN_5x5 = 25,
         /// <summary>
-        /// Summoner's Rift Coop vs AI Intro Bot
-        /// </summary>
-        BOT_5x5_INTRO = 830,
-        /// <summary>
-        /// Summoner's Rift Coop vs AI Beginner Bot
-        /// </summary>
-        BOT_5x5_BEGINNER = 840,
-        /// <summary>
-        /// Summoner's Rift Coop vs AI Intermediate Bot
-        /// </summary>
-        BOT_5x5_INTERMEDIATE = 850,
-        /// <summary>
         /// Ranked Team 3v3
         /// </summary>
         [Obsolete("Use RANKED_FLEX_TT (ID 470) instead")]
@@ -85,33 +61,14 @@ namespace RiotNet.Models
         [Obsolete("Use RANKED_FLEX_SR (ID 440) instead")]
         RANKED_TEAM_5x5 = 42,
         /// <summary>
-        /// Twisted Treeline Coop vs AI (Intermediate bots)
-        /// </summary>
-        BOT_TT_3x3 = 800,
-        /// <summary>
-        /// Twisted Treeline Coop vs AI (Intermediate bots)
-        /// </summary>
-        BOT_TT_3x3_INTERMEDIATE = 800,
-        /// <summary>
-        /// Twisted Treeline Coop vs AI (Intro bots)
-        /// </summary>
-        BOT_TT_3x3_INTRO = 810,
-        /// <summary>
-        /// Twisted Treeline Coop vs AI (Beginner bots)
-        /// </summary>
-        BOT_TT_3x3_BEGINNER = 820,
-        /// <summary>
         /// Team Builder
         /// </summary>
         [Obsolete("This queue is deprecated")]
         GROUP_FINDER_5x5 = 61,
         /// <summary>
-        /// All Random All Mid
-        /// </summary>
-        ARAM_5x5 = 450,
-        /// <summary>
         /// One for All
         /// </summary>
+        [Obsolete("Use ONEFORALL (ID 1020) instead")]
         ONEFORALL_5x5 = 70,
         /// <summary>
         /// Snowdown Showdown 1v1
@@ -129,6 +86,10 @@ namespace RiotNet.Models
         /// Ultra Rapid Fire
         /// </summary>
         URF_5x5 = 76,
+        /// <summary>
+        /// One for all: mirror mode
+        /// </summary>
+        ONEFOREALL_MIRROR = 78,
         /// <summary>
         /// Ultra Rapid Fire games played against AI
         /// </summary>
@@ -175,10 +136,6 @@ namespace RiotNet.Models
         /// </summary>
         BILGEWATER_5x5 = 313,
         /// <summary>
-        /// Nexus Siege
-        /// </summary>
-        SIEGE = 940,
-        /// <summary>
         /// Definitely Not Dominion
         /// </summary>
         DEFINITELY_NOT_DOMINION_5x5 = 317,
@@ -213,6 +170,22 @@ namespace RiotNet.Models
         /// </summary>
         RANKED_FLEX_SR = 440,
         /// <summary>
+        /// All Random All Mid
+        /// </summary>
+        ARAM_5x5 = 450,
+        /// <summary>
+        /// Normal 3v3
+        /// </summary>
+        NORMAL_3x3 = 460,
+        /// <summary>
+        /// Ranked Flex 3v3. This was formerly called <see cref="RANKED_PREMADE_3x3"/>.
+        /// </summary>
+        RANKED_FLEX_TT = 470,
+        /// <summary>
+        /// Ranked Flex 3v3. This is the old name for <see cref="RANKED_FLEX_TT"/>.
+        /// </summary>
+        RANKED_PREMADE_3x3 = 470,
+        /// <summary>
         /// Blood Hunt Assassin
         /// </summary>
         ASSASSINATE_5x5 = 600,
@@ -224,6 +197,34 @@ namespace RiotNet.Models
         /// Summoner's Rift Clash Games
         /// </summary>
         CLASH = 700,
+        /// <summary>
+        /// Twisted Treeline Coop vs AI (Intermediate bots)
+        /// </summary>
+        BOT_TT_3x3 = 800,
+        /// <summary>
+        /// Twisted Treeline Coop vs AI (Intermediate bots)
+        /// </summary>
+        BOT_TT_3x3_INTERMEDIATE = 800,
+        /// <summary>
+        /// Twisted Treeline Coop vs AI (Intro bots)
+        /// </summary>
+        BOT_TT_3x3_INTRO = 810,
+        /// <summary>
+        /// Twisted Treeline Coop vs AI (Beginner bots)
+        /// </summary>
+        BOT_TT_3x3_BEGINNER = 820,
+        /// <summary>
+        /// Summoner's Rift Coop vs AI Intro Bot
+        /// </summary>
+        BOT_5x5_INTRO = 830,
+        /// <summary>
+        /// Summoner's Rift Coop vs AI Beginner Bot
+        /// </summary>
+        BOT_5x5_BEGINNER = 840,
+        /// <summary>
+        /// Summoner's Rift Coop vs AI Intermediate Bot
+        /// </summary>
+        BOT_5x5_INTERMEDIATE = 850,
         /// <summary>
         /// All random URF
         /// </summary>
@@ -240,6 +241,10 @@ namespace RiotNet.Models
         /// Nexus Siege
         /// </summary>
         NEXUS_SIEGE = 940,
+        /// <summary>
+        /// Nexus Siege
+        /// </summary>
+        SIEGE = 940,
         /// <summary>
         /// Doom Bots (voting)
         /// </summary>
@@ -264,6 +269,30 @@ namespace RiotNet.Models
         /// All random URF (snow)
         /// </summary>
         ARURF_SNOW = 1010,
+        /// <summary>
+        /// One for All
+        /// </summary>
+        ONEFORALL = 1020,
+        /// <summary>
+        /// Odyssey Extraction: Intro
+        /// </summary>
+        ODYSSEY_INTRO = 1030,
+        /// <summary>
+        /// Odyssey Extraction: Cadet
+        /// </summary>
+        ODYSSEY_CADET = 1040,
+        /// <summary>
+        /// Odyssey Extraction: Crewmember
+        /// </summary>
+        ODYSSEY_CREWMEMBER = 1050,
+        /// <summary>
+        /// Odyssey Extraction: Captain
+        /// </summary>
+        ODYSSEY_CAPTAIN = 1060,
+        /// <summary>
+        /// Odyssey Extraction: Onslaught
+        /// </summary>
+        ODYSSEY_ONSLAUGHT = 1070,
     }
 
     /// <summary>
@@ -319,6 +348,14 @@ namespace RiotNet.Models
         /// Season 8, 2018
         /// </summary>
         SEASON2018 = 11,
+        /// <summary>
+        /// Pre-season 9, 2019
+        /// </summary>
+        PRESEASON2019 = 12,
+        /// <summary>
+        /// Season 9, 2019
+        /// </summary>
+        SEASON2019 = 13,
     }
 
     /// <summary>

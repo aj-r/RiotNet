@@ -165,6 +165,14 @@ namespace RiotNet.Models
         /// PROJECT: Hunters
         /// </summary>
         public const string PROJECT = "PROJECT";
+        /// <summary>
+        /// Nexus blitz
+        /// </summary>
+        public const string GAMEMODEX = "GAMEMODEX";
+        /// <summary>
+        /// Odyssey: Extraction
+        /// </summary>
+        public const string ODYSSEY = "ODYSSEY";
     }
 
     /// <summary>
@@ -433,6 +441,14 @@ namespace RiotNet.Models
         /// Substructure 43 (PROJECT: Hunters)
         /// </summary>
         public const int SUBSTRUCTURE_43 = 19;
+        /// <summary>
+        /// Crash Site (Odyssey: Extraction)
+        /// </summary>
+        public const int CRASH_SITE = 20;
+        /// <summary>
+        /// Nexus Blitz
+        /// </summary>
+        public const int NEXUS_BLITZ = 21;
     }
 
     /// <summary>

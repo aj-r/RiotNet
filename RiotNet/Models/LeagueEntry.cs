@@ -7,7 +7,7 @@
     {
         /// <summary>
         /// Gets or sets the ID of the league.
-        /// NOTE: this value will not be set by GetLeagueEntriesAsync().
+        /// NOTE: this value will not be set by GetLeagueEntriesAsync(), but it may be set in the future.
         /// </summary>
         public string LeagueId { get; set; }
 
