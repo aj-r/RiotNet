@@ -30,7 +30,7 @@ namespace RiotNet.Models
         }
 
         /// <summary>
-        /// Gets or sets rune ID. This corresponds to the ID of a <see cref="StaticRune"/>.
+        /// Gets or sets rune ID.
         /// </summary>
         public long RuneId { get; set; }
 

@@ -29,7 +29,7 @@ namespace RiotNet.Models
         public bool FreeToPlay { get; set; }
 
         /// <summary>
-        /// Gets or sets the champion id. This corresponds to a <see cref="StaticChampion"/> ID.
+        /// Gets or sets the champion id.
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

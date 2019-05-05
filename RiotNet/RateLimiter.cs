@@ -149,15 +149,11 @@ namespace RiotNet
             var now = DateTime.UtcNow;
             DateTime maxTime = now;
 
-            // Static data calls don't count toward application limits
-            if (!methodName.Contains("static-data/"))
+            foreach (var rateLimitTracker in appTrackers.Values)
             {
-                foreach (var rateLimitTracker in appTrackers.Values)
-                {
-                    DateTime t = rateLimitTracker.GetDelayTime(platformId, now);
-                    if (t > maxTime)
-                        maxTime = t;
-                }
+                DateTime t = rateLimitTracker.GetDelayTime(platformId, now);
+                if (t > maxTime)
+                    maxTime = t;
             }
             var currentMethodTrackers = methodTrackers.GetOrAdd(methodName, addTrackerFactory);
             foreach (var rateLimitTracker in currentMethodTrackers.Values)

@@ -54,55 +54,7 @@ namespace RiotNet.Tests
         {
             VerifyDbStorage<MatchReference>();
         }
-
-        [Test]
-        public void StaticChampionDbTest()
-        {
-            VerifyDbStorage<StaticChampion>();
-        }
-
-        [Test]
-        public void StaticItemDbTest()
-        {
-            VerifyDbStorage<StaticItem>();
-        }
-
-        [Test]
-        public void StaticItemTreeDbTest()
-        {
-            VerifyDbStorage<StaticItemTree>();
-        }
-
-        [Test]
-        public void StaticMapDetailsDbTest()
-        {
-            VerifyDbStorage<StaticMapDetails>();
-        }
-
-        [Test]
-        public void StaticMasteryTreeDbTest()
-        {
-            VerifyDbStorage<StaticMasteryTree>();
-        }
-
-        [Test]
-        public void StaticRealmDbTest()
-        {
-            VerifyDbStorage<StaticRealm>();
-        }
-
-        [Test]
-        public void StaticRuneDbTest()
-        {
-            VerifyDbStorage<StaticRune>();
-        }
-
-        [Test]
-        public void StaticSummonerSpellDbTest()
-        {
-            VerifyDbStorage<StaticSummonerSpell>();
-        }
-
+        
         [Test]
         public void SummonerDbTest()
         {

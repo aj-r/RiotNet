@@ -49,18 +49,7 @@ namespace RiotNet.Tests
         public DbSet<Rune> Runes { get; set; }
         public DbSet<Skin> Skins { get; set; }
         public DbSet<SpellVars> SpellVars { get; set; }
-        public DbSet<StaticChampion> StaticChampions { get; set; }
-        public DbSet<StaticChampionSpell> StaticChampionSpells { get; set; }
         public DbSet<AltImage> StaticImages { get; set; }
-        public DbSet<StaticItem> StaticItems { get; set; }
-        public DbSet<StaticItemTree> StaticItemTrees { get; set; }
-        public DbSet<StaticMapDetails> StaticMapDetails { get; set; }
-        public DbSet<StaticMastery> StaticMasteries { get; set; }
-        public DbSet<StaticMasteryTreeList> StaticMasteryTreeLists { get; set; }
-        public DbSet<StaticMasteryTree> StaticMasteryTrees { get; set; }
-        public DbSet<StaticRealm> StaticRealms { get; set; }
-        public DbSet<StaticRune> StaticRunes { get; set; }
-        public DbSet<StaticSummonerSpell> StaticSummonerSpells { get; set; }
         public DbSet<Summoner> Summoners { get; set; }
     }
 }

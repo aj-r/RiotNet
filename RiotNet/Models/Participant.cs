@@ -21,12 +21,12 @@
         public long ProfileIconId { get; set; }
 
         /// <summary>
-        ///  Gets or sets the ID of the first summoner spell used by this participant. This corresponds to a <see cref="StaticSummonerSpell"/> ID.
+        ///  Gets or sets the ID of the first summoner spell used by this participant.
         /// </summary>
         public long Spell1Id { get; set; }
 
         /// <summary>
-        ///  Gets or sets the ID of the second summoner spell used by this participant. This corresponds to a <see cref="StaticSummonerSpell"/> ID.
+        ///  Gets or sets the ID of the second summoner spell used by this participant.
         /// </summary>
         public long Spell2Id { get; set; }
 

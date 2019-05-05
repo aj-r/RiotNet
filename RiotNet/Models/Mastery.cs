@@ -12,7 +12,7 @@ namespace RiotNet.Models
         private int id;
 
         /// <summary>
-        /// Gets or sets the ID of this mastery. This corresponds to a <see cref="StaticMastery"/> ID. This is equal to <see cref="MasteryId"/>, but it is set by the Summoner API.
+        /// Gets or sets the ID of this mastery. This is equal to <see cref="MasteryId"/>, but it is set by the Summoner API.
         /// </summary>
         public int Id
         {
@@ -21,7 +21,7 @@ namespace RiotNet.Models
         }
 
         /// <summary>
-        /// Gets or sets the ID of this mastery. This corresponds to a <see cref="StaticMastery"/> ID. This is equal to <see cref="Id"/>, but it is set by the Match and Spectator APIs.
+        /// Gets or sets the ID of this mastery. This is equal to <see cref="Id"/>, but it is set by the Match and Spectator APIs.
         /// </summary>
         public int MasteryId
         {

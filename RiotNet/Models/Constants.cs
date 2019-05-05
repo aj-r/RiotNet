@@ -225,7 +225,6 @@ namespace RiotNet.Models
     /// </summary>
     /// <remarks>
     /// This list contains all supported locales at the time of the RiotNet release.
-    /// If you want to iteralte over all currently supported locales, use <see cref="IRiotClient.GetStaticLanguagesAsync(string, System.Threading.CancellationToken)"/>
     /// </remarks>
     public static class Locale
     {
@@ -345,7 +344,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets the culture info for a locale.
         /// </summary>
-        /// <param name="locale">The locale (or language tag). This should equal one of the <see cref="Locale"/> values, or one of the values returned by <see cref="IRiotClient.GetStaticLanguagesAsync(string, System.Threading.CancellationToken)"/>.</param>
+        /// <param name="locale">The locale (or language tag). This should equal one of the <see cref="Locale"/> values.</param>
         /// <returns>The culture info.</returns>
         public static CultureInfo GetCultureInfo(string locale)
         {
