@@ -839,6 +839,29 @@ namespace RiotNet.Models
     }
 
     /// <summary>
+    /// Represents a division within a ranked tier.
+    /// </summary>
+    public static class Division
+    {
+        /// <summary>
+        /// Division 1
+        /// </summary>
+        public const string I = "I";
+        /// <summary>
+        /// Division 2
+        /// </summary>
+        public const string II = "II";
+        /// <summary>
+        /// Division 3
+        /// </summary>
+        public const string III = "III";
+        /// <summary>
+        /// Division 4
+        /// </summary>
+        public const string IV = "IV";
+    }
+
+    /// <summary>
     /// Represents a lane position.
     /// </summary>
     public static class LanePosition

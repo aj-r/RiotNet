@@ -77,22 +77,6 @@ namespace RiotNet
         { }
 
         /// <summary>
-        /// Creates a new <see cref="RateLimiter"/> instance.
-        /// </summary>
-        /// <param name="rateLimitPerTenSeconds">Your API key's rate limit per 10 seconds.</param>
-        /// <param name="rateLimitPerTenMinutes">Your API key's rate limit per 10 minutes.</param>
-        [Obsolete("Use the default constructor, and let the RiotClient automatically determine the rate limit")]
-        public RateLimiter(int rateLimitPerTenSeconds, int rateLimitPerTenMinutes)
-        {
-            var rules = new List<RateLimitRule>();
-            if (rateLimitPerTenSeconds > 0)
-                rules.Add(new RateLimitRule { Duration = 10, Limit = rateLimitPerTenSeconds });
-            if (rateLimitPerTenMinutes > 0)
-                rules.Add(new RateLimitRule { Duration = 600, Limit = rateLimitPerTenMinutes });
-            TrySetRules(rules);
-        }
-
-        /// <summary>
         /// Adds application-level rate limiting rules if they have not been added already.
         /// </summary>
         /// <param name="rules">The list of rules.</param>

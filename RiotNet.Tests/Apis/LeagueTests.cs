@@ -34,16 +34,30 @@ namespace RiotNet.Tests
         }
 
         [Test]
-        public async Task GetLeaguePositionsBySummonerIdAsyncTest()
+        public async Task GetLeagueEntriesBySummonerIdAsync()
         {
             IRiotClient client = new RiotClient();
-            List<LeaguePosition> leaguePositions = await client.GetLeaguePositionsBySummonerIdAsync(encryptedSummonerId);
+            List<LeagueEntry> leagueEntries = await client.GetLeagueEntriesBySummonerIdAsync(encryptedSummonerId);
 
-            Assert.That(leaguePositions, Is.Not.Null);
-            var leaguePosition = leaguePositions.First();
-            Assert.That(leaguePosition.Position, Is.Not.Null.And.Not.Empty);
-            Assert.That(leaguePosition.LeagueName, Is.Not.Null.And.Not.Empty);
-            Assert.That(leaguePosition.Tier, Is.Not.EqualTo(Tier.CHALLENGER));
+            Assert.That(leagueEntries, Is.Not.Null);
+            var leagueEntry = leagueEntries.First();
+            Assert.That(leagueEntry.LeagueId, Is.Not.Null.And.Not.Empty);
+            Assert.That(leagueEntry.QueueType, Is.Not.Null.And.Not.Empty);
+            Assert.That(leagueEntry.Tier, Is.Not.EqualTo(Tier.CHALLENGER));
+            Assert.That(leagueEntry.Rank, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public async Task GetLeagueEntriesAsync()
+        {
+            IRiotClient client = new RiotClient();
+            List<LeagueEntry> leagueEntries = await client.GetLeagueEntriesAsync(RankedQueue.RANKED_SOLO_5x5, Tier.PLATINUM, Division.IV, 2);
+
+            Assert.That(leagueEntries, Is.Not.Null);
+            var leagueEntry = leagueEntries.First();
+            Assert.That(leagueEntry.QueueType, Is.Not.Null.And.Not.Empty);
+            Assert.That(leagueEntry.Tier, Is.Not.EqualTo(Tier.CHALLENGER));
+            Assert.That(leagueEntry.Rank, Is.Not.Null.And.Not.Empty);
         }
 
         [Test]

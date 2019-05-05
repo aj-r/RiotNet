@@ -1,6 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -22,21 +20,9 @@ namespace RiotNet.Models
         public string HighestAchievedSeasonTier { get; set; }
 
         /// <summary>
-        /// Gets or sets list of mastery information.
-        /// </summary>
-        [Obsolete("This propery no longer exists. Use perk data (in the Stats object) instead.")]
-        public virtual List<Mastery> Masteries { get; set; }
-
-        /// <summary>
         /// Gets or sets the match participant ID (normally 1-10).
         /// </summary>
         public int ParticipantId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the list of rune information.
-        /// </summary>
-        [Obsolete("This propery no longer exists. Use perk data (in the Stats object) instead.")]
-        public virtual List<Rune> Runes { get; set; }
 
         /// <summary>
         /// Gets or sets the first summoner spell ID.

@@ -19,6 +19,7 @@ namespace RiotNet.Models
 
         /// <summary>
         /// Gets or sets a Roman numeral representing the division that the participant is in.
+        /// This should equal one of the <see cref="Division"/> values.
         /// </summary>
         public string Rank { get; set; }
 
@@ -64,6 +65,7 @@ namespace RiotNet.Models
 
         /// <summary>
         /// Gets or sets the summoner's name.
+        /// NOTE: this value will not be set by GetLeagueEntriesAsync() or GetLeagueEntriesBySummonerIdAsync().
         /// </summary>
         public string SummonerName { get; set; }
 
