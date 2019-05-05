@@ -25,7 +25,7 @@ RiotNet is NOT endorsed by Riot Games and doesn't reflect the views or opinions 
 
 This library uses semantic versioning, so version numbers are **not** correlated with version numbers of the Riot API.
 
-- **v4** of the Riot APIs are implemented in v7.X of RiotNet
+- **v4** of the Riot APIs are implemented in v7.X-v8.X of RiotNet
   - Note: Riot Games hasn't released v4 of every API yet, so for those APIs we support v3.
 - **v3** of the Riot APIs is implemented in v4.X-v6.X of RiotNet.
   - If you're upgrading to v4.X/v6.X from a previous version, see the [Upgrade Path](https://github.com/aj-r/RiotNet/wiki/RiotNet-Upgrade-Path).
