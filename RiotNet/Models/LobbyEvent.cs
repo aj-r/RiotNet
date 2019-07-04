@@ -18,7 +18,7 @@ namespace RiotNet.Models
         /// <summary>
         /// Gets or sets the ID of the summoner who triggered the event, if any.
         /// </summary>
-        public long? SummonerId { get; set; }
+        public string SummonerId { get; set; }
         
         /// <summary>
         /// Gets or sets time at which the event occurred.

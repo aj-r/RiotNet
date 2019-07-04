@@ -224,7 +224,7 @@ namespace RiotNet.Tests
             LobbyEvent @event = events.First();
             Assert.That(@event.EventType, Is.Not.Null.And.Not.Empty);
             Assert.That(@event.SummonerId, Is.Not.Null);
-            Assert.That(@event.SummonerId.Value, Is.GreaterThan(0));
+            Assert.That(@event.SummonerId, Is.Not.Null.And.Not.Empty);
             Assert.That(@event.Timestamp, Is.Not.EqualTo(default(DateTime)));
         }
 
