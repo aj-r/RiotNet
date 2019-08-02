@@ -369,6 +369,21 @@ namespace RiotNet.Models
         public long Perk5Var3 { get; set; }
 
         /// <summary>
+        /// Gets or sets the first Stat Perk ID.
+        /// </summary>
+        public long StatPerk0 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the second Stat Perk ID.
+        /// </summary>
+        public long StatPerk1 { get; set; }
+
+        /// <summary>
+        /// Gets or sets the third Stat Perk ID.
+        /// </summary>
+        public long StatPerk2 { get; set; }
+
+        /// <summary>
         /// Gets or sets the amount of physical damage dealt.
         /// </summary>
         public long PhysicalDamageDealt { get; set; }
